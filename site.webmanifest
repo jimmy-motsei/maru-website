@@ -1,0 +1,14 @@
+{
+  "name": "Aurellius",
+  "short_name": "Aurellius",
+  "icons": [
+    {
+      "src": "img/icons/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#0B0E12",
+  "background_color": "#0B0E12",
+  "display": "standalone"
+}

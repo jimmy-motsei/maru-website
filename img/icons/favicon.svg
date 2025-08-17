@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="#0B0E12"/>
+  <!-- Target rings -->
+  <circle cx="32" cy="32" r="22" fill="#1C2330" stroke="#364151" stroke-width="2"/>
+  <circle cx="32" cy="32" r="16" fill="#253041" stroke="#4B5A6D" stroke-width="2"/>
+  <circle cx="32" cy="32" r="10" fill="#9D7BFF" stroke="#C9B7FF" stroke-width="2"/>
+  <circle cx="32" cy="32" r="4" fill="#F5F2EA"/>
+  <!-- Arrow -->
+  <path d="M44 20L29 35l-1.2 4.8 4.8-1.2L48 24l-4-4z" fill="#F5F2EA"/>
+  <path d="M44 20l4 4" stroke="#9D7BFF" stroke-width="2" stroke-linecap="round"/>
+  <path d="M31.5 38.5l2-6" stroke="#9D7BFF" stroke-width="2" stroke-linecap="round"/>
+</svg>
