@@ -1,4 +1,3 @@
-
 # Aurellius Online — Master Prompt & Build Guide
 
 Aurellius Online is a premium AI-powered marketing consultancy inspired by Stoic clarity. The site must feel wise, modern, minimal, and conversion-focused.
@@ -66,10 +65,3 @@ Aurellius Online is a premium AI-powered marketing consultancy inspired by Stoic
 4. Accept/refine to keep tone, brevity, and structure.
 
 ### Inline Page Prompt (paste as HTML comment at top of each file)
-
-## Quality Checklist (before commit)
-- ✅ One H1 per page; headings read like a story.
-- ✅ CTAs present and consistent.
-- ✅ No lorem ipsum; no duplicate headlines.
-- ✅ Meta title/description unique per page.
-- ✅ Links and buttons point to real routes or `#` placeholders.
