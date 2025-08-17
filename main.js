@@ -1156,6 +1156,8 @@ $(function () {
     // Optional: re-evaluate theme after content replacement if toggle present
     if (document.body.classList.contains("theme-dark")) {
       document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
     }
   });
 
