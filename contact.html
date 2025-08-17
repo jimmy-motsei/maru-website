@@ -93,16 +93,39 @@
                       </ul>
                     </li>
                     <li class="mil-has-children">
-                      <a href="#.">Services</a>
+                      <a href="#.">Solutions</a>
                       <ul>
                         <li><a href="solutions.html">Solutions Overview</a></li>
-                        <li><a href="service.html">Single service</a></li>
+                        <li>
+                          <a href="solution-1.html">AI Horizon Strategy</a>
+                        </li>
+                        <li>
+                          <a href="solution-2.html">Aurellius AI Academy</a>
+                        </li>
+                        <li>
+                          <a href="solution-3.html"
+                            >Operations Catalyst Engine</a
+                          >
+                        </li>
+                        <li>
+                          <a href="solution-4.html"
+                            >Customer Experience Amplifier</a
+                          >
+                        </li>
+                        <li>
+                          <a href="solution-5.html"
+                            >Foresight Analytics Suite</a
+                          >
+                        </li>
+                        <li>
+                          <a href="solution-6.html">Ignition AI Roadmap</a>
+                        </li>
                       </ul>
                     </li>
                     <li class="mil-has-children">
                       <a href="#.">Newsletter</a>
                       <ul>
-                        <li><a href="blog.html">Blog List</a></li>
+                        <li><a href="blog.html">Insights Hub</a></li>
                         <li><a href="publication.html">Publication</a></li>
                       </ul>
                     </li>
@@ -285,20 +308,22 @@
               <h3 class="mil-center mil-up mil-mb-120">
                 Let's <span class="mil-thin">Talk</span>
               </h3>
-              <form class="row align-items-center">
+              <form id="contactForm" class="row align-items-center" action="mailto:hello@aurellius.online" method="POST" enctype="text/plain">
                 <div class="col-lg-6 mil-up">
-                  <input type="text" placeholder="What's your name" />
+                  <input name="name" type="text" placeholder="What's your name" required aria-label="Name" />
                 </div>
                 <div class="col-lg-6 mil-up">
-                  <input type="email" placeholder="Your Email" />
+                  <input name="email" type="email" placeholder="Your Email" required aria-label="Email" />
                 </div>
                 <div class="col-lg-12 mil-up">
-                  <textarea placeholder="Tell us about our project"></textarea>
+                  <textarea name="message" placeholder="Tell us about your project" required aria-label="Message"></textarea>
                 </div>
                 <div class="col-lg-8">
-                  <p class="mil-up mil-mb-30">
-                    <span class="mil-accent">*</span> We promise not to disclose
-                    your personal information to third parties.
+                  <p class="mil-up mil-mb-10">
+                    <span class="mil-accent">*</span> We promise not to disclose your personal information to third parties.
+                  </p>
+                  <p class="mil-up mil-mb-30 mil-text-sm" style="font-size:12px;opacity:.7;">
+                    Submitting opens your default email client with the message pre-filled. For a seamless send (no email client), connect a backend / form service later.
                   </p>
                 </div>
                 <div class="col-lg-4">
