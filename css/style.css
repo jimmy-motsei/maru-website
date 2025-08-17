@@ -77,6 +77,19 @@ body {
   -ms-scroll-chaining: none;
   overscroll-behavior: none;
 }
+/* Accessibility utilities */
+.mil-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
 /* Aurellius design system variables */
 :root {
   /* Core brand */
@@ -2899,12 +2912,21 @@ blog
 ------------------------------------------- */
 .mil-blog-card {
   display: block;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 10px 10px 0;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  -webkit-transition: box-shadow 0.3s, transform 0.3s;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 .mil-blog-card .mil-cover-frame {
   position: relative;
   overflow: hidden;
   padding-bottom: 65%;
   margin-bottom: 30px;
+  border-radius: 10px;
 }
 .mil-blog-card .mil-cover-frame img {
   width: 100%;
@@ -2934,6 +2956,36 @@ blog
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
+.mil-blog-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+.mil-blog-card .mil-labels .mil-label.mil-upper.mil-accent {
+  background: #111;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+.mil-blog-card .mil-labels .mil-label.mil-upper:not(.mil-accent) {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 10px;
+}
+.mil-blog-card.mil-disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+  position: relative;
+}
+.mil-blog-card.mil-disabled:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  transform: none;
+}
+.mil-blog-card.mil-disabled .mil-link span {
+  opacity: 0.6;
+}
 .mil-blog-card.mil-blog-card-hori {
   padding-top: 60px;
   border-top: solid 1px rgb(229, 229, 229);
@@ -2943,6 +2995,10 @@ blog
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
 .mil-blog-card.mil-blog-card-hori .mil-cover-frame {
   margin-bottom: 0;
@@ -2968,6 +3024,22 @@ blog
   .mil-blog-card.mil-blog-card-hori .mil-post-descr {
     width: 100%;
     padding: 30px 30px 0 0;
+  }
+}
+
+/* Insights Hub specific layout helpers */
+@media screen and (max-width: 1200px) {
+  .mil-blog-card {
+    padding: 8px 8px 0;
+  }
+}
+@media screen and (max-width: 576px) {
+  .mil-blog-card .mil-post-descr {
+    padding: 20px 10px 0 0;
+  }
+  .mil-blog-card .mil-post-descr .mil-post-text {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
 }
 
