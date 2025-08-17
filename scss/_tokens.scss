@@ -1,0 +1,3 @@
+// Re-export design tokens for module-scoped consumption.
+// Other stylesheets may `@use 'tokens' as *;` to access existing token variable names without renaming.
+@forward "variables";

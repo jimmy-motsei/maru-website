@@ -1,0 +1,14 @@
+{
+  "name": "aurellius-website",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Static Aurellius marketing site with SCSS design token system (gold + sapphire palettes, dark mode).",
+  "scripts": {
+    "build:css": "sass scss/style.scss css/style.css --no-source-map",
+    "build:css:map": "sass scss/style.scss css/style.css --source-map",
+    "watch": "sass --watch scss/style.scss:css/style.css"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

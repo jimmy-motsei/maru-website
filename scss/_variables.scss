@@ -1,36 +1,104 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+// External font/icon imports (left as plain CSS @import; acceptable since they target URLs, not Sass partials)
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css);
 
-$font-1: 'Outfit', sans-serif;
+// This file acts as the design token source. It can be @used via `@use 'variables' as *;` for legacy global variable expectations.
+// No module-specific logic required; keep simple variable declarations.
+
+$font-1: "Outfit", sans-serif;
 
 $dark: rgba(0, 0, 0, 1);
 $light: rgba(255, 255, 255, 1);
-$accent: rgba(255, 152, 0, 1);
 
-$dt-2: rgba(0, 0, 0, .02);
-$dt-5: rgba(0, 0, 0, .05);
-$dt-10: rgba(0, 0, 0, .1);
-$dt-20: rgba(0, 0, 0, .2);
-$dt-30: rgba(0, 0, 0, .3);
-$dt-40: rgba(0, 0, 0, .4);
-$dt-50: rgba(0, 0, 0, .5);
-$dt-60: rgba(0, 0, 0, .6);
-$dt-70: rgba(0, 0, 0, .7);
-$dt-80: rgba(0, 0, 0, .8);
-$dt-90: rgba(0, 0, 0, .9);
-$dt-95: rgba(0, 0, 0, .95);
+// Legacy accent (orange) retained for reference / potential rollback
+$accent-legacy: rgba(255, 152, 0, 1);
 
-$lt-5: rgba(255, 255, 255, .05);
-$lt-10: rgba(255, 255, 255, .1);
-$lt-20: rgba(255, 255, 255, .2);
-$lt-30: rgba(255, 255, 255, .3);
-$lt-40: rgba(255, 255, 255, .4);
-$lt-50: rgba(255, 255, 255, .5);
-$lt-60: rgba(255, 255, 255, .6);
-$lt-70: rgba(255, 255, 255, .7);
-$lt-80: rgba(255, 255, 255, .8);
-$lt-90: rgba(255, 255, 255, .9);
-$lt-95: rgba(255, 255, 255, .95);
+// Royal Gold Core Palette
+// Tonal scale (50–900) crafted for UI states (soft backgrounds, borders, hovers, actives, deep accents)
+// Source base (500) approx #C9A227 (royal gold). Lighter tones progressively add lightness; darker tones increase depth & contrast.
+$gold-50: #fff8e1;
+$gold-100: #fbefcc;
+$gold-200: #f3de9a;
+$gold-300: #eacd68;
+$gold-400: #dfbc3f;
+$gold-500: #c9a227; // primary brand accent base
+$gold-600: #b1891e;
+$gold-700: #947016;
+$gold-800: #76570e;
+$gold-900: #5b420a;
+
+// Semantic accent tokens (preferred consumption layer across components)
+$accent: rgba(201, 162, 39, 1); // maps to $gold-500
+$accent-hover: $gold-400; // lighter lift on hover (if explicitly used)
+$accent-active: $gold-600; // pressed / active state
+$accent-soft-bg: $gold-50; // subtle background washes / tags
+$accent-border: $gold-600; // borders needing stronger definition
+$accent-gradient-fade: rgba(
+  201,
+  162,
+  39,
+  0
+); // transparent fade for radial / linear gradient termini
+$accent-contrast: $dark; // text/icon color on accent surfaces
+
+// Secondary / Support Palette (Sapphire) - complementary cool hue for informational or secondary emphasis
+// Tonal scale (50–900) designed to balance against warm gold without competing for primary hierarchy
+$sapphire-50: #eef4ff;
+$sapphire-100: #dae6ff;
+$sapphire-200: #b8d1ff;
+$sapphire-300: #90b6ff;
+$sapphire-400: #5d90f7;
+$sapphire-500: #2f67d6; // mid/base tone
+$sapphire-600: #244fb0; // primary support accent base
+$sapphire-700: #1d3e89;
+$sapphire-800: #172f66;
+$sapphire-900: #142950;
+
+// Semantic support tokens (usage analogous to $accent* set)
+$support: $sapphire-600;
+$support-hover: $sapphire-500;
+$support-active: $sapphire-700;
+$support-soft-bg: $sapphire-50;
+$support-border: $sapphire-600;
+$support-contrast: $light;
+
+// Dark Mode Neutrals (base proposal – consumed via CSS class overrides, not automatic yet)
+// These provide a semantic mapping layer we can hook into with custom properties later if needed.
+$dm-bg: #0f0f10; // near-black base
+$dm-surface: #1a1c1f; // raised surface
+$dm-surface-alt: #23262a; // higher elevation / interactive
+$dm-border: rgba(255, 255, 255, 0.08);
+$dm-border-strong: rgba(255, 255, 255, 0.16);
+$dm-text: rgba(255, 255, 255, 0.72);
+$dm-text-soft: rgba(255, 255, 255, 0.5);
+$dm-text-faint: rgba(255, 255, 255, 0.3);
+$dm-outline-accent: $accent; // accent outline on dark
+$dm-outline-support: $support; // support outline on dark
+
+$dt-2: rgba(0, 0, 0, 0.02);
+$dt-5: rgba(0, 0, 0, 0.05);
+$dt-10: rgba(0, 0, 0, 0.1);
+$dt-20: rgba(0, 0, 0, 0.2);
+$dt-30: rgba(0, 0, 0, 0.3);
+$dt-40: rgba(0, 0, 0, 0.4);
+$dt-50: rgba(0, 0, 0, 0.5);
+$dt-60: rgba(0, 0, 0, 0.6);
+$dt-70: rgba(0, 0, 0, 0.7);
+$dt-80: rgba(0, 0, 0, 0.8);
+$dt-90: rgba(0, 0, 0, 0.9);
+$dt-95: rgba(0, 0, 0, 0.95);
+
+$lt-5: rgba(255, 255, 255, 0.05);
+$lt-10: rgba(255, 255, 255, 0.1);
+$lt-20: rgba(255, 255, 255, 0.2);
+$lt-30: rgba(255, 255, 255, 0.3);
+$lt-40: rgba(255, 255, 255, 0.4);
+$lt-50: rgba(255, 255, 255, 0.5);
+$lt-60: rgba(255, 255, 255, 0.6);
+$lt-70: rgba(255, 255, 255, 0.7);
+$lt-80: rgba(255, 255, 255, 0.8);
+$lt-90: rgba(255, 255, 255, 0.9);
+$lt-95: rgba(255, 255, 255, 0.95);
 
 $gs-5: rgba(242, 242, 242, 1);
 $gs-10: rgba(229, 229, 229, 1);
@@ -53,6 +121,6 @@ $h6: 18px;
 
 $text: 16px;
 
-$t-sm: .2s cubic-bezier(0, 0, 0.3642, 1);
-$t-md: .4s cubic-bezier(0, 0, 0.3642, 1);
-$t-lg: .6s cubic-bezier(0, 0, 0.3642, 1);
+$t-sm: 0.2s cubic-bezier(0, 0, 0.3642, 1);
+$t-md: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+$t-lg: 0.6s cubic-bezier(0, 0, 0.3642, 1);

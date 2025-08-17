@@ -51,6 +51,8 @@ p.s. I am available for Freelance hire (UI design, web development). email: mill
 
 --------------------------------------------*/
 
-@import 'variables';
-@import 'common';
-@import 'components';
+// Sass module system migration: replace deprecated @import with @use.
+// Expose tokens/utilities into this build context using `as *` to avoid rewriting legacy references.
+@use "variables" as *;
+@use "common"; // common and components each `@use 'variables' as *;` internally
+@use "components";
