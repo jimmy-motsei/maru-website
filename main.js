@@ -1164,5 +1164,10 @@ $(function () {
   // Lightweight theme toggle (attach to any element with data-toggle-theme="dark")
   $(document).on("click", "[data-toggle-theme]", function () {
     $("body").toggleClass("theme-dark");
+    if (document.body.classList.contains("theme-dark")) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
   });
 });
