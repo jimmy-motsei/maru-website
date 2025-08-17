@@ -1,0 +1,2 @@
+# Permanent redirect for legacy service page
+Redirect 301 /service.html /solutions.html
