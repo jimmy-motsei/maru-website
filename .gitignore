@@ -1,0 +1,21 @@
+# OS junk
+.DS_Store
+**/.DS_Store
+
+# Node
+node_modules/
+.npm/
+
+# Logs
+npm-debug.log*
+yarn-error.log
+
+# Build artifacts (none yet)
+
+# Lock files (optional if you want deterministic builds; remove this line if you add one)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Image optimization temp dirs (if any in future)
+/tmp/
