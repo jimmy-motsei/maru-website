@@ -639,6 +639,7 @@ button
   transform: scale(1.015);
   -webkit-filter: brightness(110%);
   filter: brightness(110%);
+  background-color: #d89e55;
 }
 .mil-button:hover svg {
   -webkit-transform: scale(1.15);
@@ -653,10 +654,21 @@ button
   transform: scale(1.015);
   -webkit-filter: brightness(110%);
   filter: brightness(110%);
+  background-color: #d89e55;
 }
 .mil-button.mil-arrow-down:hover svg {
   -webkit-transform: scale(1.15) rotate(90deg);
   transform: scale(1.15) rotate(90deg);
+  background-color: #c38945;
+}
+
+/* Accent utility hover */
+.mil-accent-bg:hover,
+.fancybox-button.fancybox-button--zoom:hover,
+.fancybox-button.fancybox-button--close:hover,
+.fancybox-button.fancybox-button--fullscreen:hover,
+.fancybox-button.fancybox-button--thumbs:hover {
+  background-color: #d89e55 !important;
 }
 @media screen and (max-width: 992px) {
   .mil-button {

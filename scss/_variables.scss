@@ -6,6 +6,11 @@ $font-1: "Outfit", sans-serif;
 $dark: rgba(0, 0, 0, 1);
 $light: rgba(255, 255, 255, 1);
 $accent: #f0b265; // Updated accent
+$accent-hover: #d89e55; // ~12% darker for hover
+$accent-active: #c38945; // ~24% darker for active/pressed
+
+// Accent gradient helper (top to bottom subtle darken)
+$accent-gradient: linear-gradient(180deg, #f0b265 0%, #dba25a 100%);
 
 $dt-2: rgba(0, 0, 0, 0.02);
 $dt-5: rgba(0, 0, 0, 0.05);
