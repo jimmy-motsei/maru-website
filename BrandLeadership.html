@@ -3,14 +3,242 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>
-      Healthcare AI Data Insights Case Study - Aurellius Technology & Strategy
-    </title>
+    <title>Aurellius × Brand Leadership — AI Partnership Pitch</title>
+    <meta
+      name="description"
+      content="Pitch deck: Aurellius × Brand Leadership — Bringing African brand leadership into the AI age."
+    />
     <link rel="stylesheet" href="css/plugins/bootstrap-grid.css" />
     <link rel="stylesheet" href="css/plugins/font-awesome.min.css" />
     <link rel="stylesheet" href="css/plugins/swiper.min.css" />
     <link rel="stylesheet" href="css/plugins/fancybox.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js@4.6.0/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js@4.6.0/dist/theme/white.css"
+      id="theme"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- REFINED STYLES --- */
+      :root {
+        /* Color palette remains strong, good choices for a corporate brand */
+        --primary: #004d40; /* Dark Teal */
+        --accent: #d4a017; /* Refined Gold for better legibility */
+        --muted: #5f6368; /* Darker muted text for better contrast on white */
+        --bg-light: rgba(
+          0,
+          77,
+          64,
+          0.05
+        ); /* Light background tint derived from primary */
+        --border-color: rgba(0, 77, 64, 0.2); /* Softer border color */
+      }
+
+      /* Base layout and font settings */
+      .reveal {
+        font-family: "Lato", "Segoe UI", Roboto, sans-serif;
+        color: #333; /* Default dark text for readability */
+      }
+
+      /* Slide Titles & Subtitles */
+      .slide-title {
+        font-size: 2.8rem;
+        font-weight: 900;
+        margin: 0 0 1rem;
+        color: var(--primary);
+      }
+
+      h2 {
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .slide-sub {
+        font-size: 1.25rem;
+        color: var(--muted);
+        margin-bottom: 2rem;
+      }
+
+      .highlight {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      /* Polished content boxes */
+      .graphic-box {
+        background: var(--bg-light);
+        border: 1px solid var(--border-color); /* Softer border */
+        border-radius: 12px;
+        padding: 25px;
+        margin: 18px auto;
+        max-width: 800px;
+        text-align: left;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+      }
+
+      .graphic-box ul {
+        list-style-type: square; /* Cleaner list style */
+        padding-left: 20px;
+      }
+
+      .graphic-box li {
+        margin-bottom: 0.5em;
+      }
+
+      /* Two-column layout */
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+
+      /* Enhanced chart placeholders */
+      .chart-placeholder {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(
+          135deg,
+          #f5f7fa,
+          #e8f0f5
+        ); /* Light gradient background */
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-weight: 700;
+        font-size: 1.2rem;
+        border: 1px dashed var(--border-color); /* Dashed border indicates a placeholder */
+        margin-top: 1rem;
+      }
+
+      /* Footer */
+      .foot {
+        position: fixed;
+        right: 16px;
+        bottom: 10px;
+        font-size: 12px;
+        color: var(--muted);
+        opacity: 0.8;
+        z-index: 1000;
+      }
+
+      /* Presentation container styling */
+      .presentation-container {
+        background: #fff;
+        min-height: 100vh;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Reveal.js presentation styling */
+      .reveal {
+        height: auto !important;
+        min-height: 80vh;
+        width: 100% !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        z-index: 1;
+        background: transparent;
+      }
+
+      .reveal .slides {
+        height: auto !important;
+        width: 100% !important;
+        position: relative !important;
+      }
+
+      .reveal .slides section {
+        height: auto !important;
+        min-height: 60vh;
+        padding: 40px 20px;
+        text-align: left;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      /* Override Reveal.js default styles */
+      .reveal .slides section:not(.stack) {
+        display: flex !important;
+      }
+
+      .reveal .slides section.present {
+        display: flex !important;
+      }
+
+      /* Ensure slides are visible */
+      .reveal .slides section h1,
+      .reveal .slides section h2,
+      .reveal .slides section h3,
+      .reveal .slides section p,
+      .reveal .slides section ul,
+      .reveal .slides section .graphic-box,
+      .reveal .slides section .chart-placeholder {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+      }
+
+      /* Force display of all slides */
+      .reveal .slides section {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 400px;
+        margin-bottom: 40px;
+        page-break-after: always;
+      }
+
+      /* Override any hidden states */
+      .reveal .slides section[data-visibility="hidden"] {
+        display: block !important;
+        visibility: visible !important;
+      }
+
+      /* Ensure proper spacing */
+      .presentation-container .reveal .slides {
+        display: block !important;
+      }
+
+      .presentation-container .reveal .slides section {
+        display: block !important;
+        margin-bottom: 60px;
+        padding: 40px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      /* Hide Aurellius navigation during presentation */
+      .presentation-mode .mil-menu-frame,
+      .presentation-mode .mil-frame {
+        display: none;
+      }
+
+      /* Presentation-specific styling */
+      .presentation-mode .reveal {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+      }
+    </style>
   </head>
   <body>
     <div class="mil-wrapper" id="top">
@@ -32,9 +260,9 @@
       <div class="mil-preloader">
         <div class="mil-preloader-animation">
           <div class="mil-pos-abs mil-animation-1">
-            <p class="mil-h3 mil-muted mil-thin">Challenge</p>
-            <p class="mil-h3 mil-muted">Approach</p>
-            <p class="mil-h3 mil-muted mil-thin">Outcome</p>
+            <p class="mil-h3 mil-muted mil-thin">Strategy</p>
+            <p class="mil-h3 mil-muted">Partnership</p>
+            <p class="mil-h3 mil-muted mil-thin">Growth</p>
           </div>
           <div class="mil-pos-abs mil-animation-2">
             <div class="mil-reveal-frame">
@@ -228,160 +456,232 @@
               <div class="container">
                 <ul class="mil-breadcrumbs mil-mb-60">
                   <li><a href="home-1.html">Homepage</a></li>
-                  <li><a href="cases.html">Case Studies</a></li>
-                  <li><a href="case-health-data.html">Healthcare AI</a></li>
+                  <li>
+                    <a href="BrandLeadership.html">Brand Leadership Pitch</a>
+                  </li>
                 </ul>
                 <h1 class="mil-mb-60">
-                  Healthcare AI <span class="mil-thin">Data Insights</span>
+                  Aurellius × <span class="mil-thin">Brand Leadership</span>
                   <br />
-                  <span class="mil-thin">Secure Clinical Intelligence</span>
+                  <span class="mil-thin">AI Partnership Pitch</span>
                 </h1>
                 <a
-                  href="#case-study"
+                  href="#presentation"
                   class="mil-link mil-dark mil-arrow-place mil-down-arrow"
                 >
-                  <span>View Case Study</span>
+                  <span>View Presentation</span>
                 </a>
               </div>
             </div>
           </div>
           <!-- banner end -->
 
-          <!-- case study content -->
-          <section id="case-study">
+          <!-- presentation content -->
+          <section id="presentation">
             <div class="container" style="padding: 0 90px">
               <div class="row justify-content-center">
                 <div class="col-lg-12">
-                  <div
-                    class="mil-image-frame mil-horizontal"
-                    style="text-align: center; margin: 60px 0; padding: 60px 0"
-                  >
-                    <picture class="mil-scale">
-                      <source
-                        type="image/webp"
-                        srcset="
-                          img/works/Office_4.png 400w,
-                          img/works/Office_4.png 600w,
-                          img/works/Office_4.png 800w
-                        "
-                        sizes="(max-width: 768px) 85vw, (max-width: 1200px) 60vw, 800px"
-                      />
-                      <img
-                        src="img/works/Office_4.png"
-                        width="800"
-                        height="450"
-                        loading="lazy"
-                        decoding="async"
-                        alt="AI-powered healthcare data analytics dashboard"
-                        style="max-width: 100%; height: auto"
-                      />
-                    </picture>
-                  </div>
-                </div>
-                <div class="col-lg-8">
-                  <div class="mil-info" style="margin: 0 0 30px 0">
-                    <div>
-                      Client:
-                      <span class="mil-dark">Clinical Services Provider</span>
+                  <div class="presentation-container">
+                    <div class="reveal">
+                      <div class="slides">
+                        <section>
+                          <h1 class="slide-title">
+                            Aurellius × Brand Leadership
+                          </h1>
+                          <h3 class="slide-sub">
+                            Strategic AI Partnership Proposal
+                          </h3>
+                          <p class="highlight">
+                            Transforming African Branding into the AI Era
+                          </p>
+                          <div class="chart-placeholder">
+                            African AI Branding Concept
+                          </div>
+                        </section>
+
+                        <section>
+                          <h2>Brand Leadership – Continental Authority</h2>
+                          <div class="graphic-box">
+                            <ul>
+                              <li class="fragment">
+                                Founder: Dr Thebe Ikalafeng – pan-African brand
+                                thought leader
+                              </li>
+                              <li class="fragment">
+                                Institutions: Brand Africa 100, Africa Brand
+                                Leadership Academy (ABLA)
+                              </li>
+                              <li class="fragment">
+                                Impact: 30+ countries, shaping corporate &
+                                government brand strategy
+                              </li>
+                              <li class="fragment">
+                                Focus: Championing African identity,
+                                authenticity, and excellence
+                              </li>
+                            </ul>
+                          </div>
+                        </section>
+
+                        <section>
+                          <h2>Aurellius Overview</h2>
+                          <div class="graphic-box two">
+                            <div>
+                              <ul>
+                                <li>
+                                  20+ years multi-disciplinary marketing
+                                  experience
+                                </li>
+                                <li>
+                                  Digital & AI-enabled solutions (chatbots,
+                                  predictive analytics)
+                                </li>
+                              </ul>
+                            </div>
+                            <div>
+                              <ul>
+                                <li>
+                                  Web development, content strategy, analytics
+                                  platforms
+                                </li>
+                                <li>
+                                  Focus on scalable AI solutions for sustainable
+                                  brand growth
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </section>
+
+                        <section>
+                          <h2>The Market Opportunity</h2>
+                          <div class="chart-placeholder">
+                            SA Digital Spend Growth: 10-12% Annually
+                          </div>
+                          <p class="slide-sub">
+                            A clear shift towards AI-driven insights and digital
+                            adoption is underway.
+                          </p>
+                        </section>
+
+                        <section>
+                          <h2>Market Gaps We Address</h2>
+                          <div class="graphic-box">
+                            <ul>
+                              <li class="fragment">
+                                Lack of real-time, AI-driven brand health
+                                monitoring
+                              </li>
+                              <li class="fragment">
+                                Under-utilization of automated, personalized
+                                customer engagement
+                              </li>
+                              <li class="fragment">
+                                Dependency on project-based work vs. scalable,
+                                recurring revenue models
+                              </li>
+                            </ul>
+                          </div>
+                        </section>
+
+                        <section>
+                          <h2>Our Joint Value Proposition</h2>
+                          <div class="graphic-box">
+                            <ul>
+                              <li>
+                                <strong>AI-Powered Market Intelligence:</strong>
+                                Deep, predictive insights into African markets.
+                              </li>
+                              <li>
+                                <strong>Automated Engagement:</strong> Scalable
+                                personalization across all digital touchpoints.
+                              </li>
+                              <li>
+                                <strong>Unified Brand Governance:</strong>
+                                Centralized dashboards for real-time monitoring
+                                and IP protection.
+                              </li>
+                            </ul>
+                          </div>
+                        </section>
+
+                        <section>
+                          <h2>AI Transformation Roadmap</h2>
+                          <div class="chart-placeholder">
+                            Timeline: Phase 1 (Pilot) → Phase 3 (Scale)
+                          </div>
+                          <p class="slide-sub">
+                            A phased approach to build, validate, and scale our
+                            joint offering.
+                          </p>
+                        </section>
+
+                        <section>
+                          <h2>Strategic Partnership Value</h2>
+                          <div
+                            class="graphic-box"
+                            style="text-align: center; padding: 40px"
+                          >
+                            <p style="font-size: 1.5rem; margin: 0">
+                              <strong style="color: var(--primary)"
+                                >Brand Leadership</strong
+                              >
+                              +
+                              <strong style="color: var(--primary)"
+                                >Aurellius</strong
+                              ><br />
+                              <span
+                                style="font-size: 2.5rem; color: var(--accent)"
+                                >=</span
+                              ><br />
+                              <span style="font-size: 1.2rem"
+                                >Human Expertise + Machine Intelligence for
+                                Africa's Brands</span
+                              >
+                            </p>
+                          </div>
+                        </section>
+
+                        <section>
+                          <h2>Next Steps & Call to Action</h2>
+                          <div class="graphic-box">
+                            <ul>
+                              <li class="fragment">
+                                <strong>Workshop:</strong> Co-host an "AI in
+                                Branding" workshop to map high-impact use cases.
+                              </li>
+                              <li class="fragment">
+                                <strong>Pilot:</strong> Launch a 90-day pilot
+                                project with a key client to prove value.
+                              </li>
+                              <li class="fragment">
+                                <strong>Plan:</strong> Formalize a scaling plan
+                                with a recurring revenue/SaaS model.
+                              </li>
+                            </ul>
+                          </div>
+                        </section>
+                      </div>
                     </div>
-                    <div>
-                      Industry: <span class="mil-dark">Healthcare</span>
-                    </div>
-                    <div>Duration: <span class="mil-dark">9 months</span></div>
-                  </div>
-                  <p
-                    class="mil-text-xl mil-dark"
-                    style="margin-top: 30px; margin-bottom: 60px"
-                  >
-                    An intelligent healthcare data analytics platform that
-                    leverages AI to process clinical data securely, generate
-                    real-time insights, and provide automated reporting for
-                    faster, more accurate medical decision-making.
-                  </p>
-                  <h5 class="mil-up mil-mb-30">Challenge</h5>
-                  <p class="mil-up mil-mb-60">
-                    The clinical services provider faced slow, error-prone
-                    reporting caused by manual spreadsheets and disconnected
-                    systems. This was delaying critical medical decisions and
-                    creating compliance risks with healthcare data regulations.
-                  </p>
-                  <h5 class="mil-up mil-mb-30">AI Solution</h5>
-                  <p class="mil-up mil-mb-30">
-                    We developed a comprehensive AI-powered healthcare data
-                    platform that includes:
-                  </p>
-                  <ul class="mil-up mil-mb-60 mil-list-pad">
-                    <li>
-                      Secure ETL pipeline with data validation and encryption
-                    </li>
-                    <li>
-                      AI-powered anomaly detection and predictive analytics
-                    </li>
-                    <li>
-                      Real-time dashboards for clinicians and administrators
-                    </li>
-                    <li>Automated report generation with role-based access</li>
-                    <li>HIPAA-compliant data processing and storage</li>
-                    <li>
-                      Integration with existing LIMS and communication tools
-                    </li>
-                  </ul>
-                  <h5 class="mil-up mil-mb-30">Results</h5>
-                  <p class="mil-up mil-mb-30">
-                    The AI implementation delivered significant improvements:
-                  </p>
-                  <ul class="mil-up mil-mb-60 mil-list-pad">
-                    <li>
-                      <strong>90% reduction</strong> in report generation time
-                      (from days to hours)
-                    </li>
-                    <li>
-                      <strong>60% decrease</strong> in data-entry errors through
-                      validation rules
-                    </li>
-                    <li>
-                      <strong>75% faster</strong> clinical decision-making with
-                      accessible dashboards
-                    </li>
-                    <li>
-                      <strong>100% compliance</strong> with healthcare data
-                      regulations
-                    </li>
-                    <li>
-                      <strong>40% improvement</strong> in data accuracy and
-                      reliability
-                    </li>
-                  </ul>
-                  <h5 class="mil-up mil-mb-30">Technologies Used</h5>
-                  <p class="mil-up mil-mb-60">
-                    Python, TensorFlow, React.js, Node.js, PostgreSQL, AWS,
-                    HIPAA-compliant encryption, LIMS integration, real-time
-                    analytics, and advanced machine learning algorithms for
-                    healthcare data processing and clinical insights.
-                  </p>
-                  <div class="mil-up">
-                    <a href="cases.html" class="mil-button mil-arrow-place">
-                      <span>← Back to Case Studies</span>
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-          <!-- case study content end -->
+          <!-- presentation content end -->
 
           <!-- call to action -->
           <section class="mil-soft-bg">
             <div class="container mil-p-120-120">
               <div class="mil-center">
                 <h2 class="mil-up mil-mb-60">
-                  Ready to transform your
-                  <span class="mil-thin">business with</span> AI? <br />
-                  Let's <span class="mil-thin">create your</span> success story
+                  Ready to explore this
+                  <span class="mil-thin">strategic partnership?</span> <br />
+                  Let's <span class="mil-thin">discuss the</span> opportunity
                 </h2>
                 <div class="mil-up">
                   <a href="contact.html" class="mil-button mil-arrow-place"
-                    ><span>Start Your AI Journey</span></a
+                    ><span>Contact Us</span></a
                   >
                 </div>
               </div>
@@ -421,7 +721,7 @@
                               <a href="services.html">Services</a>
                             </li>
                             <li class="mil-up">
-                              <a href="blog.html">Resources</a>
+                              <a href="articles.html">Resources</a>
                             </li>
                             <li class="mil-up">
                               <a href="contact.html">Contact</a>
@@ -690,5 +990,48 @@
     <script src="js/plugins/ScrollTo.min.js"></script>
     <!-- ashley js -->
     <script src="js/main.js"></script>
+
+    <!-- Reveal.js -->
+    <script src="https://unpkg.com/reveal.js@4.6.0/dist/reveal.js"></script>
+    <script>
+      (function () {
+        function boot() {
+          if (!window.Reveal) {
+            console.error("Reveal.js failed to load.");
+            const warn = document.createElement("div");
+            warn.style.cssText =
+              "position:fixed;left:0;right:0;bottom:0;background:#111;color:#fff;padding:10px 14px;font:14px/1.4 system-ui,Segoe UI,Roboto;";
+            warn.textContent =
+              "Reveal.js failed to load — check your internet connection or CDN accessibility.";
+            document.body.appendChild(warn);
+            return;
+          }
+          Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: true,
+            hash: true,
+            transition: "fade",
+            embedded: true,
+            showNotes: false,
+            autoPlayMedia: false,
+            center: false,
+            width: "100%",
+            height: "100%",
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 1.5,
+          });
+        }
+        if (
+          document.readyState === "complete" ||
+          document.readyState === "interactive"
+        )
+          boot();
+        else window.addEventListener("DOMContentLoaded", boot);
+      })();
+    </script>
+
+    <div class="foot">Aurellius × Brand Leadership • © 2025</div>
   </body>
 </html>
