@@ -1,74 +1,61 @@
-# Aurellius Online — Master Prompt & Build Guide
+# Brand Leadership Africa: Full Presentation & Funding Proposal
 
-Aurellius Online is a premium AI-powered marketing consultancy inspired by Stoic clarity. The site must feel wise, modern, minimal, and conversion-focused.
+## 🌍 About This Presentation
 
-## Brand DNA (Copilot: use this as context)
-- **Voice:** Wise Strategist (Morpheus-like) — calm, authoritative, practical.
-- **Tagline:** Beyond the Build. Into the Market.
-- **Promise:** We turn static websites into intelligent growth engines.
-- **Personas:** 
-  - Brenda (SMB owner, time-poor, needs leads)
-  - David (boutique tourism owner, reduce OTA reliance, boost direct bookings)
+This repository contains the comprehensive Brand Leadership Africa presentation - a 23-slide business case and funding proposal for establishing Africa's first global brand powerhouse.
 
-## Messaging Pillars
-1) Beyond the Build — websites are foundations; we build engines.
-2) Wisdom + AI — timeless strategy, modern automation.
-3) Peace of Mind — 24/7 systems that capture, nurture, convert.
+## 📊 Presentation Overview
 
-## Site Map & Page Goals
-- **Home (`home-1.html`)**  
-  - H1: “Beyond the Build. Into the Market.”  
-  - Subtext: exceptional presence ≠ growth; we build the engine.  
-  - Sections: Our Approach (Wisdom Meets AI) • Solutions (4 cards) • The Compass • Our Work • CTA “Begin Your Journey”
+**Total Slides**: 23
+**Focus**: Business case, funding proposal, and strategic partnership with Aluwani Capital Partners
+**Capital Requirement**: $27M – $41M USD over 5 years
 
-- **Our Approach (`our-approach.html`)**  
-  - Philosophy: Guided by Wisdom, Powered by AI  
-  - 4-step method: Foundation → Authority → Amplification → Scale  
-  - Invite: “Ready to Begin?”
+### Presentation Structure:
+1. **Market Analysis & Strategy** (Slides 1-13)
+2. **Business Model** (Slides 14-15)
+3. **100-Day Launch Plan** (Slides 16-19)
+4. **Funding Strategy & Timeline** (Slides 20-21)
+5. **Next Steps & Call to Action** (Slides 22-23)
 
-- **Solutions (`solutions.html`)**  
-  - Automated Lead Engine (SMBs)  
-  - Direct Booking Engine (Tourism)  
-  - Strategic AI Integration (Audit + enhance stack)  
-  - Growth Strategy & Guidance (Fractional CMO)
+## 🚀 Access the Presentation
 
-- **The Compass (`insights.html`)**  
-  - Thought leadership hub; posts & newsletter signup
+### GitHub Pages (Recommended)
+Once GitHub Pages is enabled, the presentation will be available at:
+```
+https://jimmy-motsei.github.io/Aurellius-website/
+```
 
-- **Our Work (`case-studies.html`)**  
-  - Case study cards; proof & testimonials; CTA
+### Local Development
+1. Clone this repository
+2. Open `index.html` in your web browser
+3. The presentation uses Reveal.js for interactive slides
 
-- **Contact (`contact.html`)**  
-  - “Begin Your Journey” form (Name, Email, Business, Message) + alternatives
+## 🎯 Key Features
 
-## Copy & Structure Rules (Copilot, apply consistently)
-- Keep structure/classes/IDs intact; **only** update inner text.
-- Use semantic HTML: one H1 per page; logical H2/H3 hierarchy.
-- Tone: premium, concise, confident, never hypey.
-- CTAs: “Begin Your Journey”, “Start Now”, “Let’s Begin”.
+- **Full-Screen Presentation Mode**: Click "Start Full-Screen Presentation" for Google Slides-like experience
+- **Interactive Navigation**: Use arrow keys or click navigation controls
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+- **Professional Styling**: Integrated with Aurellius brand design
 
-## Design System (lightweight)
-- Palette: near-black / deep navy, off-white, subtle gold for accents.
-- Type: Serif for headlines (gravitas), Sans for body (clarity).
-- Layout: spacious grid, strong hierarchy, generous whitespace.
-- Motion: subtle fade/slide on scroll; tasteful hover states.
+## 💼 Business Case Highlights
 
-## SEO / Social
-- Descriptive <title> + <meta name="description"> per page.
-- Open Graph tags for LinkedIn share (title, description, image).
-- Alt text for images; meaningful link text.
+- **Market Opportunity**: Africa's 1.3 billion people as the last great brand frontier
+- **Strategic Vision**: Become the WPP of Africa
+- **Funding Strategy**: $27M-$41M USD capital requirement with Aluwani Capital Partners
+- **100-Day Launch Plan**: Detailed execution roadmap
+- **Business Model**: Complete canvas with revenue streams and partnerships
 
-## How to Use This (for Editors + Copilot)
-1. Keep this README open while editing any page.
-2. At the top of each HTML file, add the **Inline Page Prompt** (below) as an HTML comment.
-3. Start editing inside the relevant `<section>`; trigger Copilot suggestions.
-4. Accept/refine to keep tone, brevity, and structure.
+## 🔧 Technical Details
 
-### Inline Page Prompt (paste as HTML comment at top of each file)
+- **Framework**: Reveal.js for presentation functionality
+- **Styling**: Custom CSS with Aurellius brand integration
+- **Responsive**: Mobile-friendly design
+- **Full-Screen Mode**: JavaScript-powered presentation controls
 
-## Quality Checklist (before commit)
-- ✅ One H1 per page; headings read like a story.
-- ✅ CTAs present and consistent.
-- ✅ No lorem ipsum; no duplicate headlines.
-- ✅ Meta title/description unique per page.
-- ✅ Links and buttons point to real routes or `#` placeholders.
+## 📞 Contact
+
+For questions about the Brand Leadership Africa initiative or this presentation, please contact the Aurellius team.
+
+---
+
+**Aurellius.Online** • Building Africa's Global Brand Powerhouse
