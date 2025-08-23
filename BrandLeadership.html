@@ -34,6 +34,20 @@
       .reveal {
         font-family: "Lato", "Segoe UI", Roboto, sans-serif;
         color: #fff;
+        height: auto !important;
+        min-height: 80vh;
+        width: 100% !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        z-index: 1;
+        background: transparent;
+      }
+
+      .reveal .slides {
+        height: auto !important;
+        width: 100% !important;
+        position: relative !important;
       }
 
       .reveal .slides section {
@@ -41,11 +55,13 @@
         min-height: 60vh;
         padding: 40px 20px;
         text-align: left;
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        margin-bottom: 40px;
+        page-break-after: always;
         color: #fff;
+        background: transparent;
       }
 
       .reveal .slides section h1 {
@@ -53,11 +69,17 @@
         font-weight: 700;
         font-size: 2.5rem;
         margin-bottom: 2rem;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
       }
 
       .reveal .slides section ul {
         list-style-type: none;
         padding-left: 0;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
       }
 
       .reveal .slides section ul li {
@@ -66,6 +88,8 @@
         padding-left: 2rem;
         position: relative;
         color: #fff;
+        opacity: 1 !important;
+        visibility: visible !important;
       }
 
       .reveal .slides section ul li:before {
@@ -89,15 +113,10 @@
         text-align: center;
       }
 
-      /* Force display of all slides */
-      .reveal .slides section {
+      /* Override any hidden states */
+      .reveal .slides section[data-visibility="hidden"] {
         display: block !important;
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        min-height: 400px;
-        margin-bottom: 40px;
-        page-break-after: always;
+        visibility: visible !important;
       }
 
       /* Presentation container styling */
@@ -109,6 +128,17 @@
         z-index: 1;
       }
 
+      .presentation-container .reveal .slides {
+        display: block !important;
+      }
+
+      .presentation-container .reveal .slides section {
+        display: block !important;
+        margin-bottom: 60px;
+        padding: 40px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
       /* Footer */
       .foot {
         position: fixed;
@@ -118,6 +148,18 @@
         color: rgba(255, 255, 255, 0.6);
         opacity: 0.8;
         z-index: 1000;
+      }
+
+      /* Ensure all content is visible */
+      .reveal .slides section h1,
+      .reveal .slides section h2,
+      .reveal .slides section h3,
+      .reveal .slides section p,
+      .reveal .slides section ul,
+      .reveal .slides section li {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
       }
     </style>
   </head>
@@ -216,9 +258,7 @@
                       <ul>
                         <li><a href="contact.html">Contact</a></li>
                         <li>
-                          <a href="BrandLeadership.html"
-                            >Africa WPP Pitch</a
-                          >
+                          <a href="BrandLeadership.html">Africa WPP Pitch</a>
                         </li>
                         <li><a href="404.html">404</a></li>
                       </ul>
@@ -759,6 +799,8 @@
             document.body.appendChild(warn);
             return;
           }
+          
+          // Initialize Reveal.js with proper settings
           Reveal.initialize({
             controls: true,
             progress: true,
@@ -775,13 +817,45 @@
             minScale: 0.2,
             maxScale: 1.5,
           });
+
+          // Ensure slides are visible after initialization
+          setTimeout(function() {
+            const slides = document.querySelectorAll('.reveal .slides section');
+            slides.forEach(function(slide) {
+              slide.style.display = 'block';
+              slide.style.visibility = 'visible';
+              slide.style.opacity = '1';
+            });
+          }, 100);
         }
+        
+        // Fallback: ensure slides are visible even without Reveal.js
+        function ensureSlidesVisible() {
+          const slides = document.querySelectorAll('.reveal .slides section');
+          slides.forEach(function(slide) {
+            slide.style.display = 'block';
+            slide.style.visibility = 'visible';
+            slide.style.opacity = '1';
+            slide.style.position = 'relative';
+            slide.style.width = '100%';
+            slide.style.height = 'auto';
+            slide.style.minHeight = '400px';
+            slide.style.marginBottom = '40px';
+          });
+        }
+
         if (
           document.readyState === "complete" ||
           document.readyState === "interactive"
-        )
+        ) {
           boot();
-        else window.addEventListener("DOMContentLoaded", boot);
+          ensureSlidesVisible();
+        } else {
+          window.addEventListener("DOMContentLoaded", function() {
+            boot();
+            ensureSlidesVisible();
+          });
+        }
       })();
     </script>
 
