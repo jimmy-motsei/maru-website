@@ -51,14 +51,12 @@ def update_all_titles():
         # Work/Portfolio pages
         'our-work.html': 'Our Work | AI Marketing Case Studies | Maru',
         'cases.html': 'Case Studies | AI Marketing Success Stories | Maru',
-        'products.html': 'AI Marketing Products | Solutions & Tools | Maru',
+    
         
         # Blog/Content pages
-        'blog.html': 'AI Marketing Blog | Insights & Strategy | Maru',
-        'articles.html': 'AI Marketing Articles | Expert Insights | Maru',
+        
         'knowledge.html': 'AI Marketing Knowledge Base | Resources | Maru',
-        'publication.html': 'AI Marketing Publications | Research & Insights | Maru',
-        'Insights.html': 'AI Marketing Insights | Industry Analysis | Maru',
+        
         
         # Contact/About pages
         'contact.html': 'Contact Maru | AI Marketing Experts',
@@ -89,8 +87,7 @@ def update_all_titles():
         
         # Other pages
         '404.html': 'Page Not Found | Maru AI Marketing',
-        'documentation.html': 'AI Marketing Documentation | Guides & Resources | Maru',
-        'web-design.html': 'AI-Powered Web Design | Digital Marketing | Maru',
+        
         
         # Solution pages
         'solution-1.html': 'AI Marketing Solution 1 | Custom Automation | Maru',
