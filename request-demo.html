@@ -16,7 +16,10 @@
     <!-- ashley scss -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- page name -->
-    <title>Maru | AI-Powered Marketing & Growth Strategy</title>
+    <title>Request a Demo | AI Automation Solutions | Aurellius</title>
+    
+    <!-- Calendar Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/@calendly/integration@1.0.0/dist/umd/calendly.js"></script>
   </head>
 
   <body>
@@ -228,8 +231,7 @@
               <div class="container">
                 <div class="mil-banner-content mil-up">
                   <h1 class="mil-muted mil-mb-60">
-                    Bridge <span class="mil-thin">your business</span><br />
-                    into the <span class="mil-thin">age of AI</span>
+                    Request Your <span class="mil-thin">AI Demo</span>
                   </h1>
                   <div class="row">
                     <div class="col-md-7 col-lg-5">
@@ -242,19 +244,7 @@
                     </div>
                   </div>
 
-                  <a
-                    href="services.html"
-                    class="mil-button mil-arrow-place mil-btn-space"
-                  >
-                    <span>Our Services</span>
-                  </a>
 
-                  <a
-                    href="request-demo.html"
-                    class="mil-link mil-muted mil-arrow-place"
-                  >
-                    <span>Request a Demo</span>
-                  </a>
 
                   <div class="mil-circle-text">
                     <svg
@@ -297,92 +287,130 @@
           </section>
           <!-- banner end -->
 
-          <!-- about -->
-          <section id="about">
+          <!-- demo request form -->
+          <section id="demo-form">
             <div class="container mil-p-120-30">
-              <div class="row justify-content-between align-items-center">
-                <div class="col-lg-6 col-xl-5">
-                  <div class="mil-mb-90">
-                    <h2 class="mil-up mil-mb-60">
-                      Who <br />We <span class="mil-thin">Are</span>
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <div class="text-center mil-mb-60">
+                    <h2 class="mil-up mil-mb-30">
+                      Schedule Your <span class="mil-thin">Demo</span>
                     </h2>
                     <p class="mil-up mil-mb-30">
-                      At Maru, we believe every business deserves to thrive in
-                      the Age of AI. We're a specialized digital marketing
-                      agency that combines the comprehensive service approach of
-                      industry leaders with cutting-edge AI technology to
-                      deliver unprecedented results for our clients. We exist to
-                      bridge the gap between where your business is today and
-                      where it needs to be tomorrow. While others talk about AI,
-                      we implement it. While others follow trends, we create
-                      competitive advantages.
+                      Tell us about your business and we'll prepare a personalized demo of our AI solutions.
                     </p>
+                  </div>
 
-                    <div class="mil-about-quote">
-                      <div class="mil-avatar mil-up">
-                        <img
-                          src="img/Founder.jpeg"
-                          alt="Founder"
-                          loading="lazy"
-                          decoding="async"
-                        />
+                  <!-- Demo Request Form -->
+                  <div class="mil-form-wrapper">
+                    <form id="demoRequestForm" class="mil-form">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input type="text" placeholder="First Name *" required>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" placeholder="Last Name *" required>
+                        </div>
                       </div>
-                      <h6 class="mil-quote mil-up">
-                        AI-First <span class="mil-thin">Approach:</span> Every
-                        <span class="mil-thin">Strategy</span> Enhanced
-                      </h6>
-                    </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input type="email" placeholder="Email Address *" required>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="tel" placeholder="Phone Number">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input type="text" placeholder="Company Name *" required>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" placeholder="Job Title">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <select required>
+                            <option value="">Select Industry *</option>
+                            <option value="hospitality">Hospitality & Tourism</option>
+                            <option value="retail">Retail & E-commerce</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="finance">Finance & Banking</option>
+                            <option value="education">Education</option>
+                            <option value="logistics">Logistics & Transportation</option>
+                            <option value="technology">Technology</option>
+                            <option value="consulting">Consulting & Professional Services</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <select required>
+                            <option value="">Company Size *</option>
+                            <option value="1-10">1-10 employees</option>
+                            <option value="11-50">11-50 employees</option>
+                            <option value="51-200">51-200 employees</option>
+                            <option value="201-500">201-500 employees</option>
+                            <option value="500+">500+ employees</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <select required>
+                            <option value="">Select Service for Demo *</option>
+                            <option value="smartguest">SmartGuest AI - Hospitality Management</option>
+                            <option value="bizinsight">BizInsight AI - Business Analytics</option>
+                            <option value="workshops">AI Mastery Workshops - Training</option>
+                            <option value="custom">Custom AI Solutions - Development</option>
+                            <option value="multiple">Multiple Services</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <textarea placeholder="Tell us about your business challenge or goal..." rows="4"></textarea>
+                        </div>
+                      </div>
+                      
+                      <div class="mil-divider mil-divider-center mil-mb-60"></div>
+                      
+                      <div class="text-center">
+                        <button type="submit" class="mil-button mil-button-lg">
+                          <span>Schedule Demo</span>
+                        </button>
+                      </div>
+                    </form>
                   </div>
                 </div>
-                <div class="col-lg-5">
-                  <div class="mil-about-photo mil-mb-90">
-                    <div class="mil-lines-place"></div>
-                    <div
-                      class="mil-up mil-img-frame"
-                      style="padding-bottom: 160%"
-                    >
-                      <picture class="">
-                        <source
-                          type="image/avif"
-                          srcset="
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-320.avif   320w,
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-640.avif   640w,
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-960.avif   960w,
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-1280.avif 1280w
-                          "
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                        <source
-                          type="image/webp"
-                          srcset="
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-320.webp   320w,
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-640.webp   640w,
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-960.webp   960w,
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-1280.webp 1280w
-                          "
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                        <img
-                          src="img/photo/ChatGPT_Smartphone_1400_2099.png"
-                          srcset="
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-1280.png 1280w
-                          "
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          alt="ChatGPT smartphone interface showcasing AI technology"
-                          class="mil-scale"
-                          data-value-1="1"
-                          data-value-2="1.2"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </picture>
+              </div>
+            </div>
+          </section>
+          <!-- demo request form end -->
+
+          <!-- calendar section -->
+          <section class="mil-dark-bg">
+            <div class="mi-invert-fix">
+              <div class="container mil-p-120-60">
+                <div class="row justify-content-center">
+                  <div class="col-lg-10">
+                    <div class="text-center mil-mb-60">
+                      <h2 class="mil-muted mil-mb-30">Or schedule directly with our calendar</h2>
+                      <p class="mil-light-soft mil-mb-60">
+                        Choose a convenient time for your personalized demo
+                      </p>
+                    </div>
+                    
+                    <div id="calendly-inline-widget" 
+                         data-url="https://calendly.com/aurellius/ai-demo-30min"
+                         style="min-width:320px;height:700px;">
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-          <!-- about end -->
+          <!-- calendar section end -->
 
           <!-- services -->
           <section class="mil-dark-bg">
@@ -1237,5 +1265,46 @@
     <script src="js/plugins/ScrollTo.min.js"></script>
     <!-- ashley js -->
     <script src="js/main.js"></script>
+    
+    <!-- Demo Request Form Script -->
+    <script>
+      // Demo form handling
+      document.getElementById('demoRequestForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Collect form data
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        // Send to backend (you can integrate with your preferred service)
+        console.log('Demo request:', data);
+        
+        // Show success message
+        alert('Thank you! We\'ve received your demo request and will be in touch shortly.');
+        
+        // Redirect to calendar
+        if (typeof Calendly !== 'undefined') {
+          Calendly.initPopupWidget({
+            url: 'https://calendly.com/aurellius/ai-demo-30min',
+            prefill: {
+              name: data.firstName + ' ' + data.lastName,
+              email: data.email,
+              customAnswers: {
+                a1: data.company,
+                a2: data.service
+              }
+            }
+          });
+        }
+      });
+
+      // Load Calendly widget
+      if (typeof Calendly !== 'undefined') {
+        Calendly.initInlineWidget({
+          url: 'https://calendly.com/aurellius/ai-demo-30min',
+          parentElement: document.getElementById('calendly-inline-widget')
+        });
+      }
+    </script>
   </body>
 </html>

@@ -49,8 +49,7 @@ def update_all_titles():
         'custom-automations.html': 'Custom Marketing Automation | AI Solutions | Maru',
         
         # Work/Portfolio pages
-        'our-work.html': 'Our Work | AI Marketing Case Studies | Maru',
-        'cases.html': 'Case Studies | AI Marketing Success Stories | Maru',
+        
     
         
         # Blog/Content pages
