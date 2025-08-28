@@ -70,7 +70,7 @@ cursor
     height: 20px;
     position: fixed;
     z-index: 10;
-    background-color: $dark;
+    background-color: $accent;
     border-radius: 50%;
     pointer-events: none;
     display: flex;
@@ -106,13 +106,13 @@ cursor
     &.mil-accent {
         & .mil-icon-1 {
             & svg {
-                fill: $dark;
+                fill: $light;
             }
         }
 
         & .mil-more-text,
         & .mil-choose-text {
-            color: $dark;
+            color: $light;
         }
     }
 

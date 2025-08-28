@@ -1095,7 +1095,7 @@ cursor
   height: 20px;
   position: fixed;
   z-index: 10;
-  background-color: rgb(0, 0, 0);
+  background-color: #f0b265;
   border-radius: 50%;
   pointer-events: none;
   display: -webkit-box;
@@ -1133,10 +1133,10 @@ cursor
           transform: scale(0);
 }
 .mil-ball.mil-accent .mil-icon-1 svg {
-  fill: rgb(0, 0, 0);
+  fill: rgb(255, 255, 255);
 }
 .mil-ball.mil-accent .mil-more-text, .mil-ball.mil-accent .mil-choose-text {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 @media screen and (max-width: 1200px) {
   .mil-ball {
