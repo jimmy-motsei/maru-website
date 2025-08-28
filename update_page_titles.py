@@ -63,7 +63,7 @@ def update_all_titles():
         # Contact/About pages
         'contact.html': 'Contact Maru | AI Marketing Experts',
         'team.html': 'Our Team | AI Marketing Specialists | Maru',
-        'BrandLeadership.html': 'Brand Leadership | AI Marketing Strategy | Maru',
+    
         
         # Case study pages
         'case-saas-churn.html': 'SaaS Churn Reduction Case Study | AI Marketing | Maru',

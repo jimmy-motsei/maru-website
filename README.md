@@ -1,65 +1,64 @@
-# Brand Leadership Africa: Full Presentation & Funding Proposal
+# Aurellius Web Development - AI Automation Services
 
-## 🌍 About This Presentation
+## 🚀 About This Website
 
-This repository contains the comprehensive Brand Leadership Africa presentation - a 23-slide business case and funding proposal for establishing Africa's first global brand powerhouse.
+This repository contains the Aurellius website - a comprehensive platform showcasing AI automation services for South African small and medium businesses (SMBs).
 
-## 📊 Presentation Overview
+## 🎯 Our Services
 
-**Total Slides**: 23
-**Focus**: Business case, funding proposal, and strategic partnership with Aluwani Capital Partners
-**Capital Requirement**: $27M – $41M USD over 5 years
+### **SmartGuest AI**
+Complete AI-powered guest management system for hotels, lodges, and guesthouses. Automates bookings, check-ins, communications, and operations while driving repeat business.
 
-### Presentation Structure:
+### **BizInsight AI** 
+Pre-built AI analytics platform for marketing departments and companies. Transforms operational data into actionable business insights for data-driven decision making.
 
-1. **Market Analysis & Strategy** (Slides 1-13)
-2. **Business Model** (Slides 14-15)
-3. **100-Day Launch Plan** (Slides 16-19)
-4. **Funding Strategy & Timeline** (Slides 20-21)
-5. **Next Steps & Call to Action** (Slides 22-23)
+### **AI Mastery Workshops**
+Custom AI education and training programs for companies. Empowers teams with practical AI skills, implementation strategies, and hands-on workshops tailored to specific industries.
 
-## 🚀 Access the Presentation
+### **Custom AI Solutions**
+Bespoke AI development for unique business challenges. From concept to deployment, we build custom AI solutions that solve specific operational problems and drive growth.
 
-### GitHub Pages (Recommended)
+## 🌍 Target Market
 
-Once GitHub Pages is enabled, the presentation will be available at:
+- **South African SMBs**: Hotels, lodges, guesthouses, logistics operators, service-based businesses
+- **Marketing Departments**: Companies seeking data-driven insights and optimization
+- **Businesses**: Looking to implement AI automation and digital transformation
+
+## 🛠️ Technical Stack
+
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Styling**: Custom CSS with modern design principles
+- **Responsive**: Mobile-friendly design across all devices
+- **Performance**: Optimized images and assets for fast loading
+
+## 📁 Project Structure
 
 ```
-https://jimmy-motsei.github.io/Maru-website/
+├── home-1.html                 # Main homepage
+├── services.html              # Services overview page
+├── smartguest-ai.html         # SmartGuest AI product page
+├── bizinsight-ai.html         # BizInsight AI product page
+├── ai-mastery-workshops.html  # AI training services page
+├── custom-ai-solutions.html   # Custom development services page
+├── knowledge.html             # AI knowledge articles
+├── our-work.html              # Case studies and portfolio
+├── contact.html               # Contact information
+├── css/                       # Stylesheets
+├── img/                       # Images and assets
+├── content/                   # Knowledge articles content
+└── js/                        # JavaScript files
 ```
 
-### Local Development
+## 🚀 Getting Started
 
 1. Clone this repository
-2. Open `index.html` in your web browser
-3. The presentation uses Reveal.js for interactive slides
-
-## 🎯 Key Features
-
-- **Full-Screen Presentation Mode**: Click "Start Full-Screen Presentation" for Google Slides-like experience
-- **Interactive Navigation**: Use arrow keys or click navigation controls
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Professional Styling**: Integrated with Maru brand design
-
-## 💼 Business Case Highlights
-
-- **Market Opportunity**: Africa's 1.3 billion people as the last great brand frontier
-- **Strategic Vision**: Become the WPP of Africa
-- **Funding Strategy**: $27M-$41M USD capital requirement with Aluwani Capital Partners
-- **100-Day Launch Plan**: Detailed execution roadmap
-- **Business Model**: Complete canvas with revenue streams and partnerships
-
-## 🔧 Technical Details
-
-- **Framework**: Reveal.js for presentation functionality
-- **Styling**: Custom CSS with Maru brand integration
-- **Responsive**: Mobile-friendly design
-- **Full-Screen Mode**: JavaScript-powered presentation controls
+2. Open `home-1.html` in your web browser
+3. Navigate through the services and explore the AI automation offerings
 
 ## 📞 Contact
 
-For questions about the Brand Leadership Africa initiative or this presentation, please contact the Maru team.
+For questions about our AI automation services or to discuss your business needs, please contact the Aurellius team.
 
 ---
 
-**MaruOnline.com** • Building Africa's Global Brand Powerhouse
+**Aurellius** • Empowering South African businesses with AI automation solutions
