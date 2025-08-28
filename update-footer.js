@@ -2,12 +2,12 @@
 /**
  * Batch-replace the footer across all HTML pages using the canonical footer
  * from `home-1.html` (between the comments:
- *    <!-- footer (standardized Aurellius) -->  ...  <!-- footer end -->
+ *    <!-- footer (standardized Maru) -->  ...  <!-- footer end -->
  *
  * Heuristic:
  *  - Skip `home-1.html` (source of truth).
  *  - Skip any file already containing the marker comment
- *        <!-- footer (standardized Aurellius) -->
+ *        <!-- footer (standardized Maru) -->
  *    (assumes it's already canonical)
  *  - Otherwise locate the FIRST <footer ... </footer> block and replace it.
  *    If no <footer> exists, append canonical footer before closing </body>.
@@ -25,7 +25,7 @@ if (!fs.existsSync(SOURCE)) {
 }
 
 const sourceHtml = fs.readFileSync(SOURCE, "utf8");
-const startMarker = "<!-- footer (standardized Aurellius) -->";
+const startMarker = "<!-- footer (standardized Maru) -->";
 const endMarker = "<!-- footer end -->";
 
 const startIdx = sourceHtml.indexOf(startMarker);

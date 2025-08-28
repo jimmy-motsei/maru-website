@@ -11,6 +11,7 @@ This repository contains the comprehensive Brand Leadership Africa presentation 
 **Capital Requirement**: $27M – $41M USD over 5 years
 
 ### Presentation Structure:
+
 1. **Market Analysis & Strategy** (Slides 1-13)
 2. **Business Model** (Slides 14-15)
 3. **100-Day Launch Plan** (Slides 16-19)
@@ -20,12 +21,15 @@ This repository contains the comprehensive Brand Leadership Africa presentation 
 ## 🚀 Access the Presentation
 
 ### GitHub Pages (Recommended)
+
 Once GitHub Pages is enabled, the presentation will be available at:
+
 ```
-https://jimmy-motsei.github.io/Aurellius-website/
+https://jimmy-motsei.github.io/Maru-website/
 ```
 
 ### Local Development
+
 1. Clone this repository
 2. Open `index.html` in your web browser
 3. The presentation uses Reveal.js for interactive slides
@@ -35,7 +39,7 @@ https://jimmy-motsei.github.io/Aurellius-website/
 - **Full-Screen Presentation Mode**: Click "Start Full-Screen Presentation" for Google Slides-like experience
 - **Interactive Navigation**: Use arrow keys or click navigation controls
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Professional Styling**: Integrated with Aurellius brand design
+- **Professional Styling**: Integrated with Maru brand design
 
 ## 💼 Business Case Highlights
 
@@ -48,14 +52,14 @@ https://jimmy-motsei.github.io/Aurellius-website/
 ## 🔧 Technical Details
 
 - **Framework**: Reveal.js for presentation functionality
-- **Styling**: Custom CSS with Aurellius brand integration
+- **Styling**: Custom CSS with Maru brand integration
 - **Responsive**: Mobile-friendly design
 - **Full-Screen Mode**: JavaScript-powered presentation controls
 
 ## 📞 Contact
 
-For questions about the Brand Leadership Africa initiative or this presentation, please contact the Aurellius team.
+For questions about the Brand Leadership Africa initiative or this presentation, please contact the Maru team.
 
 ---
 
-**Aurellius.Online** • Building Africa's Global Brand Powerhouse
+**MaruOnline.com** • Building Africa's Global Brand Powerhouse

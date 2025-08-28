@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Replace <title>Ashley</title> with <title>Aurellius</title> across all HTML files.
+ * Replace <title>Ashley</title> with <title>Maru</title> across all HTML files.
  * Skips files already updated.
  */
 const fs = require("fs");
@@ -14,7 +14,7 @@ htmlFiles.forEach((f) => {
   if (!original.includes("<title>Ashley</title>")) return;
   const modified = original.replace(
     /<title>Ashley<\/title>/g,
-    "<title>Aurellius</title>"
+    "<title>Maru</title>"
   );
   if (modified !== original) {
     fs.writeFileSync(full, modified, "utf8");

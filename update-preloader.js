@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * Replace preloader branding text 'ashley.com' with 'Aurellius.Online'
+ * Replace preloader branding text 'ashley.com' with 'MaruOnline.com'
  * across all HTML files. Skips files already updated.
  */
 const fs = require("fs");
 const path = require("path");
 const ROOT = __dirname;
 const TARGET_OLD = "ashley.com";
-const TARGET_NEW = "Aurellius.Online";
+const TARGET_NEW = "MaruOnline.com";
 
 const htmlFiles = fs.readdirSync(ROOT).filter((f) => f.endsWith(".html"));
 let updated = 0;
