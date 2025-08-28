@@ -34,7 +34,7 @@ Bespoke AI development for unique business challenges. From concept to deploymen
 ## 📁 Project Structure
 
 ```
-├── home-1.html                 # Main homepage
+├── index.html                  # Main homepage
 ├── services.html              # Services overview page
 ├── smartguest-ai.html         # SmartGuest AI product page
 ├── bizinsight-ai.html         # BizInsight AI product page
@@ -52,7 +52,7 @@ Bespoke AI development for unique business challenges. From concept to deploymen
 ## 🚀 Getting Started
 
 1. Clone this repository
-2. Open `home-1.html` in your web browser
+2. Open `index.html` in your web browser
 3. Navigate through the services and explore the AI automation offerings
 
 ## 📞 Contact

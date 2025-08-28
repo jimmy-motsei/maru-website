@@ -38,7 +38,6 @@ def update_all_titles():
     # Define title mappings for different page types
     title_mappings = {
         # Main pages
-        'home-1.html': 'Maru | AI-Powered Marketing & Growth Strategy',
         'index.html': 'Maru | AI-Powered Marketing & Growth Strategy',
         
         # Services pages
