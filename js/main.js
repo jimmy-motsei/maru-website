@@ -321,11 +321,14 @@ $(function () {
   });
 
   $(".mil-accent-cursor").mouseover(function () {
+    console.log("Cursor hover - adding mil-accent class");
     $(cursor).addClass("mil-accent");
     $(cursor).css("background-color", accent);
+    console.log("Cursor background set to:", accent);
   });
 
   $(".mil-accent-cursor").mouseleave(function () {
+    console.log("Cursor leave - removing mil-accent class");
     $(cursor).removeClass("mil-accent");
     $(cursor).css("background-color", dark);
   });
@@ -815,11 +818,14 @@ $(function () {
     });
 
     $(".mil-accent-cursor").mouseover(function () {
+      console.log("Cursor hover - adding mil-accent class");
       $(cursor).addClass("mil-accent");
       $(cursor).css("background-color", accent);
+      console.log("Cursor background set to:", accent);
     });
 
     $(".mil-accent-cursor").mouseleave(function () {
+      console.log("Cursor leave - removing mil-accent class");
       $(cursor).removeClass("mil-accent");
       $(cursor).css("background-color", dark);
     });
