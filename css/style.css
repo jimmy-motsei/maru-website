@@ -4228,3 +4228,11 @@ html.is-animating .mil-menu-frame {
   -webkit-transition-delay: 0.3s;
           transition-delay: 0.3s;
 }
+
+/* Footer logo styling */
+footer .mil-logo img {
+  max-height: 100px !important;
+  width: auto !important;
+  display: block !important;
+  margin-bottom: 20px !important;
+}
