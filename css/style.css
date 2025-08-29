@@ -4231,7 +4231,7 @@ html.is-animating .mil-menu-frame {
 
 /* Footer logo styling */
 footer .mil-logo img {
-  max-height: 100px !important;
+  max-height: 200px !important;
   width: auto !important;
   display: block !important;
   margin-bottom: 20px !important;
