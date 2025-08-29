@@ -430,7 +430,8 @@ $(function () {
     main menu
 
     ***************************/
-  $(".mil-has-children a").on("click", function () {
+  $(".mil-has-children > a").on("click", function (e) {
+    e.preventDefault();
     $(".mil-has-children ul").removeClass("mil-active");
     $(".mil-has-children a").removeClass("mil-active");
     $(this).toggleClass("mil-active");
@@ -919,7 +920,8 @@ $(function () {
         main menu
 
         ***************************/
-    $(".mil-has-children a").on("click", function () {
+    $(".mil-has-children > a").on("click", function (e) {
+      e.preventDefault();
       $(".mil-has-children ul").removeClass("mil-active");
       $(".mil-has-children a").removeClass("mil-active");
       $(this).toggleClass("mil-active");
