@@ -1095,7 +1095,8 @@ cursor
   height: 20px;
   position: fixed;
   z-index: 10;
-  background-color: #f0b265;
+  background-color: #f0b265 !important;
+  background: #f0b265 !important;
   border-radius: 50%;
   pointer-events: none;
   display: -webkit-box;
@@ -1153,11 +1154,7 @@ cursor
   background: #f0b265 !important;
 }
 
-/* Override any potential orange colors */
-.mil-ball {
-  background-color: #f0b265 !important;
-  background: #f0b265 !important;
-}
+
 .mil-ball.mil-accent .mil-icon-1 svg {
   fill: rgb(255, 255, 255);
 }

@@ -324,13 +324,22 @@ $(function () {
     console.log("Cursor hover - adding mil-accent class");
     $(cursor).addClass("mil-accent");
     $(cursor).css("background-color", accent);
+    $(cursor).css("background", accent);
     console.log("Cursor background set to:", accent);
+    
+    // Debug: Check computed style
+    setTimeout(function() {
+      var computedStyle = window.getComputedStyle(cursor);
+      console.log("Computed background-color:", computedStyle.backgroundColor);
+      console.log("Computed background:", computedStyle.background);
+    }, 100);
   });
 
   $(".mil-accent-cursor").mouseleave(function () {
     console.log("Cursor leave - removing mil-accent class");
     $(cursor).removeClass("mil-accent");
     $(cursor).css("background-color", dark);
+    $(cursor).css("background", dark);
   });
 
   $(".mil-drag").mouseover(function () {
@@ -821,13 +830,22 @@ $(function () {
       console.log("Cursor hover - adding mil-accent class");
       $(cursor).addClass("mil-accent");
       $(cursor).css("background-color", accent);
+      $(cursor).css("background", accent);
       console.log("Cursor background set to:", accent);
+      
+      // Debug: Check computed style
+      setTimeout(function() {
+        var computedStyle = window.getComputedStyle(cursor);
+        console.log("Computed background-color:", computedStyle.backgroundColor);
+        console.log("Computed background:", computedStyle.background);
+      }, 100);
     });
 
     $(".mil-accent-cursor").mouseleave(function () {
       console.log("Cursor leave - removing mil-accent class");
       $(cursor).removeClass("mil-accent");
       $(cursor).css("background-color", dark);
+      $(cursor).css("background", dark);
     });
 
     $(".mil-drag").mouseover(function () {
