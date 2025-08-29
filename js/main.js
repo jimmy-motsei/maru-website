@@ -862,6 +862,12 @@ $(function () {
           "style",
           "--bs-orange: #00ff00 !important; background-color: #00ff00 !important; background: #00ff00 !important; color: #00ff00 !important; border-color: #00ff00 !important; outline-color: #00ff00 !important;"
         );
+        
+        // Target inner elements specifically
+        var innerElements = cursorElement.querySelectorAll('.mil-more-text, .mil-choose-text, .mil-icon-1, .mil-icon-1 svg');
+        innerElements.forEach(function(innerElement) {
+          innerElement.setAttribute("style", "background-color: #00ff00 !important; background: #00ff00 !important; color: #00ff00 !important; border-color: #00ff00 !important; outline-color: #00ff00 !important; fill: #00ff00 !important;");
+        });
       });
 
       console.log("Cursor background set to:", accent);

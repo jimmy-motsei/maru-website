@@ -1195,6 +1195,23 @@ html body div.mil-ball.mil-accent * {
   outline-color: #f0b265 !important;
 }
 
+/* Target inner elements specifically */
+.mil-ball .mil-more-text,
+.mil-ball .mil-choose-text,
+.mil-ball .mil-icon-1,
+.mil-ball .mil-icon-1 svg,
+.mil-ball.mil-accent .mil-more-text,
+.mil-ball.mil-accent .mil-choose-text,
+.mil-ball.mil-accent .mil-icon-1,
+.mil-ball.mil-accent .mil-icon-1 svg {
+  background-color: #f0b265 !important;
+  background: #f0b265 !important;
+  color: #f0b265 !important;
+  border-color: #f0b265 !important;
+  outline-color: #f0b265 !important;
+  fill: #f0b265 !important;
+}
+
 
 .mil-ball.mil-accent .mil-icon-1 svg {
   fill: rgb(255, 255, 255);
