@@ -1154,6 +1154,20 @@ cursor
   background: #f0b265 !important;
 }
 
+/* Maximum specificity override for cursor */
+html body .mil-ball.mil-accent,
+html body .mil-ball[class*="mil-accent"],
+html body .mil-ball.mil-accent * {
+  background-color: #f0b265 !important;
+  background: #f0b265 !important;
+}
+
+/* Force cursor color with highest specificity */
+html body div.mil-ball.mil-accent {
+  background-color: #f0b265 !important;
+  background: #f0b265 !important;
+}
+
 
 .mil-ball.mil-accent .mil-icon-1 svg {
   fill: rgb(255, 255, 255);
