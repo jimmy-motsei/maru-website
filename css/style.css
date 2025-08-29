@@ -1132,6 +1132,9 @@ cursor
   -webkit-transform: scale(0);
           transform: scale(0);
 }
+.mil-ball.mil-accent {
+  background-color: #f0b265 !important;
+}
 .mil-ball.mil-accent .mil-icon-1 svg {
   fill: rgb(255, 255, 255);
 }
