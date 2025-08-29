@@ -860,7 +860,7 @@ $(function () {
         cursorElement.classList.add("mil-accent");
         cursorElement.setAttribute(
           "style",
-          "--bs-orange: #00ff00 !important; background-color: #00ff00 !important; background: #00ff00 !important; color: #00ff00 !important; border-color: #00ff00 !important; outline-color: #00ff00 !important;"
+          "--bs-orange: " + accent + " !important; background-color: " + accent + " !important; background: " + accent + " !important; color: " + accent + " !important; border-color: " + accent + " !important; outline-color: " + accent + " !important;"
         );
 
         // Target inner elements specifically
@@ -868,22 +868,22 @@ $(function () {
           ".mil-more-text, .mil-choose-text, .mil-icon-1, .mil-icon-1 svg"
         );
         innerElements.forEach(function (innerElement) {
-          if (
-            innerElement.classList.contains("mil-more-text") ||
-            innerElement.classList.contains("mil-choose-text")
-          ) {
-            // Text elements - green background, white text, keep within bounds, center text
-            innerElement.setAttribute(
-              "style",
-              "background-color: #00ff00 !important; background: #00ff00 !important; color: #ffffff !important; border-color: #00ff00 !important; outline-color: #00ff00 !important; opacity: 1 !important; visibility: visible !important; display: flex !important; align-items: center !important; justify-content: center !important; text-align: center !important; width: 100% !important; height: 100% !important; max-width: 100% !important; max-height: 100% !important; overflow: hidden !important; border-radius: 50% !important; box-sizing: border-box !important;"
-            );
-          } else {
-            // Icon elements - green background, white fill
-            innerElement.setAttribute(
-              "style",
-              "background-color: #00ff00 !important; background: #00ff00 !important; color: #ffffff !important; border-color: #00ff00 !important; outline-color: #00ff00 !important; fill: #ffffff !important;"
-            );
-          }
+                     if (
+             innerElement.classList.contains("mil-more-text") ||
+             innerElement.classList.contains("mil-choose-text")
+           ) {
+             // Text elements - accent background, white text, keep within bounds, center text
+             innerElement.setAttribute(
+               "style",
+               "background-color: " + accent + " !important; background: " + accent + " !important; color: #ffffff !important; border-color: " + accent + " !important; outline-color: " + accent + " !important; opacity: 1 !important; visibility: visible !important; display: flex !important; align-items: center !important; justify-content: center !important; text-align: center !important; width: 100% !important; height: 100% !important; max-width: 100% !important; max-height: 100% !important; overflow: hidden !important; border-radius: 50% !important; box-sizing: border-box !important;"
+             );
+           } else {
+             // Icon elements - accent background, white fill
+             innerElement.setAttribute(
+               "style",
+               "background-color: " + accent + " !important; background: " + accent + " !important; color: #ffffff !important; border-color: " + accent + " !important; outline-color: " + accent + " !important; fill: #ffffff !important;"
+             );
+           }
         });
       });
 
