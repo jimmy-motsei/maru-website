@@ -385,77 +385,54 @@ $(function () {
   });
 
   $(".mil-more").mouseover(function () {
-    gsap.to($(".mil-ball .mil-more-text"), 0.2, {
-      scale: "1",
-      ease: "sine",
-    });
+    // Disable GSAP animation to prevent color conflicts
+    $(".mil-ball .mil-more-text").css("transform", "scale(1)");
   });
 
   $(".mil-more").mouseleave(function () {
-    gsap.to($(".mil-ball .mil-more-text"), 0.2, {
-      scale: "0",
-      ease: "sine",
-    });
+    // Disable GSAP animation to prevent color conflicts
+    $(".mil-ball .mil-more-text").css("transform", "scale(0)");
   });
 
   $(".mil-choose").mouseover(function () {
-    gsap.to($(".mil-ball .mil-choose-text"), 0.2, {
-      scale: "1",
-      ease: "sine",
-    });
+    // Disable GSAP animation to prevent color conflicts
+    $(".mil-ball .mil-choose-text").css("transform", "scale(1)");
   });
 
   $(".mil-choose").mouseleave(function () {
-    gsap.to($(".mil-ball .mil-choose-text"), 0.2, {
-      scale: "0",
-      ease: "sine",
-    });
+    // Disable GSAP animation to prevent color conflicts
+    $(".mil-ball .mil-choose-text").css("transform", "scale(0)");
   });
 
-  $(
+    $(
     'a:not(".mil-choose , .mil-more , .mil-drag , .mil-accent-cursor"), input , textarea, .mil-accordion-menu'
   ).mouseover(function () {
-    gsap.to($(cursor), 0.2, {
-      scale: 0,
-      ease: "sine",
-    });
-    gsap.to($(".mil-ball svg"), 0.2, {
-      scale: 0,
-    });
+    // Disable GSAP animation to prevent color conflicts
+    $(cursor).css("transform", "scale(0)");
+    $(".mil-ball svg").css("transform", "scale(0)");
   });
 
   $(
     'a:not(".mil-choose , .mil-more , .mil-drag , .mil-accent-cursor"), input, textarea, .mil-accordion-menu'
   ).mouseleave(function () {
-    gsap.to($(cursor), 0.2, {
-      scale: 1,
-      ease: "sine",
-    });
-
-    gsap.to($(".mil-ball svg"), 0.2, {
-      scale: 1,
-    });
-
-    // Preserve cursor color after GSAP animation
-    setTimeout(function () {
-      if (!$(cursor).hasClass("mil-accent")) {
-        $(cursor).css("background-color", dark);
-        $(cursor).css("background", dark);
-      }
-    }, 250);
+    // Disable GSAP animation to prevent color conflicts
+    $(cursor).css("transform", "scale(1)");
+    $(".mil-ball svg").css("transform", "scale(1)");
+    
+    // Ensure cursor color is preserved
+    if (!$(cursor).hasClass("mil-accent")) {
+      $(cursor).css("background-color", dark);
+      $(cursor).css("background", dark);
+    }
   });
 
   $("body").mousedown(function () {
-    gsap.to($(cursor), 0.2, {
-      scale: 0.1,
-      ease: "sine",
-    });
+    // Disable GSAP animation to prevent color conflicts
+    $(cursor).css("transform", "scale(0.1)");
   });
   $("body").mouseup(function () {
-    gsap.to($(cursor), 0.2, {
-      scale: 1,
-      ease: "sine",
-    });
+    // Disable GSAP animation to prevent color conflicts
+    $(cursor).css("transform", "scale(1)");
   });
   /***************************
 

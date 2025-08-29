@@ -1188,6 +1188,8 @@ html, body, * {
   --bs-orange: #f0b265 !important;
 }
 
+
+
 /* Force cursor color with maximum specificity */
 html body div.mil-ball,
 html body div.mil-ball.mil-accent,
