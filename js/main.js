@@ -362,6 +362,12 @@ $(function () {
     $(cursor).removeClass("mil-accent");
     $(cursor).css("background-color", dark);
     $(cursor).css("background", dark);
+
+    // Ensure accent color is preserved after GSAP animations
+    setTimeout(function () {
+      $(cursor).css("background-color", dark);
+      $(cursor).css("background", dark);
+    }, 250);
   });
 
   $(".mil-drag").mouseover(function () {
@@ -429,6 +435,14 @@ $(function () {
     gsap.to($(".mil-ball svg"), 0.2, {
       scale: 1,
     });
+
+    // Preserve cursor color after GSAP animation
+    setTimeout(function () {
+      if (!$(cursor).hasClass("mil-accent")) {
+        $(cursor).css("background-color", dark);
+        $(cursor).css("background", dark);
+      }
+    }, 250);
   });
 
   $("body").mousedown(function () {
@@ -860,7 +874,19 @@ $(function () {
         cursorElement.classList.add("mil-accent");
         cursorElement.setAttribute(
           "style",
-          "--bs-orange: " + accent + " !important; background-color: " + accent + " !important; background: " + accent + " !important; color: " + accent + " !important; border-color: " + accent + " !important; outline-color: " + accent + " !important;"
+          "--bs-orange: " +
+            accent +
+            " !important; background-color: " +
+            accent +
+            " !important; background: " +
+            accent +
+            " !important; color: " +
+            accent +
+            " !important; border-color: " +
+            accent +
+            " !important; outline-color: " +
+            accent +
+            " !important;"
         );
 
         // Target inner elements specifically
@@ -868,26 +894,61 @@ $(function () {
           ".mil-more-text, .mil-choose-text, .mil-icon-1, .mil-icon-1 svg"
         );
         innerElements.forEach(function (innerElement) {
-                     if (
-             innerElement.classList.contains("mil-more-text") ||
-             innerElement.classList.contains("mil-choose-text")
-           ) {
-             // Text elements - accent background, white text, keep within bounds, center text
-             innerElement.setAttribute(
-               "style",
-               "background-color: " + accent + " !important; background: " + accent + " !important; color: #ffffff !important; border-color: " + accent + " !important; outline-color: " + accent + " !important; opacity: 1 !important; visibility: visible !important; display: flex !important; align-items: center !important; justify-content: center !important; text-align: center !important; width: 100% !important; height: 100% !important; max-width: 100% !important; max-height: 100% !important; overflow: hidden !important; border-radius: 50% !important; box-sizing: border-box !important;"
-             );
-           } else {
-             // Icon elements - accent background, white fill
-             innerElement.setAttribute(
-               "style",
-               "background-color: " + accent + " !important; background: " + accent + " !important; color: #ffffff !important; border-color: " + accent + " !important; outline-color: " + accent + " !important; fill: #ffffff !important;"
-             );
-           }
+          if (
+            innerElement.classList.contains("mil-more-text") ||
+            innerElement.classList.contains("mil-choose-text")
+          ) {
+            // Text elements - accent background, white text, keep within bounds, center text
+            innerElement.setAttribute(
+              "style",
+              "background-color: " +
+                accent +
+                " !important; background: " +
+                accent +
+                " !important; color: #ffffff !important; border-color: " +
+                accent +
+                " !important; outline-color: " +
+                accent +
+                " !important; opacity: 1 !important; visibility: visible !important; display: flex !important; align-items: center !important; justify-content: center !important; text-align: center !important; width: 100% !important; height: 100% !important; max-width: 100% !important; max-height: 100% !important; overflow: hidden !important; border-radius: 50% !important; box-sizing: border-box !important;"
+            );
+          } else {
+            // Icon elements - accent background, white fill
+            innerElement.setAttribute(
+              "style",
+              "background-color: " +
+                accent +
+                " !important; background: " +
+                accent +
+                " !important; color: #ffffff !important; border-color: " +
+                accent +
+                " !important; outline-color: " +
+                accent +
+                " !important; fill: #ffffff !important;"
+            );
+          }
         });
       });
 
       console.log("Cursor background set to:", accent);
+
+      // Continuous monitoring to prevent orange color
+      var monitorInterval = setInterval(function () {
+        if ($(cursor).hasClass("mil-accent")) {
+          var computedStyle = window.getComputedStyle(cursor);
+          var bgColor = computedStyle.backgroundColor;
+          if (
+            bgColor.includes("255") ||
+            bgColor.includes("orange") ||
+            bgColor.includes("fd7e14")
+          ) {
+            console.log("Orange detected, fixing...");
+            $(cursor).css("background-color", accent);
+            $(cursor).css("background", accent);
+          }
+        } else {
+          clearInterval(monitorInterval);
+        }
+      }, 50);
 
       // Debug: Check computed style
       setTimeout(function () {
