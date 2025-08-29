@@ -1223,6 +1223,14 @@ html body div.mil-ball.mil-accent * {
   opacity: 1 !important;
   visibility: visible !important;
   display: block !important;
+  /* Keep text within circle bounds */
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+  border-radius: 50% !important;
+  box-sizing: border-box !important;
 }
 
 
