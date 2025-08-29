@@ -68,8 +68,8 @@ app.post("/api/demo-request", async (req, res) => {
   const { firstName, lastName, email, company, service } = req.body;
 
   const emailData = {
-    from: "noreply@aurellius.com",
-    to: "sales@aurellius.com",
+    from: "noreply@maru.com",
+    to: "sales@maru.com",
     subject: `New Demo Request: ${service}`,
     html: `
       <h2>New Demo Request</h2>
@@ -346,7 +346,7 @@ CREATE TABLE demo_requests (
       email.
     </p>
 
-    <p>Best regards,<br />The Aurellius Team</p>
+    <p>Best regards,<br />The Maru Team</p>
   </body>
 </html>
 ```

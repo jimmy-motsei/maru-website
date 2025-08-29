@@ -1,8 +1,8 @@
 {
-  "name": "aurellius-website",
+  "name": "maru-website",
   "private": true,
   "version": "1.0.0",
-  "description": "Build scripts for optimizing images for the Aurellius static site",
+  "description": "Build scripts for optimizing images for the Maru static site",
   "scripts": {
     "optimize-images": "node scripts/optimize-images.js"
   },

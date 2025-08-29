@@ -1,8 +1,8 @@
-# Aurellius Web Development - AI Automation Services
+# Maru Web Development - AI Automation Services
 
 ## 🚀 About This Website
 
-This repository contains the Aurellius website - a comprehensive platform showcasing AI automation services for South African small and medium businesses (SMBs).
+This repository contains the Maru website - a comprehensive platform showcasing AI automation services for South African small and medium businesses (SMBs).
 
 ## 🎯 Our Services
 
@@ -61,8 +61,8 @@ Bespoke AI development for unique business challenges. From concept to deploymen
 
 ## 📞 Contact
 
-For questions about our AI automation services or to discuss your business needs, please contact the Aurellius team.
+For questions about our AI automation services or to discuss your business needs, please contact the Maru team.
 
 ---
 
-**Aurellius** • Empowering South African businesses with AI automation solutions
+**Maru** • Empowering South African businesses with AI automation solutions
