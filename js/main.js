@@ -323,7 +323,7 @@ $(function () {
   $(".mil-accent-cursor").mouseover(function () {
     console.log("Cursor hover - adding mil-accent class");
     $(cursor).addClass("mil-accent");
-    $(cursor).attr("style", "background-color: " + accent + " !important; background: " + accent + " !important;");
+    $(cursor).attr("style", "--bs-orange: " + accent + " !important; background-color: " + accent + " !important; background: " + accent + " !important;");
     console.log("Cursor background set to:", accent);
     
     // Debug: Check computed style
@@ -332,6 +332,7 @@ $(function () {
       console.log("Computed background-color:", computedStyle.backgroundColor);
       console.log("Computed background:", computedStyle.background);
       console.log("Inline style:", cursor.style.backgroundColor);
+      console.log("Bootstrap orange variable:", computedStyle.getPropertyValue('--bs-orange'));
     }, 100);
   });
 
@@ -829,7 +830,7 @@ $(function () {
     $(".mil-accent-cursor").mouseover(function () {
       console.log("Cursor hover - adding mil-accent class");
       $(cursor).addClass("mil-accent");
-      $(cursor).attr("style", "background-color: " + accent + " !important; background: " + accent + " !important;");
+      $(cursor).attr("style", "--bs-orange: " + accent + " !important; background-color: " + accent + " !important; background: " + accent + " !important;");
       console.log("Cursor background set to:", accent);
       
       // Debug: Check computed style
@@ -838,6 +839,7 @@ $(function () {
         console.log("Computed background-color:", computedStyle.backgroundColor);
         console.log("Computed background:", computedStyle.background);
         console.log("Inline style:", cursor.style.backgroundColor);
+        console.log("Bootstrap orange variable:", computedStyle.getPropertyValue('--bs-orange'));
       }, 100);
     });
 
