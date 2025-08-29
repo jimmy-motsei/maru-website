@@ -1222,7 +1222,10 @@ html body div.mil-ball.mil-accent * {
   background: #00ff00 !important;
   opacity: 1 !important;
   visibility: visible !important;
-  display: block !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
   /* Keep text within circle bounds */
   width: 100% !important;
   height: 100% !important;
