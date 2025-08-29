@@ -1134,6 +1134,7 @@ cursor
 }
 .mil-ball.mil-accent {
   background-color: #f0b265 !important;
+  background: #f0b265 !important;
 }
 .mil-ball.mil-accent .mil-icon-1 svg {
   fill: rgb(255, 255, 255);

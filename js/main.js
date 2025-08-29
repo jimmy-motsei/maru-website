@@ -322,7 +322,7 @@ $(function () {
 
   $(".mil-accent-cursor").mouseover(function () {
     gsap.to($(cursor), 0.2, {
-      background: accent,
+      backgroundColor: accent,
       ease: "sine",
     });
     $(cursor).addClass("mil-accent");
@@ -330,7 +330,7 @@ $(function () {
 
   $(".mil-accent-cursor").mouseleave(function () {
     gsap.to($(cursor), 0.2, {
-      background: dark,
+      backgroundColor: dark,
       ease: "sine",
     });
     $(cursor).removeClass("mil-accent");
@@ -822,7 +822,7 @@ $(function () {
 
     $(".mil-accent-cursor").mouseover(function () {
       gsap.to($(cursor), 0.2, {
-        background: accent,
+        backgroundColor: accent,
         ease: "sine",
       });
       $(cursor).addClass("mil-accent");
@@ -830,7 +830,7 @@ $(function () {
 
     $(".mil-accent-cursor").mouseleave(function () {
       gsap.to($(cursor), 0.2, {
-        background: dark,
+        backgroundColor: dark,
         ease: "sine",
       });
       $(cursor).removeClass("mil-accent");
