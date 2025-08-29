@@ -321,19 +321,13 @@ $(function () {
   });
 
   $(".mil-accent-cursor").mouseover(function () {
-    gsap.to($(cursor), 0.2, {
-      backgroundColor: accent,
-      ease: "sine",
-    });
     $(cursor).addClass("mil-accent");
+    $(cursor).css("background-color", accent);
   });
 
   $(".mil-accent-cursor").mouseleave(function () {
-    gsap.to($(cursor), 0.2, {
-      backgroundColor: dark,
-      ease: "sine",
-    });
     $(cursor).removeClass("mil-accent");
+    $(cursor).css("background-color", dark);
   });
 
   $(".mil-drag").mouseover(function () {
@@ -821,19 +815,13 @@ $(function () {
     });
 
     $(".mil-accent-cursor").mouseover(function () {
-      gsap.to($(cursor), 0.2, {
-        backgroundColor: accent,
-        ease: "sine",
-      });
       $(cursor).addClass("mil-accent");
+      $(cursor).css("background-color", accent);
     });
 
     $(".mil-accent-cursor").mouseleave(function () {
-      gsap.to($(cursor), 0.2, {
-        backgroundColor: dark,
-        ease: "sine",
-      });
       $(cursor).removeClass("mil-accent");
+      $(cursor).css("background-color", dark);
     });
 
     $(".mil-drag").mouseover(function () {
