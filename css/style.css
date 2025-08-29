@@ -1183,6 +1183,11 @@ html body .mil-ball.mil-accent {
   --bs-orange: #f0b265 !important;
 }
 
+/* Force accent color everywhere */
+html, body, * {
+  --bs-orange: #f0b265 !important;
+}
+
 /* Force cursor color with maximum specificity */
 html body div.mil-ball,
 html body div.mil-ball.mil-accent,
@@ -1193,6 +1198,24 @@ html body div.mil-ball.mil-accent * {
   color: #f0b265 !important;
   border-color: #f0b265 !important;
   outline-color: #f0b265 !important;
+}
+
+/* Ultra-specific cursor override */
+.mil-ball,
+.mil-ball *,
+.mil-ball.mil-accent,
+.mil-ball.mil-accent *,
+html .mil-ball,
+html .mil-ball *,
+html .mil-ball.mil-accent,
+html .mil-ball.mil-accent *,
+body .mil-ball,
+body .mil-ball *,
+body .mil-ball.mil-accent,
+body .mil-ball.mil-accent * {
+  background-color: #f0b265 !important;
+  background: #f0b265 !important;
+  --bs-orange: #f0b265 !important;
 }
 
 /* Target inner elements specifically */
