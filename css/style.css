@@ -1188,6 +1188,60 @@ html, body, * {
   --bs-orange: #f0b265 !important;
 }
 
+/* Services page specific styling */
+.mil-portfolio-item.mil-service-card {
+  background-color: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  transition: all 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mil-portfolio-item.mil-service-card:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mil-portfolio-item.mil-service-card .mil-cover-frame {
+  margin-bottom: 0;
+}
+
+.mil-portfolio-item.mil-service-card .mil-descr {
+  background-color: transparent;
+  padding: 30px;
+  height: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mil-portfolio-item.mil-service-card .mil-descr-text {
+  margin-bottom: 20px;
+}
+
+.mil-portfolio-item.mil-service-card .mil-descr-text h4 {
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.mil-portfolio-item.mil-service-card .mil-descr-text p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.mil-portfolio-item.mil-service-card .mil-link {
+  margin-top: auto;
+}
+
+@media screen and (max-width: 992px) {
+  .mil-portfolio-item.mil-service-card .mil-descr {
+    padding: 20px;
+  }
+}
+
 
 
 /* Force cursor color with maximum specificity */
