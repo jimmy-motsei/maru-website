@@ -3388,12 +3388,15 @@ portfolio
      object-position: center;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  /* Ensure images maintain aspect ratio */
+  object-fit: cover;
+  object-position: center top; /* Show top of portrait images */
 }
 .mil-portfolio-item .mil-cover-frame.mil-vert {
-  padding-bottom: 130%;
+  padding-bottom: 150%; /* Better for portrait images (2:3 ratio) */
 }
 .mil-portfolio-item .mil-cover-frame.mil-hori {
-  padding-bottom: 65%;
+  padding-bottom: 75%; /* Better for landscape display of portrait images */
 }
 .mil-portfolio-item:hover .mil-cover-frame .mil-cover img {
   -webkit-transform: scale(1.05);
