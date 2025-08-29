@@ -7,15 +7,19 @@ This repository contains the Aurellius website - a comprehensive platform showca
 ## 🎯 Our Services
 
 ### **SmartGuest AI**
+
 Complete AI-powered guest management system for hotels, lodges, and guesthouses. Automates bookings, check-ins, communications, and operations while driving repeat business.
 
-### **BizInsight AI** 
+### **BizInsight AI**
+
 Pre-built AI analytics platform for marketing departments and companies. Transforms operational data into actionable business insights for data-driven decision making.
 
 ### **AI Mastery Workshops**
+
 Custom AI education and training programs for companies. Empowers teams with practical AI skills, implementation strategies, and hands-on workshops tailored to specific industries.
 
 ### **Custom AI Solutions**
+
 Bespoke AI development for unique business challenges. From concept to deployment, we build custom AI solutions that solve specific operational problems and drive growth.
 
 ## 🌍 Target Market
@@ -41,7 +45,7 @@ Bespoke AI development for unique business challenges. From concept to deploymen
 ├── ai-mastery-workshops.html  # AI training services page
 ├── custom-ai-solutions.html   # Custom development services page
 ├── knowledge.html             # AI knowledge articles
-├── our-work.html              # Case studies and portfolio
+
 ├── contact.html               # Contact information
 ├── css/                       # Stylesheets
 ├── img/                       # Images and assets

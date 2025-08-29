@@ -404,7 +404,7 @@ $(function () {
     $(".mil-ball .mil-choose-text").css("transform", "scale(0)");
   });
 
-    $(
+  $(
     'a:not(".mil-choose , .mil-more , .mil-drag , .mil-accent-cursor"), input , textarea, .mil-accordion-menu'
   ).mouseover(function () {
     // Disable GSAP animation to prevent color conflicts
@@ -418,7 +418,7 @@ $(function () {
     // Disable GSAP animation to prevent color conflicts
     $(cursor).css("transform", "scale(1)");
     $(".mil-ball svg").css("transform", "scale(1)");
-    
+
     // Ensure cursor color is preserved
     if (!$(cursor).hasClass("mil-accent")) {
       $(cursor).css("background-color", dark);
@@ -451,10 +451,16 @@ $(function () {
     ***************************/
   $(".mil-has-children > a").on("click", function (e) {
     e.preventDefault();
-    $(".mil-has-children ul").removeClass("mil-active");
-    $(".mil-has-children a").removeClass("mil-active");
-    $(this).toggleClass("mil-active");
-    $(this).next().toggleClass("mil-active");
+    var $currentDropdown = $(this).next();
+    var $currentLink = $(this);
+
+    // Close other dropdowns
+    $(".mil-has-children ul").not($currentDropdown).removeClass("mil-active");
+    $(".mil-has-children a").not($currentLink).removeClass("mil-active");
+
+    // Toggle current dropdown
+    $currentLink.toggleClass("mil-active");
+    $currentDropdown.toggleClass("mil-active");
   });
   /***************************
 
@@ -1045,10 +1051,16 @@ $(function () {
         ***************************/
     $(".mil-has-children > a").on("click", function (e) {
       e.preventDefault();
-      $(".mil-has-children ul").removeClass("mil-active");
-      $(".mil-has-children a").removeClass("mil-active");
-      $(this).toggleClass("mil-active");
-      $(this).next().toggleClass("mil-active");
+      var $currentDropdown = $(this).next();
+      var $currentLink = $(this);
+
+      // Close other dropdowns
+      $(".mil-has-children ul").not($currentDropdown).removeClass("mil-active");
+      $(".mil-has-children a").not($currentLink).removeClass("mil-active");
+
+      // Toggle current dropdown
+      $currentLink.toggleClass("mil-active");
+      $currentDropdown.toggleClass("mil-active");
     });
     /***************************
 

@@ -431,10 +431,16 @@ $(function () {
 
     ***************************/
   $(".mil-has-children a").on("click", function () {
-    $(".mil-has-children ul").removeClass("mil-active");
-    $(".mil-has-children a").removeClass("mil-active");
-    $(this).toggleClass("mil-active");
-    $(this).next().toggleClass("mil-active");
+    var $currentDropdown = $(this).next();
+    var $currentLink = $(this);
+    
+    // Close other dropdowns
+    $(".mil-has-children ul").not($currentDropdown).removeClass("mil-active");
+    $(".mil-has-children a").not($currentLink).removeClass("mil-active");
+    
+    // Toggle current dropdown
+    $currentLink.toggleClass("mil-active");
+    $currentDropdown.toggleClass("mil-active");
   });
   /***************************
 
@@ -920,10 +926,16 @@ $(function () {
 
         ***************************/
     $(".mil-has-children a").on("click", function () {
-      $(".mil-has-children ul").removeClass("mil-active");
-      $(".mil-has-children a").removeClass("mil-active");
-      $(this).toggleClass("mil-active");
-      $(this).next().toggleClass("mil-active");
+      var $currentDropdown = $(this).next();
+      var $currentLink = $(this);
+      
+      // Close other dropdowns
+      $(".mil-has-children ul").not($currentDropdown).removeClass("mil-active");
+      $(".mil-has-children a").not($currentLink).removeClass("mil-active");
+      
+      // Toggle current dropdown
+      $currentLink.toggleClass("mil-active");
+      $currentDropdown.toggleClass("mil-active");
     });
     /***************************
 
