@@ -2035,25 +2035,214 @@ banner
 
 ------------------------------------------- */
 .mil-banner {
+  min-height: 100vh;
   height: 100vh;
+  height: 100dvh; /* dynamic viewport height for mobile */
+  height: 100svh; /* small viewport height for mobile browsers */
+}
+
+/* Fallback for browsers that don't support dvh */
+@supports not (height: 100dvh) {
+  .mil-banner {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+  }
+}
+
+/* Additional fix for mobile browsers */
+@media screen and (max-width: 768px) {
+  .mil-banner {
+    padding: 40px 0;
+    min-height: calc(100vh - 40px);
+  }
+
+  /* iPhone X and mobile optimizations */
+  .mil-banner .mil-banner-content h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 30px;
+  }
+
+  .mil-banner .mil-banner-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  .mil-banner .mil-banner-content .mil-button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 15px 20px;
+  }
+
+  .mil-banner .mil-banner-content .mil-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+  }
+
+  /* Adjust spacing for mobile */
+  .mil-banner .mil-banner-content {
+    margin-top: 60px;
+    padding: 0 20px;
+  }
+
+  /* Make buttons more touch-friendly */
+  .mil-button,
+  .mil-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .mil-banner .container {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .mil-banner .mil-banner-content {
   width: 100%;
-  padding-bottom: 120px;
   position: relative;
+  margin-top: 80px;
 }
 @media screen and (max-width: 992px) {
   .mil-banner .mil-banner-content {
+    padding-top: 90px;
     padding-bottom: 90px;
+  }
+}
+
+/* Mobile navigation optimizations */
+@media screen and (max-width: 768px) {
+  .mil-menu-frame {
+    padding: 20px;
+  }
+
+  .mil-menu-frame .mil-frame-top {
+    padding: 15px 0;
+  }
+
+  .mil-logo {
+    font-size: 1.5rem;
+  }
+
+  .mil-menu-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Improve touch targets */
+  .mil-menu-btn span {
+    height: 2px;
+    margin: 4px 0;
+  }
+
+  /* Mobile menu content */
+  .mil-menu-content {
+    padding: 40px 0;
+  }
+
+  .mil-main-menu li {
+    margin-bottom: 20px;
+  }
+
+  .mil-main-menu a {
+    font-size: 1.2rem;
+    padding: 10px 0;
+  }
+}
+
+/* Testimonial card improvements */
+.mil-team-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.mil-team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.mil-team-card picture {
+  display: block;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.mil-team-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.mil-team-card:hover img {
+  transform: scale(1.05);
+}
+
+.mil-team-card .mil-description {
+  padding: 25px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.mil-team-card .mil-secrc-text h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.mil-team-card .mil-secrc-text .mil-link {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.mil-team-card .mil-secrc-text .mil-text-sm {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #495057;
+  font-style: italic;
+}
+
+/* Mobile testimonial improvements */
+@media screen and (max-width: 768px) {
+  .mil-team-card {
+    margin-bottom: 20px;
+  }
+
+  .mil-team-card picture {
+    height: 180px;
+  }
+
+  .mil-team-card .mil-description {
+    padding: 20px 15px;
+  }
+
+  .mil-team-card .mil-secrc-text h5 {
+    font-size: 1rem;
+  }
+
+  .mil-team-card .mil-secrc-text .mil-text-sm {
+    font-size: 0.8rem;
   }
 }
 .mil-banner .mil-lines-place {

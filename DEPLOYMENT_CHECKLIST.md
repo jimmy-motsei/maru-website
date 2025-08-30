@@ -90,9 +90,9 @@ git push origin main
 
 ### 2. Calendly Integration
 
-- [ ] Set up Calendly account
-- [ ] Configure demo booking calendar
-- [ ] Update Calendly URL in request-demo.html
+- [x] Set up Calendly account
+- [x] Configure demo booking calendar
+- [x] Update Calendly URL in request-demo.html
 - [ ] Test booking flow
 
 ### 3. Analytics & Monitoring
