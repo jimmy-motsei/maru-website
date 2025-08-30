@@ -17,6 +17,15 @@
     <link rel="stylesheet" href="css/style.css?v=3.3" />
     <!-- page name -->
     <title>Contact Maru | AI Marketing Experts</title>
+
+    <!-- HubSpot Integration -->
+    <script
+      type="text/javascript"
+      id="hs-script-loader"
+      async
+      defer
+      src="//js-eu1.hs-scripts.com/146669350.js"
+    ></script>
   </head>
 
   <body>
@@ -74,27 +83,42 @@
               <div class="col-xl-5">
                 <nav class="mil-main-menu" id="swupMenu">
                   <ul>
-  <li class="mil-has-children"><a href="index.html">Homepage</a></li>
-  <li class="mil-has-children"><a href="services.html">Services</a>
-    <ul>
-      <li><a href="smartguest-ai.html">SmartGuest AI</a></li>
-      <li><a href="bizinsight-ai.html">BizInsight AI</a></li>
-      <li><a href="ai-mastery-workshops.html">AI Mastery Workshops</a></li>
-      <li><a href="custom-ai-solutions.html">Custom AI Solutions</a></li>
-    </ul>
-  </li>
-  <li class="mil-has-children"><a href="knowledge.html">Resources</a>
-    <ul>
-      <li><a href="knowledge.html">Knowledge</a></li>
-    </ul>
-  </li>
-  <li class="mil-has-children mil-active"><a href="contact.html">Other pages</a>
-    <ul>
-      <li class="mil-active"><a href="contact.html">Contact</a></li>
-      <li><a href="404.html">404</a></li>
-    </ul>
-  </li>
-</ul>
+                    <li class="mil-has-children">
+                      <a href="index.html">Homepage</a>
+                    </li>
+                    <li class="mil-has-children">
+                      <a href="services.html">Services</a>
+                      <ul>
+                        <li><a href="smartguest-ai.html">SmartGuest AI</a></li>
+                        <li><a href="bizinsight-ai.html">BizInsight AI</a></li>
+                        <li>
+                          <a href="ai-mastery-workshops.html"
+                            >AI Mastery Workshops</a
+                          >
+                        </li>
+                        <li>
+                          <a href="custom-ai-solutions.html"
+                            >Custom AI Solutions</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="mil-has-children">
+                      <a href="knowledge.html">Resources</a>
+                      <ul>
+                        <li><a href="knowledge.html">Knowledge</a></li>
+                      </ul>
+                    </li>
+                    <li class="mil-has-children mil-active">
+                      <a href="contact.html">Other pages</a>
+                      <ul>
+                        <li class="mil-active">
+                          <a href="contact.html">Contact</a>
+                        </li>
+                        <li><a href="404.html">404</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </nav>
               </div>
               <div class="col-xl-7">
@@ -112,8 +136,7 @@
                     <div class="row">
                       <div class="col-lg-8 mil-mb-60">
                         <h6 class="mil-muted mil-mb-30">Our Work</h6>
-<ul class="mil-menu-list">
-</ul>
+                        <ul class="mil-menu-list"></ul>
                       </div>
                       <div class="col-lg-4 mil-mb-60">
                         <h6 class="mil-muted mil-mb-30">Useful links</h6>
@@ -124,7 +147,9 @@
                             >
                           </li>
                           <li>
-                            <a href="terms-conditions.html" class="mil-light-soft"
+                            <a
+                              href="terms-conditions.html"
+                              class="mil-light-soft"
                               >Terms and conditions</a
                             >
                           </li>
@@ -134,7 +159,9 @@
                             >
                           </li>
                           <li>
-                            <a href="careers.html" class="mil-light-soft">Careers</a>
+                            <a href="careers.html" class="mil-light-soft"
+                              >Careers</a
+                            >
                           </li>
                         </ul>
                       </div>
@@ -230,30 +257,26 @@
               <h3 class="mil-center mil-up mil-mb-120">
                 Let's <span class="mil-thin">Talk</span>
               </h3>
-              <form class="row align-items-center" action="https://formspree.io/f/jimmy@maruonline.com" method="POST">
-                <div class="col-lg-6 mil-up">
-                  <input type="text" name="name" placeholder="What's your name" required />
-                </div>
-                <div class="col-lg-6 mil-up">
-                  <input type="email" name="email" placeholder="Your Email" required />
-                </div>
+              <!-- HubSpot Contact Form -->
+              <div class="row align-items-center">
                 <div class="col-lg-12 mil-up">
-                  <textarea name="message" placeholder="Tell us about our project" required></textarea>
-                </div>
-                <div class="col-lg-8">
-                  <p class="mil-up mil-mb-30">
-                    <span class="mil-accent">*</span> We promise not to disclose
-                    your personal information to third parties.
-                  </p>
-                </div>
-                <div class="col-lg-4">
-                  <div class="mil-adaptive-right mil-up mil-mb-30">
-                    <button type="submit" class="mil-button mil-arrow-place">
-                      <span>Send message</span>
-                    </button>
+                  <div id="hubspot-contact-form">
+                    <!-- HubSpot form will be embedded here -->
+                    <script
+                      charset="utf-8"
+                      type="text/javascript"
+                      src="//js.hsforms.net/forms/embed/v2.js"
+                    ></script>
+                                          <script>
+                        hbspt.forms.create({
+                          region: "eu1",
+                          portalId: "146669350",
+                          formId: "YOUR_FORM_ID",
+                        });
+                      </script>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </section>
           <!-- contact form end -->
@@ -266,7 +289,16 @@
                 <div class="row justify-content-between">
                   <div class="col-md-4 col-lg-4 mil-mb-60">
                     <div class="mil-muted mil-logo mil-up mil-mb-30">
-                      <img src="img/new_maru_logo_neutral.png" alt="Maru Logo" style="max-height: 200px; width: auto; display: block; margin-bottom: 20px;">
+                      <img
+                        src="img/new_maru_logo_neutral.png"
+                        alt="Maru Logo"
+                        style="
+                          max-height: 200px;
+                          width: auto;
+                          display: block;
+                          margin-bottom: 20px;
+                        "
+                      />
                     </div>
                     <p class="mil-light-soft mil-up mil-mb-30">
                       Subscribe to our newsletter:
@@ -307,7 +339,9 @@
                             >
                           </li>
                           <li>
-                            <a href="terms-conditions.html" class="mil-light-soft"
+                            <a
+                              href="terms-conditions.html"
+                              class="mil-light-soft"
                               >Terms and conditions</a
                             >
                           </li>
@@ -317,7 +351,9 @@
                             >
                           </li>
                           <li>
-                            <a href="careers.html" class="mil-light-soft">Careers</a>
+                            <a href="careers.html" class="mil-light-soft"
+                              >Careers</a
+                            >
                           </li>
                         </ul>
                       </div>
@@ -351,22 +387,38 @@
                       <div class="mil-mb-30">
                         <ul class="mil-social-icons mil-up">
                           <li>
-                            <a href="https://linkedin.com/company/maru-ai" target="_blank" class="social-icon">
+                            <a
+                              href="https://linkedin.com/company/maru-ai"
+                              target="_blank"
+                              class="social-icon"
+                            >
                               <i class="far fa-circle"></i>
                             </a>
                           </li>
                           <li>
-                            <a href="https://linkedin.com/company/maru-ai" target="_blank" class="social-icon">
+                            <a
+                              href="https://linkedin.com/company/maru-ai"
+                              target="_blank"
+                              class="social-icon"
+                            >
                               <i class="far fa-circle"></i>
                             </a>
                           </li>
                           <li>
-                            <a href="https://linkedin.com/company/maru-ai" target="_blank" class="social-icon">
+                            <a
+                              href="https://linkedin.com/company/maru-ai"
+                              target="_blank"
+                              class="social-icon"
+                            >
                               <i class="far fa-circle"></i>
                             </a>
                           </li>
                           <li>
-                            <a href="https://linkedin.com/company/maru-ai" target="_blank" class="social-icon">
+                            <a
+                              href="https://linkedin.com/company/maru-ai"
+                              target="_blank"
+                              class="social-icon"
+                            >
                               <i class="far fa-circle"></i>
                             </a>
                           </li>
