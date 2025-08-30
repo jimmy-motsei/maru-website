@@ -2174,6 +2174,21 @@ banner
   margin-bottom: 30px;
 }
 
+/* Ensure testimonial images display properly */
+.mil-team-card picture {
+  display: block !important;
+  width: 100% !important;
+  height: 200px !important;
+  overflow: hidden !important;
+}
+
+.mil-team-card picture img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
 .mil-team-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
