@@ -1,0 +1,19 @@
+<svg width="150" height="56" viewBox="0 0 150 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Innovation icon background -->
+  <rect x="8" y="8" width="40" height="40" rx="20" fill="#7C3AED"/>
+  
+  <!-- Lightbulb icon -->
+  <path d="M18 20 Q18 16 22 16 Q26 16 26 20 Q26 24 24 26 L24 32 L20 32 L20 26 Q18 24 18 20" stroke="white" stroke-width="2" fill="none"/>
+  <path d="M20 32 L24 32 L24 36 L20 36" stroke="white" stroke-width="2" fill="none"/>
+  <path d="M22 16 L22 12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M19 13 L25 13" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Sparkle effects -->
+  <path d="M30 18 L32 16 L30 14" stroke="white" stroke-width="1" stroke-linecap="round"/>
+  <path d="M14 30 L16 28 L14 26" stroke="white" stroke-width="1" stroke-linecap="round"/>
+  <path d="M32 32 L34 30 L32 28" stroke="white" stroke-width="1" stroke-linecap="round"/>
+  
+  <!-- Company name -->
+  <text x="120" y="30" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Innovation Labs</text>
+  <text x="120" y="42" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="6">Research & Development</text>
+</svg>
