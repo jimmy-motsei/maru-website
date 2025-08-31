@@ -2355,22 +2355,28 @@ banner
   /* Button spacing */
   .mil-btn-space {
     margin-right: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+  }
+  
+  /* Banner content spacing */
+  .mil-banner .mil-banner-content {
+    padding-bottom: 40px;
   }
 
   /* Banner button layout */
   .mil-banner .mil-banner-content .mil-button {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     width: auto;
     max-width: 100%;
   }
   
   .mil-banner .mil-banner-content .mil-link {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     display: inline-block;
     background: none !important;
     color: rgba(255, 255, 255, 0.7) !important;
     border-radius: 0 !important;
+    padding: 15px 0;
   }
   
   .mil-banner .mil-banner-content .mil-link:hover {
@@ -2426,8 +2432,12 @@ banner
   .mil-banner .mil-banner-content .mil-link {
     display: block;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     text-align: center;
+  }
+  
+  .mil-banner .mil-banner-content .mil-link {
+    padding: 12px 0;
   }
 
   /* Service card improvements for small screens */
