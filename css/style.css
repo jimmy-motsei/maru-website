@@ -2102,6 +2102,39 @@ banner
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 70px;
+    background-color: rgb(0, 188, 212);
+    color: rgb(0, 0, 0);
+    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  }
+
+  /* Ensure button icons display properly on mobile */
+  .mil-button svg {
+    margin-left: 20px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    padding: 8px;
+    background-color: rgb(0, 0, 0);
+    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  }
+
+  .mil-button svg path {
+    fill: rgb(0, 188, 212);
+  }
+
+  /* Mobile button hover effects */
+  .mil-button:hover {
+    transform: scale(1.015);
+    filter: brightness(110%);
+  }
+
+  .mil-button:hover svg {
+    transform: scale(1.15);
   }
 }
 .mil-banner .container {
@@ -2125,8 +2158,19 @@ banner
   }
 }
 
-/* Mobile navigation optimizations */
+/* iPhone X and mobile optimizations */
 @media screen and (max-width: 768px) {
+  /* iPhone X safe area support */
+  .mil-banner {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Ensure proper viewport height on iPhone X */
+  .mil-banner {
+    min-height: 100vh;
+    height: 100dvh;
+  }
   .mil-menu-frame {
     padding: 20px;
   }
@@ -2162,6 +2206,31 @@ banner
   .mil-main-menu a {
     font-size: 1.2rem;
     padding: 10px 0;
+  }
+
+  /* Mobile button improvements */
+  .mil-button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+  }
+
+  /* Ensure buttons work properly on touch devices */
+  .mil-button:active {
+    transform: scale(0.98);
+  }
+
+  /* Fix button text wrapping on mobile */
+  .mil-button span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Improve mobile link styling */
+  .mil-link {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 }
 
