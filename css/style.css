@@ -2870,9 +2870,38 @@ partners
 
 .mil-partner-frame {
   display: block;
+  opacity: 1;
+  filter: grayscale(0%);
+  transition: all 0.3s ease;
 }
+
+.mil-partner-frame:hover {
+  opacity: 0.8;
+  filter: grayscale(0%);
+}
+
 .mil-partner-frame img {
   width: 100%;
+  height: auto;
+  max-width: 150px;
+  display: block;
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* Ensure partner logos are visible in scrolling banner */
+.mil-infinite-show .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+.mil-infinite-show .mil-partner-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 /* -------------------------------------------
