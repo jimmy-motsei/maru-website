@@ -2095,7 +2095,7 @@ banner
     padding: 0 20px;
   }
 
-  /* Make buttons more touch-friendly */
+  /* Mobile button base styles - overridden by more specific rules below */
   .mil-button,
   .mil-link {
     min-height: 44px;
@@ -2171,6 +2171,7 @@ banner
     min-height: 100vh;
     height: 100dvh;
   }
+  
   .mil-menu-frame {
     padding: 20px;
   }
@@ -2208,29 +2209,141 @@ banner
     padding: 10px 0;
   }
 
-  /* Mobile button improvements */
+  /* Comprehensive mobile button fixes */
   .mil-button {
+    /* Touch-friendly sizing */
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 20px;
+    
+    /* Better mobile styling */
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    border-radius: 50px;
+    
+    /* Touch interactions */
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    
+    /* Ensure proper display */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    
+    /* Smooth transitions */
+    transition: all 0.3s ease;
   }
 
-  /* Ensure buttons work properly on touch devices */
-  .mil-button:active {
-    transform: scale(0.98);
-  }
-
-  /* Fix button text wrapping on mobile */
+  /* Button text styling */
   .mil-button span {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 200px;
+    display: block;
   }
 
-  /* Improve mobile link styling */
+  /* Button icon styling */
+  .mil-button svg {
+    margin-left: 15px;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    flex-shrink: 0;
+  }
+
+  /* Icon-only buttons */
+  .mil-button.mil-icon-button {
+    padding: 12px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  .mil-button.mil-icon-button svg {
+    margin-left: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Small icon buttons */
+  .mil-button.mil-icon-button-sm {
+    padding: 8px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .mil-button.mil-icon-button-sm svg {
+    margin-left: 0;
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+  }
+
+  /* Touch feedback */
+  .mil-button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+
+  /* Hover effects for devices that support it */
+  .mil-button:hover {
+    transform: scale(1.02);
+    filter: brightness(110%);
+  }
+
+  .mil-button:hover svg {
+    transform: scale(1.1);
+  }
+
+  /* Arrow button specific fixes */
+  .mil-button.mil-arrow-down svg {
+    transform: rotate(90deg);
+  }
+
+  .mil-button.mil-arrow-down:hover svg {
+    transform: scale(1.1) rotate(90deg);
+  }
+
+  /* Link styling improvements */
   .mil-link {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 0;
+  }
+
+  /* Button spacing */
+  .mil-btn-space {
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+
+  /* Banner button layout */
+  .mil-banner .mil-banner-content .mil-button {
+    margin-bottom: 15px;
+    width: auto;
+    max-width: 100%;
+  }
+
+  /* Service card buttons */
+  .mil-service-card .mil-link {
+    padding: 10px 0;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  /* Footer button */
+  .mil-subscribe-form .mil-button {
+    min-width: 40px;
+    min-height: 40px;
+    padding: 8px;
   }
 }
 
@@ -2241,6 +2354,60 @@ banner
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin-bottom: 30px;
+}
+
+/* Additional mobile button fixes for very small screens */
+@media screen and (max-width: 480px) {
+  .mil-button {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .mil-button span {
+    max-width: 150px;
+  }
+
+  .mil-button svg {
+    margin-left: 12px;
+    width: 28px;
+    height: 28px;
+    padding: 5px;
+  }
+
+  /* Stack buttons vertically on very small screens */
+  .mil-banner .mil-banner-content .mil-button,
+  .mil-banner .mil-banner-content .mil-link {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* Service card improvements for small screens */
+  .mil-service-card .mil-link {
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 8px 0;
+  }
+}
+
+/* Ensure buttons work properly on all touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .mil-button:hover {
+    transform: none;
+    filter: none;
+  }
+
+  .mil-button:active {
+    transform: scale(0.95);
+    filter: brightness(90%);
+  }
+
+  .mil-button:active svg {
+    transform: scale(1.05);
+  }
 }
 
 /* Ensure testimonial images display properly */
