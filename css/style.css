@@ -2466,18 +2466,24 @@ banner
 }
 
 /* Ensure testimonial images display properly */
-.mil-team-card picture {
+.mil-team-card picture,
+.mil-testimonial-image {
   display: block !important;
   width: 100% !important;
   height: 200px !important;
   overflow: hidden !important;
+  position: relative !important;
 }
 
-.mil-team-card picture img {
+.mil-team-card picture img,
+.mil-testimonial-image img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
   display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
 }
 
 .mil-team-card:hover {
@@ -2535,8 +2541,10 @@ banner
     margin-bottom: 20px;
   }
 
-  .mil-team-card picture {
-    height: 180px;
+  .mil-team-card picture,
+  .mil-testimonial-image {
+    height: 180px !important;
+    display: block !important;
   }
 
   .mil-team-card .mil-description {
