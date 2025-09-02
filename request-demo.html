@@ -15,6 +15,27 @@
     <link rel="stylesheet" href="css/plugins/fancybox.min.css" />
     <!-- maru scss -->
     <link rel="stylesheet" href="css/style.css?v=3.4" />
+    <style>
+      /* Ensure Calendly widget is visible */
+      .calendly-inline-widget {
+        position: relative !important;
+        z-index: 1000 !important;
+        background: white !important;
+        min-height: 700px !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+
+      /* Override any conflicting styles */
+      .mil-post-content .calendly-inline-widget {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 1px solid #e0e0e0 !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+      }
+    </style>
     <!-- favicon -->
     <link
       rel="icon"
@@ -60,6 +81,34 @@
       src="https://assets.calendly.com/assets/external/widget.js"
       async
     ></script>
+    <script>
+      // Debug Calendly loading
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          if (typeof Calendly === "undefined") {
+            console.error("Calendly failed to load");
+            // Show fallback message
+            const widgetContainer = document.querySelector(
+              ".calendly-inline-widget"
+            );
+            if (widgetContainer) {
+              widgetContainer.innerHTML = `
+                <div style="padding: 40px; text-align: center; background: #f8f9fa; border-radius: 8px;">
+                  <h4>Booking Calendar</h4>
+                  <p>If the calendar doesn't appear, please click the button below to book your demo directly.</p>
+                  <a href="https://calendly.com/demo-maruonline/30min" target="_blank" 
+                     style="display: inline-block; padding: 12px 24px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; margin-top: 20px;">
+                    Book Demo on Calendly
+                  </a>
+                </div>
+              `;
+            }
+          } else {
+            console.log("Calendly loaded successfully");
+          }
+        }, 3000); // Wait 3 seconds for Calendly to load
+      });
+    </script>
   </head>
 
   <body>
@@ -329,10 +378,167 @@
                     <!-- Calendly inline widget -->
                     <div class="mil-up mil-mb-60">
                       <div
-                        class="calendly-inline-widget"
-                        data-url="https://calendly.com/demo-maruonline/30min"
-                        style="min-width: 320px; height: 700px"
-                      ></div>
+                        id="calendly-container"
+                        style="
+                          min-width: 320px;
+                          height: 700px;
+                          border: 1px solid #e0e0e0;
+                          border-radius: 8px;
+                          position: relative;
+                        "
+                      >
+                        <!-- Loading indicator -->
+                        <div
+                          id="calendly-loading"
+                          style="
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            text-align: center;
+                            z-index: 1;
+                          "
+                        >
+                          <div style="margin-bottom: 20px">
+                            <div
+                              style="
+                                width: 40px;
+                                height: 40px;
+                                border: 4px solid #f3f3f3;
+                                border-top: 4px solid #007bff;
+                                border-radius: 50%;
+                                animation: spin 1s linear infinite;
+                                margin: 0 auto;
+                              "
+                            ></div>
+                          </div>
+                          <p>Loading booking calendar...</p>
+                        </div>
+
+                        <!-- Calendly widget -->
+                        <div
+                          class="calendly-inline-widget"
+                          data-url="https://calendly.com/demo-maruonline/30min"
+                          style="
+                            min-width: 320px;
+                            height: 700px;
+                            opacity: 0;
+                            transition: opacity 0.3s ease;
+                          "
+                        ></div>
+                      </div>
+
+                      <style>
+                        @keyframes spin {
+                          0% {
+                            transform: rotate(0deg);
+                          }
+                          100% {
+                            transform: rotate(360deg);
+                          }
+                        }
+                      </style>
+
+                      <script>
+                        // Enhanced Calendly widget initialization
+                        function initCalendly() {
+                          const widget = document.querySelector(
+                            ".calendly-inline-widget"
+                          );
+                          const loading =
+                            document.getElementById("calendly-loading");
+
+                          if (typeof Calendly !== "undefined") {
+                            console.log(
+                              "Calendly loaded, initializing widget..."
+                            );
+
+                            // Initialize the widget
+                            Calendly.initInlineWidget({
+                              url: "https://calendly.com/demo-maruonline/30min",
+                              parentElement: widget,
+                              minWidth: "320px",
+                              height: "700px",
+                            });
+
+                            // Hide loading indicator and show widget
+                            setTimeout(function () {
+                              if (loading) loading.style.display = "none";
+                              if (widget) widget.style.opacity = "1";
+                            }, 1000);
+                          } else {
+                            console.error("Calendly not available");
+                            showFallback();
+                          }
+                        }
+
+                        function showFallback() {
+                          const container =
+                            document.getElementById("calendly-container");
+                          const loading =
+                            document.getElementById("calendly-loading");
+
+                          if (loading) loading.style.display = "none";
+
+                          if (container) {
+                            container.innerHTML = `
+                              <div style="padding: 40px; text-align: center; background: #f8f9fa; border-radius: 8px; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <h4 style="margin-bottom: 20px;">Booking Calendar</h4>
+                                <p style="margin-bottom: 30px;">Unable to load the embedded calendar. Please click the button below to book your demo directly on Calendly.</p>
+                                <a href="https://calendly.com/demo-maruonline/30min" target="_blank" 
+                                   style="display: inline-block; padding: 15px 30px; background: #007bff; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease;">
+                                  Book Demo on Calendly
+                                </a>
+                                <p style="margin-top: 20px; font-size: 14px; color: #666;">
+                                  Or contact us directly: <a href="mailto:demo@maruonline.com">demo@maruonline.com</a>
+                                </p>
+                              </div>
+                            `;
+                          }
+                        }
+
+                        // Try to initialize when page loads
+                        window.addEventListener("load", function () {
+                          console.log("Request demo page loaded");
+                          console.log(
+                            "Calendly script loaded:",
+                            typeof Calendly !== "undefined"
+                          );
+
+                          // Wait a bit for Calendly to load
+                          setTimeout(initCalendly, 2000);
+
+                          // Fallback if Calendly doesn't load within 5 seconds
+                          setTimeout(function () {
+                            if (typeof Calendly === "undefined") {
+                              console.error(
+                                "Calendly failed to load after 5 seconds"
+                              );
+                              showFallback();
+                            }
+                          }, 5000);
+                        });
+
+                        // Additional debugging
+                        document.addEventListener(
+                          "DOMContentLoaded",
+                          function () {
+                            console.log(
+                              "DOM loaded, checking for Calendly elements..."
+                            );
+                            const widget = document.querySelector(
+                              ".calendly-inline-widget"
+                            );
+                            const container =
+                              document.getElementById("calendly-container");
+                            console.log("Widget element found:", !!widget);
+                            console.log(
+                              "Container element found:",
+                              !!container
+                            );
+                          }
+                        );
+                      </script>
                     </div>
                   </div>
                 </div>

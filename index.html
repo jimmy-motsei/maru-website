@@ -70,11 +70,7 @@
       </div>
       <!-- preloader end -->
 
-      <!-- scrollbar progress -->
-      <div class="mil-progress-track">
-        <div class="mil-progress"></div>
-      </div>
-      <!-- scrollbar progress end -->
+
 
       <!-- menu -->
       <div class="mil-menu-frame">
@@ -362,25 +358,25 @@
                         <source
                           type="image/avif"
                           srcset="
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-320.avif   320w,
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-640.avif   640w,
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-960.avif   960w,
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-1280.avif 1280w
+                            img/optimized/photo/chat_gpt-image-320.avif   320w,
+                            img/optimized/photo/chat_gpt-image-640.avif   640w,
+                            img/optimized/photo/chat_gpt-image-960.avif   960w,
+                            img/optimized/photo/chat_gpt-image-1280.avif 1280w
                           "
                           sizes="(max-width: 768px) 100vw, 50vw"
                         />
                         <source
                           type="image/webp"
                           srcset="
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-320.webp   320w,
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-640.webp   640w,
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-960.webp   960w,
-                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-1280.webp 1280w
+                            img/optimized/photo/chat_gpt-image-320.webp   320w,
+                            img/optimized/photo/chat_gpt-image-640.webp   640w,
+                            img/optimized/photo/chat_gpt-image-960.webp   960w,
+                            img/optimized/photo/chat_gpt-image-1280.webp 1280w
                           "
                           sizes="(max-width: 768px) 100vw, 50vw"
                         />
                         <img
-                          src="img/photo/chat_gpt-image.png"
+                          src="img/optimized/photo/ChatGPT_Smartphone_1400_2099-1280.png"
                           srcset="
                             img/optimized/photo/ChatGPT_Smartphone_1400_2099-1280.png 1280w
                           "
@@ -440,17 +436,41 @@
                         vertical-align: middle;
                         margin-right: 30px;
                       "
-                      ><img
-                        src="img/works/robot_hand_network.png"
-                        alt="Robotic hand pointing upwards with digital network background"
-                        style="
-                          object-position: center;
-                          object-fit: cover;
-                          width: 100%;
-                          height: 100%;
-                          border-radius: 70px;
-                        "
-                    /></span>
+                    >
+                      <picture>
+                        <source
+                          type="image/avif"
+                          srcset="
+                            img/optimized/works/robot_hand_network-320.avif   320w,
+                            img/optimized/works/robot_hand_network-640.avif   640w,
+                            img/optimized/works/robot_hand_network-960.avif   960w
+                          "
+                          sizes="70px"
+                        />
+                        <source
+                          type="image/webp"
+                          srcset="
+                            img/optimized/works/robot_hand_network-320.webp   320w,
+                            img/optimized/works/robot_hand_network-640.webp   640w,
+                            img/optimized/works/robot_hand_network-960.webp   960w
+                          "
+                          sizes="70px"
+                        />
+                        <img
+                          src="img/optimized/works/robot_hand_network-960.png"
+                          alt="Robotic hand pointing upwards with digital network background"
+                          style="
+                            object-position: center;
+                            object-fit: cover;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 70px;
+                          "
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
+                    </span>
                     <h2 class="mil-h1 mil-muted mil-center">
                       Custom <span class="mil-thin">Solutions</span>
                     </h2>
@@ -479,7 +499,9 @@
                       </p>
                       <div
                         class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></div>
+                      >
+                        <span></span>
+                      </div>
                     </a>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
@@ -493,7 +515,9 @@
                       </p>
                       <div
                         class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></div>
+                      >
+                        <span></span>
+                      </div>
                     </a>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
@@ -509,7 +533,9 @@
                       </p>
                       <div
                         class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></div>
+                      >
+                        <span></span>
+                      </div>
                     </a>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
@@ -525,7 +551,9 @@
                       </p>
                       <div
                         class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></div>
+                      >
+                        <span></span>
+                      </div>
                     </a>
                   </div>
                 </div>
@@ -537,7 +565,7 @@
           <!-- team -->
           <section>
             <div class="container mil-p-120-30">
-              <div class="row justify-content-between align-items-center">
+              <div class="row justify-content-between align-items-start">
                 <div class="col-lg-5 col-xl-4">
                   <div class="mil-mb-90">
                     <h2 class="mil-up mil-mb-60">
@@ -593,7 +621,7 @@
                       >
                     </div>
 
-                    <h4 class="mil-up">
+                    <h4 class="mil-up mil-mb-40">
                       <span class="mil-thin">Don't</span> get left behind
                       <br /><span class="mil-thin">when others</span> are
                       already using AI.
@@ -601,31 +629,24 @@
                   </div>
                 </div>
                 <div class="col-lg-6">
-                  <div class="mil-team-list">
-                    <div class="mil-lines-place"></div>
+                  <div class="mil-mb-90">
+                    <div class="mil-testimonials-section mil-up">
+                      <div class="mil-lines-place"></div>
 
-                    <div class="row mil-mb-60">
-                      <div class="col-sm-6">
-                        <div class="mil-team-card mil-up mil-mb-30">
-                          <picture class="mil-testimonial-image">
-                            <img
-                              src="img/optimized/faces/customers/Woman1_Headshot.png"
-                              alt="Amanda Thompson"
-                              loading="lazy"
-                              decoding="async"
-                              style="object-fit: cover; width: 100%; height: 100%;"
-                            />
-                          </picture>
-                          <div
-                            class="mil-description"
-                            style="opacity: 1; pointer-events: all"
-                          >
-                            <div
-                              class="mil-secrc-text"
-                              style="opacity: 1; transform: translateY(0)"
-                            >
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="mil-testimonial-card mil-up mil-mb-30">
+                            <div class="mil-testimonial-image">
+                              <img
+                                src="img/faces/customers/white_female_280_280.png"
+                                alt="Amanda Thompson"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </div>
+                            <div class="mil-testimonial-content">
                               <h5 class="mil-light mil-mb-5">
-                                <a href="#.">Amanda Thompson</a>
+                                <a href="#.">Sherry Bush</a>
                               </h5>
                               <p class="mil-link mil-light-soft mil-mb-10">
                                 Marketing Director, Tech Startup
@@ -638,28 +659,19 @@
                               </p>
                             </div>
                           </div>
-                        </div>
 
-                        <div class="mil-team-card mil-up mil-mb-30">
-                          <picture class="mil-testimonial-image">
-                            <img
-                              src="img/optimized/faces/customers/woman2_headshot.png"
-                              alt="Jennifer Martinez"
-                              loading="lazy"
-                              decoding="async"
-                              style="object-fit: cover; width: 100%; height: 100%;"
-                            />
-                          </picture>
-                          <div
-                            class="mil-description"
-                            style="opacity: 1; pointer-events: all"
-                          >
-                            <div
-                              class="mil-secrc-text"
-                              style="opacity: 1; transform: translateY(0)"
-                            >
+                          <div class="mil-testimonial-card mil-up mil-mb-30">
+                            <div class="mil-testimonial-image">
+                              <img
+                                src="img/faces/customers/black_female_280_280.png"
+                                alt="Jennifer Martinez"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </div>
+                            <div class="mil-testimonial-content">
                               <h5 class="mil-light mil-mb-5">
-                                <a href="#.">Jennifer Martinez</a>
+                                <a href="#.">Aisha Tlale</a>
                               </h5>
                               <p class="mil-link mil-light-soft mil-mb-10">
                                 CEO, Manufacturing Company
@@ -672,36 +684,20 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <p
-                          class="mil-mobile-hidden mil-text-sm mil-mb-30"
-                          style="height: 30px"
-                        >
-                          <span class="mil-accent">*</span> Real results from
-                          real clients
-                        </p>
+                        <div class="col-md-6">
 
-                        <div class="mil-team-card mil-up mil-mb-30">
-                          <picture class="mil-testimonial-image">
-                            <img
-                              src="img/optimized/faces/customers/young_man_headshot.png"
-                              alt="Marcus Johnson"
-                              loading="lazy"
-                              decoding="async"
-                              style="object-fit: cover; width: 100%; height: 100%;"
-                            />
-                          </picture>
-                          <div
-                            class="mil-description"
-                            style="opacity: 1; pointer-events: all"
-                          >
-                            <div
-                              class="mil-secrc-text"
-                              style="opacity: 1; transform: translateY(0)"
-                            >
+                          <div class="mil-testimonial-card mil-up mil-mb-30">
+                            <div class="mil-testimonial-image">
+                              <img
+                                src="img/faces/customers/white_male_280_280.png"
+                                alt="Marcus Johnson"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </div>
+                            <div class="mil-testimonial-content">
                               <h5 class="mil-light mil-mb-5">
-                                <a href="#.">Marcus Johnson</a>
+                                <a href="#.">James Mitchell</a>
                               </h5>
                               <p class="mil-link mil-light-soft mil-mb-10">
                                 VP Marketing, SaaS Company
@@ -713,28 +709,19 @@
                               </p>
                             </div>
                           </div>
-                        </div>
 
-                        <div class="mil-team-card mil-up mil-mb-30">
-                          <picture class="mil-testimonial-image">
-                            <img
-                              src="img/optimized/faces/customers/business_face_4.png"
-                              alt="Carlos Rodriguez"
-                              loading="lazy"
-                              decoding="async"
-                              style="object-fit: cover; width: 100%; height: 100%;"
-                            />
-                          </picture>
-                          <div
-                            class="mil-description"
-                            style="opacity: 1; pointer-events: all"
-                          >
-                            <div
-                              class="mil-secrc-text"
-                              style="opacity: 1; transform: translateY(0)"
-                            >
+                          <div class="mil-testimonial-card mil-up mil-mb-30">
+                            <div class="mil-testimonial-image">
+                              <img
+                                src="img/faces/customers/black_male_280_280.png"
+                                alt="Carlos Rodriguez"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </div>
+                            <div class="mil-testimonial-content">
                               <h5 class="mil-light mil-mb-5">
-                                <a href="#.">Carlos Rodriguez</a>
+                                <a href="#.">Michael Opondo</a>
                               </h5>
                               <p class="mil-link mil-light-soft mil-mb-10">
                                 Owner, Boutique Hotel
@@ -757,46 +744,7 @@
           </section>
           <!-- team end -->
 
-          <!-- partners -->
-          <div class="mil-soft-bg">
-            <div class="container mil-p-0-120">
-              <div class="swiper-container mil-infinite-show mil-up">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <a href="#." class="mil-partner-frame" style="width: 120px"
-                      ><img src="img/partners/tech-solutions.svg" alt="Tech Solutions"
-                    /></a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a href="#." class="mil-partner-frame" style="width: 120px"
-                      ><img src="img/partners/innovation-labs.svg" alt="Innovation Labs"
-                    /></a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a href="#." class="mil-partner-frame" style="width: 80px"
-                      ><img src="img/partners/1.svg" alt="Partner 1"
-                    /></a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a href="#." class="mil-partner-frame" style="width: 80px"
-                      ><img src="img/partners/2.svg" alt="Partner 2"
-                    /></a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a href="#." class="mil-partner-frame" style="width: 120px"
-                      ><img src="img/partners/tech-solutions.svg" alt="Tech Solutions"
-                    /></a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a href="#." class="mil-partner-frame" style="width: 120px"
-                      ><img src="img/partners/innovation-labs.svg" alt="Innovation Labs"
-                    /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- partners end -->
+
 
           <!-- blog -->
           <section>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendly Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .test-container {
+        border: 2px solid #ccc;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+      }
+      .calendly-inline-widget {
+        min-width: 320px;
+        height: 700px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+      }
+      .status {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 4px;
+      }
+      .success {
+        background: #d4edda;
+        color: #155724;
+      }
+      .error {
+        background: #f8d7da;
+        color: #721c24;
+      }
+      .info {
+        background: #d1ecf1;
+        color: #0c5460;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calendly Integration Test</h1>
+
+    <div class="test-container">
+      <h2>Test 1: Basic Calendly Widget</h2>
+      <div id="status1" class="status info">Loading...</div>
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/demo-maruonline/30min"
+      ></div>
+    </div>
+
+    <div class="test-container">
+      <h2>Test 2: Manual Initialization</h2>
+      <div id="status2" class="status info">
+        Waiting for Calendly to load...
+      </div>
+      <div id="widget2" class="calendly-inline-widget"></div>
+    </div>
+
+    <div class="test-container">
+      <h2>Test 3: Direct Link</h2>
+      <p>If the widgets above don't work, try this direct link:</p>
+      <a
+        href="https://calendly.com/demo-maruonline/30min"
+        target="_blank"
+        style="
+          display: inline-block;
+          padding: 12px 24px;
+          background: #007bff;
+          color: white;
+          text-decoration: none;
+          border-radius: 4px;
+        "
+      >
+        Open Calendly Directly
+      </a>
+    </div>
+
+    <!-- Calendly Script -->
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async
+    ></script>
+
+    <script>
+      // Test 1: Basic widget
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const status1 = document.getElementById("status1");
+          if (typeof Calendly !== "undefined") {
+            status1.className = "status success";
+            status1.textContent = "✅ Calendly loaded successfully!";
+          } else {
+            status1.className = "status error";
+            status1.textContent = "❌ Calendly failed to load";
+          }
+        }, 3000);
+      });
+
+      // Test 2: Manual initialization
+      function initWidget2() {
+        const status2 = document.getElementById("status2");
+        const widget2 = document.getElementById("widget2");
+
+        if (typeof Calendly !== "undefined") {
+          try {
+            Calendly.initInlineWidget({
+              url: "https://calendly.com/demo-maruonline/30min",
+              parentElement: widget2,
+              minWidth: "320px",
+              height: "700px",
+            });
+            status2.className = "status success";
+            status2.textContent = "✅ Widget 2 initialized successfully!";
+          } catch (error) {
+            status2.className = "status error";
+            status2.textContent =
+              "❌ Error initializing widget 2: " + error.message;
+          }
+        } else {
+          status2.className = "status error";
+          status2.textContent = "❌ Calendly not available for widget 2";
+        }
+      }
+
+      window.addEventListener("load", function () {
+        setTimeout(initWidget2, 2000);
+      });
+
+      // Debug information
+      console.log("Page loaded, waiting for Calendly...");
+      window.addEventListener("load", function () {
+        console.log("Window load event fired");
+        setTimeout(function () {
+          console.log("Calendly available:", typeof Calendly !== "undefined");
+          if (typeof Calendly !== "undefined") {
+            console.log("Calendly object:", Calendly);
+          }
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>
