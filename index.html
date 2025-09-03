@@ -15,6 +15,79 @@
     <link rel="stylesheet" href="css/plugins/fancybox.min.css" />
     <!-- maru scss -->
     <link rel="stylesheet" href="css/style.css?v=3.4" />
+    <style>
+      /* Custom styles for partners section */
+      .mil-partners-section {
+        background: #f8f9fa;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .mil-partners-section h3 {
+        color: #333;
+        font-weight: 600;
+      }
+      
+      .mil-partners-section p {
+        color: #666;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      
+      .mil-infinite-show {
+        margin: 0 -15px;
+      }
+      
+      .mil-partner-frame {
+        padding: 20px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .mil-partner-frame img {
+        max-height: 80px;
+        max-width: 400px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .mil-partner-frame {
+          height: 100px;
+          padding: 15px;
+        }
+        
+        .mil-partner-frame img {
+          max-height: 60px;
+          max-width: 300px;
+        }
+        
+        .mil-partners-section h3 {
+          font-size: 24px;
+        }
+        
+        .mil-partners-section p {
+          font-size: 16px;
+        }
+      }
+      
+      /* Ensure smooth scrolling */
+      .mil-infinite-show .swiper-wrapper {
+        transition-timing-function: linear;
+      }
+      
+      /* Fix Swiper slide sizing */
+      .mil-infinite-show .swiper-slide {
+        width: auto;
+        min-width: 120px;
+        flex-shrink: 0;
+      }
+    </style>
     <!-- favicon -->
     <link rel="icon" type="image/svg+xml" sizes="32x32" href="img/favicon_512_512_neutral.svg">
     <link rel="icon" type="image/svg+xml" sizes="16x16" href="img/favicon_512_512_neutral.svg">
@@ -33,6 +106,65 @@
     
     <!-- HubSpot Integration -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/146669350.js"></script>
+    <!-- Custom styles to override Swiper defaults -->
+    <style>
+      /* Simple spacing override for Swiper */
+      .mil-infinite-show .swiper-slide {
+        width: 200px !important;
+        min-width: 200px !important;
+        margin-right: 40px !important;
+        flex-shrink: 0 !important;
+      }
+      
+      .mil-infinite-show .swiper-slide:last-child {
+        margin-right: 0 !important;
+      }
+      
+      /* Reduce top padding for partners section */
+      .mil-partners-section {
+        padding-top: 60px !important; /* Reduced from 120px */
+      }
+      
+      .mil-partners-section .container.mil-p-120-60 {
+        padding-top: 60px !important; /* Reduced from 120px */
+        padding-bottom: 60px !important;
+      }
+      
+      .mil-partner-frame {
+        width: 100% !important;
+        height: 120px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 20px !important;
+      }
+      
+      .mil-partner-frame img {
+        max-height: 80px !important;
+        max-width: 100% !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .mil-infinite-show .swiper-slide {
+          width: 150px !important;
+          min-width: 150px !important;
+          margin-right: 30px !important;
+        }
+        
+        .mil-partner-frame {
+          height: 100px !important;
+          padding: 15px !important;
+        }
+        
+        .mil-partner-frame img {
+          max-height: 60px !important;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -744,6 +876,112 @@
           </section>
           <!-- team end -->
 
+          <!-- partners -->
+          <section class="mil-partners-section">
+            <div class="container mil-p-120-60">
+              <div class="mil-infinite-show swiper-container">
+                <div class="swiper-wrapper">
+                  <!-- Partner logos for infinite scroll effect -->
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/b2b_bw_logo.png" alt="B2B Partner" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/digivation_bw_logo.png" alt="Digivation" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/dikeme_bw_logo.png" alt="Dikeme" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/xarra_bw_logo.png" alt="Xarra" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/singila_bw_logo.png" alt="Singila" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/embryo_bw_logo.png" alt="Embryo" />
+                    </div>
+                  </div>
+                  
+                  <!-- Duplicate logos for seamless infinite scroll -->
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/b2b_bw_logo.png" alt="B2B Partner" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/digivation_bw_logo.png" alt="Digivation" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/dikeme_bw_logo.png" alt="Dikeme" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/xarra_bw_logo.png" alt="Xarra" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/singila_bw_logo.png" alt="Singila" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/embryo_bw_logo.png" alt="Embryo" />
+                    </div>
+                  </div>
+                  
+                  <!-- Additional duplicates for longer scroll -->
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/b2b_bw_logo.png" alt="B2B Partner" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/digivation_bw_logo.png" alt="Digivation" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/dikeme_bw_logo.png" alt="Dikeme" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/xarra_bw_logo.png" alt="Xarra" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/singila_bw_logo.png" alt="Singila" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/embryo_bw_logo.png" alt="Embryo" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- partners end -->
+
 
 
           <!-- blog -->
@@ -1159,5 +1397,46 @@
     <script src="js/plugins/ScrollTo.min.js"></script>
     <!-- maru js -->
     <script src="js/main.js"></script>
+    
+    <script>
+      // Debug partners section
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded, checking partners section...');
+        
+        // Check if images are loading
+        const partnerImages = document.querySelectorAll('.mil-partner-frame img');
+        console.log('Found', partnerImages.length, 'partner images');
+        
+        partnerImages.forEach((img, index) => {
+          console.log(`Image ${index + 1}:`, img.src, img.alt);
+          
+          img.addEventListener('load', function() {
+            console.log(`✅ Image ${index + 1} loaded successfully:`, img.src);
+          });
+          
+          img.addEventListener('error', function() {
+            console.error(`❌ Image ${index + 1} failed to load:`, img.src);
+          });
+        });
+        
+        // Check if Swiper is initialized
+        setTimeout(function() {
+          const swiperContainer = document.querySelector('.mil-infinite-show');
+          if (swiperContainer) {
+            console.log('Swiper container found:', swiperContainer);
+            console.log('Swiper slides found:', swiperContainer.querySelectorAll('.swiper-slide').length);
+            
+            // Check if Swiper instance exists
+            if (swiperContainer.swiper) {
+              console.log('✅ Swiper is initialized:', swiperContainer.swiper);
+            } else {
+              console.log('❌ Swiper is NOT initialized');
+            }
+          } else {
+            console.log('❌ Swiper container not found');
+          }
+        }, 1000);
+      });
+    </script>
   </body>
 </html>

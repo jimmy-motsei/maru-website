@@ -620,8 +620,8 @@ $(function () {
 
     ***************************/
   var swiper = new Swiper(".mil-infinite-show", {
-    slidesPerView: 2,
-    spaceBetween: 30,
+    slidesPerView: "auto",
+    spaceBetween: 40,
     speed: 5000,
     autoplay: true,
     autoplay: {
@@ -631,7 +631,8 @@ $(function () {
     freeMode: true,
     breakpoints: {
       992: {
-        slidesPerView: 4,
+        slidesPerView: "auto",
+        spaceBetween: 40,
       },
     },
   });
@@ -1208,8 +1209,8 @@ $(function () {
 
         ***************************/
     var swiper = new Swiper(".mil-infinite-show", {
-      slidesPerView: 2,
-      spaceBetween: 30,
+      slidesPerView: "auto",
+      spaceBetween: 40,
       speed: 5000,
       autoplay: true,
       autoplay: {
@@ -1219,7 +1220,8 @@ $(function () {
       freeMode: true,
       breakpoints: {
         992: {
-          slidesPerView: 4,
+          slidesPerView: "auto",
+          spaceBetween: 40,
         },
       },
     });
