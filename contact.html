@@ -16,19 +16,34 @@
     <!-- maru scss -->
     <link rel="stylesheet" href="css/style.css?v=3.4" />
     <!-- favicon -->
-    <link rel="icon" type="image/svg+xml" sizes="32x32" href="img/favicon_512_512_neutral.svg">
-    <link rel="icon" type="image/svg+xml" sizes="16x16" href="img/favicon_512_512_neutral.svg">
-    <link rel="shortcut icon" href="img/favicon_512_512_neutral.svg">
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="32x32"
+      href="img/favicon_512_512_neutral.svg"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="16x16"
+      href="img/favicon_512_512_neutral.svg"
+    />
+    <link rel="shortcut icon" href="img/favicon_512_512_neutral.svg" />
     <!-- page name -->
     <title>Contact Maru | AI Marketing Experts</title>
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKBNFTLK64"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RKBNFTLK64"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RKBNFTLK64');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-RKBNFTLK64");
     </script>
 
     <!-- HubSpot Integration -->
@@ -39,6 +54,362 @@
       defer
       src="//js-eu1.hs-scripts.com/146669350.js"
     ></script>
+    <script
+      type="text/javascript"
+      src="//js-eu1.hsforms.net/forms/embed/v2.js"
+    ></script>
+    <style>
+      /* Contact form loading state */
+      .mil-loading {
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .mil-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #007bff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Fallback form styling */
+      .mil-contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .mil-input-group {
+        margin-bottom: 20px;
+      }
+
+      .mil-input-group input,
+      .mil-input-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+      }
+
+      .mil-input-group input:focus,
+      .mil-input-group textarea:focus {
+        outline: none;
+        border-color: #007bff;
+      }
+
+      .mil-button {
+        background: #007bff;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .mil-button:hover {
+        background: #0056b3;
+      }
+
+      /* Map info styling */
+      .mil-map-info {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+        z-index: 10;
+      }
+
+      .mil-map-info-content h6 {
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .mil-map-info-content p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      .mil-map-info-content strong {
+        color: #333;
+        font-weight: 600;
+      }
+
+      .mil-map-frame {
+        position: relative;
+        margin-bottom: 0;
+      }
+
+      .mil-map {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+
+      .mil-map iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .mil-map-info {
+          position: relative;
+          top: auto;
+          left: auto;
+          margin: 20px;
+          max-width: none;
+        }
+
+        .mil-map {
+          height: 300px;
+        }
+      }
+
+      /* Prevent column overlap at 90% zoom and other zoom levels */
+      .footer-row {
+        margin-left: -15px !important;
+        margin-right: -15px !important;
+      }
+
+      .footer-row .col-md-4,
+      .footer-row .col-md-6,
+      .footer-row .col-md-7,
+      .footer-row .col-lg-4,
+      .footer-row .col-lg-5,
+      .footer-row .col-lg-6,
+      .footer-row .col-lg-7 {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+
+      @media (max-width: 1200px) {
+        .footer-row {
+          margin-left: -10px !important;
+          margin-right: -10px !important;
+        }
+
+        .footer-row .col-md-4,
+        .footer-row .col-md-6,
+        .footer-row .col-md-7,
+        .footer-row .col-lg-4,
+        .footer-row .col-lg-5,
+        .footer-row .col-lg-6,
+        .footer-row .col-lg-7 {
+          padding-left: 10px !important;
+          padding-right: 10px !important;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .footer-row {
+          margin-left: -8px !important;
+          margin-right: -8px !important;
+        }
+
+        .footer-row .col-md-4,
+        .footer-row .col-md-6,
+        .footer-row .col-md-7,
+        .footer-row .col-lg-4,
+        .footer-row .col-lg-5,
+        .footer-row .col-lg-6,
+        .footer-row .col-lg-7 {
+          padding-left: 8px !important;
+          padding-right: 8px !important;
+        }
+
+        /* Stack columns on medium screens to prevent overlap */
+        .footer-row .col-md-7,
+        .footer-row .col-md-4 {
+          margin-bottom: 30px !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer-row {
+          margin-left: -5px !important;
+          margin-right: -5px !important;
+        }
+
+        .footer-row .col-md-4,
+        .footer-row .col-md-6,
+        .footer-row .col-md-7,
+        .footer-row .col-lg-4,
+        .footer-row .col-lg-5,
+        .footer-row .col-lg-6,
+        .footer-row .col-lg-7 {
+          padding-left: 5px !important;
+          padding-right: 5px !important;
+        }
+
+        /* Force single column layout on small screens */
+        .footer-row .col-md-7,
+        .footer-row .col-md-4 {
+          flex: 0 0 100% !important;
+          max-width: 100% !important;
+          margin-bottom: 30px !important;
+        }
+      }
+
+      /* HubSpot Form Button Styling - Match Website Design */
+      #hubspot-container .hs-button,
+      #hubspot-container .hs-button.primary,
+      #hubspot-container .hs-button[type="submit"],
+      #hubspot-container input[type="submit"].hs-button,
+      #hubspot-container .hs-form .hs-button {
+        cursor: pointer !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: none !important;
+        letter-spacing: 2px !important;
+        font-size: 12px !important;
+        background-color: rgb(0, 188, 212) !important; /* Your cyan color */
+        color: rgb(0, 0, 0) !important; /* Black text */
+        border-radius: 70px !important;
+        padding: 0 15px 0 50px !important;
+        height: 70px !important;
+        text-transform: uppercase !important;
+        font-weight: 500 !important;
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1) !important;
+        font-family: "Outfit", sans-serif !important; /* Your website font */
+        min-width: 200px !important;
+        text-decoration: none !important;
+        box-sizing: border-box !important;
+      }
+
+      #hubspot-container .hs-button:hover,
+      #hubspot-container .hs-button.primary:hover,
+      #hubspot-container .hs-button[type="submit"]:hover,
+      #hubspot-container input[type="submit"].hs-button:hover,
+      #hubspot-container .hs-form .hs-button:hover {
+        transform: scale(1.015) !important;
+        filter: brightness(110%) !important;
+        background-color: rgb(0, 188, 212) !important;
+        color: rgb(0, 0, 0) !important;
+      }
+
+      #hubspot-container .hs-button:active,
+      #hubspot-container .hs-button.primary:active,
+      #hubspot-container .hs-button[type="submit"]:active,
+      #hubspot-container input[type="submit"].hs-button:active,
+      #hubspot-container .hs-form .hs-button:active {
+        transform: scale(0.95) !important;
+        filter: brightness(90%) !important;
+      }
+
+      /* Mobile responsive for HubSpot button */
+      @media screen and (max-width: 992px) {
+        #hubspot-container .hs-button,
+        #hubspot-container .hs-button.primary,
+        #hubspot-container .hs-button[type="submit"],
+        #hubspot-container input[type="submit"].hs-button,
+        #hubspot-container .hs-form .hs-button {
+          height: 60px !important;
+          padding: 0 10px 0 40px !important;
+          min-width: 180px !important;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        #hubspot-container .hs-button,
+        #hubspot-container .hs-button.primary,
+        #hubspot-container .hs-button[type="submit"],
+        #hubspot-container input[type="submit"].hs-button,
+        #hubspot-container .hs-form .hs-button {
+          min-height: 55px !important;
+          padding: 0 12px 0 40px !important;
+          font-size: 11px !important;
+          letter-spacing: 1.5px !important;
+          min-width: 160px !important;
+        }
+      }
+
+      /* HubSpot Form Typography - Match Website Fonts */
+      #hubspot-container .hs-form,
+      #hubspot-container .hs-form * {
+        font-family: "Outfit", sans-serif !important;
+      }
+
+      /* Form labels and headings */
+      #hubspot-container .hs-form label,
+      #hubspot-container .hs-form .hs-field-desc,
+      #hubspot-container .hs-form .hs-field-desc p,
+      #hubspot-container .hs-form .hs-error-msgs,
+      #hubspot-container .hs-form .hs-error-msg {
+        font-family: "Outfit", sans-serif !important;
+        font-weight: 400 !important;
+        color: #333 !important;
+        line-height: 1.6 !important;
+      }
+
+      /* Form inputs and textareas */
+      #hubspot-container .hs-form input[type="text"],
+      #hubspot-container .hs-form input[type="email"],
+      #hubspot-container .hs-form input[type="tel"],
+      #hubspot-container .hs-form input[type="url"],
+      #hubspot-container .hs-form input[type="number"],
+      #hubspot-container .hs-form textarea,
+      #hubspot-container .hs-form select {
+        font-family: "Outfit", sans-serif !important;
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        color: #333 !important;
+        line-height: 1.5 !important;
+      }
+
+      /* Form field descriptions */
+      #hubspot-container .hs-form .hs-field-desc {
+        font-size: 13px !important;
+        color: #666 !important;
+        font-weight: 300 !important;
+      }
+
+      /* Error messages */
+      #hubspot-container .hs-form .hs-error-msg {
+        font-size: 12px !important;
+        color: #e74c3c !important;
+        font-weight: 500 !important;
+      }
+
+      /* Form section headings */
+      #hubspot-container .hs-form .hs-form-field {
+        margin-bottom: 20px !important;
+      }
+
+      /* Input focus states */
+      #hubspot-container .hs-form input:focus,
+      #hubspot-container .hs-form textarea:focus,
+      #hubspot-container .hs-form select:focus {
+        outline: none !important;
+        border-color: rgb(0, 188, 212) !important;
+        box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.1) !important;
+      }
+    </style>
   </head>
 
   <body>
@@ -76,11 +447,7 @@
       </div>
       <!-- preloader end -->
 
-      <!-- scrollbar progress -->
-      <div class="mil-progress-track">
-        <div class="mil-progress"></div>
-      </div>
-      <!-- scrollbar progress end -->
+      <!-- Progress track removed for cleaner design -->
 
       <!-- menu -->
       <div class="mil-menu-frame">
@@ -254,12 +621,30 @@
           <div class="mil-map-frame mil-up">
             <div class="mil-map">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1396.5769090312324!2d-73.6519672!3d45.5673453!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91f8abc30e0ff%3A0xfc6d9cbb49022e9c!2sManoir%20Saint-Joseph!5e0!3m2!1sen!2sua!4v1685485811069!5m2!1sen!2sua"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.1234567890123!2d28.0444!3d-26.1445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDA4JzQwLjIiUyAyOMKwMDInNDAuMCJF!5e0!3m2!1sen!2sza!4v1693857600000!5m2!1sen!2sza&q=173+Oxford+Road,+Rosebank,+Johannesburg,+2196,+South+Africa"
                 style="border: 0"
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
+                title="Maru Office - WeWork Rosebank, Johannesburg"
               ></iframe>
+            </div>
+            <div class="mil-map-info">
+              <div class="mil-map-info-content">
+                <h6 class="mil-up mil-mb-15">Visit Our Office</h6>
+                <p class="mil-light-soft mil-up mil-mb-15">
+                  <strong>Maru Office</strong><br />
+                  WeWork Rosebank<br />
+                  173 Oxford Road<br />
+                  Johannesburg, Gauteng 2196<br />
+                  South Africa
+                </p>
+                <p class="mil-light-soft mil-up">
+                  <strong>Contact:</strong><br />
+                  +27(0)83 393 4864<br />
+                  hello@maruonline.com
+                </p>
+              </div>
             </div>
           </div>
           <!-- map end -->
@@ -273,17 +658,13 @@
               <!-- HubSpot Contact Form -->
               <div class="row align-items-center">
                 <div class="col-lg-12 mil-up">
-                                      <div id="hubspot-contact-form">
-                      <!-- HubSpot form will be embedded here -->
-                      <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
-                      <script>
-                        hbspt.forms.create({
-                          portalId: "146669350",
-                          formId: "e1a0f3ac-6a78-4c42-8dce-be1ea519666e",
-                          region: "eu1"
-                        });
-                      </script>
+                  <div id="hubspot-container">
+                    <!-- HubSpot form will be embedded here by contact-form-enhancer.js -->
+                    <div class="mil-loading">
+                      <div class="mil-spinner"></div>
+                      <p>Loading contact form...</p>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -378,15 +759,24 @@
 
                         <p class="mil-light-soft mil-up">
                           <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                          <br><span class="mil-no-wrap">hello@maruonline.com</span>
+                          <br /><span class="mil-no-wrap"
+                            >hello@maruonline.com</span
+                          >
                         </p>
                       </div>
                       <div class="col-md-6 col-lg-5 mil-mb-60">
-                        <h6 class="mil-muted mil-up mil-mb-30">Gauteng</h6>
+                        <h6 class="mil-muted mil-up mil-mb-30">
+                          Gauteng Office
+                        </h6>
 
                         <p class="mil-light-soft mil-up">
+                          WeWork Rosebank<br />
+                          173 Oxford Road<br />
+                          Johannesburg, 2196<br />
                           <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                          <br><span class="mil-no-wrap">hello@maruonline.com</span>
+                          <br /><span class="mil-no-wrap"
+                            >hello@maruonline.com</span
+                          >
                         </p>
                       </div>
                     </div>
@@ -444,161 +834,7 @@
           </footer>
           <!-- footer end -->
 
-          <!-- hidden elements -->
-          <div class="mil-hidden-elements">
-            <div class="mil-dodecahedron">
-              <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="mil-pentagon">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-            </div>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              class="mil-arrow"
-            >
-              <path
-                d="M 14 5.3417969 C 13.744125 5.3417969 13.487969 5.4412187 13.292969 5.6367188 L 13.207031 5.7226562 C 12.816031 6.1136563 12.816031 6.7467188 13.207031 7.1367188 L 17.070312 11 L 4 11 C 3.448 11 3 11.448 3 12 C 3 12.552 3.448 13 4 13 L 17.070312 13 L 13.207031 16.863281 C 12.816031 17.254281 12.816031 17.887344 13.207031 18.277344 L 13.292969 18.363281 C 13.683969 18.754281 14.317031 18.754281 14.707031 18.363281 L 20.363281 12.707031 C 20.754281 12.316031 20.754281 11.682969 20.363281 11.292969 L 14.707031 5.6367188 C 14.511531 5.4412187 14.255875 5.3417969 14 5.3417969 z"
-              />
-            </svg>
-
-            <svg
-              width="250"
-              viewBox="0 0 300 1404"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="mil-lines"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M1 892L1 941H299V892C299 809.71 232.29 743 150 743C67.7096 743 1 809.71 1 892ZM0 942H300V892C300 809.157 232.843 742 150 742C67.1573 742 0 809.157 0 892L0 942Z"
-                class="mil-move"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M299 146V97L1 97V146C1 228.29 67.7096 295 150 295C232.29 295 299 228.29 299 146ZM300 96L0 96V146C0 228.843 67.1573 296 150 296C232.843 296 300 228.843 300 146V96Z"
-                class="mil-move"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M299 1H1V1403H299V1ZM0 0V1404H300V0H0Z"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M150 -4.37115e-08L150 1404L149 1404L149 0L150 -4.37115e-08Z"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M150 1324C232.29 1324 299 1257.29 299 1175C299 1092.71 232.29 1026 150 1026C67.7096 1026 1 1092.71 1 1175C1 1257.29 67.7096 1324 150 1324ZM150 1325C232.843 1325 300 1257.84 300 1175C300 1092.16 232.843 1025 150 1025C67.1573 1025 0 1092.16 0 1175C0 1257.84 67.1573 1325 150 1325Z"
-                class="mil-move"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M300 1175H0V1174H300V1175Z"
-                class="mil-move"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M150 678C232.29 678 299 611.29 299 529C299 446.71 232.29 380 150 380C67.7096 380 1 446.71 1 529C1 611.29 67.7096 678 150 678ZM150 679C232.843 679 300 611.843 300 529C300 446.157 232.843 379 150 379C67.1573 379 0 446.157 0 529C0 611.843 67.1573 679 150 679Z"
-                class="mil-move"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M299 380H1V678H299V380ZM0 379V679H300V379H0Z"
-                class="mil-move"
-              />
-            </svg>
-          </div>
-          <!-- hidden elements end -->
+          <!-- Red sidebar elements removed for cleaner design -->
         </div>
       </div>
       <!-- content -->
@@ -623,5 +859,142 @@
     <script src="js/plugins/ScrollTo.min.js"></script>
     <!-- maru js -->
     <script src="js/main.js"></script>
+    <!-- newsletter form handler -->
+    <script src="js/newsletter-forms.js"></script>
+    <!-- contact form enhancer -->
+    <script src="js/contact-form-enhancer.js"></script>
+
+    // Test immediate execution testConsole(); // Function to find and remove
+    red banner function findRedBanner() { console.log("=== SEARCHING FOR RED
+    BANNER ==="); const allElements = document.querySelectorAll("*");
+    console.log("Total elements found:", allElements.length); let redElements =
+    []; let fixedRightElements = []; let suspiciousElements = [];
+    allElements.forEach((element, index) => { try { const style =
+    window.getComputedStyle(element); const bgColor = style.backgroundColor;
+    const bg = style.background; const position = style.position; const right =
+    style.right; const zIndex = style.zIndex; const width = style.width; const
+    height = style.height; const top = style.top; const left = style.left; //
+    Enhanced red detection - check multiple color formats const isRed =
+    (bgColor.includes("255") && bgColor.includes("0") && bgColor.includes("0"))
+    || bgColor.includes("red") || bgColor.includes("crimson") ||
+    bgColor.includes("firebrick") || bgColor.includes("darkred") ||
+    bgColor.includes("maroon") || (bg.includes("255") && bg.includes("0") &&
+    bg.includes("0")) || bg.includes("red") || bg.includes("crimson") ||
+    bg.includes("firebrick") || bg.includes("darkred") || bg.includes("maroon");
+    if (isRed) { redElements.push({ element: element, tagName: element.tagName,
+    className: element.className, id: element.id, backgroundColor: bgColor,
+    background: bg, position: position, right: right, zIndex: zIndex, width:
+    width, height: height, }); } // Check for fixed positioned elements on the
+    right if (position === "fixed" && right !== "auto" && right !== "") {
+    fixedRightElements.push({ element: element, tagName: element.tagName,
+    className: element.className, id: element.id, backgroundColor: bgColor,
+    background: bg, position: position, right: right, zIndex: zIndex, width:
+    width, height: height, }); } // Check for suspicious elements (right side,
+    high z-index, etc.) if ( (right !== "auto" && right !== "" &&
+    parseInt(right) < 100) || (zIndex !== "auto" && parseInt(zIndex) > 100) ||
+    (position === "absolute" && right !== "auto" && right !== "") || (width ===
+    "100%" && height === "100%" && position === "fixed") ) {
+    suspiciousElements.push({ element: element, tagName: element.tagName,
+    className: element.className, id: element.id, backgroundColor: bgColor,
+    background: bg, position: position, right: right, zIndex: zIndex, width:
+    width, height: height, top: top, left: left, }); } } catch (e) { // Skip
+    elements that can't be styled } }); console.log("=== RED ELEMENTS FOUND
+    ==="); console.log(redElements); console.log("=== FIXED RIGHT ELEMENTS FOUND
+    ==="); console.log(fixedRightElements); console.log("=== SUSPICIOUS ELEMENTS
+    FOUND ==="); console.log(suspiciousElements); // Try to remove red elements
+    redElements.forEach((item) => { console.log("Attempting to remove red
+    element:", item); try { item.element.style.display = "none";
+    item.element.style.visibility = "hidden"; item.element.style.opacity = "0";
+    item.element.style.width = "0"; item.element.style.height = "0";
+    item.element.style.position = "absolute"; item.element.style.left =
+    "-9999px"; item.element.style.top = "-9999px"; console.log("Successfully
+    removed red element"); } catch (e) { console.error("Failed to remove
+    element:", e); } }); // Try to remove fixed right elements
+    fixedRightElements.forEach((item) => { console.log("Attempting to remove
+    fixed right element:", item); try { item.element.style.display = "none";
+    item.element.style.visibility = "hidden"; console.log("Successfully removed
+    fixed right element"); } catch (e) { console.error("Failed to remove
+    element:", e); } }); // Try to remove suspicious elements
+    suspiciousElements.forEach((item) => { console.log("Attempting to remove
+    suspicious element:", item); try { item.element.style.display = "none";
+    item.element.style.visibility = "hidden"; item.element.style.opacity = "0";
+    console.log("Successfully removed suspicious element"); } catch (e) {
+    console.error("Failed to remove element:", e); } }); return { redElements,
+    fixedRightElements, suspiciousElements }; } // Function to remove specific
+    problematic elements function removeProblematicElements() { console.log("===
+    REMOVING PROBLEMATIC ELEMENTS ==="); const selectors = [ ".mil-frame",
+    ".mil-frame-bottom", ".mil-back-to-top", ".mil-frame-top",
+    ".mil-progress-track", ".mil-progress", ".mil-progress-logos",
+    ".mil-progress-logo", ]; selectors.forEach((selector) => { const elements =
+    document.querySelectorAll(selector); console.log( `Found ${elements.length}
+    elements for selector: ${selector}` ); elements.forEach((element) => { try {
+    element.style.display = "none"; element.style.visibility = "hidden";
+    element.style.opacity = "0"; element.style.width = "0"; element.style.height
+    = "0"; element.style.position = "absolute"; element.style.left = "-9999px";
+    element.style.top = "-9999px"; element.style.background = "transparent";
+    element.style.backgroundColor = "transparent"; console.log(`Removed element:
+    ${selector}`); } catch (e) { console.error(`Failed to remove ${selector}:`,
+    e); } }); }); } // Function to check for dynamic elements and iframes
+    function checkDynamicElements() { console.log("=== CHECKING FOR DYNAMIC
+    ELEMENTS ==="); // Check for iframes const iframes =
+    document.querySelectorAll("iframe"); console.log("Iframes found:",
+    iframes.length); iframes.forEach((iframe, index) => { console.log(`Iframe
+    ${index}:`, { src: iframe.src, width: iframe.width, height: iframe.height,
+    style: iframe.style.cssText, }); }); // Check for elements with data
+    attributes that might indicate dynamic content const dynamicElements =
+    document.querySelectorAll( "[data-*], [id*='dynamic'], [class*='dynamic']"
+    ); console.log("Potential dynamic elements:", dynamicElements.length);
+    dynamicElements.forEach((element, index) => { console.log(`Dynamic element
+    ${index}:`, { tagName: element.tagName, className: element.className, id:
+    element.id, dataset: element.dataset, }); }); // Check for elements that
+    might be created by JavaScript frameworks const frameworkElements =
+    document.querySelectorAll( "[class*='swiper'], [class*='fancybox'],
+    [class*='gsap'], [class*='swup']" ); console.log("Framework elements:",
+    frameworkElements.length); frameworkElements.forEach((element, index) => {
+    console.log(`Framework element ${index}:`, { tagName: element.tagName,
+    className: element.className, id: element.id, }); }); // Check for any
+    elements with unusual positioning const unusualElements =
+    document.querySelectorAll("*"); const positionedElements = [];
+    unusualElements.forEach((element) => { try { const style =
+    window.getComputedStyle(element); if ( style.position !== "static" ||
+    style.zIndex !== "auto" || style.right !== "auto" || style.left !== "auto"
+    || style.top !== "auto" || style.bottom !== "auto" ) {
+    positionedElements.push({ element: element, tagName: element.tagName,
+    className: element.className, id: element.id, position: style.position,
+    zIndex: style.zIndex, right: style.right, left: style.left, top: style.top,
+    bottom: style.bottom, backgroundColor: style.backgroundColor, }); } } catch
+    (e) {} }); console.log("Positioned elements:", positionedElements); return {
+    iframes, dynamicElements, frameworkElements, positionedElements, }; } //
+    Function to force remove any visible red elements function
+    forceRemoveRedElements() { console.log("=== FORCE REMOVING RED ELEMENTS
+    ==="); // Try to remove any visible red elements by scanning the viewport
+    const viewportElements = document.querySelectorAll("*"); let removedCount =
+    0; viewportElements.forEach((element) => { try { const rect =
+    element.getBoundingClientRect(); const style =
+    window.getComputedStyle(element); // Check if element is visible and on the
+    right side if ( rect.width > 0 && rect.height > 0 && rect.right >
+    window.innerWidth - 50 && // Within 50px of right edge rect.top >= 0 &&
+    rect.bottom <= window.innerHeight ) { console.log("Found element on right
+    side:", { element: element, tagName: element.tagName, className:
+    element.className, id: element.id, rect: rect, backgroundColor:
+    style.backgroundColor, background: style.background, }); // Force remove it
+    element.style.display = "none"; element.style.visibility = "hidden";
+    element.style.opacity = "0"; element.style.width = "0"; element.style.height
+    = "0"; element.style.position = "absolute"; element.style.left = "-9999px";
+    element.style.top = "-9999px"; removedCount++; } } catch (e) {} });
+    console.log(`Force removed ${removedCount} elements from right side`);
+    return removedCount; } // Execute functions console.log("=== EXECUTING
+    FUNCTIONS ==="); // Run immediately removeProblematicElements(); const
+    results = findRedBanner(); const dynamicResults = checkDynamicElements();
+    const forceRemoved = forceRemoveRedElements(); // Run after DOM loads
+    document.addEventListener("DOMContentLoaded", () => { console.log("DOM
+    loaded - running functions again"); removeProblematicElements();
+    findRedBanner(); checkDynamicElements(); forceRemoveRedElements(); }); //
+    Run after page loads window.addEventListener("load", () => {
+    console.log("Page loaded - running functions again");
+    removeProblematicElements(); findRedBanner(); checkDynamicElements();
+    forceRemoveRedElements(); }); // Run continuously setInterval(() => {
+    removeProblematicElements(); findRedBanner(); checkDynamicElements();
+    forceRemoveRedElements(); }, 2000);
   </body>
 </html>

@@ -1515,61 +1515,10 @@ scrollbar
   display: none;
 }
 
-.mil-progress-track {
-  position: fixed !important;
-  z-index: 9999 !important;
-  top: 0 !important;
-  right: 20px !important;
-  width: 100px !important;
-  height: 100vh !important;
-  background-color: rgba(255, 0, 0, 0.8) !important;
-  border: 3px solid blue !important;
-  pointer-events: none !important;
-}
+/* Red banner removed for cleaner design */
 
-.mil-progress-logos {
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 20px !important;
-  z-index: 10000 !important;
-  pointer-events: auto !important;
-}
-
-.mil-progress-logo {
-  width: 80px !important;
-  height: 50px !important;
-  object-fit: contain !important;
-  opacity: 1 !important;
-  transition: opacity 0.3s ease !important;
-  display: block !important;
-  visibility: visible !important;
-  border: 2px solid red !important;
-  background-color: yellow !important;
-}
-
-.mil-progress-logo:hover {
-  opacity: 1;
-}
-
-.mil-progress-track .mil-progress {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 4px !important;
-  height: 0 !important;
-  background-color: rgb(0, 188, 212) !important;
-  z-index: 10001 !important;
-}
-@media screen and (max-width: 992px) {
-  .mil-progress-track {
-    display: none;
-  }
-}
+/* Progress elements removed for cleaner design */
+/* Media query removed - no more progress track */
 
 /* -------------------------------------------
 
@@ -2780,7 +2729,7 @@ circle text
 .mil-circle-text {
   position: absolute;
   right: 0;
-  bottom: 90px;
+  bottom: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3234,10 +3183,6 @@ partners
   image-rendering: -o-crisp-edges;
   -ms-interpolation-mode: nearest-neighbor;
 }
-
-
-
-
 
 /* -------------------------------------------
 
