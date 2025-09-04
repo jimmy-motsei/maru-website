@@ -588,6 +588,74 @@
       }
       
       /* ===========================================
+         FOOTER NEWSLETTER BUTTON STYLING
+         =========================================== */
+      
+      /* Footer newsletter button styling */
+      .mil-subscribe-form .mil-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 120px;
+        padding: 12px 20px;
+        background-color: rgb(0, 188, 212);
+        color: rgb(0, 0, 0);
+        border-radius: 70px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+        border: none;
+        cursor: pointer;
+      }
+      
+      .mil-subscribe-form .mil-button:hover {
+        transform: scale(1.05);
+        filter: brightness(110%);
+      }
+      
+      .mil-subscribe-form .mil-button span {
+        color: rgb(0, 0, 0);
+        font-weight: 500;
+        margin-right: 10px;
+      }
+      
+      .mil-subscribe-form .mil-button svg {
+        margin-left: 0;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        padding: 5px;
+        background-color: rgb(0, 0, 0);
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+      }
+      
+      .mil-subscribe-form .mil-button svg path {
+        fill: rgb(0, 188, 212);
+      }
+      
+      .mil-subscribe-form .mil-button:hover svg {
+        transform: scale(1.15);
+      }
+      
+      /* Mobile responsive footer button */
+      @media screen and (max-width: 768px) {
+        .mil-subscribe-form .mil-button {
+          width: 100%;
+          min-width: auto;
+          padding: 15px 20px;
+          margin-top: 10px;
+        }
+        
+        .mil-subscribe-form .mil-button svg {
+          width: 20px;
+          height: 20px;
+          padding: 4px;
+        }
+      }
+      
+      /* ===========================================
          SERVICE CARD BUTTON STYLING
          =========================================== */
       
@@ -1678,8 +1746,10 @@
                       <input type="text" placeholder="Enter your email" />
                       <button
                         type="submit"
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></button>
+                        class="mil-button mil-arrow-place"
+                      >
+                        <span>Subscribe</span>
+                      </button>
                     </form>
                   </div>
                   <div class="col-md-7 col-lg-6">
