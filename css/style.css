@@ -56,6 +56,81 @@ p.s. I am available for Freelance hire (UI design, web development). email: mill
 main
 
 ------------------------------------------- */
+
+/* HubSpot Newsletter Form Styling */
+.mil-newsletter-form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.mil-newsletter-form-container .hs-form {
+  font-family: "Outfit", sans-serif;
+}
+
+.mil-newsletter-form-container .hs-form-field {
+  margin-bottom: 20px;
+}
+
+.mil-newsletter-form-container .hs-input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.mil-newsletter-form-container .hs-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.mil-newsletter-form-container .hs-button {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.mil-newsletter-form-container .hs-button:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+.mil-newsletter-form-container .hs-error-msgs {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.mil-newsletter-form-container .hs-error-msgs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mil-newsletter-form-container .hs-error-msgs li {
+  margin-bottom: 5px;
+}
+
+.mil-newsletter-form-container .hs-form-required {
+  color: #dc3545;
+}
+
+.mil-newsletter-form-container .hs-form-required::after {
+  content: " *";
+}
 *,
 *:before,
 *:after {

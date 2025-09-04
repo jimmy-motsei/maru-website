@@ -16,23 +16,44 @@
     <!-- maru scss -->
     <link rel="stylesheet" href="css/style.css?v=3.3" />
     <!-- favicon -->
-    <link rel="icon" type="image/svg+xml" sizes="32x32" href="img/favicon_512_512_neutral.svg">
-    <link rel="icon" type="image/svg+xml" sizes="16x16" href="img/favicon_512_512_neutral.svg">
-    <link rel="shortcut icon" href="img/favicon_512_512_neutral.svg">
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="32x32"
+      href="img/favicon_512_512_neutral.svg"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="16x16"
+      href="img/favicon_512_512_neutral.svg"
+    />
+    <link rel="shortcut icon" href="img/favicon_512_512_neutral.svg" />
     <!-- page name -->
     <title>AI Knowledge Base | Resources & Insights | Maru</title>
-    
+
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKBNFTLK64"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RKBNFTLK64"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RKBNFTLK64');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-RKBNFTLK64");
     </script>
 
     <!-- HubSpot Integration -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/146669350.js"></script>
+    <script
+      type="text/javascript"
+      id="hs-script-loader"
+      async
+      defer
+      src="//js-eu1.hs-scripts.com/146669350.js"
+    ></script>
   </head>
 
   <body>
@@ -527,16 +548,20 @@
                   to our <span class="mil-thin">knowledge newsletter!</span>
                 </h2>
                 <div class="row justify-content-center mil-up">
-                  <div class="col-lg-4">
-                    <form
-                      class="mil-subscribe-form mil-subscribe-form-2 mil-up"
-                    >
-                      <input type="text" placeholder="Enter your email" />
-                      <button
-                        type="submit"
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></button>
-                    </form>
+                  <div class="col-lg-6">
+                    <!-- HubSpot Newsletter Form -->
+                    <div class="mil-newsletter-form-container">
+                      <script
+                        src="https://js-eu1.hsforms.net/forms/embed/146669350.js"
+                        defer
+                      ></script>
+                      <div
+                        class="hs-form-frame"
+                        data-region="eu1"
+                        data-form-id="cd4d47e9-93e9-4d8e-a221-ad7496701f99"
+                        data-portal-id="146669350"
+                      ></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -566,13 +591,19 @@
                     <p class="mil-light-soft mil-up mil-mb-30">
                       Subscribe to our newsletter:
                     </p>
-                    <form class="mil-subscribe-form mil-up">
-                      <input type="text" placeholder="Enter your email" />
-                      <button
-                        type="submit"
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></button>
-                    </form>
+                    <!-- HubSpot Newsletter Form -->
+                    <div class="mil-newsletter-form-container">
+                      <script
+                        src="https://js-eu1.hsforms.net/forms/embed/146669350.js"
+                        defer
+                      ></script>
+                      <div
+                        class="hs-form-frame"
+                        data-region="eu1"
+                        data-form-id="cd4d47e9-93e9-4d8e-a221-ad7496701f99"
+                        data-portal-id="146669350"
+                      ></div>
+                    </div>
                   </div>
                   <div class="col-md-7 col-lg-6">
                     <div class="row justify-content-end">
@@ -875,5 +906,9 @@
     <script src="js/plugins/ScrollTo.min.js"></script>
     <!-- maru js -->
     <script src="js/main.js"></script>
+    <!-- contact form enhancer -->
+    <script src="js/contact-form-enhancer.js"></script>
+    <!-- HubSpot newsletter integration -->
+    <script src="js/hubspot-newsletter-integration.js"></script>
   </body>
 </html>

@@ -1,10 +1,12 @@
 /**
- * Newsletter Form Handler
- * Handles newsletter subscription forms across all pages
+ * Newsletter Form Handler - HubSpot Integrated
+ * Handles newsletter subscription forms and integrates with HubSpot
  */
 
 class NewsletterFormHandler {
   constructor() {
+    this.hubspotPortalId = "146669350"; // Your HubSpot Portal ID
+    this.newsletterFormId = "newsletter-subscription-form"; // We'll create this in HubSpot
     this.init();
   }
 
@@ -39,7 +41,7 @@ class NewsletterFormHandler {
     });
   }
 
-  handleSubmit(e, emailInput) {
+  async handleSubmit(e, emailInput) {
     e.preventDefault();
 
     const email = emailInput.value.trim();
@@ -51,10 +53,74 @@ class NewsletterFormHandler {
     // Show loading state
     this.showLoading(emailInput);
 
-    // Simulate API call (replace with actual email service integration)
-    setTimeout(() => {
+    try {
+      // Submit to HubSpot
+      await this.submitToHubSpot(email);
       this.handleSuccess(emailInput, email);
-    }, 1000);
+    } catch (error) {
+      console.error("Newsletter subscription error:", error);
+      this.handleError(emailInput, "Subscription failed. Please try again.");
+    }
+  }
+
+  async submitToHubSpot(email) {
+    // Check if HubSpot is available
+    if (!window.hbspt || !window.hbspt.forms) {
+      throw new Error("HubSpot not loaded");
+    }
+
+    // Create a temporary form submission to HubSpot
+    return new Promise((resolve, reject) => {
+      try {
+        // Use HubSpot's form submission method
+        const formData = {
+          email: email,
+          contact_type: "Newsletter Subscriber",
+          lead_source: "Website Newsletter Form",
+          subscription_date: new Date().toISOString(),
+          ai_insights_newsletter: "true",
+        };
+
+        // Submit to HubSpot using their API
+        this.submitToHubSpotAPI(formData).then(resolve).catch(reject);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
+  async submitToHubSpotAPI(formData) {
+    // HubSpot API endpoint for creating contacts
+    const url = `https://api.hubapi.com/crm/v3/objects/contacts`;
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.getHubSpotToken()}`,
+      },
+      body: JSON.stringify({
+        properties: {
+          email: formData.email,
+          contact_type: formData.contact_type,
+          lead_source: formData.lead_source,
+          subscription_date: formData.subscription_date,
+          ai_insights_newsletter: formData.ai_insights_newsletter,
+        },
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HubSpot API error: ${response.status}`);
+    }
+
+    return await response.json();
+  }
+
+  getHubSpotToken() {
+    // This should be stored securely - for now, we'll use a placeholder
+    // You'll need to get this from your HubSpot account
+    return process.env.HUBSPOT_ACCESS_TOKEN || "YOUR_HUBSPOT_ACCESS_TOKEN";
   }
 
   validateEmail(emailInput) {
@@ -104,7 +170,7 @@ class NewsletterFormHandler {
   }
 
   handleSuccess(emailInput, email) {
-    // Store subscription
+    // Store subscription locally as backup
     localStorage.setItem("newsletter-subscribed", email);
 
     // Show success message
@@ -122,23 +188,61 @@ class NewsletterFormHandler {
 
     // Update all forms on the page
     this.updateAllForms(email);
+
+    // Track subscription event
+    this.trackSubscriptionEvent(email);
+  }
+
+  handleError(emailInput, message) {
+    // Reset button
+    const button = emailInput.parentNode.querySelector("button");
+    if (button) {
+      button.disabled = false;
+      button.innerHTML = "";
+    }
+
+    // Show error message
+    this.showError(emailInput, message);
   }
 
   showSuccess(emailInput) {
     const successDiv = document.createElement("div");
     successDiv.className = "newsletter-success";
-    successDiv.textContent = "Thank you for subscribing!";
+    successDiv.textContent =
+      "Thank you for subscribing! Check your email for confirmation.";
     successDiv.style.cssText =
       "color: #28a745; font-size: 14px; margin-top: 5px;";
 
     emailInput.parentNode.appendChild(successDiv);
 
-    // Remove success message after 3 seconds
+    // Remove success message after 5 seconds
     setTimeout(() => {
       if (successDiv.parentNode) {
         successDiv.remove();
       }
-    }, 3000);
+    }, 5000);
+  }
+
+  trackSubscriptionEvent(email) {
+    // Track subscription in analytics if available
+    if (window.gtag) {
+      gtag("event", "newsletter_signup", {
+        event_category: "engagement",
+        event_label: "AI Insights Newsletter",
+        value: 1,
+      });
+    }
+
+    // Track in HubSpot analytics
+    if (window._hsq) {
+      _hsq.push([
+        "trackEvent",
+        {
+          id: "newsletter_signup",
+          value: email,
+        },
+      ]);
+    }
   }
 
   updateAllForms(email) {
@@ -155,7 +259,7 @@ class NewsletterFormHandler {
 
         // Add a small indicator
         const indicator = document.createElement("small");
-        indicator.textContent = "✓ Subscribed";
+        indicator.textContent = "✓ Subscribed to AI Insights";
         indicator.style.cssText =
           "color: #28a745; font-size: 12px; display: block; margin-top: 5px;";
 
