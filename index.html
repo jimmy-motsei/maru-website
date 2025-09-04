@@ -105,6 +105,487 @@
       }
       
       /* Debug styles removed - positioning fixed */
+      
+      /* ===========================================
+         ASHLEY TEMPLATE MOBILE FRAMEWORK
+         =========================================== */
+      
+      /* Mobile Utility Classes */
+      .mil-mobile-hidden {
+        display: none;
+      }
+      
+      /* ===========================================
+         RESPONSIVE BREAKPOINT SYSTEM
+         =========================================== */
+      
+      /* Large Desktop Adjustments (1400px) */
+      @media screen and (max-width: 1400px) {
+        .mil-banner .mil-banner-content h1 {
+          font-size: 74px;
+        }
+      }
+      
+      /* Desktop Adjustments (1200px) */
+      @media screen and (max-width: 1200px) {
+        .mil-banner .mil-banner-content h1 {
+          font-size: 72px;
+        }
+      }
+      
+      /* Tablet Adjustments (992px) */
+      @media screen and (max-width: 992px) {
+        .mil-banner .mil-banner-content h1 {
+          font-size: 58px;
+        }
+        
+        .mil-banner .mil-banner-content {
+          padding-top: 90px;
+          padding-bottom: 90px;
+        }
+        
+        .mil-menu-btn {
+          transform: scale(0.85);
+        }
+      }
+      
+      /* Mobile Adjustments (768px) */
+      @media screen and (max-width: 768px) {
+        /* Hide Request Demo button on mobile */
+        .mil-banner .mil-banner-content .mil-link[href="request-demo.html"] {
+          display: none !important;
+        }
+        
+        .mil-banner .mil-banner-content h1 {
+          font-size: 34px;
+        }
+        
+        .mil-banner .mil-banner-content h1 br,
+        .mil-banner .mil-banner-content h2 br,
+        .mil-banner .mil-banner-content h3 br {
+          display: none;
+        }
+        
+        /* Fix button arrow alignment on mobile */
+        .mil-banner .mil-banner-content .mil-button {
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          width: auto !important;
+          min-width: 200px !important;
+          padding: 15px 25px !important;
+        }
+        
+        .mil-banner .mil-banner-content .mil-button svg {
+          margin-left: 15px !important;
+          align-self: center !important;
+        }
+        
+        /* Make scroll button container match button dimensions */
+        .mil-banner .mil-circle-text {
+          width: auto !important;
+          min-width: 200px !important;
+          height: auto !important;
+          min-height: 55px !important;
+        }
+      }
+      
+      /* Small Mobile Adjustments (576px) */
+      @media screen and (max-width: 576px) {
+        .mil-banner .mil-banner-content h1 {
+          font-size: 28px;
+        }
+      }
+      
+      /* Very Small Mobile Adjustments (500px) */
+      @media screen and (max-width: 500px) {
+        .mil-banner .mil-banner-content h1 {
+          font-size: 24px;
+        }
+      }
+      
+      /* ===========================================
+         MOBILE MENU SYSTEM
+         =========================================== */
+      
+      /* Mobile Menu Button Styles */
+      .mil-menu-btn {
+        pointer-events: all;
+        height: 28px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+      }
+      
+      .mil-menu-btn span,
+      .mil-menu-btn span:after,
+      .mil-menu-btn span:before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 2.5px;
+        background: rgb(0, 0, 0);
+        backface-visibility: hidden;
+        transition: inherit;
+      }
+      
+      .mil-menu-btn span {
+        position: relative;
+      }
+      
+      .mil-menu-btn span:after,
+      .mil-menu-btn span:before {
+        position: absolute;
+      }
+      
+      .mil-menu-btn span:before {
+        top: -9px;
+      }
+      
+      .mil-menu-btn span:after {
+        width: 18px;
+        top: 9px;
+      }
+      
+      /* Active Menu Button State */
+      .mil-menu-btn.mil-active span {
+        transform: rotate(45deg);
+      }
+      
+      .mil-menu-btn.mil-active span:before {
+        transform: translate(0px, 9px) rotate(-90deg);
+      }
+      
+      .mil-menu-btn.mil-active span:after {
+        opacity: 0;
+        width: 24px;
+        transform: translate(0px, -9px) rotate(-90deg);
+      }
+      
+      /* Mobile Menu Frame */
+      .mil-menu-frame {
+        position: fixed;
+        z-index: 9999;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(0, 0, 0);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+      }
+      
+      .mil-menu-frame.mil-active {
+        opacity: 1;
+        pointer-events: all;
+      }
+      
+      .mil-menu-frame .mil-frame-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 50px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .mil-menu-frame .mil-frame-top .mil-logo {
+        color: rgb(255, 255, 255);
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      
+      .mil-menu-frame .mil-frame-top .mil-menu-btn span,
+      .mil-menu-frame .mil-frame-top .mil-menu-btn span:after,
+      .mil-menu-frame .mil-frame-top .mil-menu-btn span:before {
+        background-color: rgb(255, 255, 255);
+      }
+      
+      /* Mobile Menu Content */
+      .mil-menu-frame .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding-top: 120px;
+      }
+      
+      .mil-menu-frame .mil-main-menu {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 0.6s cubic-bezier(0, 0, 0.3642, 1);
+      }
+      
+      .mil-menu-frame.mil-active .mil-main-menu {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .mil-menu-frame .mil-main-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .mil-menu-frame .mil-main-menu ul li {
+        margin-bottom: 20px;
+      }
+      
+      .mil-menu-frame .mil-main-menu ul li a {
+        color: rgb(255, 255, 255);
+        font-size: 2.5rem;
+        font-weight: 300;
+        text-decoration: none;
+        transition: 0.3s ease;
+        display: block;
+        padding: 10px 0;
+      }
+      
+      .mil-menu-frame .mil-main-menu ul li a:hover {
+        color: rgb(0, 188, 212);
+        transform: translateX(10px);
+      }
+      
+      /* Mobile Menu Responsive Adjustments */
+      @media screen and (max-width: 768px) {
+        .mil-menu-frame .mil-frame-top {
+          padding: 30px 20px;
+        }
+        
+        .mil-menu-frame .mil-main-menu ul li a {
+          font-size: 2rem;
+        }
+        
+        .mil-menu-frame .container {
+          padding-top: 100px;
+        }
+      }
+      
+      @media screen and (max-width: 576px) {
+        .mil-menu-frame .mil-main-menu ul li a {
+          font-size: 1.8rem;
+        }
+      }
+      
+      /* ===========================================
+         MOBILE COMPONENT OPTIMIZATIONS
+         =========================================== */
+      
+      /* Mobile Button System */
+      @media screen and (max-width: 768px) {
+        .mil-button {
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font-weight: 500;
+          border-radius: 70px;
+          background-color: rgb(0, 188, 212);
+          color: rgb(0, 0, 0);
+          transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+          width: 100%;
+          padding: 15px 20px;
+          margin-bottom: 15px;
+        }
+        
+        .mil-button svg {
+          margin-left: 20px;
+          border-radius: 50%;
+          width: 35px;
+          height: 35px;
+          padding: 8px;
+          background-color: rgb(0, 0, 0);
+          transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+        }
+        
+        .mil-button svg path {
+          fill: rgb(0, 188, 212);
+        }
+        
+        .mil-button:hover {
+          transform: scale(1.015);
+          filter: brightness(110%);
+        }
+        
+        .mil-button:hover svg {
+          transform: scale(1.15);
+        }
+      }
+      
+      /* Mobile Form Optimizations */
+      @media screen and (max-width: 768px) {
+        input,
+        textarea {
+          height: 60px;
+          padding: 0 20px;
+          font-size: 14px;
+          margin-bottom: 20px;
+        }
+        
+        .mil-form-group {
+          margin-bottom: 20px;
+        }
+      }
+      
+      /* Mobile Typography Optimizations */
+      @media screen and (max-width: 768px) {
+        .mil-banner .mil-banner-content p {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 30px;
+        }
+        
+        .mil-banner .mil-banner-content {
+          margin-top: 60px;
+          padding: 0 20px;
+        }
+      }
+      
+      /* Mobile Spacing Optimizations */
+      @media screen and (max-width: 768px) {
+        .mil-banner {
+          padding: 40px 0;
+          min-height: calc(100vh - 40px);
+        }
+        
+        .mil-p-120-30 {
+          padding-top: 60px !important;
+          padding-bottom: 60px !important;
+        }
+        
+        .mil-p-120-60 {
+          padding-top: 60px !important;
+          padding-bottom: 60px !important;
+        }
+      }
+      
+      /* Mobile Touch Optimizations */
+      @media screen and (max-width: 768px) {
+        .mil-button,
+        .mil-link,
+        .mil-menu-btn {
+          min-height: 44px;
+          min-width: 44px;
+        }
+        
+        .mil-menu-btn span {
+          height: 2px;
+          margin: 4px 0;
+        }
+      }
+      
+      /* Mobile Performance Optimizations */
+      @media screen and (max-width: 768px) {
+        .mil-animation {
+          animation-duration: 0.6s !important;
+        }
+        
+        .mil-animation-frame {
+          transform: scale(0.8) !important;
+        }
+      }
+      
+      /* ===========================================
+         CROSS-BREAKPOINT SCROLL BUTTON POSITIONING
+         =========================================== */
+      
+      /* Large Desktop (1400px+) */
+      .mil-banner .mil-circle-text {
+        position: absolute !important;
+        right: 0 !important;
+        top: 80% !important;
+        z-index: 1000 !important;
+      }
+      
+      /* Desktop (1200px) */
+      @media screen and (max-width: 1200px) {
+        .mil-banner .mil-circle-text {
+          top: 75% !important;
+        }
+      }
+      
+      /* Tablet (992px) */
+      @media screen and (max-width: 992px) {
+        .mil-banner .mil-circle-text {
+          top: 70% !important;
+        }
+      }
+      
+      /* Mobile (768px) */
+      @media screen and (max-width: 768px) {
+        .mil-banner .mil-circle-text {
+          top: 65% !important;
+          right: 20px !important;
+        }
+      }
+      
+      /* Small Mobile (576px) */
+      @media screen and (max-width: 576px) {
+        .mil-banner .mil-circle-text {
+          top: 60% !important;
+          right: 15px !important;
+        }
+      }
+      
+      /* Very Small Mobile (500px) */
+      @media screen and (max-width: 500px) {
+        .mil-banner .mil-circle-text {
+          top: 55% !important;
+          right: 10px !important;
+        }
+      }
+      
+      /* ===========================================
+         MOBILE UTILITY CLASSES
+         =========================================== */
+      
+      /* Hide elements on mobile */
+      .mil-mobile-hidden {
+        display: none;
+      }
+      
+      @media screen and (max-width: 768px) {
+        .mil-mobile-hidden {
+          display: none !important;
+        }
+      }
+      
+      /* Show elements only on mobile */
+      .mil-mobile-only {
+        display: none;
+      }
+      
+      @media screen and (max-width: 768px) {
+        .mil-mobile-only {
+          display: block !important;
+        }
+      }
+      
+      /* Mobile-first responsive utilities */
+      .mil-container-fluid {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      
+      @media screen and (min-width: 768px) {
+        .mil-container-fluid {
+          padding-left: 40px;
+          padding-right: 40px;
+        }
+      }
+      
+      @media screen and (min-width: 1200px) {
+        .mil-container-fluid {
+          padding-left: 60px;
+          padding-right: 60px;
+        }
+      }
     </style>
     <!-- favicon -->
     <link rel="icon" type="image/svg+xml" sizes="32x32" href="img/favicon_512_512_neutral.svg">
