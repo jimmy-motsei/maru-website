@@ -586,6 +586,73 @@
           padding-right: 60px;
         }
       }
+      
+      /* ===========================================
+         SERVICE CARD BUTTON STYLING
+         =========================================== */
+      
+      /* Service card button styling to match main button */
+      .mil-service-card-sm .mil-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 140px;
+        padding: 12px 20px;
+        margin-top: 20px;
+        background-color: rgb(0, 188, 212);
+        color: rgb(0, 0, 0);
+        border-radius: 70px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+        text-decoration: none;
+      }
+      
+      .mil-service-card-sm .mil-button:hover {
+        transform: scale(1.05);
+        filter: brightness(110%);
+      }
+      
+      .mil-service-card-sm .mil-button span {
+        color: rgb(0, 0, 0);
+        font-weight: 500;
+      }
+      
+      .mil-service-card-sm .mil-button svg {
+        margin-left: 15px;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        padding: 6px;
+        background-color: rgb(0, 0, 0);
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+      }
+      
+      .mil-service-card-sm .mil-button svg path {
+        fill: rgb(0, 188, 212);
+      }
+      
+      .mil-service-card-sm .mil-button:hover svg {
+        transform: scale(1.15);
+      }
+      
+      /* Mobile responsive adjustments for service buttons */
+      @media screen and (max-width: 768px) {
+        .mil-service-card-sm .mil-button {
+          width: 100%;
+          min-width: auto;
+          padding: 15px 20px;
+          margin-top: 15px;
+        }
+        
+        .mil-service-card-sm .mil-button svg {
+          width: 25px;
+          height: 25px;
+          padding: 5px;
+        }
+      }
     </style>
     <!-- favicon -->
     <link rel="icon" type="image/svg+xml" sizes="32x32" href="img/favicon_512_512_neutral.svg">
@@ -1129,9 +1196,9 @@
                         business.
                       </p>
                       <div
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
+                        class="mil-button mil-arrow-place mil-btn-space"
                       >
-                        <span></span>
+                        <span>Learn More</span>
                       </div>
                     </a>
                   </div>
@@ -1145,9 +1212,9 @@
                         staffing, and growth opportunities.
                       </p>
                       <div
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
+                        class="mil-button mil-arrow-place mil-btn-space"
                       >
-                        <span></span>
+                        <span>Learn More</span>
                       </div>
                     </a>
                   </div>
@@ -1163,9 +1230,9 @@
                         tailored to your industry.
                       </p>
                       <div
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
+                        class="mil-button mil-arrow-place mil-btn-space"
                       >
-                        <span></span>
+                        <span>Learn More</span>
                       </div>
                     </a>
                   </div>
@@ -1181,9 +1248,9 @@
                         growth.
                       </p>
                       <div
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
+                        class="mil-button mil-arrow-place mil-btn-space"
                       >
-                        <span></span>
+                        <span>Learn More</span>
                       </div>
                     </a>
                   </div>
