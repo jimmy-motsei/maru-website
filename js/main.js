@@ -321,53 +321,19 @@ $(function () {
   });
 
   $(".mil-accent-cursor").mouseover(function () {
-    console.log("Cursor hover - adding mil-accent class");
-
-    // Check for multiple cursor elements
-    var allCursors = document.querySelectorAll(".mil-ball");
-    console.log("Number of cursor elements found:", allCursors.length);
-
-    // Apply to all cursor elements
-    allCursors.forEach(function (cursorElement) {
-      cursorElement.classList.add("mil-accent");
-      cursorElement.setAttribute(
-        "style",
-        "--bs-orange: #00ff00 !important; background-color: #00ff00 !important; background: #00ff00 !important; color: #00ff00 !important; border-color: #00ff00 !important; outline-color: #00ff00 !important;"
-      );
+    gsap.to($(cursor), 0.2, {
+      background: accent,
+      ease: "sine",
     });
-
-    console.log("Cursor background set to:", accent);
-
-    // Debug: Check computed style
-    setTimeout(function () {
-      var computedStyle = window.getComputedStyle(cursor);
-      console.log("Computed background-color:", computedStyle.backgroundColor);
-      console.log("Computed background:", computedStyle.background);
-      console.log("Inline style:", cursor.style.backgroundColor);
-      console.log(
-        "Bootstrap orange variable:",
-        computedStyle.getPropertyValue("--bs-orange")
-      );
-
-      // Check all cursor elements
-      allCursors.forEach(function (cursorElement, index) {
-        var style = window.getComputedStyle(cursorElement);
-        console.log("Cursor " + index + " background:", style.backgroundColor);
-      });
-    }, 100);
+    $(cursor).addClass("mil-accent");
   });
 
   $(".mil-accent-cursor").mouseleave(function () {
-    console.log("Cursor leave - removing mil-accent class");
+    gsap.to($(cursor), 0.2, {
+      background: dark,
+      ease: "sine",
+    });
     $(cursor).removeClass("mil-accent");
-    $(cursor).css("background-color", dark);
-    $(cursor).css("background", dark);
-
-    // Ensure accent color is preserved after GSAP animations
-    setTimeout(function () {
-      $(cursor).css("background-color", dark);
-      $(cursor).css("background", dark);
-    }, 250);
   });
 
   $(".mil-drag").mouseover(function () {
@@ -623,13 +589,18 @@ $(function () {
     slidesPerView: "auto",
     spaceBetween: 40,
     speed: 5000,
-    autoplay: true,
     autoplay: {
       delay: 0,
+      disableOnInteraction: false,
     },
     loop: true,
     freeMode: true,
+    allowTouchMove: true,
     breakpoints: {
+      768: {
+        slidesPerView: "auto",
+        spaceBetween: 30,
+      },
       992: {
         slidesPerView: "auto",
         spaceBetween: 40,
@@ -847,11 +818,8 @@ $(function () {
     });
 
     $(".mil-accent-cursor").mouseover(function () {
-      console.log("Cursor hover - adding mil-accent class");
-
       // Check for multiple cursor elements
       var allCursors = document.querySelectorAll(".mil-ball");
-      console.log("Number of cursor elements found:", allCursors.length);
 
       // Apply to all cursor elements
       allCursors.forEach(function (cursorElement) {
@@ -913,57 +881,19 @@ $(function () {
         });
       });
 
-      console.log("Cursor background set to:", accent);
-
-      // Continuous monitoring to prevent orange color
-      var monitorInterval = setInterval(function () {
-        if ($(cursor).hasClass("mil-accent")) {
-          var computedStyle = window.getComputedStyle(cursor);
-          var bgColor = computedStyle.backgroundColor;
-          if (
-            bgColor.includes("255") ||
-            bgColor.includes("orange") ||
-            bgColor.includes("fd7e14")
-          ) {
-            console.log("Orange detected, fixing...");
-            $(cursor).css("background-color", accent);
-            $(cursor).css("background", accent);
-          }
-        } else {
-          clearInterval(monitorInterval);
-        }
-      }, 50);
-
-      // Debug: Check computed style
-      setTimeout(function () {
-        var computedStyle = window.getComputedStyle(cursor);
-        console.log(
-          "Computed background-color:",
-          computedStyle.backgroundColor
-        );
-        console.log("Computed background:", computedStyle.background);
-        console.log("Inline style:", cursor.style.backgroundColor);
-        console.log(
-          "Bootstrap orange variable:",
-          computedStyle.getPropertyValue("--bs-orange")
-        );
-
-        // Check all cursor elements
-        allCursors.forEach(function (cursorElement, index) {
-          var style = window.getComputedStyle(cursorElement);
-          console.log(
-            "Cursor " + index + " background:",
-            style.backgroundColor
-          );
-        });
-      }, 100);
+      // Apply accent color with GSAP
+      gsap.to($(cursor), 0.2, {
+        background: accent,
+        ease: "sine",
+      });
     });
 
     $(".mil-accent-cursor").mouseleave(function () {
-      console.log("Cursor leave - removing mil-accent class");
+      gsap.to($(cursor), 0.2, {
+        background: dark,
+        ease: "sine",
+      });
       $(cursor).removeClass("mil-accent");
-      $(cursor).css("background-color", dark);
-      $(cursor).css("background", dark);
     });
 
     $(".mil-drag").mouseover(function () {
@@ -1212,13 +1142,18 @@ $(function () {
       slidesPerView: "auto",
       spaceBetween: 40,
       speed: 5000,
-      autoplay: true,
       autoplay: {
         delay: 0,
+        disableOnInteraction: false,
       },
       loop: true,
       freeMode: true,
+      allowTouchMove: true,
       breakpoints: {
+        768: {
+          slidesPerView: "auto",
+          spaceBetween: 30,
+        },
         992: {
           slidesPerView: "auto",
           spaceBetween: 40,

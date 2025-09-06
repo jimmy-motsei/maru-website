@@ -5,14 +5,24 @@
 
 class NewsletterFormHandler {
   constructor() {
+    // Prevent multiple instances
+    if (window.MaruNewsletterHandler && window.MaruNewsletterHandler !== this) {
+      return window.MaruNewsletterHandler;
+    }
+    
     this.hubspotPortalId = "146669350"; // Your HubSpot Portal ID
     this.newsletterFormId = "newsletter-subscription-form"; // We'll create this in HubSpot
+    this.initialized = false;
     this.init();
   }
 
   init() {
+    if (this.initialized) {
+      return;
+    }
     this.setupNewsletterForms();
     this.checkExistingSubscriptions();
+    this.initialized = true;
   }
 
   setupNewsletterForms() {
@@ -59,85 +69,166 @@ class NewsletterFormHandler {
       this.handleSuccess(emailInput, email);
     } catch (error) {
       console.error("Newsletter subscription error:", error);
-      this.handleError(emailInput, "Subscription failed. Please try again.");
+      
+      // Provide more specific error messages
+      let errorMessage = "Subscription failed. Please try again.";
+      if (error.message.includes('HubSpot not loaded')) {
+        errorMessage = "Form service is loading. Please try again in a moment.";
+      } else if (error.message.includes('Server error')) {
+        errorMessage = "Server temporarily unavailable. Please try again later.";
+      } else if (error.message.includes('Network')) {
+        errorMessage = "Network error. Please check your connection and try again.";
+      }
+      
+      this.handleError(emailInput, errorMessage);
     }
   }
 
   async submitToHubSpot(email) {
-    // Check if HubSpot is available
+    // Use HubSpot's secure client-side submission method
     if (!window.hbspt || !window.hbspt.forms) {
       throw new Error("HubSpot not loaded");
     }
 
-    // Create a temporary form submission to HubSpot
     return new Promise((resolve, reject) => {
       try {
-        // Use HubSpot's form submission method
-        const formData = {
-          email: email,
-          contact_type: "Newsletter Subscriber",
-          lead_source: "Website Newsletter Form",
-          subscription_date: new Date().toISOString(),
-          ai_insights_newsletter: "true",
-        };
+        // Create a temporary form element for HubSpot submission
+        const tempForm = document.createElement('div');
+        tempForm.style.display = 'none';
+        document.body.appendChild(tempForm);
 
-        // Submit to HubSpot using their API
-        this.submitToHubSpotAPI(formData).then(resolve).catch(reject);
+        // Create HubSpot form for secure submission
+        hbspt.forms.create({
+          portalId: this.hubspotPortalId,
+          formId: "newsletter-subscription-form", // Replace with actual form ID
+          target: tempForm,
+          onFormSubmitted: () => {
+            document.body.removeChild(tempForm);
+            resolve({ success: true });
+          },
+          onFormSubmitError: (error) => {
+            document.body.removeChild(tempForm);
+            reject(error);
+          },
+          onFormReady: (form) => {
+            // Pre-fill the email field
+            const emailField = form.querySelector('input[name="email"]');
+            if (emailField) {
+              emailField.value = email;
+              // Auto-submit the form
+              form.querySelector('form').submit();
+            } else {
+              // Fallback: submit via server endpoint
+              this.submitToServerEndpoint(email).then(resolve).catch(reject);
+            }
+          }
+        });
       } catch (error) {
         reject(error);
       }
     });
   }
 
-  async submitToHubSpotAPI(formData) {
-    // HubSpot API endpoint for creating contacts
-    const url = `https://api.hubapi.com/crm/v3/objects/contacts`;
-
-    const response = await fetch(url, {
-      method: "POST",
+  async submitToServerEndpoint(email) {
+    // Submit to your server endpoint that handles HubSpot integration securely
+    // This is the proper way to handle API tokens - server-side only
+    const response = await fetch('/api/newsletter-subscribe', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${this.getHubSpotToken()}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        properties: {
-          email: formData.email,
-          contact_type: formData.contact_type,
-          lead_source: formData.lead_source,
-          subscription_date: formData.subscription_date,
-          ai_insights_newsletter: formData.ai_insights_newsletter,
-        },
+        email: email,
+        source: 'website_newsletter_form',
+        timestamp: new Date().toISOString()
       }),
     });
 
     if (!response.ok) {
-      throw new Error(`HubSpot API error: ${response.status}`);
+      throw new Error(`Server error: ${response.status}`);
     }
 
     return await response.json();
   }
 
-  getHubSpotToken() {
-    // This should be stored securely - for now, we'll use a placeholder
-    // You'll need to get this from your HubSpot account
-    return process.env.HUBSPOT_ACCESS_TOKEN || "YOUR_HUBSPOT_ACCESS_TOKEN";
-  }
-
   validateEmail(emailInput) {
     const email = emailInput.value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const commonDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com', 'aol.com'];
 
     if (!email) {
       this.showError(emailInput, "Please enter your email address.");
+      emailInput.setAttribute('aria-invalid', 'true');
       return false;
     }
 
     if (!emailRegex.test(email)) {
-      this.showError(emailInput, "Please enter a valid email address.");
+      this.showError(emailInput, "Please enter a valid email address (e.g., name@example.com).");
+      emailInput.setAttribute('aria-invalid', 'true');
       return false;
     }
 
+    // Check for common typos in email domains
+    const emailParts = email.split('@');
+    if (emailParts.length === 2) {
+      const domain = emailParts[1].toLowerCase();
+      const suggestions = this.getSuggestions(domain, commonDomains);
+      
+      if (suggestions.length > 0) {
+        this.showSuggestion(emailInput, `Did you mean ${emailParts[0]}@${suggestions[0]}?`);
+      }
+    }
+
+    // Clear any previous validation states
+    emailInput.setAttribute('aria-invalid', 'false');
+    this.clearValidation(emailInput);
     return true;
+  }
+
+  getSuggestions(domain, commonDomains) {
+    const suggestions = [];
+    const typos = {
+      'gmial.com': 'gmail.com',
+      'gmai.com': 'gmail.com',
+      'gmail.co': 'gmail.com',
+      'yahooo.com': 'yahoo.com',
+      'yaho.com': 'yahoo.com',
+      'hotmial.com': 'hotmail.com',
+      'hotmai.com': 'hotmail.com',
+      'outlok.com': 'outlook.com',
+      'outloo.com': 'outlook.com'
+    };
+
+    if (typos[domain]) {
+      suggestions.push(typos[domain]);
+    }
+
+    return suggestions;
+  }
+
+  showSuggestion(emailInput, suggestion) {
+    this.clearValidation(emailInput);
+    
+    const suggestionDiv = document.createElement("div");
+    suggestionDiv.className = "email-suggestion";
+    suggestionDiv.innerHTML = `
+      <span style="color: #007bff; font-size: 14px; margin-top: 5px; display: block;">
+        ${suggestion} 
+        <button type="button" class="suggestion-btn" style="background: none; border: none; color: #007bff; text-decoration: underline; cursor: pointer; font-size: 14px;">
+          Use this
+        </button>
+      </span>
+    `;
+
+    emailInput.parentNode.appendChild(suggestionDiv);
+
+    // Add click handler for suggestion
+    suggestionDiv.querySelector('.suggestion-btn').addEventListener('click', () => {
+      const suggestedEmail = suggestion.match(/[\w._%+-]+@[\w.-]+\.[A-Za-z]{2,}/)[0];
+      emailInput.value = suggestedEmail;
+      suggestionDiv.remove();
+      this.validateEmail(emailInput);
+    });
   }
 
   showError(emailInput, message) {
@@ -158,7 +249,14 @@ class NewsletterFormHandler {
     if (errorDiv) {
       errorDiv.remove();
     }
+    
+    const suggestionDiv = emailInput.parentNode.querySelector(".email-suggestion");
+    if (suggestionDiv) {
+      suggestionDiv.remove();
+    }
+    
     emailInput.style.borderColor = "";
+    emailInput.removeAttribute('aria-invalid');
   }
 
   showLoading(emailInput) {
@@ -280,14 +378,26 @@ class NewsletterFormHandler {
   }
 }
 
+// Global singleton to prevent multiple initializations
+window.MaruNewsletterHandler = window.MaruNewsletterHandler || null;
+
 // Initialize when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
-  new NewsletterFormHandler();
+  if (!window.MaruNewsletterHandler) {
+    window.MaruNewsletterHandler = new NewsletterFormHandler();
+  }
 });
 
 // Also initialize on page load for single-page apps
 window.addEventListener("load", () => {
-  if (!document.querySelector(".mil-subscribe-form[data-initialized]")) {
-    new NewsletterFormHandler();
+  if (!window.MaruNewsletterHandler && !document.querySelector(".mil-subscribe-form[data-initialized]")) {
+    window.MaruNewsletterHandler = new NewsletterFormHandler();
+  }
+});
+
+// For Swup page transitions
+document.addEventListener('swup:contentReplaced', () => {
+  if (window.MaruNewsletterHandler) {
+    window.MaruNewsletterHandler.setupNewsletterForms();
   }
 });
