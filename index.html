@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- bootstrap grid css -->
@@ -13,10 +13,870 @@
     <link rel="stylesheet" href="css/plugins/swiper.min.css" />
     <!-- fancybox css -->
     <link rel="stylesheet" href="css/plugins/fancybox.min.css" />
-    <!-- ashley scss -->
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- maru scss -->
+    <link rel="stylesheet" href="css/style.css?v=3.4" />
+    
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ee8074bea9274223aef11729f33c7e15"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+    
+    <style>
+      /* Custom styles for partners section */
+      .mil-partners-section {
+        background: #f8f9fa;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .mil-partners-section h3 {
+        color: #333;
+        font-weight: 600;
+      }
+      
+      .mil-partners-section p {
+        color: #666;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      
+      .mil-infinite-show {
+        margin: 0 -15px;
+      }
+      
+      .mil-partner-frame {
+        padding: 20px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .mil-partner-frame img {
+        max-height: 80px;
+        max-width: 400px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .mil-partner-frame {
+          height: 100px;
+          padding: 15px;
+        }
+        
+        .mil-partner-frame img {
+          max-height: 60px;
+          max-width: 300px;
+        }
+        
+        .mil-partners-section h3 {
+          font-size: 24px;
+        }
+        
+        .mil-partners-section p {
+          font-size: 16px;
+        }
+      }
+      
+      /* Ensure smooth scrolling */
+      .mil-infinite-show .swiper-wrapper {
+        transition-timing-function: linear;
+      }
+      
+      /* Fix Swiper slide sizing */
+      .mil-infinite-show .swiper-slide {
+        width: auto;
+        min-width: 120px;
+        flex-shrink: 0;
+      }
+      
+      /* Force scroll button positioning */
+      .mil-circle-text {
+        position: absolute !important;
+        right: 0 !important;
+        top: 80% !important;
+        z-index: 1000 !important;
+      }
+      
+      /* More specific targeting for the scroll button */
+      .mil-banner .mil-circle-text {
+        position: absolute !important;
+        right: 0 !important;
+        top: 80% !important;
+        z-index: 1000 !important;
+      }
+      
+      /* Debug styles removed - positioning fixed */
+      
+      /* ===========================================
+         ASHLEY TEMPLATE MOBILE FRAMEWORK
+         =========================================== */
+      
+      /* Mobile Utility Classes */
+      .mil-mobile-hidden {
+        display: none;
+      }
+      
+      /* ===========================================
+         RESPONSIVE BREAKPOINT SYSTEM
+         =========================================== */
+      
+      /* Large Desktop Adjustments (1400px) */
+      @media screen and (max-width: 1400px) {
+        .mil-banner .mil-banner-content h1 {
+          font-size: 74px;
+        }
+      }
+      
+      /* Desktop Adjustments (1200px) */
+      @media screen and (max-width: 1200px) {
+        .mil-banner .mil-banner-content h1 {
+          font-size: 72px;
+        }
+      }
+      
+      /* Tablet Adjustments (992px) */
+      @media screen and (max-width: 992px) {
+        .mil-banner .mil-banner-content h1 {
+          font-size: 58px;
+        }
+        
+        .mil-banner .mil-banner-content {
+          padding-top: 90px;
+          padding-bottom: 90px;
+        }
+        
+        .mil-menu-btn {
+          transform: scale(0.85);
+        }
+      }
+      
+      /* Mobile Adjustments (768px) */
+      @media screen and (max-width: 768px) {
+        /* Hide Request Demo button on mobile */
+        .mil-banner .mil-banner-content .mil-link[href="request-demo.html"] {
+          display: none !important;
+        }
+        
+        .mil-banner .mil-banner-content h1 {
+          font-size: 34px;
+        }
+        
+        .mil-banner .mil-banner-content h1 br,
+        .mil-banner .mil-banner-content h2 br,
+        .mil-banner .mil-banner-content h3 br {
+          display: none;
+        }
+        
+        /* Fix button arrow alignment on mobile */
+        .mil-banner .mil-banner-content .mil-button {
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          width: auto !important;
+          min-width: 200px !important;
+          padding: 15px 25px !important;
+        }
+        
+        .mil-banner .mil-banner-content .mil-button svg {
+          margin-left: 15px !important;
+          align-self: center !important;
+        }
+        
+        /* Make scroll button container match button dimensions */
+        .mil-banner .mil-circle-text {
+          width: auto !important;
+          min-width: 200px !important;
+          height: auto !important;
+          min-height: 55px !important;
+        }
+      }
+      
+      /* Small Mobile Adjustments (576px) */
+      @media screen and (max-width: 576px) {
+        .mil-banner .mil-banner-content h1 {
+          font-size: 28px;
+        }
+      }
+      
+      /* Very Small Mobile Adjustments (500px) */
+      @media screen and (max-width: 500px) {
+        .mil-banner .mil-banner-content h1 {
+          font-size: 24px;
+        }
+      }
+      
+      /* ===========================================
+         MOBILE MENU SYSTEM
+         =========================================== */
+      
+      /* Mobile Menu Button Styles */
+      .mil-menu-btn {
+        pointer-events: all;
+        height: 28px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+      }
+      
+      .mil-menu-btn span,
+      .mil-menu-btn span:after,
+      .mil-menu-btn span:before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 2.5px;
+        background: rgb(0, 0, 0);
+        backface-visibility: hidden;
+        transition: inherit;
+      }
+      
+      .mil-menu-btn span {
+        position: relative;
+      }
+      
+      .mil-menu-btn span:after,
+      .mil-menu-btn span:before {
+        position: absolute;
+      }
+      
+      .mil-menu-btn span:before {
+        top: -9px;
+      }
+      
+      .mil-menu-btn span:after {
+        width: 18px;
+        top: 9px;
+      }
+      
+      /* Active Menu Button State */
+      .mil-menu-btn.mil-active span {
+        transform: rotate(45deg);
+      }
+      
+      .mil-menu-btn.mil-active span:before {
+        transform: translate(0px, 9px) rotate(-90deg);
+      }
+      
+      .mil-menu-btn.mil-active span:after {
+        opacity: 0;
+        width: 24px;
+        transform: translate(0px, -9px) rotate(-90deg);
+      }
+      
+      /* Mobile Menu Frame */
+      .mil-menu-frame {
+        position: fixed;
+        z-index: 9999;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(0, 0, 0);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+      }
+      
+      .mil-menu-frame.mil-active {
+        opacity: 1;
+        pointer-events: all;
+      }
+      
+      .mil-menu-frame .mil-frame-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 50px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .mil-menu-frame .mil-frame-top .mil-logo {
+        color: rgb(255, 255, 255);
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      
+      .mil-menu-frame .mil-frame-top .mil-menu-btn span,
+      .mil-menu-frame .mil-frame-top .mil-menu-btn span:after,
+      .mil-menu-frame .mil-frame-top .mil-menu-btn span:before {
+        background-color: rgb(255, 255, 255);
+      }
+      
+      /* Mobile Menu Content */
+      .mil-menu-frame .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding-top: 120px;
+      }
+      
+      .mil-menu-frame .mil-main-menu {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 0.6s cubic-bezier(0, 0, 0.3642, 1);
+      }
+      
+      .mil-menu-frame.mil-active .mil-main-menu {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .mil-menu-frame .mil-main-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .mil-menu-frame .mil-main-menu ul li {
+        margin-bottom: 20px;
+      }
+      
+      .mil-menu-frame .mil-main-menu ul li a {
+        color: rgb(255, 255, 255);
+        font-size: 2.5rem;
+        font-weight: 300;
+        text-decoration: none;
+        transition: 0.3s ease;
+        display: block;
+        padding: 10px 0;
+      }
+      
+      .mil-menu-frame .mil-main-menu ul li a:hover {
+        color: rgb(0, 188, 212);
+        transform: translateX(10px);
+      }
+      
+      /* Mobile Menu Responsive Adjustments */
+      @media screen and (max-width: 768px) {
+        .mil-menu-frame .mil-frame-top {
+          padding: 30px 20px;
+        }
+        
+        .mil-menu-frame .mil-main-menu ul li a {
+          font-size: 2rem;
+        }
+        
+        .mil-menu-frame .container {
+          padding-top: 100px;
+        }
+      }
+      
+      @media screen and (max-width: 576px) {
+        .mil-menu-frame .mil-main-menu ul li a {
+          font-size: 1.8rem;
+        }
+      }
+      
+      /* ===========================================
+         MOBILE COMPONENT OPTIMIZATIONS
+         =========================================== */
+      
+      /* Mobile Button System */
+      @media screen and (max-width: 768px) {
+        .mil-button {
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font-weight: 500;
+          border-radius: 70px;
+          background-color: rgb(0, 188, 212);
+          color: rgb(0, 0, 0);
+          transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+          width: 100%;
+          padding: 15px 20px;
+          margin-bottom: 15px;
+        }
+        
+        .mil-button svg {
+          margin-left: 20px;
+          border-radius: 50%;
+          width: 35px;
+          height: 35px;
+          padding: 8px;
+          background-color: rgb(0, 0, 0);
+          transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+        }
+        
+        .mil-button svg path {
+          fill: rgb(0, 188, 212);
+        }
+        
+        .mil-button:hover {
+          transform: scale(1.015);
+          filter: brightness(110%);
+        }
+        
+        .mil-button:hover svg {
+          transform: scale(1.15);
+        }
+      }
+      
+      /* Mobile Form Optimizations */
+      @media screen and (max-width: 768px) {
+        input,
+        textarea {
+          height: 60px;
+          padding: 0 20px;
+          font-size: 14px;
+          margin-bottom: 20px;
+        }
+        
+        .mil-form-group {
+          margin-bottom: 20px;
+        }
+      }
+      
+      /* Mobile Typography Optimizations */
+      @media screen and (max-width: 768px) {
+        .mil-banner .mil-banner-content p {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 30px;
+        }
+        
+        .mil-banner .mil-banner-content {
+          margin-top: 60px;
+          padding: 0 20px;
+        }
+      }
+      
+      /* Mobile Spacing Optimizations */
+      @media screen and (max-width: 768px) {
+        .mil-banner {
+          padding: 40px 0;
+          min-height: calc(100vh - 40px);
+        }
+        
+        .mil-p-120-30 {
+          padding-top: 60px !important;
+          padding-bottom: 60px !important;
+        }
+        
+        .mil-p-120-60 {
+          padding-top: 60px !important;
+          padding-bottom: 60px !important;
+        }
+      }
+      
+      /* Mobile Touch Optimizations */
+      @media screen and (max-width: 768px) {
+        .mil-button,
+        .mil-link,
+        .mil-menu-btn {
+          min-height: 44px;
+          min-width: 44px;
+        }
+        
+        .mil-menu-btn span {
+          height: 2px;
+          margin: 4px 0;
+        }
+      }
+      
+      /* Mobile Performance Optimizations */
+      @media screen and (max-width: 768px) {
+        .mil-animation {
+          animation-duration: 0.6s !important;
+        }
+        
+        .mil-animation-frame {
+          transform: scale(0.8) !important;
+        }
+      }
+      
+      /* ===========================================
+         CROSS-BREAKPOINT SCROLL BUTTON POSITIONING
+         =========================================== */
+      
+      /* Large Desktop (1400px+) */
+      .mil-banner .mil-circle-text {
+        position: absolute !important;
+        right: 0 !important;
+        top: 80% !important;
+        z-index: 1000 !important;
+      }
+      
+      /* Desktop (1200px) */
+      @media screen and (max-width: 1200px) {
+        .mil-banner .mil-circle-text {
+          top: 75% !important;
+        }
+      }
+      
+      /* Tablet (992px) */
+      @media screen and (max-width: 992px) {
+        .mil-banner .mil-circle-text {
+          top: 70% !important;
+        }
+      }
+      
+      /* Mobile (768px) */
+      @media screen and (max-width: 768px) {
+        .mil-banner .mil-circle-text {
+          top: 65% !important;
+          right: 20px !important;
+        }
+      }
+      
+      /* Small Mobile (576px) */
+      @media screen and (max-width: 576px) {
+        .mil-banner .mil-circle-text {
+          top: 60% !important;
+          right: 15px !important;
+        }
+      }
+      
+      /* Very Small Mobile (500px) */
+      @media screen and (max-width: 500px) {
+        .mil-banner .mil-circle-text {
+          top: 55% !important;
+          right: 10px !important;
+        }
+      }
+      
+      /* ===========================================
+         MOBILE UTILITY CLASSES
+         =========================================== */
+      
+      /* Hide elements on mobile */
+      .mil-mobile-hidden {
+        display: none;
+      }
+      
+      @media screen and (max-width: 768px) {
+        .mil-mobile-hidden {
+          display: none !important;
+        }
+      }
+      
+      /* Show elements only on mobile */
+      .mil-mobile-only {
+        display: none;
+      }
+      
+      @media screen and (max-width: 768px) {
+        .mil-mobile-only {
+          display: block !important;
+        }
+      }
+      
+      /* Mobile-first responsive utilities */
+      .mil-container-fluid {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      
+      @media screen and (min-width: 768px) {
+        .mil-container-fluid {
+          padding-left: 40px;
+          padding-right: 40px;
+        }
+      }
+      
+      @media screen and (min-width: 1200px) {
+        .mil-container-fluid {
+          padding-left: 60px;
+          padding-right: 60px;
+        }
+      }
+      
+      /* ===========================================
+         FOOTER NEWSLETTER BUTTON STYLING
+         =========================================== */
+      
+      /* Footer newsletter button styling */
+      .mil-subscribe-form .mil-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 120px;
+        padding: 12px 20px;
+        background-color: rgb(0, 188, 212);
+        color: rgb(0, 0, 0);
+        border-radius: 70px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+        border: none;
+        cursor: pointer;
+      }
+      
+      .mil-subscribe-form .mil-button:hover {
+        transform: scale(1.05);
+        filter: brightness(110%);
+      }
+      
+      .mil-subscribe-form .mil-button span {
+        color: rgb(0, 0, 0);
+        font-weight: 500;
+        margin-right: 10px;
+      }
+      
+      .mil-subscribe-form .mil-button svg {
+        margin-left: 0;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        padding: 5px;
+        background-color: rgb(0, 0, 0);
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+      }
+      
+      .mil-subscribe-form .mil-button svg path {
+        fill: rgb(0, 188, 212);
+      }
+      
+      .mil-subscribe-form .mil-button:hover svg {
+        transform: scale(1.15);
+      }
+      
+      /* Mobile responsive footer button */
+      @media screen and (max-width: 768px) {
+        .mil-subscribe-form .mil-button {
+          width: 100%;
+          min-width: auto;
+          padding: 15px 20px;
+          margin-top: 10px;
+        }
+        
+        .mil-subscribe-form .mil-button svg {
+          width: 20px;
+          height: 20px;
+          padding: 4px;
+        }
+      }
+      
+      /* ===========================================
+         SERVICES SECTION BUTTON STYLING
+         =========================================== */
+      
+      /* Services section main button styling */
+      .mil-services-button {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 160px !important;
+        max-width: 200px !important;
+        padding: 15px 25px !important;
+        background-color: rgb(0, 188, 212) !important;
+        color: rgb(0, 0, 0) !important;
+        border-radius: 70px !important;
+        font-size: 12px !important;
+        letter-spacing: 2px !important;
+        text-transform: uppercase !important;
+        font-weight: 500 !important;
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1) !important;
+        text-decoration: none !important;
+        margin: 30px auto !important;
+        border: none !important;
+        cursor: pointer !important;
+      }
+      
+      .mil-services-button:hover {
+        transform: scale(1.05) !important;
+        filter: brightness(110%) !important;
+        text-decoration: none !important;
+        color: rgb(0, 0, 0) !important;
+      }
+      
+      .mil-services-button span {
+        color: rgb(0, 0, 0) !important;
+        font-weight: 500 !important;
+        margin-right: 15px !important;
+      }
+      
+      .mil-services-button svg {
+        margin-left: 0 !important;
+        border-radius: 50% !important;
+        width: 30px !important;
+        height: 30px !important;
+        padding: 6px !important;
+        background-color: rgb(0, 0, 0) !important;
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1) !important;
+      }
+      
+      .mil-services-button svg path {
+        fill: rgb(0, 188, 212) !important;
+      }
+      
+      .mil-services-button:hover svg {
+        transform: scale(1.15) !important;
+      }
+      
+      /* Mobile responsive services button */
+      @media screen and (max-width: 768px) {
+        .mil-services-button {
+          width: 100% !important;
+          max-width: 250px !important;
+          padding: 15px 20px !important;
+          margin: 25px auto !important;
+        }
+        
+        .mil-services-button svg {
+          width: 25px !important;
+          height: 25px !important;
+          padding: 5px !important;
+        }
+      }
+      
+      /* ===========================================
+         SERVICE CARD BUTTON STYLING
+         =========================================== */
+      
+      /* Service card button styling to match main button */
+      .mil-service-card-sm .mil-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 140px;
+        padding: 12px 20px;
+        margin-top: 20px;
+        background-color: rgb(0, 188, 212);
+        color: rgb(0, 0, 0);
+        border-radius: 70px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+        text-decoration: none;
+      }
+      
+      .mil-service-card-sm .mil-button:hover {
+        transform: scale(1.05);
+        filter: brightness(110%);
+      }
+      
+      .mil-service-card-sm .mil-button span {
+        color: rgb(0, 0, 0);
+        font-weight: 500;
+      }
+      
+      .mil-service-card-sm .mil-button svg {
+        margin-left: 15px;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        padding: 6px;
+        background-color: rgb(0, 0, 0);
+        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+      }
+      
+      .mil-service-card-sm .mil-button svg path {
+        fill: rgb(0, 188, 212);
+      }
+      
+      .mil-service-card-sm .mil-button:hover svg {
+        transform: scale(1.15);
+      }
+      
+      /* Mobile responsive adjustments for service buttons */
+      @media screen and (max-width: 768px) {
+        .mil-service-card-sm .mil-button {
+          width: 100%;
+          min-width: auto;
+          padding: 15px 20px;
+          margin-top: 15px;
+        }
+        
+        .mil-service-card-sm .mil-button svg {
+          width: 25px;
+          height: 25px;
+          padding: 5px;
+        }
+      }
+    </style>
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="img/favicon_512_512_neutral.svg">
+    <link rel="icon" type="image/svg+xml" sizes="16x16" href="img/favicon_512_512_neutral.svg">
+    <link rel="shortcut icon" href="img/favicon_512_512_neutral.svg">
     <!-- page name -->
-    <title>Aurellius</title>
+    <title>Maru | AI-Powered Marketing & Growth Strategy</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKBNFTLK64"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RKBNFTLK64');
+    </script>
+    
+    <!-- HubSpot Integration -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/146669350.js"></script>
+    <!-- Custom styles to override Swiper defaults -->
+    <style>
+      /* Simple spacing override for Swiper */
+      .mil-infinite-show .swiper-slide {
+        width: 200px !important;
+        min-width: 200px !important;
+        margin-right: 40px !important;
+        flex-shrink: 0 !important;
+      }
+      
+      .mil-infinite-show .swiper-slide:last-child {
+        margin-right: 0 !important;
+      }
+      
+      /* Reduce top padding for partners section */
+      .mil-partners-section {
+        padding-top: 60px !important; /* Reduced from 120px */
+      }
+      
+      .mil-partners-section .container.mil-p-120-60 {
+        padding-top: 60px !important; /* Reduced from 120px */
+        padding-bottom: 60px !important;
+      }
+      
+      .mil-partner-frame {
+        width: 100% !important;
+        height: 120px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 20px !important;
+      }
+      
+      .mil-partner-frame img {
+        max-height: 80px !important;
+        max-width: 100% !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .mil-infinite-show .swiper-slide {
+          width: 150px !important;
+          min-width: 150px !important;
+          margin-right: 30px !important;
+        }
+        
+        .mil-partner-frame {
+          height: 100px !important;
+          padding: 15px !important;
+        }
+        
+        .mil-partner-frame img {
+          max-height: 60px !important;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -32,7 +892,7 @@
           </svg>
         </span>
         <div class="mil-more-text">More</div>
-        <div class="mil-choose-text">Сhoose</div>
+        <div class="mil-choose-text">Choose</div>
       </div>
       <!-- cursor end -->
 
@@ -40,34 +900,28 @@
       <div class="mil-preloader">
         <div class="mil-preloader-animation">
           <div class="mil-pos-abs mil-animation-1">
-            <p class="mil-h3 mil-muted mil-thin">Pioneering</p>
-            <p class="mil-h3 mil-muted">Marketing</p>
-            <p class="mil-h3 mil-muted mil-thin">Excellence</p>
+            <p class="mil-h3 mil-muted mil-thin">Strategy</p>
+            <p class="mil-h3 mil-muted">Automation</p>
+            <p class="mil-h3 mil-muted mil-thin">Growth</p>
           </div>
           <div class="mil-pos-abs mil-animation-2">
             <div class="mil-reveal-frame">
               <p class="mil-reveal-box"></p>
-              <p class="mil-h3 mil-muted mil-thin">aurellius.online</p>
+              <p class="mil-h3 mil-muted mil-thin">MaruOnline.com</p>
             </div>
           </div>
         </div>
       </div>
       <!-- preloader end -->
 
-      <!-- scrollbar progress -->
-      <div class="mil-progress-track">
-        <div class="mil-progress"></div>
-      </div>
-      <!-- scrollbar progress end -->
+
 
       <!-- menu -->
       <div class="mil-menu-frame">
         <!-- frame clone -->
         <div class="mil-frame-top">
-          <a href="index.html" class="mil-logo">A.</a>
-          <div class="mil-menu-btn">
-            <span></span>
-          </div>
+          <a href="index.html" class="mil-logo">M.</a>
+          <div class="mil-menu-btn"><span></span></div>
         </div>
         <!-- frame clone end -->
         <div class="container">
@@ -77,40 +931,28 @@
                 <nav class="mil-main-menu" id="swupMenu">
                   <ul>
                     <li class="mil-has-children mil-active">
-                      <a href="#.">Homepage</a>
+                      <a href="index.html">Homepage</a>
+                    </li>
+                    <li class="mil-has-children">
+                      <a href="services.html">Services</a>
                       <ul>
-                        <li><a href="index.html">Landing page</a></li>
-                        <li><a href="home-2.html">Personal</a></li>
-                        <li><a href="portfolio-3.html">Portfolio slider</a></li>
+                        <li><a href="smartguest-ai.html">SmartGuest AI</a></li>
+                        <li><a href="bizinsight-ai.html">BizInsight AI</a></li>
+                        <li><a href="ai-mastery-workshops.html">AI Mastery Workshops</a></li>
+                        <li><a href="custom-ai-solutions.html">Custom AI Solutions</a></li>
                       </ul>
                     </li>
                     <li class="mil-has-children">
-                      <a href="#.">Portfolio</a>
+                      <a href="knowledge.html">Resources</a>
                       <ul>
-                        <li><a href="portfolio-1.html">Grid type 1</a></li>
-                        <li><a href="portfolio-2.html">Grid type 2</a></li>
-                        <li><a href="portfolio-3.html">Slider</a></li>
+                        <li><a href="knowledge.html">Knowledge</a></li>
                       </ul>
                     </li>
                     <li class="mil-has-children">
-                      <a href="#.">Services</a>
+                      <a href="contact.html">Other pages</a>
                       <ul>
-                        <li><a href="services.html">Services List</a></li>
-                        <li><a href="service.html">Single service</a></li>
-                      </ul>
-                    </li>
-                    <li class="mil-has-children">
-                      <a href="#.">Newsletter</a>
-                      <ul>
-                        <li><a href="blog.html">Blog List</a></li>
-                        <li><a href="publication.html">Publication</a></li>
-                      </ul>
-                    </li>
-                    <li class="mil-has-children">
-                      <a href="#.">Other pages</a>
-                      <ul>
-                        <li><a href="team.html">Team</a></li>
                         <li><a href="contact.html">Contact</a></li>
+
                         <li><a href="404.html">404</a></li>
                       </ul>
                     </li>
@@ -131,62 +973,34 @@
                   <div class="mil-menu-right">
                     <div class="row">
                       <div class="col-lg-8 mil-mb-60">
-                        <h6 class="mil-muted mil-mb-30">Projects</h6>
-
+                        <h6 class="mil-muted mil-mb-30">Our Work</h6>
                         <ul class="mil-menu-list">
                           <li>
-                            <a href="project-1.html" class="mil-light-soft"
-                              >Interior design studio</a
-                            >
-                          </li>
-                          <li>
-                            <a href="project-2.html" class="mil-light-soft"
-                              >Home Security Camera</a
-                            >
-                          </li>
-                          <li>
-                            <a href="project-3.html" class="mil-light-soft"
-                              >Kemia Honest Skincare</a
-                            >
-                          </li>
-                          <li>
-                            <a href="project-4.html" class="mil-light-soft"
-                              >Cascade of Lava</a
-                            >
-                          </li>
-                          <li>
-                            <a href="project-5.html" class="mil-light-soft"
-                              >Air Pro by Molekule</a
-                            >
-                          </li>
-                          <li>
-                            <a href="project-6.html" class="mil-light-soft"
-                              >Tony's Chocolonely</a
+                              >Case Studies & Portfolio</a
                             >
                           </li>
                         </ul>
                       </div>
                       <div class="col-lg-4 mil-mb-60">
                         <h6 class="mil-muted mil-mb-30">Useful links</h6>
-
                         <ul class="mil-menu-list">
                           <li>
-                            <a href="#." class="mil-light-soft"
+                            <a href="privacy-policy.html" class="mil-light-soft"
                               >Privacy Policy</a
                             >
                           </li>
                           <li>
-                            <a href="#." class="mil-light-soft"
+                            <a href="terms-conditions.html" class="mil-light-soft"
                               >Terms and conditions</a
                             >
                           </li>
                           <li>
-                            <a href="#." class="mil-light-soft"
+                            <a href="cookie-policy.html" class="mil-light-soft"
                               >Cookie Policy</a
                             >
                           </li>
                           <li>
-                            <a href="#." class="mil-light-soft">Careers</a>
+                            <a href="careers.html" class="mil-light-soft">Careers</a>
                           </li>
                         </ul>
                       </div>
@@ -194,19 +1008,19 @@
                     <div class="mil-divider mil-mb-60"></div>
                     <div class="row justify-content-between">
                       <div class="col-lg-4 mil-mb-60">
-                        <h6 class="mil-muted mil-mb-30">Canada</h6>
-
+                        <h6 class="mil-muted mil-mb-30">KZN</h6>
                         <p class="mil-light-soft mil-up">
-                          71 South Los Carneros Road, California
-                          <span class="mil-no-wrap">+51 174 705 812</span>
+                          247 Ballito Village, Ballito, 4420
+                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
+                          <br><span class="mil-no-wrap">hello@maruonline.com</span>
                         </p>
                       </div>
                       <div class="col-lg-4 mil-mb-60">
-                        <h6 class="mil-muted mil-mb-30">Germany</h6>
-
+                        <h6 class="mil-muted mil-mb-30">Gauteng</h6>
                         <p class="mil-light-soft">
-                          Leehove 40, 2678 MC De Lier, Netherlands
-                          <span class="mil-no-wrap">+31 174 705 811</span>
+                          61 4th Street, Linden, Johannesburg
+                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
+                          <br><span class="mil-no-wrap">hello@maruonline.com</span>
                         </p>
                       </div>
                     </div>
@@ -217,8 +1031,7 @@
           </div>
         </div>
       </div>
-      <!-- menu -->
-
+      <!-- menu end -->
       <!-- curtain -->
       <div class="mil-curtain"></div>
       <!-- curtain end -->
@@ -226,7 +1039,7 @@
       <!-- frame -->
       <div class="mil-frame">
         <div class="mil-frame-top">
-          <a href="index.html" class="mil-logo">A.</a>
+          <a href="index.html" class="mil-logo">M.</a>
           <div class="mil-menu-btn">
             <span></span>
           </div>
@@ -249,11 +1062,11 @@
           <section class="mil-banner mil-dark-bg">
             <div class="mi-invert-fix">
               <div class="mil-animation-frame">
-                <div
-                  class="mil-animation mil-position-1 mil-scale"
-                  data-value-1="7"
-                  data-value-2="1.6"
-                ></div>
+                                  <div
+                    class="mil-animation mil-position-1 mil-scale"
+                    data-value-1="7"
+                    data-value-2="1.6"
+                  ></div>
                 <div
                   class="mil-animation mil-position-2 mil-scale"
                   data-value-1="4"
@@ -271,16 +1084,16 @@
               <div class="container">
                 <div class="mil-banner-content mil-up">
                   <h1 class="mil-muted mil-mb-60">
-                    Automating <span class="mil-thin">a Better</span><br/>
-                    World <span class="mil-thin">Today</span>
+                    Bridge <span class="mil-thin">your business</span><br />
+                    into the <span class="mil-thin">age of AI</span>
                   </h1>
                   <div class="row">
                     <div class="col-md-7 col-lg-5">
                       <p class="mil-light-soft mil-mb-60">
-                        Welcome to our world of endless imagination and
-                        boundless creativity. Together, let's embark on a
-                        remarkable journey where dreams become tangible
-                        realities.
+                        We’re your bridge to the Age of AI, combining
+                        comprehensive marketing solutions with cutting-edge AI
+                        technology to make your business smarter, faster, and
+                        more competitive.
                       </p>
                     </div>
                   </div>
@@ -289,14 +1102,14 @@
                     href="services.html"
                     class="mil-button mil-arrow-place mil-btn-space"
                   >
-                    <span>What we do</span>
+                    <span>Our Services</span>
                   </a>
 
                   <a
-                    href="portfolio-1.html"
+                    href="request-demo.html"
                     class="mil-link mil-muted mil-arrow-place"
                   >
-                    <span>View works</span>
+                    <span>Request a Demo</span>
                   </a>
 
                   <div class="mil-circle-text">
@@ -323,9 +1136,9 @@
                         <use xlink:href="#circlePath" fill="none" />
                         <text style="letter-spacing: 6.5px">
                           <!-- circle text -->
-                          <textpath xlink:href="#circlePath">
+                          <textPath xlink:href="#circlePath">
                             Scroll down - Scroll down -
-                          </textpath>
+                          </textPath>
                         </text>
                       </g>
                     </svg>
@@ -347,34 +1160,33 @@
                 <div class="col-lg-6 col-xl-5">
                   <div class="mil-mb-90">
                     <h2 class="mil-up mil-mb-60">
-                      Discover <br />Our <span class="mil-thin">Studio</span>
+                      Who <br />We <span class="mil-thin">Are</span>
                     </h2>
                     <p class="mil-up mil-mb-30">
-                      At our design studio, we are a collective of talented
-                      individuals ignited by our unwavering passion for
-                      transforming ideas into reality. With a harmonious blend
-                      of diverse backgrounds and a vast array of skill sets, we
-                      join forces to create compelling solutions for our
-                      esteemed clients.
-                    </p>
-
-                    <p class="mil-up mil-mb-60">
-                      Collaboration is at the heart of what we do. Our team
-                      thrives on the synergy that arises when unique
-                      perspectives converge, fostering an environment of
-                      boundless creativity. By harnessing our collective
-                      expertise, we produce extraordinary results that
-                      consistently surpass expectations.
+                      At Maru, we believe every business deserves to thrive in
+                      the Age of AI. We're a specialized digital marketing
+                      agency that combines the comprehensive service approach of
+                      industry leaders with cutting-edge AI technology to
+                      deliver unprecedented results for our clients. We exist to
+                      bridge the gap between where your business is today and
+                      where it needs to be tomorrow. While others talk about AI,
+                      we implement it. While others follow trends, we create
+                      competitive advantages.
                     </p>
 
                     <div class="mil-about-quote">
                       <div class="mil-avatar mil-up">
-                        <img src="img/faces/customers/2.jpg" alt="Founder" />
+                        <img
+                          src="img/founder.jpeg"
+                          alt="Founder"
+                          loading="lazy"
+                          decoding="async"
+                          style="object-fit: cover; width: 100%; height: 100%; border-radius: 50%;"
+                        />
                       </div>
                       <h6 class="mil-quote mil-up">
-                        Passionately Creating
-                        <span class="mil-thin">Design Wonders:</span> Unleashing
-                        <span class="mil-thin">Boundless Creativity</span>
+                        AI-First <span class="mil-thin">Approach:</span> Every
+                        <span class="mil-thin">Strategy</span> Enhanced
                       </h6>
                     </div>
                   </div>
@@ -386,13 +1198,41 @@
                       class="mil-up mil-img-frame"
                       style="padding-bottom: 160%"
                     >
-                      <img
-                        src="img/photo/1.jpg"
-                        alt="img"
-                        class="mil-scale"
-                        data-value-1="1"
-                        data-value-2="1.2"
-                      />
+                      <picture class="">
+                        <source
+                          type="image/avif"
+                          srcset="
+                            img/optimized/photo/chat_gpt-image-320.avif   320w,
+                            img/optimized/photo/chat_gpt-image-640.avif   640w,
+                            img/optimized/photo/chat_gpt-image-960.avif   960w,
+                            img/optimized/photo/chat_gpt-image-1280.avif 1280w
+                          "
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                        <source
+                          type="image/webp"
+                          srcset="
+                            img/optimized/photo/chat_gpt-image-320.webp   320w,
+                            img/optimized/photo/chat_gpt-image-640.webp   640w,
+                            img/optimized/photo/chat_gpt-image-960.webp   960w,
+                            img/optimized/photo/chat_gpt-image-1280.webp 1280w
+                          "
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                        <img
+                          src="img/optimized/photo/ChatGPT_Smartphone_1400_2099-1280.png"
+                          srcset="
+                            img/optimized/photo/ChatGPT_Smartphone_1400_2099-1280.png 1280w
+                          "
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          alt="ChatGPT smartphone interface showcasing AI technology"
+                          class="mil-scale"
+                          data-value-1="1"
+                          data-value-2="1.2"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
                     </div>
                   </div>
                 </div>
@@ -424,8 +1264,8 @@
                     <div class="col-lg-10">
                       <span
                         class="mil-suptitle mil-light-soft mil-suptitle-right mil-up"
-                        >Professionals focused on helping your brand<br />
-                        grow and move forward.</span
+                        >AI-powered strategies that transform<br />
+                        your marketing into a growth engine.</span
                       >
                     </div>
                   </div>
@@ -433,16 +1273,55 @@
                   <div
                     class="mil-complex-text justify-content-center mil-up mil-mb-15"
                   >
-                    <span class="mil-text-image"
-                      ><img src="img/photo/2.jpg" alt="team"
-                    /></span>
+                    <span
+                      class="mil-text-image"
+                      style="
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-right: 30px;
+                      "
+                    >
+                      <picture>
+                        <source
+                          type="image/avif"
+                          srcset="
+                            img/optimized/works/robot_hand_network-320.avif   320w,
+                            img/optimized/works/robot_hand_network-640.avif   640w,
+                            img/optimized/works/robot_hand_network-960.avif   960w
+                          "
+                          sizes="70px"
+                        />
+                        <source
+                          type="image/webp"
+                          srcset="
+                            img/optimized/works/robot_hand_network-320.webp   320w,
+                            img/optimized/works/robot_hand_network-640.webp   640w,
+                            img/optimized/works/robot_hand_network-960.webp   960w
+                          "
+                          sizes="70px"
+                        />
+                        <img
+                          src="img/optimized/works/robot_hand_network-960.png"
+                          alt="Robotic hand pointing upwards with digital network background"
+                          style="
+                            object-position: center;
+                            object-fit: cover;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 70px;
+                          "
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
+                    </span>
                     <h2 class="mil-h1 mil-muted mil-center">
-                      Unique <span class="mil-thin">Ideas</span>
+                      Custom <span class="mil-thin">Solutions</span>
                     </h2>
                   </div>
                   <div class="mil-complex-text justify-content-center mil-up">
                     <h2 class="mil-h1 mil-muted mil-center">
-                      For Your <span class="mil-thin">Business.</span>
+                      To Power <span class="mil-thin">Growth.</span>
                     </h2>
                     <a
                       href="services.html"
@@ -454,59 +1333,71 @@
 
                 <div class="row mil-services-grid m-0">
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
-                    <a href="service.html" class="mil-service-card-sm mil-up">
-                      <h5 class="mil-muted mil-mb-30">
-                        Branding and <br />Identity Design
-                      </h5>
+                    <a href="smartguest-ai.html" class="mil-service-card-sm mil-up">
+                      <h5 class="mil-muted mil-mb-30">SmartGuest <br />AI</h5>
                       <p class="mil-light-soft mil-mb-30">
-                        Our creative agency is a team of professionals focused
-                        on helping your brand grow.
+                        Ready-to-deploy AI guest management system for hotels,
+                        lodges, and guesthouses. Automates bookings, check-ins,
+                        communications, and operations while driving repeat
+                        business.
                       </p>
                       <div
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></div>
+                        class="mil-button mil-arrow-place mil-btn-space"
+                      >
+                        <span>Learn More</span>
+                      </div>
                     </a>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
-                    <a href="service.html" class="mil-service-card-sm mil-up">
-                      <h5 class="mil-muted mil-mb-30">
-                        Website Design <br />and Development
-                      </h5>
+                    <a href="bizinsight-ai.html" class="mil-service-card-sm mil-up">
+                      <h5 class="mil-muted mil-mb-30">BizInsight <br />AI</h5>
                       <p class="mil-light-soft mil-mb-30">
-                        Our creative agency is a team of professionals focused
-                        on helping your brand grow.
+                        Pre-built AI analytics platform transforming operational
+                        data into actionable insights. Helps SMBs make
+                        data-driven decisions about pricing, inventory,
+                        staffing, and growth opportunities.
                       </p>
                       <div
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></div>
+                        class="mil-button mil-arrow-place mil-btn-space"
+                      >
+                        <span>Learn More</span>
+                      </div>
                     </a>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
-                    <a href="service.html" class="mil-service-card-sm mil-up">
+                    <a href="ai-mastery-workshops.html" class="mil-service-card-sm mil-up">
                       <h5 class="mil-muted mil-mb-30">
-                        Advertising and <br />Marketing Campaigns
+                        AI Mastery <br />Workshops
                       </h5>
                       <p class="mil-light-soft mil-mb-30">
-                        Our creative agency is a team of professionals focused
-                        on helping your brand grow.
+                        Custom AI education and training programs for companies.
+                        Empower your team with practical AI skills,
+                        implementation strategies, and hands-on workshops
+                        tailored to your industry.
                       </p>
                       <div
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></div>
+                        class="mil-button mil-arrow-place mil-btn-space"
+                      >
+                        <span>Learn More</span>
+                      </div>
                     </a>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
-                    <a href="service.html" class="mil-service-card-sm mil-up">
+                    <a href="custom-ai-solutions.html" class="mil-service-card-sm mil-up">
                       <h5 class="mil-muted mil-mb-30">
-                        Creative Consulting <br />and Development
+                        Custom AI <br />Solutions
                       </h5>
                       <p class="mil-light-soft mil-mb-30">
-                        Our creative agency is a team of professionals focused
-                        on helping your brand grow.
+                        Bespoke AI development for unique business challenges.
+                        From concept to deployment, we build custom AI solutions
+                        that solve your specific operational problems and drive
+                        growth.
                       </p>
                       <div
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></div>
+                        class="mil-button mil-arrow-place mil-btn-space"
+                      >
+                        <span>Learn More</span>
+                      </div>
                     </a>
                   </div>
                 </div>
@@ -518,258 +1409,173 @@
           <!-- team -->
           <section>
             <div class="container mil-p-120-30">
-              <div class="row justify-content-between align-items-center">
+              <div class="row justify-content-between align-items-start">
                 <div class="col-lg-5 col-xl-4">
                   <div class="mil-mb-90">
-                    <h2 class="mil-up mil-mb-60">Meet <br />Our Team</h2>
-                    <p class="mil-up mil-mb-30">
-                      We are talented individuals who are passionate about
-                      bringing ideas to life. With a diverse range of
-                      backgrounds and skill sets, we collaborate to produce
-                      effective solutions for our clients.
-                    </p>
+                    <h2 class="mil-up mil-mb-60">
+                      Finally, <br />AI That
+                      <span class="mil-thin">Works for Me</span>
+                    </h2>
 
-                    <p class="mil-up mil-mb-60">
-                      Together, our creative team is committed to delivering
-                      impactful work that exceeds expectations.
-                    </p>
+                    <div class="mil-up mil-mb-40">
+                      <h5 class="mil-muted mil-mb-20">
+                        For Business Owners (Brenda)
+                      </h5>
+                      <ul class="mil-list mil-mb-30">
+                        <li class="mil-up mil-mb-15">
+                          <span class="mil-accent">✓</span> Skip the confusion
+                          and complexity
+                        </li>
+                        <li class="mil-up mil-mb-15">
+                          <span class="mil-accent">✓</span> Hands-off growth
+                          engine that runs 24/7
+                        </li>
+                        <li class="mil-up mil-mb-15">
+                          <span class="mil-accent">✓</span> Measurable results
+                          in 30 days
+                        </li>
+                      </ul>
+                    </div>
 
-                    <div class="mil-up">
+                    <div class="mil-up mil-mb-40">
+                      <h5 class="mil-muted mil-mb-20">
+                        For Tourism & Hospitality (David)
+                      </h5>
+                      <ul class="mil-list mil-mb-30">
+                        <li class="mil-up mil-mb-15">
+                          <span class="mil-accent">✓</span> The direct booking
+                          engine
+                        </li>
+                        <li class="mil-up mil-mb-15">
+                          <span class="mil-accent">✓</span> Fill rooms
+                          year-round with AI forecasting
+                        </li>
+                        <li class="mil-up mil-mb-15">
+                          <span class="mil-accent">✓</span> Build your guest
+                          database for long-term growth
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="mil-up text-center">
                       <a
-                        href="team.html"
+                        href="contact.html"
                         class="mil-button mil-arrow-place mil-mb-60"
-                        ><span>Read more</span></a
+                        ><span>Let's talk about your project</span></a
                       >
                     </div>
 
-                    <h4 class="mil-up">
-                      <span class="mil-thin">We</span> delivering <br /><span
-                        class="mil-thin"
-                        >exceptional</span
-                      >
-                      results.
+                    <h4 class="mil-up mil-mb-40">
+                      <span class="mil-thin">Don't</span> get left behind
+                      <br /><span class="mil-thin">when others</span> are
+                      already using AI.
                     </h4>
                   </div>
                 </div>
                 <div class="col-lg-6">
-                  <div class="mil-team-list">
-                    <div class="mil-lines-place"></div>
+                  <div class="mil-mb-90">
+                    <div class="mil-testimonials-section mil-up">
+                      <div class="mil-lines-place"></div>
 
-                    <div class="row mil-mb-60">
-                      <div class="col-sm-6">
-                        <div class="mil-team-card mil-up mil-mb-30">
-                          <img src="img/faces/1.jpg" alt="Team member" />
-                          <div class="mil-description">
-                            <div class="mil-secrc-text">
-                              <h5 class="mil-muted mil-mb-5">
-                                <a href="home-2.html">Anna Oldman</a>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="mil-testimonial-card mil-up mil-mb-30">
+                            <div class="mil-testimonial-image">
+                              <img
+                                src="img/faces/customers/white_female_280_280.png"
+                                alt="Amanda Thompson"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </div>
+                            <div class="mil-testimonial-content">
+                              <h5 class="mil-light mil-mb-5">
+                                Sherry Bush
                               </h5>
                               <p class="mil-link mil-light-soft mil-mb-10">
-                                Art Director
+                                Marketing Director, Tech Startup
                               </p>
-                              <ul class="mil-social-icons mil-center">
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-behance"></i
-                                  ></a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-dribbble"></i
-                                  ></a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-twitter"></i
-                                  ></a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-github"></i
-                                  ></a>
-                                </li>
-                              </ul>
+                              <p class="mil-text-sm mil-light-soft mil-mb-20">
+                                "Maru didn't just improve our marketing – they
+                                revolutionized how we think about our customers.
+                                Our lead quality increased by 340% in just six
+                                months."
+                              </p>
+                            </div>
+                          </div>
+
+                          <div class="mil-testimonial-card mil-up mil-mb-30">
+                            <div class="mil-testimonial-image">
+                              <img
+                                src="img/faces/customers/black_female_280_280.png"
+                                alt="Jennifer Martinez"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </div>
+                            <div class="mil-testimonial-content">
+                              <h5 class="mil-light mil-mb-5">
+                                Aisha Tlale
+                              </h5>
+                              <p class="mil-link mil-light-soft mil-mb-10">
+                                CEO, Manufacturing Company
+                              </p>
+                              <p class="mil-text-sm mil-light-soft mil-mb-20">
+                                "We were scared of AI until we met Maru. Now we
+                                can't imagine running our marketing without it.
+                                Our ROI has never been higher."
+                              </p>
                             </div>
                           </div>
                         </div>
+                        <div class="col-md-6">
 
-                        <div class="mil-team-card mil-up mil-mb-30">
-                          <img src="img/faces/3.jpg" alt="Team member" />
-                          <div class="mil-description">
-                            <div class="mil-secrc-text">
-                              <h5 class="mil-muted mil-mb-5">
-                                <a href="home-2.html">Oscar Freeman</a>
+                          <div class="mil-testimonial-card mil-up mil-mb-30">
+                            <div class="mil-testimonial-image">
+                              <img
+                                src="img/faces/customers/white_male_280_280.png"
+                                alt="Marcus Johnson"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </div>
+                            <div class="mil-testimonial-content">
+                              <h5 class="mil-light mil-mb-5">
+                                James Mitchell
                               </h5>
                               <p class="mil-link mil-light-soft mil-mb-10">
-                                Frontend Dev
+                                VP Marketing, SaaS Company
                               </p>
-                              <ul class="mil-social-icons mil-center">
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-behance"></i
-                                  ></a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-dribbble"></i
-                                  ></a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-twitter"></i
-                                  ></a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-github"></i
-                                  ></a>
-                                </li>
-                              </ul>
+                              <p class="mil-text-sm mil-light-soft mil-mb-20">
+                                "Finally, a team that speaks both marketing and
+                                AI fluently. They made the complex simple and
+                                the impossible achievable."
+                              </p>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <p
-                          class="mil-mobile-hidden mil-text-sm mil-mb-30"
-                          style="height: 30px"
-                        >
-                          <span class="mil-accent">*</span> The founders of our
-                          agency
-                        </p>
 
-                        <div class="mil-team-card mil-up mil-mb-30">
-                          <img src="img/faces/2.jpg" alt="Team member" />
-                          <div class="mil-description">
-                            <div class="mil-secrc-text">
-                              <h5 class="mil-muted mil-mb-5">
-                                <a href="home-2.html">Emma Newman</a>
-                              </h5>
-                              <p class="mil-link mil-light-soft mil-mb-10">
-                                Founder
-                              </p>
-                              <ul class="mil-social-icons mil-center">
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-behance"></i
-                                  ></a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-dribbble"></i
-                                  ></a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-twitter"></i
-                                  ></a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-github"></i
-                                  ></a>
-                                </li>
-                              </ul>
+                          <div class="mil-testimonial-card mil-up mil-mb-30">
+                            <div class="mil-testimonial-image">
+                              <img
+                                src="img/faces/customers/black_male_280_280.png"
+                                alt="Carlos Rodriguez"
+                                loading="lazy"
+                                decoding="async"
+                              />
                             </div>
-                          </div>
-                        </div>
-
-                        <div class="mil-team-card mil-up mil-mb-30">
-                          <img src="img/faces/4.jpg" alt="Team member" />
-                          <div class="mil-description">
-                            <div class="mil-secrc-text">
-                              <h5 class="mil-muted mil-mb-5">
-                                <a href="home-2.html">Lisa Trueman</a>
+                            <div class="mil-testimonial-content">
+                              <h5 class="mil-light mil-mb-5">
+                                Michael Opondo
                               </h5>
                               <p class="mil-link mil-light-soft mil-mb-10">
-                                UI/UX Designer
+                                Owner, Boutique Hotel
                               </p>
-                              <ul class="mil-social-icons mil-center">
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-behance"></i
-                                  ></a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-dribbble"></i
-                                  ></a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-twitter"></i
-                                  ></a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#."
-                                    target="_blank"
-                                    class="social-icon"
-                                  >
-                                    <i class="fab fa-github"></i
-                                  ></a>
-                                </li>
-                              </ul>
+                              <p class="mil-text-sm mil-light-soft mil-mb-20">
+                                "Maru transformed our booking system. We've
+                                reduced our dependency on third-party sites by
+                                60% and increased our direct bookings by 200% in
+                                just 4 months."
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -782,228 +1588,113 @@
           </section>
           <!-- team end -->
 
-          <!-- reviews -->
-          <section class="mil-soft-bg">
-            <div class="container mil-p-120-120">
-              <div class="row">
-                <div class="col-lg-10">
-                  <span
-                    class="mil-suptitle mil-suptitle-right mil-suptitle-dark mil-up"
-                    >Customer reviews are a valuable source <br />of information
-                    for both businesses and consumers.</span
-                  >
-                </div>
-              </div>
-
-              <h2 class="mil-center mil-up mil-mb-60">
-                Customer <span class="mil-thin">Voices:</span> <br />Hear What
-                <span class="mil-thin">They Say!</span>
-              </h2>
-
-              <div class="mil-revi-pagination mil-up mil-mb-60"></div>
-
-              <div class="row mil-relative justify-content-center">
-                <div class="col-lg-8">
-                  <div class="mil-slider-nav mil-soft mil-reviews-nav mil-up">
-                    <div
-                      class="mil-slider-arrow mil-prev mil-revi-prev mil-arrow-place"
-                    ></div>
-                    <div
-                      class="mil-slider-arrow mil-revi-next mil-arrow-place"
-                    ></div>
+          <!-- partners -->
+          <section class="mil-partners-section">
+            <div class="container mil-p-120-60">
+              <div class="mil-infinite-show swiper-container">
+                <div class="swiper-wrapper">
+                  <!-- Partner logos for infinite scroll effect -->
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/b2b_bw_logo.png" alt="B2B Partner" />
+                    </div>
                   </div>
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 48 48"
-                    class="mil-quote-icon mil-up"
-                  >
-                    <path
-                      d="M 13.5 10 A 8.5 8.5 0 0 0 13.5 27 A 8.5 8.5 0 0 0 18.291016 25.519531 C 17.422273 29.222843 15.877848 31.803343 14.357422 33.589844 C 12.068414 36.279429 9.9433594 37.107422 9.9433594 37.107422 A 1.50015 1.50015 0 1 0 11.056641 39.892578 C 11.056641 39.892578 13.931586 38.720571 16.642578 35.535156 C 19.35357 32.349741 22 27.072581 22 19 A 1.50015 1.50015 0 0 0 21.984375 18.78125 A 8.5 8.5 0 0 0 13.5 10 z M 34.5 10 A 8.5 8.5 0 0 0 34.5 27 A 8.5 8.5 0 0 0 39.291016 25.519531 C 38.422273 29.222843 36.877848 31.803343 35.357422 33.589844 C 33.068414 36.279429 30.943359 37.107422 30.943359 37.107422 A 1.50015 1.50015 0 1 0 32.056641 39.892578 C 32.056641 39.892578 34.931586 38.720571 37.642578 35.535156 C 40.35357 32.349741 43 27.072581 43 19 A 1.50015 1.50015 0 0 0 42.984375 18.78125 A 8.5 8.5 0 0 0 34.5 10 z"
-                      fill="#000000"
-                    />
-                  </svg>
-
-                  <div class="swiper-container mil-reviews-slider">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <div
-                          class="mil-review-frame mil-center"
-                          data-swiper-parallax="-200"
-                          data-swiper-parallax-opacity="0"
-                        >
-                          <h5 class="mil-up mil-mb-10">Sarah Newman</h5>
-                          <p class="mil-mb-5 mil-upper mil-up mil-mb-30">
-                            Envato market
-                          </p>
-                          <p class="mil-text-xl mil-up">
-                            This creative agency stands out with their
-                            exceptional talent and expertise. Their ability to
-                            think outside the box and bring unique ideas to life
-                            is truly impressive. With meticulous attention to
-                            detail, they consistently deliver visually stunning
-                            and impactful work.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div
-                          class="mil-review-frame mil-center"
-                          data-swiper-parallax="-200"
-                          data-swiper-parallax-opacity="0"
-                        >
-                          <h5 class="mil-up mil-mb-10">Emma Trueman</h5>
-                          <p class="mil-mb-5 mil-upper mil-up mil-mb-30">
-                            Envato market
-                          </p>
-                          <p class="mil-text-xl mil-up">
-                            I had the pleasure of working with this creative
-                            agency, and I must say, they truly impressed me.
-                            They consistently think outside the box, resulting
-                            in impressive and impactful work. I highly recommend
-                            this agency for their consistent delivery of
-                            exceptional creative solutions.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div
-                          class="mil-review-frame mil-center"
-                          data-swiper-parallax="-200"
-                          data-swiper-parallax-opacity="0"
-                        >
-                          <h5 class="mil-up mil-mb-10">Sarah Newman</h5>
-                          <p class="mil-mb-5 mil-upper mil-up mil-mb-30">
-                            Envato market
-                          </p>
-                          <p class="mil-text-xl mil-up">
-                            This creative agency stands out with their
-                            exceptional talent and expertise. Their ability to
-                            think outside the box and bring unique ideas to life
-                            is truly impressive. With meticulous attention to
-                            detail, they consistently deliver visually stunning
-                            and impactful work.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div
-                          class="mil-review-frame mil-center"
-                          data-swiper-parallax="-200"
-                          data-swiper-parallax-opacity="0"
-                        >
-                          <h5 class="mil-up mil-mb-10">Emma Trueman</h5>
-                          <p class="mil-mb-5 mil-upper mil-up mil-mb-30">
-                            Envato market
-                          </p>
-                          <p class="mil-text-xl mil-up">
-                            I had the pleasure of working with this creative
-                            agency, and I must say, they truly impressed me.
-                            They consistently think outside the box, resulting
-                            in impressive and impactful work. I highly recommend
-                            this agency for their consistent delivery of
-                            exceptional creative solutions.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div
-                          class="mil-review-frame mil-center"
-                          data-swiper-parallax="-200"
-                          data-swiper-parallax-opacity="0"
-                        >
-                          <h5 class="mil-up mil-mb-10">Sarah Newman</h5>
-                          <p class="mil-mb-5 mil-upper mil-up mil-mb-30">
-                            Envato market
-                          </p>
-                          <p class="mil-text-xl mil-up">
-                            This creative agency stands out with their
-                            exceptional talent and expertise. Their ability to
-                            think outside the box and bring unique ideas to life
-                            is truly impressive. With meticulous attention to
-                            detail, they consistently deliver visually stunning
-                            and impactful work.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div
-                          class="mil-review-frame mil-center"
-                          data-swiper-parallax="-200"
-                          data-swiper-parallax-opacity="0"
-                        >
-                          <h5 class="mil-up mil-mb-10">Emma Trueman</h5>
-                          <p class="mil-mb-5 mil-upper mil-up mil-mb-30">
-                            Envato market
-                          </p>
-                          <p class="mil-text-xl mil-up">
-                            I had the pleasure of working with this creative
-                            agency, and I must say, they truly impressed me.
-                            They consistently think outside the box, resulting
-                            in impressive and impactful work. I highly recommend
-                            this agency for their consistent delivery of
-                            exceptional creative solutions.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div
-                          class="mil-review-frame mil-center"
-                          data-swiper-parallax="-200"
-                          data-swiper-parallax-opacity="0"
-                        >
-                          <h5 class="mil-up mil-mb-10">Sarah Newman</h5>
-                          <p class="mil-mb-5 mil-upper mil-up mil-mb-30">
-                            Envato market
-                          </p>
-                          <p class="mil-text-xl mil-up">
-                            This creative agency stands out with their
-                            exceptional talent and expertise. Their ability to
-                            think outside the box and bring unique ideas to life
-                            is truly impressive. With meticulous attention to
-                            detail, they consistently deliver visually stunning
-                            and impactful work.
-                          </p>
-                        </div>
-                      </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/digivation_bw_logo.png" alt="Digivation" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/dikeme_bw_logo.png" alt="Dikeme" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/xarra_bw_logo.png" alt="Xarra" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/singila_bw_logo.png" alt="Singila" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/embryo_bw_logo.png" alt="Embryo" />
+                    </div>
+                  </div>
+                  
+                  <!-- Duplicate logos for seamless infinite scroll -->
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/b2b_bw_logo.png" alt="B2B Partner" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/digivation_bw_logo.png" alt="Digivation" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/dikeme_bw_logo.png" alt="Dikeme" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/xarra_bw_logo.png" alt="Xarra" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/singila_bw_logo.png" alt="Singila" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/embryo_bw_logo.png" alt="Embryo" />
+                    </div>
+                  </div>
+                  
+                  <!-- Additional duplicates for longer scroll -->
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/b2b_bw_logo.png" alt="B2B Partner" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/digivation_bw_logo.png" alt="Digivation" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/dikeme_bw_logo.png" alt="Dikeme" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/xarra_bw_logo.png" alt="Xarra" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/singila_bw_logo.png" alt="Singila" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="mil-partner-frame">
+                      <img src="img/partners/embryo_bw_logo.png" alt="Embryo" />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-          <!-- reviews end -->
-
-          <!-- partners -->
-          <div class="mil-soft-bg">
-            <div class="container mil-p-0-120">
-              <div class="swiper-container mil-infinite-show mil-up">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <a href="#." class="mil-partner-frame" style="width: 60px"
-                      ><img src="img/partners/1.svg" alt="logo"
-                    /></a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a href="#." class="mil-partner-frame" style="width: 100px"
-                      ><img src="img/partners/2.svg" alt="logo"
-                    /></a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a href="#." class="mil-partner-frame" style="width: 60px"
-                      ><img src="img/partners/1.svg" alt="logo"
-                    /></a>
-                  </div>
-                  <div class="swiper-slide">
-                    <a href="#." class="mil-partner-frame" style="width: 100px"
-                      ><img src="img/partners/2.svg" alt="logo"
-                    /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <!-- partners end -->
+
+
 
           <!-- blog -->
           <section>
@@ -1015,7 +1706,7 @@
                 <div class="col-lg-6 mil-mb-30">
                   <div class="mil-adaptive-right mil-up">
                     <a
-                      href="blog.html"
+                      href="knowledge.html"
                       class="mil-link mil-dark mil-arrow-place"
                     >
                       <span>View all</span>
@@ -1025,28 +1716,39 @@
               </div>
               <div class="row">
                 <div class="col-lg-6">
-                  <a href="publication.html" class="mil-blog-card mil-mb-60">
-                    <div class="mil-cover-frame mil-up">
-                      <img src="img/blog/1.jpg" alt="cover" />
+                  <a
+                    href="knowledge.html"
+                    class="mil-blog-card mil-mb-60"
+                  >
+                    <div
+                      class="mil-cover-frame mil-up"
+                      style="padding-bottom: 56.25%"
+                    >
+                      <picture class="">
+                        <img
+                          src="img/optimized/works/ai_adoption-1280.png"
+                          alt="AI Brand Operating System - AI Agents and Automation"
+                          loading="lazy"
+                          decoding="async"
+                          style="object-fit: cover; object-position: center"
+                        />
+                      </picture>
                     </div>
                     <div class="mil-post-descr">
                       <div class="mil-labels mil-up mil-mb-30">
                         <div class="mil-label mil-upper mil-accent">
-                          TECHNOLOGY
+                          AI STRATEGY
                         </div>
-                        <div class="mil-label mil-upper">may 24 2023</div>
+                        <div class="mil-label mil-upper">january 15 2024</div>
                       </div>
                       <h4 class="mil-up mil-mb-30">
-                        How to Become a Graphic Designer in 10 Simple Steps
+                        Building a Cohesive AI Brand Operating System
                       </h4>
                       <p class="mil-post-text mil-up mil-mb-30">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Eius sequi commodi dignissimos optio, beatae, eos
-                        necessitatibus nisi. Nam cupiditate consectetur nostrum
-                        qui! Repellat natus nulla, nisi aliquid, asperiores
-                        impedit tempora sequi est reprehenderit cumque
-                        explicabo, dicta. Rem nihil ullam totam ea voluptas
-                        quibusdam repudiandae id ut at iure! Totam, a!
+                        How to architect an AI Brand Operating
+                        System—principles, pattern libraries, governance, and
+                        ethical guardrails—for scalable trust and consistent
+                        brand experience across all AI touchpoints.
                       </p>
                       <div class="mil-link mil-dark mil-arrow-place mil-up">
                         <span>Read more</span>
@@ -1055,28 +1757,39 @@
                   </a>
                 </div>
                 <div class="col-lg-6">
-                  <a href="publication.html" class="mil-blog-card mil-mb-60">
-                    <div class="mil-cover-frame mil-up">
-                      <img src="img/blog/2.jpg" alt="cover" />
+                  <a
+                    href="knowledge.html"
+                    class="mil-blog-card mil-mb-60"
+                  >
+                    <div
+                      class="mil-cover-frame mil-up"
+                      style="padding-bottom: 56.25%"
+                    >
+                      <picture class="">
+                        <img
+                          src="img/optimized/works/ai_business_transformation-1280.png"
+                          alt="Adaptive AI UX Pattern Language - Innovation and Creativity"
+                          loading="lazy"
+                          decoding="async"
+                          style="object-fit: cover; object-position: center"
+                        />
+                      </picture>
                     </div>
                     <div class="mil-post-descr">
                       <div class="mil-labels mil-up mil-mb-30">
                         <div class="mil-label mil-upper mil-accent">
-                          TECHNOLOGY
+                          AI UX DESIGN
                         </div>
-                        <div class="mil-label mil-upper">may 24 2023</div>
+                        <div class="mil-label mil-upper">january 20 2024</div>
                       </div>
                       <h4 class="mil-up mil-mb-30">
-                        16 Best Graphic Design Online and Offline Courses
+                        A Pattern Language for Adaptive AI UX
                       </h4>
                       <p class="mil-post-text mil-up mil-mb-30">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Eius sequi commodi dignissimos optio, beatae, eos
-                        necessitatibus nisi. Nam cupiditate consectetur nostrum
-                        qui! Repellat natus nulla, nisi aliquid, asperiores
-                        impedit tempora sequi est reprehenderit cumque
-                        explicabo, dicta. Rem nihil ullam totam ea voluptas
-                        quibusdam repudiandae id ut at iure! Totam, a!
+                        Adaptive AI UX primitives: confidence scaffolds,
+                        reversible actions, progressive model state disclosure
+                        to elevate trust and reduce cognitive load in AI-powered
+                        interfaces.
                       </p>
                       <div class="mil-link mil-dark mil-arrow-place mil-up">
                         <span>Read more</span>
@@ -1089,26 +1802,32 @@
           </section>
           <!-- blog end -->
 
-          <!-- footer -->
+          <!-- footer (standardized Maru) -->
           <footer class="mil-dark-bg">
             <div class="mi-invert-fix">
               <div class="container mil-p-120-60">
                 <div class="row justify-content-between">
                   <div class="col-md-4 col-lg-4 mil-mb-60">
                     <div class="mil-muted mil-logo mil-up mil-mb-30">
-                      Ashley.
+                      <a href="index.html">
+                        <img
+                          src="img/new_maru_logo_neutral.png"
+                          alt="Maru Logo"
+                          style="max-height: 200px; width: auto; display: block; margin-bottom: 20px"
+                        />
+                      </a>
                     </div>
-
                     <p class="mil-light-soft mil-up mil-mb-30">
-                      Subscribe our newsletter:
+                      Subscribe to our newsletter:
                     </p>
-
                     <form class="mil-subscribe-form mil-up">
-                      <input type="text" placeholder="Enter our email" />
+                      <input type="text" placeholder="Enter your email" />
                       <button
                         type="submit"
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></button>
+                        class="mil-button mil-arrow-place"
+                      >
+                        <span>Subscribe</span>
+                      </button>
                     </form>
                   </div>
                   <div class="col-md-7 col-lg-6">
@@ -1120,16 +1839,13 @@
                               <a href="index.html">Home</a>
                             </li>
                             <li class="mil-up">
-                              <a href="portfolio-1.html">Portfolio</a>
-                            </li>
-                            <li class="mil-up">
                               <a href="services.html">Services</a>
                             </li>
                             <li class="mil-up">
-                              <a href="contact.html">Contact</a>
+                              <a href="knowledge.html">Resources</a>
                             </li>
                             <li class="mil-up">
-                              <a href="blog.html">Blog</a>
+                              <a href="contact.html">Contact</a>
                             </li>
                           </ul>
                         </nav>
@@ -1137,22 +1853,22 @@
                       <div class="col-md-6 col-lg-5">
                         <ul class="mil-menu-list mil-up mil-mb-60">
                           <li>
-                            <a href="#." class="mil-light-soft"
+                            <a href="privacy-policy.html" class="mil-light-soft"
                               >Privacy Policy</a
                             >
                           </li>
                           <li>
-                            <a href="#." class="mil-light-soft"
+                            <a href="terms-conditions.html" class="mil-light-soft"
                               >Terms and conditions</a
                             >
                           </li>
                           <li>
-                            <a href="#." class="mil-light-soft"
+                            <a href="cookie-policy.html" class="mil-light-soft"
                               >Cookie Policy</a
                             >
                           </li>
                           <li>
-                            <a href="#." class="mil-light-soft">Careers</a>
+                            <a href="careers.html" class="mil-light-soft">Careers</a>
                           </li>
                         </ul>
                       </div>
@@ -1164,19 +1880,19 @@
                   <div class="col-md-7 col-lg-6">
                     <div class="row justify-content-between">
                       <div class="col-md-6 col-lg-5 mil-mb-60">
-                        <h6 class="mil-muted mil-up mil-mb-30">Canada</h6>
+                        <h6 class="mil-muted mil-up mil-mb-30">Gauteng</h6>
 
                         <p class="mil-light-soft mil-up">
-                          71 South Los Carneros Road, California
-                          <span class="mil-no-wrap">+51 174 705 812</span>
+                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
+                          <br><span class="mil-no-wrap">hello@maruonline.com</span>
                         </p>
                       </div>
                       <div class="col-md-6 col-lg-5 mil-mb-60">
-                        <h6 class="mil-muted mil-up mil-mb-30">Germany</h6>
+                        <h6 class="mil-muted mil-up mil-mb-30">Western Cape</h6>
 
                         <p class="mil-light-soft mil-up">
-                          Leehove 40, 2678 MC De Lier, Netherlands
-                          <span class="mil-no-wrap">+31 174 705 811</span>
+                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
+                          <br><span class="mil-no-wrap">hello@maruonline.com</span>
                         </p>
                       </div>
                     </div>
@@ -1186,29 +1902,29 @@
                       <div class="mil-mb-30">
                         <ul class="mil-social-icons mil-up">
                           <li>
-                            <a href="#." target="_blank" class="social-icon">
-                              <i class="far fa-circle"></i
-                            ></a>
+                            <a href="https://linkedin.com/company/maru-ai" target="_blank" class="social-icon" title="LinkedIn">
+                              <i class="fab fa-linkedin"></i>
+                            </a>
                           </li>
                           <li>
-                            <a href="#." target="_blank" class="social-icon">
-                              <i class="far fa-circle"></i
-                            ></a>
+                            <a href="https://twitter.com/maru_ai" target="_blank" class="social-icon" title="Twitter">
+                              <i class="fab fa-twitter"></i>
+                            </a>
                           </li>
                           <li>
-                            <a href="#." target="_blank" class="social-icon">
-                              <i class="far fa-circle"></i
-                            ></a>
+                            <a href="https://facebook.com/maruai" target="_blank" class="social-icon" title="Facebook">
+                              <i class="fab fa-facebook"></i>
+                            </a>
                           </li>
                           <li>
-                            <a href="#." target="_blank" class="social-icon">
-                              <i class="far fa-circle"></i
-                            ></a>
+                            <a href="https://instagram.com/maru_ai" target="_blank" class="social-icon" title="Instagram">
+                              <i class="fab fa-instagram"></i>
+                            </a>
                           </li>
                         </ul>
                       </div>
                       <p class="mil-light-soft mil-up">
-                        © Copyright 2023 - Mil. All Rights Reserved.
+                        © Copyright 2025 - Maru. All Rights Reserved.
                       </p>
                     </div>
                   </div>
@@ -1395,7 +2111,9 @@
     <script src="js/plugins/ScrollTrigger.min.js"></script>
     <!-- scroll to js -->
     <script src="js/plugins/ScrollTo.min.js"></script>
-    <!-- ashley js -->
+    <!-- maru js -->
     <script src="js/main.js"></script>
+    <!-- secure newsletter form handler -->
+    <script src="js/newsletter-forms-secure.js"></script>
   </body>
 </html>

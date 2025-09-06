@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- bootstrap grid css -->
+    <link rel="stylesheet" href="css/plugins/bootstrap-grid.css" />
+    <!-- font awesome css -->
+    <link rel="stylesheet" href="css/plugins/font-awesome.min.css" />
+    <!-- swiper css -->
+    <link rel="stylesheet" href="css/plugins/swiper.min.css" />
+    <!-- fancybox css -->
+    <link rel="stylesheet" href="css/plugins/fancybox.min.css" />
+    <!-- maru scss -->
+    <link rel="stylesheet" href="css/style.css?v=3.4" />
+
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "ee8074bea9274223aef11729f33c7e15"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+
+    <style>
+      /* Ensure Calendly widget is visible */
+      .calendly-inline-widget {
+        position: relative !important;
+        z-index: 1000 !important;
+        background: white !important;
+        min-height: 700px !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+
+      /* Override any conflicting styles */
+      .mil-post-content .calendly-inline-widget {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 1px solid #e0e0e0 !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+      }
+
+      /* Loading spinner animation */
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Ensure Calendly iframe is visible when loaded */
+      .calendly-inline-widget iframe {
+        border: none !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 700px !important;
+      }
+    </style>
+    <!-- favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="32x32"
+      href="img/favicon_512_512_neutral.svg"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="16x16"
+      href="img/favicon_512_512_neutral.svg"
+    />
+    <link rel="shortcut icon" href="img/favicon_512_512_neutral.svg" />
+    <!-- page name -->
+    <title>Request a Demo | AI Solutions for African SMBs | Maru</title>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RKBNFTLK64"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-RKBNFTLK64");
+    </script>
+
+    <!-- HubSpot Integration -->
+    <script
+      type="text/javascript"
+      id="hs-script-loader"
+      async
+      defer
+      src="//js-eu1.hs-scripts.com/146669350.js"
+    ></script>
+
+    <!-- Calendly Integration - Robust Implementation -->
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async
+    ></script>
+    <script>
+      // Robust Calendly initialization with multiple fallback strategies
+      (function () {
+        let calendlyInitialized = false;
+        let fallbackShown = false;
+
+        function initializeCalendly() {
+          if (calendlyInitialized || fallbackShown) return;
+
+          const widgetContainer = document.querySelector(
+            ".calendly-inline-widget"
+          );
+          const loadingElement = document.getElementById("calendly-loading");
+
+          if (!widgetContainer) return;
+
+          if (typeof Calendly !== "undefined") {
+            try {
+              // Hide loading indicator
+              if (loadingElement) {
+                loadingElement.style.display = "none";
+              }
+
+              Calendly.initInlineWidget({
+                url: "https://calendly.com/demo-maruonline/30min",
+                parentElement: widgetContainer,
+                prefill: {},
+                utm: {},
+              });
+
+              calendlyInitialized = true;
+              console.log("Calendly widget initialized successfully");
+
+              // Ensure the widget is visible
+              widgetContainer.style.background = "transparent";
+              widgetContainer.style.border = "none";
+            } catch (error) {
+              console.error("Error initializing Calendly:", error);
+              showFallback();
+            }
+          } else {
+            console.log("Calendly not yet available, will retry...");
+          }
+        }
+
+        function showFallback() {
+          if (fallbackShown) return;
+
+          const widgetContainer = document.querySelector(
+            ".calendly-inline-widget"
+          );
+          const loadingElement = document.getElementById("calendly-loading");
+
+          if (!widgetContainer) return;
+
+          // Hide loading indicator
+          if (loadingElement) {
+            loadingElement.style.display = "none";
+          }
+
+          fallbackShown = true;
+          widgetContainer.innerHTML = `
+            <div style="padding: 40px; text-align: center; background: #f8f9fa; border-radius: 8px; border: 1px solid #e0e0e0; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+              <h4 style="color: #333; margin-bottom: 20px;">Book Your Demo</h4>
+              <p style="color: #666; margin-bottom: 30px;">Click the button below to book your demo directly on Calendly.</p>
+              <a href="https://calendly.com/demo-maruonline/30min" target="_blank" 
+                 style="display: inline-block; padding: 15px 30px; background: #007bff; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease; margin-bottom: 20px;">
+                Book Demo on Calendly
+              </a>
+              <p style="font-size: 14px; color: #666; margin: 0;">
+                Or contact us directly: <a href="mailto:demo@maruonline.com" style="color: #007bff;">demo@maruonline.com</a>
+              </p>
+            </div>
+          `;
+        }
+
+        // Multiple initialization strategies
+        function tryInitialize() {
+          if (calendlyInitialized || fallbackShown) return;
+
+          if (typeof Calendly !== "undefined") {
+            initializeCalendly();
+          } else {
+            // Retry every 500ms for up to 10 seconds
+            setTimeout(tryInitialize, 500);
+          }
+        }
+
+        // Start trying immediately
+        tryInitialize();
+
+        // Also try on DOM ready
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", tryInitialize);
+        }
+
+        // And on window load
+        window.addEventListener("load", function () {
+          setTimeout(function () {
+            if (!calendlyInitialized && !fallbackShown) {
+              console.log(
+                "Calendly failed to load after 5 seconds, showing fallback"
+              );
+              showFallback();
+            }
+          }, 5000);
+        });
+
+        // Fallback if Calendly script fails to load
+        setTimeout(function () {
+          if (!calendlyInitialized && !fallbackShown) {
+            console.log("Calendly script failed to load, showing fallback");
+            showFallback();
+          }
+        }, 10000);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <!-- wrapper -->
+    <div class="mil-wrapper" id="top">
+      <!-- cursor -->
+      <div class="mil-ball">
+        <span class="mil-icon-1">
+          <svg viewBox="0 0 128 128">
+            <path
+              d="M106.1,41.9c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2L116.8,61H11.2l14.9-14.9c1.2-1.2,1.2-3.1,0-4.2	c-1.2-1.2-3.1-1.2-4.2,0l-20,20c-1.2,1.2-1.2,3.1,0,4.2l20,20c0.6,0.6,1.4,0.9,2.1,0.9s1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2	L11.2,67h105.5l-14.9,14.9c-1.2,1.2-1.2,3.1,0,4.2c0.6,0.6,1.4,0.9,2.1,0.9s1.5-0.3,2.1-0.9l20-20c1.2-1.2,1.2-3.1,0-4.2L106.1,41.9	z"
+            />
+          </svg>
+        </span>
+        <div class="mil-more-text">More</div>
+        <div class="mil-choose-text">Choose</div>
+      </div>
+      <!-- cursor end -->
+
+      <!-- preloader -->
+      <div class="mil-preloader">
+        <div class="mil-preloader-animation">
+          <div class="mil-pos-abs mil-animation-1">
+            <p class="mil-h3 mil-muted mil-thin">Strategy</p>
+            <p class="mil-h3 mil-muted">Automation</p>
+            <p class="mil-h3 mil-muted mil-thin">Growth</p>
+          </div>
+          <div class="mil-pos-abs mil-animation-2">
+            <div class="mil-reveal-frame">
+              <p class="mil-reveal-box"></p>
+              <p class="mil-h3 mil-muted mil-thin">MaruOnline.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- preloader end -->
+
+      <!-- scrollbar progress -->
+      <div class="mil-progress-track">
+        <div class="mil-progress"></div>
+      </div>
+      <!-- scrollbar progress end -->
+
+      <!-- menu -->
+      <div class="mil-menu-frame">
+        <!-- frame clone -->
+        <div class="mil-frame-top">
+          <a href="index.html" class="mil-logo">M.</a>
+          <div class="mil-menu-btn"><span></span></div>
+        </div>
+        <!-- frame clone end -->
+        <div class="container">
+          <div class="mil-menu-content">
+            <div class="row">
+              <div class="col-xl-5">
+                <nav class="mil-main-menu" id="swupMenu">
+                  <ul>
+                    <li class="mil-has-children">
+                      <a href="index.html">Homepage</a>
+                    </li>
+                    <li class="mil-has-children">
+                      <a href="services.html">Services</a>
+                      <ul>
+                        <li><a href="smartguest-ai.html">SmartGuest AI</a></li>
+                        <li><a href="bizinsight-ai.html">BizInsight AI</a></li>
+                        <li>
+                          <a href="ai-mastery-workshops.html"
+                            >AI Mastery Workshops</a
+                          >
+                        </li>
+                        <li>
+                          <a href="custom-ai-solutions.html"
+                            >Custom AI Solutions</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="mil-has-children">
+                      <a href="knowledge.html">Resources</a>
+                      <ul>
+                        <li><a href="knowledge.html">Knowledge</a></li>
+                      </ul>
+                    </li>
+                    <li class="mil-has-children">
+                      <a href="contact.html">Other pages</a>
+                      <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="404.html">404</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="col-xl-7">
+                <div class="mil-menu-right-frame">
+                  <div class="mil-animation-in">
+                    <div class="mil-animation-frame">
+                      <div
+                        class="mil-animation mil-position-1 mil-scale"
+                        data-value-1="2"
+                        data-value-2="2"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="mil-menu-right">
+                    <div class="row">
+                      <div class="col-lg-8 mil-mb-60">
+                        <h6 class="mil-muted mil-mb-30">Contact Info</h6>
+                        <ul class="mil-menu-list">
+                          <li>
+                            <a href="contact.html" class="mil-light-soft"
+                              >Get in touch</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-4 mil-mb-60">
+                        <h6 class="mil-muted mil-mb-30">Useful links</h6>
+                        <ul class="mil-menu-list">
+                          <li>
+                            <a href="privacy-policy.html" class="mil-light-soft"
+                              >Privacy Policy</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="terms-conditions.html"
+                              class="mil-light-soft"
+                              >Terms and conditions</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- menu end -->
+
+      <!-- curtain -->
+      <div class="mil-curtain"></div>
+      <!-- curtain end -->
+
+      <!-- frame -->
+      <div class="mil-frame">
+        <div class="mil-frame-top">
+          <a href="index.html" class="mil-logo">M.</a>
+          <div class="mil-menu-btn">
+            <span></span>
+          </div>
+        </div>
+        <div class="mil-frame-bottom">
+          <div class="mil-current-page"></div>
+          <div class="mil-back-to-top">
+            <a href="#top" class="mil-link mil-dark mil-arrow-place">
+              <span>Back to top</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- frame end -->
+
+      <!-- content -->
+      <div class="mil-content">
+        <div id="swupMain" class="mil-main-transition">
+          <!-- banner -->
+          <div class="mil-dark-bg">
+            <div class="mil-inner-banner" style="padding-bottom: 60px">
+              <div class="mi-invert-fix">
+                <div class="mil-banner-content mil-up">
+                  <div class="mil-animation-frame">
+                    <div
+                      class="mil-animation mil-position-4 mil-scale"
+                      data-value-1="6"
+                      data-value-2="1.4"
+                    ></div>
+                  </div>
+                  <div class="container">
+                    <ul class="mil-breadcrumbs mil-light mil-mb-60">
+                      <li><a href="index.html">Homepage</a></li>
+                      <li><a href="request-demo.html">Request a Demo</a></li>
+                    </ul>
+                    <h1 class="mil-light mil-mb-60">Request a Demo</h1>
+                    <p class="mil-light-soft mil-mb-60">
+                      See our AI solutions in action. Book a personalized demo
+                      to discover how our technology can transform your business
+                      operations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- banner end -->
+
+          <!-- demo form -->
+          <section>
+            <div
+              class="container"
+              style="padding-top: 60px; padding-bottom: 120px"
+            >
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="mil-post-content">
+                    <h2 class="mil-up mil-mb-60">Book Your Demo</h2>
+                    <p class="mil-up mil-mb-60">
+                      Experience firsthand how our AI solutions can
+                      revolutionize your business. Our team will walk you
+                      through our ready-to-deploy solutions and custom AI
+                      capabilities, tailored to your specific needs.
+                    </p>
+
+                    <!-- Calendly Inline Widget -->
+                    <div
+                      class="calendly-inline-widget mil-mb-60"
+                      data-url="https://calendly.com/demo-maruonline/30min"
+                      style="
+                        min-width: 320px;
+                        height: 700px;
+                        position: relative;
+                        background: #f8f9fa;
+                        border: 1px solid #e0e0e0;
+                        border-radius: 8px;
+                      "
+                    >
+                      <!-- Loading state -->
+                      <div
+                        id="calendly-loading"
+                        style="
+                          position: absolute;
+                          top: 50%;
+                          left: 50%;
+                          transform: translate(-50%, -50%);
+                          text-align: center;
+                          z-index: 1;
+                        "
+                      >
+                        <div style="margin-bottom: 20px">
+                          <div
+                            style="
+                              width: 40px;
+                              height: 40px;
+                              border: 4px solid #f3f3f3;
+                              border-top: 4px solid #007bff;
+                              border-radius: 50%;
+                              animation: spin 1s linear infinite;
+                              margin: 0 auto;
+                            "
+                          ></div>
+                        </div>
+                        <p style="color: #666; margin: 0">
+                          Loading booking calendar...
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="mil-divider mil-mb-60"></div>
+
+                    <h3 class="mil-up mil-mb-60">What to Expect</h3>
+                    <ul class="mil-up mil-mb-60">
+                      <li>
+                        <strong>Personalized Walkthrough:</strong> See our AI
+                        solutions in action with your specific use cases
+                      </li>
+                      <li>
+                        <strong>Live Demonstrations:</strong> Interactive demos
+                        of SmartGuest AI, BizInsight AI, and custom solutions
+                      </li>
+                      <li>
+                        <strong>Q&A Session:</strong> Get answers to your
+                        questions about implementation and ROI
+                      </li>
+                      <li>
+                        <strong>Next Steps:</strong> Clear roadmap for moving
+                        forward with AI adoption
+                      </li>
+                    </ul>
+
+                    <h3 class="mil-up mil-mb-60">Demo Options</h3>
+                    <div class="row mil-mb-60">
+                      <div class="col-md-6">
+                        <div class="mil-card mil-card-hover mil-mb-30">
+                          <div class="mil-card-body">
+                            <h5 class="mil-up mil-mb-15">
+                              Ready-to-Deploy Solutions
+                            </h5>
+                            <p class="mil-up mil-mb-0">
+                              SmartGuest AI and BizInsight AI demonstrations
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mil-card mil-card-hover mil-mb-30">
+                          <div class="mil-card-body">
+                            <h5 class="mil-up mil-mb-15">
+                              Custom AI Solutions
+                            </h5>
+                            <p class="mil-up mil-mb-0">
+                              Tailored AI development for your specific needs
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mil-sidebar">
+                    <div class="mil-widget mil-widget-contact mil-mb-60">
+                      <h4 class="mil-up mil-mb-25">Contact Information</h4>
+                      <div class="mil-contact-info">
+                        <div class="mil-contact-item mil-up mil-mb-30">
+                          <h6 class="mil-muted mil-mb-10">Phone</h6>
+                          <p>+27(0)83 393 4864</p>
+                        </div>
+                        <div class="mil-contact-item mil-up mil-mb-30">
+                          <h6 class="mil-muted mil-mb-10">Email</h6>
+                          <p>demo@maruonline.com</p>
+                        </div>
+                        <div class="mil-contact-item mil-up mil-mb-30">
+                          <h6 class="mil-muted mil-mb-10">Duration</h6>
+                          <p>30-45 minutes</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mil-widget mil-widget-categories mil-mb-60">
+                      <h4 class="mil-up mil-mb-25">Demo Topics</h4>
+                      <ul class="mil-up">
+                        <li><a href="#smartguest">SmartGuest AI</a></li>
+                        <li><a href="#bizinsight">BizInsight AI</a></li>
+                        <li><a href="#custom">Custom Solutions</a></li>
+                        <li><a href="#training">AI Training</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- demo form end -->
+
+          <!-- footer -->
+          <footer class="mil-dark-bg">
+            <div class="mi-invert-fix">
+              <div class="container mil-p-120-60">
+                <div class="row justify-content-between">
+                  <div class="col-md-4 col-lg-4 mil-mb-60">
+                    <div class="mil-muted mil-logo mil-up mil-mb-30">
+                      <img
+                        src="img/new_maru_logo_neutral.png"
+                        alt="Maru Logo"
+                        style="
+                          max-height: 200px;
+                          width: auto;
+                          display: block;
+                          margin-bottom: 20px;
+                        "
+                      />
+                    </div>
+                    <p class="mil-light-soft mil-up mil-mb-30">
+                      Subscribe to our newsletter:
+                    </p>
+                    <form class="mil-subscribe-form mil-up">
+                      <input type="text" placeholder="Enter your email" />
+                      <button
+                        type="submit"
+                        class="mil-button mil-icon-button-sm mil-arrow-place"
+                      ></button>
+                    </form>
+                  </div>
+                  <div class="col-md-7 col-lg-6">
+                    <div class="row justify-content-end">
+                      <div class="col-md-6 col-lg-7">
+                        <nav class="mil-footer-menu mil-mb-60">
+                          <ul>
+                            <li class="mil-up">
+                              <a href="index.html">Home</a>
+                            </li>
+                            <li class="mil-up">
+                              <a href="services.html">Services</a>
+                            </li>
+                            <li class="mil-up">
+                              <a href="knowledge.html">Resources</a>
+                            </li>
+                            <li class="mil-up">
+                              <a href="contact.html">Contact</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                      <div class="col-md-6 col-lg-5">
+                        <ul class="mil-menu-list mil-up mil-mb-60">
+                          <li>
+                            <a href="privacy-policy.html" class="mil-light-soft"
+                              >Privacy Policy</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="terms-conditions.html"
+                              class="mil-light-soft"
+                              >Terms and conditions</a
+                            >
+                          </li>
+                          <li>
+                            <a href="cookie-policy.html" class="mil-light-soft"
+                              >Cookie Policy</a
+                            >
+                          </li>
+                          <li>
+                            <a href="careers.html" class="mil-light-soft"
+                              >Careers</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row justify-content-between flex-sm-row-reverse">
+                  <div class="col-md-7 col-lg-6">
+                    <div class="row justify-content-between">
+                      <div class="col-md-6 col-lg-5 mil-mb-60">
+                        <h6 class="mil-muted mil-up mil-mb-30">KZN</h6>
+                        <p class="mil-light-soft mil-up">
+                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
+                        </p>
+                      </div>
+                      <div class="col-md-6 col-lg-5 mil-mb-60">
+                        <h6 class="mil-muted mil-up mil-mb-30">Gauteng</h6>
+                        <p class="mil-light-soft mil-up">
+                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-lg-6 mil-mb-60">
+                    <div class="mil-vert-between">
+                      <div class="mil-mb-30">
+                        <ul class="mil-social-icons mil-up">
+                          <li>
+                            <a
+                              href="https://linkedin.com/company/maru-ai"
+                              target="_blank"
+                              class="social-icon"
+                            >
+                              <i class="fab fa-linkedin-in"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="https://twitter.com/maru_ai"
+                              target="_blank"
+                              class="social-icon"
+                            >
+                              <i class="fab fa-twitter"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="https://facebook.com/maruai"
+                              target="_blank"
+                              class="social-icon"
+                            >
+                              <i class="fab fa-facebook-f"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="https://instagram.com/maru_ai"
+                              target="_blank"
+                              class="social-icon"
+                            >
+                              <i class="fab fa-instagram"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <p class="mil-light-soft mil-up">
+                        © Copyright 2025 - Maru. All Rights Reserved.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+          <!-- footer end -->
+        </div>
+      </div>
+      <!-- content -->
+    </div>
+    <!-- wrapper end -->
+
+    <!-- jQuery js -->
+    <script src="js/plugins/jquery.min.js"></script>
+    <!-- swup js -->
+    <script src="js/plugins/swup.min.js"></script>
+    <!-- swiper js -->
+    <script src="js/plugins/swiper.min.js"></script>
+    <!-- fancybox js -->
+    <script src="js/plugins/fancybox.min.js"></script>
+    <!-- gsap js -->
+    <script src="js/plugins/gsap.min.js"></script>
+    <!-- scroll smoother -->
+    <script src="js/plugins/smooth-scroll.js"></script>
+    <!-- scroll trigger js -->
+    <script src="js/plugins/ScrollTrigger.min.js"></script>
+    <!-- scroll to js -->
+    <script src="js/plugins/ScrollTo.min.js"></script>
+    <!-- maru js -->
+    <script src="js/main.js"></script>
+    <!-- secure newsletter form handler -->
+    <script src="js/newsletter-forms-secure.js"></script>
+  </body>
+</html>

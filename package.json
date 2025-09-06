@@ -1,0 +1,13 @@
+{
+  "name": "maru-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Build scripts for optimizing images for the Maru static site",
+  "scripts": {
+    "optimize-images": "node scripts/optimize-images.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.3",
+    "glob": "^11.0.0"
+  }
+}

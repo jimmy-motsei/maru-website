@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage with main images -->
+  <url>
+    <loc>https://maruonline.com/</loc>
+    <image:image>
+      <image:loc>https://maruonline.com/img/new_maru_logo_neutral.png</image:loc>
+      <image:title>Maru AI Logo</image:title>
+      <image:caption>Maru AI - AI Marketing Experts Logo</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Services page -->
+  <url>
+    <loc>https://maruonline.com/services.html</loc>
+    <image:image>
+      <image:loc>https://maruonline.com/img/new_maru_logo_neutral.png</image:loc>
+      <image:title>Maru AI Services</image:title>
+      <image:caption>AI Marketing Services and Solutions</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Contact page -->
+  <url>
+    <loc>https://maruonline.com/contact.html</loc>
+    <image:image>
+      <image:loc>https://maruonline.com/img/new_maru_logo_neutral.png</image:loc>
+      <image:title>Contact Maru AI</image:title>
+      <image:caption>Get in touch with Maru AI experts</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- SmartGuest AI solution -->
+  <url>
+    <loc>https://maruonline.com/smartguest-ai.html</loc>
+    <image:image>
+      <image:loc>https://maruonline.com/img/new_maru_logo_neutral.png</image:loc>
+      <image:title>SmartGuest AI Solution</image:title>
+      <image:caption>AI-powered guest management solution</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- BizInsight AI solution -->
+  <url>
+    <loc>https://maruonline.com/bizinsight-ai.html</loc>
+    <image:image>
+      <image:loc>https://maruonline.com/img/new_maru_logo_neutral.png</image:loc>
+      <image:title>BizInsight AI Solution</image:title>
+      <image:caption>Business intelligence and analytics AI solution</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Custom AI Solutions -->
+  <url>
+    <loc>https://maruonline.com/custom-ai-solutions.html</loc>
+    <image:image>
+      <image:loc>https://maruonline.com/img/new_maru_logo_neutral.png</image:loc>
+      <image:title>Custom AI Solutions</image:title>
+      <image:caption>Bespoke AI development and implementation</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Ready to Deploy Solutions -->
+  <url>
+    <loc>https://maruonline.com/ready-to-deploy-solutions.html</loc>
+    <image:image>
+      <image:loc>https://maruonline.com/img/new_maru_logo_neutral.png</image:loc>
+      <image:title>Ready to Deploy AI Solutions</image:title>
+      <image:caption>Pre-developed AI solutions ready for deployment</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- AI Mastery Workshops -->
+  <url>
+    <loc>https://maruonline.com/ai-mastery-workshops.html</loc>
+    <image:image>
+      <image:loc>https://maruonline.com/img/new_maru_logo_neutral.png</image:loc>
+      <image:title>AI Mastery Workshops</image:title>
+      <image:caption>AI training and enablement workshops</image:caption>
+    </image:image>
+  </url>
+  
+</urlset>
