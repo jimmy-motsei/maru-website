@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    <!-- Safari scrolling fix -->
+    <meta name="format-detection" content="telephone=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- bootstrap grid css -->
@@ -589,6 +591,30 @@
         .mil-container-fluid {
           padding-left: 60px;
           padding-right: 60px;
+        }
+      }
+      
+      /* ===========================================
+         SAFARI SCROLLING FIX
+         =========================================== */
+      
+      /* Safari-specific scrolling fixes */
+      @supports (-webkit-touch-callout: none) {
+        html, body {
+          -webkit-overflow-scrolling: touch !important;
+          overflow-x: hidden !important;
+        }
+        
+        .mil-wrapper {
+          -webkit-overflow-scrolling: touch !important;
+        }
+        
+        /* Fix for fixed positioned elements in Safari */
+        .mil-frame,
+        .mil-menu-frame,
+        .mil-preloader {
+          -webkit-transform: translateZ(0) !important;
+          transform: translateZ(0) !important;
         }
       }
       

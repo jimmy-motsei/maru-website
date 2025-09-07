@@ -150,7 +150,9 @@ body {
   color: rgba(0, 0, 0, 0.5);
   line-height: 150%;
   -ms-scroll-chaining: none;
-  overscroll-behavior: none;
+  /* Safari scrolling fix - remove overscroll-behavior: none */
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
 }
 @media screen and (max-width: 768px) {
   html,
@@ -2097,6 +2099,8 @@ banner
 .mil-banner {
   min-height: 100vh;
   height: 100vh;
+  /* Safari scrolling fix - use fallback heights */
+  height: -webkit-fill-available; /* Safari fallback */
   height: 100dvh; /* dynamic viewport height for mobile */
   height: 100svh; /* small viewport height for mobile browsers */
 }
@@ -2280,9 +2284,9 @@ banner
     letter-spacing: 2px;
     border-radius: 70px;
 
-    /* Touch interactions */
+    /* Touch interactions - Safari scrolling fix */
     -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+    /* Remove touch-action: manipulation for Safari scrolling */
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -2386,7 +2390,7 @@ banner
   /* Link styling improvements */
   .mil-link {
     -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+    /* Remove touch-action: manipulation for Safari scrolling */
     min-height: 44px;
     display: inline-flex;
     align-items: center;
