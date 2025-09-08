@@ -350,7 +350,10 @@ class HubSpotNewsletterIntegration {
       form.appendChild(successDiv);
       
       // Reset form
-      emailInput.value = "";
+      const emailInput = form.querySelector('input[type="email"], input[type="text"]');
+      if (emailInput) {
+        emailInput.value = "";
+      }
       if (submitButton) {
         submitButton.disabled = false;
         submitButton.innerHTML = "";

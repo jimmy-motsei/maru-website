@@ -371,19 +371,27 @@ $(function () {
   });
 
   $(
-    'a:not(".mil-choose , .mil-more , .mil-drag , .mil-accent-cursor"), input , textarea, .mil-accordion-menu'
+    'a:not(.mil-choose):not(.mil-more):not(.mil-drag):not(.mil-accent-cursor), input, textarea, .mil-accordion-menu'
   ).mouseover(function () {
-    // Disable GSAP animation to prevent color conflicts
-    $(cursor).css("transform", "scale(0)");
-    $(".mil-ball svg").css("transform", "scale(0)");
+    gsap.to($(cursor), 0.2, {
+      scale: 0,
+      ease: "sine",
+    });
+    gsap.to($(".mil-ball svg"), 0.2, {
+      scale: 0,
+    });
   });
 
   $(
-    'a:not(".mil-choose , .mil-more , .mil-drag , .mil-accent-cursor"), input, textarea, .mil-accordion-menu'
+    'a:not(.mil-choose):not(.mil-more):not(.mil-drag):not(.mil-accent-cursor), input, textarea, .mil-accordion-menu'
   ).mouseleave(function () {
-    // Disable GSAP animation to prevent color conflicts
-    $(cursor).css("transform", "scale(1)");
-    $(".mil-ball svg").css("transform", "scale(1)");
+    gsap.to($(cursor), 0.2, {
+      scale: 1,
+      ease: "sine",
+    });
+    gsap.to($(".mil-ball svg"), 0.2, {
+      scale: 1,
+    });
 
     // Ensure cursor color is preserved
     if (!$(cursor).hasClass("mil-accent")) {
@@ -793,188 +801,8 @@ $(function () {
       };
     }
 
-    /***************************
-
-        cursor
-
-        ***************************/
-
-    $(".mil-drag, .mil-more, .mil-choose").mouseover(function () {
-      gsap.to($(cursor), 0.2, {
-        width: 90,
-        height: 90,
-        opacity: 1,
-        ease: "sine",
-      });
-    });
-
-    $(".mil-drag, .mil-more, .mil-choose").mouseleave(function () {
-      gsap.to($(cursor), 0.2, {
-        width: 20,
-        height: 20,
-        opacity: 0.1,
-        ease: "sine",
-      });
-    });
-
-    $(".mil-accent-cursor").mouseover(function () {
-      // Check for multiple cursor elements
-      var allCursors = document.querySelectorAll(".mil-ball");
-
-      // Apply to all cursor elements
-      allCursors.forEach(function (cursorElement) {
-        cursorElement.classList.add("mil-accent");
-        cursorElement.setAttribute(
-          "style",
-          "--bs-orange: " +
-            accent +
-            " !important; background-color: " +
-            accent +
-            " !important; background: " +
-            accent +
-            " !important; color: " +
-            accent +
-            " !important; border-color: " +
-            accent +
-            " !important; outline-color: " +
-            accent +
-            " !important;"
-        );
-
-        // Target inner elements specifically
-        var innerElements = cursorElement.querySelectorAll(
-          ".mil-more-text, .mil-choose-text, .mil-icon-1, .mil-icon-1 svg"
-        );
-        innerElements.forEach(function (innerElement) {
-          if (
-            innerElement.classList.contains("mil-more-text") ||
-            innerElement.classList.contains("mil-choose-text")
-          ) {
-            // Text elements - accent background, white text, keep within bounds, center text
-            innerElement.setAttribute(
-              "style",
-              "background-color: " +
-                accent +
-                " !important; background: " +
-                accent +
-                " !important; color: #ffffff !important; border-color: " +
-                accent +
-                " !important; outline-color: " +
-                accent +
-                " !important; opacity: 1 !important; visibility: visible !important; display: flex !important; align-items: center !important; justify-content: center !important; text-align: center !important; width: 100% !important; height: 100% !important; max-width: 100% !important; max-height: 100% !important; overflow: hidden !important; border-radius: 50% !important; box-sizing: border-box !important;"
-            );
-          } else {
-            // Icon elements - accent background, white fill
-            innerElement.setAttribute(
-              "style",
-              "background-color: " +
-                accent +
-                " !important; background: " +
-                accent +
-                " !important; color: #ffffff !important; border-color: " +
-                accent +
-                " !important; outline-color: " +
-                accent +
-                " !important; fill: #ffffff !important;"
-            );
-          }
-        });
-      });
-
-      // Apply accent color with GSAP
-      gsap.to($(cursor), 0.2, {
-        background: accent,
-        ease: "sine",
-      });
-    });
-
-    $(".mil-accent-cursor").mouseleave(function () {
-      gsap.to($(cursor), 0.2, {
-        background: dark,
-        ease: "sine",
-      });
-      $(cursor).removeClass("mil-accent");
-    });
-
-    $(".mil-drag").mouseover(function () {
-      gsap.to($(".mil-ball .mil-icon-1"), 0.2, {
-        scale: "1",
-        ease: "sine",
-      });
-    });
-
-    $(".mil-drag").mouseleave(function () {
-      gsap.to($(".mil-ball .mil-icon-1"), 0.2, {
-        scale: "0",
-        ease: "sine",
-      });
-    });
-
-    $(".mil-more").mouseover(function () {
-      gsap.to($(".mil-ball .mil-more-text"), 0.2, {
-        scale: "1",
-        ease: "sine",
-      });
-    });
-
-    $(".mil-more").mouseleave(function () {
-      gsap.to($(".mil-ball .mil-more-text"), 0.2, {
-        scale: "0",
-        ease: "sine",
-      });
-    });
-
-    $(".mil-choose").mouseover(function () {
-      gsap.to($(".mil-ball .mil-choose-text"), 0.2, {
-        scale: "1",
-        ease: "sine",
-      });
-    });
-
-    $(".mil-choose").mouseleave(function () {
-      gsap.to($(".mil-ball .mil-choose-text"), 0.2, {
-        scale: "0",
-        ease: "sine",
-      });
-    });
-
-    $(
-      'a:not(".mil-choose , .mil-more , .mil-drag , .mil-accent-cursor"), input , textarea, .mil-accordion-menu'
-    ).mouseover(function () {
-      gsap.to($(cursor), 0.2, {
-        scale: 0,
-        ease: "sine",
-      });
-      gsap.to($(".mil-ball svg"), 0.2, {
-        scale: 0,
-      });
-    });
-
-    $(
-      'a:not(".mil-choose , .mil-more , .mil-drag , .mil-accent-cursor"), input, textarea, .mil-accordion-menu'
-    ).mouseleave(function () {
-      gsap.to($(cursor), 0.2, {
-        scale: 1,
-        ease: "sine",
-      });
-
-      gsap.to($(".mil-ball svg"), 0.2, {
-        scale: 1,
-      });
-    });
-
-    $("body").mousedown(function () {
-      gsap.to($(cursor), 0.2, {
-        scale: 0.1,
-        ease: "sine",
-      });
-    });
-    $("body").mouseup(function () {
-      gsap.to($(cursor), 0.2, {
-        scale: 1,
-        ease: "sine",
-      });
-    });
+    // Cursor handlers are global and don't need reinitialization
+    
     /***************************
 
         main menu
@@ -984,11 +812,11 @@ $(function () {
       e.preventDefault();
       var $currentDropdown = $(this).next();
       var $currentLink = $(this);
-
+      
       // Close other dropdowns
       $(".mil-has-children ul").not($currentDropdown).removeClass("mil-active");
       $(".mil-has-children a").not($currentLink).removeClass("mil-active");
-
+      
       // Toggle current dropdown
       $currentLink.toggleClass("mil-active");
       $currentDropdown.toggleClass("mil-active");

@@ -5,6 +5,12 @@
 
 class ContactFormEnhancer {
   constructor() {
+    // Prevent multiple instances
+    if (window.ContactFormEnhancerInstance) {
+      return window.ContactFormEnhancerInstance;
+    }
+    
+    window.ContactFormEnhancerInstance = this;
     this.init();
   }
 
@@ -105,6 +111,8 @@ class ContactFormEnhancer {
         onFormReady: () => {
           console.log("HubSpot form ready");
           this.hideLoadingState();
+          // Mark container as enhanced to prevent reinitalization
+          container.setAttribute('data-enhanced', 'true');
         },
         onFormSubmit: () => {
           console.log("Form submitted");
@@ -193,6 +201,9 @@ class ContactFormEnhancer {
     if (form) {
       form.addEventListener("submit", this.handleFallbackFormSubmit);
     }
+    
+    // Mark container as enhanced to prevent reinitalization
+    container.setAttribute('data-enhanced', 'true');
   }
 
   handleFallbackFormSubmit(event) {

@@ -12,13 +12,15 @@ from pathlib import Path
 def fix_broken_links():
     """Fix all broken links (href="#.") in HTML files"""
     
-    # Files to process
-    html_files = [
-        'index.html', 'services.html', 'knowledge.html', 'contact.html',
-        'custom-ai-solutions.html', 'smartguest-ai.html', 'bizinsight-ai.html',
-        'ai-mastery-workshops.html', 'ready-to-deploy-solutions.html',
-        'request-demo.html', '404.html'
-    ]
+    # Find all HTML files recursively
+    html_files = []
+    for html_file in Path('.').rglob('*.html'):
+        # Skip files in hidden directories or common build directories
+        if not any(part.startswith('.') or part in ['node_modules', 'dist', 'build'] 
+                  for part in html_file.parts):
+            html_files.append(str(html_file))
+    
+    print(f"Found {len(html_files)} HTML files to process")
     
     # Link replacements
     link_replacements = {
