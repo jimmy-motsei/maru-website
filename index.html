@@ -99,7 +99,7 @@
       .mil-circle-text {
         position: absolute !important;
         right: 0 !important;
-        top: 80% !important;
+        top: 70% !important;
         z-index: 1000 !important;
       }
       
@@ -107,7 +107,7 @@
       .mil-banner .mil-circle-text {
         position: absolute !important;
         right: 0 !important;
-        top: 80% !important;
+        top: 70% !important;
         z-index: 1000 !important;
       }
       
@@ -505,14 +505,14 @@
       .mil-banner .mil-circle-text {
         position: absolute !important;
         right: 0 !important;
-        top: 80% !important;
+        top: 70% !important;
         z-index: 1000 !important;
       }
       
       /* Desktop (1200px) */
       @media screen and (max-width: 1200px) {
         .mil-banner .mil-circle-text {
-          top: 75% !important;
+          top: 70% !important;
         }
       }
       
@@ -526,7 +526,7 @@
       /* Mobile (768px) */
       @media screen and (max-width: 768px) {
         .mil-banner .mil-circle-text {
-          top: 65% !important;
+          top: 70% !important;
           right: 20px !important;
         }
       }
@@ -534,7 +534,7 @@
       /* Small Mobile (576px) */
       @media screen and (max-width: 576px) {
         .mil-banner .mil-circle-text {
-          top: 60% !important;
+          top: 70% !important;
           right: 15px !important;
         }
       }
@@ -542,7 +542,7 @@
       /* Very Small Mobile (500px) */
       @media screen and (max-width: 500px) {
         .mil-banner .mil-circle-text {
-          top: 55% !important;
+          top: 70% !important;
           right: 10px !important;
         }
       }
@@ -598,15 +598,72 @@
          SAFARI SCROLLING FIX
          =========================================== */
       
-      /* Safari-specific scrolling fixes */
+      /* Safari-specific scrolling fixes - AGGRESSIVE OVERRIDE */
       @supports (-webkit-touch-callout: none) {
+        * {
+          -webkit-overflow-scrolling: touch !important;
+        }
+        
         html, body {
           -webkit-overflow-scrolling: touch !important;
           overflow-x: hidden !important;
+          overflow-y: auto !important;
+          height: auto !important;
+          min-height: 100vh !important;
+          position: relative !important;
+          display: block !important;
         }
         
         .mil-wrapper {
           -webkit-overflow-scrolling: touch !important;
+          overflow: visible !important;
+          overflow-x: hidden !important;
+          overflow-y: visible !important;
+          height: auto !important;
+          min-height: 100vh !important;
+          position: relative !important;
+          display: block !important;
+        }
+        
+        .mil-content {
+          overflow: visible !important;
+          overflow-y: visible !important;
+          height: auto !important;
+          position: relative !important;
+          display: block !important;
+        }
+        
+        .mil-main-transition {
+          overflow: visible !important;
+          overflow-y: visible !important;
+          height: auto !important;
+          position: relative !important;
+          display: block !important;
+        }
+        
+        /* Ensure sections don't block scrolling */
+        section {
+          overflow-x: hidden !important;
+          overflow-y: visible !important;
+          position: relative !important;
+          height: auto !important;
+          display: block !important;
+        }
+        
+        /* Fix banner height for Safari */
+        .mil-banner {
+          height: auto !important;
+          min-height: 100vh !important;
+          overflow: visible !important;
+          position: relative !important;
+          display: block !important;
+        }
+        
+        /* Force all containers to allow scrolling */
+        .container {
+          overflow: visible !important;
+          height: auto !important;
+          position: relative !important;
         }
         
         /* Fix for fixed positioned elements in Safari */
@@ -615,6 +672,15 @@
         .mil-preloader {
           -webkit-transform: translateZ(0) !important;
           transform: translateZ(0) !important;
+        }
+        
+        /* CRITICAL: Override any Swup or animation CSS that might block scrolling */
+        .mil-main-transition,
+        .mil-content,
+        .mil-wrapper {
+          transform: none !important;
+          -webkit-transform: none !important;
+          will-change: auto !important;
         }
       }
       
@@ -1116,7 +1182,7 @@
                   <div class="row">
                     <div class="col-md-7 col-lg-5">
                       <p class="mil-light-soft mil-mb-60">
-                        We’re your bridge to the Age of AI, combining
+                        We're your bridge to the Age of AI, combining
                         comprehensive marketing solutions with cutting-edge AI
                         technology to make your business smarter, faster, and
                         more competitive.
@@ -2141,5 +2207,8 @@
     <script src="js/main.js"></script>
     <!-- secure newsletter form handler -->
     <script src="js/newsletter-forms-secure.js"></script>
+    
+    <!-- Safari scrolling fix -->
+    <script src="js/safari-scroll-fix.js"></script>
   </body>
 </html>
