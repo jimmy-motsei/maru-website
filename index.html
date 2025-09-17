@@ -864,6 +864,196 @@
       }
 
       /* ===========================================
+         COOKIE BANNER STYLING
+         =========================================== */
+
+      .mil-cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.9) 100%
+        );
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(0, 188, 212, 0.3);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+        transform: translateY(100%);
+        transition: transform 0.4s cubic-bezier(0, 0, 0.3642, 1);
+      }
+
+      .mil-cookie-banner.show {
+        transform: translateY(0);
+      }
+
+      .mil-cookie-banner-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 30px;
+      }
+
+      .mil-cookie-banner-text {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .mil-cookie-banner-title {
+        color: rgb(0, 188, 212);
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 0 8px 0;
+        font-family: "Outfit", sans-serif;
+      }
+
+      .mil-cookie-banner-description {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+        font-family: "Outfit", sans-serif;
+      }
+
+      .mil-cookie-banner-link {
+        color: rgb(0, 188, 212);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .mil-cookie-banner-link:hover {
+        color: rgb(0, 200, 220);
+        text-decoration: underline;
+      }
+
+      .mil-cookie-banner-actions {
+        display: flex;
+        gap: 15px;
+        flex-shrink: 0;
+      }
+
+      .mil-cookie-accept {
+        background-color: rgb(0, 188, 212);
+        color: rgb(0, 0, 0);
+        border: none;
+        padding: 12px 24px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .mil-cookie-accept:hover {
+        background-color: rgb(0, 200, 220);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+      }
+
+      .mil-cookie-settings {
+        background-color: transparent;
+        color: rgb(255, 255, 255);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 12px 24px;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .mil-cookie-settings:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: rgb(0, 188, 212);
+        color: rgb(0, 188, 212);
+        transform: translateY(-2px);
+      }
+
+      .mil-cookie-decline {
+        background-color: transparent;
+        color: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 12px 24px;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .mil-cookie-decline:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.4);
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* Mobile responsive cookie banner */
+      @media screen and (max-width: 768px) {
+        .mil-cookie-banner-content {
+          flex-direction: column;
+          align-items: stretch;
+          padding: 20px;
+          gap: 20px;
+        }
+
+        .mil-cookie-banner-text {
+          text-align: center;
+        }
+
+        .mil-cookie-banner-title {
+          font-size: 16px;
+        }
+
+        .mil-cookie-banner-description {
+          font-size: 13px;
+        }
+
+        .mil-cookie-banner-actions {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .mil-cookie-accept,
+        .mil-cookie-settings,
+        .mil-cookie-decline {
+          flex: 1;
+          min-width: 120px;
+          padding: 14px 16px;
+          font-size: 11px;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .mil-cookie-banner-content {
+          padding: 15px;
+        }
+
+        .mil-cookie-banner-actions {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .mil-cookie-accept,
+        .mil-cookie-settings,
+        .mil-cookie-decline {
+          width: 100%;
+          min-width: auto;
+        }
+      }
+
+      /* ===========================================
          SERVICES SECTION BUTTON STYLING
          =========================================== */
 
@@ -1104,6 +1294,35 @@
   </head>
 
   <body>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="mil-cookie-banner" style="display: none">
+      <div class="mil-cookie-banner-content">
+        <div class="mil-cookie-banner-text">
+          <h4 class="mil-cookie-banner-title">🍪 We Use Cookies</h4>
+          <p class="mil-cookie-banner-description">
+            We use cookies to enhance your browsing experience, serve
+            personalized content, and analyze our traffic. By clicking "Accept
+            All", you consent to our use of cookies.
+            <a href="cookie-policy.html" class="mil-cookie-banner-link"
+              >Learn more</a
+            >
+          </p>
+        </div>
+        <div class="mil-cookie-banner-actions">
+          <button id="cookie-accept-all" class="mil-button mil-cookie-accept">
+            <span>Accept All</span>
+          </button>
+          <button id="cookie-settings" class="mil-button mil-cookie-settings">
+            <span>Settings</span>
+          </button>
+          <button id="cookie-decline" class="mil-button mil-cookie-decline">
+            <span>Decline</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Cookie Banner end -->
+
     <!-- wrapper -->
     <div class="mil-wrapper" id="top">
       <!-- cursor -->
@@ -2426,6 +2645,9 @@
 
     <!-- Form Performance Monitor (for debugging) -->
     <script src="js/form-performance-monitor.js"></script>
+
+    <!-- Cookie Banner Manager -->
+    <script src="js/cookie-banner.js"></script>
 
     <!-- maru js -->
     <script src="js/main.js"></script>
