@@ -553,63 +553,53 @@ class SecureNewsletterFormHandler {
   }
 
   addFallbackFunctionality(form) {
-    const emailInput = form.querySelector(".mil-newsletter-input");
-    const submitButton = form.querySelector(".mil-newsletter-button");
-    const messageDiv = form.querySelector(".mil-newsletter-message");
+    const emailInput = form.querySelector('input[type="email"]');
+    const submitButton = form.querySelector('button[type="submit"]');
 
     if (emailInput && submitButton) {
       // Enhanced form submission handling
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        this.handleNewsletterSubmission(
-          form,
-          emailInput,
-          submitButton,
-          messageDiv
-        );
+        this.handleNewsletterSubmission(form, emailInput, submitButton);
       });
 
       // Real-time email validation
       emailInput.addEventListener("input", () => {
-        this.validateEmailInput(emailInput, messageDiv);
+        this.validateEmailInput(emailInput);
       });
 
       // Enhanced button interactions
       submitButton.addEventListener("mouseenter", () => {
         if (!submitButton.disabled) {
-          submitButton.style.transform = "translateY(-50%) scale(1.1)";
-          submitButton.style.boxShadow = "0 4px 12px rgba(0, 188, 212, 0.3)";
+          submitButton.style.transform = "scale(1.05)";
+          submitButton.style.filter = "brightness(110%)";
         }
       });
 
       submitButton.addEventListener("mouseleave", () => {
         if (!submitButton.disabled) {
-          submitButton.style.transform = "translateY(-50%) scale(1)";
-          submitButton.style.boxShadow = "none";
+          submitButton.style.transform = "scale(1)";
+          submitButton.style.filter = "brightness(100%)";
         }
       });
     }
   }
 
-  validateEmailInput(input, messageDiv) {
+  validateEmailInput(input) {
     const email = input.value.trim();
     const isValid = this.validateEmail(email);
 
     if (email.length > 0) {
       if (isValid) {
-        input.style.borderColor = "rgba(40, 167, 69, 0.5)";
-        this.showMessage(messageDiv, "✓ Valid email address", "success");
+        input.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+        input.style.color = "rgb(0, 0, 0)";
       } else {
-        input.style.borderColor = "rgba(220, 53, 69, 0.5)";
-        this.showMessage(
-          messageDiv,
-          "Please enter a valid email address",
-          "error"
-        );
+        input.style.backgroundColor = "rgba(255, 200, 200, 0.9)";
+        input.style.color = "rgb(200, 0, 0)";
       }
     } else {
-      input.style.borderColor = "rgba(255, 255, 255, 0.2)";
-      this.hideMessage(messageDiv);
+      input.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+      input.style.color = "rgb(0, 0, 0)";
     }
   }
 
@@ -627,51 +617,37 @@ class SecureNewsletterFormHandler {
     }
   }
 
-  handleNewsletterSubmission(form, emailInput, submitButton, messageDiv) {
+  handleNewsletterSubmission(form, emailInput, submitButton) {
     const email = emailInput.value.trim();
 
     if (!this.validateEmail(email)) {
-      this.showMessage(
-        messageDiv,
-        "Please enter a valid email address",
-        "error"
-      );
+      emailInput.style.backgroundColor = "rgba(255, 200, 200, 0.9)";
+      emailInput.style.color = "rgb(200, 0, 0)";
       emailInput.focus();
       return;
     }
 
     // Show loading state
-    this.showLoadingState(submitButton, messageDiv);
+    this.showLoadingState(submitButton);
 
     // Simulate API call (replace with actual HubSpot integration)
     setTimeout(() => {
-      this.showSuccessState(form, emailInput, submitButton, messageDiv);
+      this.showSuccessState(form, emailInput, submitButton);
     }, 1500);
   }
 
-  showLoadingState(submitButton, messageDiv) {
+  showLoadingState(submitButton) {
     submitButton.disabled = true;
     submitButton.style.opacity = "0.7";
     submitButton.style.cursor = "not-allowed";
 
     const originalContent = submitButton.innerHTML;
     submitButton.innerHTML = `
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="loading-spinner">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-dasharray="31.416" stroke-dashoffset="31.416">
-          <animate attributeName="stroke-dasharray" dur="2s" values="0 31.416;15.708 15.708;0 31.416" repeatCount="indefinite"/>
-          <animate attributeName="stroke-dashoffset" dur="2s" values="0;-15.708;-31.416" repeatCount="indefinite"/>
-        </circle>
-      </svg>
+      <span>Subscribing...</span>
     `;
-
-    this.showMessage(
-      messageDiv,
-      "Subscribing you to our newsletter...",
-      "loading"
-    );
   }
 
-  showSuccessState(form, emailInput, submitButton, messageDiv) {
+  showSuccessState(form, emailInput, submitButton) {
     submitButton.disabled = false;
     submitButton.style.opacity = "1";
     submitButton.style.cursor = "pointer";
@@ -679,25 +655,19 @@ class SecureNewsletterFormHandler {
     // Reset button content
     submitButton.innerHTML = `
       <span>Subscribe</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
     `;
 
-    this.showMessage(
-      messageDiv,
-      "🎉 Welcome! Check your email for confirmation.",
-      "success"
-    );
+    // Show success feedback
+    emailInput.style.backgroundColor = "rgba(200, 255, 200, 0.9)";
+    emailInput.style.color = "rgb(0, 100, 0)";
+    emailInput.value = "✓ Subscribed!";
 
-    // Clear form
-    emailInput.value = "";
-    emailInput.style.borderColor = "rgba(255, 255, 255, 0.2)";
-
-    // Hide success message after 5 seconds
+    // Clear form after 3 seconds
     setTimeout(() => {
-      this.hideMessage(messageDiv);
-    }, 5000);
+      emailInput.value = "";
+      emailInput.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+      emailInput.style.color = "rgb(0, 0, 0)";
+    }, 3000);
   }
 
   validateEmail(email) {
