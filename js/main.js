@@ -204,9 +204,15 @@ $(function () {
     var target = $($.attr(this, "href"));
     var offset = 0;
 
-    if ($(window).width() < 1200) {
-      offset = 90;
+    // Calculate offset based on screen size to match CSS variables
+    if ($(window).width() < 1024) {
+      offset = 90; // Mobile header height
+    } else {
+      offset = 110; // Desktop header height
     }
+
+    // Add extra padding for better visual spacing
+    offset += 20;
 
     // Use smooth scroll plugin if available, otherwise fallback to native smooth scroll
     if (

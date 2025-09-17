@@ -8,6 +8,30 @@ Portfolio:  https://themeforest.net/user/millerdigitaldesign/portfolio?ref=Mille
 p.s. I am available for Freelance hire (UI design, web development). email: miller.themes@gmail.com
 
 ------------------------------------------- */
+
+/* ===========================================
+   ANCHOR SCROLL OFFSET FOR STICKY HEADER
+   =========================================== */
+
+:root {
+  --header-height: 90px; /* Mobile header height */
+}
+
+@media (min-width: 1024px) {
+  :root { 
+    --header-height: 110px; /* Desktop header height */
+  }
+}
+
+/* Apply scroll offset to all anchor targets */
+[id] { 
+  scroll-margin-top: calc(var(--header-height) + 12px); 
+}
+
+/* Specific offset for main sections */
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + 20px);
+}
 /*--------------------------------------------
 
 1. common
