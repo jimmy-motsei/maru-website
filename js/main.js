@@ -521,13 +521,15 @@ $(function () {
     progressbar
 
     ***************************/
-  gsap.to(".mil-progress", {
-    height: "100%",
-    ease: "sine",
-    scrollTrigger: {
-      scrub: 0.3,
-    },
-  });
+  if (document.querySelector(".mil-progress")) {
+    gsap.to(".mil-progress", {
+      height: "100%",
+      ease: "sine",
+      scrollTrigger: {
+        scrub: 0.3,
+      },
+    });
+  }
   /***************************
 
     scroll animations
@@ -772,13 +774,17 @@ $(function () {
       0
     );
 
-    gsap.to(".mil-progress", {
-      height: 0,
-      ease: "sine",
-      onComplete: () => {
-        ScrollTrigger.refresh();
-      },
-    });
+    if (document.querySelector(".mil-progress")) {
+      gsap.to(".mil-progress", {
+        height: 0,
+        ease: "sine",
+        onComplete: () => {
+          ScrollTrigger.refresh();
+        },
+      });
+    } else {
+      ScrollTrigger.refresh();
+    }
     /***************************
 
          menu
