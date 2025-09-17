@@ -692,77 +692,6 @@
         }
       }
 
-      /* ===========================================
-         FOOTER NEWSLETTER BUTTON STYLING
-         =========================================== */
-
-      /* Original Newsletter Form Styling */
-      .mil-subscribe-form {
-        position: relative;
-        height: 70px;
-        width: 100%;
-      }
-
-      .mil-subscribe-form input {
-        height: 100%;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.1);
-        color: rgb(0, 0, 0);
-        font-size: 12px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        border: none;
-        border-radius: 70px;
-        padding: 0 0 0 50px;
-        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-      }
-
-      .mil-subscribe-form input::placeholder {
-        color: rgb(128, 128, 128);
-        font-family: "Outfit", sans-serif;
-        font-size: 12px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
-
-      .mil-subscribe-form input:focus {
-        background-color: rgb(255, 255, 255);
-        outline: inherit;
-      }
-
-      .mil-subscribe-form input:hover {
-        background-color: rgb(255, 255, 255);
-      }
-
-      .mil-subscribe-form .mil-button {
-        display: none;
-      }
-
-      .mil-subscribe-form::after {
-        content: "";
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 40px;
-        height: 40px;
-        background-color: rgb(0, 0, 0);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-        cursor: pointer;
-        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 12h14m-7-7l7 7-7 7' stroke='%2300BCD4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 20px 20px;
-      }
-
-      .mil-subscribe-form:hover::after {
-        transform: scale(1.15);
-      }
 
       /* ===========================================
          COOKIE BANNER STYLING
@@ -1361,23 +1290,15 @@
                     <div class="mil-divider mil-mb-60"></div>
                     <div class="row justify-content-between">
                       <div class="col-lg-4 mil-mb-60">
-                        <h6 class="mil-muted mil-mb-30">KZN</h6>
+                        <h6 class="mil-muted mil-mb-30">Telephone</h6>
                         <p class="mil-light-soft mil-up">
-                          247 Ballito Village, Ballito, 4420
-                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                          <br /><span class="mil-no-wrap"
-                            >hello@maruonline.com</span
-                          >
+                          <a href="tel:+27833934864" aria-label="Telephone +27 83 393 4864" class="mil-light-soft">+27 83 393 4864</a>
                         </p>
                       </div>
                       <div class="col-lg-4 mil-mb-60">
-                        <h6 class="mil-muted mil-mb-30">Gauteng</h6>
+                        <h6 class="mil-muted mil-mb-30">E-mail</h6>
                         <p class="mil-light-soft">
-                          61 4th Street, Linden, Johannesburg
-                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                          <br /><span class="mil-no-wrap"
-                            >hello@maruonline.com</span
-                          >
+                          <a href="mailto:hello@maruonline.com" aria-label="Email hello@maruonline.com" class="mil-light-soft">hello@maruonline.com</a>
                         </p>
                       </div>
                     </div>
@@ -2193,23 +2114,6 @@
                         />
                       </a>
                     </div>
-                    <p class="mil-light-soft mil-up mil-mb-30">
-                      Subscribe to our newsletter:
-                    </p>
-                    <form
-                      class="mil-subscribe-form mil-up"
-                      data-hubspot-form="true"
-                    >
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter your email"
-                        required
-                      />
-                      <button type="submit" class="mil-button mil-arrow-place">
-                        <span>Subscribe</span>
-                      </button>
-                    </form>
                   </div>
                   <div class="col-md-7 col-lg-6">
                     <div class="row justify-content-end">
@@ -2265,23 +2169,17 @@
                   <div class="col-md-7 col-lg-6">
                     <div class="row justify-content-between">
                       <div class="col-md-6 col-lg-5 mil-mb-60">
-                        <h6 class="mil-muted mil-up mil-mb-30">Gauteng</h6>
+                        <h6 class="mil-muted mil-up mil-mb-30">Telephone</h6>
 
                         <p class="mil-light-soft mil-up">
-                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                          <br /><span class="mil-no-wrap"
-                            >hello@maruonline.com</span
-                          >
+                          <a href="tel:+27833934864" aria-label="Telephone +27 83 393 4864" class="mil-light-soft">+27 83 393 4864</a>
                         </p>
                       </div>
                       <div class="col-md-6 col-lg-5 mil-mb-60">
-                        <h6 class="mil-muted mil-up mil-mb-30">Western Cape</h6>
+                        <h6 class="mil-muted mil-up mil-mb-30">E-mail</h6>
 
                         <p class="mil-light-soft mil-up">
-                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                          <br /><span class="mil-no-wrap"
-                            >hello@maruonline.com</span
-                          >
+                          <a href="mailto:hello@maruonline.com" aria-label="Email hello@maruonline.com" class="mil-light-soft">hello@maruonline.com</a>
                         </p>
                       </div>
                     </div>
