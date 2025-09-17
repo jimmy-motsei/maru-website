@@ -5,10 +5,18 @@
 
 class ContactFormEnhancer {
   constructor() {
+    this.isInitialized = false;
+    this.formCreated = false;
     this.init();
   }
 
   init() {
+    // Only initialize if not already done
+    if (this.isInitialized) {
+      return;
+    }
+
+    this.isInitialized = true;
     this.setupContactForm();
     this.addLoadingState();
   }
@@ -86,12 +94,19 @@ class ContactFormEnhancer {
   }
 
   createHubSpotForm() {
+    // Prevent duplicate form creation
+    if (this.formCreated) {
+      return;
+    }
+
     try {
       const container = document.getElementById("hubspot-container");
       if (!container) {
         console.error("HubSpot container not found");
         return;
       }
+
+      this.formCreated = true;
 
       // Remove loading state
       this.hideLoadingState();

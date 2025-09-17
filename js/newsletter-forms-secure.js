@@ -1,17 +1,25 @@
 /**
  * Secure Newsletter Form Handler - HubSpot Embedded Forms
  * Uses HubSpot embedded forms for secure newsletter subscription
- * No API keys exposed in client-side code
+ * Optimized for fast loading and performance
  */
 
 class SecureNewsletterFormHandler {
   constructor() {
     this.hubspotPortalId = "146669350";
     this.newsletterFormId = "cd4d47e9-93e9-4d8e-a221-ad7496701f99"; // Actual HubSpot form ID
+    this.isInitialized = false;
+    this.formsProcessed = new Set();
     this.init();
   }
 
   init() {
+    // Only initialize if not already done
+    if (this.isInitialized) {
+      return;
+    }
+
+    this.isInitialized = true;
     this.waitForHubSpot();
   }
 
@@ -88,10 +96,17 @@ class SecureNewsletterFormHandler {
     const forms = document.querySelectorAll(".mil-subscribe-form");
 
     forms.forEach((form, index) => {
-      if (!form.hasAttribute("data-hubspot-integrated")) {
-        form.setAttribute("data-hubspot-integrated", "true");
-        this.replaceWithHubSpotForm(form, index);
+      // Skip if already processed
+      if (
+        this.formsProcessed.has(form) ||
+        form.hasAttribute("data-hubspot-integrated")
+      ) {
+        return;
       }
+
+      this.formsProcessed.add(form);
+      form.setAttribute("data-hubspot-integrated", "true");
+      this.replaceWithHubSpotForm(form, index);
     });
   }
 
@@ -419,14 +434,14 @@ class SecureNewsletterFormHandler {
         const emailInput = form.querySelector(
           'input[type="email"], input[type="text"]'
         );
-          if (emailInput) {
-            emailInput.value = "Already subscribed!";
-            emailInput.disabled = true;
-            emailInput.classList.add("mil-subscribe-disabled");
+        if (emailInput) {
+          emailInput.value = "Already subscribed!";
+          emailInput.disabled = true;
+          emailInput.classList.add("mil-subscribe-disabled");
 
-            const indicator = document.createElement("small");
-            indicator.textContent = "✓ Subscribed to AI Insights Newsletter";
-            indicator.className = "mil-subscribe-indicator";
+          const indicator = document.createElement("small");
+          indicator.textContent = "✓ Subscribed to AI Insights Newsletter";
+          indicator.className = "mil-subscribe-indicator";
 
           if (!form.querySelector(".subscription-indicator")) {
             indicator.className = "subscription-indicator";
@@ -538,19 +553,24 @@ class SecureNewsletterFormHandler {
   }
 
   addFallbackFunctionality(form) {
-    const emailInput = form.querySelector('.mil-newsletter-input');
-    const submitButton = form.querySelector('.mil-newsletter-button');
-    const messageDiv = form.querySelector('.mil-newsletter-message');
+    const emailInput = form.querySelector(".mil-newsletter-input");
+    const submitButton = form.querySelector(".mil-newsletter-button");
+    const messageDiv = form.querySelector(".mil-newsletter-message");
 
     if (emailInput && submitButton) {
       // Enhanced form submission handling
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        this.handleNewsletterSubmission(form, emailInput, submitButton, messageDiv);
+        this.handleNewsletterSubmission(
+          form,
+          emailInput,
+          submitButton,
+          messageDiv
+        );
       });
 
       // Real-time email validation
-      emailInput.addEventListener('input', () => {
+      emailInput.addEventListener("input", () => {
         this.validateEmailInput(emailInput, messageDiv);
       });
 
@@ -574,14 +594,18 @@ class SecureNewsletterFormHandler {
   validateEmailInput(input, messageDiv) {
     const email = input.value.trim();
     const isValid = this.validateEmail(email);
-    
+
     if (email.length > 0) {
       if (isValid) {
         input.style.borderColor = "rgba(40, 167, 69, 0.5)";
         this.showMessage(messageDiv, "✓ Valid email address", "success");
       } else {
         input.style.borderColor = "rgba(220, 53, 69, 0.5)";
-        this.showMessage(messageDiv, "Please enter a valid email address", "error");
+        this.showMessage(
+          messageDiv,
+          "Please enter a valid email address",
+          "error"
+        );
       }
     } else {
       input.style.borderColor = "rgba(255, 255, 255, 0.2)";
@@ -605,16 +629,20 @@ class SecureNewsletterFormHandler {
 
   handleNewsletterSubmission(form, emailInput, submitButton, messageDiv) {
     const email = emailInput.value.trim();
-    
+
     if (!this.validateEmail(email)) {
-      this.showMessage(messageDiv, "Please enter a valid email address", "error");
+      this.showMessage(
+        messageDiv,
+        "Please enter a valid email address",
+        "error"
+      );
       emailInput.focus();
       return;
     }
 
     // Show loading state
     this.showLoadingState(submitButton, messageDiv);
-    
+
     // Simulate API call (replace with actual HubSpot integration)
     setTimeout(() => {
       this.showSuccessState(form, emailInput, submitButton, messageDiv);
@@ -625,7 +653,7 @@ class SecureNewsletterFormHandler {
     submitButton.disabled = true;
     submitButton.style.opacity = "0.7";
     submitButton.style.cursor = "not-allowed";
-    
+
     const originalContent = submitButton.innerHTML;
     submitButton.innerHTML = `
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="loading-spinner">
@@ -635,15 +663,19 @@ class SecureNewsletterFormHandler {
         </circle>
       </svg>
     `;
-    
-    this.showMessage(messageDiv, "Subscribing you to our newsletter...", "loading");
+
+    this.showMessage(
+      messageDiv,
+      "Subscribing you to our newsletter...",
+      "loading"
+    );
   }
 
   showSuccessState(form, emailInput, submitButton, messageDiv) {
     submitButton.disabled = false;
     submitButton.style.opacity = "1";
     submitButton.style.cursor = "pointer";
-    
+
     // Reset button content
     submitButton.innerHTML = `
       <span>Subscribe</span>
@@ -651,13 +683,17 @@ class SecureNewsletterFormHandler {
         <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     `;
-    
-    this.showMessage(messageDiv, "🎉 Welcome! Check your email for confirmation.", "success");
-    
+
+    this.showMessage(
+      messageDiv,
+      "🎉 Welcome! Check your email for confirmation.",
+      "success"
+    );
+
     // Clear form
     emailInput.value = "";
     emailInput.style.borderColor = "rgba(255, 255, 255, 0.2)";
-    
+
     // Hide success message after 5 seconds
     setTimeout(() => {
       this.hideMessage(messageDiv);
