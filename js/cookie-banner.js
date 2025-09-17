@@ -9,14 +9,14 @@ class CookieBannerManager {
     if (CookieBannerManager.instance) {
       return CookieBannerManager.instance;
     }
-    
+
     this.banner = null;
     this.acceptAllBtn = null;
     this.settingsBtn = null;
     this.declineBtn = null;
     this.cookieConsent = null;
     this.isInitialized = false;
-    
+
     CookieBannerManager.instance = this;
     this.init();
   }
@@ -68,7 +68,7 @@ class CookieBannerManager {
 
   setupPreloaderListener() {
     // Listen for preloader completion event
-    document.addEventListener('preloader:done', () => {
+    document.addEventListener("preloader:done", () => {
       this.showBannerIfNeeded();
     });
 
