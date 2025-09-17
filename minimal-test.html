@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimal Safari Test</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 300vh;
+        background: red;
+      }
+      .box {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: white;
+        font-weight: bold;
+      }
+      .box:nth-child(1) {
+        background: blue;
+      }
+      .box:nth-child(2) {
+        background: green;
+      }
+      .box:nth-child(3) {
+        background: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">BOX 1</div>
+    <div class="box">BOX 2</div>
+    <div class="box">BOX 3</div>
+
+    <script>
+      console.log("Page loaded");
+      console.log("Body height:", document.body.scrollHeight);
+      console.log("Window height:", window.innerHeight);
+      console.log(
+        "Can scroll:",
+        document.body.scrollHeight > window.innerHeight
+      );
+
+      // Test scroll after 1 second
+      setTimeout(() => {
+        console.log("Testing scroll...");
+        window.scrollTo(0, 500);
+        setTimeout(() => {
+          console.log("Scroll position:", window.pageYOffset);
+        }, 100);
+      }, 1000);
+    </script>
+  </body>
+</html>

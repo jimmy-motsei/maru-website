@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"
+    />
     <!-- Safari scrolling fix -->
     <meta name="format-detection" content="telephone=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -17,11 +20,15 @@
     <link rel="stylesheet" href="css/plugins/fancybox.min.css" />
     <!-- maru scss -->
     <link rel="stylesheet" href="css/style.css?v=3.4" />
-    
+
     <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ee8074bea9274223aef11729f33c7e15"}'></script>
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "ee8074bea9274223aef11729f33c7e15"}'
+    ></script>
     <!-- End Cloudflare Web Analytics -->
-    
+
     <style>
       /* Custom styles for partners section */
       .mil-partners-section {
@@ -29,22 +36,22 @@
         position: relative;
         overflow: hidden;
       }
-      
+
       .mil-partners-section h3 {
         color: #333;
         font-weight: 600;
       }
-      
+
       .mil-partners-section p {
         color: #666;
         font-size: 18px;
         line-height: 1.6;
       }
-      
+
       .mil-infinite-show {
         margin: 0 -15px;
       }
-      
+
       .mil-partner-frame {
         padding: 20px;
         height: 120px;
@@ -52,7 +59,7 @@
         align-items: center;
         justify-content: center;
       }
-      
+
       .mil-partner-frame img {
         max-height: 80px;
         max-width: 400px;
@@ -61,40 +68,40 @@
         object-fit: contain;
         display: block;
       }
-      
+
       /* Responsive adjustments */
       @media (max-width: 768px) {
         .mil-partner-frame {
           height: 100px;
           padding: 15px;
         }
-        
+
         .mil-partner-frame img {
           max-height: 60px;
           max-width: 300px;
         }
-        
+
         .mil-partners-section h3 {
           font-size: 24px;
         }
-        
+
         .mil-partners-section p {
           font-size: 16px;
         }
       }
-      
+
       /* Ensure smooth scrolling */
       .mil-infinite-show .swiper-wrapper {
         transition-timing-function: linear;
       }
-      
+
       /* Fix Swiper slide sizing */
       .mil-infinite-show .swiper-slide {
         width: auto;
         min-width: 120px;
         flex-shrink: 0;
       }
-      
+
       /* Force scroll button positioning */
       .mil-circle-text {
         position: absolute !important;
@@ -102,7 +109,7 @@
         top: 70% !important;
         z-index: 1000 !important;
       }
-      
+
       /* More specific targeting for the scroll button */
       .mil-banner .mil-circle-text {
         position: absolute !important;
@@ -110,69 +117,69 @@
         top: 70% !important;
         z-index: 1000 !important;
       }
-      
+
       /* Debug styles removed - positioning fixed */
-      
+
       /* ===========================================
          ASHLEY TEMPLATE MOBILE FRAMEWORK
          =========================================== */
-      
+
       /* Mobile Utility Classes */
       .mil-mobile-hidden {
         display: none;
       }
-      
+
       /* ===========================================
          RESPONSIVE BREAKPOINT SYSTEM
          =========================================== */
-      
+
       /* Large Desktop Adjustments (1400px) */
       @media screen and (max-width: 1400px) {
         .mil-banner .mil-banner-content h1 {
           font-size: 74px;
         }
       }
-      
+
       /* Desktop Adjustments (1200px) */
       @media screen and (max-width: 1200px) {
         .mil-banner .mil-banner-content h1 {
           font-size: 72px;
         }
       }
-      
+
       /* Tablet Adjustments (992px) */
       @media screen and (max-width: 992px) {
         .mil-banner .mil-banner-content h1 {
           font-size: 58px;
         }
-        
+
         .mil-banner .mil-banner-content {
           padding-top: 90px;
           padding-bottom: 90px;
         }
-        
+
         .mil-menu-btn {
           transform: scale(0.85);
         }
       }
-      
+
       /* Mobile Adjustments (768px) */
       @media screen and (max-width: 768px) {
         /* Hide Request Demo button on mobile */
         .mil-banner .mil-banner-content .mil-link[href="request-demo.html"] {
           display: none !important;
         }
-        
+
         .mil-banner .mil-banner-content h1 {
           font-size: 34px;
         }
-        
+
         .mil-banner .mil-banner-content h1 br,
         .mil-banner .mil-banner-content h2 br,
         .mil-banner .mil-banner-content h3 br {
           display: none;
         }
-        
+
         /* Fix button arrow alignment on mobile */
         .mil-banner .mil-banner-content .mil-button {
           display: inline-flex !important;
@@ -182,12 +189,12 @@
           min-width: 200px !important;
           padding: 15px 25px !important;
         }
-        
+
         .mil-banner .mil-banner-content .mil-button svg {
           margin-left: 15px !important;
           align-self: center !important;
         }
-        
+
         /* Make scroll button container match button dimensions */
         .mil-banner .mil-circle-text {
           width: auto !important;
@@ -196,25 +203,25 @@
           min-height: 55px !important;
         }
       }
-      
+
       /* Small Mobile Adjustments (576px) */
       @media screen and (max-width: 576px) {
         .mil-banner .mil-banner-content h1 {
           font-size: 28px;
         }
       }
-      
+
       /* Very Small Mobile Adjustments (500px) */
       @media screen and (max-width: 500px) {
         .mil-banner .mil-banner-content h1 {
           font-size: 24px;
         }
       }
-      
+
       /* ===========================================
          MOBILE MENU SYSTEM
          =========================================== */
-      
+
       /* Mobile Menu Button Styles */
       .mil-menu-btn {
         pointer-events: all;
@@ -225,7 +232,7 @@
         align-items: center;
         transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
       }
-      
+
       .mil-menu-btn span,
       .mil-menu-btn span:after,
       .mil-menu-btn span:before {
@@ -237,40 +244,40 @@
         backface-visibility: hidden;
         transition: inherit;
       }
-      
+
       .mil-menu-btn span {
         position: relative;
       }
-      
+
       .mil-menu-btn span:after,
       .mil-menu-btn span:before {
         position: absolute;
       }
-      
+
       .mil-menu-btn span:before {
         top: -9px;
       }
-      
+
       .mil-menu-btn span:after {
         width: 18px;
         top: 9px;
       }
-      
+
       /* Active Menu Button State */
       .mil-menu-btn.mil-active span {
         transform: rotate(45deg);
       }
-      
+
       .mil-menu-btn.mil-active span:before {
         transform: translate(0px, 9px) rotate(-90deg);
       }
-      
+
       .mil-menu-btn.mil-active span:after {
         opacity: 0;
         width: 24px;
         transform: translate(0px, -9px) rotate(-90deg);
       }
-      
+
       /* Mobile Menu Frame */
       .mil-menu-frame {
         position: fixed;
@@ -282,12 +289,12 @@
         pointer-events: none;
         transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
       }
-      
+
       .mil-menu-frame.mil-active {
         opacity: 1;
         pointer-events: all;
       }
-      
+
       .mil-menu-frame .mil-frame-top {
         position: absolute;
         top: 0;
@@ -298,19 +305,19 @@
         justify-content: space-between;
         align-items: center;
       }
-      
+
       .mil-menu-frame .mil-frame-top .mil-logo {
         color: rgb(255, 255, 255);
         font-size: 2rem;
         font-weight: bold;
       }
-      
+
       .mil-menu-frame .mil-frame-top .mil-menu-btn span,
       .mil-menu-frame .mil-frame-top .mil-menu-btn span:after,
       .mil-menu-frame .mil-frame-top .mil-menu-btn span:before {
         background-color: rgb(255, 255, 255);
       }
-      
+
       /* Mobile Menu Content */
       .mil-menu-frame .container {
         height: 100%;
@@ -318,28 +325,28 @@
         align-items: center;
         padding-top: 120px;
       }
-      
+
       .mil-menu-frame .mil-main-menu {
         opacity: 0;
         transform: translateY(30px);
         transition: 0.6s cubic-bezier(0, 0, 0.3642, 1);
       }
-      
+
       .mil-menu-frame.mil-active .mil-main-menu {
         opacity: 1;
         transform: translateY(0);
       }
-      
+
       .mil-menu-frame .mil-main-menu ul {
         list-style: none;
         padding: 0;
         margin: 0;
       }
-      
+
       .mil-menu-frame .mil-main-menu ul li {
         margin-bottom: 20px;
       }
-      
+
       .mil-menu-frame .mil-main-menu ul li a {
         color: rgb(255, 255, 255);
         font-size: 2.5rem;
@@ -349,37 +356,37 @@
         display: block;
         padding: 10px 0;
       }
-      
+
       .mil-menu-frame .mil-main-menu ul li a:hover {
         color: rgb(0, 188, 212);
         transform: translateX(10px);
       }
-      
+
       /* Mobile Menu Responsive Adjustments */
       @media screen and (max-width: 768px) {
         .mil-menu-frame .mil-frame-top {
           padding: 30px 20px;
         }
-        
+
         .mil-menu-frame .mil-main-menu ul li a {
           font-size: 2rem;
         }
-        
+
         .mil-menu-frame .container {
           padding-top: 100px;
         }
       }
-      
+
       @media screen and (max-width: 576px) {
         .mil-menu-frame .mil-main-menu ul li a {
           font-size: 1.8rem;
         }
       }
-      
+
       /* ===========================================
          MOBILE COMPONENT OPTIMIZATIONS
          =========================================== */
-      
+
       /* Mobile Button System */
       @media screen and (max-width: 768px) {
         .mil-button {
@@ -399,7 +406,7 @@
           padding: 15px 20px;
           margin-bottom: 15px;
         }
-        
+
         .mil-button svg {
           margin-left: 20px;
           border-radius: 50%;
@@ -409,21 +416,21 @@
           background-color: rgb(0, 0, 0);
           transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
         }
-        
+
         .mil-button svg path {
           fill: rgb(0, 188, 212);
         }
-        
+
         .mil-button:hover {
           transform: scale(1.015);
           filter: brightness(110%);
         }
-        
+
         .mil-button:hover svg {
           transform: scale(1.15);
         }
       }
-      
+
       /* Mobile Form Optimizations */
       @media screen and (max-width: 768px) {
         input,
@@ -433,12 +440,12 @@
           font-size: 14px;
           margin-bottom: 20px;
         }
-        
+
         .mil-form-group {
           margin-bottom: 20px;
         }
       }
-      
+
       /* Mobile Typography Optimizations */
       @media screen and (max-width: 768px) {
         .mil-banner .mil-banner-content p {
@@ -446,31 +453,31 @@
           line-height: 1.6;
           margin-bottom: 30px;
         }
-        
+
         .mil-banner .mil-banner-content {
           margin-top: 60px;
           padding: 0 20px;
         }
       }
-      
+
       /* Mobile Spacing Optimizations */
       @media screen and (max-width: 768px) {
         .mil-banner {
           padding: 40px 0;
           min-height: calc(100vh - 40px);
         }
-        
+
         .mil-p-120-30 {
           padding-top: 60px !important;
           padding-bottom: 60px !important;
         }
-        
+
         .mil-p-120-60 {
           padding-top: 60px !important;
           padding-bottom: 60px !important;
         }
       }
-      
+
       /* Mobile Touch Optimizations */
       @media screen and (max-width: 768px) {
         .mil-button,
@@ -479,28 +486,28 @@
           min-height: 44px;
           min-width: 44px;
         }
-        
+
         .mil-menu-btn span {
           height: 2px;
           margin: 4px 0;
         }
       }
-      
+
       /* Mobile Performance Optimizations */
       @media screen and (max-width: 768px) {
         .mil-animation {
           animation-duration: 0.6s !important;
         }
-        
+
         .mil-animation-frame {
           transform: scale(0.8) !important;
         }
       }
-      
+
       /* ===========================================
          CROSS-BREAKPOINT SCROLL BUTTON POSITIONING
          =========================================== */
-      
+
       /* Large Desktop (1400px+) */
       .mil-banner .mil-circle-text {
         position: absolute !important;
@@ -508,21 +515,21 @@
         top: 70% !important;
         z-index: 1000 !important;
       }
-      
+
       /* Desktop (1200px) */
       @media screen and (max-width: 1200px) {
         .mil-banner .mil-circle-text {
           top: 70% !important;
         }
       }
-      
+
       /* Tablet (992px) */
       @media screen and (max-width: 992px) {
         .mil-banner .mil-circle-text {
           top: 70% !important;
         }
       }
-      
+
       /* Mobile (768px) */
       @media screen and (max-width: 768px) {
         .mil-banner .mil-circle-text {
@@ -530,7 +537,7 @@
           right: 20px !important;
         }
       }
-      
+
       /* Small Mobile (576px) */
       @media screen and (max-width: 576px) {
         .mil-banner .mil-circle-text {
@@ -538,7 +545,7 @@
           right: 15px !important;
         }
       }
-      
+
       /* Very Small Mobile (500px) */
       @media screen and (max-width: 500px) {
         .mil-banner .mil-circle-text {
@@ -546,65 +553,66 @@
           right: 10px !important;
         }
       }
-      
+
       /* ===========================================
          MOBILE UTILITY CLASSES
          =========================================== */
-      
+
       /* Hide elements on mobile */
       .mil-mobile-hidden {
         display: none;
       }
-      
+
       @media screen and (max-width: 768px) {
         .mil-mobile-hidden {
           display: none !important;
         }
       }
-      
+
       /* Show elements only on mobile */
       .mil-mobile-only {
         display: none;
       }
-      
+
       @media screen and (max-width: 768px) {
         .mil-mobile-only {
           display: block !important;
         }
       }
-      
+
       /* Mobile-first responsive utilities */
       .mil-container-fluid {
         width: 100%;
         padding-left: 20px;
         padding-right: 20px;
       }
-      
+
       @media screen and (min-width: 768px) {
         .mil-container-fluid {
           padding-left: 40px;
           padding-right: 40px;
         }
       }
-      
+
       @media screen and (min-width: 1200px) {
         .mil-container-fluid {
           padding-left: 60px;
           padding-right: 60px;
         }
       }
-      
+
       /* ===========================================
          SAFARI SCROLLING FIX
          =========================================== */
-      
+
       /* Safari-specific scrolling fixes - AGGRESSIVE OVERRIDE */
       @supports (-webkit-touch-callout: none) {
         * {
           -webkit-overflow-scrolling: touch !important;
         }
-        
-        html, body {
+
+        html,
+        body {
           -webkit-overflow-scrolling: touch !important;
           overflow-x: hidden !important;
           overflow-y: auto !important;
@@ -613,7 +621,7 @@
           position: relative !important;
           display: block !important;
         }
-        
+
         .mil-wrapper {
           -webkit-overflow-scrolling: touch !important;
           overflow: visible !important;
@@ -624,7 +632,7 @@
           position: relative !important;
           display: block !important;
         }
-        
+
         .mil-content {
           overflow: visible !important;
           overflow-y: visible !important;
@@ -632,7 +640,7 @@
           position: relative !important;
           display: block !important;
         }
-        
+
         .mil-main-transition {
           overflow: visible !important;
           overflow-y: visible !important;
@@ -640,7 +648,7 @@
           position: relative !important;
           display: block !important;
         }
-        
+
         /* Ensure sections don't block scrolling */
         section {
           overflow-x: hidden !important;
@@ -649,7 +657,7 @@
           height: auto !important;
           display: block !important;
         }
-        
+
         /* Fix banner height for Safari */
         .mil-banner {
           height: auto !important;
@@ -658,14 +666,14 @@
           position: relative !important;
           display: block !important;
         }
-        
+
         /* Force all containers to allow scrolling */
         .container {
           overflow: visible !important;
           height: auto !important;
           position: relative !important;
         }
-        
+
         /* Fix for fixed positioned elements in Safari */
         .mil-frame,
         .mil-menu-frame,
@@ -673,7 +681,7 @@
           -webkit-transform: translateZ(0) !important;
           transform: translateZ(0) !important;
         }
-        
+
         /* CRITICAL: Override any Swup or animation CSS that might block scrolling */
         .mil-main-transition,
         .mil-content,
@@ -683,11 +691,11 @@
           will-change: auto !important;
         }
       }
-      
+
       /* ===========================================
          FOOTER NEWSLETTER BUTTON STYLING
          =========================================== */
-      
+
       /* Footer newsletter button styling */
       .mil-subscribe-form .mil-button {
         display: inline-flex;
@@ -706,18 +714,18 @@
         border: none;
         cursor: pointer;
       }
-      
+
       .mil-subscribe-form .mil-button:hover {
         transform: scale(1.05);
         filter: brightness(110%);
       }
-      
+
       .mil-subscribe-form .mil-button span {
         color: rgb(0, 0, 0);
         font-weight: 500;
         margin-right: 10px;
       }
-      
+
       .mil-subscribe-form .mil-button svg {
         margin-left: 0;
         border-radius: 50%;
@@ -727,15 +735,15 @@
         background-color: rgb(0, 0, 0);
         transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
       }
-      
+
       .mil-subscribe-form .mil-button svg path {
         fill: rgb(0, 188, 212);
       }
-      
+
       .mil-subscribe-form .mil-button:hover svg {
         transform: scale(1.15);
       }
-      
+
       /* Mobile responsive footer button */
       @media screen and (max-width: 768px) {
         .mil-subscribe-form .mil-button {
@@ -744,18 +752,18 @@
           padding: 15px 20px;
           margin-top: 10px;
         }
-        
+
         .mil-subscribe-form .mil-button svg {
           width: 20px;
           height: 20px;
           padding: 4px;
         }
       }
-      
+
       /* ===========================================
          SERVICES SECTION BUTTON STYLING
          =========================================== */
-      
+
       /* Services section main button styling */
       .mil-services-button {
         display: inline-flex !important;
@@ -777,20 +785,20 @@
         border: none !important;
         cursor: pointer !important;
       }
-      
+
       .mil-services-button:hover {
         transform: scale(1.05) !important;
         filter: brightness(110%) !important;
         text-decoration: none !important;
         color: rgb(0, 0, 0) !important;
       }
-      
+
       .mil-services-button span {
         color: rgb(0, 0, 0) !important;
         font-weight: 500 !important;
         margin-right: 15px !important;
       }
-      
+
       .mil-services-button svg {
         margin-left: 0 !important;
         border-radius: 50% !important;
@@ -800,15 +808,15 @@
         background-color: rgb(0, 0, 0) !important;
         transition: 0.4s cubic-bezier(0, 0, 0.3642, 1) !important;
       }
-      
+
       .mil-services-button svg path {
         fill: rgb(0, 188, 212) !important;
       }
-      
+
       .mil-services-button:hover svg {
         transform: scale(1.15) !important;
       }
-      
+
       /* Mobile responsive services button */
       @media screen and (max-width: 768px) {
         .mil-services-button {
@@ -817,18 +825,18 @@
           padding: 15px 20px !important;
           margin: 25px auto !important;
         }
-        
+
         .mil-services-button svg {
           width: 25px !important;
           height: 25px !important;
           padding: 5px !important;
         }
       }
-      
+
       /* ===========================================
          SERVICE CARD BUTTON STYLING
          =========================================== */
-      
+
       /* Service card button styling to match main button */
       .mil-service-card-sm .mil-button {
         display: inline-flex;
@@ -847,17 +855,17 @@
         transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
         text-decoration: none;
       }
-      
+
       .mil-service-card-sm .mil-button:hover {
         transform: scale(1.05);
         filter: brightness(110%);
       }
-      
+
       .mil-service-card-sm .mil-button span {
         color: rgb(0, 0, 0);
         font-weight: 500;
       }
-      
+
       .mil-service-card-sm .mil-button svg {
         margin-left: 15px;
         border-radius: 50%;
@@ -867,15 +875,15 @@
         background-color: rgb(0, 0, 0);
         transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
       }
-      
+
       .mil-service-card-sm .mil-button svg path {
         fill: rgb(0, 188, 212);
       }
-      
+
       .mil-service-card-sm .mil-button:hover svg {
         transform: scale(1.15);
       }
-      
+
       /* Mobile responsive adjustments for service buttons */
       @media screen and (max-width: 768px) {
         .mil-service-card-sm .mil-button {
@@ -884,7 +892,7 @@
           padding: 15px 20px;
           margin-top: 15px;
         }
-        
+
         .mil-service-card-sm .mil-button svg {
           width: 25px;
           height: 25px;
@@ -893,23 +901,44 @@
       }
     </style>
     <!-- favicon -->
-    <link rel="icon" type="image/svg+xml" sizes="32x32" href="img/favicon_512_512_neutral.svg">
-    <link rel="icon" type="image/svg+xml" sizes="16x16" href="img/favicon_512_512_neutral.svg">
-    <link rel="shortcut icon" href="img/favicon_512_512_neutral.svg">
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="32x32"
+      href="img/favicon_512_512_neutral.svg"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="16x16"
+      href="img/favicon_512_512_neutral.svg"
+    />
+    <link rel="shortcut icon" href="img/favicon_512_512_neutral.svg" />
     <!-- page name -->
     <title>Maru | AI-Powered Marketing & Growth Strategy</title>
-    
+
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKBNFTLK64"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RKBNFTLK64"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RKBNFTLK64');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-RKBNFTLK64");
     </script>
-    
+
     <!-- HubSpot Integration -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/146669350.js"></script>
+    <script
+      type="text/javascript"
+      id="hs-script-loader"
+      async
+      defer
+      src="//js-eu1.hs-scripts.com/146669350.js"
+    ></script>
     <!-- Custom styles to override Swiper defaults -->
     <style>
       /* Simple spacing override for Swiper */
@@ -919,21 +948,21 @@
         margin-right: 40px !important;
         flex-shrink: 0 !important;
       }
-      
+
       .mil-infinite-show .swiper-slide:last-child {
         margin-right: 0 !important;
       }
-      
+
       /* Reduce top padding for partners section */
       .mil-partners-section {
         padding-top: 60px !important; /* Reduced from 120px */
       }
-      
+
       .mil-partners-section .container.mil-p-120-60 {
         padding-top: 60px !important; /* Reduced from 120px */
         padding-bottom: 60px !important;
       }
-      
+
       .mil-partner-frame {
         width: 100% !important;
         height: 120px !important;
@@ -942,7 +971,7 @@
         justify-content: center !important;
         padding: 20px !important;
       }
-      
+
       .mil-partner-frame img {
         max-height: 80px !important;
         max-width: 100% !important;
@@ -950,7 +979,7 @@
         height: auto !important;
         object-fit: contain !important;
       }
-      
+
       /* Responsive adjustments */
       @media (max-width: 768px) {
         .mil-infinite-show .swiper-slide {
@@ -958,12 +987,12 @@
           min-width: 150px !important;
           margin-right: 30px !important;
         }
-        
+
         .mil-partner-frame {
           height: 100px !important;
           padding: 15px !important;
         }
-        
+
         .mil-partner-frame img {
           max-height: 60px !important;
         }
@@ -1006,8 +1035,6 @@
       </div>
       <!-- preloader end -->
 
-
-
       <!-- menu -->
       <div class="mil-menu-frame">
         <!-- frame clone -->
@@ -1030,8 +1057,16 @@
                       <ul>
                         <li><a href="smartguest-ai.html">SmartGuest AI</a></li>
                         <li><a href="bizinsight-ai.html">BizInsight AI</a></li>
-                        <li><a href="ai-mastery-workshops.html">AI Mastery Workshops</a></li>
-                        <li><a href="custom-ai-solutions.html">Custom AI Solutions</a></li>
+                        <li>
+                          <a href="ai-mastery-workshops.html"
+                            >AI Mastery Workshops</a
+                          >
+                        </li>
+                        <li>
+                          <a href="custom-ai-solutions.html"
+                            >Custom AI Solutions</a
+                          >
+                        </li>
                       </ul>
                     </li>
                     <li class="mil-has-children">
@@ -1068,8 +1103,7 @@
                         <h6 class="mil-muted mil-mb-30">Our Work</h6>
                         <ul class="mil-menu-list">
                           <li>
-                              >Case Studies & Portfolio</a
-                            >
+                            <a href="#">Case Studies & Portfolio</a>
                           </li>
                         </ul>
                       </div>
@@ -1082,7 +1116,9 @@
                             >
                           </li>
                           <li>
-                            <a href="terms-conditions.html" class="mil-light-soft"
+                            <a
+                              href="terms-conditions.html"
+                              class="mil-light-soft"
                               >Terms and conditions</a
                             >
                           </li>
@@ -1092,7 +1128,9 @@
                             >
                           </li>
                           <li>
-                            <a href="careers.html" class="mil-light-soft">Careers</a>
+                            <a href="careers.html" class="mil-light-soft"
+                              >Careers</a
+                            >
                           </li>
                         </ul>
                       </div>
@@ -1104,7 +1142,9 @@
                         <p class="mil-light-soft mil-up">
                           247 Ballito Village, Ballito, 4420
                           <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                          <br><span class="mil-no-wrap">hello@maruonline.com</span>
+                          <br /><span class="mil-no-wrap"
+                            >hello@maruonline.com</span
+                          >
                         </p>
                       </div>
                       <div class="col-lg-4 mil-mb-60">
@@ -1112,7 +1152,9 @@
                         <p class="mil-light-soft">
                           61 4th Street, Linden, Johannesburg
                           <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                          <br><span class="mil-no-wrap">hello@maruonline.com</span>
+                          <br /><span class="mil-no-wrap"
+                            >hello@maruonline.com</span
+                          >
                         </p>
                       </div>
                     </div>
@@ -1154,11 +1196,11 @@
           <section class="mil-banner mil-dark-bg">
             <div class="mi-invert-fix">
               <div class="mil-animation-frame">
-                                  <div
-                    class="mil-animation mil-position-1 mil-scale"
-                    data-value-1="7"
-                    data-value-2="1.6"
-                  ></div>
+                <div
+                  class="mil-animation mil-position-1 mil-scale"
+                  data-value-1="7"
+                  data-value-2="1.6"
+                ></div>
                 <div
                   class="mil-animation mil-position-2 mil-scale"
                   data-value-1="4"
@@ -1273,7 +1315,12 @@
                           alt="Founder"
                           loading="lazy"
                           decoding="async"
-                          style="object-fit: cover; width: 100%; height: 100%; border-radius: 50%;"
+                          style="
+                            object-fit: cover;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                          "
                         />
                       </div>
                       <h6 class="mil-quote mil-up">
@@ -1377,18 +1424,18 @@
                         <source
                           type="image/avif"
                           srcset="
-                            img/optimized/works/robot_hand_network-320.avif   320w,
-                            img/optimized/works/robot_hand_network-640.avif   640w,
-                            img/optimized/works/robot_hand_network-960.avif   960w
+                            img/optimized/works/robot_hand_network-320.avif 320w,
+                            img/optimized/works/robot_hand_network-640.avif 640w,
+                            img/optimized/works/robot_hand_network-960.avif 960w
                           "
                           sizes="70px"
                         />
                         <source
                           type="image/webp"
                           srcset="
-                            img/optimized/works/robot_hand_network-320.webp   320w,
-                            img/optimized/works/robot_hand_network-640.webp   640w,
-                            img/optimized/works/robot_hand_network-960.webp   960w
+                            img/optimized/works/robot_hand_network-320.webp 320w,
+                            img/optimized/works/robot_hand_network-640.webp 640w,
+                            img/optimized/works/robot_hand_network-960.webp 960w
                           "
                           sizes="70px"
                         />
@@ -1425,7 +1472,10 @@
 
                 <div class="row mil-services-grid m-0">
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
-                    <a href="smartguest-ai.html" class="mil-service-card-sm mil-up">
+                    <a
+                      href="smartguest-ai.html"
+                      class="mil-service-card-sm mil-up"
+                    >
                       <h5 class="mil-muted mil-mb-30">SmartGuest <br />AI</h5>
                       <p class="mil-light-soft mil-mb-30">
                         Ready-to-deploy AI guest management system for hotels,
@@ -1433,15 +1483,16 @@
                         communications, and operations while driving repeat
                         business.
                       </p>
-                      <div
-                        class="mil-button mil-arrow-place mil-btn-space"
-                      >
+                      <div class="mil-button mil-arrow-place mil-btn-space">
                         <span>Learn More</span>
                       </div>
                     </a>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
-                    <a href="bizinsight-ai.html" class="mil-service-card-sm mil-up">
+                    <a
+                      href="bizinsight-ai.html"
+                      class="mil-service-card-sm mil-up"
+                    >
                       <h5 class="mil-muted mil-mb-30">BizInsight <br />AI</h5>
                       <p class="mil-light-soft mil-mb-30">
                         Pre-built AI analytics platform transforming operational
@@ -1449,15 +1500,16 @@
                         data-driven decisions about pricing, inventory,
                         staffing, and growth opportunities.
                       </p>
-                      <div
-                        class="mil-button mil-arrow-place mil-btn-space"
-                      >
+                      <div class="mil-button mil-arrow-place mil-btn-space">
                         <span>Learn More</span>
                       </div>
                     </a>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
-                    <a href="ai-mastery-workshops.html" class="mil-service-card-sm mil-up">
+                    <a
+                      href="ai-mastery-workshops.html"
+                      class="mil-service-card-sm mil-up"
+                    >
                       <h5 class="mil-muted mil-mb-30">
                         AI Mastery <br />Workshops
                       </h5>
@@ -1467,15 +1519,16 @@
                         implementation strategies, and hands-on workshops
                         tailored to your industry.
                       </p>
-                      <div
-                        class="mil-button mil-arrow-place mil-btn-space"
-                      >
+                      <div class="mil-button mil-arrow-place mil-btn-space">
                         <span>Learn More</span>
                       </div>
                     </a>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
-                    <a href="custom-ai-solutions.html" class="mil-service-card-sm mil-up">
+                    <a
+                      href="custom-ai-solutions.html"
+                      class="mil-service-card-sm mil-up"
+                    >
                       <h5 class="mil-muted mil-mb-30">
                         Custom AI <br />Solutions
                       </h5>
@@ -1485,9 +1538,7 @@
                         that solve your specific operational problems and drive
                         growth.
                       </p>
-                      <div
-                        class="mil-button mil-arrow-place mil-btn-space"
-                      >
+                      <div class="mil-button mil-arrow-place mil-btn-space">
                         <span>Learn More</span>
                       </div>
                     </a>
@@ -1581,9 +1632,7 @@
                               />
                             </div>
                             <div class="mil-testimonial-content">
-                              <h5 class="mil-light mil-mb-5">
-                                Sherry Bush
-                              </h5>
+                              <h5 class="mil-light mil-mb-5">Sherry Bush</h5>
                               <p class="mil-link mil-light-soft mil-mb-10">
                                 Marketing Director, Tech Startup
                               </p>
@@ -1606,9 +1655,7 @@
                               />
                             </div>
                             <div class="mil-testimonial-content">
-                              <h5 class="mil-light mil-mb-5">
-                                Aisha Tlale
-                              </h5>
+                              <h5 class="mil-light mil-mb-5">Aisha Tlale</h5>
                               <p class="mil-link mil-light-soft mil-mb-10">
                                 CEO, Manufacturing Company
                               </p>
@@ -1621,7 +1668,6 @@
                           </div>
                         </div>
                         <div class="col-md-6">
-
                           <div class="mil-testimonial-card mil-up mil-mb-30">
                             <div class="mil-testimonial-image">
                               <img
@@ -1632,9 +1678,7 @@
                               />
                             </div>
                             <div class="mil-testimonial-content">
-                              <h5 class="mil-light mil-mb-5">
-                                James Mitchell
-                              </h5>
+                              <h5 class="mil-light mil-mb-5">James Mitchell</h5>
                               <p class="mil-link mil-light-soft mil-mb-10">
                                 VP Marketing, SaaS Company
                               </p>
@@ -1656,9 +1700,7 @@
                               />
                             </div>
                             <div class="mil-testimonial-content">
-                              <h5 class="mil-light mil-mb-5">
-                                Michael Opondo
-                              </h5>
+                              <h5 class="mil-light mil-mb-5">Michael Opondo</h5>
                               <p class="mil-link mil-light-soft mil-mb-10">
                                 Owner, Boutique Hotel
                               </p>
@@ -1688,12 +1730,18 @@
                   <!-- Partner logos for infinite scroll effect -->
                   <div class="swiper-slide">
                     <div class="mil-partner-frame">
-                      <img src="img/partners/b2b_bw_logo.png" alt="B2B Partner" />
+                      <img
+                        src="img/partners/b2b_bw_logo.png"
+                        alt="B2B Partner"
+                      />
                     </div>
                   </div>
                   <div class="swiper-slide">
                     <div class="mil-partner-frame">
-                      <img src="img/partners/digivation_bw_logo.png" alt="Digivation" />
+                      <img
+                        src="img/partners/digivation_bw_logo.png"
+                        alt="Digivation"
+                      />
                     </div>
                   </div>
                   <div class="swiper-slide">
@@ -1708,7 +1756,10 @@
                   </div>
                   <div class="swiper-slide">
                     <div class="mil-partner-frame">
-                      <img src="img/partners/singila_bw_logo.png" alt="Singila" />
+                      <img
+                        src="img/partners/singila_bw_logo.png"
+                        alt="Singila"
+                      />
                     </div>
                   </div>
                   <div class="swiper-slide">
@@ -1716,16 +1767,22 @@
                       <img src="img/partners/embryo_bw_logo.png" alt="Embryo" />
                     </div>
                   </div>
-                  
+
                   <!-- Duplicate logos for seamless infinite scroll -->
                   <div class="swiper-slide">
                     <div class="mil-partner-frame">
-                      <img src="img/partners/b2b_bw_logo.png" alt="B2B Partner" />
+                      <img
+                        src="img/partners/b2b_bw_logo.png"
+                        alt="B2B Partner"
+                      />
                     </div>
                   </div>
                   <div class="swiper-slide">
                     <div class="mil-partner-frame">
-                      <img src="img/partners/digivation_bw_logo.png" alt="Digivation" />
+                      <img
+                        src="img/partners/digivation_bw_logo.png"
+                        alt="Digivation"
+                      />
                     </div>
                   </div>
                   <div class="swiper-slide">
@@ -1740,7 +1797,10 @@
                   </div>
                   <div class="swiper-slide">
                     <div class="mil-partner-frame">
-                      <img src="img/partners/singila_bw_logo.png" alt="Singila" />
+                      <img
+                        src="img/partners/singila_bw_logo.png"
+                        alt="Singila"
+                      />
                     </div>
                   </div>
                   <div class="swiper-slide">
@@ -1748,16 +1808,22 @@
                       <img src="img/partners/embryo_bw_logo.png" alt="Embryo" />
                     </div>
                   </div>
-                  
+
                   <!-- Additional duplicates for longer scroll -->
                   <div class="swiper-slide">
                     <div class="mil-partner-frame">
-                      <img src="img/partners/b2b_bw_logo.png" alt="B2B Partner" />
+                      <img
+                        src="img/partners/b2b_bw_logo.png"
+                        alt="B2B Partner"
+                      />
                     </div>
                   </div>
                   <div class="swiper-slide">
                     <div class="mil-partner-frame">
-                      <img src="img/partners/digivation_bw_logo.png" alt="Digivation" />
+                      <img
+                        src="img/partners/digivation_bw_logo.png"
+                        alt="Digivation"
+                      />
                     </div>
                   </div>
                   <div class="swiper-slide">
@@ -1772,7 +1838,10 @@
                   </div>
                   <div class="swiper-slide">
                     <div class="mil-partner-frame">
-                      <img src="img/partners/singila_bw_logo.png" alt="Singila" />
+                      <img
+                        src="img/partners/singila_bw_logo.png"
+                        alt="Singila"
+                      />
                     </div>
                   </div>
                   <div class="swiper-slide">
@@ -1785,8 +1854,6 @@
             </div>
           </section>
           <!-- partners end -->
-
-
 
           <!-- blog -->
           <section>
@@ -1808,10 +1875,7 @@
               </div>
               <div class="row">
                 <div class="col-lg-6">
-                  <a
-                    href="knowledge.html"
-                    class="mil-blog-card mil-mb-60"
-                  >
+                  <a href="knowledge.html" class="mil-blog-card mil-mb-60">
                     <div
                       class="mil-cover-frame mil-up"
                       style="padding-bottom: 56.25%"
@@ -1849,10 +1913,7 @@
                   </a>
                 </div>
                 <div class="col-lg-6">
-                  <a
-                    href="knowledge.html"
-                    class="mil-blog-card mil-mb-60"
-                  >
+                  <a href="knowledge.html" class="mil-blog-card mil-mb-60">
                     <div
                       class="mil-cover-frame mil-up"
                       style="padding-bottom: 56.25%"
@@ -1905,7 +1966,7 @@
                         <img
                           src="img/new_maru_logo_neutral.png"
                           alt="Maru Logo"
-                          style="max-height: 200px; width: auto; display: block; margin-bottom: 20px"
+                          class="mil-footer-logo"
                         />
                       </a>
                     </div>
@@ -1914,10 +1975,7 @@
                     </p>
                     <form class="mil-subscribe-form mil-up">
                       <input type="text" placeholder="Enter your email" />
-                      <button
-                        type="submit"
-                        class="mil-button mil-arrow-place"
-                      >
+                      <button type="submit" class="mil-button mil-arrow-place">
                         <span>Subscribe</span>
                       </button>
                     </form>
@@ -1950,7 +2008,9 @@
                             >
                           </li>
                           <li>
-                            <a href="terms-conditions.html" class="mil-light-soft"
+                            <a
+                              href="terms-conditions.html"
+                              class="mil-light-soft"
                               >Terms and conditions</a
                             >
                           </li>
@@ -1960,7 +2020,9 @@
                             >
                           </li>
                           <li>
-                            <a href="careers.html" class="mil-light-soft">Careers</a>
+                            <a href="careers.html" class="mil-light-soft"
+                              >Careers</a
+                            >
                           </li>
                         </ul>
                       </div>
@@ -1976,7 +2038,9 @@
 
                         <p class="mil-light-soft mil-up">
                           <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                          <br><span class="mil-no-wrap">hello@maruonline.com</span>
+                          <br /><span class="mil-no-wrap"
+                            >hello@maruonline.com</span
+                          >
                         </p>
                       </div>
                       <div class="col-md-6 col-lg-5 mil-mb-60">
@@ -1984,7 +2048,9 @@
 
                         <p class="mil-light-soft mil-up">
                           <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                          <br><span class="mil-no-wrap">hello@maruonline.com</span>
+                          <br /><span class="mil-no-wrap"
+                            >hello@maruonline.com</span
+                          >
                         </p>
                       </div>
                     </div>
@@ -1994,22 +2060,42 @@
                       <div class="mil-mb-30">
                         <ul class="mil-social-icons mil-up">
                           <li>
-                            <a href="https://linkedin.com/company/maru-ai" target="_blank" class="social-icon" title="LinkedIn">
+                            <a
+                              href="https://www.linkedin.com/company/maruonline"
+                              target="_blank"
+                              class="social-icon"
+                              title="LinkedIn"
+                            >
                               <i class="fab fa-linkedin"></i>
                             </a>
                           </li>
                           <li>
-                            <a href="https://twitter.com/maru_ai" target="_blank" class="social-icon" title="Twitter">
+                            <a
+                              href="https://x.com/maru_africa"
+                              target="_blank"
+                              class="social-icon"
+                              title="Twitter"
+                            >
                               <i class="fab fa-twitter"></i>
                             </a>
                           </li>
                           <li>
-                            <a href="https://facebook.com/maruai" target="_blank" class="social-icon" title="Facebook">
+                            <a
+                              href="https://facebook.com/maruonlin"
+                              target="_blank"
+                              class="social-icon"
+                              title="Facebook"
+                            >
                               <i class="fab fa-facebook"></i>
                             </a>
                           </li>
                           <li>
-                            <a href="https://instagram.com/maru_ai" target="_blank" class="social-icon" title="Instagram">
+                            <a
+                              href="https://instagram.com/maru_automations"
+                              target="_blank"
+                              class="social-icon"
+                              title="Instagram"
+                            >
                               <i class="fab fa-instagram"></i>
                             </a>
                           </li>
@@ -2207,7 +2293,7 @@
     <script src="js/main.js"></script>
     <!-- secure newsletter form handler -->
     <script src="js/newsletter-forms-secure.js"></script>
-    
+
     <!-- Safari scrolling fix -->
     <script src="js/safari-scroll-fix.js"></script>
   </body>

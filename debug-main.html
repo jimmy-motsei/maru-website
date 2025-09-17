@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debug Main Page</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #f0f0f0;
+      }
+
+      .debug-panel {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        font-size: 12px;
+        z-index: 10000;
+        max-width: 300px;
+      }
+
+      .section {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .section:nth-child(2) {
+        background: #ff6b6b;
+      }
+      .section:nth-child(3) {
+        background: #4ecdc4;
+      }
+      .section:nth-child(4) {
+        background: #45b7d1;
+      }
+      .section:nth-child(5) {
+        background: #96ceb4;
+      }
+      .section:nth-child(6) {
+        background: #feca57;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="debug-panel" id="debug">
+      <div><strong>Debug Info:</strong></div>
+      <div>Body Height: <span id="bodyHeight">-</span></div>
+      <div>Window Height: <span id="windowHeight">-</span></div>
+      <div>Can Scroll: <span id="canScroll">-</span></div>
+      <div>Scroll Position: <span id="scrollPos">-</span></div>
+      <div>HTML Overflow: <span id="htmlOverflow">-</span></div>
+      <div>Body Overflow: <span id="bodyOverflow">-</span></div>
+      <div>Body Display: <span id="bodyDisplay">-</span></div>
+      <div>Body Position: <span id="bodyPosition">-</span></div>
+      <br />
+      <button onclick="testScroll()">Test Scroll</button>
+      <button onclick="forceHeight()">Force Height</button>
+    </div>
+
+    <div class="section">
+      <div>
+        <h1>Section 1</h1>
+        <p>This should be scrollable</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div>
+        <h1>Section 2</h1>
+        <p>Keep scrolling down</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div>
+        <h1>Section 3</h1>
+        <p>Almost there</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div>
+        <h1>Section 4</h1>
+        <p>Keep going</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div>
+        <h1>Section 5</h1>
+        <p>Final section</p>
+      </div>
+    </div>
+
+    <script>
+      function updateDebug() {
+        const bodyHeight = document.body.scrollHeight;
+        const windowHeight = window.innerHeight;
+        const canScroll = bodyHeight > windowHeight;
+        const scrollPos = window.pageYOffset;
+        const htmlOverflow = getComputedStyle(
+          document.documentElement
+        ).overflow;
+        const bodyOverflow = getComputedStyle(document.body).overflow;
+        const bodyDisplay = getComputedStyle(document.body).display;
+        const bodyPosition = getComputedStyle(document.body).position;
+
+        document.getElementById("bodyHeight").textContent = bodyHeight + "px";
+        document.getElementById("windowHeight").textContent =
+          windowHeight + "px";
+        document.getElementById("canScroll").textContent = canScroll
+          ? "YES"
+          : "NO";
+        document.getElementById("scrollPos").textContent = scrollPos + "px";
+        document.getElementById("htmlOverflow").textContent = htmlOverflow;
+        document.getElementById("bodyOverflow").textContent = bodyOverflow;
+        document.getElementById("bodyDisplay").textContent = bodyDisplay;
+        document.getElementById("bodyPosition").textContent = bodyPosition;
+      }
+
+      function testScroll() {
+        console.log("Testing scroll...");
+        window.scrollTo(0, 500);
+        setTimeout(() => {
+          console.log("Scroll position after test:", window.pageYOffset);
+          updateDebug();
+        }, 100);
+      }
+
+      function forceHeight() {
+        console.log("Forcing height...");
+        document.body.style.height = "300vh";
+        document.body.style.backgroundColor = "red";
+        updateDebug();
+      }
+
+      // Update debug info
+      updateDebug();
+      window.addEventListener("scroll", updateDebug);
+      window.addEventListener("resize", updateDebug);
+
+      // Auto-test after 2 seconds
+      setTimeout(() => {
+        console.log("Auto-testing scroll...");
+        testScroll();
+      }, 2000);
+
+      // Log initial state
+      console.log("Initial state:");
+      console.log("Body height:", document.body.scrollHeight);
+      console.log("Window height:", window.innerHeight);
+      console.log(
+        "Can scroll:",
+        document.body.scrollHeight > window.innerHeight
+      );
+    </script>
+  </body>
+</html>

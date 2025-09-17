@@ -5260,112 +5260,11 @@ html.is-animating .mil-menu-frame {
 }
 
 /* Footer logo styling */
-footer .mil-logo img,
-.mil-footer-logo {
+footer .mil-logo img {
   max-height: 200px !important;
   width: auto !important;
   display: block !important;
   margin-bottom: 20px !important;
-}
-
-/* Social icon styling */
-.social-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: rgb(255, 255, 255);
-  font-size: 18px;
-  text-decoration: none;
-  transition: all 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.social-icon:hover {
-  background-color: rgb(0, 188, 212);
-  color: rgb(0, 0, 0);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
-}
-
-.social-icon i {
-  font-size: 18px;
-}
-
-/* Footer newsletter form styling */
-.mil-subscribe-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.mil-subscribe-form input {
-  width: 100%;
-  padding: 15px 20px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: rgb(255, 255, 255);
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.mil-subscribe-form input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.mil-subscribe-form input:focus {
-  outline: none;
-  border-color: rgb(0, 188, 212);
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* Footer layout utilities */
-.mil-footer-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-@media (min-width: 768px) {
-  .mil-footer-layout {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-}
-
-.mil-footer-section {
-  flex: 1;
-  min-width: 0;
-}
-
-.mil-footer-section:first-child {
-  flex: 0 0 auto;
-  min-width: 300px;
-}
-
-@media (max-width: 767px) {
-  .mil-footer-section:first-child {
-    min-width: 100%;
-  }
-}
-
-/* Additional utility classes for consistent spacing */
-.mil-pb-60 {
-  padding-bottom: 60px !important;
-}
-
-.mil-p-60-120 {
-  padding-top: 60px !important;
-  padding-bottom: 120px !important;
-}
-
-.mil-mb-60 {
-  margin-bottom: 60px !important;
 }
 
 /* New Testimonials Section Styling */

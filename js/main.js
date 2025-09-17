@@ -31,6 +31,44 @@ $(function () {
 
     ***************************/
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+  /***************************
+
+    smooth scroll initialization
+
+    ***************************/
+
+  // Initialize smooth scroll plugin
+  if (typeof SmoothScroll !== "undefined") {
+    try {
+      var smoothScroll = new SmoothScroll({
+        frameRate: 150,
+        animationTime: 1000,
+        stepSize: 80,
+        pulseAlgorithm: true,
+        pulseScale: 4,
+        pulseNormalize: 1,
+        accelerationDelta: 40,
+        accelerationMax: 3,
+        keyboardSupport: true,
+        arrowScroll: 50,
+        fixedBackground: true,
+        excluded: "",
+      });
+
+      // Make smoothScroll available globally
+      window.smoothScroll = smoothScroll;
+      console.log("Smooth scroll plugin initialized successfully");
+    } catch (error) {
+      console.warn("Failed to initialize smooth scroll plugin:", error);
+      window.smoothScroll = null;
+    }
+  } else {
+    console.log(
+      "Smooth scroll plugin not available, using native smooth scroll"
+    );
+    window.smoothScroll = null;
+  }
   /***************************
 
     color variables
@@ -164,12 +202,28 @@ $(function () {
       offset = 90;
     }
 
-    $("html, body").animate(
-      {
-        scrollTop: target.offset().top - offset,
-      },
-      400
-    );
+    // Use smooth scroll plugin if available, otherwise fallback to native smooth scroll
+    if (
+      window.smoothScroll &&
+      typeof window.smoothScroll.animateScroll === "function"
+    ) {
+      // Use smooth scroll plugin
+      var targetElement = target[0];
+      if (targetElement) {
+        window.smoothScroll.animateScroll(targetElement, null, {
+          offset: offset,
+          speed: 1000,
+          easing: "easeInOutCubic",
+        });
+      }
+    } else {
+      // Fallback to native smooth scroll behavior
+      var targetPosition = target.offset().top - offset;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
   });
   /***************************
 
