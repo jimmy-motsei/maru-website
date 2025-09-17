@@ -18,6 +18,32 @@
   </head>
 
   <body>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="mil-cookie-banner" style="display: none;">
+      <div class="mil-cookie-banner-content">
+        <div class="mil-cookie-banner-text">
+          <h4 class="mil-cookie-banner-title">🍪 We Use Cookies</h4>
+          <p class="mil-cookie-banner-description">
+            We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. 
+            By clicking "Accept All", you consent to our use of cookies. 
+            <a href="cookie-policy.html" class="mil-cookie-banner-link">Learn more</a>
+          </p>
+        </div>
+        <div class="mil-cookie-banner-actions">
+          <button id="cookie-accept-all" class="mil-button mil-cookie-accept">
+            <span>Accept All</span>
+          </button>
+          <button id="cookie-settings" class="mil-button mil-cookie-settings">
+            <span>Settings</span>
+          </button>
+          <button id="cookie-decline" class="mil-button mil-cookie-decline">
+            <span>Decline</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Cookie Banner end -->
+
     <div class="mil-wrapper" id="top">
       <!-- Menu and navigation structure -->
       <div class="mil-menu-frame">
@@ -430,7 +456,7 @@
                       <div class="col-md-6 col-lg-5 mil-mb-60">
                         <h6 class="mil-muted mil-up mil-mb-30">E-mail</h6>
                         <p class="mil-light-soft mil-up">
-                          <a href="tel:+27833934864" aria-label="Telephone +27 83 393 4864" class="mil-light-soft">+27 83 393 4864</a>
+                          <a href="mailto:hello@maruonline.com" aria-label="Email hello@maruonline.com" class="mil-light-soft">hello@maruonline.com</a>
                         </p>
                       </div>
                     </div>
@@ -495,8 +521,10 @@
     <script src="js/plugins/smooth-scroll.js"></script>
     <script src="js/plugins/ScrollTrigger.min.js"></script>
     <script src="js/plugins/ScrollTo.min.js"></script>
+    <!-- Cookie Banner Manager -->
+    <script src="js/cookie-banner.js"></script>
+
     <script src="js/main.js"></script>
-    <!-- secure newsletter form handler -->
 
     <!-- Safari scrolling fix -->
     <script src="js/safari-scroll-fix.js"></script>
