@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/style.css?v=3.4" />
     
     <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ee8074bea9274223aef11729f33c7e15"}'></script>
+    <script defer src="js/analytics-loader.js"></script>
     <!-- End Cloudflare Web Analytics -->
     
     <style>
@@ -1226,7 +1226,7 @@
                       <circle cx="150" cy="100" r="75" fill="none" />
                       <g>
                         <use xlink:href="#circlePath" fill="none" />
-                        <text style="letter-spacing: 6.5px">
+                        <text class="mil-letter-wide">
                           <!-- circle text -->
                           <textPath xlink:href="#circlePath">
                             Scroll down - Scroll down -
@@ -1273,7 +1273,6 @@
                           alt="Founder"
                           loading="lazy"
                           decoding="async"
-                          style="object-fit: cover; width: 100%; height: 100%; border-radius: 50%;"
                         />
                       </div>
                       <h6 class="mil-quote mil-up">
@@ -1286,10 +1285,7 @@
                 <div class="col-lg-5">
                   <div class="mil-about-photo mil-mb-90">
                     <div class="mil-lines-place"></div>
-                    <div
-                      class="mil-up mil-img-frame"
-                      style="padding-bottom: 160%"
-                    >
+                    <div class="mil-up mil-img-frame mil-ratio-160">
                       <picture class="">
                         <source
                           type="image/avif"
@@ -1338,16 +1334,14 @@
             <div class="mi-invert-fix">
               <div class="mil-animation-frame">
                 <div
-                  class="mil-animation mil-position-1 mil-scale"
+                  class="mil-animation mil-position-1 mil-scale mil-offset-right"
                   data-value-1="2.4"
                   data-value-2="1.4"
-                  style="top: 300px; right: -100px"
                 ></div>
                 <div
-                  class="mil-animation mil-position-2 mil-scale"
+                  class="mil-animation mil-position-2 mil-scale mil-offset-left"
                   data-value-1="2"
                   data-value-2="1"
-                  style="left: 150px"
                 ></div>
               </div>
               <div class="container mil-p-120-0">
@@ -1365,14 +1359,7 @@
                   <div
                     class="mil-complex-text justify-content-center mil-up mil-mb-15"
                   >
-                    <span
-                      class="mil-text-image"
-                      style="
-                        display: inline-block;
-                        vertical-align: middle;
-                        margin-right: 30px;
-                      "
-                    >
+                    <span class="mil-text-image">
                       <picture>
                         <source
                           type="image/avif"
@@ -1395,13 +1382,6 @@
                         <img
                           src="img/optimized/works/robot_hand_network-960.png"
                           alt="Robotic hand pointing upwards with digital network background"
-                          style="
-                            object-position: center;
-                            object-fit: cover;
-                            width: 100%;
-                            height: 100%;
-                            border-radius: 70px;
-                          "
                           loading="lazy"
                           decoding="async"
                         />
@@ -1812,17 +1792,13 @@
                     href="knowledge.html"
                     class="mil-blog-card mil-mb-60"
                   >
-                    <div
-                      class="mil-cover-frame mil-up"
-                      style="padding-bottom: 56.25%"
-                    >
+                    <div class="mil-cover-frame mil-up mil-ratio-16x9">
                       <picture class="">
                         <img
                           src="img/optimized/works/ai_adoption-1280.png"
                           alt="AI Brand Operating System - AI Agents and Automation"
                           loading="lazy"
                           decoding="async"
-                          style="object-fit: cover; object-position: center"
                         />
                       </picture>
                     </div>
@@ -1853,17 +1829,13 @@
                     href="knowledge.html"
                     class="mil-blog-card mil-mb-60"
                   >
-                    <div
-                      class="mil-cover-frame mil-up"
-                      style="padding-bottom: 56.25%"
-                    >
+                    <div class="mil-cover-frame mil-up mil-ratio-16x9">
                       <picture class="">
                         <img
                           src="img/optimized/works/ai_business_transformation-1280.png"
                           alt="Adaptive AI UX Pattern Language - Innovation and Creativity"
                           loading="lazy"
                           decoding="async"
-                          style="object-fit: cover; object-position: center"
                         />
                       </picture>
                     </div>
@@ -1905,7 +1877,7 @@
                         <img
                           src="img/new_maru_logo_neutral.png"
                           alt="Maru Logo"
-                          style="max-height: 200px; width: auto; display: block; margin-bottom: 20px"
+                          class="mil-footer-logo"
                         />
                       </a>
                     </div>

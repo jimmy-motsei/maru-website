@@ -122,18 +122,12 @@ class ContactFormEnhancer {
     const container = document.getElementById("hubspot-container");
     if (container) {
       const loadingHTML = `
-        <div id="hubspot-loading" style="text-align: center; padding: 40px;">
-          <div style="margin-bottom: 20px;">
-            <div style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #007bff; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+        <div id="hubspot-loading" class="mil-loader">
+          <div class="mil-loader__spinner-wrapper">
+            <div class="mil-loader__spinner"></div>
           </div>
-          <p>Loading contact form...</p>
+          <p class="mil-loader__text">Loading contact form...</p>
         </div>
-        <style>
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-        </style>
       `;
 
       container.insertAdjacentHTML("afterbegin", loadingHTML);

@@ -17,11 +17,7 @@
     <link rel="stylesheet" href="css/style.css?v=3.4" />
 
     <!-- Cloudflare Web Analytics -->
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "ee8074bea9274223aef11729f33c7e15"}'
-    ></script>
+    <script defer src="js/analytics-loader.js"></script>
     <!-- End Cloudflare Web Analytics -->
 
     <style>
@@ -104,15 +100,16 @@
     ></script>
 
     <!-- Calendly Integration - Robust Implementation -->
-    <script
-      src="https://assets.calendly.com/assets/external/widget.js"
-      async
-    ></script>
+    <script defer src="js/calendly-loader.js"></script>
     <script>
       // Robust Calendly initialization with multiple fallback strategies
       (function () {
         let calendlyInitialized = false;
         let fallbackShown = false;
+        const isLocalhost =
+          !window.location.hostname ||
+          window.location.hostname === "localhost" ||
+          window.location.hostname === "127.0.0.1";
 
         function initializeCalendly() {
           if (calendlyInitialized || fallbackShown) return;
@@ -170,15 +167,26 @@
 
           fallbackShown = true;
           widgetContainer.innerHTML = `
-            <div style="padding: 40px; text-align: center; background: #f8f9fa; border-radius: 8px; border: 1px solid #e0e0e0; height: 100%; display: flex; flex-direction: column; justify-content: center;">
-              <h4 style="color: #333; margin-bottom: 20px;">Book Your Demo</h4>
-              <p style="color: #666; margin-bottom: 30px;">Click the button below to book your demo directly on Calendly.</p>
-              <a href="https://calendly.com/demo-maruonline/30min" target="_blank" 
-                 style="display: inline-block; padding: 15px 30px; background: #007bff; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease; margin-bottom: 20px;">
+            <div class="mil-calendly-fallback">
+              <h4 class="mil-calendly-fallback__title">Book Your Demo</h4>
+              <p class="mil-calendly-fallback__text">
+                Click the button below to book your demo directly on Calendly.
+              </p>
+              <a
+                href="https://calendly.com/demo-maruonline/30min"
+                target="_blank"
+                class="mil-calendly-fallback__button"
+              >
                 Book Demo on Calendly
               </a>
-              <p style="font-size: 14px; color: #666; margin: 0;">
-                Or contact us directly: <a href="mailto:demo@maruonline.com" style="color: #007bff;">demo@maruonline.com</a>
+              <p class="mil-calendly-fallback__note">
+                Or contact us directly:
+                <a
+                  href="mailto:demo@maruonline.com"
+                  class="mil-calendly-fallback__link"
+                >
+                  demo@maruonline.com
+                </a>
               </p>
             </div>
           `;
@@ -187,6 +195,27 @@
         // Multiple initialization strategies
         function tryInitialize() {
           if (calendlyInitialized || fallbackShown) return;
+
+          if (isLocalhost) {
+            if (!fallbackShown) {
+              const showWhenReady = () => {
+                showFallback();
+              };
+
+              if (
+                document.readyState === "complete" ||
+                document.readyState === "interactive"
+              ) {
+                showFallback();
+              } else {
+                document.addEventListener("DOMContentLoaded", showWhenReady, {
+                  once: true,
+                });
+              }
+            }
+
+            return;
+          }
 
           if (typeof Calendly !== "undefined") {
             initializeCalendly();
@@ -198,6 +227,10 @@
 
         // Start trying immediately
         tryInitialize();
+
+        if (isLocalhost) {
+          return;
+        }
 
         // Also try on DOM ready
         if (document.readyState === "loading") {
@@ -396,7 +429,7 @@
         <div id="swupMain" class="mil-main-transition">
           <!-- banner -->
           <div class="mil-dark-bg">
-            <div class="mil-inner-banner" style="padding-bottom: 60px">
+            <div class="mil-inner-banner mil-pb-60">
               <div class="mi-invert-fix">
                 <div class="mil-banner-content mil-up">
                   <div class="mil-animation-frame">
@@ -427,8 +460,7 @@
           <!-- demo form -->
           <section>
             <div
-              class="container"
-              style="padding-top: 60px; padding-bottom: 120px"
+              class="container mil-p-60-120"
             >
               <div class="row">
                 <div class="col-lg-8">
@@ -443,43 +475,18 @@
 
                     <!-- Calendly Inline Widget -->
                     <div
-                      class="calendly-inline-widget mil-mb-60"
+                      class="calendly-inline-widget mil-calendly-embed mil-mb-60"
                       data-url="https://calendly.com/demo-maruonline/30min"
-                      style="
-                        min-width: 320px;
-                        height: 700px;
-                        position: relative;
-                        background: #f8f9fa;
-                        border: 1px solid #e0e0e0;
-                        border-radius: 8px;
-                      "
                     >
                       <!-- Loading state -->
                       <div
                         id="calendly-loading"
-                        style="
-                          position: absolute;
-                          top: 50%;
-                          left: 50%;
-                          transform: translate(-50%, -50%);
-                          text-align: center;
-                          z-index: 1;
-                        "
+                        class="mil-calendly-loading"
                       >
-                        <div style="margin-bottom: 20px">
-                          <div
-                            style="
-                              width: 40px;
-                              height: 40px;
-                              border: 4px solid #f3f3f3;
-                              border-top: 4px solid #007bff;
-                              border-radius: 50%;
-                              animation: spin 1s linear infinite;
-                              margin: 0 auto;
-                            "
-                          ></div>
+                        <div class="mil-calendly-spinner-wrapper">
+                          <div class="mil-calendly-spinner"></div>
                         </div>
-                        <p style="color: #666; margin: 0">
+                        <p class="mil-calendly-loading-text">
                           Loading booking calendar...
                         </p>
                       </div>
@@ -582,12 +589,7 @@
                       <img
                         src="img/new_maru_logo_neutral.png"
                         alt="Maru Logo"
-                        style="
-                          max-height: 200px;
-                          width: auto;
-                          display: block;
-                          margin-bottom: 20px;
-                        "
+                        class="mil-footer-logo"
                       />
                     </div>
                     <p class="mil-light-soft mil-up mil-mb-30">

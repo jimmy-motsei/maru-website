@@ -394,9 +394,9 @@ class SecureNewsletterFormHandler {
     const successDiv = document.createElement("div");
     successDiv.className = "form-success";
     successDiv.innerHTML = `
-      <div style="text-align: center; padding: 20px; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 6px; margin-top: 15px;">
-        <h4 style="color: #155724; margin: 0 0 10px 0;">🎉 Welcome to AI Insights!</h4>
-        <p style="color: #155724; margin: 0;">Thank you for subscribing! Check your email for confirmation and your first AI insights.</p>
+      <div class="mil-success-banner">
+        <h4 class="mil-success-banner__title">🎉 Welcome to AI Insights!</h4>
+        <p class="mil-success-banner__text">Thank you for subscribing! Check your email for confirmation and your first AI insights.</p>
       </div>
     `;
 
@@ -419,15 +419,14 @@ class SecureNewsletterFormHandler {
         const emailInput = form.querySelector(
           'input[type="email"], input[type="text"]'
         );
-        if (emailInput) {
-          emailInput.value = "Already subscribed!";
-          emailInput.disabled = true;
-          emailInput.style.backgroundColor = "#f8f9fa";
+          if (emailInput) {
+            emailInput.value = "Already subscribed!";
+            emailInput.disabled = true;
+            emailInput.classList.add("mil-subscribe-disabled");
 
-          const indicator = document.createElement("small");
-          indicator.textContent = "✓ Subscribed to AI Insights Newsletter";
-          indicator.style.cssText =
-            "color: #28a745; font-size: 12px; display: block; margin-top: 5px;";
+            const indicator = document.createElement("small");
+            indicator.textContent = "✓ Subscribed to AI Insights Newsletter";
+            indicator.className = "mil-subscribe-indicator";
 
           if (!form.querySelector(".subscription-indicator")) {
             indicator.className = "subscription-indicator";
@@ -606,8 +605,8 @@ class SecureNewsletterFormHandler {
       // Show success message
       const successDiv = document.createElement("div");
       successDiv.innerHTML = `
-        <div style="text-align: center; padding: 15px; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 6px; margin-top: 15px;">
-          <p style="color: #155724; margin: 0;">Thank you for subscribing! We'll add you to our newsletter list.</p>
+        <div class="mil-success-banner">
+          <p class="mil-success-banner__text">Thank you for subscribing! We'll add you to our newsletter list.</p>
         </div>
       `;
 
