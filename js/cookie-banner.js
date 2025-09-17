@@ -5,11 +5,19 @@
 
 class CookieBannerManager {
   constructor() {
+    // Guard against double-initialization
+    if (CookieBannerManager.instance) {
+      return CookieBannerManager.instance;
+    }
+    
     this.banner = null;
     this.acceptAllBtn = null;
     this.settingsBtn = null;
     this.declineBtn = null;
     this.cookieConsent = null;
+    this.isInitialized = false;
+    
+    CookieBannerManager.instance = this;
     this.init();
   }
 
@@ -23,6 +31,11 @@ class CookieBannerManager {
   }
 
   setup() {
+    // Guard against double-initialization
+    if (this.isInitialized) {
+      return;
+    }
+
     this.banner = document.getElementById("cookie-banner");
     this.acceptAllBtn = document.getElementById("cookie-accept-all");
     this.settingsBtn = document.getElementById("cookie-settings");
@@ -35,7 +48,8 @@ class CookieBannerManager {
 
     this.cookieConsent = this.getCookieConsent();
     this.setupEventListeners();
-    this.showBannerIfNeeded();
+    this.setupPreloaderListener();
+    this.isInitialized = true;
   }
 
   setupEventListeners() {
@@ -50,6 +64,21 @@ class CookieBannerManager {
     if (this.declineBtn) {
       this.declineBtn.addEventListener("click", () => this.decline());
     }
+  }
+
+  setupPreloaderListener() {
+    // Listen for preloader completion event
+    document.addEventListener('preloader:done', () => {
+      this.showBannerIfNeeded();
+    });
+
+    // Fallback: if preloader doesn't exist or event doesn't fire within 5 seconds
+    // show banner after page load with 2 second delay
+    setTimeout(() => {
+      if (!window.__preloaderDone) {
+        this.showBannerIfNeeded();
+      }
+    }, 5000);
   }
 
   getCookieConsent() {
@@ -78,10 +107,10 @@ class CookieBannerManager {
       return;
     }
 
-    // Show banner after a short delay for better UX
+    // Show banner after 2 seconds delay from preloader completion
     setTimeout(() => {
       this.showBanner();
-    }, 1000);
+    }, 2000);
   }
 
   showBanner() {
@@ -257,8 +286,10 @@ class CookieBannerManager {
   }
 }
 
-// Initialize cookie banner manager
-window.cookieBannerManager = new CookieBannerManager();
+// Initialize cookie banner manager (singleton)
+if (!window.cookieBannerManager) {
+  window.cookieBannerManager = new CookieBannerManager();
+}
 
 // Export for debugging
 if (typeof module !== "undefined" && module.exports) {

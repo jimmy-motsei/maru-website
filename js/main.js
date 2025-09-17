@@ -183,6 +183,12 @@ $(function () {
       scale: 1,
       onComplete: function () {
         $(".mil-preloader").addClass("mil-hidden");
+        
+        // Dispatch preloader completion event
+        if (!window.__preloaderDone) {
+          window.__preloaderDone = true;
+          document.dispatchEvent(new CustomEvent('preloader:done'));
+        }
       },
     },
     "-=1"
