@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/plugins/swiper.min.css" />
     <link rel="stylesheet" href="css/plugins/fancybox.min.css" />
     <link rel="stylesheet" href="css/style.css?v=3.3" />
+    <!-- site overrides -->
+    <link rel="stylesheet" href="assets/css/site-overrides.css" />
 
     <!-- Cloudflare Web Analytics -->
     <script
@@ -258,156 +260,175 @@
             </div>
           </section>
 
-          <!-- Footer -->
-          <footer class="mil-dark-bg">
-            <div class="mi-invert-fix">
-              <div class="container mil-p-120-60">
-                <div class="row justify-content-between">
-                  <div class="col-md-4 col-lg-4 mil-mb-60">
-                    <div class="mil-muted mil-logo mil-up mil-mb-30">
-                      <img
-                        src="img/new_maru_logo_neutral.png"
-                        alt="Maru Logo"
-                        style="
-                          max-height: 200px;
-                          width: auto;
-                          display: block;
-                          margin-bottom: 20px;
-                        "
-                      />
-                    </div>
-                    <p class="mil-light-soft mil-up mil-mb-30">
-                      Subscribe to our newsletter:
-                    </p>
-                    <form
-                      class="mil-subscribe-form mil-up"
-                      data-hubspot-form="true"
-                    >
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter your email"
-                        required
-                      />
-                      <button type="submit" class="mil-button mil-arrow-place">
-                        <span>Subscribe</span>
-                      </button>
-                    </form>
-                  </div>
-                  <div class="col-md-7 col-lg-6">
-                    <div class="row justify-content-end">
-                      <div class="col-md-6 col-lg-7">
-                        <nav class="mil-footer-menu mil-mb-60">
-                          <ul>
-                            <li class="mil-up">
-                              <a href="index.html">Home</a>
-                            </li>
-                            <li class="mil-up">
-                              <a href="services.html">Services</a>
-                            </li>
-                            <li class="mil-up">
-                              <a href="knowledge.html">Resources</a>
-                            </li>
-                            <li class="mil-up">
-                              <a href="contact.html">Contact</a>
-                            </li>
-                          </ul>
-                        </nav>
-                      </div>
-                      <div class="col-md-6 col-lg-5">
-                        <ul class="mil-menu-list mil-up mil-mb-60">
-                          <li>
-                            <a href="privacy-policy.html" class="mil-light-soft"
-                              >Privacy Policy</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="terms-conditions.html"
-                              class="mil-light-soft"
-                              >Terms and conditions</a
-                            >
-                          </li>
-                          <li>
-                            <a href="cookie-policy.html" class="mil-light-soft"
-                              >Cookie Policy</a
-                            >
-                          </li>
-                          <li>
-                            <a href="careers.html" class="mil-light-soft"
-                              >Careers</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          
 
-                <div class="row justify-content-between flex-sm-row-reverse">
-                  <div class="col-md-7 col-lg-6">
-                    <div class="row justify-content-between">
-                      <div class="col-md-6 col-lg-5 mil-mb-60">
-                        <h6 class="mil-muted mil-up mil-mb-30">KZN</h6>
-                        <p class="mil-light-soft mil-up">
-                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                        </p>
-                      </div>
-                      <div class="col-md-6 col-lg-5 mil-mb-60">
-                        <h6 class="mil-muted mil-up mil-mb-30">Gauteng</h6>
-                        <p class="mil-light-soft mil-up">
-                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-lg-6 mil-mb-60">
-                    <div class="mil-vert-between">
-                      <div class="mil-mb-30">
-                        <ul class="mil-social-icons mil-up">
-                          <li>
-                            <a
-                              href="https://www.linkedin.com/company/maruonline"
-                              target="_blank"
-                              class="social-icon"
-                              ><i class="fab fa-linkedin-in"></i
-                            ></a>
-                          </li>
-                          <li>
-                            <a
-                              href="https://x.com/maru_africa"
-                              target="_blank"
-                              class="social-icon"
-                              ><i class="fab fa-twitter"></i
-                            ></a>
-                          </li>
-                          <li>
-                            <a
-                              href="https://facebook.com/maruonlin"
-                              target="_blank"
-                              class="social-icon"
-                              ><i class="fab fa-facebook-f"></i
-                            ></a>
-                          </li>
-                          <li>
-                            <a
-                              href="https://instagram.com/maru_automations"
-                              target="_blank"
-                              class="social-icon"
-                              ><i class="fab fa-instagram"></i
-                            ></a>
-                          </li>
-                        </ul>
-                      </div>
-                      <p class="mil-light-soft mil-up">
-                        © Copyright 2025 - Maru. All Rights Reserved.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+
+<!-- footer (standardized Maru) -->
+<footer class="mil-dark-bg">
+  <div class="mi-invert-fix">
+    <div class="container mil-p-120-60">
+      <div class="row justify-content-between">
+        <div class="col-md-4 col-lg-4 mil-mb-60">
+          <div class="mil-muted mil-logo mil-up mil-mb-30">
+            <a href="index.html">
+              <img
+                src="img/new_maru_logo_neutral.png"
+                alt="Maru Logo"
+                class="mil-footer-logo"
+              />
+            </a>
+          </div>
+          <p class="mil-light-soft mil-up mil-mb-30">
+            Subscribe to our newsletter:
+          </p>
+          <form
+            class="mil-subscribe-form mil-up"
+            data-hubspot-form="true"
+          >
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+            <button type="submit" class="mil-button mil-arrow-place">
+              <span>Subscribe</span>
+            </button>
+          </form>
+        </div>
+        <div class="col-md-7 col-lg-6">
+          <div class="row justify-content-end">
+            <div class="col-md-6 col-lg-7">
+              <nav class="mil-footer-menu mil-mb-60">
+                <ul>
+                  <li class="mil-up mil-active">
+                    <a href="index.html">Home</a>
+                  </li>
+                  <li class="mil-up">
+                    <a href="services.html">Services</a>
+                  </li>
+                  <li class="mil-up">
+                    <a href="knowledge.html">Resources</a>
+                  </li>
+                  <li class="mil-up">
+                    <a href="contact.html">Contact</a>
+                  </li>
+                </ul>
+              </nav>
             </div>
-          </footer>
+            <div class="col-md-6 col-lg-5">
+              <ul class="mil-menu-list mil-up mil-mb-60">
+                <li>
+                  <a href="privacy-policy.html" class="mil-light-soft"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="terms-conditions.html"
+                    class="mil-light-soft"
+                    >Terms and conditions</a
+                  >
+                </li>
+                <li>
+                  <a href="cookie-policy.html" class="mil-light-soft"
+                    >Cookie Policy</a
+                  >
+                </li>
+                <li>
+                  <a href="careers.html" class="mil-light-soft"
+                    >Careers</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-between flex-sm-row-reverse">
+        <div class="col-md-7 col-lg-6">
+          <div class="row justify-content-between">
+            <div class="col-md-6 col-lg-5 mil-mb-60">
+              <h6 class="mil-muted mil-up mil-mb-30">Gauteng</h6>
+
+              <p class="mil-light-soft mil-up">
+                <span class="mil-no-wrap">+27(0)83 393 4864</span>
+                <br /><span class="mil-no-wrap"
+                  >hello@maruonline.com</span
+                >
+              </p>
+            </div>
+            <div class="col-md-6 col-lg-5 mil-mb-60">
+              <h6 class="mil-muted mil-up mil-mb-30">Western Cape</h6>
+
+              <p class="mil-light-soft mil-up">
+                <span class="mil-no-wrap">+27(0)83 393 4864</span>
+                <br /><span class="mil-no-wrap"
+                  >hello@maruonline.com</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-6 mil-mb-60">
+          <div class="mil-vert-between">
+            <div class="mil-mb-30">
+              <ul class="mil-social-icons mil-up">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/company/maruonline"
+                    target="_blank"
+                    class="social-icon"
+                    title="LinkedIn"
+                  >
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://x.com/maru_africa"
+                    target="_blank"
+                    class="social-icon"
+                    title="Twitter"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://facebook.com/maruonlin"
+                    target="_blank"
+                    class="social-icon"
+                    title="Facebook"
+                  >
+                    <i class="fab fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://instagram.com/maru_automations"
+                    target="_blank"
+                    class="social-icon"
+                    title="Instagram"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <p class="mil-light-soft mil-up">
+              © Copyright 2025 - Maru. All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- footer end -->
+
         </div>
       </div>
     </div>

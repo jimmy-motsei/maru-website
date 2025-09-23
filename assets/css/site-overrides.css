@@ -1,0 +1,834 @@
+/* ===========================================
+   MARU WEBSITE SITE OVERRIDES
+   ===========================================
+   This file contains all migrated inline styles from HTML files.
+   Organized by component and functionality.
+   =========================================== */
+
+/* ===========================================
+   PARTNERS SECTION STYLES
+   =========================================== */
+
+/* Custom styles for partners section */
+.mil-partners-section {
+  background: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.mil-partners-section h3 {
+  color: #333;
+  font-weight: 600;
+}
+
+.mil-partners-section p {
+  color: #666;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.mil-infinite-show {
+  margin: 0 -15px;
+}
+
+.mil-partner-frame {
+  padding: 20px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mil-partner-frame img {
+  max-height: 80px;
+  max-width: 400px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Responsive adjustments for partners */
+@media (max-width: 768px) {
+  .mil-partner-frame {
+    height: 100px;
+    padding: 15px;
+  }
+
+  .mil-partner-frame img {
+    max-height: 60px;
+    max-width: 300px;
+  }
+
+  .mil-partners-section h3 {
+    font-size: 24px;
+  }
+
+  .mil-partners-section p {
+    font-size: 16px;
+  }
+}
+
+/* Ensure smooth scrolling */
+.mil-infinite-show .swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+/* Fix Swiper slide sizing */
+.mil-infinite-show .swiper-slide {
+  width: auto;
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+/* Force scroll button positioning */
+.mil-circle-text {
+  position: absolute !important;
+  right: 0 !important;
+  top: 70% !important;
+  z-index: 1000 !important;
+}
+
+/* More specific targeting for the scroll button */
+.mil-banner .mil-circle-text {
+  position: absolute !important;
+  right: 0 !important;
+  top: 70% !important;
+  z-index: 1000 !important;
+}
+
+/* ===========================================
+   MOBILE FRAMEWORK & RESPONSIVE SYSTEM
+   =========================================== */
+
+/* Mobile Utility Classes */
+.mil-mobile-hidden {
+  display: none;
+}
+
+/* Large Desktop Adjustments (1400px) */
+@media screen and (max-width: 1400px) {
+  .mil-banner .mil-banner-content h1 {
+    font-size: 74px;
+  }
+}
+
+/* Desktop Adjustments (1200px) */
+@media screen and (max-width: 1200px) {
+  .mil-banner .mil-banner-content h1 {
+    font-size: 72px;
+  }
+}
+
+/* Tablet Adjustments (992px) */
+@media screen and (max-width: 992px) {
+  .mil-banner .mil-banner-content h1 {
+    font-size: 58px;
+  }
+
+  .mil-banner .mil-banner-content {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .mil-menu-btn {
+    transform: scale(0.85);
+  }
+}
+
+/* Mobile Adjustments (768px) */
+@media screen and (max-width: 768px) {
+  /* Hide Request Demo button on mobile */
+  .mil-banner .mil-banner-content .mil-link[href="request-demo.html"] {
+    display: none !important;
+  }
+
+  .mil-banner .mil-banner-content h1 {
+    font-size: 34px;
+  }
+
+  .mil-banner .mil-banner-content h1 br,
+  .mil-banner .mil-banner-content h2 br,
+  .mil-banner .mil-banner-content h3 br {
+    display: none;
+  }
+
+  /* Banner button layout - minimal overrides */
+  .mil-banner .mil-banner-content .mil-button {
+    margin-bottom: 15px;
+  }
+
+  /* Make scroll button container match button dimensions */
+  .mil-banner .mil-circle-text {
+    width: auto !important;
+    min-width: 200px !important;
+    height: auto !important;
+    min-height: 55px !important;
+  }
+}
+
+/* Small Mobile Adjustments (576px) */
+@media screen and (max-width: 576px) {
+  .mil-banner .mil-banner-content h1 {
+    font-size: 28px;
+  }
+}
+
+/* Very Small Mobile Adjustments (500px) */
+@media screen and (max-width: 500px) {
+  .mil-banner .mil-banner-content h1 {
+    font-size: 24px;
+  }
+}
+
+/* ===========================================
+   MOBILE MENU SYSTEM
+   =========================================== */
+
+/* Mobile Menu Button Styles */
+.mil-menu-btn {
+  pointer-events: all;
+  height: 28px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+}
+
+.mil-menu-btn span,
+.mil-menu-btn span:after,
+.mil-menu-btn span:before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2.5px;
+  background: rgb(0, 0, 0);
+  backface-visibility: hidden;
+  transition: inherit;
+}
+
+.mil-menu-btn span {
+  position: relative;
+}
+
+.mil-menu-btn span:after,
+.mil-menu-btn span:before {
+  position: absolute;
+}
+
+.mil-menu-btn span:before {
+  top: -9px;
+}
+
+.mil-menu-btn span:after {
+  width: 18px;
+  top: 9px;
+}
+
+/* Active Menu Button State */
+.mil-menu-btn.mil-active span {
+  transform: rotate(45deg);
+}
+
+.mil-menu-btn.mil-active span:before {
+  transform: translate(0px, 9px) rotate(-90deg);
+}
+
+.mil-menu-btn.mil-active span:after {
+  opacity: 0;
+  width: 24px;
+  transform: translate(0px, -9px) rotate(-90deg);
+}
+
+/* Mobile Menu Frame */
+.mil-menu-frame {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+}
+
+.mil-menu-frame.mil-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mil-menu-frame .mil-frame-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 50px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mil-menu-frame .mil-frame-top .mil-logo {
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.mil-menu-frame .mil-frame-top .mil-menu-btn span,
+.mil-menu-frame .mil-frame-top .mil-menu-btn span:after,
+.mil-menu-frame .mil-frame-top .mil-menu-btn span:before {
+  background-color: rgb(255, 255, 255);
+}
+
+/* Mobile Menu Content */
+.mil-menu-frame .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 120px;
+}
+
+.mil-menu-frame .mil-main-menu {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.6s cubic-bezier(0, 0, 0.3642, 1);
+}
+
+.mil-menu-frame.mil-active .mil-main-menu {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mil-menu-frame .mil-main-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mil-menu-frame .mil-main-menu ul li {
+  margin-bottom: 20px;
+}
+
+.mil-menu-frame .mil-main-menu ul li a {
+  color: rgb(255, 255, 255);
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-decoration: none;
+  transition: 0.3s ease;
+  display: block;
+  padding: 10px 0;
+}
+
+.mil-menu-frame .mil-main-menu ul li a:hover {
+  color: rgb(0, 188, 212);
+  transform: translateX(10px);
+}
+
+/* Mobile Menu Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .mil-menu-frame .mil-frame-top {
+    padding: 30px 20px;
+  }
+
+  .mil-menu-frame .mil-main-menu ul li a {
+    font-size: 2rem;
+  }
+
+  .mil-menu-frame .container {
+    padding-top: 100px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .mil-menu-frame .mil-main-menu ul li a {
+    font-size: 1.8rem;
+  }
+}
+
+/* ===========================================
+   CONTACT FORM STYLES
+   =========================================== */
+
+/* Contact form loading state */
+.mil-loading {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.mil-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fallback form styling */
+.mil-contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.mil-input-group {
+  margin-bottom: 20px;
+}
+
+.mil-input-group input,
+.mil-input-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.mil-input-group input:focus,
+.mil-input-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* ===========================================
+   BRAND COLOR VARIABLES FOR ASHLEY THEME
+   =========================================== */
+
+/* Brand color variables - override Ashley theme colors only */
+:root {
+  --brand-btn-bg: #03b6d1; /* correct brand blue */
+  --brand-btn-fg: #0b0b0b; /* text/icon on blue */
+  --brand-btn-bg-hover: #02a2ba; /* hover blue */
+  --brand-btn-fg-hover: #0b0b0b;
+  --brand-btn-outline: #7addeb; /* focus ring colour */
+}
+
+/* ===========================================
+   ASHLEY THEME COLOR OVERRIDES
+   =========================================== */
+
+/* Override Ashley theme button colors with brand colors */
+.mil-button {
+  background-color: var(--brand-btn-bg);
+  color: var(--brand-btn-fg);
+}
+
+.mil-button svg {
+  background-color: var(--brand-btn-fg);
+}
+
+.mil-button svg path {
+  fill: var(--brand-btn-bg);
+}
+
+.mil-button.mil-icon-button-sm svg {
+  background-color: var(--brand-btn-bg);
+}
+
+.mil-button.mil-icon-button-sm svg path {
+  fill: var(--brand-btn-fg);
+}
+
+/* Newsletter form pseudo-element - use brand colors */
+.mil-subscribe-form::after {
+  background-color: var(--brand-btn-fg);
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 12h14m-7-7l7 7-7 7' stroke='%2303b6d1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* Cookie banner buttons - minimal styling to avoid conflicts */
+.mil-cookie-settings {
+  background-color: transparent !important;
+  color: rgb(255, 255, 255) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.mil-cookie-decline {
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Button spacing utility class */
+.mil-btn-space {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* Mobile responsive adjustments - minimal to avoid conflicts */
+@media screen and (max-width: 768px) {
+  .mil-btn-space {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Map info styling */
+.mil-map-info {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  z-index: 10;
+}
+
+.mil-map-info-content h6 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.mil-map-info-content p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.mil-map-info-content strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.mil-map-frame {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.mil-map {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.mil-map iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* Responsive adjustments for map */
+@media (max-width: 768px) {
+  .mil-map-info {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 20px;
+    max-width: none;
+  }
+
+  .mil-map {
+    height: 300px;
+  }
+}
+
+/* ===========================================
+   FOOTER RESPONSIVE FIXES
+   =========================================== */
+
+/* Prevent column overlap at 90% zoom and other zoom levels */
+.footer-row {
+  margin-left: -15px !important;
+  margin-right: -15px !important;
+}
+
+.footer-row .col-md-4,
+.footer-row .col-md-6,
+.footer-row .col-md-7,
+.footer-row .col-lg-4,
+.footer-row .col-lg-5,
+.footer-row .col-lg-6,
+.footer-row .col-lg-7 {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+@media (max-width: 1200px) {
+  .footer-row {
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+  }
+
+  .footer-row .col-md-4,
+  .footer-row .col-md-6,
+  .footer-row .col-md-7,
+  .footer-row .col-lg-4,
+  .footer-row .col-lg-5,
+  .footer-row .col-lg-6,
+  .footer-row .col-lg-7 {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer-row {
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+  }
+
+  .footer-row .col-md-4,
+  .footer-row .col-md-6,
+  .footer-row .col-md-7,
+  .footer-row .col-lg-4,
+  .footer-row .col-lg-5,
+  .footer-row .col-lg-6,
+  .footer-row .col-lg-7 {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  /* Stack columns on medium screens to prevent overlap */
+  .footer-row .col-md-7,
+  .footer-row .col-md-4 {
+    margin-bottom: 30px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-row {
+    margin-left: -5px !important;
+    margin-right: -5px !important;
+  }
+
+  .footer-row .col-md-4,
+  .footer-row .col-md-6,
+  .footer-row .col-md-7,
+  .footer-row .col-lg-4,
+  .footer-row .col-lg-5,
+  .footer-row .col-lg-6,
+  .footer-row .col-lg-7 {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  /* Force single column layout on small screens */
+  .footer-row .col-md-7,
+  .footer-row .col-md-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 30px !important;
+  }
+}
+
+/* ===========================================
+   CALENDLY WIDGET STYLES
+   =========================================== */
+
+/* Ensure Calendly widget is visible */
+.calendly-inline-widget {
+  position: relative !important;
+  z-index: 1000 !important;
+  background: white !important;
+  min-height: 700px !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Override any conflicting styles */
+.mil-post-content .calendly-inline-widget {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+/* Ensure Calendly iframe is visible when loaded */
+.calendly-inline-widget iframe {
+  border: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 700px !important;
+}
+
+/* ===========================================
+   SAFARI SCROLLING FIXES
+   =========================================== */
+
+html,
+body,
+.mil-content,
+#swupMain {
+  -webkit-overflow-scrolling: touch !important;
+  overflow-y: auto !important;
+}
+
+/* ===========================================
+   UTILITY CLASSES FOR INLINE STYLES
+   =========================================== */
+
+/* Common utility classes to replace inline styles */
+.mil-hidden {
+  display: none;
+}
+
+.mil-letter-spacing-lg {
+  letter-spacing: 6.5px;
+}
+
+.mil-object-cover {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.mil-object-cover-rounded {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.mil-object-cover-center {
+  object-fit: cover;
+  object-position: center;
+}
+
+.mil-object-cover-center-rounded {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 70px;
+}
+
+.mil-padding-bottom-160 {
+  padding-bottom: 160%;
+}
+
+.mil-padding-bottom-56 {
+  padding-bottom: 56.25%;
+}
+
+.mil-position-top-right {
+  top: 300px;
+  right: -100px;
+}
+
+.mil-position-left {
+  left: 150px;
+}
+
+.mil-inline-block-middle {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 30px;
+}
+
+.mil-padding-bottom-60 {
+  padding-bottom: 60px;
+}
+
+.mil-margin-bottom-0 {
+  margin-bottom: 0px;
+}
+
+.mil-padding-top-bottom {
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+.mil-margin-top-bottom {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.mil-max-height-200 {
+  max-height: 200px;
+  width: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* ===========================================
+   DEMO PAGE SPECIFIC STYLES
+   =========================================== */
+
+.mil-demo-card {
+  padding: 40px;
+  text-align: center;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mil-demo-title {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.mil-demo-description {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Demo page buttons - standardized to Ashley theme */
+.mil-demo-button {
+  /* Use Ashley theme button classes instead of custom styling */
+  /* Apply .mil-button .mil-arrow-place classes to demo buttons */
+}
+
+.mil-demo-small-text {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.mil-demo-link {
+  color: #007bff;
+}
+
+.mil-demo-widget {
+  min-width: 320px;
+  height: 700px;
+  position: relative;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.mil-demo-widget-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.mil-demo-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+.mil-demo-text {
+  color: #666;
+  margin: 0;
+}

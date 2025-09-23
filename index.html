@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="css/plugins/fancybox.min.css" />
     <!-- maru scss -->
     <link rel="stylesheet" href="css/style.css?v=3.4" />
+    <!-- site overrides -->
+    <link rel="stylesheet" href="assets/css/site-overrides.css" />
 
     <!-- Cloudflare Web Analytics -->
     <script
@@ -1460,6 +1462,9 @@
                     class="mil-button mil-arrow-place mil-btn-space"
                   >
                     <span>Our Services</span>
+                    <svg>
+                      <path d="M5 12h14m-7-7l7 7-7 7" fill="currentColor" />
+                    </svg>
                   </a>
 
                   <a
@@ -1502,7 +1507,12 @@
                     <a
                       href="#about"
                       class="mil-button mil-arrow-place mil-icon-button mil-arrow-down"
-                    ></a>
+                      aria-label="Scroll down"
+                    >
+                      <svg>
+                        <path d="M5 12h14m-7-7l7 7-7 7" fill="currentColor" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1688,16 +1698,22 @@
                     <a
                       href="services.html"
                       class="mil-services-button mil-button mil-arrow-place"
-                      ><span>What we do</span></a
-                    >
+                      ><span>What we do</span>
+                      <svg>
+                        <path
+                          d="M5 12h14m-7-7l7 7-7 7"
+                          fill="currentColor"
+                        /></svg
+                    ></a>
                   </div>
                 </div>
 
                 <div class="row mil-services-grid m-0">
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
-                    <a
-                      href="smartguest-ai.html"
+                    <div
                       class="mil-service-card-sm mil-up"
+                      onclick="window.location.href='smartguest-ai.html'"
+                      style="cursor: pointer"
                     >
                       <h5 class="mil-muted mil-mb-30">SmartGuest <br />AI</h5>
                       <p class="mil-light-soft mil-mb-30">
@@ -1706,15 +1722,23 @@
                         communications, and operations while driving repeat
                         business.
                       </p>
-                      <div class="mil-button mil-arrow-place mil-btn-space">
+                      <a
+                        href="services.html"
+                        class="mil-button mil-arrow-place mil-btn-space"
+                        onclick="event.stopPropagation();"
+                      >
                         <span>Learn More</span>
-                      </div>
-                    </a>
+                        <svg>
+                          <path d="M5 12h14m-7-7l7 7-7 7" fill="currentColor" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
-                    <a
-                      href="bizinsight-ai.html"
+                    <div
                       class="mil-service-card-sm mil-up"
+                      onclick="window.location.href='bizinsight-ai.html'"
+                      style="cursor: pointer"
                     >
                       <h5 class="mil-muted mil-mb-30">BizInsight <br />AI</h5>
                       <p class="mil-light-soft mil-mb-30">
@@ -1723,15 +1747,23 @@
                         data-driven decisions about pricing, inventory,
                         staffing, and growth opportunities.
                       </p>
-                      <div class="mil-button mil-arrow-place mil-btn-space">
+                      <a
+                        href="services.html"
+                        class="mil-button mil-arrow-place mil-btn-space"
+                        onclick="event.stopPropagation();"
+                      >
                         <span>Learn More</span>
-                      </div>
-                    </a>
+                        <svg>
+                          <path d="M5 12h14m-7-7l7 7-7 7" fill="currentColor" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
-                    <a
-                      href="ai-mastery-workshops.html"
+                    <div
                       class="mil-service-card-sm mil-up"
+                      onclick="window.location.href='ai-mastery-workshops.html'"
+                      style="cursor: pointer"
                     >
                       <h5 class="mil-muted mil-mb-30">
                         AI Mastery <br />Workshops
@@ -1742,15 +1774,23 @@
                         implementation strategies, and hands-on workshops
                         tailored to your industry.
                       </p>
-                      <div class="mil-button mil-arrow-place mil-btn-space">
+                      <a
+                        href="services.html"
+                        class="mil-button mil-arrow-place mil-btn-space"
+                        onclick="event.stopPropagation();"
+                      >
                         <span>Learn More</span>
-                      </div>
-                    </a>
+                        <svg>
+                          <path d="M5 12h14m-7-7l7 7-7 7" fill="currentColor" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
-                    <a
-                      href="custom-ai-solutions.html"
+                    <div
                       class="mil-service-card-sm mil-up"
+                      onclick="window.location.href='custom-ai-solutions.html'"
+                      style="cursor: pointer"
                     >
                       <h5 class="mil-muted mil-mb-30">
                         Custom AI <br />Solutions
@@ -1761,10 +1801,17 @@
                         that solve your specific operational problems and drive
                         growth.
                       </p>
-                      <div class="mil-button mil-arrow-place mil-btn-space">
+                      <a
+                        href="services.html"
+                        class="mil-button mil-arrow-place mil-btn-space"
+                        onclick="event.stopPropagation();"
+                      >
                         <span>Learn More</span>
-                      </div>
-                    </a>
+                        <svg>
+                          <path d="M5 12h14m-7-7l7 7-7 7" fill="currentColor" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1827,8 +1874,13 @@
                       <a
                         href="contact.html"
                         class="mil-button mil-arrow-place mil-mb-60"
-                        ><span>Let's talk about your project</span></a
-                      >
+                        ><span>Let's talk about your project</span>
+                        <svg>
+                          <path
+                            d="M5 12h14m-7-7l7 7-7 7"
+                            fill="currentColor"
+                          /></svg
+                      ></a>
                     </div>
 
                     <h4 class="mil-up mil-mb-40">
