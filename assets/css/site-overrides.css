@@ -1,0 +1,51 @@
+/* ===========================================
+   MARU WEBSITE SITE OVERRIDES
+   =========================================== */
+
+/* Brand color variables for Ashley theme buttons */
+:root {
+  --brand-btn-bg: #03b6d1;
+  --brand-btn-fg: #0b0b0b;
+  --brand-btn-bg-hover: #02a2ba;
+  --brand-btn-fg-hover: #0b0b0b;
+  --brand-btn-outline: #7addeb;
+}
+
+/* ===========================================
+   ASHLEY THEME COLOR OVERRIDES
+   =========================================== */
+
+/* Override Ashley theme button colors with brand colors */
+.mil-button {
+  background-color: var(--brand-btn-bg);
+  color: var(--brand-btn-fg);
+}
+
+.mil-button:hover {
+  background-color: var(--brand-btn-bg-hover);
+  color: var(--brand-btn-fg-hover);
+}
+
+.mil-button:focus-visible {
+  box-shadow: 0 0 0 3px var(--brand-btn-outline);
+}
+
+.mil-button svg {
+  background-color: var(--brand-btn-fg);
+}
+
+.mil-button svg path {
+  fill: var(--brand-btn-bg);
+}
+
+.mil-button:hover svg path {
+  fill: var(--brand-btn-bg-hover);
+}
+
+.mil-button.mil-icon-button-sm svg {
+  background-color: var(--brand-btn-bg);
+}
+
+.mil-button.mil-icon-button-sm svg path {
+  fill: var(--brand-btn-fg);
+}
