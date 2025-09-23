@@ -9,16 +9,6 @@
   --brand-btn-bg-hover: #02a2ba;
   --brand-btn-fg-hover: #0b0b0b;
   --brand-btn-outline: #7addeb;
-
-  /* Card CTA specific variables */
-  --brand-cta-bg: #03b6d1; /* blue bg on hover */
-  --brand-cta-bg-hover: #02a2ba; /* optional slightly darker hover */
-  --brand-cta-arrow: #0b0b0b; /* black arrow on hover */
-  --brand-cta-outline: #7addeb;
-
-  /* Mobile responsive circular CTA variables */
-  --cta-circ-diam: 44px; /* circular button diameter */
-  --cta-circ-icon: 16px; /* icon size within circular button */
 }
 
 /* ===========================================
@@ -44,123 +34,18 @@
   background-color: var(--brand-btn-fg);
 }
 
-/* Removed hard-coded fills to allow currentColor inheritance */
-
-/* ===========================================
-   BUTTON ICON STYLING CONTROL
-   =========================================== */
-
-/* Target specifically the .mil-arrow class for color-only overrides if needed */
-.mil-button .mil-arrow {
-  /* colour-only overrides if needed */
+.mil-button svg path {
+  fill: var(--brand-btn-bg);
 }
 
-/* Prevent styling generic SVG elements as arrows */
-.mil-button svg:not(.mil-arrow) {
-  /* no arrow-specific styles should target generic svg */
+.mil-button:hover svg path {
+  fill: var(--brand-btn-bg-hover);
 }
 
-/* ===========================================
-   CARD CTA COLOR OVERRIDES
-   =========================================== */
-
-/* Override card CTA colors with brand colors */
-.mil-service-card-sm .mil-button {
+.mil-button.mil-icon-button-sm svg {
   background-color: var(--brand-btn-bg);
-  color: var(--brand-btn-fg);
 }
 
-.mil-service-card-sm:hover .mil-button {
-  background-color: var(--brand-btn-bg-hover);
-  color: var(--brand-btn-fg-hover);
-}
-
-/* Removed hard-coded fills to allow currentColor inheritance */
-
-/* ===========================================
-   SMALL CIRCULAR CARD CTA OVERRIDES
-   =========================================== */
-
-/* Base state – keep whatever arrow colour the kit uses (do not force blue bg by default) */
-.mil-service-card-sm .mil-button.mil-btn-circ {
-  border-radius: 50% !important; /* Ensure circular shape */
-  width: 40px !important; /* Ensure equal width and height for perfect circle */
-  height: 40px !important;
-  padding: 0 !important; /* Override kit's padding */
-  min-width: 40px !important; /* Override kit's min-width */
-  min-height: 40px !important; /* Override kit's min-height */
-  max-width: 40px !important; /* Prevent stretching */
-  max-height: 40px !important; /* Prevent stretching */
-  flex-shrink: 0 !important; /* Prevent flex shrinking */
-  /* Let the kit handle default colors */
-}
-
-/* Hover + focus-visible: blue bg + black arrow */
-.mil-service-card-sm .mil-button.mil-btn-circ:hover,
-.mil-service-card-sm .mil-button.mil-btn-circ:focus-visible {
-  background-color: var(--brand-cta-bg);
-  color: var(--brand-cta-arrow); /* arrow adopts currentColor */
-}
-
-/* Focus-visible shadow geometry - keep kit's lengths, only change color if needed */
-.mil-service-card-sm .mil-button.mil-btn-circ:focus-visible {
-  box-shadow: 0 0 0 3px rgba(3, 182, 209, 0.35);
-}
-
-/* Ensure SVG uses currentColor for proper color inheritance */
-.mil-arrow,
-.mil-arrow * {
-  fill: currentColor;
-  stroke: currentColor;
-}
-
-/* ===========================================
-   MOBILE RESPONSIVE CIRCULAR CARD CTA
-   =========================================== */
-
-/* Target ONLY the circular card CTA for mobile */
-@media (max-width: 768px) {
-  .mil-service-card-sm .mil-button.mil-arrow-place.mil-btn-circ {
-    display: inline-flex !important; /* center via flex, not text alignment */
-    align-items: center !important;
-    justify-content: center !important;
-    width: var(
-      --cta-circ-diam,
-      44px
-    ) !important; /* keep Ashley's diameter; adjust token if needed */
-    height: var(--cta-circ-diam, 44px) !important;
-    padding: 0 !important; /* remove stray horizontal padding from pill rules */
-    border-radius: 9999px !important; /* fully round */
-    box-sizing: border-box !important;
-    min-width: var(
-      --cta-circ-diam,
-      44px
-    ) !important; /* Override kit's min-width */
-    min-height: var(
-      --cta-circ-diam,
-      44px
-    ) !important; /* Override kit's min-height */
-    max-width: var(--cta-circ-diam, 44px) !important; /* Prevent stretching */
-    max-height: var(--cta-circ-diam, 44px) !important; /* Prevent stretching */
-    flex-shrink: 0 !important; /* Prevent flex shrinking */
-  }
-
-  /* Center the SVG Arrow */
-  .mil-service-card-sm .mil-button.mil-arrow-place.mil-btn-circ .mil-arrow {
-    display: block;
-    width: var(--cta-circ-icon, 16px); /* match Ashley's icon size */
-    height: var(--cta-circ-icon, 16px);
-    margin: 0; /* kill old pill margin-right/left */
-    transform: none; /* kill lingering translateX from pill animation */
-    line-height: 0; /* no baseline wiggle */
-  }
-
-  /* If arrow is a raw <svg> without .mil-arrow */
-  .mil-service-card-sm .mil-button.mil-arrow-place.mil-btn-circ svg {
-    display: block;
-    width: var(--cta-circ-icon, 16px);
-    height: var(--cta-circ-icon, 16px);
-    margin: 0;
-    transform: none;
-  }
+.mil-button.mil-icon-button-sm svg path {
+  fill: var(--brand-btn-fg);
 }
