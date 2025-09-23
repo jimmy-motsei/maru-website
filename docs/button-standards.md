@@ -96,6 +96,93 @@ $(".mil-arrow").clone().appendTo(".mil-arrow-place");
 </button>
 ```
 
+### Card CTA (compact)
+
+```html
+<a href="..." class="mil-button mil-arrow-place">
+  <span>Learn More</span>
+</a>
+```
+
+**Key Differences from Primary CTA:**
+
+- **No `mil-btn-space` class** - Card CTAs are more compact
+- **Smaller size** - Controlled by `.mil-service-card-sm .mil-button` CSS
+- **Special hover effects** - Scale and grayscale animations
+- **Context-specific styling** - Designed for card containers
+
+**CSS Selectors for Card CTAs:**
+
+- `.mil-service-card-sm .mil-button` - Base card button styling
+- `.mil-service-card-sm:hover .mil-button` - Hover state with scale/opacity
+- **Properties controlled**: `transform`, `filter`, `opacity`, `scale`
+
+### Card CTA — Circular Arrow
+
+```html
+<a
+  class="mil-button mil-arrow-place mil-btn-circ"
+  href="services.html"
+  aria-label="Learn more"
+>
+  <svg
+    class="mil-arrow"
+    viewBox="0 0 24 24"
+    preserveAspectRatio="xMidYMid meet"
+    aria-hidden="true"
+  >
+    <!-- arrow only; NO circle -->
+    <path
+      d="M8 5l7 7-7 7"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</a>
+```
+
+**Key Characteristics:**
+
+- **Icon-only** - No text content, uses `aria-label` for accessibility
+- **Perfectly circular** - `border-radius: 50%` with equal width/height (40px)
+- **Size**: 40px diameter with 8px padding
+- **Icon**: Inline SVG with `currentColor` for proper color inheritance
+- **Shape**: Small round button with single right arrow
+- **Context-specific styling** - Designed for card containers
+
+**CSS Selectors for Circular Arrow Card CTAs:**
+
+- `.mil-button.mil-btn-circ` - Base circular button styling
+- `.mil-service-card-sm .mil-button.mil-btn-circ` - Card-specific base state
+- `.mil-service-card-sm .mil-button.mil-btn-circ:hover` - Hover state (blue bg + black arrow)
+- `.mil-service-card-sm .mil-button.mil-btn-circ:focus-visible` - Focus state
+- **Properties controlled**: `border-radius: 50%`, `width: 40px`, `height: 40px`, `background-color`, `color`
+
+**Hover Behavior:**
+
+- **Default**: Kit's default colors (no forced background)
+- **Hover**: Brand blue background (`--brand-cta-bg: #03b6d1`) + black arrow (`--brand-cta-arrow: #0b0b0b`)
+- **Focus**: Same as hover + focus ring
+
+**Canonical Implementation:**
+
+- **Shape**: Perfect circle via `border-radius: 50%`
+- **Size**: 40px × 40px for consistent circular appearance
+- **Icon**: Right-pointing arrow auto-injected by JavaScript
+- **Color**: Uses `currentColor` for automatic color inheritance
+- **Accessibility**: `aria-label` for screen readers
+
+**Mobile Responsive (≤768px):**
+
+- **Size**: 44px × 44px diameter (larger for touch targets)
+- **Icon**: 16px × 16px within the circular button
+- **Layout**: Flexbox centering for perfect alignment
+- **Padding**: Removed to prevent pill-like appearance
+- **Border-radius**: `9999px` for fully round appearance
+
 ## CSS Architecture
 
 ### Load Order
