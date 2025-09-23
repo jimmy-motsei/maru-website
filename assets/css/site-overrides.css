@@ -4,56 +4,48 @@
 
 /* Brand color variables for Ashley theme buttons */
 :root {
-  --brand-hero-bg: #03b6d1;
-  --brand-hero-bg-hover: #02a2ba;
-  --brand-hero-fg: #0b0b0b;
-  --brand-cta-bg: #03b6d1;
-  --brand-cta-bg-hover: #02a2ba;
-  --brand-cta-fg: #0b0b0b;
+  --brand-btn-bg: #03b6d1;
+  --brand-btn-fg: #0b0b0b;
+  --brand-btn-bg-hover: #02a2ba;
+  --brand-btn-fg-hover: #0b0b0b;
+  --brand-btn-outline: #7addeb;
 }
 
 /* ===========================================
    ASHLEY THEME COLOR OVERRIDES
    =========================================== */
 
-/* Hero pill button colors */
-.mil-button.mil-btn-space {
-  background-color: var(--brand-hero-bg);
-  color: var(--brand-hero-fg);
+/* Override Ashley theme button colors with brand colors */
+.mil-button {
+  background-color: var(--brand-btn-bg);
+  color: var(--brand-btn-fg);
 }
 
-.mil-button.mil-btn-space:hover,
-.mil-button.mil-btn-space:focus-visible {
-  background-color: var(--brand-hero-bg-hover);
+.mil-button:hover {
+  background-color: var(--brand-btn-bg-hover);
+  color: var(--brand-btn-fg-hover);
 }
 
-/* Card circular button styling */
-.mil-service-card-sm .mil-button.mil-card-action {
-  padding: 0;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.mil-button:focus-visible {
+  box-shadow: 0 0 0 3px var(--brand-btn-outline);
 }
 
-.mil-service-card-sm .mil-button.mil-card-action svg {
-  margin-left: 0;
-  width: 16px;
-  height: 16px;
+.mil-button svg {
+  background-color: var(--brand-btn-fg);
 }
 
-/* Card circular button colors */
-.mil-service-card-sm .mil-button.mil-card-action:hover,
-.mil-service-card-sm .mil-button.mil-card-action:focus-visible {
-  background-color: var(--brand-cta-bg);
-  color: var(--brand-cta-fg);
+.mil-button svg path {
+  fill: var(--brand-btn-bg);
 }
 
-/* Ensure SVG uses currentColor for proper color inheritance */
-.mil-arrow,
-.mil-arrow * {
-  fill: currentColor;
-  stroke: currentColor;
+.mil-button:hover svg path {
+  fill: var(--brand-btn-bg-hover);
+}
+
+.mil-button.mil-icon-button-sm svg {
+  background-color: var(--brand-btn-bg);
+}
+
+.mil-button.mil-icon-button-sm svg path {
+  fill: var(--brand-btn-fg);
 }

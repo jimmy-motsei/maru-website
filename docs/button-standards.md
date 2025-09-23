@@ -1,69 +1,21 @@
 # Ashley Button Standards
 
-## Canonical Button Patterns
+## Canonical Button Structure
 
-### Hero Pill CTA (Ashley)
+### HTML Markup
 
 ```html
-<a href="..." class="mil-button mil-arrow-place mil-btn-space">
+<a href="..." class="mil-button mil-arrow-place">
   <span>Button Text</span>
+  <!-- SVG icon auto-injected by JavaScript -->
 </a>
 ```
 
-**Key Characteristics:**
+### Required Classes
 
-- **Classes**: `mil-button mil-arrow-place mil-btn-space`
-- **Structure**: Text in `<span>`, icon auto-injected by JavaScript
-- **Styling**: Full pill button with padding and height
-- **Icon**: JavaScript auto-injected from `.mil-arrow` template
-
-**CSS Selectors:**
-
-- `.mil-button` - Base button styling (70px height, 70px border-radius, padding)
-- `.mil-btn-space` - Margin spacing (30px right, 15px bottom on mobile)
-- `.mil-button svg` - Auto-injected icon styling
-
-### Card CTA — Circular Arrow (Ashley)
-
-```html
-<a
-  href="..."
-  class="mil-button mil-arrow-place mil-card-action"
-  aria-label="Learn more"
->
-  <svg
-    class="mil-arrow"
-    viewBox="0 0 24 24"
-    preserveAspectRatio="xMidYMid meet"
-    aria-hidden="true"
-  >
-    <path
-      d="M8 5l7 7-7 7"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-</a>
-```
-
-**Key Characteristics:**
-
-- **Classes**: `mil-button mil-arrow-place mil-card-action`
-- **Structure**: Icon-only button with inline SVG and `aria-label`
-- **Styling**: Small circular button (40px height/width)
-- **Icon**: Inline SVG with `currentColor` for color inheritance
-
-**CSS Selectors:**
-
-- `.mil-service-card-sm .mil-button.mil-card-action` - Circular button styling (40px, border-radius: 50%)
-- `.mil-service-card-sm .mil-button.mil-card-action svg` - Icon sizing (16px)
-- `.mil-service-card-sm .mil-button` - Card-specific scaling and effects
-- `.mil-service-card-sm:hover .mil-button` - Hover state (scale: 1, opacity: 1)
-
-## Icon Implementation
+- `mil-button`: Base button styling
+- `mil-arrow-place`: Enables JavaScript icon injection
+- Additional modifiers: `mil-btn-space`, `mil-icon-button`, `mil-arrow-down`, etc.
 
 ### JavaScript Auto-injection
 
@@ -77,6 +29,14 @@ $(".mil-arrow").clone().appendTo(".mil-arrow-place");
 **Target**: All elements with `.mil-arrow-place` class
 **Process**: Clone template → Append to target → Apply styling
 
+## Icon Implementation
+
+### Single Source of Truth
+
+- **Template**: Hidden `.mil-arrow` SVG elements (one per page)
+- **Injection**: JavaScript clones and injects icons
+- **No Inline SVG**: Buttons should NOT contain inline SVG elements
+
 ### Template Structure
 
 ```html
@@ -88,6 +48,52 @@ $(".mil-arrow").clone().appendTo(".mil-arrow-place");
 >
   <path d="M 14 5.3417969 C 13.744125 5.3417969..." />
 </svg>
+```
+
+### Accessibility
+
+- **Template**: `aria-hidden="true"` on SVG
+- **Injected**: Inherits accessibility from template
+- **Text**: Always wrapped in `<span>` for screen readers
+
+## Button Variants
+
+### Primary CTA
+
+```html
+<a href="..." class="mil-button mil-arrow-place mil-btn-space">
+  <span>Call to Action</span>
+</a>
+```
+
+### Icon-only Button
+
+```html
+<a
+  href="..."
+  class="mil-button mil-arrow-place mil-icon-button"
+  aria-label="Action"
+>
+</a>
+```
+
+### Scroll Button
+
+```html
+<a
+  href="#section"
+  class="mil-button mil-arrow-place mil-icon-button mil-arrow-down"
+  aria-label="Scroll down"
+>
+</a>
+```
+
+### Newsletter Button
+
+```html
+<button type="submit" class="mil-button mil-arrow-place">
+  <span>Subscribe</span>
+</button>
 ```
 
 ## CSS Architecture
@@ -104,30 +110,26 @@ $(".mil-arrow").clone().appendTo(".mil-arrow-place");
 ```css
 /* Brand color variables */
 :root {
-  --brand-hero-bg: #03b6d1;
-  --brand-hero-bg-hover: #02a2ba;
-  --brand-hero-fg: #0b0b0b;
-  --brand-cta-bg: #03b6d1;
-  --brand-cta-bg-hover: #02a2ba;
-  --brand-cta-fg: #0b0b0b;
+  --brand-btn-bg: #03b6d1;
+  --brand-btn-fg: #0b0b0b;
+  --brand-btn-bg-hover: #02a2ba;
+  --brand-btn-fg-hover: #0b0b0b;
+  --brand-btn-outline: #7addeb;
 }
 
-/* Hero pill button */
-.mil-button.mil-btn-space {
-  background-color: var(--brand-hero-bg);
-  color: var(--brand-hero-fg);
+/* Button color overrides */
+.mil-button {
+  background-color: var(--brand-btn-bg);
+  color: var(--brand-btn-fg);
 }
 
-.mil-button.mil-btn-space:hover,
-.mil-button.mil-btn-space:focus-visible {
-  background-color: var(--brand-hero-bg-hover);
+.mil-button:hover {
+  background-color: var(--brand-btn-bg-hover);
+  color: var(--brand-btn-fg-hover);
 }
 
-/* Card circular button */
-.mil-service-card-sm .mil-button.mil-icon-button-sm:hover,
-.mil-service-card-sm .mil-button.mil-icon-button-sm:focus-visible {
-  background-color: var(--brand-cta-bg);
-  color: var(--brand-cta-fg);
+.mil-button:focus-visible {
+  box-shadow: 0 0 0 3px var(--brand-btn-outline);
 }
 ```
 
@@ -135,10 +137,11 @@ $(".mil-arrow").clone().appendTo(".mil-arrow-place");
 
 ### ✅ DO
 
-- Use exact Ashley class combinations
-- Let JavaScript handle icon injection
-- Use `aria-label` for icon-only buttons
+- Use `mil-arrow-place` class for icon injection
 - Keep button text in `<span>` elements
+- Let JavaScript handle icon injection
+- Use semantic HTML (`<a>` for navigation, `<button>` for actions)
+- Maintain proper ARIA attributes
 - Follow the canonical HTML structure
 
 ### ❌ DON'T
@@ -149,3 +152,87 @@ $(".mil-arrow").clone().appendTo(".mil-arrow-place");
 - Remove the hidden `.mil-arrow` templates
 - Add inline styles to buttons
 - Create custom icon implementations
+
+## States and Behavior
+
+### Hover State
+
+- Background color change via CSS variables
+- Icon scaling and rotation (handled by kit CSS)
+- Smooth transitions (kit default)
+
+### Focus State
+
+- Visible focus ring with brand color
+- Keyboard navigation support
+- WCAG compliant contrast
+
+### Active State
+
+- Pressed appearance
+- Maintains accessibility
+
+### Disabled State
+
+- Reduced opacity
+- Prevents interaction
+- Clear visual indication
+
+## Responsive Behavior
+
+### Mobile (≤992px)
+
+- Reduced button height: 60px
+- Adjusted padding: `0 10px 0 40px`
+- Icon margin: `25px`
+- Maintains touch target size
+
+### Desktop (>992px)
+
+- Full button height and padding
+- Standard icon positioning
+- Hover effects enabled
+
+## Troubleshooting
+
+### Duplicate Icons
+
+- **Cause**: Both inline SVG and JavaScript injection
+- **Fix**: Remove inline SVG, rely on JavaScript
+- **Prevention**: Never add SVG to `.mil-arrow-place` buttons
+
+### Missing Icons
+
+- **Cause**: Missing `.mil-arrow` template or JavaScript error
+- **Fix**: Ensure template exists and JavaScript loads
+- **Check**: Browser console for errors
+
+### Styling Issues
+
+- **Cause**: CSS load order or specificity conflicts
+- **Fix**: Ensure `site-overrides.css` loads last
+- **Debug**: Use browser dev tools to inspect computed styles
+
+## Maintenance
+
+### Adding New Buttons
+
+1. Use canonical HTML structure
+2. Apply appropriate classes
+3. Include `mil-arrow-place` for icons
+4. Test JavaScript injection works
+5. Verify accessibility
+
+### Updating Colors
+
+1. Modify CSS variables in `site-overrides.css`
+2. Test all button states
+3. Ensure sufficient contrast
+4. Update documentation
+
+### Debugging
+
+1. Check browser console for JavaScript errors
+2. Inspect element to verify icon injection
+3. Test keyboard navigation
+4. Validate HTML structure
