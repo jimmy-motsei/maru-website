@@ -278,7 +278,7 @@ $(function () {
     yPercent: -50,
   });
 
-  document.addEventListener("pointermove", movecursor);
+  document.addEventListener("pointermove", movecursor, { passive: true });
 
   function movecursor(e) {
     gsap.to(cursor, {
