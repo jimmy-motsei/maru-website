@@ -34,41 +34,12 @@ $(function () {
 
   /***************************
 
-    smooth scroll initialization
+    smooth scroll
 
     ***************************/
 
-  // Initialize smooth scroll plugin
-  if (typeof SmoothScroll !== "undefined") {
-    try {
-      var smoothScroll = new SmoothScroll({
-        frameRate: 150,
-        animationTime: 1000,
-        stepSize: 80,
-        pulseAlgorithm: true,
-        pulseScale: 4,
-        pulseNormalize: 1,
-        accelerationDelta: 40,
-        accelerationMax: 3,
-        keyboardSupport: true,
-        arrowScroll: 50,
-        fixedBackground: true,
-        excluded: "",
-      });
-
-      // Make smoothScroll available globally
-      window.smoothScroll = smoothScroll;
-      console.log("Smooth scroll plugin initialized successfully");
-    } catch (error) {
-      console.warn("Failed to initialize smooth scroll plugin:", error);
-      window.smoothScroll = null;
-    }
-  } else {
-    console.log(
-      "Smooth scroll plugin not available, using native smooth scroll"
-    );
-    window.smoothScroll = null;
-  }
+  // Smooth scrolling handled via GSAP ScrollTo in smooth-anchors.js
+  window.smoothScroll = null;
   /***************************
 
     color variables
@@ -187,44 +158,6 @@ $(function () {
     },
     "-=1"
   );
-  /***************************
-
-    anchor scroll
-
-    ***************************/
-  $(document).on("click", 'a[href^="#"]', function (event) {
-    event.preventDefault();
-
-    var target = $($.attr(this, "href"));
-    var offset = 0;
-
-    if ($(window).width() < 1200) {
-      offset = 90;
-    }
-
-    // Use smooth scroll plugin if available, otherwise fallback to native smooth scroll
-    if (
-      window.smoothScroll &&
-      typeof window.smoothScroll.animateScroll === "function"
-    ) {
-      // Use smooth scroll plugin
-      var targetElement = target[0];
-      if (targetElement) {
-        window.smoothScroll.animateScroll(targetElement, null, {
-          offset: offset,
-          speed: 1000,
-          easing: "easeInOutCubic",
-        });
-      }
-    } else {
-      // Fallback to native smooth scroll behavior
-      var targetPosition = target.offset().top - offset;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth",
-      });
-    }
-  });
   /***************************
 
     append

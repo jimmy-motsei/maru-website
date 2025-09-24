@@ -163,8 +163,7 @@ body {
   /* Safari scrolling fix - remove overscroll-behavior: none */
   -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
-  /* Enable smooth scrolling */
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 @media screen and (max-width: 768px) {
   html,
