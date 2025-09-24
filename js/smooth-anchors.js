@@ -28,6 +28,46 @@
     return 0;
   }
 
+  function isReducedMotion() {
+    if (typeof window.matchMedia !== "function") {
+      return false;
+    }
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  function computeScrollPosition(target) {
+    var offset = getOffset();
+    var rect = target.getBoundingClientRect();
+    return rect.top + window.pageYOffset - offset;
+  }
+
+  function focusTarget(target) {
+    if (!target || typeof target.focus !== "function") {
+      return;
+    }
+
+    var hadTabIndex = target.hasAttribute("tabindex");
+    if (!hadTabIndex) {
+      target.setAttribute("tabindex", "-1");
+    }
+
+    try {
+      target.focus({ preventScroll: true });
+    } catch (error) {
+      target.focus();
+    }
+
+    if (!hadTabIndex) {
+      target.addEventListener(
+        "blur",
+        function handleBlur() {
+          target.removeAttribute("tabindex");
+          target.removeEventListener("blur", handleBlur);
+        }
+      );
+    }
+  }
+
   function killTweens() {
     gsapInstance.killTweensOf(window);
   }
@@ -61,6 +101,7 @@
     var settings = Object.assign(
       {
         skipHistory: false,
+        focus: true,
       },
       options || {}
     );
@@ -77,11 +118,41 @@
       },
       overwrite: "auto",
       onComplete: function () {
+        if (settings.focus) {
+          focusTarget(target);
+        }
         if (!settings.skipHistory && hash) {
-          history.pushState(null, "", hash);
+          if (hash !== window.location.hash) {
+            history.pushState(null, "", hash);
+          }
         }
       },
     });
+  }
+
+  function instantToTarget(target, hash, options) {
+    if (!target) {
+      return;
+    }
+
+    var settings = Object.assign(
+      {
+        skipHistory: false,
+        focus: true,
+      },
+      options || {}
+    );
+
+    var y = computeScrollPosition(target);
+    window.scrollTo(0, y);
+
+    if (settings.focus) {
+      focusTarget(target);
+    }
+
+    if (!settings.skipHistory && hash && hash !== window.location.hash) {
+      history.pushState(null, "", hash);
+    }
   }
 
   function handleClick(event) {
@@ -111,7 +182,11 @@
 
     event.preventDefault();
     lastHash = hash;
-    animateToTarget(target, hash, { skipHistory: false });
+    if (isReducedMotion()) {
+      instantToTarget(target, hash, { skipHistory: false, focus: true });
+    } else {
+      animateToTarget(target, hash, { skipHistory: false, focus: true });
+    }
   }
 
   function scrollToHash(options) {
@@ -135,7 +210,19 @@
     }
 
     lastHash = hash;
-    animateToTarget(target, hash, { skipHistory: true });
+    var settings = Object.assign({ force: false }, options || {});
+
+    if (isReducedMotion()) {
+      instantToTarget(target, hash, {
+        skipHistory: true,
+        focus: true,
+      });
+    } else {
+      animateToTarget(target, hash, {
+        skipHistory: true,
+        focus: true,
+      });
+    }
   }
 
   function init() {
