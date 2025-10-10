@@ -1,0 +1,142 @@
+/* Signature Asymmetry Utilities
+ * Scoped vertical offset system for email signature
+ * Toggle with data-asym="on|off" on root container
+ */
+
+/* Grid layout for signature card */
+[data-sig="card"] {
+  display: grid;
+  grid-template-columns: minmax(200px, 240px) 1fr;
+  gap: 24px 32px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  [data-sig="card"] {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Asymmetry utilities (scoped, reversible) */
+[data-sig="card"][data-asym="on"] [data-sig-el] {
+  will-change: transform;
+}
+
+/* Offset utilities */
+[data-sig="card"][data-asym="on"] .y--10 {
+  transform: translateY(-10px);
+}
+
+[data-sig="card"][data-asym="on"] .y--8 {
+  transform: translateY(-8px);
+}
+
+[data-sig="card"][data-asym="on"] .y--6 {
+  transform: translateY(-6px);
+}
+
+[data-sig="card"][data-asym="on"] .y--4 {
+  transform: translateY(-4px);
+}
+
+[data-sig="card"][data-asym="on"] .y--2 {
+  transform: translateY(-2px);
+}
+
+[data-sig="card"][data-asym="on"] .y-0 {
+  transform: translateY(0);
+}
+
+[data-sig="card"][data-asym="on"] .y-2 {
+  transform: translateY(2px);
+}
+
+[data-sig="card"][data-asym="on"] .y-4 {
+  transform: translateY(4px);
+}
+
+[data-sig="card"][data-asym="on"] .y-6 {
+  transform: translateY(6px);
+}
+
+[data-sig="card"][data-asym="on"] .y-8 {
+  transform: translateY(8px);
+}
+
+[data-sig="card"][data-asym="on"] .y-10 {
+  transform: translateY(10px);
+}
+
+/* Disable on mobile for readability */
+@media (max-width: 768px) {
+  [data-sig="card"][data-asym="on"] [class*="y-"] {
+    transform: none !important;
+  }
+}
+
+/* Respect reduced motion (no transitions) */
+@media (prefers-reduced-motion: reduce) {
+  [data-sig="card"][data-asym="on"] [data-sig-el] {
+    transition: none;
+  }
+}
+
+/* Specific element offsets for visual rhythm */
+[data-sig="card"][data-asym="on"] [data-sig-el="logo"] {
+  transform: translateY(6px);
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="name"] {
+  transform: translateY(-6px);
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="title"] {
+  transform: translateY(2px);
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="company"] {
+  transform: translateY(-2px);
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="phone-label"] {
+  transform: translateY(4px);
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="phone"] {
+  transform: translateY(8px);
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="email-label"] {
+  transform: translateY(-4px);
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="email"] {
+  transform: translateY(10px);
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="location-label"] {
+  transform: translateY(2px);
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="location"] {
+  transform: translateY(-8px);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="cta"] {
+  transform: translateY(-2px);
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="social"] {
+  transform: translateY(6px);
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="site"] {
+  transform: translateY(-4px);
+}
+
+[data-sig="card"][data-asym="on"] [data-sig-el="compliance"] {
+  transform: translateY(4px);
+}

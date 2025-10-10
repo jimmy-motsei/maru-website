@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signature Asymmetry Test</title>
+    <link rel="stylesheet" href="signature.asym.css" type="text/css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 24px;
+        background-color: #f6f9fb;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+      }
+      .test-controls {
+        margin-bottom: 20px;
+        padding: 16px;
+        background: white;
+        border-radius: 8px;
+        border: 1px solid #e5e7eb;
+      }
+      .test-controls button {
+        margin-right: 8px;
+        padding: 8px 16px;
+        border: 1px solid #0ea5b6;
+        background: white;
+        color: #0ea5b6;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .test-controls button.active {
+        background: #0ea5b6;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test-controls">
+      <h3>Signature Asymmetry Test</h3>
+      <button onclick="toggleAsymmetry('on')" id="btn-on">Asymmetry ON</button>
+      <button onclick="toggleAsymmetry('off')" id="btn-off">
+        Asymmetry OFF
+      </button>
+      <p>
+        Toggle asymmetry to see the difference. On mobile (&lt;768px), asymmetry
+        is automatically disabled for readability.
+      </p>
+    </div>
+
+    <!-- Include the signature HTML here -->
+    <div id="signature-container">
+      <!-- The signature content will be loaded here -->
+    </div>
+
+    <script>
+      function toggleAsymmetry(state) {
+        const container = document.querySelector('[data-sig="card"]');
+        if (container) {
+          container.setAttribute("data-asym", state);
+        }
+
+        // Update button states
+        document
+          .getElementById("btn-on")
+          .classList.toggle("active", state === "on");
+        document
+          .getElementById("btn-off")
+          .classList.toggle("active", state === "off");
+      }
+
+      // Load the signature content
+      fetch("signature.html")
+        .then((response) => response.text())
+        .then((html) => {
+          // Extract just the table content
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+          const table = doc.querySelector('table[data-sig="card"]');
+          if (table) {
+            document.getElementById("signature-container").appendChild(table);
+          }
+        })
+        .catch((error) => {
+          console.error("Error loading signature:", error);
+          document.getElementById("signature-container").innerHTML =
+            "<p>Error loading signature. Please ensure signature.html is accessible.</p>";
+        });
+    </script>
+  </body>
+</html>
