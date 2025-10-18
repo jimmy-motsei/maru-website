@@ -324,7 +324,7 @@ class SecureNewsletterFormHandler {
       }
       
       .hubspot-newsletter-form .hs-form .hs-button svg path {
-        fill: rgb(0, 188, 212) !important;
+        fill: rgb(61, 184, 198) !important;
       }
       
       .hubspot-newsletter-form .hs-form .hs-button:hover svg {
@@ -541,7 +541,7 @@ class SecureNewsletterFormHandler {
           "path"
         );
         path.setAttribute("d", "M5 12h14m-7-7l7 7-7 7");
-        path.setAttribute("stroke", "rgb(0, 188, 212)");
+        path.setAttribute("stroke", "rgb(61, 184, 198)");
         path.setAttribute("stroke-width", "2");
         path.setAttribute("stroke-linecap", "round");
         path.setAttribute("stroke-linejoin", "round");

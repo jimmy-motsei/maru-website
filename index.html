@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/plugins/fancybox.min.css" />
     <!-- maru scss -->
     <link rel="stylesheet" href="css/style.css?v=3.4" />
+    <link rel="stylesheet" href="assets/css/site-overrides.css?v=1" />
 
     <!-- Cloudflare Web Analytics -->
     <script
@@ -358,7 +359,7 @@
       }
 
       .mil-menu-frame .mil-main-menu ul li a:hover {
-        color: rgb(0, 188, 212);
+        color: rgb(61, 184, 198);
         transform: translateX(10px);
       }
 
@@ -399,7 +400,7 @@
           text-transform: uppercase;
           font-weight: 500;
           border-radius: 70px;
-          background-color: rgb(0, 188, 212);
+          background-color: rgb(61, 184, 198);
           color: rgb(0, 0, 0);
           transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
           width: 100%;
@@ -418,7 +419,7 @@
         }
 
         .mil-button svg path {
-          fill: rgb(0, 188, 212);
+          fill: rgb(61, 184, 198);
         }
 
         .mil-button:hover {
@@ -602,97 +603,6 @@
       }
 
       /* ===========================================
-         SAFARI SCROLLING FIX
-         =========================================== */
-
-      /* Safari-specific scrolling fixes - AGGRESSIVE OVERRIDE */
-      @supports (-webkit-touch-callout: none) {
-        * {
-          -webkit-overflow-scrolling: touch !important;
-        }
-
-        html,
-        body {
-          -webkit-overflow-scrolling: touch !important;
-          overflow-x: hidden !important;
-          overflow-y: auto !important;
-          height: auto !important;
-          min-height: 100vh !important;
-          position: relative !important;
-          display: block !important;
-        }
-
-        .mil-wrapper {
-          -webkit-overflow-scrolling: touch !important;
-          overflow: visible !important;
-          overflow-x: hidden !important;
-          overflow-y: visible !important;
-          height: auto !important;
-          min-height: 100vh !important;
-          position: relative !important;
-          display: block !important;
-        }
-
-        .mil-content {
-          overflow: visible !important;
-          overflow-y: visible !important;
-          height: auto !important;
-          position: relative !important;
-          display: block !important;
-        }
-
-        .mil-main-transition {
-          overflow: visible !important;
-          overflow-y: visible !important;
-          height: auto !important;
-          position: relative !important;
-          display: block !important;
-        }
-
-        /* Ensure sections don't block scrolling */
-        section {
-          overflow-x: hidden !important;
-          overflow-y: visible !important;
-          position: relative !important;
-          height: auto !important;
-          display: block !important;
-        }
-
-        /* Fix banner height for Safari */
-        .mil-banner {
-          height: auto !important;
-          min-height: 100vh !important;
-          overflow: visible !important;
-          position: relative !important;
-          display: block !important;
-        }
-
-        /* Force all containers to allow scrolling */
-        .container {
-          overflow: visible !important;
-          height: auto !important;
-          position: relative !important;
-        }
-
-        /* Fix for fixed positioned elements in Safari */
-        .mil-frame,
-        .mil-menu-frame,
-        .mil-preloader {
-          -webkit-transform: translateZ(0) !important;
-          transform: translateZ(0) !important;
-        }
-
-        /* CRITICAL: Override any Swup or animation CSS that might block scrolling */
-        .mil-main-transition,
-        .mil-content,
-        .mil-wrapper {
-          transform: none !important;
-          -webkit-transform: none !important;
-          will-change: auto !important;
-        }
-      }
-
-      /* ===========================================
          FOOTER NEWSLETTER BUTTON STYLING
          =========================================== */
 
@@ -806,7 +716,7 @@
       }
 
       .mil-cookie-banner-title {
-        color: rgb(0, 188, 212);
+        color: rgb(61, 184, 198);
         font-size: 18px;
         font-weight: 600;
         margin: 0 0 8px 0;
@@ -822,7 +732,7 @@
       }
 
       .mil-cookie-banner-link {
-        color: rgb(0, 188, 212);
+        color: rgb(61, 184, 198);
         text-decoration: none;
         font-weight: 500;
         transition: color 0.3s ease;
@@ -840,7 +750,7 @@
       }
 
       .mil-cookie-accept {
-        background-color: rgb(0, 188, 212);
+        background-color: rgb(61, 184, 198);
         color: rgb(0, 0, 0);
         border: none;
         padding: 12px 24px;
@@ -875,8 +785,8 @@
 
       .mil-cookie-settings:hover {
         background-color: rgba(255, 255, 255, 0.1);
-        border-color: rgb(0, 188, 212);
-        color: rgb(0, 188, 212);
+        border-color: rgb(61, 184, 198);
+        color: rgb(61, 184, 198);
         transform: translateY(-2px);
       }
 
@@ -966,7 +876,7 @@
         min-width: 160px !important;
         max-width: 200px !important;
         padding: 15px 25px !important;
-        background-color: rgb(0, 188, 212) !important;
+        background-color: rgb(61, 184, 198) !important;
         color: rgb(0, 0, 0) !important;
         border-radius: 70px !important;
         font-size: 12px !important;
@@ -1004,7 +914,7 @@
       }
 
       .mil-services-button svg path {
-        fill: rgb(0, 188, 212) !important;
+        fill: rgb(61, 184, 198) !important;
       }
 
       .mil-services-button:hover svg {
@@ -1039,7 +949,7 @@
         min-width: 140px;
         padding: 12px 20px;
         margin-top: 20px;
-        background-color: rgb(0, 188, 212);
+        background-color: rgb(61, 184, 198);
         color: rgb(0, 0, 0);
         border-radius: 70px;
         font-size: 12px;
@@ -1071,7 +981,7 @@
       }
 
       .mil-service-card-sm .mil-button svg path {
-        fill: rgb(0, 188, 212);
+        fill: rgb(61, 184, 198);
       }
 
       .mil-service-card-sm .mil-button:hover svg {
@@ -1706,9 +1616,10 @@
                         communications, and operations while driving repeat
                         business.
                       </p>
-                      <div class="mil-button mil-arrow-place mil-btn-space">
-                        <span>Learn More</span>
-                      </div>
+                      <div
+                        class="mil-button mil-icon-button-sm mil-arrow-place"
+                        aria-label="Learn more"
+                      ></div>
                     </a>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
@@ -1723,9 +1634,10 @@
                         data-driven decisions about pricing, inventory,
                         staffing, and growth opportunities.
                       </p>
-                      <div class="mil-button mil-arrow-place mil-btn-space">
-                        <span>Learn More</span>
-                      </div>
+                      <div
+                        class="mil-button mil-icon-button-sm mil-arrow-place"
+                        aria-label="Learn more"
+                      ></div>
                     </a>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
@@ -1742,9 +1654,10 @@
                         implementation strategies, and hands-on workshops
                         tailored to your industry.
                       </p>
-                      <div class="mil-button mil-arrow-place mil-btn-space">
-                        <span>Learn More</span>
-                      </div>
+                      <div
+                        class="mil-button mil-icon-button-sm mil-arrow-place"
+                        aria-label="Learn more"
+                      ></div>
                     </a>
                   </div>
                   <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
@@ -1761,9 +1674,10 @@
                         that solve your specific operational problems and drive
                         growth.
                       </p>
-                      <div class="mil-button mil-arrow-place mil-btn-space">
-                        <span>Learn More</span>
-                      </div>
+                      <div
+                        class="mil-button mil-icon-button-sm mil-arrow-place"
+                        aria-label="Learn more"
+                      ></div>
                     </a>
                   </div>
                 </div>
@@ -2265,7 +2179,7 @@
                   <div class="col-md-7 col-lg-6">
                     <div class="row justify-content-between">
                       <div class="col-md-6 col-lg-5 mil-mb-60">
-                        <h6 class="mil-muted mil-up mil-mb-30">Gauteng</h6>
+                        <h6 class="mil-muted mil-up mil-mb-30">E-Mail</h6>
 
                         <p class="mil-light-soft mil-up">
                           <span class="mil-no-wrap">+27(0)83 393 4864</span>
@@ -2275,7 +2189,7 @@
                         </p>
                       </div>
                       <div class="col-md-6 col-lg-5 mil-mb-60">
-                        <h6 class="mil-muted mil-up mil-mb-30">Western Cape</h6>
+                        <h6 class="mil-muted mil-up mil-mb-30">Mobile</h6>
 
                         <p class="mil-light-soft mil-up">
                           <span class="mil-no-wrap">+27(0)83 393 4864</span>
