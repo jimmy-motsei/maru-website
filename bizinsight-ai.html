@@ -1,505 +1,439 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+<!-- bootstrap grid css -->
+<link href="css/plugins/bootstrap-grid.css" rel="stylesheet"/>
+<!-- font awesome css -->
+<link href="css/plugins/font-awesome.min.css" rel="stylesheet"/>
+<!-- swiper css -->
+<link href="css/plugins/swiper.min.css" rel="stylesheet"/>
+<!-- fancybox css -->
+<link href="css/plugins/fancybox.min.css" rel="stylesheet"/>
+<!-- maru scss -->
+<link href="css/style.css?v=3.3" rel="stylesheet"/>
+<!-- Cloudflare Web Analytics -->
+<script defer="" src="js/analytics-loader.js"></script>
+<!-- End Cloudflare Web Analytics -->
+<script defer src="js/consent-manager.js"></script>
+<!-- favicon -->
+<link href="img/favicon_512_512_neutral.svg" rel="icon" sizes="32x32" type="image/svg+xml"/>
+<link href="img/favicon_512_512_neutral.svg" rel="icon" sizes="16x16" type="image/svg+xml"/>
+<link href="img/favicon_512_512_neutral.svg" rel="shortcut icon"/>
+<!-- page name -->
+<title>BizInsight AI - Business Intelligence &amp; Analytics | Maru</title>
+<meta content="BizInsight AI delivers automated reporting and forecasting so African SMEs can act on real-time customer data." name="description"/>
+<link href="https://maruonline.com/bizinsight-ai.html" rel="canonical"/>
+<meta content="BizInsight AI - Business Intelligence &amp; Analytics | Maru" property="og:title"/>
+<meta content="BizInsight AI delivers automated reporting and forecasting so African SMEs can act on real-time customer data." property="og:description"/>
+<meta content="https://maruonline.com/bizinsight-ai.html" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="Maru" property="og:site_name"/>
+<meta content="https://maruonline.com/img/optimized/new_maru_logo_neutral-960.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="BizInsight AI - Business Intelligence &amp; Analytics | Maru" name="twitter:title"/>
+<meta content="BizInsight AI delivers automated reporting and forecasting so African SMEs can act on real-time customer data." name="twitter:description"/>
+<meta content="https://maruonline.com/img/optimized/new_maru_logo_neutral-960.png" name="twitter:image"/>
+<meta content="https://maruonline.com/bizinsight-ai.html" name="twitter:url"/>
+<meta content="@maru_africa" name="twitter:site"/>
 
-    <!-- bootstrap grid css -->
-    <link rel="stylesheet" href="css/plugins/bootstrap-grid.css" />
-    <!-- font awesome css -->
-    <link rel="stylesheet" href="css/plugins/font-awesome.min.css" />
-    <!-- swiper css -->
-    <link rel="stylesheet" href="css/plugins/swiper.min.css" />
-    <!-- fancybox css -->
-    <link rel="stylesheet" href="css/plugins/fancybox.min.css" />
-    <!-- maru scss -->
-    <link rel="stylesheet" href="css/style.css?v=3.3" />
-
-    <!-- Cloudflare Web Analytics -->
-    <script defer src="js/analytics-loader.js"></script>
-    <!-- End Cloudflare Web Analytics -->
-
-    <!-- favicon -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      sizes="32x32"
-      href="img/favicon_512_512_neutral.svg"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      sizes="16x16"
-      href="img/favicon_512_512_neutral.svg"
-    />
-    <link rel="shortcut icon" href="img/favicon_512_512_neutral.svg" />
-    <!-- page name -->
-    <title>BizInsight AI - Business Intelligence & Analytics | Maru</title>
-
-    <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-RKBNFTLK64"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-RKBNFTLK64");
-    </script>
-  </head>
-
-  <body>
-    <!-- wrapper -->
-    <div class="mil-wrapper" id="top">
-      <!-- cursor -->
-      <div class="mil-ball">
-        <span class="mil-icon-1">
-          <svg viewBox="0 0 128 128">
-            <path
-              d="M106.1,41.9c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2L116.8,61H11.2l14.9-14.9c1.2-1.2,1.2-3.1,0-4.2	c-1.2-1.2-3.1-1.2-4.2,0l-20,20c-1.2,1.2-1.2,3.1,0,4.2l20,20c0.6,0.6,1.4,0.9,2.1,0.9s1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2	L11.2,67h105.5l-14.9,14.9c-1.2,1.2-1.2,3.1,0,4.2c0.6,0.6,1.4,0.9,2.1,0.9s1.5-0.3,2.1-0.9l20-20c1.2-1.2,1.2-3.1,0-4.2L106.1,41.9	z"
-            />
-          </svg>
-        </span>
-        <div class="mil-more-text">More</div>
-        <div class="mil-choose-text">Choose</div>
-      </div>
-      <!-- cursor end -->
-
-      <!-- preloader -->
-      <div class="mil-preloader">
-        <div class="mil-preloader-animation">
-          <div class="mil-pos-abs mil-animation-1">
-            <p class="mil-h3 mil-muted mil-thin">Learn</p>
-            <p class="mil-h3 mil-muted">Apply</p>
-            <p class="mil-h3 mil-muted mil-thin">Evolve</p>
-          </div>
-          <div class="mil-pos-abs mil-animation-2">
-            <div class="mil-reveal-frame">
-              <p class="mil-reveal-box"></p>
-              <p class="mil-h3 mil-muted mil-thin">MaruOnline.com</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- preloader end -->
-
-      <!-- scrollbar progress -->
-      <div class="mil-progress-track">
-        <div class="mil-progress"></div>
-      </div>
-      <!-- scrollbar progress end -->
-
-      <!-- menu -->
-      <div class="mil-menu-frame">
-        <!-- frame clone -->
-        <div class="mil-frame-top">
-          <a href="index.html" class="mil-logo">M.</a>
-          <div class="mil-menu-btn"><span></span></div>
-        </div>
-        <!-- frame clone end -->
-        <div class="container">
-          <div class="mil-menu-content">
-            <div class="row">
-              <div class="col-xl-5">
-                <nav class="mil-main-menu" id="swupMenu">
-                  <ul>
-                    <li><a href="index.html">Homepage</a></li>
-                    <li class="mil-has-children">
-                      <a href="services.html">Services</a>
-                      <ul>
-                        <li><a href="smartguest-ai.html">SmartGuest AI</a></li>
-                        <li><a href="bizinsight-ai.html">BizInsight AI</a></li>
-                        <li>
-                          <a href="ai-mastery-workshops.html"
-                            >AI Mastery Workshops</a
-                          >
-                        </li>
-                        <li>
-                          <a href="custom-ai-solutions.html"
-                            >Custom AI Solutions</a
-                          >
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="mil-has-children">
-                      <a href="knowledge.html">Resources</a>
-                      <ul>
-                        <li><a href="knowledge.html">Knowledge</a></li>
-                      </ul>
-                    </li>
-                    <li class="mil-has-children">
-                      <a href="contact.html">Other pages</a>
-                      <ul>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="404.html">404</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-              <div class="col-xl-7">
-                <div class="mil-menu-right-frame">
-                  <div class="mil-animation-in">
-                    <div class="mil-animation-frame">
-                      <div
-                        class="mil-animation mil-position-1 mil-scale"
-                        data-value-1="2"
-                        data-value-2="2"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="mil-menu-right">
-                    <div class="row">
-                      <div class="col-lg-8 mil-mb-60">
-                        <h6 class="mil-muted mil-mb-30">Contact Info</h6>
-                        <ul class="mil-menu-list">
-                          <li>
-                            <a href="contact.html" class="mil-light-soft"
-                              >Get in touch</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="col-lg-4 mil-mb-60">
-                        <h6 class="mil-muted mil-mb-30">Useful links</h6>
-                        <ul class="mil-menu-list">
-                          <li>
-                            <a href="privacy-policy.html" class="mil-light-soft"
-                              >Privacy Policy</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="privacy-policy.html"
-                              class="mil-light-soft"
-                              href="terms-conditions.html"
-                              class="mil-light-soft"
-                              >Terms and conditions</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- menu end -->
-
-      <!-- curtain -->
-      <div class="mil-curtain"></div>
-      <!-- curtain end -->
-
-      <!-- frame -->
-      <div class="mil-frame">
-        <div class="mil-frame-top">
-          <a href="index.html" class="mil-logo">M.</a>
-          <div class="mil-menu-btn">
-            <span></span>
-          </div>
-        </div>
-        <div class="mil-frame-bottom">
-          <div class="mil-current-page"></div>
-          <div class="mil-back-to-top">
-            <a href="#top" class="mil-link mil-dark mil-arrow-place">
-              <span>Back to top</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- frame end -->
-
-      <!-- content -->
-      <div class="mil-content">
-        <div id="swupMain" class="mil-main-transition">
-          <!-- banner -->
-          <div class="mil-dark-bg">
-            <div class="mil-inner-banner mil-pb-60">
-              <div class="mi-invert-fix">
-                <div class="mil-banner-content mil-up">
-                  <div class="mil-animation-frame">
-                    <div
-                      class="mil-animation mil-position-4 mil-scale"
-                      data-value-1="6"
-                      data-value-2="1.4"
-                    ></div>
-                  </div>
-                  <div class="container">
-                    <ul class="mil-breadcrumbs mil-light mil-mb-60">
-                      <li><a href="index.html">Homepage</a></li>
-                      <li><a href="services.html">Services</a></li>
-                      <li><a href="bizinsight-ai.html">BizInsight AI</a></li>
-                    </ul>
-                    <h1 class="mil-light mil-mb-60">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Maru",
+  "url": "https://maruonline.com/",
+  "logo": "https://maruonline.com/img/optimized/new_maru_logo_neutral-960.png",
+  "sameAs": [
+    "https://www.linkedin.com/company/maruonline",
+    "https://x.com/maru_africa",
+    "https://instagram.com/maru_automations",
+    "https://facebook.com/maruonlin"
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Maru",
+  "url": "https://maruonline.com/"
+}</script>
+</head>
+<body>
+<!-- wrapper -->
+<div class="mil-wrapper" id="top">
+<!-- cursor -->
+<div class="mil-ball">
+<span class="mil-icon-1">
+<svg viewbox="0 0 128 128">
+<path d="M106.1,41.9c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2L116.8,61H11.2l14.9-14.9c1.2-1.2,1.2-3.1,0-4.2	c-1.2-1.2-3.1-1.2-4.2,0l-20,20c-1.2,1.2-1.2,3.1,0,4.2l20,20c0.6,0.6,1.4,0.9,2.1,0.9s1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2	L11.2,67h105.5l-14.9,14.9c-1.2,1.2-1.2,3.1,0,4.2c0.6,0.6,1.4,0.9,2.1,0.9s1.5-0.3,2.1-0.9l20-20c1.2-1.2,1.2-3.1,0-4.2L106.1,41.9	z"></path>
+</svg>
+</span>
+<div class="mil-more-text">More</div>
+<div class="mil-choose-text">Choose</div>
+</div>
+<!-- cursor end -->
+<!-- preloader -->
+<div class="mil-preloader">
+<div class="mil-preloader-animation">
+<div class="mil-pos-abs mil-animation-1">
+<p class="mil-h3 mil-muted mil-thin">Learn</p>
+<p class="mil-h3 mil-muted">Apply</p>
+<p class="mil-h3 mil-muted mil-thin">Evolve</p>
+</div>
+<div class="mil-pos-abs mil-animation-2">
+<div class="mil-reveal-frame">
+<p class="mil-reveal-box"></p>
+<p class="mil-h3 mil-muted mil-thin">MaruOnline.com</p>
+</div>
+</div>
+</div>
+</div>
+<!-- preloader end -->
+<!-- scrollbar progress -->
+<div class="mil-progress-track">
+<div class="mil-progress"></div>
+</div>
+<!-- scrollbar progress end -->
+<!-- menu -->
+<div class="mil-menu-frame">
+<!-- frame clone -->
+<div class="mil-frame-top">
+<a class="mil-logo" href="index.html">M.</a>
+<div class="mil-menu-btn"><span></span></div>
+</div>
+<!-- frame clone end -->
+<div class="container">
+<div class="mil-menu-content">
+<div class="row">
+<div class="col-xl-5">
+<nav class="mil-main-menu" id="swupMenu">
+<ul>
+<li><a href="index.html">Homepage</a></li>
+<li class="mil-has-children">
+<a href="services.html">Services</a>
+<ul>
+<li><a href="smartguest-ai.html">SmartGuest AI</a></li>
+<li><a href="bizinsight-ai.html">BizInsight AI</a></li>
+<li>
+<a href="ai-mastery-workshops.html">AI Mastery Workshops</a>
+</li>
+<li>
+<a href="custom-ai-solutions.html">Custom AI Solutions</a>
+</li>
+</ul>
+</li>
+<li class="mil-has-children">
+<a href="knowledge.html">Resources</a>
+<ul>
+<li><a href="knowledge.html">Knowledge</a></li>
+</ul>
+</li>
+<li class="mil-has-children">
+<a href="contact.html">Other pages</a>
+<ul>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="404.html">404</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<div class="col-xl-7">
+<div class="mil-menu-right-frame">
+<div class="mil-animation-in">
+<div class="mil-animation-frame">
+<div class="mil-animation mil-position-1 mil-scale" data-value-1="2" data-value-2="2"></div>
+</div>
+</div>
+<div class="mil-menu-right">
+<div class="row">
+<div class="col-lg-8 mil-mb-60">
+<h6 class="mil-muted mil-mb-30">Contact Info</h6>
+<ul class="mil-menu-list">
+<li>
+<a class="mil-light-soft" href="contact.html">Get in touch</a>
+</li>
+</ul>
+</div>
+<div class="col-lg-4 mil-mb-60">
+<h6 class="mil-muted mil-mb-30">Useful links</h6>
+<ul class="mil-menu-list">
+<li>
+<a class="mil-light-soft" href="privacy-policy.html">Privacy Policy</a>
+</li>
+<li>
+<a class="mil-light-soft" href="terms-conditions.html">Terms and conditions</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- menu end -->
+<!-- curtain -->
+<div class="mil-curtain"></div>
+<!-- curtain end -->
+<!-- frame -->
+<div class="mil-frame">
+<div class="mil-frame-top">
+<a class="mil-logo" href="index.html">M.</a>
+<div class="mil-menu-btn">
+<span></span>
+</div>
+</div>
+<div class="mil-frame-bottom">
+<div class="mil-current-page"></div>
+<div class="mil-back-to-top">
+<a class="mil-link mil-dark mil-arrow-place" href="#top">
+<span>Back to top</span>
+</a>
+</div>
+</div>
+</div>
+<!-- frame end -->
+<!-- content -->
+<div class="mil-content">
+<div class="mil-main-transition" id="swupMain">
+<!-- banner -->
+<div class="mil-dark-bg">
+<div class="mil-inner-banner mil-pb-60">
+<div class="mi-invert-fix">
+<div class="mil-banner-content mil-up">
+<div class="mil-animation-frame">
+<div class="mil-animation mil-position-4 mil-scale" data-value-1="6" data-value-2="1.4"></div>
+</div>
+<div class="container">
+<ul class="mil-breadcrumbs mil-light mil-mb-60">
+<li><a href="index.html">Homepage</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="bizinsight-ai.html">BizInsight AI</a></li>
+</ul>
+<h1 class="mil-light mil-mb-60">
                       BizInsight AI
                     </h1>
-                    <p class="mil-light-soft mil-mb-60">
+<p class="mil-light-soft mil-mb-60">
                       AI-powered business intelligence and analytics platform
                       for data-driven decision making
                     </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- banner end -->
-
-          <!-- content -->
-          <section>
-            <div
-              class="container mil-p-60-120"
-            >
-              <div class="row">
-                <div class="col-lg-12">
-                  <h2 class="mil-up mil-mb-60">
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- banner end -->
+<!-- content -->
+<section>
+<div class="container mil-p-60-120">
+<div class="row">
+<div class="col-lg-12">
+<h2 class="mil-up mil-mb-60">
                     Data-Driven Business Intelligence
                   </h2>
-                  <p class="mil-up mil-mb-90 mil-text-lg">
+<p class="mil-up mil-mb-90 mil-text-lg">
                     BizInsight AI transforms raw data into actionable business
                     insights, helping organizations make informed decisions and
                     drive strategic growth through advanced analytics and
                     AI-powered forecasting.
                   </p>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-lg-6 mil-mb-60">
-                  <h4 class="mil-up mil-mb-30">Key Features</h4>
-                  <p class="mil-up mil-mb-30">
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6 mil-mb-60">
+<h4 class="mil-up mil-mb-30">Key Features</h4>
+<p class="mil-up mil-mb-30">
                     Our AI-powered analytics platform provides comprehensive
                     business intelligence capabilities, from data visualization
                     to predictive analytics and automated reporting.
                   </p>
-                  <ul class="mil-up mil-mb-60">
-                    <li>Advanced Data Analytics & Visualization</li>
-                    <li>AI-Powered Predictive Modeling</li>
-                    <li>Real-time Business Intelligence Dashboards</li>
-                    <li>Automated Report Generation</li>
-                    <li>Custom KPI Tracking & Monitoring</li>
-                    <li>Multi-source Data Integration</li>
-                  </ul>
-                </div>
-                <div class="col-lg-6 mil-mb-60">
-                  <h4 class="mil-up mil-mb-30">Business Benefits</h4>
-                  <p class="mil-up mil-mb-30">
+<ul class="mil-up mil-mb-60">
+<li>Advanced Data Analytics &amp; Visualization</li>
+<li>AI-Powered Predictive Modeling</li>
+<li>Real-time Business Intelligence Dashboards</li>
+<li>Automated Report Generation</li>
+<li>Custom KPI Tracking &amp; Monitoring</li>
+<li>Multi-source Data Integration</li>
+</ul>
+</div>
+<div class="col-lg-6 mil-mb-60">
+<h4 class="mil-up mil-mb-30">Business Benefits</h4>
+<p class="mil-up mil-mb-30">
                     BizInsight AI empowers businesses to make data-driven
                     decisions, identify growth opportunities, and optimize
                     operations through intelligent analytics and insights.
                   </p>
-                  <ul class="mil-up mil-mb-60">
-                    <li>Improve Decision Making by 60%</li>
-                    <li>Reduce Data Analysis Time by 80%</li>
-                    <li>Identify New Revenue Opportunities</li>
-                    <li>Optimize Operational Efficiency</li>
-                    <li>Predict Market Trends & Customer Behavior</li>
-                    <li>Automate Routine Analytics Tasks</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="mil-divider mil-mb-90"></div>
-                  <h3 class="mil-up mil-mb-60">
+<ul class="mil-up mil-mb-60">
+<li>Improve Decision Making by 60%</li>
+<li>Reduce Data Analysis Time by 80%</li>
+<li>Identify New Revenue Opportunities</li>
+<li>Optimize Operational Efficiency</li>
+<li>Predict Market Trends &amp; Customer Behavior</li>
+<li>Automate Routine Analytics Tasks</li>
+</ul>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="mil-divider mil-mb-90"></div>
+<h3 class="mil-up mil-mb-60">
                     Ready to Unlock Your Data's Potential?
                   </h3>
-                  <p class="mil-up mil-mb-60">
+<p class="mil-up mil-mb-60">
                     Let's discuss how BizInsight AI can transform your business
                     intelligence and drive data-driven growth.
                   </p>
-                  <a href="contact.html" class="mil-button mil-arrow-place">
-                    <span>Contact Us</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!-- content end -->
-
-          <!-- footer -->
-          <footer class="mil-dark-bg">
-            <div class="mi-invert-fix">
-              <div class="container mil-p-120-60">
-                <div class="row justify-content-between">
-                  <div class="col-md-4 col-lg-4 mil-mb-60">
-                    <div class="mil-muted mil-logo mil-up mil-mb-30">
-                      <img
-                        src="img/new_maru_logo_neutral.png"
-                        alt="Maru Logo"
-                        class="mil-footer-logo"
-                      />
-                    </div>
-                    <p class="mil-light-soft mil-up mil-mb-30">
+<a class="mil-button mil-arrow-place" href="contact.html">
+<span>Contact Us</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- content end -->
+<!-- footer -->
+<footer class="mil-dark-bg">
+<div class="mi-invert-fix">
+<div class="container mil-p-120-60">
+<div class="row justify-content-between">
+<div class="col-md-4 col-lg-4 mil-mb-60">
+<div class="mil-muted mil-logo mil-up mil-mb-30">
+<img alt="Maru Logo" class="mil-footer-logo" src="img/new_maru_logo_neutral.png"/>
+</div>
+<p class="mil-light-soft mil-up mil-mb-30">
                       Subscribe to our newsletter:
                     </p>
-                    <form class="mil-subscribe-form mil-up">
-                      <input type="text" placeholder="Enter your email" />
-                      <button
-                        type="submit"
-                        class="mil-button mil-icon-button-sm mil-arrow-place"
-                      ></button>
-                    </form>
-                  </div>
-                  <div class="col-md-7 col-lg-6">
-                    <div class="row justify-content-end">
-                      <div class="col-md-6 col-lg-7">
-                        <nav class="mil-footer-menu mil-mb-60">
-                          <ul>
-                            <li class="mil-up">
-                              <a href="index.html">Home</a>
-                            </li>
-                            <li class="mil-up">
-                              <a href="services.html">Services</a>
-                            </li>
-                            <li class="mil-up">
-                              <a href="knowledge.html">Resources</a>
-                            </li>
-                            <li class="mil-up">
-                              <a href="contact.html">Contact</a>
-                            </li>
-                          </ul>
-                        </nav>
-                      </div>
-                      <div class="col-md-6 col-lg-5">
-                        <ul class="mil-menu-list mil-up mil-mb-60">
-                          <li>
-                            <a href="privacy-policy.html" class="mil-light-soft"
-                              >Privacy Policy</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="privacy-policy.html"
-                              class="mil-light-soft"
-                              href="terms-conditions.html"
-                              class="mil-light-soft"
-                              >Terms and conditions</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="privacy-policy.html"
-                              class="mil-light-soft"
-                              href="cookie-policy.html"
-                              class="mil-light-soft"
-                              >Cookie Policy</a
-                            >
-                          </li>
-                          <li>
-                            <a href="careers.html" class="mil-light-soft"
-                              >Careers</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row justify-content-between flex-sm-row-reverse">
-                  <div class="col-md-7 col-lg-6">
-                    <div class="row justify-content-between">
-                      <div class="col-md-6 col-lg-5 mil-mb-60">
-                        <h6 class="mil-muted mil-up mil-mb-30">KZN</h6>
-                        <p class="mil-light-soft mil-up">
-                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                        </p>
-                      </div>
-                      <div class="col-md-6 col-lg-5 mil-mb-60">
-                        <h6 class="mil-muted mil-up mil-mb-30">Gauteng</h6>
-                        <p class="mil-light-soft mil-up">
-                          <span class="mil-no-wrap">+27(0)83 393 4864</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-lg-6 mil-mb-60">
-                    <div class="mil-vert-between">
-                      <div class="mil-mb-30">
-                        <ul class="mil-social-icons mil-up">
-                          <li>
-                            <a
-                              href="https://www.linkedin.com/company/maruonline"
-                              target="_blank"
-                              class="social-icon"
-                            >
-                              <i class="far fa-circle"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="https://www.linkedin.com/company/maruonline"
-                              target="_blank"
-                              class="social-icon"
-                            >
-                              <i class="far fa-circle"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="https://www.linkedin.com/company/maruonline"
-                              target="_blank"
-                              class="social-icon"
-                            >
-                              <i class="far fa-circle"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="https://www.linkedin.com/company/maruonline"
-                              target="_blank"
-                              class="social-icon"
-                            >
-                              <i class="far fa-circle"></i>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                      <p class="mil-light-soft mil-up">
+<form class="mil-subscribe-form mil-up">
+<input placeholder="Enter your email" type="text"/>
+<button class="mil-button mil-icon-button-sm mil-arrow-place" type="submit"></button>
+</form>
+</div>
+<div class="col-md-7 col-lg-6">
+<div class="row justify-content-end">
+<div class="col-md-6 col-lg-7">
+<nav class="mil-footer-menu mil-mb-60">
+<ul>
+<li class="mil-up">
+<a href="index.html">Home</a>
+</li>
+<li class="mil-up">
+<a href="services.html">Services</a>
+</li>
+<li class="mil-up">
+<a href="knowledge.html">Resources</a>
+</li>
+<li class="mil-up">
+<a href="contact.html">Contact</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="col-md-6 col-lg-5">
+<ul class="mil-menu-list mil-up mil-mb-60">
+<li>
+<a class="mil-light-soft" href="privacy-policy.html">Privacy Policy</a>
+</li>
+<li>
+<a class="mil-light-soft" href="terms-conditions.html">Terms and conditions</a>
+</li>
+<li>
+<a class="mil-light-soft" href="cookie-policy.html">Cookie Policy</a>
+</li>
+<li>
+<a class="mil-light-soft" href="careers.html">Careers</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row justify-content-between flex-sm-row-reverse">
+<div class="col-md-7 col-lg-6">
+<div class="row justify-content-between">
+<div class="col-md-6 col-lg-5 mil-mb-60">
+<h6 class="mil-muted mil-up mil-mb-30">KZN</h6>
+<p class="mil-light-soft mil-up">
+<span class="mil-no-wrap">+27(0)83 393 4864</span>
+</p>
+</div>
+<div class="col-md-6 col-lg-5 mil-mb-60">
+<h6 class="mil-muted mil-up mil-mb-30">Gauteng</h6>
+<p class="mil-light-soft mil-up">
+<span class="mil-no-wrap">+27(0)83 393 4864</span>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-4 col-lg-6 mil-mb-60">
+<div class="mil-vert-between">
+<div class="mil-mb-30">
+<ul class="mil-social-icons mil-up">
+<li>
+<a class="social-icon" href="https://www.linkedin.com/company/maruonline" target="_blank" rel="noopener" aria-label="LinkedIn">
+<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+<span class="mil-sr-only">LinkedIn</span>
+</a>
+</li>
+<li>
+<a class="social-icon" href="https://x.com/maru_africa" target="_blank" rel="noopener" aria-label="X (Twitter)">
+<i class="fab fa-twitter" aria-hidden="true"></i>
+<span class="mil-sr-only">X (Twitter)</span>
+</a>
+</li>
+<li>
+<a class="social-icon" href="https://facebook.com/maruonlin" target="_blank" rel="noopener" aria-label="Facebook">
+<i class="fab fa-facebook-f" aria-hidden="true"></i>
+<span class="mil-sr-only">Facebook</span>
+</a>
+</li>
+<li>
+<a class="social-icon" href="https://instagram.com/maru_automations" target="_blank" rel="noopener" aria-label="Instagram">
+<i class="fab fa-instagram" aria-hidden="true"></i>
+<span class="mil-sr-only">Instagram</span>
+</a>
+</li>
+</ul>
+</div>
+<p class="mil-light-soft mil-up">
                         © Copyright 2025 - Maru. All Rights Reserved.
                       </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </footer>
-          <!-- footer end -->
-        </div>
-      </div>
-      <!-- content -->
-    </div>
-    <!-- wrapper end -->
-
-    <!-- jQuery js -->
-    <script src="js/plugins/jquery.min.js"></script>
-    <!-- swup js -->
-    <script src="js/plugins/swup.min.js"></script>
-    <!-- swiper js -->
-    <script src="js/plugins/swiper.min.js"></script>
-    <!-- fancybox js -->
-    <script src="js/plugins/fancybox.min.js"></script>
-    <!-- gsap js -->
-    <script src="js/plugins/gsap.min.js"></script>
-    <!-- scroll trigger js -->
-    <script src="js/plugins/ScrollTrigger.min.js"></script>
-    <!-- scroll to js -->
-    <script src="js/plugins/ScrollTo.min.js"></script>
-    <script src="js/smooth-anchors.js"></script>
-    <!-- maru js -->
-    <script src="js/main.js"></script>
-    <!-- secure newsletter form handler -->
-
-    <script src="js/newsletter-forms-secure.js"></script>
-    <!-- Safari scrolling fix -->
-    <script src="js/safari-scroll-fix.js"></script>
-  </body>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- footer end -->
+</div>
+</div>
+<!-- content -->
+</div>
+<!-- wrapper end -->
+<!-- jQuery js -->
+<script src="js/plugins/jquery.min.js"></script>
+<!-- swup js -->
+<script src="js/plugins/swup.min.js"></script>
+<!-- swiper js -->
+<script src="js/plugins/swiper.min.js"></script>
+<!-- fancybox js -->
+<script src="js/plugins/fancybox.min.js"></script>
+<!-- gsap js -->
+<script src="js/plugins/gsap.min.js"></script>
+<!-- scroll trigger js -->
+<script src="js/plugins/ScrollTrigger.min.js"></script>
+<!-- scroll to js -->
+<script src="js/plugins/ScrollTo.min.js"></script>
+<script src="js/smooth-anchors.js"></script>
+<!-- maru js -->
+<script src="js/main.js"></script>
+<!-- secure newsletter form handler -->
+<script src="js/newsletter-forms-secure.js"></script>
+<!-- Safari scrolling fix -->
+<script src="js/safari-scroll-fix.js"></script>
+</body>
 </html>

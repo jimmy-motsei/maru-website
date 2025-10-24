@@ -147,6 +147,8 @@ class CookieBannerManager {
     this.applyAnalyticsConsent(consent.analytics);
     this.applyMarketingConsent(consent.marketing);
     this.applyPreferencesConsent(consent.preferences);
+    const event = new CustomEvent("maruConsentChanged", { detail: consent });
+    document.dispatchEvent(event);
   }
 
   applyAnalyticsConsent(accepted) {
@@ -203,6 +205,9 @@ class CookieBannerManager {
       gtag("consent", "update", {
         analytics_storage: "denied",
       });
+    }
+    if (typeof window.disableAnalyticsScripts === "function") {
+      window.disableAnalyticsScripts();
     }
     console.log("Analytics disabled");
   }

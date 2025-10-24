@@ -10,6 +10,8 @@ class SecureNewsletterFormHandler {
     this.newsletterFormId = "cd4d47e9-93e9-4d8e-a221-ad7496701f99"; // Actual HubSpot form ID
     this.isInitialized = false;
     this.formsProcessed = new Set();
+    this.consentListenerAttached = false;
+    this.onConsentChange = this.onConsentChange.bind(this);
     this.init();
   }
 
@@ -20,6 +22,41 @@ class SecureNewsletterFormHandler {
     }
 
     this.isInitialized = true;
+
+    const banner = window.cookieBannerManager;
+    if (banner) {
+      if (banner.hasConsent && banner.hasConsent("marketing")) {
+        this.loadWithConsent();
+      } else {
+        this.showFallbackForms();
+        if (!this.consentListenerAttached) {
+          document.addEventListener("maruConsentChanged", this.onConsentChange);
+          this.consentListenerAttached = true;
+        }
+      }
+    } else {
+      // Fallback: proceed as before if banner is unavailable
+      this.loadWithConsent();
+    }
+  }
+
+  onConsentChange(event) {
+    const detail = event.detail || {};
+    if (detail.marketing) {
+      if (this.consentListenerAttached) {
+        document.removeEventListener("maruConsentChanged", this.onConsentChange);
+        this.consentListenerAttached = false;
+      }
+      this.loadWithConsent();
+    } else {
+      this.showFallbackForms();
+    }
+  }
+
+  loadWithConsent() {
+    if (typeof window.loadHubSpot === "function") {
+      window.loadHubSpot();
+    }
     this.waitForHubSpot();
   }
 
