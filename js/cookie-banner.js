@@ -182,8 +182,10 @@ class CookieBannerManager {
   }
 
   enableGoogleAnalytics() {
-    // Check if gtag is available
-    if (typeof gtag !== "undefined") {
+    // Load Google Analytics if not already loaded
+    if (typeof window.loadGoogleAnalytics === "function") {
+      window.loadGoogleAnalytics();
+    } else if (typeof gtag !== "undefined") {
       gtag("consent", "update", {
         analytics_storage: "granted",
       });
@@ -206,7 +208,10 @@ class CookieBannerManager {
   }
 
   enableMarketing() {
-    // Enable marketing tools
+    // Load HubSpot if not already loaded
+    if (typeof window.loadHubSpot === "function") {
+      window.loadHubSpot();
+    }
     console.log("Marketing enabled");
   }
 

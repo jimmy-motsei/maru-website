@@ -173,23 +173,27 @@ class ContactFormEnhancer {
           <div class="row">
             <div class="col-md-6">
               <div class="mil-input-group">
-                <input type="text" name="firstname" placeholder="First Name *" required />
+                <label for="fallback-firstname" class="mil-sr-only">First Name</label>
+                <input type="text" id="fallback-firstname" name="firstname" placeholder="First Name *" aria-label="First Name" required />
               </div>
             </div>
             <div class="col-md-6">
               <div class="mil-input-group">
-                <input type="text" name="lastname" placeholder="Last Name *" required />
+                <label for="fallback-lastname" class="mil-sr-only">Last Name</label>
+                <input type="text" id="fallback-lastname" name="lastname" placeholder="Last Name *" aria-label="Last Name" required />
               </div>
             </div>
           </div>
           <div class="mil-input-group">
-            <input type="email" name="email" placeholder="Email Address *" required />
+            <label for="fallback-email" class="mil-sr-only">Email Address</label>
+            <input type="email" id="fallback-email" name="email" placeholder="Email Address *" aria-label="Email Address" required />
           </div>
           <div class="mil-input-group">
-            <textarea name="message" placeholder="Your Message *" rows="5" required></textarea>
+            <label for="fallback-message" class="mil-sr-only">Your Message</label>
+            <textarea id="fallback-message" name="message" placeholder="Your Message *" rows="5" aria-label="Your Message" required></textarea>
           </div>
           <div class="mil-center">
-            <button type="submit" class="mil-button mil-arrow-place">
+            <button type="submit" class="mil-button mil-arrow-place" aria-label="Send contact message">
               <span>Send Message</span>
             </button>
           </div>
