@@ -5847,3 +5847,19 @@ footer .mil-logo img,
     min-width: 300px;
   }
 }
+
+
+/* Footer logo sizing (responsive) */
+.mil-footer-logo-img {
+  display: block;
+  width: 384px;
+  height: 160px;
+  object-fit: contain;
+}
+
+@media (max-width: 576px) {
+  .mil-footer-logo-img {
+    width: 240px;
+    height: 100px;
+  }
+}
