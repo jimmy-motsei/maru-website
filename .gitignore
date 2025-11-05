@@ -19,3 +19,6 @@ pnpm-lock.yaml
 
 # Image optimization temp dirs (if any in future)
 /tmp/
+.idea/
+.DS_Store
+node_modules/
