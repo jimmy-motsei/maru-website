@@ -19,3 +19,5 @@ pnpm-lock.yaml
 
 # Image optimization temp dirs (if any in future)
 /tmp/
+/public
+/.idx

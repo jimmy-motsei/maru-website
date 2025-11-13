@@ -4,10 +4,17 @@
   "version": "1.0.0",
   "description": "Build scripts for optimizing images for the Maru static site",
   "scripts": {
-    "optimize-images": "node scripts/optimize-images.js"
+  "optimize-images": "node scripts/optimize-images.js",
+  "dev": "eleventy --serve",
+  "build": "eleventy"
+
+
   },
   "dependencies": {
-    "sharp": "^0.33.3",
-    "glob": "^11.0.0"
+    "glob": "^11.0.0",
+    "sharp": "^0.33.3"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
   }
 }
