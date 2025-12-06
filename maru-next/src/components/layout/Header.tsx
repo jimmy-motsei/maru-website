@@ -4,27 +4,28 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/config/site";
+import { X } from "lucide-react";
+import { Dodecahedron } from "@/components/ui/Dodecahedron";
 
-const navigation = {
-  main: [
-    { name: "Homepage", href: "/" },
-    {
-      name: "Services",
-      href: "/services",
-      children: [
-        { name: "SmartGuest AI", href: "/smartguest-ai" },
-        { name: "BizInsight AI", href: "/bizinsight-ai" },
-        { name: "AI Mastery Workshops", href: "/ai-mastery-workshops" },
-        { name: "Custom AI Solutions", href: "/custom-ai-solutions" },
-      ],
-    },
+// Menu items structure
+const menuItems = {
+  primary: [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
     { name: "Resources", href: "/knowledge" },
     { name: "Contact", href: "/contact" },
   ],
-  social: [
-    { name: "LinkedIn", href: siteConfig.links.linkedin, icon: "linkedin" },
-    { name: "Twitter", href: siteConfig.links.twitter, icon: "twitter" },
-    { name: "Facebook", href: siteConfig.links.facebook, icon: "facebook" },
+  projects: [
+    { name: "Lead Generation", href: "/services/lead-generation" },
+    { name: "Office Automation", href: "/services/office-automation" },
+    { name: "Sales Systems", href: "/services/sales-systems" },
+    { name: "WhatsApp Solutions", href: "/services/whatsapp-solutions" },
+  ],
+  usefulLinks: [
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms and conditions", href: "/terms-conditions" },
+    { name: "Cookie Policy", href: "/cookie-policy" },
+    { name: "Careers", href: "/careers" },
   ],
 };
 
@@ -56,172 +57,203 @@ export function Header() {
     <>
       <header
         className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
-          isScrolled ? "bg-dark/90 backdrop-blur-md py-4" : "py-8"
+          isScrolled && !isMenuOpen ? "bg-dark/90 backdrop-blur-md py-4" : "py-6 lg:py-8"
         }`}
       >
-        <div className="container mx-auto px-6 lg:px-8">
+        <div className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between">
+            {/* Logo */}
             <Link
               href="/"
-              className="text-3xl font-bold text-white hover:text-accent transition-colors"
+              className={`text-3xl font-bold transition-colors ${
+                isMenuOpen ? "text-white" : "text-white hover:text-accent"
+              }`}
             >
               M.
             </Link>
 
-
             {/* Menu Button */}
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="group relative flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full bg-transparent transition-colors hover:bg-white/10"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setIsMenuOpen(true)}
+              className={`group relative flex items-center justify-center p-2 rounded-full transition-colors hover:bg-white/10 ${
+                 isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
+              aria-label="Open menu"
             >
-              <motion.span
-                animate={isMenuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
-                className="h-0.5 w-6 bg-white origin-center"
-              />
-              <motion.span
-                animate={isMenuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
-                className="h-0.5 w-6 bg-white origin-center"
-              />
+              <div className="flex flex-col gap-1.5 items-end">
+                <span className="h-0.5 w-8 bg-white group-hover:w-10 transition-all duration-300" />
+                <span className="h-0.5 w-6 bg-white group-hover:w-10 transition-all duration-300" />
+              </div>
             </button>
           </div>
         </div>
       </header>
 
-      {/* Full-Screen Menu */}
+      {/* Full-Screen Overlay Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-dark"
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed inset-0 z-[60] bg-[#050505] text-white overflow-y-auto overflow-x-hidden"
           >
-            {/* Menu Frame Top */}
-            <div className="absolute top-0 left-0 right-0 p-6 lg:p-8 flex items-center justify-between z-50">
-              <Link
-                href="/"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-3xl font-bold text-white"
-              >
-                M.
-              </Link>
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="group relative flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full bg-transparent transition-colors hover:bg-white/10"
-                aria-label="Close menu"
-              >
-                <motion.span
-                  animate={{ rotate: 45, y: 4 }}
-                  className="h-0.5 w-6 bg-white origin-center"
-                />
-                <motion.span
-                  animate={{ rotate: -45, y: -4 }}
-                  className="h-0.5 w-6 bg-white origin-center"
-                />
-              </button>
+            {/* Overlay Header (Logo + Close Button) */}
+            <div className="container mx-auto px-6 lg:px-12 py-6 lg:py-8 relative z-50">
+              <div className="flex items-center justify-between">
+                <Link
+                  href="/"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-3xl font-bold text-white hover:text-accent transition-colors"
+                >
+                  M.
+                </Link>
+
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-2 rounded-full hover:bg-white/10 transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X className="w-8 h-8 text-white" />
+                </button>
+              </div>
             </div>
 
-            {/* Menu Content */}
-            <div className="container mx-auto px-6 lg:px-8 h-full flex items-center">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 w-full pt-24">
-                {/* Main Navigation */}
-                <nav className="space-y-1">
-                  {navigation.main.map((item, index) => (
+            {/* Overlay Content */}
+            <div className="container mx-auto px-6 lg:px-12 min-h-[calc(100vh-100px)] flex flex-col justify-center pb-12 relative">
+              
+              {/* Spinning Prism Decoration - Positioned to match theme */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.4 }}
+                transition={{ delay: 0.5, duration: 1 }}
+                className="absolute top-0 right-[15%] hidden lg:block pointer-events-none z-0"
+              >
+                  <div className="scale-150">
+                    <Dodecahedron />
+                  </div>
+              </motion.div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 relative z-10">
+                
+                {/* Left Column: Primary Navigation */}
+                <div className="lg:col-span-5 flex flex-col justify-center space-y-4 lg:space-y-6">
+                  {menuItems.primary.map((item, index) => (
                     <motion.div
                       key={item.name}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -30 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
+                      transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
                     >
                       <Link
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="group block py-3"
+                        className={`block text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight transition-colors duration-300 text-white hover:text-accent`}
                       >
-                        <span className="text-4xl lg:text-5xl font-light text-white hover:text-accent transition-colors">
-                          {item.name}
-                        </span>
+                        {item.name}
                       </Link>
-                      {item.children && (
-                        <ul className="pl-4 mt-2 space-y-2">
-                          {item.children.map((child) => (
-                            <li key={child.name}>
-                              <Link
-                                href={child.href}
-                                onClick={() => setIsMenuOpen(false)}
-                                className="text-lg text-light-soft hover:text-accent transition-colors"
-                              >
-                                {child.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
                     </motion.div>
                   ))}
-                </nav>
+                </div>
 
-                {/* Contact Info */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="space-y-8 lg:pt-8"
-                >
-                  <div>
-                    <h3 className="text-sm uppercase tracking-wider text-muted mb-4">
-                      Contact
-                    </h3>
-                    <a
-                      href={`mailto:${siteConfig.contact.email}`}
-                      className="block text-xl text-white hover:text-accent transition-colors mb-2"
+                {/* Vertical Divider Line */}
+                <div className="lg:col-span-1 hidden lg:flex justify-center h-full">
+                     <motion.div 
+                        initial={{ scaleY: 0 }}
+                        animate={{ scaleY: 1 }}
+                        transition={{ delay: 0.3, duration: 0.8 }}
+                        className="w-px h-full bg-white/10 origin-top min-h-[400px]"
+                     />
+                </div>
+
+                {/* Right Column: Secondary Links & Details */}
+                <div className="lg:col-span-6 flex flex-col justify-between pt-8 lg:pt-0 pl-0 lg:pl-12">
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 lg:mt-20">
+                    {/* Projects / Services */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 }}
                     >
-                      {siteConfig.contact.email}
-                    </a>
-                    <a
-                      href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                      className="block text-xl text-white hover:text-accent transition-colors"
+                      <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-6">
+                        Projects
+                      </h3>
+                      <ul className="space-y-4">
+                        {menuItems.projects.map((project) => (
+                          <li key={project.name}>
+                            <Link
+                              href={project.href}
+                              onClick={() => setIsMenuOpen(false)}
+                              className="text-gray-400 hover:text-white transition-colors text-base"
+                            >
+                              {project.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+
+                    {/* Useful Links */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.6 }}
                     >
-                      {siteConfig.contact.phone}
-                    </a>
+                      <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-6">
+                        Useful links
+                      </h3>
+                      <ul className="space-y-4">
+                        {menuItems.usefulLinks.map((link) => (
+                          <li key={link.name}>
+                            <Link
+                              href={link.href}
+                              onClick={() => setIsMenuOpen(false)}
+                              className="text-gray-400 hover:text-white transition-colors text-base"
+                            >
+                              {link.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
                   </div>
 
-                  <div>
-                    <h3 className="text-sm uppercase tracking-wider text-muted mb-4">
-                      Locations
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {siteConfig.contact.locations.map((location) => (
-                        <div key={location.name}>
-                          <p className="text-white font-medium">{location.name}</p>
-                          <p className="text-light-soft text-sm">{location.address}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  {/* Horizontal Line */}
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ delay: 0.7, duration: 0.8 }}
+                    className="w-full h-px bg-white/10 my-12 origin-left"
+                  />
 
-                  {/* Social Links */}
-                  <div>
-                    <h3 className="text-sm uppercase tracking-wider text-muted mb-4">
-                      Follow Us
-                    </h3>
-                    <div className="flex gap-6">
-                      {navigation.social.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-white hover:text-accent transition-colors"
-                        >
-                          {item.name}
-                        </a>
-                      ))}
+                  {/* Contact Locations */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-8"
+                  >
+                    <div>
+                      <h3 className="text-white font-bold mb-2">Johannesburg</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">
+                        South Africa
+                      </p>
                     </div>
-                  </div>
-                </motion.div>
+
+                    <div>
+                      <h3 className="text-white font-bold mb-2">Get in touch</h3>
+                      <a
+                        href={`mailto:${siteConfig.contact.email}`}
+                        className="text-gray-400 text-sm hover:text-white transition-colors"
+                      >
+                         {siteConfig.contact.email}
+                      </a>
+                    </div>
+                  </motion.div>
+
+                </div>
               </div>
             </div>
           </motion.div>

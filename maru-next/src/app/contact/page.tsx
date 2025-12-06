@@ -17,14 +17,9 @@ const contactInfo = [
     details: ["Johannesburg, South Africa"],
   },
   {
-    icon: Phone,
-    title: "Phone",
-    details: ["+27 11 123 4567"],
-  },
-  {
     icon: Mail,
     title: "Email",
-    details: ["hello@maru.ai", "support@maru.ai"],
+    details: ["hello@maruonline.com"],
   },
   {
     icon: Clock,
@@ -112,25 +107,12 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="relative">
+      {/* Map Section -- Removed/Disabled as per request */}
+      <section className="relative hidden">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="w-full h-[400px] bg-gray-200"
+           className="w-full h-[400px] bg-gray-900 flex items-center justify-center text-white/20"
         >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114584.37855668888!2d28.0021358!3d-26.1715046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c68f0406a51%3A0x238ac9d9b1d34041!2sJohannesburg!5e0!3m2!1sen!2sza!4v1701888000000!5m2!1sen!2sza"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Maru Location"
-          />
+           Map Placeholder
         </motion.div>
       </section>
 
