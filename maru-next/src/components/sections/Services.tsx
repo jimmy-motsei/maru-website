@@ -42,13 +42,13 @@ const fadeUpVariants = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
+    transition: { duration: 0.6, ease: "easeOut" as const }
   }
 };
 
 export function Services() {
   return (
-    <section className="bg-black py-24 md:py-32 relative overflow-hidden">
+    <section className="bg-black py-24 md:py-32 relative overflow-hidden text-white">
       {/* Left Dodecahedron - 423x278px area, positioned top-left */}
       <div 
         className="absolute pointer-events-none opacity-20 hidden lg:block"
@@ -116,13 +116,13 @@ export function Services() {
           >
             <div className="relative h-14 w-40 rounded-full overflow-hidden border border-white/10 hidden md:block">
               <Image 
-                src="/images/services/team-meeting.jpg" 
-                alt="Team" 
+                src="/images/services/ai-strategy-meeting.jpg" 
+                alt="AI Strategy Meeting" 
                 fill 
                 className="object-cover" 
               />
             </div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               Custom <span className="font-light text-white/60">AI Solutions</span>
             </h2>
           </motion.div>
@@ -135,7 +135,7 @@ export function Services() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               to drive <span className="font-light text-white/60">efficiencies.</span>
             </h2>
             <Link 
@@ -168,10 +168,10 @@ export function Services() {
 
               {/* Title - Centered, 2 lines */}
               <div className="mb-6 text-center">
-                <h5 className="text-base md:text-lg font-bold text-white leading-tight">
+                <h5 className="text-base md:text-lg font-bold leading-tight">
                   {service.title}
                 </h5>
-                <h5 className="text-base md:text-lg font-bold text-white leading-tight">
+                <h5 className="text-base md:text-lg font-bold leading-tight">
                   {service.titleLine2}
                 </h5>
               </div>
