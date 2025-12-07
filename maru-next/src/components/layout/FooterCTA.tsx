@@ -18,7 +18,7 @@ const footerNavigation = {
   social: [
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/company/maruonline",
+      href: "https://www.linkedin.com/in/jrmotsei/",
       icon: (
         <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
           <path
@@ -40,7 +40,7 @@ const footerNavigation = {
     },
     {
       name: "Facebook",
-      href: "https://facebook.com/maruonlin",
+      href: "https://www.facebook.com/maruonlin/",
       icon: (
         <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
           <path
@@ -53,7 +53,7 @@ const footerNavigation = {
     },
     {
       name: "Instagram",
-      href: "https://instagram.com/maru_automations",
+      href: "https://www.instagram.com/maru_automations/",
       icon: (
         <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
           <path

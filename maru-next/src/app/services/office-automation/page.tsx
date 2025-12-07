@@ -86,14 +86,14 @@ export default function OfficeAutomationPage() {
                   <br />
                   and <span className="font-light">Work Specifics</span>
                 </h2>
-                <p className="text-dark/60 mb-8 leading-relaxed">
+                <p className="text-dark/80 mb-8 leading-relaxed">
                   We audit your existing operations to find the highest-impact automation opportunities. Our solutions integrate with your current tools while introducing AI capabilities that multiply your team's effectiveness.
                 </p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 text-dark hover:text-accent transition-colors group"
                 >
-                  <span className="font-medium">Book a discovery call</span>
+                  <span className="font-medium">Get Your Free AI Readiness Assessment</span>
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>

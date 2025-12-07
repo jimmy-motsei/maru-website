@@ -8,9 +8,10 @@ export const siteConfig = {
     url: 'https://maruonline.com',
     ogImage: 'https://maruonline.com/og-image.jpg',
     links: {
-        linkedin: 'https://www.linkedin.com/company/maru-online',
-        twitter: 'https://twitter.com/maruonline',
-        facebook: 'https://www.facebook.com/maruonline',
+        linkedin: 'https://www.linkedin.com/in/jrmotsei/',
+        x: 'https://x.com/maru_africa',
+        facebook: 'https://www.facebook.com/maruonlin/',
+        instagram: 'https://www.instagram.com/maru_automations/',
     },
     contact: {
         email: 'hello@maruonline.com',

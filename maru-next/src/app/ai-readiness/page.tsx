@@ -407,7 +407,7 @@ export default function AIReadinessPage() {
                     href="/services"
                     className="inline-flex items-center gap-4 bg-accent hover:bg-accent-dark text-black font-bold rounded-full pl-8 pr-3 py-4 transition-all duration-300"
                   >
-                    <span className="text-sm tracking-widest uppercase">Book a Consultation</span>
+                    <span className="text-sm tracking-widest uppercase">book a free consultation</span>
                     <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white">
                       <ArrowRight size={18} />
                     </span>

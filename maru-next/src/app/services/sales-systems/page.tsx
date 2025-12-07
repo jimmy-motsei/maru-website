@@ -86,14 +86,14 @@ export default function SalesSystemsPage() {
                   <br />
                   and <span className="font-light">Work Specifics</span>
                 </h2>
-                <p className="text-dark/60 mb-8 leading-relaxed">
+                <p className="text-dark/80 mb-8 leading-relaxed">
                   We believe your CRM should work for you, not the other way around. Our sales system automations integrate seamlessly with your existing tools while adding intelligence layers that help your team sell smarter.
                 </p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 text-dark hover:text-accent transition-colors group"
                 >
-                  <span className="font-medium">Book a discovery call</span>
+                  <span className="font-medium">Get Your Free AI Readiness Assessment</span>
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>

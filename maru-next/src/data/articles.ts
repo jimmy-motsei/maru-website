@@ -27,7 +27,7 @@ export const articles: Article[] = [
     slug: "genai-adoption-smbs-2025",
     title: "Generative AI Adoption Doubles for Small Businesses in 2025",
     excerpt:
-      "58% of SMBs now use generative AI—up from 40% in 2024. With 91% reporting revenue increases and 20+ hours saved monthly, the competitive advantage of AI adoption has never been clearer.",
+      "58% of SMEs now use generative AI—up from 40% in 2024. With 91% reporting revenue increases and 20+ hours saved monthly, the competitive advantage of AI adoption has never been clearer.",
     category: "AI Adoption",
     categorySlug: "ai-adoption",
     date: "December 6, 2025",
@@ -38,9 +38,9 @@ export const articles: Article[] = [
   {
     id: "2",
     slug: "sa-national-ai-policy-2024",
-    title: "South Africa's National AI Policy Framework: What SMBs Need to Know",
+    title: "South Africa's National AI Policy Framework: What SMEs Need to Know",
     excerpt:
-      "The October 2024 policy aims to attract ZAR 70 billion in investment by 2030 and cultivate 100-300 AI startups. Here's what South African SMBs need to prepare for.",
+      "The October 2024 policy aims to attract ZAR 70 billion in investment by 2030 and cultivate 100-300 AI startups. Here's what South African SMEs need to prepare for.",
     category: "Regulation",
     categorySlug: "regulation",
     date: "December 6, 2025",
@@ -51,9 +51,9 @@ export const articles: Article[] = [
   {
     id: "3",
     slug: "ai-customer-service-smb-2024",
-    title: "24/7 Customer Support Without the Cost: AI Chatbots for SMBs",
+    title: "24/7 Customer Support Without the Cost: AI Chatbots for SMEs",
     excerpt:
-      "35% of AI deployments among SMBs are customer service bots, delivering 20-40% cost savings. Learn how chatbots are transforming customer engagement for South African businesses.",
+      "35% of AI deployments among SMEs are customer service bots, delivering 20-40% cost savings. Learn how chatbots are transforming customer engagement for South African businesses.",
     category: "Transformation",
     categorySlug: "transformation",
     date: "December 6, 2025",
@@ -75,7 +75,7 @@ export const articles: Article[] = [
   {
     id: "5",
     slug: "top-ai-tools-smb-productivity-2025",
-    title: "10 AI Tools Every South African SMB Should Know in 2025",
+    title: "10 AI Tools Every South African SME Should Know in 2025",
     excerpt:
       "From ChatGPT to Zapier AI—practical AI tools that deliver immediate productivity gains. Most cost R0-R500/month and can save your team 20+ hours monthly.",
     category: "Skills",
@@ -88,7 +88,7 @@ export const articles: Article[] = [
   {
     id: "6",
     slug: "bridging-ai-skills-gap-sa-2025",
-    title: "Closing the AI Skills Gap: Training Strategies for SA SMBs",
+    title: "Closing the AI Skills Gap: Training Strategies for SA SMEs",
     excerpt:
       "46% of businesses cite skills gaps as their top AI adoption barrier. Here are practical training strategies to upskill your team without breaking the budget.",
     category: "Skills",
@@ -106,7 +106,7 @@ export const archivedArticles: Article[] = [
     slug: "ai-adoption-south-african-smbs",
     title: "AI Adoption Surges Among South Africa's Small and Medium Businesses",
     excerpt:
-      "South Africa's small and medium businesses (SMBs) are experiencing a notable surge in artificial intelligence adoption.",
+      "South Africa's small and medium businesses (SMEs) are experiencing a notable surge in artificial intelligence adoption.",
     category: "AI Adoption",
     categorySlug: "ai-adoption",
     date: "January 3, 2025",

@@ -21,21 +21,21 @@ export function About() {
               className="text-5xl font-bold leading-tight md:text-6xl lg:text-[68px]"
               variants={fadeUpVariants}
             >
-              <span className="font-thin text-gray-400">About</span> Us
+              <span className="font-thin text-gray-400">Trusted AI &</span> Automation Experts
             </motion.h2>
 
             <motion.p 
-              className="text-lg leading-relaxed text-black/50"
+              className="text-lg leading-relaxed text-black/80"
               variants={fadeUpVariants}
             >
-              At our design studio, we are a collective of talented individuals ignited by our unwavering passion for transforming ideas into reality. With a harmonious blend of diverse backgrounds and a vast array of skill sets, we join forces to create compelling solutions for our esteemed clients.
+              Established in 2002, MaruOnline has a wealth of experience and expertise in several marketing disciplines. What we bring to AI Solutions Development is rooted in the experience we have; from creating brands from scratch, to growing existing ones.
             </motion.p>
 
             <motion.p 
-              className="text-lg leading-relaxed text-black/50"
+              className="text-lg leading-relaxed text-black/80"
               variants={fadeUpVariants}
             >
-              Collaboration is at the heart of what we do. Our team thrives on the synergy that arises when unique perspectives converge, fostering an environment of boundless creativity. By harnessing our collective expertise, we produce extraordinary results that consistently surpass expectations.
+              AI to us is a tool to better do what we do best—help SME brands and businesses to compete effectively in a crowded marketplace. By leveraging intelligent automation, we level the playing field, giving you the operational power of a large enterprise without the overhead. We turn technology into your competitive advantage.
             </motion.p>
 
             {/* Quote Block */}
@@ -52,9 +52,12 @@ export function About() {
                 />
               </div>
               <div>
-                <h6 className="text-lg font-medium leading-snug">
-                  AI First Approach <span className="font-thin">- Optimizing Processes,</span> Driving Growth.
+                <h6 className="text-lg font-medium leading-snug mb-2">
+                  "We automate all the boring stuff, so you can focus on growing your business"
                 </h6>
+                <p className="text-sm text-black/60 font-medium">
+                  Founder - Jimmy Motsei
+                </p>
               </div>
             </motion.div>
           </div>
@@ -67,8 +70,8 @@ export function About() {
               variants={scaleInVariants}
             >
               <Image
-                src="/assets/images/illustrations/cityscapes.png"
-                alt="Maru AI Cityscape"
+                src="/assets/images/illustrations/visionary-woman.png"
+                alt="Visionary African Woman - AI & Automation Leadership"
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />

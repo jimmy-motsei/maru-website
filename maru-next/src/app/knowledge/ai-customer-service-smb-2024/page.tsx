@@ -8,7 +8,7 @@ import { CategorySidebar } from "@/components/ui/CategorySidebar";
 const breadcrumbs = [
   { label: "Home", href: "/" },
   { label: "Knowledge", href: "/knowledge" },
-  { label: "AI Chatbots for SMBs", href: "/knowledge/ai-customer-service-smb-2024" },
+  { label: "AI Chatbots for SMEs", href: "/knowledge/ai-customer-service-smb-2024" },
 ];
 
 export default function AICustomerServiceArticle() {
@@ -54,7 +54,7 @@ export default function AICustomerServiceArticle() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 max-w-4xl"
           >
-            24/7 Customer Support Without the Cost: AI Chatbots for SMBs
+            24/7 Customer Support Without the Cost: AI Chatbots for SMEs
           </motion.h1>
 
           <motion.p
@@ -63,7 +63,7 @@ export default function AICustomerServiceArticle() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-white/60 text-lg max-w-2xl mb-6"
           >
-            35% of AI deployments among SMBs are customer service bots, delivering 20-40% cost savings.
+            35% of AI deployments among SMEs are customer service bots, delivering 20-40% cost savings.
           </motion.p>
 
           <motion.div
@@ -109,7 +109,7 @@ export default function AICustomerServiceArticle() {
                   AI-powered chatbots have become the most popular AI deployment for small and medium businesses, comprising 35% of all AI agent implementations. These virtual assistants offer 24/7 customer support, handle routine inquiries, and improve response times—all while significantly reducing operational costs.
                 </p>
                 <p className="text-dark/70 mb-8 leading-relaxed">
-                  For South African SMBs, chatbots represent one of the most accessible and impactful entry points into AI adoption. With platforms like WhatsApp being the dominant communication channel for customers, AI-powered WhatsApp bots are particularly relevant for the local market.
+                  For South African SMEs, chatbots represent one of the most accessible and impactful entry points into AI adoption. With platforms like WhatsApp being the dominant communication channel for customers, AI-powered WhatsApp bots are particularly relevant for the local market.
                 </p>
 
                 <h3 className="text-xl font-bold text-dark mb-4">Key Benefits</h3>
@@ -154,7 +154,7 @@ export default function AICustomerServiceArticle() {
 
                 <h3 className="text-xl font-bold text-dark mb-4">Getting Started</h3>
                 <p className="text-dark/70 mb-6 leading-relaxed">
-                  For South African SMBs, WhatsApp chatbots offer the best starting point given WhatsApp's dominance as a customer communication channel. Modern AI chatbot platforms start from R3,000-8,000 per month, making them accessible for businesses of most sizes.
+                  For South African SMEs, WhatsApp chatbots offer the best starting point given WhatsApp's dominance as a customer communication channel. Modern AI chatbot platforms start from R3,000-8,000 per month, making them accessible for businesses of most sizes.
                 </p>
                 <p className="text-dark/70 mb-8 leading-relaxed">
                   Key success factors include starting with a focused use case (like FAQ responses or appointment booking), ensuring smooth human handoff for complex queries, and continuously training the bot based on customer interactions.

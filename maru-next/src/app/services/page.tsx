@@ -242,9 +242,9 @@ export default function ServicesPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-5xl md:text-6xl lg:text-8xl font-bold text-muted mb-16"
           >
-            This is <span className="font-light">what</span>
+            AI & <span className="font-light">Automation</span>
             <br />
-            we do <span className="font-light">best</span>
+            Services
           </motion.h1>
 
           {/* Scroll indicator */}
@@ -359,11 +359,10 @@ export default function ServicesPage() {
                 Get Started Today
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" style={{ color: '#000000' }}>
-                Book a <span className="font-light">Discovery</span> Call
+                AI & Automation Will <span className="font-light">Unlock Growth.</span> Find Out How.
               </h2>
               <p className="text-dark/60 max-w-2xl mx-auto">
-                Schedule a complimentary 15-minute discovery call to discuss your business challenges 
-                and explore how AI automation can transform your operations.
+                With our free AI Readiness Assessment, we'll show you exactly how AI and automation can be deployed successfully in your business—with clear ROI projections and a roadmap tailored to your needs.
               </p>
             </motion.div>
 
@@ -551,8 +550,8 @@ export default function ServicesPage() {
             >
               {[
                 {
-                  q: "How do engagements start?",
-                  a: "We begin with a short discovery to define use-cases and value. Then we launch a small pilot — most take 2–4 weeks.",
+                  q: "How do projects get started?",
+                  a: "Every engagement begins with a free AI Readiness Assessment. Our consultants review your current processes and identify high-impact automation opportunities. Then we provide a detailed roadmap with ROI projections. Most pilot projects take 2–4 weeks to deliver initial results.",
                 },
                 {
                   q: "Is our data safe?",

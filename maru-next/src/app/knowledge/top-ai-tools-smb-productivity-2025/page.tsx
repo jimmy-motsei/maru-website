@@ -137,7 +137,7 @@ export default function TopAIToolsArticle() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 max-w-4xl"
           >
-            10 AI Tools Every South African SMB Should Know in 2025
+            10 AI Tools Every South African SME Should Know in 2025
           </motion.h1>
 
           <motion.p
@@ -200,7 +200,7 @@ export default function TopAIToolsArticle() {
                   AI tools have become increasingly accessible for small and medium businesses, with most solutions available at R0-R500/month. These tools can save your team 20+ hours monthly through automation of routine tasks, content generation, and improved decision-making.
                 </p>
                 <p className="text-dark/70 mb-8 leading-relaxed">
-                  Here are the 10 AI tools that offer the best value and practicality for South African SMBs in 2025:
+                  Here are the 10 AI tools that offer the best value and practicality for South African SMEs in 2025:
                 </p>
 
                 <div className="space-y-6 mb-8">

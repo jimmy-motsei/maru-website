@@ -86,14 +86,14 @@ export default function WhatsAppSolutionsPage() {
                   <br />
                   and <span className="font-light">Work Specifics</span>
                 </h2>
-                <p className="text-dark/60 mb-8 leading-relaxed">
+                <p className="text-dark/80 mb-8 leading-relaxed">
                   We design conversational experiences that feel human while leveraging AI to scale. Our WhatsApp solutions integrate with your existing systems to create seamless customer journeys from first contact to conversion.
                 </p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 text-dark hover:text-accent transition-colors group"
                 >
-                  <span className="font-medium">Book a discovery call</span>
+                  <span className="font-medium">Get Your Free AI Readiness Assessment</span>
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>

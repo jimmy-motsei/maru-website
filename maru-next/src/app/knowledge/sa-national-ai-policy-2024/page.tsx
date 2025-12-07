@@ -54,7 +54,7 @@ export default function SANationalAIPolicyArticle() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 max-w-4xl"
           >
-            South Africa's National AI Policy Framework: What SMBs Need to Know
+            South Africa's National AI Policy Framework: What SMEs Need to Know
           </motion.h1>
 
           <motion.p
@@ -162,7 +162,7 @@ export default function SANationalAIPolicyArticle() {
 
                 <h3 className="text-xl font-bold text-dark mb-4">SA SME Action Items</h3>
                 <p className="text-dark/70 mb-6 leading-relaxed">
-                  South African SMBs should start preparing now for formal AI regulation. Key steps include developing internal ethical AI guidelines, auditing existing AI systems for bias and compliance, and implementing strong data governance policies that align with POPIA requirements.
+                  South African SMEs should start preparing now for formal AI regulation. Key steps include developing internal ethical AI guidelines, auditing existing AI systems for bias and compliance, and implementing strong data governance policies that align with POPIA requirements.
                 </p>
                 <p className="text-dark/70 mb-8 leading-relaxed">
                   The policy framework creates opportunities as well—businesses that demonstrate responsible AI practices will be better positioned to access government support programs and attract investment as the ecosystem develops.

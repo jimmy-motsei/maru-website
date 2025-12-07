@@ -45,7 +45,7 @@ export default function KnowledgePage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-white/60 text-lg max-w-2xl mb-12"
           >
-            Insights, analysis, and developments in AI for South African SMBs
+            Insights, analysis, and developments in AI for South African SMEs
           </motion.p>
 
           <motion.a

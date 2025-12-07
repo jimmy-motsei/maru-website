@@ -63,7 +63,7 @@ export default function GenAIAdoptionArticle() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-white/60 text-lg max-w-2xl mb-6"
           >
-            58% of SMBs now use generative AI—up from 40% in 2024. The competitive advantage of early adoption has never been clearer.
+            58% of SMEs now use generative AI—up from 40% in 2024. The competitive advantage of early adoption has never been clearer.
           </motion.p>
 
           <motion.div
@@ -95,7 +95,7 @@ export default function GenAIAdoptionArticle() {
               rel="noopener noreferrer"
               className="text-accent hover:text-white transition-colors"
             >
-              SMB Group*
+              SME Group*
             </a>
           </motion.div>
         </div>
@@ -114,10 +114,10 @@ export default function GenAIAdoptionArticle() {
               >
                 <h2 className="text-2xl font-bold text-dark mb-6">Summary</h2>
                 <p className="text-dark/70 mb-6 leading-relaxed">
-                  The adoption of generative AI among small and medium-sized businesses has accelerated dramatically in 2025, with approximately 58% of SMBs now using the technology—nearly double the rate from 2023. This surge reflects a fundamental shift in how smaller businesses approach technology adoption and compete in an increasingly AI-driven marketplace.
+                  The adoption of generative AI among small and medium-sized businesses has accelerated dramatically in 2025, with approximately 58% of SMEs now using the technology—nearly double the rate from 2023. This surge reflects a fundamental shift in how smaller businesses approach technology adoption and compete in an increasingly AI-driven marketplace.
                 </p>
                 <p className="text-dark/70 mb-8 leading-relaxed">
-                  According to recent studies, 91% of AI-using SMBs report revenue increases, with an average 34% boost to their bottom line. Beyond revenue, businesses are saving 20+ hours per month through automation—time that can be redirected to strategic growth initiatives.
+                  According to recent studies, 91% of AI-using SMEs report revenue increases, with an average 34% boost to their bottom line. Beyond revenue, businesses are saving 20+ hours per month through automation—time that can be redirected to strategic growth initiatives.
                 </p>
 
                 <h3 className="text-xl font-bold text-dark mb-4">Key Statistics</h3>
@@ -136,7 +136,7 @@ export default function GenAIAdoptionArticle() {
                     <div>
                       <strong className="text-dark">91% Revenue Increase:</strong>{" "}
                       <span className="text-dark/70">
-                        The vast majority of SMBs using AI report measurable revenue improvements.
+                        The vast majority of SMEs using AI report measurable revenue improvements.
                       </span>
                     </div>
                   </li>
@@ -170,7 +170,7 @@ export default function GenAIAdoptionArticle() {
 
                 <div className="border-t border-dark/10 pt-8 mt-8">
                   <p className="text-dark/60 text-sm mb-2">
-                    <strong>Sources:</strong> Salesforce SMB Report 2024, US Chamber of Commerce, SMB Group Survey 2025
+                    <strong>Sources:</strong> Salesforce SME Report 2024, US Chamber of Commerce, SME Group Survey 2025
                   </p>
                   <p className="text-dark/50 text-sm italic">
                     This article provides analysis based on publicly available research and industry reports.

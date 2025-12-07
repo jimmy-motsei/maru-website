@@ -9,30 +9,30 @@ import { Dodecahedron } from "@/components/ui/Dodecahedron";
 const services = [
   {
     id: "01",
-    title: "Lead",
-    titleLine2: "Generation",
-    description: "Transform your pipeline with intelligent lead scoring that identifies high-value prospects, so your sales team focuses only on leads ready to convert.",
+    title: "AI-Powered",
+    titleLine2: "Lead Generation",
+    description: "Transform your CRM from a simple contact manager into a powerhouse of sales opportunities. Our AI-powered lead scoring and qualification systems help your team focus on high-value prospects.",
     link: "/services/lead-generation",
   },
   {
     id: "02",
-    title: "Sales",
-    titleLine2: "Systems",
-    description: "Automate your CRM workflows and unlock conversation intelligence that helps close deals faster while reducing manual data entry by up to 80%.",
+    title: "Sales &",
+    titleLine2: "Marketing Automation",
+    description: "Salespeople spend only 33% of their time actually selling. Maximize your team's potential with AI-powered automation that eliminates time-consuming tasks and frees them to close more deals.",
     link: "/services/sales-systems",
   },
   {
     id: "03",
-    title: "Office Ops",
-    titleLine2: "Automation",
-    description: "Streamline document processing and automate repetitive workflows, freeing your team to focus on strategic work that drives real business growth.",
+    title: "Process Automation",
+    titleLine2: "& Integration",
+    description: "Don't let your technology become a barrier to growth. We optimize your software stack to ensure seamless integration and automation, eliminating manual data entry and streamlining workflows.",
     link: "/services/office-automation",
   },
   {
     id: "04",
-    title: "WhatsApp",
-    titleLine2: "Solutions",
-    description: "Engage customers 24/7 with intelligent chatbots that deliver personalized messaging at scale, turning conversations into conversions around the clock.",
+    title: "AI-Powered",
+    titleLine2: "Customer Engagement",
+    description: "Engage customers 24/7 with intelligent WhatsApp chatbots that deliver personalized messaging at scale. Automate customer support and lead qualification while maintaining a human touch.",
     link: "/services/whatsapp-solutions",
   },
 ];
@@ -82,9 +82,9 @@ export function Services() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col items-center justify-center gap-4 mb-16">
+        <div className="flex flex-col items-center justify-center gap-4 mb-24">
           {/* Sub-headline with line - Ashley theme style */}
-          <div className="w-full relative mb-4">
+          <div className="w-full relative mb-12">
             {/* First line with horizontal line inline */}
             <div className="flex items-center justify-end">
               <motion.span 
@@ -94,21 +94,21 @@ export function Services() {
                 viewport={{ once: true }}
                 variants={fadeUpVariants}
               >
-                Configure your marketing assets into an
+                Transform your business with AI & automation
               </motion.span>
               {/* Horizontal line - 397px, inline with first line */}
               <div className="hidden lg:block h-[1px] bg-white/20 ml-4" style={{ width: '397px' }} />
             </div>
             {/* Second line - right aligned below */}
             <p className="text-white/40 text-sm text-right">
-              AI powered growth engine.
+              to drive growth and efficiency.
             </p>
           </div>
 
 
           {/* Row 1: Image Pill + Text */}
           <motion.div 
-            className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6"
+            className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mb-6"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -123,26 +123,26 @@ export function Services() {
               />
             </div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-              Custom <span className="font-light text-white/60">AI Solutions</span>
+              AI-Powered <span className="font-light text-white/60">Solutions</span>
             </h2>
           </motion.div>
 
           {/* Row 2: Text + Button Pill */}
           <motion.div 
-            className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6"
+            className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-              to drive <span className="font-light text-white/60">efficiencies.</span>
+              to drive <span className="font-light text-white/60">Growth & Efficiency</span>
             </h2>
             <Link 
               href="/services" 
               className="group bg-accent hover:bg-accent-dark text-black font-bold rounded-full pl-6 pr-2 py-2 flex items-center gap-3 transition-all duration-300 mt-2 md:mt-0"
             >
-              <span className="text-xs tracking-widest uppercase">What We Do</span>
+              <span className="text-xs tracking-widest uppercase">Our Services</span>
               <span className="bg-black text-white rounded-full p-2.5 group-hover:bg-white group-hover:text-black transition-colors">
                 <ArrowRight size={14} />
               </span>

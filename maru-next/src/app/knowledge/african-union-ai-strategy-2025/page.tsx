@@ -157,7 +157,7 @@ export default function AfricanUnionAIStrategyArticle() {
                   South African businesses developing AI solutions are well-positioned to expand across the continent as the strategy creates more harmonized regulatory environments. The AfCFTA (African Continental Free Trade Area) combined with aligned AI policies reduces barriers to offering AI services in other African markets.
                 </p>
                 <p className="text-dark/70 mb-8 leading-relaxed">
-                  The strategy's emphasis on "AI made in Africa" also creates opportunities for local SMBs to develop solutions tailored to African contexts—addressing challenges in agriculture, healthcare, finance, and energy that global AI solutions may not fully address.
+                  The strategy's emphasis on "AI made in Africa" also creates opportunities for local SMEs to develop solutions tailored to African contexts—addressing challenges in agriculture, healthcare, finance, and energy that global AI solutions may not fully address.
                 </p>
 
                 <div className="border-t border-dark/10 pt-8 mt-8">

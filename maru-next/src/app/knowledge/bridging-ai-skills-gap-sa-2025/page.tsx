@@ -55,7 +55,7 @@ export default function BridgingAISkillsGapArticle() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 max-w-4xl"
           >
-            Closing the AI Skills Gap: Training Strategies for SA SMBs
+            Closing the AI Skills Gap: Training Strategies for SA SMEs
           </motion.h1>
 
           <motion.p
@@ -64,7 +64,7 @@ export default function BridgingAISkillsGapArticle() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-white/60 text-lg max-w-2xl mb-6"
           >
-            46% of businesses cite skills gaps as their top AI adoption barrier. Here are practical training strategies for South African SMBs.
+            46% of businesses cite skills gaps as their top AI adoption barrier. Here are practical training strategies for South African SMEs.
           </motion.p>
 
           <motion.div
@@ -115,7 +115,7 @@ export default function BridgingAISkillsGapArticle() {
               >
                 <h2 className="text-2xl font-bold text-dark mb-6">Summary</h2>
                 <p className="text-dark/70 mb-6 leading-relaxed">
-                  The AI skills gap is the number one barrier to adoption for SMBs globally, with 46% of business leaders identifying it as their primary challenge. For South African businesses, this is compounded by a broader digital skills shortage and limited access to specialized training programs.
+                  The AI skills gap is the number one barrier to adoption for SMEs globally, with 46% of business leaders identifying it as their primary challenge. For South African businesses, this is compounded by a broader digital skills shortage and limited access to specialized training programs.
                 </p>
                 <p className="text-dark/70 mb-8 leading-relaxed">
                   However, in-house upskilling is often more cost-effective than hiring AI specialists—and with the right approach, any team can develop practical AI capabilities that drive real business value.
@@ -189,7 +189,7 @@ export default function BridgingAISkillsGapArticle() {
                 <div className="bg-accent/10 rounded-lg p-6 mb-8">
                   <h4 className="font-bold text-dark mb-2">Need Help Upskilling Your Team?</h4>
                   <p className="text-dark/70 text-sm mb-4">
-                    Our AI Mastery Workshops provide hands-on training designed specifically for South African SMBs—from AI fundamentals to advanced implementation strategies.
+                    Our AI Mastery Workshops provide hands-on training designed specifically for South African SMEs—from AI fundamentals to advanced implementation strategies.
                   </p>
                   <Link
                     href="/contact"

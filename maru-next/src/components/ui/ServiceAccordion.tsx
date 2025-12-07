@@ -63,7 +63,7 @@ export function ServiceAccordion({ items }: ServiceAccordionProps) {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <p className="pb-6 text-dark/60 leading-relaxed">
+                <p className="pb-6 text-dark/80 leading-relaxed">
                   {item.content}
                 </p>
               </motion.div>

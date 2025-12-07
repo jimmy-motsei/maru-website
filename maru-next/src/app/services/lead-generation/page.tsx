@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Database, Bot, Zap, TrendingUp } from "lucide-react";
 import { ServiceHero } from "@/components/sections/ServiceHero";
+import { ServiceWorkflow } from "@/components/services/ServiceWorkflow";
 import { ServiceAccordion } from "@/components/ui/ServiceAccordion";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { OtherServices } from "@/components/sections/OtherServices";
@@ -66,7 +67,7 @@ export default function LeadGenerationPage() {
         breadcrumbs={breadcrumbs}
         titleBold="Lead Generation"
         titleLight="Automation"
-        subtitle="Transform your pipeline with intelligent lead scoring that identifies high-value prospects, so your sales team focuses only on leads ready to convert."
+        subtitle="Transform your CRM from a simple contact manager into a powerhouse of sales opportunities. Our AI-powered lead scoring and qualification systems help your team focus on high-value prospects."
       />
 
       {/* Service Details Section */}
@@ -86,14 +87,14 @@ export default function LeadGenerationPage() {
                   <br />
                   and <span className="font-light">Work Specifics</span>
                 </h2>
-                <p className="text-dark/60 mb-8 leading-relaxed">
+                <p className="text-dark/80 mb-8 leading-relaxed">
                   We take a data-driven approach to lead generation, combining AI intelligence with proven marketing strategies. Our systems learn from every interaction to continuously improve your pipeline quality and conversion rates.
                 </p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 text-dark hover:text-accent transition-colors group"
                 >
-                  <span className="font-medium">Book a discovery call</span>
+                  <span className="font-medium">Get Your Free AI Readiness Assessment</span>
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>
@@ -103,6 +104,39 @@ export default function LeadGenerationPage() {
             <div className="lg:col-span-8">
               <ServiceAccordion items={accordionItems} />
             </div>
+          </div>
+
+          {/* Workflow Diagram */}
+          <div className="mt-12 border-t border-gray-200/60 pt-12">
+            <h3 className="text-2xl font-bold text-center mb-8">How It Works</h3>
+            <ServiceWorkflow 
+              steps={[
+                {
+                  id: "step-1",
+                  title: "Data Aggregation",
+                  description: "We connect your data sources (Webforms, Social, Email) into a centralized hub.",
+                  icon: Database,
+                },
+                {
+                  id: "step-2",
+                  title: "AI Enrichment",
+                  description: "Our AI enriches raw leads with company data and behavioral insights.",
+                  icon: Bot,
+                },
+                {
+                  id: "step-3",
+                  title: "Smart Scoring",
+                  description: "Leads are ranked by intent. Hot leads are flagged instantly.",
+                  icon: Zap,
+                },
+                {
+                  id: "step-4",
+                  title: "Sales Handoff",
+                  description: "Qualified opportunities sync to your CRM and alert your sales team.",
+                  icon: TrendingUp,
+                },
+              ]} 
+            />
           </div>
         </div>
       </section>

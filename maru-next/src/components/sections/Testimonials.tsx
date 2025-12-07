@@ -8,45 +8,31 @@ import Image from "next/image";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Newman",
-    company: "Envato Market",
+    name: "Sarah Nkosi",
+    company: "Swift Logistics",
     image: "/images/testimonials/avatar-1.jpg",
-    quote: "This creative agency stands out with their exceptional talent and expertise. Their ability to think outside the box and bring unique ideas to life is truly impressive. With meticulous attention to detail, they consistently deliver visually stunning and impactful work."
+    quote: "The chaotic paperwork in our logistics business was overwhelming. Maru implemented an automated workflow that handles invoices and dispatch notices automatically. It's like having an extra full-time employee."
   },
   {
     id: 2,
-    name: "Michael Chen",
-    company: "Tech Solutions Inc",
+    name: "David Meyer",
+    company: "Pinnacle Properties",
     image: "/images/testimonials/avatar-2.jpg",
-    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+    quote: "We didn't realize how many opportunities we were missing until Maru audited our sales pipeline. The automated follow-up system they built has increased our conversion rate by 25% in just two months."
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    company: "StartUp Ventures",
+    name: "James Peterson",
+    company: "TechFlow Solutions",
     image: "/images/testimonials/avatar-3.jpg",
-    quote: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
+    quote: "MaruOnline completely transformed our lead process. We went from manually sorting emails to having qualified leads delivered directly to our CRM. Our sales team is 3x more productive."
   },
   {
     id: 4,
-    name: "David Kim",
-    company: "Innovation Labs",
+    name: "Elena Rodriguez",
+    company: "Urban Retail Group",
     image: "/images/testimonials/avatar-4.jpg",
-    quote: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-  },
-  {
-    id: 5,
-    name: "Jessica Taylor",
-    company: "Digital Agency",
-    image: "/images/testimonials/avatar-5.jpg",
-    quote: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
-  },
-  {
-    id: 6,
-    name: "Alex Johnson",
-    company: "Growth Partners",
-    image: "/images/testimonials/avatar-6.jpg",
-    quote: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
+    quote: "Customer support was our biggest bottleneck. The WhatsApp bot Maru built for us now handles 80% of common queries instantly, and our customers love the 24/7 response time."
   },
 ];
 
@@ -74,9 +60,9 @@ export function Testimonials() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            Customer <span className="font-light">Voices:</span>
+            Proven Results <span className="font-light">from</span>
             <br />
-            Hear What <span className="font-light">They Say!</span>
+            Real <span className="font-light">SMEs</span>
           </h2>
         </motion.div>
 
@@ -121,7 +107,7 @@ export function Testimonials() {
           <h4 className="text-xl font-bold mb-1">
             {activeTestimonial.name}
           </h4>
-          <p className="text-sm text-gray-500 uppercase tracking-wider mb-8">
+          <p className="text-sm text-gray-700 uppercase tracking-wider mb-8">
             {activeTestimonial.company}
           </p>
 
@@ -129,7 +115,7 @@ export function Testimonials() {
           <AnimatePresence mode="wait">
             <motion.p
               key={activeTestimonial.id}
-              className="text-lg text-gray-600 leading-relaxed"
+              className="text-lg text-gray-800 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}

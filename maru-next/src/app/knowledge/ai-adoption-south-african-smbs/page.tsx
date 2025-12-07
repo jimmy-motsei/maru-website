@@ -84,10 +84,10 @@ export default function AIAdoptionArticle() {
               >
                 <h2 className="text-2xl font-bold text-dark mb-6">Summary</h2>
                 <p className="text-dark/70 mb-6 leading-relaxed">
-                  South Africa's small and medium businesses (SMBs) are experiencing a notable surge in artificial intelligence adoption, driven by the need to improve operational efficiency, enhance customer experiences, and maintain competitive positioning in an increasingly digital economy.
+                  South Africa's small and medium businesses (SMEs) are experiencing a notable surge in artificial intelligence adoption, driven by the need to improve operational efficiency, enhance customer experiences, and maintain competitive positioning in an increasingly digital economy.
                 </p>
                 <p className="text-dark/70 mb-8 leading-relaxed">
-                  The adoption patterns show SMBs leveraging AI across various business functions, including customer service, marketing, operations management, and data analytics. This widespread implementation demonstrates the accessibility and practical value of AI solutions for businesses of all sizes in the South African market.
+                  The adoption patterns show SMEs leveraging AI across various business functions, including customer service, marketing, operations management, and data analytics. This widespread implementation demonstrates the accessibility and practical value of AI solutions for businesses of all sizes in the South African market.
                 </p>
 
                 <h3 className="text-xl font-bold text-dark mb-4">Key Takeaways</h3>
@@ -97,7 +97,7 @@ export default function AIAdoptionArticle() {
                     <div>
                       <strong className="text-dark">Rapid Adoption Trend:</strong>{" "}
                       <span className="text-dark/70">
-                        South African SMBs are quickly adopting AI technologies, indicating a shift toward digital-first business models and competitive strategies.
+                        South African SMEs are quickly adopting AI technologies, indicating a shift toward digital-first business models and competitive strategies.
                       </span>
                     </div>
                   </li>
