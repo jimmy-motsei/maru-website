@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowDown, LucideIcon } from "lucide-react";
-import { Dodecahedron } from "@/components/ui/Dodecahedron";
+import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 
 interface Breadcrumb {
   label: string;
@@ -28,9 +28,7 @@ export function ServiceHero({
   return (
     <section className="bg-dark relative min-h-[70vh] flex items-center overflow-hidden">
       {/* Animated Background Element */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-30 pointer-events-none scale-150">
-        <Dodecahedron />
-      </div>
+      <AtmosphericBackground variant="sidebar" />
 
       <div className="container mx-auto px-6 lg:px-8 py-24 lg:py-32 relative z-10">
         {/* Breadcrumbs */}

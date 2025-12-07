@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import { Dodecahedron } from "@/components/ui/Dodecahedron";
+import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { ArticleCard } from "@/components/ui/ArticleCard";
 import { CategorySidebar } from "@/components/ui/CategorySidebar";
 import { articles } from "@/data/articles";
@@ -24,9 +24,7 @@ export default function KnowledgePage() {
       {/* Hero Section */}
       <section className="bg-dark relative min-h-[60vh] flex items-center overflow-hidden">
         {/* Animated Background */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-20 pointer-events-none scale-125">
-          <Dodecahedron />
-        </div>
+        <AtmosphericBackground variant="sidebar" />
 
         <div className="container mx-auto px-6 lg:px-8 py-24 lg:py-32 relative z-10">
           <motion.h1

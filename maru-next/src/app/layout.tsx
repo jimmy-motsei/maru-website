@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 
 import { Header } from "@/components/layout/Header";
 import { FooterCTA } from "@/components/layout/FooterCTA";
+import { PageFrame } from "@/components/layout/PageFrame";
 
 // HubSpot Portal ID
 const HUBSPOT_PORTAL_ID = "146669350";
@@ -32,6 +33,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Header />
+        <PageFrame />
         {children}
         <FooterCTA />
         

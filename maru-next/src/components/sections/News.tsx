@@ -34,13 +34,13 @@ export function News() {
         {/* Header */}
         <div className="flex flex-col md:flex-row items-end md:items-center justify-between mb-16 gap-6">
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-            initial="hidden"
-            whileInView="visible"
+            className="text-4xl md:text-5xl font-bold text-black mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            variants={fadeUpVariants}
+            transition={{ duration: 0.6 }}
           >
-            Trending in AI
+            Case studies, articles, and resources
           </motion.h2>
 
           <motion.div

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Phone, Mail, Clock } from "lucide-react";
-import { Dodecahedron } from "@/components/ui/Dodecahedron";
+import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -53,9 +53,7 @@ export default function ContactPage() {
     <main>
       {/* Hero Banner */}
       <section className="bg-dark relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-20 pointer-events-none">
-          <Dodecahedron />
-        </div>
+        <AtmosphericBackground variant="sidebar" />
 
         <div className="container mx-auto px-6 lg:px-8 py-24 relative z-10 text-center">
           <motion.nav

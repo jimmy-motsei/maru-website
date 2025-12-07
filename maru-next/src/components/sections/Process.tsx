@@ -82,8 +82,21 @@ export function Process() {
 
 
 
+        {/* Why Choose Us Header */}
+        <div className="max-w-4xl mx-auto text-center mt-32 mb-16">
+          <motion.h2
+            className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 text-[var(--color-accent)]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUpVariants}
+          >
+            Why Choose Us?
+          </motion.h2>
+        </div>
+
         {/* Footer Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <motion.div 
             className="flex flex-col gap-6 bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300 h-full"
             initial="hidden"

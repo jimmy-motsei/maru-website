@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Dodecahedron } from "@/components/ui/Dodecahedron";
+import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { CategorySidebar } from "@/components/ui/CategorySidebar";
 
 const breadcrumbs = [
@@ -17,9 +17,7 @@ export default function BridgingAISkillsGapArticle() {
     <main>
       {/* Hero Banner */}
       <section className="bg-dark relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-20 pointer-events-none">
-          <Dodecahedron />
-        </div>
+        <AtmosphericBackground variant="sidebar" />
 
         <div className="container mx-auto px-6 lg:px-8 py-16 relative z-10">
           <motion.nav

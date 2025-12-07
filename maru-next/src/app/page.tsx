@@ -6,6 +6,7 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { AIReadinessTeaser } from "@/components/sections/AIReadinessTeaser";
 import { News } from "@/components/sections/News";
 import { Partners } from "@/components/sections/Partners";
+import { TechConnect } from "@/components/sections/TechConnect";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Process />
       <Testimonials />
       <Partners />
+      <TechConnect />
       <AIReadinessTeaser />
       <News />
     </main>

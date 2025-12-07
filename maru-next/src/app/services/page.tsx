@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Script from "next/script";
 import { ArrowRight, ArrowDown, Target, TrendingUp, Cog, MessageCircle, Search, Map, PenTool, Hammer, FlaskConical, Rocket, GraduationCap, LineChart } from "lucide-react";
-import { Dodecahedron } from "@/components/ui/Dodecahedron";
+import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { DecorativeLines } from "@/components/ui/DecorativeLines";
 
 const services = [
@@ -197,21 +197,10 @@ const lineVariants = {
 export default function ServicesPage() {
   return (
     <main className="bg-dark">
-      {/* Hero Banner - Dark with Dodecahedron */}
+      {/* Hero Banner - Dark with Atmospheric Background */}
       <section className="relative min-h-[80vh] flex items-end pb-24 overflow-hidden">
-        {/* Background Dodecahedron - Centered, scaled up */}
-        <div
-          className="absolute pointer-events-none opacity-10"
-          style={{
-            top: "20%",
-            left: "30%",
-            width: "800px",
-            height: "800px",
-            transform: "scale(1.5)",
-          }}
-        >
-          <Dodecahedron />
-        </div>
+        {/* Background Atmosphere */}
+        <AtmosphericBackground variant="hero" />
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
           {/* Breadcrumbs */}

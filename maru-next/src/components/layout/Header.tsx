@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/config/site";
 import { X } from "lucide-react";
-import { Dodecahedron } from "@/components/ui/Dodecahedron";
+import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 
 // Menu items structure
 const menuItems = {
@@ -123,17 +123,8 @@ export function Header() {
             {/* Overlay Content */}
             <div className="container mx-auto px-6 lg:px-12 min-h-[calc(100vh-100px)] flex flex-col justify-center pb-12 relative">
               
-              {/* Spinning Prism Decoration - Positioned to match theme */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.4 }}
-                transition={{ delay: 0.5, duration: 1 }}
-                className="absolute top-0 right-[15%] hidden lg:block pointer-events-none z-0"
-              >
-                  <div className="scale-150">
-                    <Dodecahedron />
-                  </div>
-              </motion.div>
+              {/* Cloud Network Background - New Maru Aesthetic */}
+              <AtmosphericBackground variant="overlay" className="z-0" />
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 relative z-10">
                 
