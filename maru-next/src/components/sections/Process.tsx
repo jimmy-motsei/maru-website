@@ -1,33 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ClipboardCheck, FileText, Settings, GraduationCap } from "lucide-react";
+import { ArrowRight, ClipboardCheck, Map, Settings, GraduationCap } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { IsometricProcess } from "./IsometricProcess";
 
 const steps = [
   {
     number: "01",
-    title: "Free AI Readiness Assessment",
-    description: "Our consultants review your current processes, identifying areas ripe for AI & automation that can boost productivity and cut costs.",
+    title: "Step 1 – Free Process Health Check",
+    description: "Our consultants meticulously review your current processes, identifying areas ripe for AI & automation that can boost productivity and cut costs.",
     icon: ClipboardCheck,
+    color: "bg-cyan-500",
   },
   {
     number: "02",
-    title: "Customized AI & Automation Plan",
-    description: "We provide a tailored automation roadmap with clear ROI projections at every step. You'll know exactly what to expect before you invest.",
-    icon: FileText,
+    title: "Step 2 – Personalised AI & Automation Roadmap",
+    description: "We provide a tailored automation roadmap, with our recommended AI automation plan ready to implement. We calculate the time and cost savings at every step.",
+    icon: Map,
+    color: "bg-purple-500",
   },
   {
     number: "03",
-    title: "Expert Implementation & Testing",
-    description: "Our automation engineers build custom workflows, integrate your tech stack, and rigorously test every automation for flawless operation.",
+    title: "Step 3 – Implementation, Setup & Testing",
+    description: "Once our automation engineers have the scope from the roadmap, they'll get busy automating your tasks and integrating your tech.",
     icon: Settings,
+    color: "bg-amber-500",
   },
   {
     number: "04",
-    title: "Training & Ongoing Support",
-    description: "Complete team training, documentation, and technical support. We ensure your team is confident and self-sufficient.",
+    title: "Step 4 – Ongoing Support & Updates",
+    description: "Need ongoing support? Consider it done. We can offer ongoing support packages to keep your automation and AI 100% optimized.",
     icon: GraduationCap,
+    color: "bg-emerald-500",
   },
 ];
 
@@ -42,28 +48,19 @@ const fadeUpVariants = {
 
 export function Process() {
   return (
-    <section id="process" className="bg-[#0a0a0a] py-24 md:py-32 relative overflow-hidden text-white border-t border-white/5">
+    <section id="process" className="bg-dark py-24 md:py-32 relative overflow-hidden text-white border-t border-white/5">
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-4xl mx-auto text-center mb-20">
-          <motion.p
-            className="text-accent text-sm font-medium mb-4 uppercase tracking-wider"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUpVariants}
-          >
-            How We Work
-          </motion.p>
+        <div className="max-w-4xl mx-auto text-center mb-12">
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-[var(--color-accent)]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            Your 4 Steps to <span className="text-white/60 font-light">Success</span>
+            Your 4-Steps to AI & Automation Success
           </motion.h2>
           <motion.p
             className="text-lg text-white/60 max-w-2xl mx-auto"
@@ -72,56 +69,96 @@ export function Process() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            Implementing AI and automation has never been easier. We handle the complexity so you can focus on the results.
+            Implementing AI and automation has never been easier with Automaly!
           </motion.p>
         </div>
 
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              className="relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/50 transition-colors group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              {/* Number */}
-              <div className="text-4xl font-bold text-white/5 mb-6 group-hover:text-accent/20 transition-colors absolute top-4 right-6 pointer-events-none">
-                {step.number}
-              </div>
-
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent group-hover:scale-110 transition-transform">
-                <step.icon size={24} />
-              </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-bold mb-4">{step.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed mb-6">
-                {step.description}
-              </p>
-            </motion.div>
-          ))}
+        {/* Isometric Workflow Visualization */}
+        <div className="mb-24 -mx-4 md:-mx-8 lg:-mx-16">
+           <IsometricProcess />
         </div>
 
-        {/* CTA */}
-        <motion.div
-          className="text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUpVariants}
-        >
-          <Link 
-            href="/ai-readiness" 
-            className="inline-flex items-center gap-3 bg-accent text-white px-8 py-4 rounded-full font-medium hover:bg-accent-dark transition-all duration-300 hover:scale-105"
+
+
+
+
+        {/* Footer Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-16">
+          <motion.div 
+            className="flex flex-col gap-6 bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300 h-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUpVariants}
           >
-            <span>Start Step 1: Free Assessment</span>
-            <ArrowRight size={20} />
-          </Link>
-        </motion.div>
+            <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] border border-[var(--color-accent)]/20">
+              <ClipboardCheck size={28} />
+            </div>
+            <div>
+              <h4 className="font-bold mb-3 text-xl text-white">Trusted AI & Automation Consultants</h4>
+              <p className="text-base text-white/70 leading-relaxed">
+                Maru is a trusted automation partner for leading cybersecurity, IT, and tech firms. We understand your goals and commit to a plan to help you reach them.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="flex flex-col gap-6 bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300 h-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            variants={fadeUpVariants}
+          >
+            <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] border border-[var(--color-accent)]/20">
+              <Map size={28} />
+            </div>
+            <div>
+              <h4 className="font-bold mb-3 text-xl text-white">Unmatched Industry Expertise</h4>
+              <p className="text-base text-white/70 leading-relaxed">
+                Our diverse team of global experts are skilled in business growth, sales, marketing, and tech. Our AI solutions are extensively researched and tested.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="flex flex-col gap-6 bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300 h-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            variants={fadeUpVariants}
+          >
+            <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] border border-[var(--color-accent)]/20">
+              <Settings size={28} />
+            </div>
+            <div>
+              <h4 className="font-bold mb-3 text-xl text-white">Control your Business Growth</h4>
+              <p className="text-base text-white/70 leading-relaxed">
+                We simplify AI & automation, making it easy for you to focus on high-value outcomes and growing your business. Take back control with Maru.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="flex flex-col gap-6 bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300 h-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            variants={fadeUpVariants}
+          >
+            <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] border border-[var(--color-accent)]/20">
+              <GraduationCap size={28} />
+            </div>
+            <div>
+              <h4 className="font-bold mb-3 text-xl text-white">Ongoing Training & Support</h4>
+              <p className="text-base text-white/70 leading-relaxed">
+                We ensure a seamless transition to an automated workflow, providing your team with complete onboarding, training, and technical support.
+              </p>
+            </div>
+          </motion.div>
+        </div>
 
       </div>
     </section>

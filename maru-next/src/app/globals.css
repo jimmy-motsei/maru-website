@@ -23,6 +23,18 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
   --breakpoint-2xl: 1400px;
+
+  /* Maru Custom Theme */
+  --color-maru-bg: #0a192f;
+  --color-maru-cyan: #00f0ff;
+  --color-maru-orange: #ff9900;
+  --color-glass-white: rgba(255, 255, 255, 0.05);
+  
+  --shadow-neon-cyan: 0 0 5px #00f0ff, 0 0 20px rgba(0, 240, 255, 0.4);
+  --shadow-neon-orange: 0 0 5px #ff9900, 0 0 20px rgba(255, 153, 0, 0.4);
+  --shadow-glass-inset: inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+  --image-grid-pattern: linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px);
 }
 
 /* Custom Animations */
