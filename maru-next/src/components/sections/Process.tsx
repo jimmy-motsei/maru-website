@@ -85,88 +85,88 @@ export function Process() {
         {/* Why Choose Us Header */}
         <div className="max-w-4xl mx-auto text-center mt-32 mb-16">
           <motion.h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 text-[var(--color-accent)]"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 text-white"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            Why Choose Us?
+            <span className="font-light text-zinc-500">Why</span> Choose Us?
           </motion.h2>
         </div>
 
         {/* Footer Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <motion.div 
-            className="flex flex-col gap-6 bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300 h-full"
+            className="flex flex-col gap-6 bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] border border-[var(--color-accent)]/20">
+            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30">
               <ClipboardCheck size={28} />
             </div>
             <div>
               <h4 className="font-bold mb-3 text-xl text-white">Trusted AI & Automation Consultants</h4>
-              <p className="text-base text-white/70 leading-relaxed">
+              <p className="text-base text-zinc-400 leading-relaxed">
                 Maru is a trusted automation partner for leading cybersecurity, IT, and tech firms. We understand your goals and commit to a plan to help you reach them.
               </p>
             </div>
           </motion.div>
 
           <motion.div 
-            className="flex flex-col gap-6 bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300 h-full"
+            className="flex flex-col gap-6 bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             variants={fadeUpVariants}
           >
-            <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] border border-[var(--color-accent)]/20">
+            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30">
               <Map size={28} />
             </div>
             <div>
               <h4 className="font-bold mb-3 text-xl text-white">Unmatched Industry Expertise</h4>
-              <p className="text-base text-white/70 leading-relaxed">
+              <p className="text-base text-zinc-400 leading-relaxed">
                 Our diverse team of global experts are skilled in business growth, sales, marketing, and tech. Our AI solutions are extensively researched and tested.
               </p>
             </div>
           </motion.div>
 
           <motion.div 
-            className="flex flex-col gap-6 bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300 h-full"
+            className="flex flex-col gap-6 bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             variants={fadeUpVariants}
           >
-            <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] border border-[var(--color-accent)]/20">
+            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30">
               <Settings size={28} />
             </div>
             <div>
               <h4 className="font-bold mb-3 text-xl text-white">Control your Business Growth</h4>
-              <p className="text-base text-white/70 leading-relaxed">
+              <p className="text-base text-zinc-400 leading-relaxed">
                 We simplify AI & automation, making it easy for you to focus on high-value outcomes and growing your business. Take back control with Maru.
               </p>
             </div>
           </motion.div>
 
           <motion.div 
-            className="flex flex-col gap-6 bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300 h-full"
+            className="flex flex-col gap-6 bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
             variants={fadeUpVariants}
           >
-            <div className="w-14 h-14 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] border border-[var(--color-accent)]/20">
+            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30">
               <GraduationCap size={28} />
             </div>
             <div>
               <h4 className="font-bold mb-3 text-xl text-white">Ongoing Training & Support</h4>
-              <p className="text-base text-white/70 leading-relaxed">
+              <p className="text-base text-zinc-400 leading-relaxed">
                 We ensure a seamless transition to an automated workflow, providing your team with complete onboarding, training, and technical support.
               </p>
             </div>

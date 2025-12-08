@@ -97,8 +97,8 @@ export function TechConnect() {
           </p>
         </div>
 
-        {/* Image Container with Floating Logos */}
-        <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl aspect-[16/9] md:aspect-[21/9] bg-gray-100">
+        {/* Image Container with Floating Logos - Card Styling */}
+        <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden border-l-4 border-l-[#22d3ee] aspect-[16/9] md:aspect-[21/9] bg-gray-100">
            {/* Background Image */}
            <Image
              src="/images/tech-setup-v2.png"

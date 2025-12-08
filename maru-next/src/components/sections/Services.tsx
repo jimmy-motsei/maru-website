@@ -8,39 +8,39 @@ export function Services() {
   const services = [
     {
       id: "01",
+      category: "CRM AUTOMATION",
       title: "Supercharged CRM with AI-Powered Automations",
-      description: "Transform your CRM from a simple customer management tool into a powerhouse of sales opportunities. With automations and AI custom solutions, your team can shift their focus to strategic revenue-focused tasks, boosting productivity and efficiency.",
-      subDescription: "We're also certified Airtable and Pipedrive Partners, so we can show you how to get the most out of Pipedrive. Use another CRM? Our automation experts are skilled in all major CRMs, including HubSpot.",
+      description: "Transform your CRM from a simple customer management tool into a powerhouse of sales opportunities. With automations and AI custom solutions, your team can shift their focus to strategic revenue-focused tasks.",
       icon: Megaphone,
-      bgClass: "bg-cyan-400/10 border-cyan-400/20",
-      hex: "#22d3ee", // Cyan 400
+      hex: "#22d3ee",
+      link: "/services/sales-systems",
     },
     {
       id: "02",
+      category: "MARKETING AUTOMATION",
       title: "Better Results with AI & Marketing Automation",
-      description: "63% of companies that do not use marketing automation cite a lack of expertise as the main reason for not using it. Don't let a lack of expertise or complex software hinder your marketing efforts and drag on your results.",
-      subDescription: "Maru's AI and automation solutions seamlessly integrate your marketing tools with your CRM and sales teams. Using AI & automation we can improve your ROI and drive better marketing results.",
+      description: "63% of companies that do not use marketing automation cite a lack of expertise as the main reason. Don't let a lack of expertise or complex software hinder your marketing efforts.",
       icon: Mountain,
-      bgClass: "bg-purple-400/10 border-purple-400/20",
-      hex: "#c084fc", // Purple 400
+      hex: "#22d3ee",
+      link: "/services/lead-generation",
     },
     {
       id: "03",
+      category: "SALES AUTOMATION",
       title: "Increase Revenue with AI & Sales Automation",
-      description: "Salespeople only spend 33% of their time selling, with 15% lost in email and data. Maximize your sales team's potential by automating time-consuming tasks. Maru's AI and automation solutions free up your sales team, improving productivity and helping you to reduce the cost of sales.",
-      subDescription: "We implement AI and automation solutions to auto-pilot for overseeing tasks, enabling your sales team to focus on what they do best - sell.",
+      description: "Salespeople only spend 33% of their time selling, with 15% lost in email and data. Maximize your sales team's potential by automating time-consuming tasks.",
       icon: TrendingUp,
-      bgClass: "bg-amber-400/10 border-amber-400/20",
-      hex: "#fbbf24", // Amber 400
+      hex: "#22d3ee",
+      link: "/services/sales-systems",
     },
     {
       id: "04",
+      category: "SOFTWARE INTEGRATION",
       title: "Software Integration and Automation",
-      description: "Don't let your technology become a barrier to your business's growth. At Maru, we specialize in optimizing your software to ensure seamless integration and automation with your existing tech stack.",
-      subDescription: "If you're overwhelmed by the volume of software choices available or simply seeking to maximize the return on your existing tech investment, Maru can help. Our team of experts are ready to deliver business growth for your organization.",
+      description: "Don't let your technology become a barrier to your business's growth. At Maru, we specialize in optimizing your software to ensure seamless integration with your existing tech stack.",
       icon: Target,
-      bgClass: "bg-emerald-400/10 border-emerald-400/20",
-      hex: "#34d399", // Emerald 400
+      hex: "#22d3ee",
+      link: "/services/office-automation",
     },
   ];
 
@@ -66,7 +66,7 @@ export function Services() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <span className="font-light text-gray-500">Harness the Power of</span> AI & Automation
+            <span className="font-light text-gray-400">Harness the Power of</span> AI & Automation
           </motion.h2>
           <motion.p 
             className="text-gray-500 text-lg md:text-xl font-light"
@@ -79,9 +79,9 @@ export function Services() {
           </motion.p>
         </div>
 
-        {/* Services Grid */}
+        {/* Services Grid - 2x2 Layout */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -94,35 +94,45 @@ export function Services() {
           }}
         >
           {services.map((service) => (
-            <motion.div
-              key={service.id}
-              className="group flex flex-col gap-5 bg-white p-7 rounded-2xl border border-gray-200 hover:border-[var(--color-accent)] hover:shadow-lg transition-all duration-300 h-full"
+            <motion.div 
+              key={service.id} 
               variants={fadeUpVariants}
+              className="group"
             >
-              <div 
-                className={`w-12 h-12 rounded-xl flex items-center justify-center border ${service.bgClass}`}
-              >
-                <service.icon 
-                  size={24} 
-                  strokeWidth={1.5} 
-                  style={{ color: service.hex }} 
-                />
-              </div>
-              
-              <div>
-                <h3 className="font-bold mb-3 text-lg text-black leading-snug">
+              {/* Card - White with Shadow and Left Border Accent */}
+              <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl border-l-4 border-l-[#22d3ee] transition-all duration-300 h-full flex flex-col">
+                
+                {/* Category Tag */}
+                <div className="flex items-center gap-3 mb-4">
+                  <span 
+                    className="text-xs font-semibold tracking-wider uppercase"
+                    style={{ color: service.hex }}
+                  >
+                    {service.category}
+                  </span>
+                </div>
+                
+                {/* Title */}
+                <h3 className="font-bold text-xl md:text-2xl text-black leading-snug mb-4">
                   {service.title}
                 </h3>
                 
-                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                {/* Description */}
+                <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
                   {service.description}
                 </p>
                 
-                {service.subDescription && (
-                  <p className="text-sm text-gray-500 leading-relaxed pt-4 border-t border-gray-100">
-                    {service.subDescription}
-                  </p>
-                )}
+                {/* Read More Link */}
+                <Link 
+                  href={service.link}
+                  className="inline-flex items-center gap-2 text-black font-medium hover:text-[#22d3ee] transition-colors group/link"
+                >
+                  Read more
+                  <ArrowRight 
+                    size={16} 
+                    className="group-hover/link:translate-x-1 transition-transform" 
+                  />
+                </Link>
               </div>
             </motion.div>
           ))}
@@ -132,5 +142,3 @@ export function Services() {
     </section>
   );
 }
-
-
