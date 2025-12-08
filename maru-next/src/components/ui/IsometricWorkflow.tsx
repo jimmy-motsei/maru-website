@@ -51,7 +51,7 @@ const DetailCard = ({ step, index }: { step: typeof workflowSteps[0], index: num
       viewport={{ once: true }}
       className={cn(
         "absolute top-1/2 -translate-y-1/2 hidden md:flex flex-col p-5 rounded-2xl w-64",
-        "bg-glass-white border border-cyan-500/30 backdrop-blur-md shadow-lg",
+        "bg-glass-white border border-maru-cyan/30 backdrop-blur-md shadow-lg",
         isRight ? "left-[calc(50%+6rem)]" : "right-[calc(50%+6rem)] text-right items-end"
       )}
     >
@@ -72,7 +72,7 @@ const ConnectingLine = ({ index }: { index: number }) => {
        transition={{ duration: 0.5, delay: 0.2 }}
        viewport={{ once: true }}
        className={cn(
-         "absolute top-1/2 -translate-y-1/2 h-[2px] bg-cyan-500/50 hidden md:block",
+         "absolute top-1/2 -translate-y-1/2 h-[2px] bg-maru-cyan/50 hidden md:block",
          isRight ? "left-[50%]" : "right-[50%]"
        )}
     >
@@ -97,12 +97,12 @@ const CentralNode = ({ step, index }: { step: typeof workflowSteps[0], index: nu
         style={{ transform: "rotateX(60deg) rotateZ(-45deg)" }}
       >
           {/* Cube-like layers */}
-          <div className="absolute inset-0 bg-maru-bg/80 border-2 border-cyan-500/50 rounded-2xl shadow-neon-cyan backdrop-blur-sm flex items-center justify-center translate-z-0 group hover:border-maru-cyan transition-colors duration-300">
+          <div className="absolute inset-0 bg-maru-bg/80 border-2 border-maru-cyan/50 rounded-2xl shadow-neon-cyan backdrop-blur-sm flex items-center justify-center translate-z-0 group hover:border-maru-cyan transition-colors duration-300">
              <step.icon className="text-white w-10 h-10 sm:w-12 sm:h-12 -rotate-[45deg] group-hover:text-maru-cyan transition-colors" style={{ transform: "rotateZ(45deg) rotateX(-60deg)" }} /> {/* Counter-rotate icon */}
           </div>
           
           {/* Depth Layer (faked) */}
-          <div className="absolute inset-0 bg-cyan-900/30 rounded-2xl -z-10 translate-y-2 translate-x-2 blur-[1px]" />
+          <div className="absolute inset-0 bg-maru-cyan/10 rounded-2xl -z-10 translate-y-2 translate-x-2 blur-[1px]" />
        </motion.div>
     </div>
   );

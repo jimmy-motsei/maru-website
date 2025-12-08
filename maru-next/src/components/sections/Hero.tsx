@@ -17,8 +17,8 @@ export function Hero() {
       {/* Content Layer - Z-index bumped to sit above all clouds */}
       <div className="container relative z-30 mx-auto flex min-h-screen flex-col justify-center px-6 md:px-12 lg:px-20 pb-20">
         
-        {/* Optically centered, weighted slightly upwards */}
-        <div className="max-w-4xl pt-0 md:-mt-20 backdrop-blur-[1px] rounded-3xl p-4 md:p-0">
+        {/* Content pushed down by 60px */}
+        <div className="max-w-4xl pt-16 md:pt-20 backdrop-blur-[1px] rounded-3xl p-4 md:p-0">
           
           {/* Headline */}
           <motion.h1 

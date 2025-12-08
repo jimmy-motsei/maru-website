@@ -1,9 +1,12 @@
 "use client";
 
+
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
+import { submitToHubSpot, HUBSPOT_FORMS } from "@/lib/hubspot";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -49,6 +52,48 @@ const staggerContainer = {
 };
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstname: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<{ success: boolean; message: string } | null>(null);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus(null);
+    
+    // Check if form ID is configured
+    if (!HUBSPOT_FORMS.CONTACT) {
+        // Fallback for demo purposes if no ID is set
+        setTimeout(() => {
+            setIsSubmitting(false);
+            setFormStatus({ success: true, message: "Thank you! We'll be in touch shortly." });
+            setFormData({ firstname: "", email: "", company: "", message: "" });
+        }, 1000);
+        return;
+    }
+
+    const result = await submitToHubSpot(HUBSPOT_FORMS.CONTACT, formData);
+    
+    setIsSubmitting(false);
+    setFormStatus(result);
+    
+    if (result.success) {
+      setFormData({ firstname: "", email: "", company: "", message: "" });
+    }
+  };
+
   return (
     <main>
       {/* Hero Banner */}
@@ -136,22 +181,30 @@ export default function ContactPage() {
               variants={staggerContainer}
               className="lg:col-span-8"
             >
-              <form className="space-y-8">
+              <form onSubmit={handleFormSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <motion.div variants={fadeUpVariants}>
                     <input
                       type="text"
+                      name="firstname"
+                      value={formData.firstname}
+                      onChange={handleInputChange}
                       placeholder="Full Name"
                       className="w-full px-0 py-4 border-0 border-b-2 border-gray-200 bg-transparent text-dark placeholder:text-dark/40 focus:border-accent focus:outline-none transition-colors"
                       required
+                      disabled={isSubmitting}
                     />
                   </motion.div>
                   <motion.div variants={fadeUpVariants}>
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="Business Email"
                       className="w-full px-0 py-4 border-0 border-b-2 border-gray-200 bg-transparent text-dark placeholder:text-dark/40 focus:border-accent focus:outline-none transition-colors"
                       required
+                      disabled={isSubmitting}
                     />
                   </motion.div>
                 </div>
@@ -159,17 +212,25 @@ export default function ContactPage() {
                 <motion.div variants={fadeUpVariants}>
                   <input
                     type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
                     placeholder="Company name (optional)"
                     className="w-full px-0 py-4 border-0 border-b-2 border-gray-200 bg-transparent text-dark placeholder:text-dark/40 focus:border-accent focus:outline-none transition-colors"
+                    disabled={isSubmitting}
                   />
                 </motion.div>
 
                 <motion.div variants={fadeUpVariants}>
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Tell us about your automation challenges..."
                     rows={4}
                     className="w-full px-0 py-4 border-0 border-b-2 border-gray-200 bg-transparent text-dark placeholder:text-dark/40 focus:border-accent focus:outline-none transition-colors resize-none"
                     required
+                    disabled={isSubmitting}
                   />
                 </motion.div>
 
@@ -180,13 +241,24 @@ export default function ContactPage() {
                   <p className="text-dark/60 text-sm">
                     <span className="text-accent">*</span> We promise not to disclose your personal information to third parties.
                   </p>
-                  <button
-                    type="submit"
-                    className="group inline-flex items-center gap-4 bg-dark text-white px-8 py-4 rounded-full hover:bg-accent transition-colors duration-300"
-                  >
-                    <span className="font-medium">Submit Request</span>
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  
+                  <div className="flex flex-col items-end">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="group inline-flex items-center gap-4 bg-dark text-white px-8 py-4 rounded-full hover:bg-accent transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <span className="font-medium">
+                        {isSubmitting ? "Sending..." : "Submit Request"}
+                      </span>
+                      {!isSubmitting && <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
+                    </button>
+                    {formStatus && (
+                      <p className={`mt-2 text-sm ${formStatus.success ? "text-green-600" : "text-red-500"}`}>
+                        {formStatus.message}
+                      </p>
+                    )}
+                  </div>
                 </motion.div>
               </form>
             </motion.div>

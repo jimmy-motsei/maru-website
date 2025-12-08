@@ -5,8 +5,8 @@ const HUBSPOT_PORTAL_ID = "146669350";
 
 // Form GUIDs - Add your form IDs here
 export const HUBSPOT_FORMS = {
-  AI_READINESS: "", // Add your AI Readiness form GUID
-  CONTACT: "",      // Add your Contact form GUID
+  AI_READINESS: "48dfa41b-54b7-4298-83b5-98476252f525", // Verified AI Readiness Form GUID
+  CONTACT: "e1a0f3ac-6a78-4c42-8dce-be1ea519666e",        // Verified Contact Form GUID
   NEWSLETTER: "",   // Add your Newsletter form GUID
 } as const;
 

@@ -9,7 +9,7 @@ export function PageFrame() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 w-full z-40 pointer-events-none">
+    <div className="hidden md:block fixed bottom-0 left-0 w-full z-40 pointer-events-none">
       
       {/* Left Element: HOMEPAGE */}
       {/* Fixed at bottom-10 left-8 */}

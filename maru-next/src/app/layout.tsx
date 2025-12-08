@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 import { Header } from "@/components/layout/Header";
 import { FooterCTA } from "@/components/layout/FooterCTA";
 import { PageFrame } from "@/components/layout/PageFrame";
+import Preloader from "@/components/ui/Preloader";
 
 // HubSpot Portal ID
 const HUBSPOT_PORTAL_ID = "146669350";
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${outfit.variable} antialiased font-sans bg-dark text-white`}
         suppressHydrationWarning
       >
+        <Preloader />
         <Header />
         <PageFrame />
         {children}

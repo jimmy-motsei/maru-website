@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, CheckCircle, Sparkles } from "lucide-react";
 import Link from "next/link";
 
+import { submitToHubSpot, HUBSPOT_FORMS } from "@/lib/hubspot";
+
 // Assessment Questions
 const questions = [
   {
@@ -108,8 +110,22 @@ export default function AIReadinessPage() {
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call - replace with actual lead capture
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    
+    const submissionData = {
+        firstname: formData.name,
+        email: formData.email,
+        company: formData.company,
+        ai_readiness_score_result: score,
+        ai_readiness_tier_result: tier.name
+    };
+
+    if (HUBSPOT_FORMS.AI_READINESS) {
+        await submitToHubSpot(HUBSPOT_FORMS.AI_READINESS, submissionData);
+    } else {
+        // Simulate API call - replace with actual lead capture
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+    
     setIsSubmitting(false);
     handleNext();
   };

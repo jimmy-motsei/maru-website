@@ -54,7 +54,7 @@ export function Services() {
   };
 
   return (
-    <section className="bg-white py-24 md:py-32 relative overflow-hidden text-black">
+    <section className="bg-white py-24 md:py-32 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         
         {/* Header */}
@@ -66,10 +66,10 @@ export function Services() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            Harness the Power of AI & Automation
+            <span className="font-light text-gray-500">Harness the Power of</span> AI & Automation
           </motion.h2>
           <motion.p 
-            className="text-gray-600 text-lg md:text-xl font-light"
+            className="text-gray-500 text-lg md:text-xl font-light"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -88,37 +88,38 @@ export function Services() {
           variants={{
             visible: {
               transition: {
-                staggerChildren: 0.2
+                staggerChildren: 0.15
               }
             }
           }}
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
               key={service.id}
-              className="group bg-[var(--color-accent-dark)] text-white p-8 rounded-3xl flex flex-col h-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              className="group flex flex-col gap-5 bg-white p-7 rounded-2xl border border-gray-200 hover:border-[var(--color-accent)] hover:shadow-lg transition-all duration-300 h-full"
               variants={fadeUpVariants}
             >
               <div 
-                className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-8 mx-auto transition-all duration-300 group-hover:scale-110 border ${service.bgClass} bg-opacity-20`}
+                className={`w-12 h-12 rounded-xl flex items-center justify-center border ${service.bgClass}`}
               >
                 <service.icon 
-                  size={40} 
+                  size={24} 
                   strokeWidth={1.5} 
                   style={{ color: service.hex }} 
                 />
               </div>
               
-              <h3 className="text-xl font-bold text-center mb-6 leading-tight text-white">
-                {service.title}
-              </h3>
-              
-              <div className="space-y-4 text-center">
-                <p className="text-lg text-white/90 leading-relaxed font-light">
+              <div>
+                <h3 className="font-bold mb-3 text-lg text-black leading-snug">
+                  {service.title}
+                </h3>
+                
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
                   {service.description}
                 </p>
+                
                 {service.subDescription && (
-                  <p className="text-base text-white/70 leading-relaxed pt-4 border-t border-white/10">
+                  <p className="text-sm text-gray-500 leading-relaxed pt-4 border-t border-gray-100">
                     {service.subDescription}
                   </p>
                 )}
