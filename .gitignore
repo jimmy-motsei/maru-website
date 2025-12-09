@@ -2,23 +2,47 @@
 .DS_Store
 **/.DS_Store
 
-# Node
-node_modules/
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 .npm/
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+*.pem
 
 # Logs
 npm-debug.log*
-yarn-error.log
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
-# Build artifacts (none yet)
+# env files
+.env*
 
-# Lock files (optional if you want deterministic builds; remove this line if you add one)
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
+# vercel
+.vercel
 
-# Image optimization temp dirs (if any in future)
-/tmp/
-/public
-/.idx
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
 .idea/
+.vscode/
+/.idx
