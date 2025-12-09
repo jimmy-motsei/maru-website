@@ -475,7 +475,7 @@ export default function ServicesPage() {
                     {step.title}
                   </motion.h3>
                   <motion.p
-                    className="text-white/50 text-sm leading-relaxed"
+                    className="text-white/70 text-base leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}

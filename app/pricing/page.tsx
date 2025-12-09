@@ -94,8 +94,8 @@ export default function PricingPage() {
                   <span className="text-4xl font-bold tracking-tight text-white">{tier.price}</span>
                   <span className="text-sm font-semibold leading-6 text-zinc-400">/month</span>
                 </p>
-                <p className="mt-6 text-sm leading-6 text-zinc-300">{tier.description}</p>
-                <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-zinc-300">
+                <p className="mt-6 text-base leading-6 text-zinc-300">{tier.description}</p>
+                <ul role="list" className="mt-8 space-y-3 text-base leading-6 text-zinc-300">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex gap-x-3">
                       <Check className="h-6 w-5 flex-none text-accent" aria-hidden="true" />

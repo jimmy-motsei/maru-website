@@ -222,7 +222,7 @@ export default function TopAIToolsArticle() {
                         <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
                         {tool.specialty}
                       </p>
-                      <p className="text-dark/70 text-sm leading-relaxed mb-3">{tool.description}</p>
+                      <p className="text-dark/70 text-base leading-relaxed mb-3">{tool.description}</p>
                       <p className="text-dark/50 text-xs italic">
                         <span className="font-medium">Best for:</span> {tool.useCase}
                       </p>

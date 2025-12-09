@@ -110,7 +110,7 @@ export function FooterCTA() {
                   className="h-[200px] w-auto"
                 />
               </Link>
-              <p className="text-white/40 text-sm leading-relaxed mb-6">
+              <p className="text-white/60 text-base leading-relaxed mb-6">
                 AI-powered automation solutions for African businesses. 
                 Transform your operations, scale with confidence.
               </p>
