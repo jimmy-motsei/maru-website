@@ -1,52 +1,183 @@
-# Maru Online Email Signature Kit
+# Maru Online Website
 
-This folder contains the production-ready HTML signature for Jimmy Motsei, matching the Ashley kit styling and optimized for Spark Email, Outlook (Win/Mac), Apple Mail, Gmail, and mobile clients.
+Modern marketing website for Maru Online, built with Next.js, React, and Tailwind CSS.
 
-## Deliverables
-- `signature.html` – paste-ready markup (see the edit block at the top of the file).
-- `brand-tokens.json` – extracted palette, spacing, and radius tokens mapped to email-safe values.
-- `assets/signature/logo@2x.png` – 192×192 PNG (renders at 96×96).
-- `assets/signature/{linkedin,whatsapp,youtube}@2x.png` – 48×48 PNG icons (render at 24×24).
-- `preview-desktop.png`, `preview-mobile.png` – visual references (1× scale).
+## 🚀 Tech Stack
 
-## Hosting the Assets
-1. **GitHub Pages** (recommended if the site already deploys from this repo):
-   - Copy `assets/signature/` into the published branch (e.g. `gh-pages` or `docs/`).
-   - Commit & deploy; confirm the public URLs match the ones referenced in `signature.html` (e.g. `https://maruonline.com/assets/signature/logo@2x.png`).
-2. **Netlify / Static Host**:
-   - Upload the four PNGs to the `/assets/signature/` path of the hosted site.
-   - Keep the filenames identical; update the absolute URLs inside `signature.html` if the domain differs.
-3. **CDN / DAM**:
-   - Ensure HTTPS delivery and that caching is enabled; update the signature URLs accordingly.
+- **Framework:** Next.js 16.0.6 (App Router)
+- **React:** 19.2.0
+- **Styling:** Tailwind CSS v4 (beta)
+- **Animations:** Framer Motion 12.23.25
+- **Icons:** Lucide React
+- **TypeScript:** 5.x
+- **Deployment:** Vercel (recommended)
 
-> **Tip:** After hosting, open each image URL in a private browser window to confirm public access before rolling out the signature.
+## 📁 Project Structure
 
-## Updating Signature Content
-- Open `signature.html` in a code editor.
-- The comment block at the top lists all placeholders (`{{NAME}}`, `{{CTA_URL}}`, etc.). Replace the values within the markup below it.
-- Keep link protocols intact: `mailto:`, `tel:`, and full `https://` URLs.
-- For brand integrity, reuse the sizes, padding, and colors defined in `brand-tokens.json` when adding new elements.
+```
+maru-website/
+├── app/                    # Next.js App Router pages
+│   ├── layout.tsx         # Root layout with navigation
+│   ├── page.tsx           # Homepage
+│   ├── globals.css        # Tailwind v4 global styles
+│   ├── sitemap.ts         # Dynamic sitemap generator
+│   ├── robots.ts          # Dynamic robots.txt generator
+│   ├── services/          # Service pages
+│   ├── knowledge/         # Blog/knowledge base
+│   └── contact/           # Contact page
+├── components/            # React components
+│   ├── layout/           # Header, Footer, etc.
+│   ├── sections/         # Page sections (Hero, Services, etc.)
+│   ├── ui/               # Reusable UI components
+│   └── services/         # Service-specific components
+├── lib/                  # Utility functions
+├── config/               # Site configuration
+├── data/                 # Static data (articles, etc.)
+├── public/               # Static assets (images, fonts)
+└── package.json
+```
 
-## Adding the Signature to Spark (Mac & iOS)
-1. Open **Spark** → **Settings** → **Signatures**.
-2. Create a new signature and toggle **“Always match my default message font”** *off*.
-3. Choose **“Edit HTML”** (Mac) or paste into the HTML field (iOS via Spark Cloud editor).
-4. Paste the full contents of `signature.html`.
-5. Save, then send a test email to yourself and one Outlook recipient to confirm rendering.
+## 🛠️ Development
 
-## Known Client Quirks & Quick Fixes
-- **Outlook (Windows) PNG halos**: All assets sit on solid teal or transparent backgrounds; keep anti-aliasing by hosting the provided PNGs. Avoid re-exporting with transparency against gradients.
-- **Outlook line-height compression**: If text appears cramped, ensure Outlook is set to compose in HTML and that the signature is inserted without additional formatting.
-- **Gmail clipping**: Gmail trims emails >102KB. This signature is ~7KB; avoid adding large inline images or long disclaimers.
-- **iOS/Apple Mail dark mode**: Primary text uses #1F2937 on white and #6B7280 for muted copy. Do not invert colors; if you add content, stay above 4.5:1 contrast.
-- **Spark mobile scaling**: The button uses a minimum width and 48px height; leave padding as-is to preserve tap targets.
+### Prerequisites
 
-## Testing Matrix (manual)
-- **Desktop**: Outlook Win 2019/365, Outlook Mac, Apple Mail, Spark Mac.
-- **Web**: Gmail Web, Outlook.com.
-- **Mobile**: iOS Mail, Gmail iOS/Android, Spark iOS.
-- Validate link targets, CTA button rendering, icon spacing, and dark-mode legibility.
-- Re-run tests after hosting assets or editing content.
+- Node.js 20+
+- npm or yarn
 
-## Compact Variant
-Optional: create `signature-compact.html` (hide the avatar, condense into a single row) if you need an ultra-narrow fallback. You can reuse the same tokens and icons; keep the CTA button at least 44px tall.
+### Setup
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+The development server runs at [http://localhost:3000](http://localhost:3000)
+
+## 🎨 Styling
+
+This project uses **Tailwind CSS v4** (beta) with a custom theme defined in `app/globals.css`.
+
+### Custom Theme
+
+```css
+@theme {
+  /* Brand Colors */
+  --color-accent: #3db8c6;        /* Maru Cyan */
+  --color-dark: #000000;
+  --color-light: #ffffff;
+  
+  /* Custom shadows */
+  --shadow-neon-cyan: 0 0 5px #00f0ff, 0 0 20px rgba(0, 240, 255, 0.4);
+}
+```
+
+### Animations
+
+Custom animations are defined in `globals.css`:
+- `fadeUp` - Fade in with upward motion
+- `infiniteScroll` - Continuous horizontal scroll
+- `rotate` - 360° rotation
+- `float` - Gentle floating effect
+
+## 📄 Pages
+
+- `/` - Homepage
+- `/services` - Services overview
+- `/services/lead-generation` - Lead generation service
+- `/services/office-automation` - Office automation service
+- `/services/sales-systems` - Sales systems service
+- `/services/whatsapp-solutions` - WhatsApp solutions service
+- `/knowledge` - Knowledge base / blog
+- `/contact` - Contact page
+- `/privacy-policy` - Privacy policy
+- `/ai-readiness` - AI readiness assessment
+
+## 🔍 SEO
+
+### Sitemap
+
+Dynamic sitemap automatically generated at `/sitemap.xml` via `app/sitemap.ts`. Updates automatically when pages are added.
+
+### Robots.txt
+
+Dynamic robots.txt at `/robots.txt` via `app/robots.ts`.
+
+### Metadata
+
+Each page includes proper metadata (title, description, Open Graph tags) configured in the page's `metadata` export.
+
+## 🚢 Deployment
+
+### Vercel (Recommended)
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+```
+
+### Environment Variables
+
+No environment variables required for basic functionality. Add as needed for:
+- Analytics
+- HubSpot integration
+- Other third-party services
+
+## 📝 Content Management
+
+### Adding a New Blog Article
+
+1. Create a new folder in `app/knowledge/[article-slug]/`
+2. Add `page.tsx` with article content
+3. Update `data/articles.ts` with article metadata
+4. Run build to update sitemap automatically
+
+### Adding a New Service
+
+1. Create new folder in `app/services/[service-name]/`
+2. Add `page.tsx` with service content
+3. Update `app/sitemap.ts` to include the new route
+4. Add service to navigation in `components/layout/Header.tsx`
+
+## 🧹 Recent Updates
+
+- ✅ Restructured from nested `maru-next/` to root-level Next.js project
+- ✅ Removed legacy SCSS files (now using Tailwind v4 exclusively)
+- ✅ Replaced static sitemaps with dynamic Next.js generation
+- ✅ Removed outdated documentation files
+- ✅ Updated TypeScript path aliases from `./src/*` to `./*`
+
+## 📦 Dependencies
+
+### Production
+- `next` - React framework
+- `react` & `react-dom` - UI library
+- `framer-motion` - Animation library
+- `lucide-react` - Icon library
+- `clsx` & `tailwind-merge` - Class name utilities
+
+### Development
+- `typescript` - Type safety
+- `tailwindcss` - CSS framework
+- `@tailwindcss/postcss` - Tailwind v4 PostCSS plugin
+- `prettier` - Code formatting
+- `eslint-config-next` - Linting
+
+## 🤝 Contributing
+
+This is a private project for Maru Online. For questions or issues, contact the development team.
+
+## 📄 License
+
+Proprietary - All rights reserved by Maru Online
