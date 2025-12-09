@@ -78,58 +78,30 @@ const services = [
 const workflowSteps = [
   {
     number: "01",
-    title: "Discovery",
+    title: "Discovery & Strategy",
     description:
-      "We start by understanding your business goals, pain points, and current processes. Through in-depth consultations, we identify high-impact opportunities for AI automation.",
+      "We analyze your business goals and processes to identify high-impact automation opportunities, then create a tailored roadmap with clear ROI projections.",
     icon: Search,
   },
   {
     number: "02",
-    title: "Strategy",
+    title: "Design & Build",
     description:
-      "We define the project scope, select the right technologies, and create a detailed roadmap. This includes identifying integration points with your existing systems.",
-    icon: Map,
-  },
-  {
-    number: "03",
-    title: "Design",
-    description:
-      "Our team architects the solution, creating prototypes and workflows that align with your business processes. For custom solutions, we develop detailed specifications.",
-    icon: PenTool,
-  },
-  {
-    number: "04",
-    title: "Build",
-    description:
-      "We develop your custom AI solution or configure pre-built products to your specifications. Our agile approach ensures flexibility and continuous feedback.",
+      "Our team architects and develops your custom AI solution using agile methodology, ensuring the system aligns perfectly with your workflows.",
     icon: Hammer,
   },
   {
-    number: "05",
-    title: "Test",
+    number: "03",
+    title: "Test & Deploy",
     description:
-      "Rigorous quality assurance and pilot testing in controlled environments. We validate assumptions and fine-tune the solution before full deployment.",
-    icon: FlaskConical,
-  },
-  {
-    number: "06",
-    title: "Deploy",
-    description:
-      "Seamless go-live with integration into your existing tools—CRM, WhatsApp, email, and more. We ensure minimal disruption to your operations.",
+      "Rigorous quality assurance ensures everything works flawlessly before we seamlessly integrate the solution into your existing tools and operations.",
     icon: Rocket,
   },
   {
-    number: "07",
-    title: "Train",
+    number: "04",
+    title: "Train & Optimize",
     description:
-      "Comprehensive staff training and documentation. We equip your team with the knowledge and SOPs needed to maximize the solution's value.",
-    icon: GraduationCap,
-  },
-  {
-    number: "08",
-    title: "Optimize",
-    description:
-      "Continuous performance monitoring, KPI tracking, and iterative improvements. We're your long-term partner in driving ongoing efficiency gains.",
+      "We equip your team with comprehensive training and provide ongoing performance monitoring to maximize your investment and drive continuous improvement.",
     icon: LineChart,
   },
 ];
@@ -403,16 +375,16 @@ export default function ServicesPage() {
       </section>
 
       {/* How We Work - Workflow Section */}
-      <section className="bg-dark relative py-24 lg:py-32 border-t border-white/10">
+      <section className="bg-[#f5f5f5] relative py-24 lg:py-32">
         <div className="container mx-auto px-6 lg:px-8">
           {/* Section Header */}
-          <div className="max-w-4xl mb-20">
+          <div className="max-w-4xl mb-20 mx-auto text-center">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-accent text-sm font-medium mb-4"
+              className="text-accent text-sm font-medium mb-4 uppercase tracking-wider"
             >
               Our Process
             </motion.p>
@@ -421,93 +393,61 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-muted"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-dark"
             >
               How we <span className="font-light">work</span>
             </motion.h2>
           </div>
 
-          {/* Workflow Steps */}
-          <div className="relative">
-            {/* Animated Vertical Line - Desktop */}
-            <motion.div
-              className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent/50 via-accent to-accent/50 -translate-x-1/2 origin-top"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              variants={lineVariants}
-            />
-
-            {/* Steps */}
+          {/* Horizontal Workflow Steps */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto"
+          >
             {workflowSteps.map((step, index) => (
               <motion.div
                 key={step.number}
-                initial={index % 2 === 0 ? "hiddenLeft" : "hiddenRight"}
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={workflowStepVariants}
-                transition={{ delay: index * 0.1 }}
-                className={`relative flex flex-col lg:flex-row items-start gap-8 lg:gap-16 mb-16 last:mb-0 ${
-                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                }`}
+                variants={itemVariants}
+                className="relative flex flex-col items-center text-center"
               >
-                {/* Content */}
-                <div
-                  className={`lg:w-5/12 ${
-                    index % 2 === 0 ? "lg:text-right" : "lg:text-left"
-                  }`}
+                {/* Step Label */}
+                <div className="text-accent text-xs font-bold mb-4 uppercase tracking-widest">
+                  Step {step.number}
+                </div>
+
+                {/* Icon Circle */}
+                <motion.div
+                  className="w-20 h-20 rounded-full bg-dark flex items-center justify-center mb-6 relative"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <div className="flex items-center gap-4 mb-4 lg:hidden">
-                    <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                      <step.icon size={24} className="text-accent" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white">
-                      {step.title}
-                    </h3>
+                  <step.icon size={32} className="text-accent" />
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 rounded-full bg-accent/20 blur-md -z-10" />
+                </motion.div>
+
+                {/* Arrow - Hidden on last item and mobile */}
+                {index < workflowSteps.length - 1 && (
+                  <div className="hidden lg:block absolute -right-4 top-20 text-dark/20">
+                    <ArrowRight size={24} />
                   </div>
-                  <motion.h3
-                    className="hidden lg:block text-2xl md:text-3xl font-bold text-white mb-4"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + 0.2 }}
-                  >
-                    {step.title}
-                  </motion.h3>
-                  <motion.p
-                    className="text-white/70 text-base leading-relaxed"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + 0.3 }}
-                  >
-                    {step.description}
-                  </motion.p>
-                </div>
+                )}
 
-                {/* Center Number - Desktop with Spring Animation */}
-                <div className="hidden lg:flex lg:w-2/12 justify-center">
-                  <motion.div
-                    className="relative"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={circleVariants}
-                    transition={{ delay: index * 0.15 }}
-                  >
-                    <div className="w-20 h-20 rounded-full bg-dark border-2 border-accent flex items-center justify-center shadow-lg shadow-accent/20">
-                      <step.icon size={32} className="text-accent" />
-                    </div>
-                    {/* Glow effect behind circle */}
-                    <div className="absolute inset-0 rounded-full bg-accent/20 blur-xl -z-10" />
-                  </motion.div>
-                </div>
+                {/* Title */}
+                <h3 className="text-xl font-bold text-dark mb-3">
+                  {step.title}
+                </h3>
 
-                {/* Empty space for alternating layout */}
-                <div className="hidden lg:block lg:w-5/12" />
+                {/* Description */}
+                <p className="text-dark/70 text-sm leading-relaxed">
+                  {step.description}
+                </p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
