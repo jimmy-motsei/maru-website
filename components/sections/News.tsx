@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { fadeUpVariants } from "@/lib/animations";
 
@@ -74,16 +73,6 @@ export function News() {
               viewport={{ once: true }}
               variants={fadeUpVariants}
             >
-              {/* Image */}
-              <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg mb-8 bg-gray-100">
-                <Image
-                  src={item.image}
-                  alt={`${item.titleLight} ${item.titleBold}`}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-
               {/* Meta */}
               <div className="flex items-center gap-4 mb-4 text-xs font-bold tracking-widest uppercase">
                 <span className="text-accent">{item.category}</span>
