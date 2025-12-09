@@ -494,6 +494,127 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Pricing Section - Flexible Packages */}
+      <section className="bg-dark py-24 lg:py-32">
+        <div className="container mx-auto px-6 lg:px-8">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              Flexible <span className="font-light">packages</span> for every stage
+            </h2>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto">
+              Choose the package that fits your business needs, or contact us for a tailored solution.
+            </p>
+          </motion.div>
+
+          {/* Pricing Cards */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto space-y-6"
+          >
+            {/* Starter Package */}
+            <motion.div
+              variants={itemVariants}
+              className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-accent/50 transition-all duration-300 group"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <div className="flex items-baseline gap-4 mb-3">
+                    <span className="text-3xl font-bold text-accent">R4,999</span>
+                    <h3 className="text-2xl font-bold text-white">Starter Package</h3>
+                  </div>
+                  <p className="text-white/60">
+                    Perfect for small businesses looking to automate their first capture and basic scoring.
+                  </p>
+                </div>
+                <Link 
+                  href="/booking?plan=starter"
+                  className="ml-8 flex-shrink-0 w-10 h-10 rounded-full border border-accent flex items-center justify-center text-accent hover:bg-accent hover:text-dark transition-all duration-300"
+                >
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Growth Package */}
+            <motion.div
+              variants={itemVariants}
+              className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-accent/50 transition-all duration-300 group"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <div className="flex items-baseline gap-4 mb-3">
+                    <span className="text-3xl font-bold text-accent">R9,999</span>
+                    <h3 className="text-2xl font-bold text-white">Growth Package</h3>
+                  </div>
+                  <p className="text-white/60">
+                    Advanced tool control, CRM integration, and automated marketing sequences for scaling teams.
+                  </p>
+                </div>
+                <Link 
+                  href="/booking?plan=growth"
+                  className="ml-8 flex-shrink-0 w-10 h-10 rounded-full border border-accent flex items-center justify-center text-accent hover:bg-accent hover:text-dark transition-all duration-300"
+                >
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Enterprise Solution */}
+            <motion.div
+              variants={itemVariants}
+              className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-accent/50 transition-all duration-300 group"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <div className="flex items-baseline gap-4 mb-3">
+                    <span className="text-3xl font-bold text-accent">R Custom</span>
+                    <h3 className="text-2xl font-bold text-white">Enterprise Solution</h3>
+                  </div>
+                  <p className="text-white/60">
+                    End-to-end bespoke plans at a fixed cadence with custom integrations and dedicated support.
+                  </p>
+                </div>
+                <Link 
+                  href="/booking?plan=enterprise"
+                  className="ml-8 flex-shrink-0 w-10 h-10 rounded-full border border-accent flex items-center justify-center text-accent hover:bg-accent hover:text-dark transition-all duration-300"
+                >
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center mt-12"
+          >
+            <Link
+              href="/booking"
+              className="inline-flex items-center bg-accent hover:bg-accent-dark text-black font-medium rounded-full pl-8 pr-2 py-2.5 transition-colors group"
+            >
+              <span className="text-sm tracking-wide uppercase mr-4">Get custom quote</span>
+              <span className="bg-dark text-white rounded-full p-3 group-hover:bg-black transition-colors">
+                <ArrowRight size={16} />
+              </span>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section - AI Readiness Test (Light Background) */}
       <section className="bg-[#f5f5f5] py-24 lg:py-32">
         <div className="container mx-auto px-6 lg:px-8">
