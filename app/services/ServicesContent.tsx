@@ -12,13 +12,14 @@ const services = [
   {
     id: "01",
     title: "Lead Generation",
+    subtitle: "Fill your pipeline with qualified buyers, not tire-kickers",
     description:
-      "Transform your pipeline with intelligent lead scoring that identifies high-value prospects, so your sales team focuses only on leads ready to convert.",
+      "We build AI-powered lead systems that identify and capture prospects actively searching for what you sell—then nurture them until they're sales-ready.",
     features: [
-      "AI Lead Scoring",
-      "Prospect Identification",
-      "Pipeline Automation",
-      "Conversion Optimization",
+      "AI Lead Scoring – Prioritize hot prospects automatically",
+      "Predictive Lead Nurturing – Right message, right time, every time",
+      "Pipeline Automation – From first click to qualified opportunity",
+      "Conversion Optimization – Turn more visitors into viable leads",
     ],
     link: "/services/lead-generation",
     offset: true,
@@ -28,13 +29,15 @@ const services = [
   {
     id: "02",
     title: "Sales Systems",
+    subtitle: "Close more deals with less manual work",
     description:
-      "Automate your CRM workflows and unlock conversation intelligence that helps close deals faster while reducing manual data entry by up to 80%.",
+      "Automate the grunt work holding your sales team back. Our CRM integrations and conversation intelligence free up your team to do what they do best—sell.",
     features: [
-      "CRM Automation",
-      "Conversation Intelligence",
-      "Deal Tracking",
-      "Sales Analytics",
+      "CRM Automation – No more data entry, always up-to-date",
+      "Conversation Intelligence – Know what's working in every call",
+      "Deal Tracking – Never lose sight of opportunities",
+      "Sales Analytics – See exactly what drives revenue",
+      "Proposal Automation – Generate quotes in minutes, not hours",
     ],
     link: "/services/sales-systems",
     offset: false,
@@ -43,14 +46,15 @@ const services = [
   },
   {
     id: "03",
-    title: "Office Ops Automation",
+    title: "Office Operations Automation",
+    subtitle: "Eliminate the busywork draining your team's time",
     description:
-      "Streamline document processing and automate repetitive workflows, freeing your team to focus on strategic work that drives real business growth.",
+      "Stop paying people to do robot work. We automate repetitive tasks so your team can focus on work that actually grows the business.",
     features: [
-      "Document Processing",
-      "Workflow Automation",
-      "Task Management",
-      "Process Optimization",
+      "Document Processing – Extract data from invoices, forms, contracts instantly",
+      "Workflow Automation – Approvals, notifications, handoffs—all automatic",
+      "Data Entry Elimination – Systems talk to each other, not spreadsheets",
+      "Process Optimization – Find and fix bottlenecks before they cost you money",
     ],
     link: "/services/office-automation",
     offset: true,
@@ -59,14 +63,16 @@ const services = [
   },
   {
     id: "04",
-    title: "WhatsApp Solutions",
+    title: "WhatsApp Business Solutions",
+    subtitle: "Meet your customers where they already are—at scale",
     description:
-      "Engage customers 24/7 with intelligent chatbots that deliver personalized messaging at scale, turning conversations into conversions around the clock.",
+      "Turn WhatsApp into a 24/7 sales and support channel. Engage customers with intelligent, personalized conversations that feel human, not robotic.",
     features: [
-      "AI Chatbots",
-      "Personalized Messaging",
-      "24/7 Engagement",
-      "Conversation Analytics",
+      "AI Chatbots – Answer common questions instantly, any time",
+      "Personalized Messaging – Tailored offers based on customer behavior",
+      "24/7 Engagement – Never miss a lead, even at 2am",
+      "Conversation Analytics – See what customers really want",
+      "Broadcast Campaigns – Reach thousands with one-to-one feel",
     ],
     link: "/services/whatsapp-solutions",
     offset: false,
@@ -79,29 +85,37 @@ const workflowSteps = [
   {
     number: "01",
     title: "Discovery & Strategy",
+    subtitle: "We audit your current systems and map your growth bottlenecks",
     description:
-      "We analyze your business goals and processes to identify high-impact automation opportunities, then create a tailored roadmap with clear ROI projections.",
+      "No cookie-cutter solutions. We analyze where you're losing time, money, or customers—then build a roadmap prioritized by ROI.",
+    deliverable: "Strategic automation roadmap with projected time and cost savings",
     icon: Search,
   },
   {
     number: "02",
     title: "Design & Build",
+    subtitle: "We create and test your custom automation before going live",
     description:
-      "Our team architects and develops your custom AI solution using agile methodology, ensuring the system aligns perfectly with your workflows.",
+      "Our team builds AI systems tailored to your processes—not the other way around. We integrate with your existing tools and train the AI on your specific workflows.",
+    deliverable: "Fully functional system tested with real scenarios from your business",
     icon: Hammer,
   },
   {
     number: "03",
     title: "Test & Deploy",
+    subtitle: "We launch in phases to minimize disruption and maximize adoption",
     description:
-      "Rigorous quality assurance ensures everything works flawlessly before we seamlessly integrate the solution into your existing tools and operations.",
+      "We roll out gradually, monitor performance, and adjust based on real results—not assumptions. Your team gets hands-on training, not a manual.",
+    deliverable: "Live system with documented processes and trained team",
     icon: Rocket,
   },
   {
     number: "04",
     title: "Train & Optimize",
+    subtitle: "We monitor, measure, and improve until you hit your ROI targets",
     description:
-      "We equip your team with comprehensive training and provide ongoing performance monitoring to maximize your investment and drive continuous improvement.",
+      "This isn't 'set and forget.' We track performance weekly, optimize based on data, and scale what's working. You get better results over time, not just at launch.",
+    deliverable: "Monthly performance reports with optimization recommendations",
     icon: LineChart,
   },
 ];
@@ -197,17 +211,21 @@ export default function ServicesPage() {
             </ul>
           </motion.nav>
 
-          {/* Title - Ashley Style */}
-          <motion.h1
+          {/* Title - Benefit-Focused */}
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-8xl font-bold text-muted mb-16"
+            className="mb-8"
           >
-            AI & <span className="font-light">Automation</span>
-            <br />
-            Services
-          </motion.h1>
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-muted mb-6">
+              AI & <span className="font-light">Automation</span> That Actually<br />
+              Drives <span className="font-light">Revenue</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/60 max-w-3xl">
+              Smart systems that generate leads, close sales, and run your operations—so you can focus on growth
+            </p>
+          </motion.div>
 
           {/* Scroll indicator */}
           <motion.a
@@ -266,11 +284,18 @@ export default function ServicesPage() {
                       </div>
 
                       {/* Service Title */}
-                      <h3 className="text-xl md:text-2xl font-bold text-muted mb-6 group-hover:text-accent transition-colors duration-300">
+                      <h3 className="text-xl md:text-2xl font-bold text-muted mb-3 group-hover:text-accent transition-colors duration-300">
                         {service.title.split(" ").slice(0, -1).join(" ")}
                         <br />
                         {service.title.split(" ").slice(-1)}
                       </h3>
+
+                       {/* Subtitle */}
+                      {service.subtitle && (
+                        <p className="text-accent text-base md:text-lg font-medium mb-4 leading-snug">
+                          {service.subtitle}
+                        </p>
+                      )}
 
                       {/* Description */}
                       <p className="text-white/70 text-base leading-relaxed mb-6">
@@ -456,21 +481,6 @@ export default function ServicesPage() {
       {/* CTA Section - AI Readiness Test (Light Background) */}
       <section className="bg-[#f5f5f5] py-24 lg:py-32">
         <div className="container mx-auto px-6 lg:px-8">
-          {/* Sub-headline - Right aligned */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex justify-end mb-12"
-          >
-            <p className="text-dark/50 text-sm text-right max-w-md">
-              Discover your business&apos;s AI potential in just
-              <br />
-              5 minutes with our complimentary assessment.
-            </p>
-          </motion.div>
-
           {/* Main CTA - Centered */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -479,17 +489,17 @@ export default function ServicesPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl mb-16" style={{ color: '#000000' }}>
-              <span className="font-bold">Take the Free</span>{" "}
-              <span className="font-light">AI</span>
-              <br />
-              <span className="font-bold">Readiness</span>{" "}
-              <span className="font-light">Test</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl mb-6 font-bold text-dark">
+              Find Out Where AI Can Save You<br />
+              <span className="font-light">10+ Hours Per Week</span>
             </h2>
+            <p className="text-xl text-dark/60 mb-12 max-w-2xl mx-auto">
+              Get your free AI opportunity assessment—no obligation, just insights
+            </p>
 
             {/* Pill Button - Ashley Style */}
             <Link
-              href="/ai-readiness-test"
+              href="/ai-readiness"
               className="inline-flex items-center bg-accent hover:bg-accent-dark text-black font-medium rounded-full pl-8 pr-2 py-2.5 transition-colors group"
             >
               <span className="text-sm tracking-wide uppercase mr-4">Get your free assessment</span>
