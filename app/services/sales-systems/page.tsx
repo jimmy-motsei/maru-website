@@ -17,44 +17,113 @@ const breadcrumbs = [
 const accordionItems = [
   {
     title: "CRM Automation",
+    subtitle: "Eliminate the busywork slowing down your sales cycle",
     content:
-      "Eliminate manual data entry and keep your CRM perfectly up-to-date with automated workflows. Our integrations sync contacts, activities, and deal stages in real-time, giving your team a single source of truth without the busywork.",
+      "Never lose a deal to a forgotten follow-up or outdated data again. Our automations keep your CRM clean, current, and working for you—not the other way around.",
+    features: [
+      "Auto-logged calls, emails, and meetings",
+      "Smart task creation based on deal stage",
+      "Duplicate detection and data cleanup",
+      "Custom workflows for your sales process",
+      "Integration with email, calendar, and phone systems",
+    ],
   },
   {
     title: "Conversation Intelligence",
+    subtitle: "Turn every sales call into a coaching opportunity",
     content:
-      "Every sales call becomes a learning opportunity. Our AI analyzes conversations to identify winning patterns, coach reps in real-time, and surface insights about objections, competitors, and customer needs that would otherwise be lost.",
+      "Our AI analyzes every conversation to identify what's working, surface objections before they kill deals, and give reps real-time guidance on how to win.",
+    features: [
+      "Automatic call transcription and analysis",
+      "Win/loss pattern recognition across your team",
+      "Real-time objection alerts and recommended responses",
+      "Competitor mention tracking",
+      "Personalized coaching insights for each rep",
+    ],
   },
   {
     title: "Deal Tracking & Forecasting",
+    subtitle: "Know exactly which deals will close—and which need attention",
     content:
-      "Get accurate pipeline visibility with AI-powered deal scoring and forecasting. Our system predicts close probabilities, identifies at-risk deals, and provides recommended next actions to keep opportunities moving forward.",
+      "Stop relying on gut feel and optimistic reps. Our AI predicts deal outcomes based on actual behavior patterns, so you can forecast accurately and intervene before deals go cold.",
+    features: [
+      "AI-powered close probability scores",
+      "Early warning alerts for at-risk deals",
+      "Pipeline health dashboards",
+      "Revenue forecasting based on real conversion data",
+      "Deal stage automation (move deals forward automatically)",
+    ],
   },
   {
     title: "Sales Analytics & Reporting",
+    subtitle: "See what's driving revenue—and what's wasting time",
     content:
-      "Transform raw sales data into actionable insights. Our dashboards track key metrics, visualize trends, and automatically generate reports that help you make data-driven decisions to optimize your sales process.",
+      "No more spreadsheet archaeology. Get instant visibility into what's working across your entire sales operation, from first touch to closed deal.",
+    features: [
+      "Real-time performance dashboards",
+      "Rep activity vs. results analysis",
+      "Lead source ROI tracking",
+      "Sales velocity metrics (time-to-close by stage)",
+      "Custom reports that answer your specific questions",
+    ],
   },
 ];
 
 const pricingTiers = [
   {
     price: "5,999",
-    title: "Essential CRM Package",
-    description: "Core CRM automation and basic reporting for small sales teams getting started.",
-    href: "/contact",
+    title: "Essentials",
+    subtitle: "Stop losing deals to manual chaos",
+    description: "Perfect for teams of 2-5 reps who need the basics done right.",
+    features: [
+      "CRM auto-logging (calls, emails, meetings)",
+      "Task automation by deal stage",
+      "Basic pipeline reporting",
+      "Email integration",
+      "2 hours monthly optimization support",
+    ],
+    bestFor: "Small teams drowning in admin work",
+    href: "/booking?plan=sales-essentials",
   },
   {
     price: "12,999",
-    title: "Sales Intelligence Suite",
-    description: "Full conversation intelligence, advanced forecasting, and custom integrations.",
-    href: "/contact",
+    title: "Growth",
+    subtitle: "Turn your CRM into a revenue engine",
+    description: "For teams of 5-15 reps ready to scale intelligently.",
+    features: [
+      "Everything in Essentials, plus:",
+      "Conversation intelligence (call analysis)",
+      "AI deal scoring and forecasting",
+      "Advanced analytics and custom reports",
+      "Lead routing automation",
+      "5 hours monthly optimization support",
+    ],
+    bestFor: "Growing teams that need predictable revenue",
+    href: "/booking?plan=sales-growth",
+    featured: true,
+  },
+  {
+    price: "24,999",
+    title: "Enterprise",
+    subtitle: "Compete with enterprise sales operations",
+    description: "For teams of 15+ reps who need every advantage.",
+    features: [
+      "Everything in Growth, plus:",
+      "Real-time coaching and objection handling",
+      "Multi-team reporting and benchmarking",
+      "Custom integrations (ERP, billing, etc.)",
+      "Dedicated account manager",
+      "Unlimited optimization support",
+    ],
+    bestFor: "Established teams optimizing for efficiency",
+    href: "/booking?plan=sales-enterprise",
   },
   {
     price: "Custom",
-    title: "Enterprise Platform",
-    description: "Complete sales ecosystem transformation with dedicated support and training.",
-    href: "/contact",
+    title: "Custom Solutions",
+    subtitle: "Have specific needs? Let's build something tailored.",
+    description: "We create custom sales automation for unique workflows, complex integrations, or industry-specific requirements.",
+    href: "/booking?plan=custom",
   },
 ];
 
@@ -66,7 +135,8 @@ export default function SalesSystemsPage() {
         breadcrumbs={breadcrumbs}
         titleBold="Sales Systems"
         titleLight="Automation"
-        subtitle="Automate your CRM workflows and unlock conversation intelligence that helps close deals faster while reducing manual data entry by up to 80%."
+        subtitle="Your sales team should be selling, not doing data entry"
+        description="Automate your CRM, unlock AI-powered conversation insights, and eliminate up to 80% of manual admin work. Let your team focus on what actually closes deals."
       />
 
       {/* Service Details Section */}
@@ -82,15 +152,15 @@ export default function SalesSystemsPage() {
                 transition={{ duration: 0.6 }}
               >
                 <h2 className="text-2xl md:text-3xl font-bold text-dark mb-6">
-                  Your <span className="font-light">Approach</span>
+                  How We <span className="font-light">Build Systems</span>
                   <br />
-                  and <span className="font-light">Work Specifics</span>
+                  That Actually <span className="font-light">Get Used</span>
                 </h2>
                 <p className="text-dark/80 mb-8 leading-relaxed">
-                  We believe your CRM should work for you, not the other way around. Our sales system automations integrate seamlessly with your existing tools while adding intelligence layers that help your team sell smarter.
+                  Your CRM should make selling easier, not harder. We integrate seamlessly with your existing tools and add AI layers that coach your team in real-time—no system overhaul required.
                 </p>
                 <Link
-                  href="/contact"
+                  href="/ai-readiness"
                   className="inline-flex items-center gap-2 text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors group"
                 >
                   <span className="font-medium">Get Your Free AI Readiness Assessment</span>
@@ -109,11 +179,12 @@ export default function SalesSystemsPage() {
 
       {/* Pricing Section */}
       <PricingSection
-        headline="Investment options"
-        subheadline="for every team"
+        headline="Choose Your"
+        subheadline="Starting Point"
+        description="Start with essential automation or go all-in with enterprise intelligence. Every package includes setup, training, and 30 days of optimization support."
         tiers={pricingTiers}
-        customCTAText="Get Custom Quote"
-        customCTAHref="/contact"
+        customCTAText="Schedule a Strategy Call"
+        customCTAHref="/booking"
       />
 
       {/* Other Services */}
