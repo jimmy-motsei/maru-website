@@ -11,7 +11,8 @@ const newsItems = [
     id: 1,
     category: "AI ADOPTION",
     date: "DECEMBER 2025",
-    title: "Generative AI Adoption Doubles for Small Businesses in 2025",
+    titleLight: "Generative AI Adoption Doubles for",
+    titleBold: "Small Businesses in 2025",
     excerpt: "58% of SMEs now use generative AI—up from 40% in 2024. With 91% reporting revenue increases and 20+ hours saved monthly, the competitive advantage has never been clearer.",
     image: "/assets/images/articles/genai-adoption.png",
     link: "/knowledge/genai-adoption-smbs-2025",
@@ -20,7 +21,8 @@ const newsItems = [
     id: 2,
     category: "SKILLS",
     date: "DECEMBER 2025",
-    title: "10 AI Tools Every South African SME Should Know in 2025",
+    titleLight: "10 AI Tools Every South African SME",
+    titleBold: "Should Know in 2025",
     excerpt: "From ChatGPT to Zapier AI—practical AI tools that deliver immediate productivity gains. Most cost R0-R500/month and can save your team 20+ hours monthly.",
     image: "/assets/images/articles/ai-tools-productivity.png",
     link: "/knowledge/top-ai-tools-smb-productivity-2025",
@@ -40,7 +42,7 @@ export function News() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Case studies, articles, and resources
+            <span className="font-light">Case studies, articles,</span> and resources
           </motion.h2>
 
           <motion.div
@@ -76,7 +78,7 @@ export function News() {
               <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg mb-8 bg-gray-100">
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={`${item.titleLight} ${item.titleBold}`}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -85,18 +87,18 @@ export function News() {
               {/* Meta */}
               <div className="flex items-center gap-4 mb-4 text-xs font-bold tracking-widest uppercase">
                 <span className="text-accent">{item.category}</span>
-                <span className="text-gray-400">{item.date}</span>
+                <span className="text-gray-600">{item.date}</span>
               </div>
 
               {/* Title */}
-              <h3 className="text-2xl md:text-3xl font-bold leading-tight mb-4 group-hover:text-accent transition-colors duration-300">
+              <h3 className="text-2xl md:text-3xl leading-tight mb-4 group-hover:text-accent transition-colors duration-300">
                 <Link href={item.link}>
-                  {item.title}
+                  <span className="font-light">{item.titleLight}</span> <span className="font-bold">{item.titleBold}</span>
                 </Link>
               </h3>
 
               {/* Excerpt */}
-              <p className="text-gray-500 leading-relaxed mb-8">
+              <p className="text-gray-700 leading-relaxed mb-8">
                 {item.excerpt}
               </p>
 

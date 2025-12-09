@@ -66,10 +66,10 @@ export function Services() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <span className="font-light text-gray-400">Harness the Power of</span> AI & Automation
+            <span className="font-light text-black">Harness the Power of</span> AI & Automation
           </motion.h2>
           <motion.p 
-            className="text-gray-500 text-lg md:text-xl font-light"
+            className="text-gray-700 text-lg md:text-xl font-light"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}

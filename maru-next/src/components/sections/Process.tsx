@@ -69,7 +69,7 @@ export function Process() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            Implementing AI and automation has never been easier with Automaly!
+            Implementing AI and automation has never been easier with Maru!
           </motion.p>
         </div>
 

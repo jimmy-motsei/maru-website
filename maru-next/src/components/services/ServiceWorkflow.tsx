@@ -43,7 +43,7 @@ export function ServiceWorkflow({ steps, title = "How It Works", className }: Se
                 {!isLast && (
                   <>
                     <motion.div 
-                      className="hidden lg:flex absolute -right-6 top-10 text-gray-400 z-0 justify-center w-12"
+                      className="hidden lg:flex absolute -right-6 top-10 text-gray-600 z-0 justify-center w-12"
                       animate={{ x: [0, 6, 0] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                     >
@@ -51,7 +51,7 @@ export function ServiceWorkflow({ steps, title = "How It Works", className }: Se
                     </motion.div>
                     
                     <motion.div 
-                      className="lg:hidden absolute left-[22px] top-[80px] text-gray-400"
+                      className="lg:hidden absolute left-[22px] top-[80px] text-gray-600"
                       animate={{ y: [0, 6, 0] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                     >

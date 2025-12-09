@@ -21,7 +21,7 @@ export function About() {
               className="text-5xl font-bold leading-tight md:text-6xl lg:text-[68px]"
               variants={fadeUpVariants}
             >
-              <span className="font-thin text-gray-400">Trusted AI &</span> Automation Experts
+              <span className="font-thin text-gray-600">Trusted AI &</span> Automation Experts
             </motion.h2>
 
             <motion.p 

@@ -368,7 +368,7 @@ export default function ServicesPage() {
               {/* Calendly inline widget */}
               <div 
                 className="calendly-inline-widget"
-                data-url="https://calendly.com/maruonline/discovery-call?hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a1a&primary_color=2dd4bf"
+                data-url="https://calendly.com/hello-maruonline?hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a1a&primary_color=22d3ee"
                 style={{ 
                   minWidth: '320px',
                   height: '700px',

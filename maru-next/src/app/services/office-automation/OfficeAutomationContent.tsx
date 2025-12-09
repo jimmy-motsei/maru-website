@@ -92,7 +92,7 @@ export default function OfficeAutomationPage() {
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 text-dark hover:text-accent transition-colors group"
+                  className="inline-flex items-center gap-2 text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors group"
                 >
                   <span className="font-medium">Get Your Free AI Readiness Assessment</span>
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

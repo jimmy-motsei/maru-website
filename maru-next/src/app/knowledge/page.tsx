@@ -24,7 +24,7 @@ export default function KnowledgePage() {
       {/* Hero Section */}
       <section className="bg-dark relative min-h-[60vh] flex items-center overflow-hidden">
         {/* Animated Background */}
-        <AtmosphericBackground variant="sidebar" />
+        <AtmosphericBackground variant="hero" />
 
         <div className="container mx-auto px-6 lg:px-8 py-24 lg:py-32 relative z-10">
           <motion.h1

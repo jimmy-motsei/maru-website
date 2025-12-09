@@ -99,7 +99,7 @@ export default function TopAIToolsArticle() {
     <main>
       {/* Hero Banner */}
       <section className="bg-dark relative min-h-[50vh] flex items-end overflow-hidden">
-        <AtmosphericBackground variant="sidebar" />
+        <AtmosphericBackground variant="hero" />
 
         <div className="container mx-auto px-6 lg:px-8 py-16 relative z-10">
           <motion.nav

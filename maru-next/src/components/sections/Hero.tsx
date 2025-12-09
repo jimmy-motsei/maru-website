@@ -22,25 +22,34 @@ export function Hero() {
           
           {/* Headline */}
           <motion.h1 
-            className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.1] tracking-tight mb-8"
+            className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.1] tracking-tight mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <span className="text-white">AI & Automation</span><br />
-            <span className="text-white">Consultants</span>{" "}
-            <span className="font-light text-zinc-400">for SMEs</span>
+            <span className="font-light text-zinc-400">AI-Powered Marketing</span><br />
+            <span className="text-white">for Growing SMEs</span>
           </motion.h1>
 
-          {/* Sub-paragraph */}
+          {/* Sub-headline */}
+          <motion.p
+            className="text-xl md:text-2xl font-medium text-[#22d3ee] mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+          >
+            Your strategic partner for sustainable growth
+          </motion.p>
+
+          {/* Benefit paragraph */}
           <div className="flex flex-col items-start">
              <motion.p 
                className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed max-w-[500px] mb-12"
                initial={{ opacity: 0, y: 20 }}
                animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
              >
-               We deploy AI and automation to streamline operations, boost productivity, and grow revenue. Our expert team transforms complex manual processes into efficient, scalable systems that drive measurable business results.
+               We combine cutting-edge AI with proven marketing strategies to help you attract more customers and scale faster. From lead generation to campaign automation, we build systems that drive measurable growth for your business.
              </motion.p>
           </div>
 

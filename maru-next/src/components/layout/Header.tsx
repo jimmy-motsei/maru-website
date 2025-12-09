@@ -177,7 +177,7 @@ export function Header() {
                             <Link
                               href={project.href}
                               onClick={() => setIsMenuOpen(false)}
-                              className="text-gray-400 hover:text-white transition-colors text-base"
+                              className="text-gray-600 hover:text-white transition-colors text-base"
                             >
                               {project.name}
                             </Link>
@@ -201,7 +201,7 @@ export function Header() {
                             <Link
                               href={link.href}
                               onClick={() => setIsMenuOpen(false)}
-                              className="text-gray-400 hover:text-white transition-colors text-base"
+                              className="text-gray-600 hover:text-white transition-colors text-base"
                             >
                               {link.name}
                             </Link>
@@ -228,7 +228,7 @@ export function Header() {
                   >
                     <div>
                       <h3 className="text-white font-bold mb-2">Johannesburg</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">
+                      <p className="text-gray-600 text-sm leading-relaxed">
                         South Africa
                       </p>
                     </div>
@@ -237,7 +237,7 @@ export function Header() {
                       <h3 className="text-white font-bold mb-2">Get in touch</h3>
                       <a
                         href={`mailto:${siteConfig.contact.email}`}
-                        className="text-gray-400 text-sm hover:text-white transition-colors"
+                        className="text-gray-600 text-sm hover:text-white transition-colors"
                       >
                          {siteConfig.contact.email}
                       </a>
