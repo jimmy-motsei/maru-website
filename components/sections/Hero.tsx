@@ -62,10 +62,10 @@ export function Hero() {
           >
             {/* Primary Button - Cyan Pill */}
             <Link 
-              href="/ai-readiness" 
+              href="/booking" 
               className="group bg-[#22d3ee] text-black hover:bg-[#5cc5d1] transition-colors rounded-full pl-8 pr-2 py-2 flex items-center justify-between gap-4 font-bold tracking-tight text-sm md:text-base"
             >
-              GET YOUR FREE AI READINESS ASSESSMENT
+              START FREE WEBSITE AUDIT
               <span className="bg-black/10 group-hover:bg-black/20 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
                  <ArrowRight size={18} className="text-black" />
               </span>
