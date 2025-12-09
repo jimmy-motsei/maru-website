@@ -50,7 +50,7 @@ export function ArticleCard({ article, index = 0 }: ArticleCardProps) {
           <h3 className="text-xl font-bold text-dark mb-4 group-hover:text-accent transition-colors">
             {article.title}
           </h3>
-          <p className="text-dark/60 text-sm leading-relaxed mb-6 line-clamp-3">
+          <p className="text-dark/70 text-base leading-relaxed mb-6 line-clamp-3">
             {article.excerpt}
           </p>
 

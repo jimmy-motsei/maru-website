@@ -27,8 +27,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <span className="font-light text-zinc-400">AI-Powered Marketing</span><br />
-            <span className="text-white">for Growing SMEs</span>
+            <span className="whitespace-nowrap"><span className="font-light text-zinc-400">Compete Like</span> <span className="text-white">a Big Brand.</span></span><br />
+            <span className="whitespace-nowrap"><span className="text-white">On an</span> <span className="font-light text-zinc-400">SME Budget.</span></span>
           </motion.h1>
 
           {/* Sub-headline */}
@@ -38,7 +38,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
           >
-            Your strategic partner for sustainable growth
+            AI-powered marketing that levels the playing field
           </motion.p>
 
           {/* Benefit paragraph */}
@@ -49,7 +49,7 @@ export function Hero() {
                animate={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
              >
-               We combine cutting-edge AI with proven marketing strategies to help you attract more customers and scale faster. From lead generation to campaign automation, we build systems that drive measurable growth for your business.
+               We give SMEs the marketing muscle of enterprise competitors—without the enterprise price tag. Through intelligent automation and data-driven strategies, we help you generate more leads, convert faster, and scale smarter.
              </motion.p>
           </div>
 

@@ -301,7 +301,7 @@ export default function ServicesPage() {
                       </h3>
 
                       {/* Description */}
-                      <p className="text-white/40 text-sm leading-relaxed mb-6">
+                      <p className="text-white/70 text-base leading-relaxed mb-6">
                         {service.description}
                       </p>
 
@@ -310,7 +310,7 @@ export default function ServicesPage() {
                         {service.features.map((feature, featureIndex) => (
                           <li
                             key={featureIndex}
-                            className="text-white/60 text-sm"
+                            className="text-white/70 text-base"
                           >
                             {feature}
                           </li>

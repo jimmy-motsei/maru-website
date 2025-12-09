@@ -140,14 +140,14 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-dark/60 mb-6 text-sm leading-relaxed">
+                  <p className="text-dark/70 mb-6 text-base leading-relaxed">
                     {service.description}
                   </p>
 
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="text-dark/70 text-sm flex items-center gap-2">
+                      <li key={idx} className="text-dark/70 text-base flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                         {feature}
                       </li>

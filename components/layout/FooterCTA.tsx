@@ -133,13 +133,13 @@ export function FooterCTA() {
 
             {/* Navigation Column */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-white font-semibold mb-6">Navigation</h4>
+              <h4 className="text-white font-semibold mb-6 text-lg">Navigation</h4>
               <ul className="space-y-4">
                 {footerNavigation.main.map((item) => (
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-white/50 hover:text-accent transition-colors duration-300 text-sm"
+                      className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
                     >
                       {item.name}
                     </Link>
@@ -150,12 +150,12 @@ export function FooterCTA() {
 
             {/* Services Column */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-white font-semibold mb-6">Services</h4>
+              <h4 className="text-white font-semibold mb-6 text-lg">Services</h4>
               <ul className="space-y-4">
                 <li>
                   <Link
                     href="/services/lead-generation"
-                    className="text-white/50 hover:text-accent transition-colors duration-300 text-sm"
+                    className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
                   >
                     Lead Generation
                   </Link>
@@ -163,7 +163,7 @@ export function FooterCTA() {
                 <li>
                   <Link
                     href="/services/sales-systems"
-                    className="text-white/50 hover:text-accent transition-colors duration-300 text-sm"
+                    className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
                   >
                     Sales Systems
                   </Link>
@@ -171,7 +171,7 @@ export function FooterCTA() {
                 <li>
                   <Link
                     href="/services/office-automation"
-                    className="text-white/50 hover:text-accent transition-colors duration-300 text-sm"
+                    className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
                   >
                     Office Automation
                   </Link>
@@ -179,7 +179,7 @@ export function FooterCTA() {
                 <li>
                   <Link
                     href="/services/whatsapp-solutions"
-                    className="text-white/50 hover:text-accent transition-colors duration-300 text-sm"
+                    className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
                   >
                     WhatsApp Solutions
                   </Link>
@@ -189,17 +189,17 @@ export function FooterCTA() {
 
             {/* Contact Column */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-white font-semibold mb-6">Get in Touch</h4>
+              <h4 className="text-white font-semibold mb-6 text-lg">Get in Touch</h4>
               <ul className="space-y-4">
                 <li>
                   <a
                     href="mailto:hello@maruonline.com"
-                    className="text-white/50 hover:text-accent transition-colors duration-300 text-sm"
+                    className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
                   >
                     hello@maruonline.com
                   </a>
                 </li>
-                <li className="text-white/50 text-sm">
+                <li className="text-white/50 text-base">
                   Johannesburg, South Africa
                 </li>
               </ul>
@@ -213,7 +213,7 @@ export function FooterCTA() {
           >
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               {/* Copyright */}
-              <p className="text-white/40 text-sm">
+              <p className="text-white/40 text-base">
                 © {new Date().getFullYear()} Maru Online. All Rights Reserved.
               </p>
 
@@ -223,7 +223,7 @@ export function FooterCTA() {
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-white/40 hover:text-accent transition-colors duration-300 text-sm"
+                      className="text-white/40 hover:text-accent transition-colors duration-300 text-base"
                     >
                       {item.name}
                     </Link>
