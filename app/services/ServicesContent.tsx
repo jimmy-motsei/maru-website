@@ -440,19 +440,35 @@ export default function ServicesPage() {
               {[
                 {
                   q: "How do projects get started?",
-                  a: "Every engagement begins with a free AI Readiness Assessment. Our consultants review your current processes and identify high-impact automation opportunities. Then we provide a detailed roadmap with ROI projections. Most pilot projects take 2–4 weeks to deliver initial results.",
+                  a: "Book a free AI Readiness Assessment. We'll audit your processes, identify where automation delivers the biggest ROI, and give you a prioritized roadmap. Most pilot projects show results within 2-4 weeks.",
                 },
                 {
                   q: "Is our data safe?",
-                  a: "Yes. All workflows are designed to comply with POPIA and can be hosted on South African cloud regions. Consent logs and audit trails are included.",
+                  a: "Yes. All systems are POPIA-compliant and hosted on South African cloud infrastructure. We include consent logs, audit trails, and data encryption as standard.",
                 },
                 {
                   q: "Which tools do you work with?",
-                  a: "We integrate across HubSpot, Pipedrive, Airtable, Notion, Slack, Xero, QuickBooks and more — using APIs or low-code automation where practical.",
+                  a: "We integrate with the tools you already use—HubSpot, Pipedrive, Airtable, Notion, Slack, Xero, QuickBooks, and more. If it has an API, we can connect it.",
                 },
                 {
                   q: "Do you provide training?",
-                  a: "Every project includes hand-off sessions and lightweight runbooks so your team stays confident and self-sufficient.",
+                  a: "Every project includes hands-on training sessions and simple runbooks. Your team will know exactly how to use and maintain the systems we build.",
+                },
+                {
+                  q: "What's the typical ROI timeline?",
+                  a: "Most clients see measurable time savings within the first month. Full ROI (cost recovered through efficiency gains) typically occurs within 3-6 months, depending on project scope.",
+                },
+                {
+                  q: "Do we need technical staff to manage this?",
+                  a: "No. We build systems your current team can operate. If something breaks or needs updating, we provide ongoing support—no developers required on your end.",
+                },
+                {
+                  q: "What size projects do you take on?",
+                  a: "We work with SMEs spending between R15k-R150k monthly on marketing and operations. Whether you need one automated workflow or a full sales system overhaul, we scale to your needs.",
+                },
+                {
+                  q: "How much does it cost?",
+                  a: "Project costs range from R25k for single workflow automation to R200k+ for comprehensive sales and marketing systems. We provide fixed-price quotes after your free assessment—no surprises.",
                 },
               ].map((faq, index) => (
                 <motion.details
