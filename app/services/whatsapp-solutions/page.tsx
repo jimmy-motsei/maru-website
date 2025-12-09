@@ -17,44 +17,114 @@ const breadcrumbs = [
 const accordionItems = [
   {
     title: "AI Chatbots",
+    subtitle: "Answer common questions instantly, any time of day",
     content:
-      "Deploy intelligent chatbots that understand natural language and handle complex conversations. Our bots qualify leads, answer FAQs, schedule appointments, and escalate to humans when needed—all while learning from every interaction.",
+      "Stop losing leads because you're closed or in a meeting. Our AI chatbots qualify prospects, answer FAQs, and schedule appointments—even at 2am on a Saturday.",
+    features: [
+      "Natural language understanding (no rigid scripts)",
+      "Intelligent lead qualification and routing",
+      "Automatic appointment scheduling",
+      "FAQ responses with 95%+ accuracy",
+      "Seamless handoff to human agents when needed",
+    ],
+    timeSaved: "Typical impact: 60-80% reduction in response time, 24/7 availability",
   },
   {
     title: "Personalized Messaging",
+    subtitle: "Tailored offers based on customer behavior",
     content:
-      "Go beyond broadcast messages with personalization that makes each customer feel valued. Our system uses customer data to craft relevant messages, product recommendations, and offers that drive engagement and conversions.",
+      "Generic broadcasts don't work. Our system analyzes customer data to send the right message, to the right person, at the right time—with offers they actually want.",
+    features: [
+      "Behavioral triggers (abandoned carts, browsing history)",
+      "Dynamic product recommendations",
+      "Personalized promotions based on purchase history",
+      "Smart segmentation (demographics, engagement level)",
+      "A/B testing to optimize messaging",
+    ],
+    timeSaved: "Typical impact: 3-5x higher conversion rates vs. generic broadcasts",
   },
   {
     title: "24/7 Customer Engagement",
+    subtitle: "Never miss a lead, even at 2am",
     content:
-      "Never miss a customer inquiry again. Our WhatsApp solutions provide instant responses around the clock, maintaining consistent service quality whether it's 3 PM or 3 AM, weekday or weekend.",
+      "Your competitors are responding while you're asleep. Our AI handles inquiries instantly, books appointments, and nurtures leads around the clock—no burnt-out team required.",
+    features: [
+      "Instant responses to common questions",
+      "After-hours lead capture and qualification",
+      "International time zone support",
+      "Automatic escalation for urgent issues",
+      "Conversation continuity (context remembered across sessions)",
+    ],
+    timeSaved: "Typical impact: 40-60% increase in after-hours lead capture",
   },
   {
     title: "Conversation Analytics",
+    subtitle: "See what customers really want",
     content:
-      "Understand what your customers are really saying. Our analytics dashboard reveals trending topics, sentiment patterns, response times, and conversion metrics so you can continuously optimize your messaging strategy.",
+      "Stop guessing what your customers need. Our analytics show you trending questions, sentiment patterns, and conversion bottlenecks—so you can improve continuously.",
+    features: [
+      "Real-time conversation dashboards",
+      "Sentiment analysis (happy, frustrated, confused customers)",
+      "Topic clustering (what people ask most)",
+      "Response time and resolution metrics",
+      "Conversion tracking (chat → booking → sale)",
+    ],
+    timeSaved: "Typical impact: Identify and fix service gaps 10x faster",
   },
 ];
 
 const pricingTiers = [
   {
     price: "2,999",
-    title: "Starter Bot",
-    description: "Basic FAQ bot with up to 1,000 conversations per month and standard integrations.",
-    href: "/contact",
+    title: "Starter",
+    subtitle: "Test WhatsApp automation with your best customers",
+    description: "Perfect for small businesses taking their first step into conversational commerce.",
+    features: [
+      "Basic FAQ chatbot (up to 50 common questions)",
+      "1,000 conversations per month",
+      "Standard integrations (CRM, calendar)",
+      "Basic analytics dashboard",
+      "Email support",
+    ],
+    bestFor: "Businesses getting 50-100 WhatsApp inquiries/month",
+    href: "/booking?plan=whatsapp-starter",
   },
   {
     price: "7,999",
-    title: "Business Messaging",
-    description: "Advanced AI, unlimited conversations, CRM integration, and broadcast campaigns.",
-    href: "/contact",
+    title: "Growth",
+    subtitle: "Turn WhatsApp into a revenue channel",
+    description: "For growing businesses ready to scale customer engagement and drive sales.",
+    features: [
+      "Everything in Starter, plus:",
+      "Advanced AI (handles complex questions)",
+      "Unlimited conversations",
+      "Personalized messaging and broadcast campaigns",
+      "CRM integration and lead routing",
+      "Appointment scheduling automation",
+      "Advanced analytics and A/B testing",
+      "5 hours monthly optimization",
+    ],
+    bestFor: "Businesses with 500+ monthly inquiries or running marketing campaigns",
+    href: "/booking?plan=whatsapp-growth",
+    featured: true,
   },
   {
     price: "Custom",
-    title: "Enterprise Platform",
-    description: "Multi-channel orchestration, custom AI training, and dedicated account management.",
-    href: "/contact",
+    title: "Enterprise",
+    subtitle: "Multi-channel orchestration at scale",
+    description: "For established businesses managing high-volume customer conversations across channels.",
+    features: [
+      "Everything in Growth, plus:",
+      "Custom AI training (your brand voice and knowledge)",
+      "Multi-channel support (WhatsApp, SMS, web chat)",
+      "E-commerce integration (Shopify, WooCommerce)",
+      "Payment processing in-chat",
+      "Dedicated account manager",
+      "White-label options",
+      "Unlimited optimization and support",
+    ],
+    bestFor: "Organizations handling 5,000+ conversations/month",
+    href: "/booking?plan=whatsapp-enterprise",
   },
 ];
 
@@ -64,9 +134,10 @@ export default function WhatsAppSolutionsPage() {
       {/* Hero Section */}
       <ServiceHero
         breadcrumbs={breadcrumbs}
-        titleBold="WhatsApp"
+        titleBold="WhatsApp Business"
         titleLight="Solutions"
-        subtitle="Engage customers 24/7 with intelligent chatbots that deliver personalized messaging at scale, turning conversations into conversions around the clock."
+        subtitle="Meet your customers where they already are—at scale"
+        description="Turn WhatsApp into a 24/7 sales and support channel. Engage customers with intelligent, personalized conversations that feel human, not robotic."
       />
 
       {/* Service Details Section */}
@@ -82,15 +153,15 @@ export default function WhatsAppSolutionsPage() {
                 transition={{ duration: 0.6 }}
               >
                 <h2 className="text-2xl md:text-3xl font-bold text-dark mb-6">
-                  Your <span className="font-light">Approach</span>
+                  Conversations That <span className="font-light">Feel Human,</span>
                   <br />
-                  and <span className="font-light">Work Specifics</span>
+                  Scale Like <span className="font-light">Software</span>
                 </h2>
                 <p className="text-dark/80 mb-8 leading-relaxed">
-                  We design conversational experiences that feel human while leveraging AI to scale. Our WhatsApp solutions integrate with your existing systems to create seamless customer journeys from first contact to conversion.
+                  We design conversational experiences that feel personal while leveraging AI to handle hundreds of chats simultaneously. Your customers get instant answers, you get qualified leads—everyone wins.
                 </p>
                 <Link
-                  href="/contact"
+                  href="/ai-readiness"
                   className="inline-flex items-center gap-2 text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors group"
                 >
                   <span className="font-medium">Get Your Free AI Readiness Assessment</span>
@@ -109,11 +180,12 @@ export default function WhatsAppSolutionsPage() {
 
       {/* Pricing Section */}
       <PricingSection
-        headline="Messaging packages"
-        subheadline="for every business"
+        headline="Choose Your"
+        subheadline="Messaging Plan"
+        description="Start small and scale up, or go all-in from day one. Every package includes setup, bot training, and 30 days of optimization."
         tiers={pricingTiers}
-        customCTAText="Get Custom Quote"
-        customCTAHref="/contact"
+        customCTAText="Schedule a Demo"
+        customCTAHref="/booking"
       />
 
       {/* Other Services */}
