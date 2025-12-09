@@ -15,6 +15,7 @@ interface ServiceHeroProps {
   titleBold: string;
   titleLight: string;
   subtitle?: string;
+  description?: string;
   scrollToId?: string;
 }
 
@@ -23,6 +24,7 @@ export function ServiceHero({
   titleBold,
   titleLight,
   subtitle,
+  description,
   scrollToId = "service-details",
 }: ServiceHeroProps) {
   return (
@@ -76,9 +78,21 @@ export function ServiceHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-white/60 text-lg max-w-2xl mb-12"
+            className="text-xl md:text-2xl text-white font-medium max-w-3xl mb-4"
           >
             {subtitle}
+          </motion.p>
+        )}
+
+        {/* Description */}
+        {description && (
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="text-white/60 text-lg max-w-2xl mb-12"
+          >
+            {description}
           </motion.p>
         )}
 

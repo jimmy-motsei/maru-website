@@ -8,6 +8,7 @@ interface AccordionItem {
   subtitle?: string;
   content: string;
   features?: string[];
+  timeSaved?: string;
 }
 
 interface ServiceAccordionProps {
@@ -86,6 +87,11 @@ export function ServiceAccordion({ items }: ServiceAccordionProps) {
                         ))}
                       </ul>
                     </div>
+                  )}
+                  {item.timeSaved && (
+                    <p className="mt-4 text-sm font-medium text-accent italic">
+                      {item.timeSaved}
+                    </p>
                   )}
                 </div>
               </motion.div>
