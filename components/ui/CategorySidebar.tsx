@@ -23,7 +23,7 @@ export function CategorySidebar({ currentCategory }: CategorySidebarProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="bg-white rounded-xl p-8"
+      className="bg-gray-50 rounded-xl p-8"
     >
       <motion.h4
         variants={itemVariants}

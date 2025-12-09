@@ -619,7 +619,7 @@ export default function ServicesPage() {
               href="/ai-readiness-test"
               className="inline-flex items-center bg-accent hover:bg-accent-dark text-black font-medium rounded-full pl-8 pr-2 py-2.5 transition-colors group"
             >
-              <span className="text-sm tracking-wide uppercase mr-4">Start Assessment</span>
+              <span className="text-sm tracking-wide uppercase mr-4">Get your free assessment</span>
               <span className="bg-dark text-white rounded-full p-3 group-hover:bg-black transition-colors">
                 <ArrowRight size={16} />
               </span>

@@ -33,7 +33,7 @@ export function ArticleCard({ article, index = 0 }: ArticleCardProps) {
     >
       <Link
         href={`/knowledge/${article.slug}`}
-        className="block bg-white rounded-xl overflow-hidden h-full group hover:shadow-lg transition-all duration-300"
+        className="block bg-gray-50 rounded-xl overflow-hidden h-full group hover:shadow-lg transition-all duration-300"
       >
         {/* Category & Date Header */}
         <div className="px-8 pt-8 pb-4">

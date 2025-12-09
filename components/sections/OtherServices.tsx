@@ -124,7 +124,7 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
               <motion.div key={service.id} variants={itemVariants}>
                 <Link
                   href={service.href}
-                  className="block bg-white rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl border-l-4 border-l-[#22d3ee] transition-all duration-300 group"
+                  className="block bg-gray-50 rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl border-l-4 border-l-[#22d3ee] transition-all duration-300 group"
                 >
                   {/* Icon */}
                   <div

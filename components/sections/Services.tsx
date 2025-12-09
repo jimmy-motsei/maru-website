@@ -97,10 +97,11 @@ export function Services() {
             <motion.div 
               key={service.id} 
               variants={fadeUpVariants}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group"
             >
-              {/* Card - White with Shadow and Left Border Accent */}
-              <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl border-l-4 border-l-[#22d3ee] transition-all duration-300 h-full flex flex-col">
+              {/* Card - Subtle Gray with Shadow and Left Border Accent */}
+              <div className="bg-gray-50 p-8 rounded-2xl shadow-xl hover:shadow-2xl border-l-4 border-l-[#22d3ee] transition-all duration-300 h-full flex flex-col">
                 
                 {/* Category Tag */}
                 <div className="flex items-center gap-3 mb-4">

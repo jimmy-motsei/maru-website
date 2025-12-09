@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const partners = [
   { name: "B2B Group 8", logo: "/images/partners/B2B-logo.png" },
@@ -25,28 +26,43 @@ export function Partners() {
 
   return (
     <section className="py-12 bg-white border-t border-gray-100 overflow-hidden text-black">
-      <div className="relative">
+      <motion.div 
+        className="relative"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         {/* Infinite Scrolling Container */}
         <div className="flex animate-infinite-scroll hover:[animation-play-state:paused]">
           {allPartners.map((partner, index) => (
-            <div
+            <motion.div
               key={`${partner.name}-${index}`}
               className="flex-shrink-0 px-12 flex items-center justify-center min-w-[200px]"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "0px" }}
+              transition={{ 
+                duration: 0.4, 
+                delay: index * 0.05,
+                ease: "easeOut" as const
+              }}
+              whileHover={{ scale: 1.15 }}
             >
               <Image
                 src={partner.logo}
                 alt={partner.name}
                 width={200}
                 height={80}
-                className={`w-auto object-contain transition-all duration-300 hover:scale-105 ${
+                className={`w-auto object-contain grayscale hover:grayscale-0 transition-all duration-500 ${
                   // @ts-ignore
                   partner.heightClass || "h-[50px]"
                 }`}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

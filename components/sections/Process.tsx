@@ -46,6 +46,39 @@ const fadeUpVariants = {
   }
 };
 
+const staggerContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const
+    }
+  }
+};
+
+const iconVariants = {
+  rest: { scale: 1, rotate: 0 },
+  hover: { 
+    scale: 1.1, 
+    rotate: 5,
+    transition: { duration: 0.3, type: "spring" as const, stiffness: 300 }
+  }
+};
+
 export function Process() {
   return (
     <section id="process" className="bg-dark py-24 md:py-32 relative overflow-hidden text-white border-t border-white/5">
@@ -54,13 +87,13 @@ export function Process() {
         {/* Section Header */}
         <div className="max-w-4xl mx-auto text-center mb-12">
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-[var(--color-accent)]"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            Your 4-Steps to AI & Automation Success
+            <span className="font-light text-zinc-400">Your 4-Steps to</span> AI & Automation Success
           </motion.h2>
           <motion.p
             className="text-lg text-white/60 max-w-2xl mx-auto"
@@ -96,17 +129,27 @@ export function Process() {
         </div>
 
         {/* Footer Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainerVariants}
+        >
           <motion.div 
             className="flex flex-col gap-6 bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUpVariants}
+            variants={cardVariants}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            initial="rest"
+            animate="rest"
           >
-            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30">
+            <motion.div 
+              className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30"
+              variants={iconVariants}
+              whileHover="hover"
+            >
               <ClipboardCheck size={28} />
-            </div>
+            </motion.div>
             <div>
               <h4 className="font-bold mb-3 text-xl text-white">Trusted AI & Automation Consultants</h4>
               <p className="text-base text-zinc-400 leading-relaxed">
@@ -117,15 +160,18 @@ export function Process() {
 
           <motion.div 
             className="flex flex-col gap-6 bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            variants={fadeUpVariants}
+            variants={cardVariants}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            initial="rest"
+            animate="rest"
           >
-            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30">
+            <motion.div 
+              className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30"
+              variants={iconVariants}
+              whileHover="hover"
+            >
               <Map size={28} />
-            </div>
+            </motion.div>
             <div>
               <h4 className="font-bold mb-3 text-xl text-white">Unmatched Industry Expertise</h4>
               <p className="text-base text-zinc-400 leading-relaxed">
@@ -136,15 +182,18 @@ export function Process() {
 
           <motion.div 
             className="flex flex-col gap-6 bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            variants={fadeUpVariants}
+            variants={cardVariants}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            initial="rest"
+            animate="rest"
           >
-            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30">
+            <motion.div 
+              className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30"
+              variants={iconVariants}
+              whileHover="hover"
+            >
               <Settings size={28} />
-            </div>
+            </motion.div>
             <div>
               <h4 className="font-bold mb-3 text-xl text-white">Control your Business Growth</h4>
               <p className="text-base text-zinc-400 leading-relaxed">
@@ -155,15 +204,18 @@ export function Process() {
 
           <motion.div 
             className="flex flex-col gap-6 bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            variants={fadeUpVariants}
+            variants={cardVariants}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            initial="rest"
+            animate="rest"
           >
-            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30">
+            <motion.div 
+              className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30"
+              variants={iconVariants}
+              whileHover="hover"
+            >
               <GraduationCap size={28} />
-            </div>
+            </motion.div>
             <div>
               <h4 className="font-bold mb-3 text-xl text-white">Ongoing Training & Support</h4>
               <p className="text-base text-zinc-400 leading-relaxed">
@@ -171,7 +223,7 @@ export function Process() {
               </p>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

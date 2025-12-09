@@ -28,14 +28,14 @@ export function About() {
               className="text-lg leading-relaxed text-black/80"
               variants={fadeUpVariants}
             >
-              Established in 2002, MaruOnline has a wealth of experience and expertise in several marketing disciplines. What we bring to AI Solutions Development is rooted in the experience we have; from creating brands from scratch, to growing existing ones.
+              Established in 2002, MaruOnline brings over two decades of marketing expertise—from building brands from scratch to scaling existing ones.
             </motion.p>
 
             <motion.p 
               className="text-lg leading-relaxed text-black/80"
               variants={fadeUpVariants}
             >
-              AI to us is a tool to better do what we do best—help SME brands and businesses to compete effectively in a crowded marketplace. By leveraging intelligent automation, we level the playing field, giving you the operational power of a large enterprise without the overhead. We turn technology into your competitive advantage.
+              We use AI as a strategic tool to do what we do best: help SMEs compete in crowded markets. Through intelligent automation, we give you enterprise-level capabilities without the enterprise overhead, turning technology into your competitive advantage.
             </motion.p>
 
             {/* Quote Block */}

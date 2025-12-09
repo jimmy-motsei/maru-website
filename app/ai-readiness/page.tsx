@@ -189,7 +189,7 @@ export default function AIReadinessPage() {
                   onClick={handleNext}
                   className="group inline-flex items-center gap-4 bg-accent hover:bg-accent-dark text-black font-bold rounded-full pl-8 pr-3 py-4 transition-all duration-300"
                 >
-                  <span className="text-sm tracking-widest uppercase">Start Assessment</span>
+                  <span className="text-sm tracking-widest uppercase">Get your free assessment</span>
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white transition-all duration-300 group-hover:bg-white group-hover:text-black">
                     <ArrowRight size={18} />
                   </span>
