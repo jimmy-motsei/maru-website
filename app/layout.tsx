@@ -18,6 +18,7 @@ import { Header } from "@/components/layout/Header";
 import { FooterCTA } from "@/components/layout/FooterCTA";
 import { PageFrame } from "@/components/layout/PageFrame";
 import Preloader from "@/components/ui/Preloader";
+import ChatWidget from "@/components/ChatWidget";
 
 // HubSpot Portal ID
 const HUBSPOT_PORTAL_ID = "146669350";
@@ -38,6 +39,7 @@ export default function RootLayout({
         <PageFrame />
         {children}
         <FooterCTA />
+        <ChatWidget />
         
         {/* HubSpot Tracking Code */}
         <Script
