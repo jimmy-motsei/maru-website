@@ -40,12 +40,16 @@ export default function BriefingPage() {
       <AtmosphericBackground variant="default" />
       
       <div className="container relative z-10 mx-auto px-6 py-24 md:py-32">
-        <div className="mb-16">
-          <SectionTitle 
-            subtitle="PROJECT & SUPPORT CENTER"
-            title="Let’s Build Something Remarkable."
-            description="Whether you're looking to automate your workflow with AI, launch a new digital platform, or need support for an existing service, you're in the right place. Select a path below to give us the details we need to hit the ground running."
-          />
+        <div className="mb-16 text-center">
+          <p className="text-sm font-bold tracking-widest text-accent uppercase mb-4">
+            PROJECT & SUPPORT CENTER
+          </p>
+          <SectionTitle>
+            Let's Build Something Remarkable.
+          </SectionTitle>
+          <p className="mt-6 text-lg text-white/60 max-w-3xl mx-auto">
+            Whether you're looking to automate your workflow with AI, launch a new digital platform, or need support for an existing service, you're in the right place. Select a path below to give us the details we need to hit the ground running.
+          </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
