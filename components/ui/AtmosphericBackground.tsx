@@ -4,21 +4,16 @@ import { CloudWireframe } from "@/components/ui/CloudWireframe";
 import { cn } from "@/lib/utils";
 
 interface AtmosphericBackgroundProps {
-  variant?: "hero" | "overlay" | "sidebar";
+  variant?: "hero" | "overlay" | "sidebar" | "subtle" | "default";
   className?: string;
-  theme?: "light" | "dark"; // Some pages are light, clouds might need color adjustment
+  theme?: "light" | "dark";
 }
 
 export function AtmosphericBackground({ variant = "hero", className, theme = "dark" }: AtmosphericBackgroundProps) {
-  // Use 'text-cyan-400' for dark mode (default) and maybe a darker teal for light mode if needed.
-  // The user requested: "Hardcode the cloud stroke color to the text-accent (Cyan/Teal)".
-  // I'll stick to 'text-[#22d3ee]' (default Tailwind cyan-400 equivalent which matches brand) for now across dark backgrounds.
-  // For light backgrounds (like sidebar in light mode), we might need an override class.
-  
   const strokeColor = "text-[#22d3ee]"; // Maru Brand Cyan
 
   if (variant === "overlay") {
-    // Nav Overlay: Top-right cluster
+    // ... existing overlay code ...
     return (
       <div className={cn("absolute inset-0 pointer-events-none overflow-hidden select-none", className)}>
         <div className="absolute top-[-20%] right-[-10%] scale-[0.8] origin-top-right opacity-50">
@@ -45,8 +40,8 @@ export function AtmosphericBackground({ variant = "hero", className, theme = "da
     );
   }
 
-  if (variant === "sidebar") {
-    // Sidebar: Side/Vertical flow (for inner pages)
+  if (variant === "sidebar" || variant === "subtle") {
+    // Sidebar/Subtle: Side/Vertical flow (for inner pages)
     return (
       <div className={cn("absolute inset-y-0 right-0 w-[50%] pointer-events-none overflow-hidden select-none", className)}>
         <div className="absolute top-[10%] right-[-10%] opacity-40">
@@ -69,7 +64,7 @@ export function AtmosphericBackground({ variant = "hero", className, theme = "da
     );
   }
 
-  // Hero: Full screen, 3 layers
+  // Hero / Default: Full screen, 3 layers
   return (
     <div className={cn("absolute inset-0 pointer-events-none overflow-hidden select-none", className)}>
       {/* LAYER 1: BACK */}

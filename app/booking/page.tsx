@@ -1,8 +1,10 @@
-'use client';
+"use client";
 
 import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Script from 'next/script';
+import { siteConfig } from '@/config/site';
 
 function BookingForm() {
   const searchParams = useSearchParams();
@@ -175,8 +177,16 @@ function BookingForm() {
                 <p className="mt-2 text-sm text-zinc-400">
                   Please pick a time below to schedule your free consultation.
                 </p>
-                <div className="mt-6 aspect-video w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                  <span className="text-zinc-500 italic">Calendly Embed Area</span>
+                <div className="mt-6 w-full rounded-lg bg-white/5 border border-white/10 overflow-hidden">
+                    <div 
+                        className="calendly-inline-widget" 
+                        data-url={siteConfig.calendly.discoveryCall} 
+                        style={{ minWidth: '320px', height: '700px' }} 
+                    />
+                    <Script 
+                        src="https://assets.calendly.com/assets/external/widget.js" 
+                        strategy="lazyOnload" 
+                    />
                 </div>
               </motion.div>
             )}
