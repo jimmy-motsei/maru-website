@@ -11,7 +11,7 @@ const tiers = [
   {
     name: 'Starter',
     id: 'tier-starter',
-    href: '/booking?plan=Starter',
+    href: '/contact',
     price: 'R4,950',
     description: 'Perfect for local businesses just starting their digital journey.',
     features: [
@@ -26,7 +26,7 @@ const tiers = [
   {
     name: 'Growth',
     id: 'tier-growth',
-    href: '/booking?plan=Growth',
+    href: '/contact',
     price: 'R12,500',
     description: 'The complete engine for businesses ready to scale aggressively.',
     features: [
@@ -42,7 +42,7 @@ const tiers = [
   {
     name: 'Enterprise',
     id: 'tier-enterprise',
-    href: '/booking?plan=Enterprise',
+    href: '/contact',
     price: 'R28,000+',
     description: 'Custom AI integration and full-service marketing department.',
     features: [
