@@ -62,7 +62,7 @@ export function Hero() {
           >
             {/* Primary Button - Cyan Pill */}
             <Link 
-              href="/booking" 
+              href="/website-audit" 
               className="group bg-[#22d3ee] text-black hover:bg-[#5cc5d1] transition-colors rounded-full pl-8 pr-2 py-2 flex items-center justify-between gap-4 font-bold tracking-tight text-sm md:text-base"
             >
               START FREE WEBSITE AUDIT
@@ -73,7 +73,7 @@ export function Hero() {
 
             {/* Secondary Link - Text Only */}
             <Link 
-              href="/how-we-work" 
+              href="/#process" 
               className="flex items-center gap-3 text-white font-bold tracking-widest text-sm hover:text-[#22d3ee] transition-colors group"
             >
               HOW WE WORK
