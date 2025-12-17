@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ClipboardCheck, Map, Settings, GraduationCap } from "lucide-react";
+import { ArrowRight, ClipboardCheck, Map, Settings, GraduationCap, Target, TrendingUp, Zap, RefreshCw } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { IsometricProcess } from "./IsometricProcess";
@@ -10,14 +10,14 @@ const steps = [
   {
     number: "01",
     title: "Step 1 – Free Process Health Check",
-    description: "Our consultants meticulously review your current processes, identifying areas ripe for AI & automation that can boost productivity and cut costs.",
+    description: "Our consultants analyze your current performance, identifying optimization opportunities that unlock your next level of growth.",
     icon: ClipboardCheck,
     color: "bg-cyan-500",
   },
   {
     number: "02",
     title: "Step 2 – Personalised AI & Automation Roadmap",
-    description: "We provide a tailored automation roadmap, with our recommended AI automation plan ready to implement. We calculate the time and cost savings at every step.",
+    description: "We deliver a precision roadmap—prioritized by impact—showing you exactly where AI and automation will move the needle most.",
     icon: Map,
     color: "bg-purple-500",
   },
@@ -31,7 +31,7 @@ const steps = [
   {
     number: "04",
     title: "Step 4 – Ongoing Support & Updates",
-    description: "Need ongoing support? Consider it done. We can offer ongoing support packages to keep your automation and AI 100% optimized.",
+    description: "We provide ongoing optimization and support to ensure your systems continue delivering marginal gains that compound into market leadership.",
     icon: GraduationCap,
     color: "bg-emerald-500",
   },
@@ -93,7 +93,7 @@ export function Process() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <span className="font-light text-zinc-400">Your 4-Steps to</span> AI & Automation Success
+            <span className="font-light text-zinc-400">Your 4-Steps to</span> Breakthrough Performance
           </motion.h2>
           <motion.p
             className="text-lg text-white/60 max-w-2xl mx-auto"
@@ -102,7 +102,7 @@ export function Process() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            Implementing AI and automation has never been easier with Maru!
+            A proven methodology that identifies opportunities and delivers precision execution
           </motion.p>
         </div>
 
@@ -110,7 +110,6 @@ export function Process() {
         <div className="mb-24 -mx-4 md:-mx-8 lg:-mx-16">
            <IsometricProcess />
         </div>
-
 
 
 
@@ -148,12 +147,12 @@ export function Process() {
               variants={iconVariants}
               whileHover="hover"
             >
-              <ClipboardCheck size={28} />
+              <Target size={28} />
             </motion.div>
             <div>
-              <h4 className="font-bold mb-3 text-xl text-white">Trusted AI & Automation Consultants</h4>
+              <h4 className="font-bold mb-3 text-xl text-white">Built for High-Performers</h4>
               <p className="text-base text-zinc-400 leading-relaxed">
-                Maru is a trusted automation partner for leading cybersecurity, IT, and tech firms. We understand your goals and commit to a plan to help you reach them.
+                We partner with businesses that have proven their model and are ready to scale it. If you're already successful but hitting a ceiling, we help you break through.
               </p>
             </div>
           </motion.div>
@@ -170,12 +169,12 @@ export function Process() {
               variants={iconVariants}
               whileHover="hover"
             >
-              <Map size={28} />
+              <TrendingUp size={28} />
             </motion.div>
             <div>
-              <h4 className="font-bold mb-3 text-xl text-white">Unmatched Industry Expertise</h4>
+              <h4 className="font-bold mb-3 text-xl text-white">Marginal Gains Philosophy</h4>
               <p className="text-base text-zinc-400 leading-relaxed">
-                Our diverse team of global experts are skilled in business growth, sales, marketing, and tech. Our AI solutions are extensively researched and tested.
+                We obsess over the 5-10% improvements across your marketing and sales operations that compound into market leadership. Precision beats brute force.
               </p>
             </div>
           </motion.div>
@@ -192,12 +191,12 @@ export function Process() {
               variants={iconVariants}
               whileHover="hover"
             >
-              <Settings size={28} />
+              <Zap size={28} />
             </motion.div>
             <div>
-              <h4 className="font-bold mb-3 text-xl text-white">Control your Business Growth</h4>
+              <h4 className="font-bold mb-3 text-xl text-white">Data-Driven Precision</h4>
               <p className="text-base text-zinc-400 leading-relaxed">
-                We simplify AI & automation, making it easy for you to focus on high-value outcomes and growing your business. Take back control with Maru.
+                Every recommendation is backed by your data and our 20+ years of pattern recognition across growing businesses. No guesswork, just results.
               </p>
             </div>
           </motion.div>
@@ -214,12 +213,12 @@ export function Process() {
               variants={iconVariants}
               whileHover="hover"
             >
-              <GraduationCap size={28} />
+              <RefreshCw size={28} />
             </motion.div>
             <div>
-              <h4 className="font-bold mb-3 text-xl text-white">Ongoing Training & Support</h4>
+              <h4 className="font-bold mb-3 text-xl text-white">Ongoing Optimization</h4>
               <p className="text-base text-zinc-400 leading-relaxed">
-                We ensure a seamless transition to an automated workflow, providing your team with complete onboarding, training, and technical support.
+                Success isn't a one-time implementation—it's continuous refinement. We provide training, support, and ongoing optimization to keep you ahead.
               </p>
             </div>
           </motion.div>

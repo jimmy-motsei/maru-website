@@ -15,7 +15,7 @@ const steps = [
   {
     id: "01",
     title: "Health Check",
-    description: "Our consultants meticulously review your current processes, identifying areas ripe for AI & automation.",
+    description: "Our consultants analyze your current performance, identifying optimization opportunities that unlock your next level of growth.",
     icon: ClipboardCheck,
     color: "cyan",
     hex: "#22d3ee",
@@ -27,7 +27,7 @@ const steps = [
   {
     id: "02",
     title: "Roadmap",
-    description: "We provide a tailored automation roadmap, with our recommended AI automation plan ready to implement.",
+    description: "We deliver a precision roadmap—prioritized by impact—showing you exactly where AI and automation will move the needle most.",
     icon: Map,
     color: "cyan",
     hex: "#22d3ee",
@@ -51,7 +51,7 @@ const steps = [
   {
     id: "04",
     title: "Support",
-    description: "We offer ongoing support packages to keep your automation and AI 100% optimized.",
+    description: "We provide ongoing optimization and support to ensure your systems continue delivering marginal gains that compound into market leadership.",
     icon: GraduationCap,
     color: "cyan",
     hex: "#22d3ee",

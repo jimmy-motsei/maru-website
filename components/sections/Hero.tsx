@@ -27,8 +27,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <span className="whitespace-nowrap"><span className="font-light text-zinc-400">Compete Like</span> <span className="text-white">a Big Brand.</span></span><br />
-            <span className="whitespace-nowrap"><span className="text-white">On an</span> <span className="font-light text-zinc-400">SME Budget.</span></span>
+            <span className="whitespace-nowrap"><span className="font-light text-zinc-400">Close the Gap</span> <span className="text-white">Between</span></span><br />
+            <span className="whitespace-nowrap"><span className="font-light text-zinc-400">Good</span> <span className="text-white">and Great.</span></span>
           </motion.h1>
 
           {/* Sub-headline */}
@@ -38,18 +38,18 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
           >
-            AI-powered marketing that levels the playing field
+            AI-powered marketing systems for your next growth phase
           </motion.p>
 
           {/* Benefit paragraph */}
           <div className="flex flex-col items-start">
              <motion.p 
-               className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed max-w-[500px] mb-12"
+               className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed max-w-[520px] mb-12"
                initial={{ opacity: 0, y: 20 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
              >
-               We give SMEs the marketing muscle of enterprise competitors—without the enterprise price tag. Through intelligent automation and data-driven strategies, we help you generate more leads, convert faster, and scale smarter.
+               We use AI to identify the opportunities you're missing and execute with the precision that turns consistent performers into market leaders.
              </motion.p>
           </div>
 

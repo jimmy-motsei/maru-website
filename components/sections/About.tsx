@@ -21,7 +21,7 @@ export function About() {
               className="text-4xl font-bold leading-tight md:text-6xl lg:text-[68px]"
               variants={fadeUpVariants}
             >
-              <span className="font-thin text-gray-600">Trusted AI &</span> Automation Experts
+              <span className="font-thin text-gray-600">Trusted AI</span> marketing automation experts
             </motion.h2>
 
             <motion.p 
@@ -35,7 +35,7 @@ export function About() {
               className="text-lg leading-relaxed text-black/80"
               variants={fadeUpVariants}
             >
-              We use AI as a strategic tool to do what we do best: help SMEs compete in crowded markets. Through intelligent automation, we give you enterprise-level capabilities without the enterprise overhead, turning technology into your competitive advantage.
+              We use AI as a strategic tool to do what we do best: help high-performing SMEs break through growth plateaus. Through intelligent automation, we identify hidden opportunities and execute with precision—giving consistent performers the edge they need to dominate their market.
             </motion.p>
 
             {/* Quote Block */}

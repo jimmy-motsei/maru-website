@@ -9,8 +9,8 @@ export function Services() {
     {
       id: "01",
       category: "CRM AUTOMATION",
-      title: "Supercharged CRM with AI-Powered Automations",
-      description: "Transform your CRM from a simple customer management tool into a powerhouse of sales opportunities. With automations and AI custom solutions, your team can shift their focus to strategic revenue-focused tasks.",
+      title: "Convert More Opportunities Into Revenue",
+      description: "Transform your CRM into a revenue-generating engine. Our AI-powered automations optimize every touchpoint in your sales pipeline, improving conversion rates and ensuring no opportunity slips through the cracks.",
       icon: Megaphone,
       hex: "#22d3ee",
       link: "/services/sales-systems",
@@ -18,8 +18,8 @@ export function Services() {
     {
       id: "02",
       category: "MARKETING AUTOMATION",
-      title: "Better Results with AI & Marketing Automation",
-      description: "63% of companies that do not use marketing automation cite a lack of expertise as the main reason. Don't let a lack of expertise or complex software hinder your marketing efforts.",
+      title: "Generate Qualified Leads Consistently",
+      description: "Precision targeting meets intelligent automation. We build marketing systems that attract your ideal clients and nurture them with personalized journeys—delivering qualified leads to your sales team on autopilot.",
       icon: Mountain,
       hex: "#22d3ee",
       link: "/services/lead-generation",
@@ -27,8 +27,8 @@ export function Services() {
     {
       id: "03",
       category: "SALES AUTOMATION",
-      title: "Increase Revenue with AI & Sales Automation",
-      description: "Salespeople only spend 33% of their time selling, with 15% lost in email and data. Maximize your sales team's potential by automating time-consuming tasks.",
+      title: "Shorten Your Sales Cycle and Close More Deals",
+      description: "Speed wins deals. We automate follow-ups, streamline proposals, and give your sales team the insights they need to close faster—improving win rates and accelerating your path to revenue.",
       icon: TrendingUp,
       hex: "#22d3ee",
       link: "/services/sales-systems",
@@ -36,8 +36,8 @@ export function Services() {
     {
       id: "04",
       category: "SOFTWARE INTEGRATION",
-      title: "Software Integration and Automation",
-      description: "Don't let your technology become a barrier to your business's growth. At Maru, we specialize in optimizing your software to ensure seamless integration with your existing tech stack.",
+      title: "Maximize ROI from Your Tech Stack",
+      description: "Your existing tools have untapped potential. We connect and optimize your software ecosystem to eliminate data silos, reduce manual work, and unlock the hidden value in your technology investments.",
       icon: Target,
       hex: "#22d3ee",
       link: "/services/office-automation",
@@ -66,7 +66,7 @@ export function Services() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <span className="font-light text-black">Harness the Power of</span> AI & Automation
+            <span className="font-light text-black">Precision Systems for</span> Breakthrough Growth
           </motion.h2>
           <motion.p 
             className="text-gray-700 text-lg md:text-xl font-light"
@@ -75,7 +75,7 @@ export function Services() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            How we grow your business with AI & Automation
+            AI-powered solutions that optimize every step of your marketing and sales operations
           </motion.p>
         </div>
 
