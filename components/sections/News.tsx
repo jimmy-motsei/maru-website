@@ -30,8 +30,8 @@ const newsItems = [
 
 export function News() {
   return (
-    <section className="bg-white py-24 md:py-32 text-black">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className="bg-white py-12 md:py-32 text-black">
+      <div className="container mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row items-end md:items-center justify-between mb-16 gap-6">
           <motion.h2 

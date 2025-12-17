@@ -15,14 +15,14 @@ export function Hero() {
 
 
       {/* Content Layer - Z-index bumped to sit above all clouds */}
-      <div className="container relative z-30 mx-auto flex min-h-screen flex-col justify-center px-6 md:px-12 lg:px-20 pb-20">
+      <div className="container relative z-30 mx-auto flex min-h-screen flex-col justify-center px-6 md:px-12 lg:px-20 pb-12 md:pb-20">
         
         {/* Content pushed down by 60px */}
         <div className="max-w-4xl pt-16 md:pt-20 backdrop-blur-[1px] rounded-3xl p-4 md:p-0">
           
           {/* Headline */}
           <motion.h1 
-            className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.1] tracking-tight mb-4"
+            className="text-4xl md:text-7xl lg:text-[5.5rem] font-bold leading-tight md:leading-[1.1] tracking-tight mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}

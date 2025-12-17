@@ -49,8 +49,8 @@ export function Testimonials() {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-white text-black">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className="py-12 md:py-32 bg-white text-black">
+      <div className="container mx-auto px-6 lg:px-8">
         {/* Section Heading */}
         <motion.div
           className="text-center mb-16"

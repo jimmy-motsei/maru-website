@@ -140,7 +140,7 @@ export default function SalesSystemsPage() {
       />
 
       {/* Service Details Section */}
-      <section id="service-details" className="bg-[#f5f5f5] py-24 lg:py-32">
+      <section id="service-details" className="bg-[#f5f5f5] py-12 lg:py-32">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Left Column - Intro */}

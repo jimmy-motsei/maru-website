@@ -94,7 +94,7 @@ export function Footer() {
       {/* Decorative gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none" />
 
-      <div className="container mx-auto px-6 lg:px-8 py-24 lg:py-32 relative">
+      <div className="container mx-auto px-6 lg:px-8 py-12 lg:py-32 relative">
         <motion.div
           initial="hidden"
           whileInView="visible"

@@ -2,9 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../projects/ashley-html-kit"
 		}
 	],
 	"settings": {}

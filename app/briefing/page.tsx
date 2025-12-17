@@ -39,7 +39,7 @@ export default function BriefingPage() {
     <main className="relative min-h-screen bg-[#0a192f] text-white">
       <AtmosphericBackground variant="default" />
       
-      <div className="container relative z-10 mx-auto px-6 py-24 md:py-32">
+      <div className="container relative z-10 mx-auto px-6 py-12 md:py-32">
         <div className="mb-16 text-center">
           <p className="text-sm font-bold tracking-widest text-accent uppercase mb-4">
             PROJECT & SUPPORT CENTER

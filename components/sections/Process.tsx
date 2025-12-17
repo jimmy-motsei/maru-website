@@ -81,8 +81,8 @@ const iconVariants = {
 
 export function Process() {
   return (
-    <section id="process" className="bg-dark py-24 md:py-32 relative overflow-hidden text-white border-t border-white/5">
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+    <section id="process" className="bg-dark py-12 md:py-32 relative overflow-hidden text-white border-t border-white/5">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="max-w-4xl mx-auto text-center mb-12">

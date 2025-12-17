@@ -119,7 +119,7 @@ export default function AISolutionBriefing() {
   }
 
   return (
-    <main className="relative min-h-screen bg-[#0a192f] text-white pb-24">
+    <main className="relative min-h-screen bg-[#0a192f] text-white pb-12 md:pb-24">
       <AtmosphericBackground variant="default" />
       
       <div className="container relative z-10 mx-auto px-6 pt-12 md:pt-20">

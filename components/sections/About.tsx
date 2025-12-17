@@ -7,7 +7,7 @@ import { fadeUpVariants, staggerContainerVariants, scaleInVariants } from "@/lib
 export function About() {
   return (
     <section id="about" className="bg-white py-32 text-black">
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto px-6 lg:px-8">
         <motion.div 
           className="grid items-center gap-16 lg:grid-cols-2"
           variants={staggerContainerVariants}
@@ -18,7 +18,7 @@ export function About() {
           {/* Left Column: Text Content */}
           <div className="space-y-8">
             <motion.h2 
-              className="text-5xl font-bold leading-tight md:text-6xl lg:text-[68px]"
+              className="text-4xl font-bold leading-tight md:text-6xl lg:text-[68px]"
               variants={fadeUpVariants}
             >
               <span className="font-thin text-gray-600">Trusted AI &</span> Automation Experts

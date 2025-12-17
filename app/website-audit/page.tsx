@@ -128,7 +128,7 @@ export default function WebsiteAuditPage() {
     <main className="min-h-screen bg-black text-white">
       {/* Minimal Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
-        <div className="container mx-auto px-4 lg:px-8 py-4 flex items-center justify-between">
+        <div className="container mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold">
             Maru<span className="text-accent">.</span>
           </Link>
@@ -148,8 +148,8 @@ export default function WebsiteAuditPage() {
       </header>
 
       {/* Main Content */}
-      <div className="pt-24 pb-16 min-h-screen flex items-center justify-center">
-        <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
+      <div className="pt-12 md:pt-24 pb-16 min-h-screen flex items-center justify-center">
+        <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
           <AnimatePresence mode="wait">
             {/* INTRO SCREEN */}
             {isIntro && (

@@ -46,3 +46,7 @@ next-env.d.ts
 .idea/
 .vscode/
 /.idx
+
+mcp.json
+# Sentry Config File
+.env.sentry-build-plugin

@@ -100,7 +100,7 @@ export default function ContactPage() {
       <section className="bg-dark relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <AtmosphericBackground variant="hero" />
 
-        <div className="container mx-auto px-6 lg:px-8 py-24 relative z-10 text-center">
+        <div className="container mx-auto px-6 lg:px-8 py-12 lg:py-24 relative z-10 text-center">
           <motion.nav
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -160,7 +160,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section id="contact-form" className="bg-white py-24 lg:py-32">
+      <section id="contact-form" className="bg-white py-12 lg:py-32">
         <div className="container mx-auto px-6 lg:px-8">
           <motion.h2
             initial="hidden"
@@ -339,7 +339,7 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-dark py-24 lg:py-32">
+      <section className="bg-dark py-12 lg:py-32">
         <div className="container mx-auto px-6 lg:px-8 text-center">
           <motion.div
             initial="hidden"

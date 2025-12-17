@@ -54,8 +54,8 @@ export function Services() {
   };
 
   return (
-    <section className="bg-white py-24 md:py-32 relative overflow-hidden">
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+    <section className="bg-white py-12 md:py-32 relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center mb-16 md:mb-24">
