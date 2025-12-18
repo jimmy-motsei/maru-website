@@ -16,10 +16,12 @@ const breadcrumbs = [
 
 const accordionItems = [
   {
-    title: "AI Chatbots",
+    title: "AI Assistants",
+    // title: "AI Chatbots",
     subtitle: "Answer common questions instantly, any time of day",
     content:
-      "Stop losing leads because you're closed or in a meeting. Our AI chatbots qualify prospects, answer FAQs, and schedule appointments—even at 2am on a Saturday.",
+      "Stop losing leads because you're closed or in a meeting. Our AI assistants qualify prospects, answer FAQs, and schedule appointments—even at 2am on a Saturday.",
+      // "Stop losing leads because you're closed or in a meeting. Our AI chatbots qualify prospects, answer FAQs, and schedule appointments—even at 2am on a Saturday.",
     features: [
       "Natural language understanding (no rigid scripts)",
       "Intelligent lead qualification and routing",
@@ -80,7 +82,8 @@ const pricingTiers = [
     subtitle: "Test WhatsApp automation with your best customers",
     description: "Perfect for small businesses taking their first step into conversational commerce.",
     features: [
-      "Basic FAQ chatbot (up to 50 common questions)",
+      "Basic FAQ assistant (up to 50 common questions)",
+      // "Basic FAQ chatbot (up to 50 common questions)",
       "1,000 conversations per month",
       "Standard integrations (CRM, calendar)",
       "Basic analytics dashboard",

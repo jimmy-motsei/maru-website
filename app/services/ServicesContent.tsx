@@ -68,7 +68,8 @@ const services = [
     description:
       "Turn WhatsApp into a 24/7 sales and support channel. Engage customers with intelligent, personalized conversations that feel human, not robotic.",
     features: [
-      "AI Chatbots – Answer common questions instantly, any time",
+      "AI Assistants – Answer common questions instantly, any time",
+      // "AI Chatbots – Answer common questions instantly, any time",
       "Personalized Messaging – Tailored offers based on customer behavior",
       "24/7 Engagement – Never miss a lead, even at 2am",
       "Conversation Analytics – See what customers really want",

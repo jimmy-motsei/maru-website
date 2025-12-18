@@ -45,8 +45,10 @@ const allServices: ServiceInfo[] = [
   {
     id: "whatsapp-solutions",
     title: "WhatsApp Solutions",
-    description: "Engage customers 24/7 with intelligent chatbots that deliver personalized messaging at scale.",
-    features: ["AI Chatbots", "Personalized Messaging", "24/7 Engagement", "Conversation Analytics"],
+    description: "Engage customers 24/7 with intelligent assistants that deliver personalized messaging at scale.",
+    // description: "Engage customers 24/7 with intelligent chatbots that deliver personalized messaging at scale.",
+    features: ["AI Assistants", "Personalized Messaging", "24/7 Engagement", "Conversation Analytics"],
+    // features: ["AI Chatbots", "Personalized Messaging", "24/7 Engagement", "Conversation Analytics"],
     href: "/services/whatsapp-solutions",
     icon: MessageCircle,
     iconColor: "#22c55e",

@@ -47,7 +47,8 @@ const tiers = [
     description: 'Custom AI integration and full-service marketing department.',
     features: [
       'Everything in Growth',
-      'Custom AI Chatbot Development',
+      'Custom AI Solutions Development',
+      // 'Custom AI Chatbot Development',
       'LinkedIn Lead Gen Automation',
       'Video Content Production',
       'Weekly Deep-Dive Analysis',
