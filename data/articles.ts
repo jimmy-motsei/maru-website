@@ -51,9 +51,11 @@ export const articles: Article[] = [
   {
     id: "3",
     slug: "ai-customer-service-smb-2024",
-    title: "24/7 Customer Support Without the Cost: AI Chatbots for SMEs",
+    title: "24/7 Customer Support Without the Cost: AI Assistants for SMEs",
+    // title: "24/7 Customer Support Without the Cost: AI Chatbots for SMEs",
     excerpt:
-      "35% of AI deployments among SMEs are customer service bots, delivering 20-40% cost savings. Learn how chatbots are transforming customer engagement for South African businesses.",
+      "35% of AI deployments among SMEs are customer service bots, delivering 20-40% cost savings. Learn how AI assistants are transforming customer engagement for South African businesses.",
+      // "35% of AI deployments among SMEs are customer service bots, delivering 20-40% cost savings. Learn how chatbots are transforming customer engagement for South African businesses.",
     category: "Transformation",
     categorySlug: "transformation",
     date: "December 6, 2025",
