@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { MessageCircle, X, Send, Minus, Lightbulb, Rocket, Calendar, MessageSquare, Bot } from 'lucide-react';
 import ChatMessage, { TypingIndicator } from './ChatMessage';
 import LeadCaptureForm from './LeadCaptureForm';
@@ -386,7 +386,7 @@ export default function ProactiveChatWidget({
   };
 
   // Animation variants
-  const iconVariants = {
+  const iconVariants: Variants = {
     hidden: { scale: 0, opacity: 0 },
     visible: { 
       scale: 1, 
@@ -396,7 +396,7 @@ export default function ProactiveChatWidget({
     exit: { scale: 0, opacity: 0 }
   };
 
-  const greetingVariants = {
+  const greetingVariants: Variants = {
     hidden: { 
       opacity: 0, 
       y: 20, 
@@ -419,7 +419,7 @@ export default function ProactiveChatWidget({
     }
   };
 
-  const chatVariants = {
+  const chatVariants: Variants = {
     hidden: { opacity: 0, y: 20, scale: 0.95 },
     visible: { 
       opacity: 1, 
