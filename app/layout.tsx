@@ -1,8 +1,12 @@
-import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { Header } from "@/components/layout/Header";
+import { FooterCTA } from "@/components/layout/FooterCTA";
+import { PageFrame } from "@/components/layout/PageFrame";
+import Preloader from "@/components/ui/Preloader";
+import CookieConsent from "@/components/CookieConsent";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -15,19 +19,8 @@ export const metadata: Metadata = {
   description: "Bridge your business into the age of AI with Maru Online. We combine comprehensive marketing solutions with cutting-edge AI technology.",
 };
 
-import { Header } from "@/components/layout/Header";
-import { FooterCTA } from "@/components/layout/FooterCTA";
-import { PageFrame } from "@/components/layout/PageFrame";
-import Preloader from "@/components/ui/Preloader";
-import CookieConsent from "@/components/CookieConsent";
-import { CHATBOT_ENABLED } from "@/config/features";
-
 // HubSpot Portal ID
 const HUBSPOT_PORTAL_ID = "146669350";
-
-const ChatWidgetWrapper = CHATBOT_ENABLED
-  ? dynamic(() => import("@/components/ChatWidgetWrapper"))
-  : null;
 
 export default function RootLayout({
   children,
@@ -46,7 +39,6 @@ export default function RootLayout({
         {children}
         <FooterCTA />
         <CookieConsent />
-        {ChatWidgetWrapper ? <ChatWidgetWrapper /> : null}
         
         {/* HubSpot Tracking Code */}
         <Script
