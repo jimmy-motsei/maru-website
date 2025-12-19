@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Transition, type Variants } from 'framer-motion';
 import { MessageCircle, X, Send, Minus, Lightbulb, Rocket, Calendar, MessageSquare, Bot } from 'lucide-react';
 import ChatMessage, { TypingIndicator } from './ChatMessage';
 import LeadCaptureForm from './LeadCaptureForm';
@@ -386,46 +386,46 @@ export default function ProactiveChatWidget({
   };
 
   // Animation variants
-  const iconVariants = {
+  const iconVariants: Variants = {
     hidden: { scale: 0, opacity: 0 },
-    visible: { 
-      scale: 1, 
+    visible: {
+      scale: 1,
       opacity: 1,
-      transition: { type: 'spring', stiffness: 260, damping: 20 }
+      transition: { type: 'spring', stiffness: 260, damping: 20 } satisfies Transition
     },
     exit: { scale: 0, opacity: 0 }
   };
 
-  const greetingVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 20, 
-      scale: 0.9 
+  const greetingVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      scale: 0.9
     },
     visible: { 
-      opacity: 1, 
-      y: 0, 
+      opacity: 1,
+      y: 0,
       scale: 1,
-      transition: { 
-        duration: 0.4, 
-        ease: [0.34, 1.56, 0.64, 1] // bounce
+      transition: {
+        duration: 0.4,
+        ease: [0.34, 1.56, 0.64, 1] as const // bounce
       }
     },
-    exit: { 
-      opacity: 0, 
-      y: 20, 
+    exit: {
+      opacity: 0,
+      y: 20,
       scale: 0.9,
-      transition: { duration: 0.3, ease: 'easeOut' }
+      transition: { duration: 0.3, ease: 'easeOut' } satisfies Transition
     }
   };
 
-  const chatVariants = {
+  const chatVariants: Variants = {
     hidden: { opacity: 0, y: 20, scale: 0.95 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       scale: 1,
-      transition: { duration: 0.3, ease: 'easeOut' }
+      transition: { duration: 0.3, ease: 'easeOut' } satisfies Transition
     },
     exit: { opacity: 0, y: 20, scale: 0.95 }
   };
