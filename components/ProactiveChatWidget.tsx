@@ -86,7 +86,7 @@ export default function ProactiveChatWidget({
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Check if greeting should auto-show
-  const shouldShowGreeting = useCallback((): boolean => {
+  const shouldShowGreeting = (): boolean => {
     if (typeof window === 'undefined') return false;
     
     // Check if user dismissed within 24 hours
@@ -116,7 +116,7 @@ export default function ProactiveChatWidget({
     }
     
     return true;
-  }, []);
+  };
 
   // Homepage: Intersection Observer for scroll-based trigger
   useEffect(() => {
@@ -147,7 +147,7 @@ export default function ProactiveChatWidget({
     return () => {
       observerRef.current?.disconnect();
     };
-  }, [triggerOnScroll, scrollTargetId, triggerDelay, hasTriggered, shouldShowGreeting]);
+  }, [triggerOnScroll, scrollTargetId, triggerDelay, hasTriggered]);
 
   // Non-homepage: Time-based trigger
   useEffect(() => {
@@ -174,7 +174,7 @@ export default function ProactiveChatWidget({
       }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [triggerOnScroll, hasTriggered, shouldShowGreeting]);
+  }, [triggerOnScroll, hasTriggered]);
 
   // Auto-scroll messages
   useEffect(() => {

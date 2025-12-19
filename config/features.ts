@@ -1,0 +1,1 @@
+export const CHATBOT_ENABLED = true;
