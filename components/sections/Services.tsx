@@ -60,7 +60,7 @@ export function Services() {
         {/* Header */}
         <div className="text-center mb-16 md:mb-24">
           <motion.h2 
-            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-black"
+            className="font-bold mb-6 text-black"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -69,7 +69,7 @@ export function Services() {
             <span className="font-light text-black">Precision Systems for</span> Breakthrough Growth
           </motion.h2>
           <motion.p 
-            className="text-gray-700 text-lg md:text-xl font-light"
+            className="text-gray-700 type-lg font-light"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -114,7 +114,7 @@ export function Services() {
                 </div>
                 
                 {/* Title */}
-                <h3 className="font-bold text-xl md:text-2xl text-black leading-snug mb-4">
+                <h3 className="font-bold type-h4 text-black leading-snug mb-4">
                   {service.title}
                 </h3>
                 

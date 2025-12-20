@@ -1,33 +1,20 @@
 @import "tailwindcss";
 
 @theme {
+  /* Override Tailwind's default font-sans with Inter */
+  --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  
   /* Brand Colors */
   --color-accent: #3db8c6;
   --color-accent-light: #5cc5d1;
   --color-accent-dark: #2a9aa5;
 
   --color-dark: #000000;
-  --color-dark-soft: rgba(0, 0, 0, 0.5);
-
   --color-light: #ffffff;
   --color-light-soft: rgba(255, 255, 255, 0.4);
   --color-muted: rgba(255, 255, 255, 0.9);
-  --color-muted-dark: #666666; /* Dark muted color for light backgrounds */
-
-  /* Typography */
-  --font-outfit: var(--font-outfit);
-
-  /* Breakpoints matching current site */
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-2xl: 1400px;
-
-  /* Maru Custom Theme */
   --color-maru-bg: #0a192f;
   --color-maru-cyan: #00f0ff;
-  --color-maru-orange: #ff9900;
   --color-glass-white: rgba(255, 255, 255, 0.05);
   
   --shadow-neon-cyan: 0 0 5px #00f0ff, 0 0 20px rgba(0, 240, 255, 0.4);
@@ -35,6 +22,13 @@
   --shadow-glass-inset: inset 0 0 20px rgba(255, 255, 255, 0.05);
 
   --image-grid-pattern: linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px);
+
+  /* Breakpoints matching current site */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
 }
 
 /* Custom Animations */
@@ -79,18 +73,109 @@
   }
 }
 
-/* Base Styles */
-body {
-  font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--color-dark);
-  color: var(--color-muted);
+@layer base {
+  /* Force Inter font for body and all elements by default */
+  * {
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  }
+
+  /* Base document text */
+  html,
+  body {
+    @apply font-light leading-[1.5];
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-dark);
+    color: var(--color-muted);
+  }
+
+  /* Mobile base size: ≤768px */
+  @media (max-width: 768px) {
+    html,
+    body {
+      font-size: 15px;
+    }
+  }
+
+  /* Headings: force Outfit font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-outfit), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+    @apply font-medium leading-[1.2];
+  }
+
+  /* H1 */
+  h1 { font-size: 86px; }
+  @media (max-width: 1400px) { h1 { font-size: 74px; } }
+  @media (max-width: 1200px) { h1 { font-size: 72px; } }
+  @media (max-width: 992px)  { h1 { font-size: 58px; } }
+  @media (max-width: 768px)  { h1 { font-size: 34px; } }
+
+  /* H2 */
+  h2 { font-size: 68px; }
+  @media (max-width: 1200px) { h2 { font-size: 56px; } }
+  @media (max-width: 992px)  { h2 { font-size: 44px; } }
+  @media (max-width: 768px)  { h2 { font-size: 36px; } }
+
+  /* H3 */
+  h3 { font-size: 42px; }
+  @media (max-width: 1200px) { h3 { font-size: 39px; } }
+  @media (max-width: 992px)  { h3 { font-size: 36px; } }
+  @media (max-width: 768px)  { h3 { font-size: 30px; } }
+
+  /* H4 */
+  h4 { font-size: 28px; }
+  @media (max-width: 1200px) { h4 { font-size: 26px; } }
+  @media (max-width: 992px)  { h4 { font-size: 24px; } }
+  @media (max-width: 768px)  { h4 { font-size: 22px; } }
+
+  /* H5 */
+  h5 {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  @media (max-width: 768px) {
+    h5 { font-size: 18px; }
+  }
+
+  /* H6 */
+  h6 {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  @media (max-width: 1200px) { h6 { font-size: 17px; } }
+  @media (max-width: 992px)  { h6 { font-size: 16px; } }
+  @media (max-width: 768px)  { h6 { font-size: 21px; } }
+
+  /* Optional: mimic legacy behavior where <br> inside headings disappears on mobile */
+  @media (max-width: 768px) {
+    h1 br, h2 br, h3 br, h4 br, h5 br, h6 br {
+      display: none;
+    }
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
-  line-height: 120%;
+@layer components {
+  /* Semantic utility classes (useful for refactors / non-heading elements) */
+  .type-h1 { font-size: 86px; }
+  .type-h2 { font-size: 68px; }
+  .type-h3 { font-size: 42px; }
+  .type-h4 { font-size: 28px; }
+  .type-h5 { font-size: 20px; line-height: 1.5; }
+  .type-h6 { font-size: 18px; line-height: 1.5; }
+
+  @media (max-width: 1400px) { .type-h1 { font-size: 74px; } }
+  @media (max-width: 1200px) { .type-h1 { font-size: 72px; } .type-h2 { font-size: 56px; } .type-h3 { font-size: 39px; } .type-h4 { font-size: 26px; } .type-h6 { font-size: 17px; } }
+  @media (max-width: 992px)  { .type-h1 { font-size: 58px; } .type-h2 { font-size: 44px; } .type-h3 { font-size: 36px; } .type-h4 { font-size: 24px; } .type-h6 { font-size: 16px; } }
+  @media (max-width: 768px)  { .type-h1 { font-size: 34px; } .type-h2 { font-size: 36px; } .type-h3 { font-size: 30px; } .type-h4 { font-size: 22px; } .type-h5 { font-size: 18px; } .type-h6 { font-size: 21px; } }
+
+  /* Legacy text helpers (optional but handy) */
+  .type-sm { font-size: 15px; }
+  .type-lg { font-size: 18px; line-height: 1.7; }
+  .type-xl { font-size: 22px; line-height: 1.8; }
+  @media (max-width: 768px) {
+    .type-xl { font-size: 20px; }
+  }
 }
 
 /* Utility classes for animations */

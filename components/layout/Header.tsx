@@ -140,7 +140,7 @@ export function Header() {
                       <Link
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`block text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight transition-colors duration-300 text-white hover:text-accent`}
+                        className={`block type-h1 font-light tracking-tight transition-colors duration-300 text-white hover:text-accent`}
                       >
                         {item.name}
                       </Link>
