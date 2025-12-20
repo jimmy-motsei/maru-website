@@ -84,7 +84,7 @@ const DetailCard = ({ step, index }: { step: typeof steps[0], index: number }) =
              Step {step.id}
         </span>
         <h3 className={cn("font-bold text-xl mb-3", step.text)}>{step.title}</h3>
-        <p className="text-base text-gray-300 leading-relaxed font-light">
+        <p className="text-base text-white/90 leading-relaxed font-medium">
           {step.description}
         </p>
     </motion.div>

@@ -55,7 +55,7 @@ export function News() {
               className="group flex items-center gap-3 text-sm font-bold tracking-widest uppercase"
             >
               View All
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 transition-all duration-300 group-hover:bg-accent group-hover:text-white">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 transition-all duration-300 group-hover:bg-[#1a9aa5] group-hover:text-white">
                 <ArrowRight size={16} />
               </span>
             </Link>
@@ -75,12 +75,12 @@ export function News() {
             >
               {/* Meta */}
               <div className="flex items-center gap-4 mb-4 text-xs font-bold tracking-widest uppercase">
-                <span className="text-accent">{item.category}</span>
+                <span style={{ color: "#1a9aa5" }}>{item.category}</span>
                 <span className="text-gray-600">{item.date}</span>
               </div>
 
               {/* Title */}
-              <h3 className="text-2xl md:text-3xl leading-tight mb-4 group-hover:text-accent transition-colors duration-300">
+              <h3 className="text-2xl md:text-3xl leading-tight mb-4 group-hover:text-[#1a9aa5] transition-colors duration-300">
                 <Link href={item.link}>
                   <span className="font-light">{item.titleLight}</span> <span className="font-bold">{item.titleBold}</span>
                 </Link>
@@ -98,7 +98,7 @@ export function News() {
                   className="group/btn flex items-center gap-3 text-xs font-bold tracking-widest uppercase"
                 >
                   Read More
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 transition-all duration-300 group-hover/btn:bg-accent group-hover/btn:text-white">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 transition-all duration-300 group-hover/btn:bg-[#1a9aa5] group-hover/btn:text-white">
                     <ArrowRight size={16} />
                   </span>
                 </Link>

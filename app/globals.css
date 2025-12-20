@@ -82,10 +82,11 @@
   /* Base document text */
   html,
   body {
-    @apply font-light leading-[1.5];
+    @apply font-normal leading-[1.6];
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     background-color: var(--color-dark);
     color: var(--color-muted);
   }
@@ -94,8 +95,48 @@
   @media (max-width: 768px) {
     html,
     body {
-      font-size: 15px;
+      font-size: 16px;
     }
+  }
+
+  /* Enhanced text clarity on dark backgrounds */
+  .bg-dark p,
+  .bg-\[\#050505\] p,
+  .bg-black p,
+  [class*="bg-dark"] p,
+  [class*="bg-black"] p,
+  section[class*="bg-dark"] p,
+  section[class*="bg-black"] p {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 400;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Improve text opacity on dark backgrounds globally */
+  .bg-dark .text-white\/60,
+  .bg-black .text-white\/60,
+  section[class*="bg-dark"] .text-white\/60,
+  section[class*="bg-black"] .text-white\/60 {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+  }
+
+  .bg-dark .text-white\/40,
+  .bg-black .text-white\/40,
+  section[class*="bg-dark"] .text-white\/40,
+  section[class*="bg-black"] .text-white\/40 {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+  }
+
+  .bg-dark .text-zinc-400,
+  .bg-black .text-zinc-400,
+  section[class*="bg-dark"] .text-zinc-400,
+  section[class*="bg-black"] .text-zinc-400 {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 400;
   }
 
   /* Headings: force Outfit font */

@@ -11,6 +11,7 @@ import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 const menuItems = {
   primary: [
     { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Resources", href: "/knowledge" },
     { name: "Contact", href: "/contact" },

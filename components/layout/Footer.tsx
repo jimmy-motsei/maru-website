@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const footerNavigation = {
   main: [
@@ -104,7 +105,7 @@ export function Footer() {
           {/* Top Row - Logo and Navigation */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
             {/* Logo */}
-            <motion.div variants={itemVariants} className="lg:col-span-5">
+            <motion.div variants={itemVariants} className="lg:col-span-4">
               <Link href="/" className="inline-block">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -113,48 +114,8 @@ export function Footer() {
                   className="h-[120px] w-auto"
                 />
               </Link>
-            </motion.div>
-
-            {/* Navigation */}
-            <motion.div
-              variants={itemVariants}
-              className="lg:col-span-4 lg:col-start-6"
-            >
-              <nav>
-                <ul className="space-y-4">
-                  {footerNavigation.main.map((item, index) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className={`text-lg font-light transition-colors duration-300 ${
-                          index === 0
-                            ? "text-accent hover:text-accent-light"
-                            : "text-muted hover:text-accent"
-                        }`}
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </motion.div>
-          </div>
-
-          {/* Divider */}
-          <motion.div
-            variants={itemVariants}
-            className="my-16 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
-          />
-
-          {/* Bottom Row - Social, Copyright, and Legal */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
-            {/* Social Links & Copyright */}
-            <motion.div
-              variants={itemVariants}
-              className="lg:col-span-6 flex flex-col justify-between"
-            >
-              <div className="flex items-center gap-4 mb-8">
+              
+              <div className="flex items-center gap-4 mt-8">
                 {footerNavigation.social.map((item) => (
                   <a
                     key={item.name}
@@ -168,6 +129,89 @@ export function Footer() {
                   </a>
                 ))}
               </div>
+            </motion.div>
+
+            {/* Navigation */}
+            <motion.div
+              variants={itemVariants}
+              className="lg:col-span-2 lg:col-start-5"
+            >
+              <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-6">Navigation</h3>
+              <nav>
+                <ul className="space-y-4">
+                  {footerNavigation.main.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                        className="text-white/70 hover:text-accent transition-colors duration-300"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </motion.div>
+
+            {/* Services */}
+            <motion.div
+              variants={itemVariants}
+              className="lg:col-span-3"
+            >
+              <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-6">Services</h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link href="/services/lead-generation" className="text-white/70 hover:text-accent transition-colors duration-300">
+                    Lead Generation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/sales-systems" className="text-white/70 hover:text-accent transition-colors duration-300">
+                    Sales Systems
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/office-automation" className="text-white/70 hover:text-accent transition-colors duration-300">
+                    Office Automation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/whatsapp-solutions" className="text-white/70 hover:text-accent transition-colors duration-300">
+                    WhatsApp Solutions
+                  </Link>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Get in Touch */}
+            <motion.div
+              variants={itemVariants}
+              className="lg:col-span-3"
+            >
+              <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-6">Get in Touch</h3>
+              <p className="text-white/90 mb-6 leading-relaxed">
+                AI-powered automation solutions for African businesses. Transform your operations, scale with confidence.
+              </p>
+              <div className="space-y-4">
+                <p className="text-white/70">hello@maruonline.com</p>
+                <p className="text-white/70">Johannesburg, South Africa</p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Divider */}
+          <motion.div
+            variants={itemVariants}
+            className="my-16 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
+          />
+
+          {/* Bottom Row - Copyright and Legal */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+            {/* Copyright */}
+            <motion.div
+              variants={itemVariants}
+              className="lg:col-span-6"
+            >
               <p className="text-light-soft text-sm">
                 © {new Date().getFullYear()} Maru Online. All Rights Reserved.
               </p>
@@ -176,7 +220,7 @@ export function Footer() {
             {/* Legal Links */}
             <motion.div
               variants={itemVariants}
-              className="lg:col-span-4 lg:col-start-9"
+              className="lg:col-span-6 flex justify-end"
             >
               <ul className="flex flex-wrap gap-x-8 gap-y-3">
                 {footerNavigation.legal.map((item) => (

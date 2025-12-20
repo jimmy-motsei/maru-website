@@ -34,12 +34,12 @@ export function AIReadinessTeaser() {
             variants={fadeUpVariants}
           >
             Is Your Business{" "}
-            <span className="font-light text-white/60">AI-Ready?</span>
+            <span className="font-light text-white/90">AI-Ready?</span>
           </motion.h2>
 
           {/* Subheadline */}
           <motion.p
-            className="text-lg md:text-xl text-white/60 leading-relaxed mb-12 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-white/90 leading-relaxed mb-12 max-w-2xl mx-auto font-medium"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -69,7 +69,7 @@ export function AIReadinessTeaser() {
 
           {/* Trust Indicators */}
           <motion.div
-            className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-white/40"
+            className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-white/80 font-medium"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}

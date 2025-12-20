@@ -18,63 +18,50 @@ export function Hero() {
           - Starts “down from the top” with a stable rhythm
           - Clamp keeps it consistent across different viewport heights
         */}
-                <div className="max-w-4xl pt-[clamp(200px,22vh,260px)] pb-[clamp(70px,10vh,120px)]">
+                <div className="max-w-5xl pt-[clamp(180px,20vh,240px)] pb-[clamp(80px,12vh,140px)]">
                     <div className="backdrop-blur-[1px] rounded-3xl p-4 md:p-0">
-                        <div className="flex flex-col gap-6 md:gap-7">
+                        <div className="flex flex-col gap-8 md:gap-12">
                             {/* Headline */}
                             <motion.h1
-                                className="
-                  font-bold tracking-tight leading-[1.08] max-w-[26ch]
-                  text-[34px]
-                  md:text-[58px]
-                  lg:text-[72px]
-                  xl:text-[74px]
-                  2xl:text-[86px]
-                "
+                                className="tracking-tight leading-[0.95] text-[34px] md:text-[50px] lg:text-[67px] xl:text-[76px] 2xl:text-[84px]"
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, ease: "easeOut" }}
                             >
-                <span className="block">
-                  <span className="font-light text-zinc-400">Close the Gap</span>{" "}
-                    <span className="text-white">Between</span>
-                </span>
-                                <span className="block">
-                  <span className="font-light text-zinc-400">Good</span>{" "}
-                                    <span className="text-white">and Great.</span>
-                </span>
+                                <span className="font-light text-zinc-500">Your AI Growth</span>{" "}
+                                <span className="font-bold text-white">Journey</span><br />
+                                <span className="font-light text-zinc-500">Starts</span>{" "}
+                                <span className="font-bold text-white">Here.</span>
                             </motion.h1>
 
                             {/* Sub-headline */}
                             <motion.p
-                                className="text-[18px] md:text-[20px] font-medium text-[#22d3ee] leading-[1.35]"
+                                className="text-[20px] md:text-[24px] lg:text-[26px] font-medium text-[#22d3ee] leading-[1.3] mt-4"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
                             >
-                                AI-powered marketing systems for your next growth phase
+                                Strategic AI & automation consulting for scaling businesses
                             </motion.p>
 
                             {/* Benefit paragraph */}
                             <motion.p
                                 className="
-                  text-[15px] md:text-[16px]
+                  text-[16px] md:text-[18px] lg:text-[19px]
                   text-zinc-400 font-light
-                  leading-[1.7]
-                  max-w-[58ch]
+                  leading-[1.6]
+                  max-w-[55ch] mt-2
                 "
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                             >
-                                We use AI to identify the opportunities you're missing and execute
-                                with the precision that turns consistent performers into market
-                                leaders.
+                                At Maru, we improve business growth and lower costs through automation consulting, digital transformation, and custom AI development. To learn how you can benefit from AI & automation consultancy, simply get a free website audit.
                             </motion.p>
 
                             {/* CTAs */}
                             <motion.div
-                                className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8"
+                                className="pt-6 flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-10"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}

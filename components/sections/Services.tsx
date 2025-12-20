@@ -8,21 +8,21 @@ export function Services() {
   const services = [
     {
       id: "01",
-      category: "CRM AUTOMATION",
-      title: "Convert More Opportunities Into Revenue",
-      description: "Transform your CRM into a revenue-generating engine. Our AI-powered automations optimize every touchpoint in your sales pipeline, improving conversion rates and ensuring no opportunity slips through the cracks.",
-      icon: Megaphone,
-      hex: "#22d3ee",
-      link: "/services/sales-systems",
-    },
-    {
-      id: "02",
       category: "MARKETING AUTOMATION",
       title: "Generate Qualified Leads Consistently",
       description: "Precision targeting meets intelligent automation. We build marketing systems that attract your ideal clients and nurture them with personalized journeys—delivering qualified leads to your sales team on autopilot.",
       icon: Mountain,
       hex: "#22d3ee",
       link: "/services/lead-generation",
+    },
+    {
+      id: "02",
+      category: "CRM AUTOMATION",
+      title: "Convert More Opportunities Into Revenue",
+      description: "Transform your CRM into a revenue-generating engine. Our AI-powered automations optimize every touchpoint in your sales pipeline, improving conversion rates and ensuring no opportunity slips through the cracks.",
+      icon: Megaphone,
+      hex: "#22d3ee",
+      link: "/services/sales-systems",
     },
     {
       id: "03",
@@ -69,7 +69,8 @@ export function Services() {
             <span className="font-light text-black">Precision Systems for</span> Breakthrough Growth
           </motion.h2>
           <motion.p 
-            className="text-gray-700 type-lg font-light"
+            className="type-lg font-bold"
+            style={{ color: "#1a9aa5" }}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -106,8 +107,8 @@ export function Services() {
                 {/* Category Tag */}
                 <div className="flex items-center gap-3 mb-4">
                   <span 
-                    className="text-xs font-semibold tracking-wider uppercase"
-                    style={{ color: service.hex }}
+                    className="text-sm font-bold tracking-wider uppercase"
+                    style={{ color: "#1a9aa5" }}
                   >
                     {service.category}
                   </span>
@@ -126,9 +127,9 @@ export function Services() {
                 {/* Read More Link */}
                 <Link 
                   href={service.link}
-                  className="inline-flex items-center gap-2 text-black font-medium hover:text-[#22d3ee] transition-colors group/link"
+                  className="inline-flex items-center gap-2 text-black font-medium hover:text-[#1a9aa5] transition-colors group/link"
                 >
-                  Read more
+                  See How...
                   <ArrowRight 
                     size={16} 
                     className="group-hover/link:translate-x-1 transition-transform" 

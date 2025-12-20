@@ -101,7 +101,7 @@ export function TechConnect() {
         <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden border-l-4 border-l-[#22d3ee] aspect-[16/9] md:aspect-[21/9] bg-gray-100">
            {/* Background Image */}
            <Image
-             src="/images/tech-setup-v2.png"
+             src="/images/tech-setup.jpg"
              alt="Workspace with integrations"
              fill
              className="object-cover"
