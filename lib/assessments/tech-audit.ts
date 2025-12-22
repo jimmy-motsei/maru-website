@@ -63,14 +63,14 @@ function detectRedundancies(selectedTools: any[], toolsData: any[]) {
   const redundancies: any[] = [];
 
   Object.entries(categoryGroups).forEach(([category, tools]) => {
-    if (tools.length > 1) {
+    if ((tools as any[]).length > 1) {
       // Multiple tools in same category = potential redundancy
-      const totalCost = tools.reduce((sum, tool) => 
+      const totalCost = (tools as any[]).reduce((sum, tool) => 
         sum + (tool.monthly_cost * tool.users_count), 0
       );
       
       // Keep the most expensive/popular tool, suggest removing others
-      const sortedTools = tools.sort((a, b) => 
+      const sortedTools = (tools as any[]).sort((a, b) => 
         (b.monthly_cost * b.users_count) - (a.monthly_cost * a.users_count)
       );
       

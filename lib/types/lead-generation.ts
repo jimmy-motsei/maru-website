@@ -146,6 +146,7 @@ export interface TechAuditInput {
 }
 
 export interface TechAuditResult {
+  score: number;
   total_monthly_cost: number;
   redundancies_found: {
     category: string;
