@@ -23,15 +23,15 @@ export function Hero() {
                         <div className="flex flex-col gap-8 md:gap-12">
                             {/* Headline */}
                             <motion.h1
-                                className="tracking-tight leading-[0.95] text-[34px] md:text-[50px] lg:text-[67px] xl:text-[76px] 2xl:text-[84px]"
+                                className="tracking-tight leading-[0.95] text-[27px] md:text-[40px] lg:text-[54px] xl:text-[61px] 2xl:text-[67px]"
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, ease: "easeOut" }}
                             >
-                                <span className="font-light text-zinc-500">Your AI Growth</span>{" "}
-                                <span className="font-bold text-white">Journey</span><br />
-                                <span className="font-light text-zinc-500">Starts</span>{" "}
-                                <span className="font-bold text-white">Here.</span>
+                                <span className="font-extralight text-zinc-500">Your AI Growth</span>{" "}
+                                <span className="font-medium text-white">Journey</span><br />
+                                <span className="font-extralight text-zinc-500">Starts</span>{" "}
+                                <span className="font-medium text-white">Here.</span>
                             </motion.h1>
 
                             {/* Sub-headline */}

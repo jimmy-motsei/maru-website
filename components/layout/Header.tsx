@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/config/site";
 import { X } from "lucide-react";
@@ -13,14 +14,15 @@ const menuItems = {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
+    { name: "AI Audits", href: "/assessments/lead-score" },
     { name: "Resources", href: "/knowledge" },
     { name: "Contact", href: "/contact" },
   ],
   projects: [
-    { name: "Lead Generation", href: "/services/lead-generation" },
-    { name: "Office Automation", href: "/services/office-automation" },
-    { name: "Sales Systems", href: "/services/sales-systems" },
-    { name: "WhatsApp Solutions", href: "/services/whatsapp-solutions" },
+    { name: "Lead Score Predictor", href: "/assessments/lead-score" },
+    { name: "Pipeline Leak Detector", href: "/assessments/pipeline-leak" },
+    { name: "Proposal Accelerator", href: "/assessments/proposal" },
+    { name: "Tech Stack Auditor", href: "/assessments/tech-audit" },
   ],
   usefulLinks: [
     { name: "Privacy Policy", href: "/privacy-policy" },
@@ -163,14 +165,14 @@ export function Header() {
                 <div className="lg:col-span-6 flex flex-col justify-between pt-8 lg:pt-0 pl-0 lg:pl-12">
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 lg:mt-20">
-                    {/* Projects / Services */}
+                    {/* AI Audits / Assessments */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 }}
                     >
                       <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-6">
-                        Projects
+                        AI Audits
                       </h3>
                       <ul className="space-y-4">
                         {menuItems.projects.map((project) => (

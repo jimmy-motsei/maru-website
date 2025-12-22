@@ -229,6 +229,14 @@ export function FooterCTA() {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <button
+                    onClick={() => window.dispatchEvent(new Event('open-cookie-preferences'))}
+                    className="text-white/40 hover:text-accent transition-colors duration-300 text-base"
+                  >
+                    Cookie Preferences
+                  </button>
+                </li>
               </ul>
             </div>
           </motion.div>

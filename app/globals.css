@@ -153,22 +153,22 @@
   @media (max-width: 768px)  { h1 { font-size: 34px; } }
 
   /* H2 */
-  h2 { font-size: 68px; }
-  @media (max-width: 1200px) { h2 { font-size: 56px; } }
-  @media (max-width: 992px)  { h2 { font-size: 44px; } }
-  @media (max-width: 768px)  { h2 { font-size: 36px; } }
+  h2 { font-size: 54px; }
+  @media (max-width: 1200px) { h2 { font-size: 45px; } }
+  @media (max-width: 992px)  { h2 { font-size: 35px; } }
+  @media (max-width: 768px)  { h2 { font-size: 29px; } }
 
   /* H3 */
-  h3 { font-size: 42px; }
-  @media (max-width: 1200px) { h3 { font-size: 39px; } }
-  @media (max-width: 992px)  { h3 { font-size: 36px; } }
-  @media (max-width: 768px)  { h3 { font-size: 30px; } }
+  h3 { font-size: 34px; }
+  @media (max-width: 1200px) { h3 { font-size: 31px; } }
+  @media (max-width: 992px)  { h3 { font-size: 29px; } }
+  @media (max-width: 768px)  { h3 { font-size: 24px; } }
 
   /* H4 */
-  h4 { font-size: 28px; }
-  @media (max-width: 1200px) { h4 { font-size: 26px; } }
-  @media (max-width: 992px)  { h4 { font-size: 24px; } }
-  @media (max-width: 768px)  { h4 { font-size: 22px; } }
+  h4 { font-size: 22px; }
+  @media (max-width: 1200px) { h4 { font-size: 21px; } }
+  @media (max-width: 992px)  { h4 { font-size: 19px; } }
+  @media (max-width: 768px)  { h4 { font-size: 18px; } }
 
   /* H5 */
   h5 {
@@ -199,16 +199,16 @@
 @layer components {
   /* Semantic utility classes (useful for refactors / non-heading elements) */
   .type-h1 { font-size: 86px; }
-  .type-h2 { font-size: 68px; }
-  .type-h3 { font-size: 42px; }
-  .type-h4 { font-size: 28px; }
+  .type-h2 { font-size: 54px; }
+  .type-h3 { font-size: 34px; }
+  .type-h4 { font-size: 22px; }
   .type-h5 { font-size: 20px; line-height: 1.5; }
   .type-h6 { font-size: 18px; line-height: 1.5; }
 
   @media (max-width: 1400px) { .type-h1 { font-size: 74px; } }
-  @media (max-width: 1200px) { .type-h1 { font-size: 72px; } .type-h2 { font-size: 56px; } .type-h3 { font-size: 39px; } .type-h4 { font-size: 26px; } .type-h6 { font-size: 17px; } }
-  @media (max-width: 992px)  { .type-h1 { font-size: 58px; } .type-h2 { font-size: 44px; } .type-h3 { font-size: 36px; } .type-h4 { font-size: 24px; } .type-h6 { font-size: 16px; } }
-  @media (max-width: 768px)  { .type-h1 { font-size: 34px; } .type-h2 { font-size: 36px; } .type-h3 { font-size: 30px; } .type-h4 { font-size: 22px; } .type-h5 { font-size: 18px; } .type-h6 { font-size: 21px; } }
+  @media (max-width: 1200px) { .type-h1 { font-size: 72px; } .type-h2 { font-size: 45px; } .type-h3 { font-size: 31px; } .type-h4 { font-size: 21px; } .type-h6 { font-size: 17px; } }
+  @media (max-width: 992px)  { .type-h1 { font-size: 58px; } .type-h2 { font-size: 35px; } .type-h3 { font-size: 29px; } .type-h4 { font-size: 19px; } .type-h6 { font-size: 16px; } }
+  @media (max-width: 768px)  { .type-h1 { font-size: 34px; } .type-h2 { font-size: 29px; } .type-h3 { font-size: 24px; } .type-h4 { font-size: 18px; } .type-h5 { font-size: 18px; } .type-h6 { font-size: 21px; } }
 
   /* Legacy text helpers (optional but handy) */
   .type-sm { font-size: 15px; }

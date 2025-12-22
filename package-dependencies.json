@@ -1,0 +1,47 @@
+{
+  "name": "maru-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:generate": "supabase gen types typescript --project-id YOUR_PROJECT_ID > lib/types/supabase.ts"
+  },
+  "dependencies": {
+    "next": "16.0.6",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "framer-motion": "12.23.25",
+    "lucide-react": "^0.263.1",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0",
+    "@supabase/supabase-js": "^2.39.0",
+    "@anthropic-ai/sdk": "^0.17.1",
+    "playwright": "^1.40.0",
+    "react-hook-form": "^7.48.2",
+    "zod": "^3.22.4",
+    "@hookform/resolvers": "^3.3.2",
+    "recharts": "^2.8.0",
+    "react-pdf": "^7.6.0",
+    "papaparse": "^5.4.1",
+    "@types/papaparse": "^5.3.14",
+    "simple-statistics": "^7.8.3",
+    "@types/simple-statistics": "^7.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "tailwindcss": "^4.0.0-beta.1",
+    "@tailwindcss/postcss": "^4.0.0-beta.1",
+    "eslint": "^8",
+    "eslint-config-next": "16.0.6",
+    "prettier": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

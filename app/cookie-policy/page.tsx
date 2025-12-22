@@ -1,11 +1,8 @@
-import { Metadata } from "next";
+'use client';
+
 import { LegalLayout } from "@/components/layout/LegalLayout";
 
-export const metadata: Metadata = {
-  title: "Cookie Policy | Maru AI | South Africa",
-  description:
-    "Learn about how Maru uses cookies and similar technologies to improve your experience on our website.",
-};
+
 
 export default function CookiePolicyPage() {
   return (
@@ -97,6 +94,9 @@ export default function CookiePolicyPage() {
           <p className="text-light-soft text-sm mt-2">
             Learn more: <a href="https://legal.hubspot.com/privacy-policy" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">HubSpot Privacy Policy</a>
           </p>
+          <div className="mt-3 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded text-xs text-yellow-200/80">
+            <strong>Note:</strong> HubSpot may process data in the United States. We rely on their Data Processing Agreement (DPA) and Standard Contractual Clauses (SCCs) to ensure appropriate safeguards for international transfers.
+          </div>
         </div>
 
         <div className="bg-white/5 rounded-lg p-6">
@@ -115,8 +115,20 @@ export default function CookiePolicyPage() {
         <h2 className="text-2xl font-medium text-white mb-6">
           4. How to Control Cookies
         </h2>
+        <p className="text-light-soft mb-6">
+          You can change your cookie preferences at any time by clicking the button below. This will open our 
+          preference center where you can enable or disable specific categories of cookies.
+        </p>
+
+        <button
+          onClick={() => window.dispatchEvent(new Event('open-cookie-preferences'))}
+          className="px-6 py-3 rounded-lg text-sm font-bold text-black bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-[0_0_20px_rgba(34,211,238,0.2)] mb-8"
+        >
+          Manage Cookie Preferences
+        </button>
+
         <p className="text-light-soft mb-4">
-          Most web browsers allow you to control cookies through their settings. You can:
+          Most web browsers also allow you to control cookies through their settings. You can:
         </p>
         <ul className="list-disc list-inside space-y-2 text-light-soft mb-4">
           <li>Delete all cookies from your browser</li>
