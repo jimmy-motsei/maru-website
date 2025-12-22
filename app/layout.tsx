@@ -7,6 +7,7 @@ import { FooterCTA } from "@/components/layout/FooterCTA";
 import { PageFrame } from "@/components/layout/PageFrame";
 import Preloader from "@/components/ui/Preloader";
 import CookieConsent from "@/components/CookieConsent";
+import CookieManager from "@/components/CookieManager";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -40,18 +41,12 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Preloader />
-        <Header />
+        {/* <Header /> */}
         <PageFrame />
         {children}
-        <FooterCTA />
-        <CookieConsent />
-        
-        {/* HubSpot Tracking Code */}
-        <Script
-          id="hs-script-loader"
-          src={`//js-eu1.hs-scripts.com/${HUBSPOT_PORTAL_ID}.js`}
-          strategy="afterInteractive"
-        />
+        {/* <FooterCTA /> */}
+        {/* <CookieManager /> */}
+        {/* <CookieConsent /> */}
       </body>
     </html>
   );
