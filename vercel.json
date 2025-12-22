@@ -1,0 +1,70 @@
+{
+  "functions": {
+    "app/api/assessments/*/route.ts": {
+      "maxDuration": 30
+    },
+    "app/api/reports/*/route.ts": {
+      "maxDuration": 60
+    },
+    "app/api/scrape/*/route.ts": {
+      "maxDuration": 45
+    }
+  },
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev",
+  "env": {
+    "SUPABASE_URL": "@supabase-url",
+    "SUPABASE_ANON_KEY": "@supabase-anon-key", 
+    "SUPABASE_SERVICE_ROLE_KEY": "@supabase-service-role-key",
+    "ANTHROPIC_API_KEY": "@anthropic-api-key",
+    "HUBSPOT_API_KEY": "@hubspot-api-key",
+    "SENDGRID_API_KEY": "@sendgrid-api-key",
+    "CLEARBIT_API_KEY": "@clearbit-api-key"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_APP_URL": "https://maruonline.co.za",
+      "NEXT_PUBLIC_SUPABASE_URL": "@supabase-url",
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase-anon-key"
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/lead-score",
+      "destination": "/assessments/lead-score"
+    },
+    {
+      "source": "/pipeline-audit", 
+      "destination": "/assessments/pipeline-leak"
+    },
+    {
+      "source": "/proposal-generator",
+      "destination": "/assessments/proposal"
+    },
+    {
+      "source": "/tech-audit",
+      "destination": "/assessments/tech-audit"
+    }
+  ]
+}

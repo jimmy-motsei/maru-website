@@ -66,10 +66,10 @@ export function Services() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <span className="font-light text-black">Precision Systems for</span> Breakthrough Growth
+            <span className="font-light text-black">Marketing Systems for</span> Breakthrough Growth
           </motion.h2>
-          <motion.p 
-            className="type-lg font-bold"
+          <motion.h3 
+            className="type-h3 font-medium"
             style={{ color: "#1a9aa5" }}
             initial="hidden"
             whileInView="visible"
@@ -77,7 +77,7 @@ export function Services() {
             variants={fadeUpVariants}
           >
             AI-powered solutions that optimize every step of your marketing and sales operations
-          </motion.p>
+          </motion.h3>
         </div>
 
         {/* Services Grid - 2x2 Layout */}
@@ -115,7 +115,7 @@ export function Services() {
                 </div>
                 
                 {/* Title */}
-                <h3 className="font-bold type-h4 text-black leading-snug mb-4">
+                <h3 className="font-bold type-h3 text-black leading-snug mb-4">
                   {service.title}
                 </h3>
                 
