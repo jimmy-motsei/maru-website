@@ -6,6 +6,8 @@ import "./globals.css";
 // import { FooterCTA } from "@/components/layout/FooterCTA";
 import { PageFrame } from "@/components/layout/PageFrame";
 import Preloader from "@/components/ui/Preloader";
+import { ConversionTracking } from "@/components/analytics/ConversionTracking";
+import { PerformanceMonitor } from "@/components/analytics/PerformanceMonitor";
 // import CookieConsent from "@/components/CookieConsent";
 // import CookieManager from "@/components/CookieManager";
 
@@ -41,6 +43,8 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Preloader />
+        <ConversionTracking />
+        <PerformanceMonitor />
         {/* <Header /> */}
         <PageFrame />
         {children}

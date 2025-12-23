@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import TechAuditPage from './TechAuditPage';
+import TechAuditPage from './TechAuditPageNew';
 
 export const metadata: Metadata = {
   title: 'Tech Stack ROI Auditor | Maru Online',

@@ -1,30 +1,18 @@
 import { NextResponse } from 'next/server';
-import { supabaseAdmin } from '@/lib/supabase';
+import { getAvailableTools } from '@/lib/assessments/tech-audit';
 
 export async function GET() {
   try {
-    const { data: tools, error } = await supabaseAdmin
-      .from('tools')
-      .select('*')
-      .order('name');
-
-    if (error) {
-      console.error('Tools fetch error:', error);
-      return NextResponse.json(
-        { success: false, error: 'Failed to fetch tools' },
-        { status: 500 }
-      );
-    }
-
+    const tools = await getAvailableTools();
+    
     return NextResponse.json({
       success: true,
-      data: tools || [],
+      tools,
     });
-
   } catch (error) {
     console.error('Tools API error:', error);
     return NextResponse.json(
-      { success: false, error: 'Internal server error' },
+      { success: false, error: 'Failed to fetch tools' },
       { status: 500 }
     );
   }

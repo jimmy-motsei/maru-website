@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ProposalPage from './ProposalPage';
+import ProposalPage from './ProposalPageNew';
 
 export const metadata: Metadata = {
   title: 'Proposal Accelerator | Maru Online',

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import PipelineLeakPage from './PipelineLeakPage';
+import PipelineLeakPage from './PipelineLeakPageNew';
 
 export const metadata: Metadata = {
   title: 'Pipeline Leak Detector | Maru Online',

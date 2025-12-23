@@ -87,31 +87,54 @@ export function Hero() {
 
                             {/* CTAs */}
                             <motion.div
-                                className="pt-6 flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-10"
+                                className="pt-6 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
                             >
-                                <Link
-                                    href="/assessments/lead-score"
-                                    className="
-                    group bg-[#22d3ee] text-black hover:bg-[#5cc5d1]
-                    transition-colors rounded-full
-                    pl-8 pr-2 py-2
-                    flex items-center justify-between gap-4
-                    font-bold tracking-tight text-sm md:text-base
-                  "
-                                >
-                                    START FREE AUDIT
-                                    <span className="bg-black/10 group-hover:bg-black/20 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                    <ArrowRight size={18} className="text-black" />
-                  </span>
-                                </Link>
+                                <div className="flex flex-col sm:flex-row gap-4">
+                                    <Link
+                                        href="/assessments/lead-score"
+                                        className="
+                        group bg-[#22d3ee] text-black hover:bg-[#5cc5d1]
+                        transition-all duration-300 rounded-full
+                        pl-8 pr-2 py-3
+                        flex items-center justify-between gap-4
+                        font-bold tracking-tight text-sm md:text-base
+                        hover:scale-105 hover:shadow-lg
+                      "
+                                    >
+                                        START FREE AUDIT
+                                        <span className="bg-black/10 group-hover:bg-black/20 w-10 h-10 rounded-full flex items-center justify-center transition-all">
+                        <ArrowRight size={18} className="text-black group-hover:translate-x-0.5 transition-transform" />
+                      </span>
+                                    </Link>
+                                    
+                                    <Link
+                                        href="/contact"
+                                        className="
+                        group border-2 border-zinc-700 text-white hover:border-cyan-400
+                        transition-all duration-300 rounded-full
+                        px-8 py-3
+                        flex items-center justify-center gap-2
+                        font-semibold tracking-tight text-sm md:text-base
+                        hover:bg-cyan-400/10
+                      "
+                                    >
+                                        Book Consultation
+                                    </Link>
+                                </div>
 
-                                <div className="text-sm text-zinc-400">
-                                    <span className="text-green-400 font-medium">✓</span> No signup required
-                                    <span className="mx-2">•</span>
-                                    <span className="text-green-400 font-medium">✓</span> Instant results
+                                <div className="text-sm text-zinc-400 flex flex-col sm:flex-row gap-2 sm:gap-4">
+                                    <div className="flex items-center gap-1">
+                                        <span className="text-green-400 font-medium">✓</span> No signup required
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                        <span className="text-green-400 font-medium">✓</span> Instant results
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                        <span className="text-green-400 font-medium">✓</span> 2-minute assessment
+                                    </div>
                                 </div>
                             </motion.div>
                         </div>

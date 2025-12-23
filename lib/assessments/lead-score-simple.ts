@@ -1,8 +1,4 @@
-import Anthropic from '@anthropic-ai/sdk';
-
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY || '',
-});
+import { generateStructuredResponse } from '@/lib/ai';
 
 interface LeadScoreResult {
   score: number;
@@ -74,18 +70,26 @@ async function analyzeWithAI(
   companySize: string
 ): Promise<LeadScoreResult> {
   
-  if (!process.env.ANTHROPIC_API_KEY) {
-    throw new Error('Anthropic API key not configured');
+  if (!process.env.GOOGLE_AI_API_KEY) {
+    throw new Error('Google AI API key not configured');
   }
 
-  const prompt = `Analyze this company's lead generation readiness and provide a detailed assessment:
+  const prompt = `Analyze this company's lead generation readiness:
 
 Company: ${companyName}
 Website: ${websiteUrl}
 Industry: ${industry}
 Company Size: ${companySize}
 
-Provide a JSON response with the following structure:
+Base assessment on:
+1. Website Quality: Professional design, mobile responsiveness, loading speed
+2. Tech Stack Maturity: Marketing automation, analytics, CRM integration
+3. Content Quality: Value proposition clarity, content depth, CTAs
+4. SEO Readiness: Meta tags, content structure, technical SEO
+
+Provide specific, actionable recommendations tailored to their industry and size.`;
+
+  const systemPrompt = `You are a lead generation expert. Analyze the company and provide a JSON response with this exact structure:
 {
   "score": <overall score 0-100>,
   "factors": {
@@ -101,39 +105,14 @@ Provide a JSON response with the following structure:
     "<specific actionable recommendation 4>",
     "<specific actionable recommendation 5>"
   ]
-}
-
-Base your assessment on:
-1. Website Quality: Professional design, mobile responsiveness, loading speed
-2. Tech Stack Maturity: Marketing automation, analytics, CRM integration
-3. Content Quality: Value proposition clarity, content depth, CTAs
-4. SEO Readiness: Meta tags, content structure, technical SEO
-
-Provide specific, actionable recommendations tailored to their industry and size.`;
+}`;
 
   try {
-    const response = await anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
-      max_tokens: 2000,
-      messages: [{ role: 'user', content: prompt }],
-    });
-
-    const content = response.content[0];
-    if (content.type === 'text') {
-      // Extract JSON from response
-      const jsonMatch = content.text.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        const parsed = JSON.parse(jsonMatch[0]);
-        return {
-          score: parsed.score,
-          factors: parsed.factors,
-          recommendations: parsed.recommendations,
-        };
-      }
-    }
-
-    throw new Error('Failed to parse AI response');
-
+    return await generateStructuredResponse<LeadScoreResult>(
+      prompt,
+      systemPrompt,
+      null
+    );
   } catch (error) {
     console.error('AI analysis error:', error);
     throw error;

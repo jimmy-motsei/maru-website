@@ -1,131 +1,331 @@
+import { generateAIResponse } from '@/lib/ai';
 import { supabaseAdmin } from '@/lib/supabase';
+
+interface ToolSelection {
+  toolId: string;
+  name: string;
+  category: string;
+  monthlyCost: number;
+  usersCount: number;
+  usageFrequency: 'daily' | 'weekly' | 'monthly' | 'rarely';
+}
+
+interface TechAuditInput {
+  selectedTools: ToolSelection[];
+  companySize: string;
+  industry: string;
+  teamSize: number;
+}
 
 interface TechAuditResult {
   score: number;
-  total_monthly_cost: number;
-  redundancies_found: {
-    category: string;
-    tools: string[];
-    potential_savings: number;
-  }[];
-  optimization_score: number;
+  totalMonthlyCost: number;
+  redundancies: Redundancy[];
+  optimizations: Optimization[];
   recommendations: string[];
-}
-
-export async function auditTechStack(input: any): Promise<TechAuditResult> {
-  const { selected_tools, company_size, industry } = input;
-  
-  if (!selected_tools || selected_tools.length === 0) {
-    throw new Error('No tools selected for audit');
-  }
-
-  // Get tool details from database
-  const toolIds = selected_tools.map((t: any) => t.tool_id);
-  const { data: tools } = await supabaseAdmin
-    .from('tools')
-    .select('*')
-    .in('id', toolIds);
-
-  if (!tools) {
-    throw new Error('Failed to fetch tool data');
-  }
-
-  // Calculate costs and redundancies
-  const totalCost = selected_tools.reduce((sum: number, tool: any) => 
-    sum + (tool.monthly_cost * tool.users_count), 0
-  );
-
-  const redundancies = detectRedundancies(selected_tools, tools);
-  const potentialSavings = redundancies.reduce((sum, r) => sum + r.potential_savings, 0);
-  
-  const optimizationScore = Math.max(0, 100 - (redundancies.length * 15));
-  const overallScore = calculateOverallScore(selected_tools.length, redundancies.length, totalCost);
-
-  return {
-    score: overallScore,
-    total_monthly_cost: totalCost,
-    redundancies_found: redundancies,
-    optimization_score: optimizationScore,
-    recommendations: generateRecommendations(redundancies, totalCost, company_size),
+  summary: {
+    potentialSavings: number;
+    efficiencyScore: number;
+    redundancyCount: number;
+    underutilizedTools: number;
   };
 }
 
-function detectRedundancies(selectedTools: any[], toolsData: any[]) {
-  const categoryGroups = selectedTools.reduce((acc, tool) => {
-    const toolData = toolsData.find(t => t.id === tool.tool_id);
-    if (!toolData) return acc;
-    
-    if (!acc[toolData.category]) acc[toolData.category] = [];
-    acc[toolData.category].push({ ...tool, ...toolData });
-    return acc;
-  }, {} as Record<string, any[]>);
+interface Redundancy {
+  category: string;
+  tools: string[];
+  potentialSavings: number;
+  severity: 'high' | 'medium' | 'low';
+  description: string;
+}
 
-  const redundancies: any[] = [];
+interface Optimization {
+  type: 'cost' | 'efficiency' | 'integration';
+  description: string;
+  impact: number;
+  effort: 'low' | 'medium' | 'high';
+}
 
-  Object.entries(categoryGroups).forEach(([category, tools]) => {
-    if ((tools as any[]).length > 1) {
-      // Multiple tools in same category = potential redundancy
-      const totalCost = (tools as any[]).reduce((sum, tool) => 
-        sum + (tool.monthly_cost * tool.users_count), 0
-      );
-      
-      // Keep the most expensive/popular tool, suggest removing others
-      const sortedTools = (tools as any[]).sort((a, b) => 
-        (b.monthly_cost * b.users_count) - (a.monthly_cost * a.users_count)
-      );
-      
-      const toolsToRemove = sortedTools.slice(1);
-      const savings = toolsToRemove.reduce((sum, tool) => 
-        sum + (tool.monthly_cost * tool.users_count), 0
-      );
+export async function auditTechStack(input: TechAuditInput): Promise<TechAuditResult> {
+  try {
+    // 1. Calculate total costs
+    const totalMonthlyCost = input.selectedTools.reduce((sum, tool) => 
+      sum + (tool.monthlyCost * tool.usersCount), 0
+    );
 
-      if (savings > 0) {
-        redundancies.push({
-          category,
-          tools: toolsToRemove.map((t: any) => t.name),
-          potential_savings: savings,
-        });
-      }
+    // 2. Identify redundancies
+    const redundancies = identifyRedundancies(input.selectedTools);
+
+    // 3. Find optimization opportunities
+    const optimizations = findOptimizations(input.selectedTools, input);
+
+    // 4. Calculate efficiency score
+    const score = calculateEfficiencyScore(input, redundancies, optimizations);
+
+    // 5. Generate AI recommendations
+    const recommendations = await generateRecommendations(input, redundancies, optimizations);
+
+    // 6. Create summary
+    const summary = createSummary(redundancies, optimizations, input.selectedTools);
+
+    return {
+      score,
+      totalMonthlyCost,
+      redundancies,
+      optimizations,
+      recommendations,
+      summary,
+    };
+
+  } catch (error) {
+    console.error('Tech audit error:', error);
+    throw new Error('Failed to audit tech stack');
+  }
+}
+
+function identifyRedundancies(tools: ToolSelection[]): Redundancy[] {
+  const redundancies: Redundancy[] = [];
+  const categoryGroups = groupByCategory(tools);
+
+  // Check for redundant tools in same category
+  Object.entries(categoryGroups).forEach(([category, categoryTools]) => {
+    if (categoryTools.length > 1) {
+      // Identify potential redundancies
+      const redundantPairs = findRedundantPairs(categoryTools, category);
+      redundancies.push(...redundantPairs);
+    }
+  });
+
+  // Check for underutilized tools
+  const underutilized = tools.filter(tool => 
+    tool.usageFrequency === 'rarely' && tool.monthlyCost > 20
+  );
+
+  underutilized.forEach(tool => {
+    redundancies.push({
+      category: 'Underutilized',
+      tools: [tool.name],
+      potentialSavings: tool.monthlyCost * tool.usersCount,
+      severity: tool.monthlyCost > 50 ? 'high' : 'medium',
+      description: `${tool.name} is rarely used but costs $${tool.monthlyCost * tool.usersCount}/month`,
+    });
+  });
+
+  return redundancies.sort((a, b) => b.potentialSavings - a.potentialSavings);
+}
+
+function groupByCategory(tools: ToolSelection[]): Record<string, ToolSelection[]> {
+  return tools.reduce((groups, tool) => {
+    const category = tool.category;
+    if (!groups[category]) groups[category] = [];
+    groups[category].push(tool);
+    return groups;
+  }, {} as Record<string, ToolSelection[]>);
+}
+
+function findRedundantPairs(tools: ToolSelection[], category: string): Redundancy[] {
+  const redundancies: Redundancy[] = [];
+
+  // Define redundancy patterns
+  const redundancyPatterns: Record<string, string[][]> = {
+    'Communication': [
+      ['Slack', 'Microsoft Teams'],
+      ['Zoom', 'Microsoft Teams', 'Google Meet'],
+    ],
+    'Productivity': [
+      ['Google Workspace', 'Microsoft 365'],
+    ],
+    'Project Management': [
+      ['Asana', 'Trello', 'Monday.com'],
+    ],
+    'CRM': [
+      ['HubSpot', 'Salesforce'],
+    ],
+    'Design': [
+      ['Canva', 'Adobe Creative Suite'],
+    ],
+  };
+
+  const patterns = redundancyPatterns[category] || [];
+  
+  patterns.forEach(pattern => {
+    const matchingTools = tools.filter(tool => 
+      pattern.some(patternTool => tool.name.toLowerCase().includes(patternTool.toLowerCase()))
+    );
+
+    if (matchingTools.length > 1) {
+      const totalCost = matchingTools.reduce((sum, tool) => sum + (tool.monthlyCost * tool.usersCount), 0);
+      const cheapestTool = matchingTools.reduce((min, tool) => 
+        (tool.monthlyCost * tool.usersCount) < (min.monthlyCost * min.usersCount) ? tool : min
+      );
+      const potentialSavings = totalCost - (cheapestTool.monthlyCost * cheapestTool.usersCount);
+
+      redundancies.push({
+        category,
+        tools: matchingTools.map(t => t.name),
+        potentialSavings,
+        severity: potentialSavings > 100 ? 'high' : potentialSavings > 50 ? 'medium' : 'low',
+        description: `Multiple ${category.toLowerCase()} tools detected. Consider consolidating to ${cheapestTool.name}.`,
+      });
     }
   });
 
   return redundancies;
 }
 
-function calculateOverallScore(toolCount: number, redundancyCount: number, totalCost: number) {
-  let score = 100;
-  
-  // Penalize for too many tools
-  if (toolCount > 20) score -= 20;
-  else if (toolCount > 15) score -= 10;
-  
-  // Penalize for redundancies
-  score -= redundancyCount * 15;
-  
-  // Penalize for high costs
-  if (totalCost > 5000) score -= 20;
-  else if (totalCost > 2000) score -= 10;
-  
-  return Math.max(0, Math.round(score));
+function findOptimizations(tools: ToolSelection[], input: TechAuditInput): Optimization[] {
+  const optimizations: Optimization[] = [];
+
+  // Cost optimizations
+  const expensiveTools = tools.filter(tool => tool.monthlyCost > 50);
+  expensiveTools.forEach(tool => {
+    optimizations.push({
+      type: 'cost',
+      description: `Review ${tool.name} pricing - consider downgrading plan or negotiating volume discount`,
+      impact: tool.monthlyCost * 0.2, // 20% potential savings
+      effort: 'low',
+    });
+  });
+
+  // Usage optimizations
+  const weeklyTools = tools.filter(tool => tool.usageFrequency === 'weekly');
+  weeklyTools.forEach(tool => {
+    optimizations.push({
+      type: 'efficiency',
+      description: `Increase ${tool.name} adoption - currently underutilized for its cost`,
+      impact: tool.monthlyCost * 0.3,
+      effort: 'medium',
+    });
+  });
+
+  // Integration opportunities
+  const categories = [...new Set(tools.map(t => t.category))];
+  if (categories.length > 5) {
+    optimizations.push({
+      type: 'integration',
+      description: 'Consider integrated platforms to reduce tool sprawl and improve workflow',
+      impact: tools.length * 10, // Estimated efficiency gain
+      effort: 'high',
+    });
+  }
+
+  return optimizations.sort((a, b) => b.impact - a.impact);
 }
 
-function generateRecommendations(redundancies: any[], totalCost: number, companySize: string) {
-  const recommendations: string[] = [];
-  
-  if (redundancies.length > 0) {
-    recommendations.push(`Eliminate ${redundancies.length} tool redundancies to save $${redundancies.reduce((sum, r) => sum + r.potential_savings, 0)}/month`);
+function calculateEfficiencyScore(
+  input: TechAuditInput, 
+  redundancies: Redundancy[], 
+  optimizations: Optimization[]
+): number {
+  let score = 100;
+
+  // Deduct for redundancies
+  redundancies.forEach(redundancy => {
+    const deduction = redundancy.severity === 'high' ? 15 : redundancy.severity === 'medium' ? 10 : 5;
+    score -= deduction;
+  });
+
+  // Deduct for high costs relative to team size
+  const costPerUser = input.selectedTools.reduce((sum, tool) => sum + tool.monthlyCost, 0) / input.teamSize;
+  if (costPerUser > 100) score -= 20;
+  else if (costPerUser > 50) score -= 10;
+
+  // Deduct for tool sprawl
+  if (input.selectedTools.length > 15) score -= 15;
+  else if (input.selectedTools.length > 10) score -= 10;
+
+  // Bonus for good practices
+  const dailyTools = input.selectedTools.filter(t => t.usageFrequency === 'daily');
+  if (dailyTools.length / input.selectedTools.length > 0.7) score += 10;
+
+  return Math.max(0, Math.min(100, Math.round(score)));
+}
+
+async function generateRecommendations(
+  input: TechAuditInput,
+  redundancies: Redundancy[],
+  optimizations: Optimization[]
+): Promise<string[]> {
+  try {
+    const prompt = `Analyze this tech stack audit and provide 4-5 specific, actionable recommendations:
+
+Company: ${input.companySize} company in ${input.industry}
+Team Size: ${input.teamSize}
+Tools: ${input.selectedTools.map(t => `${t.name} ($${t.monthlyCost}/month, ${t.usageFrequency} use)`).join(', ')}
+
+Redundancies Found: ${redundancies.length}
+Top Redundancy: ${redundancies[0]?.description || 'None'}
+
+Optimization Opportunities: ${optimizations.length}
+Top Optimization: ${optimizations[0]?.description || 'None'}
+
+Provide recommendations as a JSON array focusing on:
+1. Cost reduction opportunities
+2. Efficiency improvements
+3. Tool consolidation
+4. Usage optimization
+5. Integration opportunities
+
+Format: ["recommendation 1", "recommendation 2", ...]`;
+
+    const response = await generateAIResponse(prompt);
+    return JSON.parse(response);
+  } catch (error) {
+    console.error('AI recommendation generation error:', error);
+    
+    // Fallback recommendations
+    const recommendations: string[] = [];
+    
+    if (redundancies.length > 0) {
+      recommendations.push(`Address ${redundancies[0].category} redundancy to save $${redundancies[0].potentialSavings}/month`);
+    }
+    
+    if (optimizations.length > 0) {
+      recommendations.push(optimizations[0].description);
+    }
+    
+    recommendations.push('Conduct quarterly tech stack reviews to identify new optimization opportunities');
+    recommendations.push('Implement usage tracking to better understand tool ROI');
+    recommendations.push('Consider integrated platforms to reduce tool sprawl');
+    
+    return recommendations.slice(0, 5);
   }
-  
-  if (totalCost > 3000) {
-    recommendations.push('Consider negotiating volume discounts with key vendors');
+}
+
+function createSummary(redundancies: Redundancy[], optimizations: Optimization[], tools: ToolSelection[]) {
+  const potentialSavings = redundancies.reduce((sum, r) => sum + r.potentialSavings, 0) +
+    optimizations.filter(o => o.type === 'cost').reduce((sum, o) => sum + o.impact, 0);
+
+  const efficiencyScore = Math.round(
+    (tools.filter(t => t.usageFrequency === 'daily').length / tools.length) * 100
+  );
+
+  const underutilizedTools = tools.filter(t => t.usageFrequency === 'rarely').length;
+
+  return {
+    potentialSavings: Math.round(potentialSavings),
+    efficiencyScore,
+    redundancyCount: redundancies.length,
+    underutilizedTools,
+  };
+}
+
+// Helper function to get available tools from database
+export async function getAvailableTools(): Promise<any[]> {
+  try {
+    const { data: tools, error } = await supabaseAdmin
+      .from('tools')
+      .select('*')
+      .order('category', { ascending: true });
+
+    if (error) {
+      console.error('Error fetching tools:', error);
+      return [];
+    }
+
+    return tools || [];
+  } catch (error) {
+    console.error('Database error:', error);
+    return [];
   }
-  
-  recommendations.push('Implement usage tracking to identify underutilized tools');
-  recommendations.push('Set up automated license management to prevent over-provisioning');
-  
-  if (companySize === 'startup') {
-    recommendations.push('Focus on free/freemium tools until you reach product-market fit');
-  }
-  
-  return recommendations;
 }

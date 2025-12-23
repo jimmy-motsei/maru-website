@@ -188,53 +188,130 @@ export default function LeadScorePage() {
 }
 
 function ScoreDisplay({ results }: { results: LeadScoreResult }) {
+  const getScoreColor = (score: number) => {
+    if (score >= 80) return 'from-green-400 to-emerald-500';
+    if (score >= 60) return 'from-yellow-400 to-orange-500';
+    return 'from-red-400 to-red-500';
+  };
+
+  const getScoreLabel = (score: number) => {
+    if (score >= 80) return 'Excellent';
+    if (score >= 60) return 'Good';
+    if (score >= 40) return 'Fair';
+    return 'Needs Improvement';
+  };
+
   return (
     <div className="space-y-8">
       {/* Overall Score */}
       <div className="text-center">
-        <div className="inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full mb-4">
+        <div className={`inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br ${getScoreColor(results.score)} rounded-full mb-4`}>
           <span className="text-4xl font-bold text-black">{results.score}</span>
         </div>
-        <h2 className="text-2xl font-semibold text-white mb-2">Overall Lead Score</h2>
-        <p className="text-zinc-400">
-          {results.score >= 80 ? 'Excellent' : results.score >= 60 ? 'Good' : results.score >= 40 ? 'Fair' : 'Needs Improvement'}
-        </p>
+        <h2 className="text-2xl font-semibold text-white mb-2">Lead Generation Score</h2>
+        <p className="text-zinc-400 text-lg">{getScoreLabel(results.score)}</p>
+        <div className="mt-4 max-w-md mx-auto">
+          <div className="w-full bg-zinc-700 rounded-full h-3">
+            <div
+              className={`bg-gradient-to-r ${getScoreColor(results.score)} h-3 rounded-full transition-all duration-1000`}
+              style={{ width: `${results.score}%` }}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Factor Breakdown */}
       <div className="grid md:grid-cols-2 gap-6">
-        {Object.entries(results.factors).map(([key, value]) => (
-          <div key={key} className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
-            <div className="flex justify-between items-center mb-3">
-              <h3 className="font-medium text-white capitalize">
-                {key.replace('_', ' ')}
-              </h3>
-              <span className="text-cyan-400 font-semibold">{value}/100</span>
+        {Object.entries(results.factors).map(([key, value]) => {
+          const factorNames = {
+            website_quality: 'Website Quality',
+            tech_stack_maturity: 'Tech Stack Maturity',
+            content_quality: 'Content Quality',
+            seo_readiness: 'SEO Readiness'
+          };
+          
+          return (
+            <div key={key} className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-zinc-700 transition-colors">
+              <div className="flex justify-between items-center mb-3">
+                <h3 className="font-medium text-white">
+                  {factorNames[key as keyof typeof factorNames] || key.replace('_', ' ')}
+                </h3>
+                <span className="text-cyan-400 font-semibold">{value}/100</span>
+              </div>
+              <div className="w-full bg-zinc-700 rounded-full h-2">
+                <div
+                  className={`bg-gradient-to-r ${getScoreColor(value)} h-2 rounded-full transition-all duration-1000`}
+                  style={{ width: `${value}%` }}
+                />
+              </div>
+              <p className="text-xs text-zinc-500 mt-2">
+                {value >= 80 ? 'Excellent performance' : 
+                 value >= 60 ? 'Good foundation' : 
+                 value >= 40 ? 'Room for improvement' : 'Needs attention'}
+              </p>
             </div>
-            <div className="w-full bg-zinc-700 rounded-full h-2">
-              <div
-                className="bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full"
-                style={{ width: `${value}%` }}
-              />
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Recommendations */}
       <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
-        <h3 className="text-xl font-semibold text-white mb-4">Recommendations</h3>
-        <div className="space-y-3">
+        <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+          <Zap className="w-5 h-5 text-yellow-400" />
+          Actionable Recommendations
+        </h3>
+        <div className="space-y-4">
           {results.recommendations.map((rec, index) => (
-            <div key={index} className="flex items-start gap-3">
+            <div key={index} className="flex items-start gap-3 p-3 bg-zinc-800/50 rounded-lg hover:bg-zinc-800 transition-colors">
               <div className="w-6 h-6 bg-cyan-400/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                 <span className="text-xs font-medium text-cyan-400">{index + 1}</span>
               </div>
-              <p className="text-zinc-300">{rec}</p>
+              <p className="text-zinc-300 leading-relaxed">{rec}</p>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Next Steps CTA */}
+      <div className="p-6 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-cyan-800/30 rounded-xl">
+        <h3 className="text-lg font-semibold text-white mb-2">Ready to Improve Your Score?</h3>
+        <p className="text-zinc-400 mb-4">
+          Get personalized guidance on implementing these recommendations and optimizing your lead generation.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <button className="px-6 py-3 bg-cyan-400 text-black font-medium rounded-lg hover:bg-cyan-300 transition-colors">
+            Schedule Free Consultation
+          </button>
+          <button className="px-6 py-3 border border-zinc-600 text-white font-medium rounded-lg hover:border-zinc-500 transition-colors">
+            Download Full Report
+          </button>
+        </div>
+      </div>
+
+      {/* Company Data */}
+      {results.company_data && (
+        <div className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+          <h4 className="font-medium text-white mb-2">Analysis Summary</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+            <div>
+              <span className="text-zinc-500">Company:</span>
+              <p className="text-zinc-300">{results.company_data.name}</p>
+            </div>
+            <div>
+              <span className="text-zinc-500">Industry:</span>
+              <p className="text-zinc-300">{results.company_data.industry}</p>
+            </div>
+            <div>
+              <span className="text-zinc-500">Size:</span>
+              <p className="text-zinc-300">{results.company_data.size}</p>
+            </div>
+            <div>
+              <span className="text-zinc-500">Analysis Date:</span>
+              <p className="text-zinc-300">{new Date().toLocaleDateString()}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

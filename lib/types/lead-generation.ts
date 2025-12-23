@@ -106,55 +106,98 @@ export interface PipelineLeakInput {
 
 export interface PipelineLeakResult {
   score: number;
-  total_deals: number;
-  leaks_detected: {
-    stalled_deals: number;
-    stage_bottlenecks: number;
-    velocity_issues: number;
-  };
-  revenue_at_risk: number;
+  totalDeals: number;
+  conversionRates: Record<string, number>;
+  avgTimeInStage: Record<string, number>;
+  leaks: PipelineLeak[];
   recommendations: string[];
+  summary: {
+    biggestLeak: string;
+    potentialRevenue: number;
+    quickWins: string[];
+  };
+}
+
+export interface PipelineLeak {
+  stage: string;
+  severity: 'high' | 'medium' | 'low';
+  conversionRate: number;
+  avgDaysInStage: number;
+  dealsLost: number;
+  revenueImpact: number;
+  description: string;
 }
 
 export interface ProposalInput {
-  company_info: {
-    name: string;
-    industry: string;
-    size: string;
-    challenges: string[];
-  };
-  project_scope: {
-    services: string[];
+  companyName: string;
+  industry: string;
+  companySize: string;
+  projectType: string;
+  budget: string;
+  timeline: string;
+  challenges: string[];
+  goals: string[];
+  stakeholders: string;
+  decisionProcess: string;
+}
+
+export interface ProposalResult {
+  score: number;
+  proposal: {
+    executiveSummary: string;
+    problemStatement: string;
+    proposedSolution: string;
+    implementation: string;
     timeline: string;
-    budget_range: string;
+    investment: string;
+    nextSteps: string;
   };
-  decision_makers: {
-    primary_contact: string;
-    stakeholders: string[];
-  };
+  recommendations: string[];
+  winProbability: number;
+  competitiveAdvantages: string[];
 }
 
 export interface TechAuditInput {
-  selected_tools: {
-    tool_id: string;
-    monthly_cost: number;
-    users_count: number;
-    usage_frequency: string;
+  selectedTools: {
+    toolId: string;
+    name: string;
+    category: string;
+    monthlyCost: number;
+    usersCount: number;
+    usageFrequency: 'daily' | 'weekly' | 'monthly' | 'rarely';
   }[];
-  company_size: string;
+  companySize: string;
   industry: string;
+  teamSize: number;
 }
 
 export interface TechAuditResult {
   score: number;
-  total_monthly_cost: number;
-  redundancies_found: {
-    category: string;
-    tools: string[];
-    potential_savings: number;
-  }[];
-  optimization_score: number;
+  totalMonthlyCost: number;
+  redundancies: Redundancy[];
+  optimizations: Optimization[];
   recommendations: string[];
+  summary: {
+    potentialSavings: number;
+    efficiencyScore: number;
+    redundancyCount: number;
+    underutilizedTools: number;
+  };
+}
+
+export interface Redundancy {
+  category: string;
+  tools: string[];
+  potentialSavings: number;
+  severity: 'high' | 'medium' | 'low';
+  description: string;
+}
+
+export interface Optimization {
+  type: 'cost' | 'efficiency' | 'integration';
+  description: string;
+  impact: number;
+  effort: 'low' | 'medium' | 'high';
 }
 
 // API Response types

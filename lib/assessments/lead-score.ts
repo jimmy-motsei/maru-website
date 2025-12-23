@@ -1,9 +1,5 @@
 import { chromium } from 'playwright';
-import Anthropic from '@anthropic-ai/sdk';
-
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY!,
-});
+import { generateAIResponse } from '@/lib/ai';
 
 interface WebsiteData {
   url: string;
@@ -258,8 +254,7 @@ async function generateRecommendations(
   companyData: any
 ): Promise<string[]> {
   try {
-    const prompt = `
-Analyze this website data and provide 3-5 specific, actionable recommendations for improving their digital marketing and automation readiness:
+    const prompt = `Analyze this website data and provide 3-5 specific, actionable recommendations for improving their digital marketing and automation readiness:
 
 Website: ${websiteData.url}
 Company: ${companyData?.name || 'Unknown'}
@@ -281,23 +276,15 @@ Provide recommendations as a JSON array of strings, focusing on:
 3. Content/SEO enhancements
 4. Marketing automation opportunities
 
-Format: ["recommendation 1", "recommendation 2", ...]
-`;
+Format: ["recommendation 1", "recommendation 2", ...]`;
 
-    const response = await anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
-      max_tokens: 1000,
-      messages: [{ role: 'user', content: prompt }],
-    });
-
-    const content = response.content[0];
-    if (content.type === 'text') {
-      try {
-        return JSON.parse(content.text);
-      } catch {
-        // Fallback if JSON parsing fails
-        return content.text.split('\n').filter(line => line.trim().startsWith('-')).map(line => line.replace(/^-\s*/, ''));
-      }
+    const response = await generateAIResponse(prompt);
+    
+    try {
+      return JSON.parse(response);
+    } catch {
+      // Fallback if JSON parsing fails
+      return response.split('\n').filter(line => line.trim().startsWith('-')).map(line => line.replace(/^-\s*/, ''));
     }
 
   } catch (error) {

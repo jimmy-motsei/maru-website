@@ -74,15 +74,33 @@ export function AssessmentShowcase() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Free AI-Powered <span className="text-cyan-400">Business Audits</span>
-          </h2>
-          <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-            Discover hidden revenue opportunities with our suite of AI-powered assessment tools. 
-            Get instant insights and actionable recommendations.
-          </p>
+          <div className="inline-flex items-center gap-8 p-6 bg-zinc-900/50 border border-zinc-800 rounded-xl mb-8">
+            <div className="flex items-center gap-2 text-green-400">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium">4 Free AI Audits Available</span>
+            </div>
+            <div className="flex items-center gap-2 text-cyan-400">
+              <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+              <span className="text-sm font-medium">No signup • Instant results</span>
+            </div>
+            <div className="flex items-center gap-2 text-blue-400">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-sm font-medium">2-minute assessments</span>
+            </div>
+          </div>
+          
+          <div className="text-center">
+            <Link
+              href="/assessments/lead-score"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-cyan-400 hover:to-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            >
+              Start Your First Audit
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <p className="text-zinc-400 text-sm mt-3">Choose any assessment below to begin</p>
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
