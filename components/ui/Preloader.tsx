@@ -73,7 +73,7 @@ export default function Preloader() {
             {phase === "words" && (
               <motion.div
                 key="words"
-                className="flex items-center gap-4 md:gap-6"
+                className="flex flex-col items-center gap-4 px-4 max-w-full"
                 exit={{
                   y: -40,
                   opacity: 0,
@@ -84,14 +84,20 @@ export default function Preloader() {
                 {words.map((word, i) => (
                   <motion.span
                     key={word.text}
-                    initial={{ y: 60, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{
-                      duration: 1.5,  // SLOWED: Was 1.0s, now 1.5s (50% slower)
-                      ease: [0.22, 1, 0.36, 1], // Power3.out equivalent
-                      delay: i * 0.4, // SLOWED: Increased stagger for deliberate effect
+                    initial={{ 
+                      x: i % 2 === 0 ? -100 : 100, 
+                      opacity: 0 
                     }}
-                    className={`text-4xl md:text-6xl text-white tracking-tighter ${word.weight}`}
+                    animate={{ 
+                      x: 0, 
+                      opacity: 1 
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      ease: [0.22, 1, 0.36, 1],
+                      delay: i * 0.4,
+                    }}
+                    className={`text-2xl sm:text-3xl md:text-6xl text-white tracking-tighter ${word.weight} whitespace-nowrap text-center`}
                   >
                     {word.text}
                   </motion.span>
@@ -113,7 +119,7 @@ export default function Preloader() {
                   duration: 1.2, // SLOWED: Was 0.8s
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="text-4xl md:text-6xl font-extralight text-white tracking-tight lowercase"
+                className="text-2xl sm:text-3xl md:text-6xl font-extralight text-white tracking-tight lowercase px-4"
               >
                 maruonline.com
               </motion.span>
