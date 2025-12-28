@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-// import { Header } from "@/components/layout/Header";
-// import { FooterCTA } from "@/components/layout/FooterCTA";
+import { Header } from "@/components/layout/Header";
+import { FooterCTA } from "@/components/layout/FooterCTA";
 import { PageFrame } from "@/components/layout/PageFrame";
 import Preloader from "@/components/ui/Preloader";
 import { ConversionTracking } from "@/components/analytics/ConversionTracking";
@@ -47,10 +47,10 @@ export default function RootLayout({
         <ConversionTracking />
         <PerformanceMonitor />
         <JourneyAnalytics />
-        {/* <Header /> */}
+        <Header />
         <PageFrame />
         {children}
-        {/* <FooterCTA /> */}
+        <FooterCTA />
         {/* <CookieManager /> */}
         {/* <CookieConsent /> */}
       </body>

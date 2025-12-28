@@ -1,119 +1,116 @@
 'use client';
 
-import { useState } from 'react';
-import { ArrowRight, BarChart3, Clock, Percent } from 'lucide-react';
 import { motion } from 'framer-motion';
-import EmailCaptureModal from './EmailCaptureModal';
+import { ChevronDown } from 'lucide-react';
+import { AtmosphericBackground } from '@/components/ui/AtmosphericBackground';
 
 export default function HeroSection() {
-  const [showModal, setShowModal] = useState(false);
+  const scrollToResults = () => {
+    const resultsSection = document.getElementById('real-results');
+    if (resultsSection) {
+      resultsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: 'easeOut' }
+    }
+  };
 
   return (
-    <section className="relative bg-black py-20 px-4 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-64 h-64 border border-accent rounded-full"></div>
-        <div className="absolute top-40 right-20 w-96 h-96 border border-accent rounded-full"></div>
-        <div className="absolute bottom-20 left-1/3 w-48 h-48 border border-accent rounded-full"></div>
-      </div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center px-4 py-2 bg-accent text-black text-sm font-medium rounded-full mb-6"
-          >
-            FREE AI-POWERED TOOL
-          </motion.div>
+    <section className="relative w-full min-h-screen overflow-hidden bg-[#050505] text-white">
+      <AtmosphericBackground variant="hero" />
 
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl font-bold text-white mb-6"
-          >
-            Lead Score Predictor™
-          </motion.h1>
+      {/* Content Layer */}
+      <div className="container relative z-30 mx-auto min-h-screen px-6 md:px-12 lg:px-20">
+        <div className="max-w-5xl pt-[clamp(180px,20vh,240px)] pb-[clamp(80px,12vh,140px)]">
+          <div className="backdrop-blur-[1px] rounded-3xl p-4 md:p-0">
+            <div className="flex flex-col gap-6 md:gap-8">
+              {/* Badge */}
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fadeUpVariants}
+                className="inline-flex items-center px-4 py-2 bg-[#22d3ee]/10 border border-[#22d3ee]/30 text-[#22d3ee] text-sm font-medium rounded-full w-fit"
+              >
+                🔍 FREE AI-POWERED TOOL
+              </motion.div>
 
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-2xl text-gray-300 mb-12"
-          >
-            Discover your website's lead generation potential in just 2 minutes
-          </motion.p>
+              {/* Headline - Following MARU Pattern */}
+              <motion.h1
+                className="tracking-tight leading-[0.95] text-[27px] md:text-[40px] lg:text-[54px] xl:text-[61px] 2xl:text-[67px]"
+                initial="hidden"
+                animate="visible"
+                variants={fadeUpVariants}
+              >
+                <span className="font-extralight text-zinc-500">Is Your Website</span>{" "}
+                <span className="font-medium text-[#ef4444]">Leaking Leads</span>
+                <span className="font-medium text-white">?</span>
+              </motion.h1>
 
-          {/* Stats Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
-          >
-            <motion.div
-              whileHover={{ y: -5 }}
-              className="bg-gray-900 border border-gray-800 rounded-lg p-6 shadow-lg hover:border-accent transition-colors"
-            >
-              <Clock className="w-8 h-8 text-accent mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">2 min</div>
-              <div className="text-gray-400">to complete</div>
-            </motion.div>
+              {/* Subheadline with Contrast Stats */}
+              <motion.div
+                className="flex flex-col gap-3"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  ...fadeUpVariants,
+                  visible: { ...fadeUpVariants.visible, transition: { duration: 0.8, delay: 0.15, ease: 'easeOut' } }
+                }}
+              >
+                <p className="text-[18px] md:text-[22px] lg:text-[24px] font-light text-zinc-400 leading-[1.4]">
+                  Most B2B websites convert at only{' '}
+                  <span className="text-[#ef4444] font-medium">1-2%</span>.
+                </p>
+                <p className="text-[18px] md:text-[22px] lg:text-[24px] font-light text-zinc-400 leading-[1.4]">
+                  But the top performers?{' '}
+                  <span className="text-[#22c55e] font-medium">They're hitting 5-6%</span>.
+                </p>
+              </motion.div>
 
-            <motion.div
-              whileHover={{ y: -5 }}
-              className="bg-gray-900 border border-gray-800 rounded-lg p-6 shadow-lg hover:border-accent transition-colors"
-            >
-              <BarChart3 className="w-8 h-8 text-accent mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">0-100</div>
-              <div className="text-gray-400">score range</div>
-            </motion.div>
+              {/* Question Hook */}
+              <motion.p
+                className="text-[22px] md:text-[28px] lg:text-[32px] font-medium text-white leading-[1.3] mt-4"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  ...fadeUpVariants,
+                  visible: { ...fadeUpVariants.visible, transition: { duration: 0.8, delay: 0.3, ease: 'easeOut' } }
+                }}
+              >
+                What's <span className="text-[#22d3ee]">your</span> number?
+              </motion.p>
 
-            <motion.div
-              whileHover={{ y: -5 }}
-              className="bg-gray-900 border border-gray-800 rounded-lg p-6 shadow-lg hover:border-accent transition-colors"
-            >
-              <Percent className="w-8 h-8 text-accent mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-1">100%</div>
-              <div className="text-gray-400">free forever</div>
-            </motion.div>
-          </motion.div>
-
-          {/* Primary CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mb-8"
-          >
-            <button
-              onClick={() => setShowModal(true)}
-              className="inline-flex items-center px-8 py-4 bg-accent text-black text-lg font-semibold rounded-lg hover:bg-accent/90 transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-accent/20"
-            >
-              Start My Free Analysis
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </button>
-          </motion.div>
-
-          {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-gray-400 space-y-2"
-          >
-            <p>No credit card required</p>
-            <p>Join 1,247+ B2B companies</p>
-          </motion.div>
+              {/* Scroll Indicator - NO CTA Button */}
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  ...fadeUpVariants,
+                  visible: { ...fadeUpVariants.visible, transition: { duration: 0.8, delay: 0.5, ease: 'easeOut' } }
+                }}
+                className="pt-12 flex flex-col items-start cursor-pointer group"
+                onClick={scrollToResults}
+              >
+                <p className="text-zinc-500 mb-3 group-hover:text-[#22d3ee] transition-colors flex items-center gap-2">
+                  <span>↓</span> See what others discovered
+                </p>
+                <motion.div
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="w-10 h-10 rounded-full border-2 border-zinc-700 group-hover:border-[#22d3ee] flex items-center justify-center transition-colors"
+                >
+                  <ChevronDown className="w-5 h-5 text-zinc-500 group-hover:text-[#22d3ee] transition-colors" />
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <EmailCaptureModal isOpen={showModal} onClose={() => setShowModal(false)} />
     </section>
   );
 }
