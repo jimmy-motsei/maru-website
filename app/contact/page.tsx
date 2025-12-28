@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
+import { Footer } from "@/components/layout/Footer";
 import { submitToHubSpot, HUBSPOT_FORMS } from "@/lib/hubspot";
 
 const breadcrumbs = [
@@ -337,42 +338,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="bg-dark py-12 lg:py-32">
-        <div className="container mx-auto px-6 lg:px-8 text-center">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-          >
-            <motion.h2
-              variants={fadeUpVariants}
-              className="text-3xl md:text-4xl lg:text-5xl text-white mb-6"
-            >
-              Ready to Transform Your Business with AI?
-            </motion.h2>
-            <motion.p
-              variants={fadeUpVariants}
-              className="text-white/60 text-lg max-w-2xl mx-auto mb-10"
-            >
-              Book a free discovery call to discuss your AI automation needs and explore how we can help your business grow.
-            </motion.p>
-            <motion.div variants={fadeUpVariants}>
-              <Link
-                href="https://calendly.com/hello-maruonline"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-accent text-dark px-8 py-4 rounded-full font-medium hover:bg-white transition-colors group"
-              >
-                <span>Book a Free Consultation</span>
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <Footer />
     </main>
   );
 }

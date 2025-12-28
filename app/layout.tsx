@@ -8,6 +8,7 @@ import { PageFrame } from "@/components/layout/PageFrame";
 import Preloader from "@/components/ui/Preloader";
 import { ConversionTracking } from "@/components/analytics/ConversionTracking";
 import { PerformanceMonitor } from "@/components/analytics/PerformanceMonitor";
+import { JourneyAnalytics } from "@/components/analytics/JourneyAnalytics";
 // import CookieConsent from "@/components/CookieConsent";
 // import CookieManager from "@/components/CookieManager";
 
@@ -45,6 +46,7 @@ export default function RootLayout({
         <Preloader />
         <ConversionTracking />
         <PerformanceMonitor />
+        <JourneyAnalytics />
         {/* <Header /> */}
         <PageFrame />
         {children}

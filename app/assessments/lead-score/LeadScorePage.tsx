@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Globe, TrendingUp, Zap, Target } from 'lucide-react';
+import Link from 'next/link';
 import MultiStepForm from '@/components/lead-generation/MultiStepForm';
 import GatedResultContainer from '@/components/lead-generation/GatedResultContainer';
 import { FormStep, LeadScoreResult } from '@/lib/types/lead-generation';
@@ -201,6 +202,36 @@ function ScoreDisplay({ results }: { results: LeadScoreResult }) {
     return 'Needs Improvement';
   };
 
+  const generatePDFReport = async (results: LeadScoreResult) => {
+    try {
+      const response = await fetch('/api/reports/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'lead_score',
+          data: results,
+        }),
+      });
+
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `lead-score-report-${Date.now()}.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      } else {
+        alert('Failed to generate report. Please try again.');
+      }
+    } catch (error) {
+      console.error('PDF generation error:', error);
+      alert('Failed to generate report. Please try again.');
+    }
+  };
+
   return (
     <div className="space-y-8">
       {/* Overall Score */}
@@ -279,10 +310,16 @@ function ScoreDisplay({ results }: { results: LeadScoreResult }) {
           Get personalized guidance on implementing these recommendations and optimizing your lead generation.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
-          <button className="px-6 py-3 bg-cyan-400 text-black font-medium rounded-lg hover:bg-cyan-300 transition-colors">
+          <Link 
+            href="/contact"
+            className="px-6 py-3 bg-cyan-400 text-black font-medium rounded-lg hover:bg-cyan-300 transition-colors inline-flex items-center justify-center"
+          >
             Schedule Free Consultation
-          </button>
-          <button className="px-6 py-3 border border-zinc-600 text-white font-medium rounded-lg hover:border-zinc-500 transition-colors">
+          </Link>
+          <button 
+            onClick={() => generatePDFReport(results)}
+            className="px-6 py-3 border border-zinc-600 text-white font-medium rounded-lg hover:border-zinc-500 transition-colors inline-flex items-center justify-center"
+          >
             Download Full Report
           </button>
         </div>

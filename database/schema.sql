@@ -79,6 +79,55 @@ CREATE TABLE lead_activities (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+-- Validation constraints
+ALTER TABLE leads ADD CONSTRAINT check_company_size 
+CHECK (company_size IN ('startup', 'smb', 'enterprise'));
+
+ALTER TABLE assessments ADD CONSTRAINT check_app_type 
+CHECK (app_type IN ('lead_score', 'pipeline_leak', 'proposal', 'tech_audit'));
+
+ALTER TABLE assessments ADD CONSTRAINT check_status 
+CHECK (status IN ('in_progress', 'completed', 'failed'));
+
+ALTER TABLE generated_reports ADD CONSTRAINT check_report_type 
+CHECK (report_type IN ('pdf', 'dashboard', 'email'));
+
+ALTER TABLE generated_reports ADD CONSTRAINT check_generation_status 
+CHECK (generation_status IN ('pending', 'completed', 'failed'));
+
+ALTER TABLE user_tool_selections ADD CONSTRAINT check_usage_frequency 
+CHECK (usage_frequency IN ('daily', 'weekly', 'monthly', 'rarely'));
+
+ALTER TABLE lead_activities ADD CONSTRAINT check_activity_type 
+CHECK (activity_type IN ('page_view', 'assessment_start', 'assessment_complete', 'report_download'));
+
+-- Audit triggers for data integrity
+CREATE OR REPLACE FUNCTION update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = NOW();
+    RETURN NEW;
+END;
+$$ language 'plpgsql';
+
+CREATE TRIGGER update_leads_updated_at 
+    BEFORE UPDATE ON leads
+    FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE OR REPLACE FUNCTION set_assessment_completed_at()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NEW.status = 'completed' AND OLD.status != 'completed' THEN
+        NEW.completed_at = NOW();
+    END IF;
+    RETURN NEW;
+END;
+$$ language 'plpgsql';
+
+CREATE TRIGGER set_assessment_completion 
+    BEFORE UPDATE ON assessments
+    FOR EACH ROW EXECUTE FUNCTION set_assessment_completed_at();
+
 -- Indexes for performance
 CREATE INDEX idx_leads_email ON leads(email);
 CREATE INDEX idx_leads_created_at ON leads(created_at);
@@ -89,6 +138,19 @@ CREATE INDEX idx_reports_assessment_id ON generated_reports(assessment_id);
 CREATE INDEX idx_tools_category ON tools(category);
 CREATE INDEX idx_activities_lead_id ON lead_activities(lead_id);
 CREATE INDEX idx_activities_created_at ON lead_activities(created_at);
+
+-- Optimization indexes for common usage patterns
+CREATE INDEX idx_leads_hubspot_id ON leads(hubspot_contact_id);
+CREATE INDEX idx_leads_score ON leads(lead_score DESC);
+CREATE INDEX idx_leads_company_size ON leads(company_size);
+CREATE INDEX idx_assessments_status ON assessments(status);
+CREATE INDEX idx_assessments_completed_at ON assessments(completed_at DESC);
+CREATE INDEX idx_assessments_composite ON assessments(lead_id, app_type, status);
+CREATE INDEX idx_reports_status ON generated_reports(generation_status);
+CREATE INDEX idx_activities_type ON lead_activities(activity_type);
+CREATE INDEX idx_activities_composite ON lead_activities(lead_id, activity_type, created_at DESC);
+CREATE INDEX idx_tools_cost ON tools(avg_monthly_cost);
+CREATE INDEX idx_tool_selections_composite ON user_tool_selections(assessment_id, tool_id);
 
 -- Sample tool data for Tech Stack Auditor
 INSERT INTO tools (name, category, subcategory, avg_monthly_cost, description) VALUES

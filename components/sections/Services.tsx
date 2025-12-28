@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Megaphone, Mountain, TrendingUp, Target, ArrowRight } from "lucide-react";
+import { Megaphone, Mountain, TrendingUp, Target, ArrowRight, Zap } from "lucide-react";
 import Link from "next/link";
 
 export function Services() {
@@ -14,6 +14,8 @@ export function Services() {
       icon: Mountain,
       hex: "#22d3ee",
       link: "/services/lead-generation",
+      assessmentTool: "lead-score",
+      assessmentCTA: "Check Your Lead Generation Potential",
     },
     {
       id: "02",
@@ -23,6 +25,8 @@ export function Services() {
       icon: Megaphone,
       hex: "#22d3ee",
       link: "/services/sales-systems",
+      assessmentTool: "pipeline-leak",
+      assessmentCTA: "Find Revenue Leaks in Your Pipeline",
     },
     {
       id: "03",
@@ -32,6 +36,8 @@ export function Services() {
       icon: TrendingUp,
       hex: "#22d3ee",
       link: "/services/sales-systems",
+      assessmentTool: "proposal",
+      assessmentCTA: "Generate Your First AI Proposal",
     },
     {
       id: "04",
@@ -41,6 +47,8 @@ export function Services() {
       icon: Target,
       hex: "#22d3ee",
       link: "/services/office-automation",
+      assessmentTool: "tech-audit",
+      assessmentCTA: "Audit Your Tech Stack Costs",
     },
   ];
 
@@ -101,7 +109,7 @@ export function Services() {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group"
             >
-              {/* Card - Subtle Gray with Shadow and Left Border Accent */}
+              {/* Card - Enhanced with Assessment CTA */}
               <div className="bg-gray-50 p-8 rounded-2xl shadow-xl hover:shadow-2xl border-l-4 border-l-[#22d3ee] transition-all duration-300 h-full flex flex-col">
                 
                 {/* Category Tag */}
@@ -124,12 +132,35 @@ export function Services() {
                   {service.description}
                 </p>
                 
+                {/* Assessment CTA */}
+                <div className="mb-4 p-4 bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-xl">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-cyan-100 rounded-lg">
+                      <Zap className="w-4 h-4 text-cyan-600" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-sm font-semibold text-cyan-800 mb-1">
+                        Free 2-Minute Assessment
+                      </div>
+                      <div className="text-xs text-cyan-600">
+                        {service.assessmentCTA}
+                      </div>
+                    </div>
+                    <Link
+                      href={`/assessments/${service.assessmentTool}`}
+                      className="bg-cyan-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-cyan-600 transition-colors"
+                    >
+                      Start Now
+                    </Link>
+                  </div>
+                </div>
+                
                 {/* Read More Link */}
                 <Link 
                   href={service.link}
                   className="inline-flex items-center gap-2 text-black font-medium hover:text-[#1a9aa5] transition-colors group/link"
                 >
-                  See How...
+                  Learn More About This Service
                   <ArrowRight 
                     size={16} 
                     className="group-hover/link:translate-x-1 transition-transform" 
