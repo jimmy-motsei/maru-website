@@ -59,22 +59,25 @@ export async function POST(request: NextRequest) {
 
 function processFirecrawlData(firecrawlData: any, url: string) {
   const content = firecrawlData.data;
+  const html = content.html || '';
   
   return {
     url,
     title: content.metadata?.title || 'Website Title',
     metaDescription: content.metadata?.description || '',
-    headings: extractHeadings(content.html || ''),
-    ctaButtons: extractCTAs(content.html || ''),
-    forms: extractForms(content.html || ''),
+    headings: extractHeadings(html),
+    ctaButtons: extractCTAs(html),
+    forms: extractForms(html),
     loadTime: Math.random() * 2 + 1,
     mobileResponsive: true,
-    socialProof: extractSocialProof(content.html || ''),
-    trustSignals: extractTrustSignals(content.html || '', url),
+    socialProof: extractSocialProof(html),
+    trustSignals: extractTrustSignals(html, url),
     leadMagnets: [],
-    liveChatPresent: content.html?.includes('chat') || false,
+    liveChatPresent: html.includes('chat') || html.includes('Chat') || html.includes('intercom') || html.includes('drift'),
     exitPopupPresent: false,
-    emailCapturePoints: (content.html?.match(/type=["']email["']/g) || []).length
+    emailCapturePoints: (html.match(/type=["']email["']/g) || []).length,
+    // NEW: Detects video for the bonus point
+    hasVideo: extractVideoPresence(html) 
   };
 }
 
@@ -122,8 +125,30 @@ function getMockScrapeData(url: string) {
     leadMagnets: [],
     liveChatPresent: false,
     exitPopupPresent: false,
-    emailCapturePoints: 2
+    emailCapturePoints: 2,
+    hasVideo: Math.random() > 0.5 // Randomly has video for mock data
   };
+}
+
+// NEW FUNCTION: Detects video tags or common video embed providers
+function extractVideoPresence(html: string): boolean {
+  // Check 1: Native HTML5 video tags
+  if (/<video/i.test(html)) return true;
+
+  // Check 2: Iframes from known video hosts
+  // Matches <iframe src="...youtube..."> etc.
+  const videoProviders = ['youtube', 'vimeo', 'wistia', 'loom', 'dailymotion', 'vidyard'];
+  const iframeRegex = new RegExp(`<iframe[^>]*src=["']([^"']*)`, 'gi');
+  
+  let match;
+  while ((match = iframeRegex.exec(html)) !== null) {
+    const src = match[1].toLowerCase();
+    if (videoProviders.some(provider => src.includes(provider))) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 function extractHeadings(html: string) {

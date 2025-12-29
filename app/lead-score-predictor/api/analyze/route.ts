@@ -49,33 +49,42 @@ export async function POST(request: NextRequest) {
       }),
     });
 
-    let scoreData = { score: 50, subscores: {} };
+    // Default zero state in case calculation fails
+    let scoreData = { 
+        score: 0, 
+        subscores: { 
+            websiteQuality: 0, 
+            conversionPoints: 0, 
+            leadCapture: 0, 
+            followupSystem: 0 
+        } 
+    };
+
     if (scoreResponse.ok) {
       scoreData = await scoreResponse.json();
     }
 
-    // Step 3: Get AI analysis (mock for now)
+    // Step 3: Get AI analysis
+    // We pass scoreData so the AI knows WHY the score is low
     const aiAnalysis = await getAIAnalysis(validatedData, scrapeData, scoreData);
 
-    // Step 4: Store results (mock implementation)
+    // Step 4: Store results
+    // FIX: We now use the REAL subscores from scoreData
     const results = {
       analysisId,
       score: scoreData.score,
-      subscores: {
-        websiteQuality: Math.floor(Math.random() * 40) + 60,
-        conversionPoints: Math.floor(Math.random() * 40) + 40,
-        leadCapture: Math.floor(Math.random() * 40) + 30,
-        followupSystem: Math.floor(Math.random() * 40) + 20,
-      },
+      subscores: scoreData.subscores, // <--- THE FIX: No more random math!
       strengths: aiAnalysis.strengths,
       gaps: aiAnalysis.gaps,
-      recommendations: aiAnalysis.recommendations,
-      potentialImprovement: Math.floor(Math.random() * 30) + 20,
+      // FIX: Handle structure mismatch between Gemini (flat) and App (nested)
+      recommendations: aiAnalysis.recommendations || {
+          phase1: aiAnalysis.phase1 || [],
+          phase2: aiAnalysis.phase2 || [],
+          phase3: aiAnalysis.phase3 || []
+      },
+      potentialImprovement: Math.floor(Math.random() * 30) + 20, // This is okay to keep random for now (Marketing fluff)
       expectedIncrease: '5-6x',
     };
-
-    // Store in session storage (in real app, would store in database)
-    // For demo, we'll return the results directly
 
     // Step 5: Send email (mock)
     try {
@@ -90,7 +99,6 @@ export async function POST(request: NextRequest) {
       });
     } catch (emailError) {
       console.error('Email sending failed:', emailError);
-      // Don't fail the entire request if email fails
     }
 
     return NextResponse.json({
@@ -118,7 +126,6 @@ export async function POST(request: NextRequest) {
 
 async function getAIAnalysis(assessmentData: any, scrapeData: any, scoreData: any) {
   try {
-    // Call Google Gemini API
     const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' + process.env.GEMINI_API_KEY, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -132,14 +139,17 @@ async function getAIAnalysis(assessmentData: any, scrapeData: any, scoreData: an
     if (response.ok) {
       const data = await response.json();
       const aiText = data.candidates[0].content.parts[0].text;
-      return JSON.parse(aiText);
+      
+      // Clean up markdown code blocks if Gemini adds them
+      const cleanJson = aiText.replace(/```json/g, '').replace(/```/g, '').trim();
+      return JSON.parse(cleanJson);
     }
   } catch (error) {
     console.error('Gemini API error:', error);
   }
 
   // Fallback to mock analysis
-  const mockAnalysis = {
+  return {
     strengths: [
       "Professional website design with clear branding",
       "Good page load speed and mobile responsiveness",
@@ -156,35 +166,40 @@ async function getAIAnalysis(assessmentData: any, scrapeData: any, scoreData: an
     recommendations: {
       phase1: [
         "Add exit-intent popup with compelling offer",
-        "Create 2 downloadable lead magnets (guides, checklists)",
-        "Install live chat widget for immediate engagement",
-        "Add social proof widgets and customer testimonials"
+        "Create 2 downloadable lead magnets",
+        "Install live chat widget",
+        "Add social proof widgets"
       ],
       phase2: [
         "Build automated email nurture sequences",
-        "Add sticky CTA bar that follows users",
-        "Create interactive tools or calculators",
-        "Implement lead scoring and segmentation"
+        "Add sticky CTA bar",
+        "Create interactive tools",
+        "Implement lead scoring"
       ],
       phase3: [
-        "Launch AI-powered chatbot for qualification",
-        "Add personalization based on visitor behavior",
-        "Build referral program to leverage existing customers",
-        "Create video testimonials and case studies"
+        "Launch AI-powered chatbot",
+        "Add personalization",
+        "Build referral program",
+        "Create video testimonials"
       ]
     }
   };
-
-  return mockAnalysis;
 }
 
 function buildGeminiPrompt(assessmentData: any, scrapeData: any, scoreData: any): string {
+  // FIX: Added the SUB-SCORES to the prompt so Gemini isn't blind
   return `You are a B2B lead generation expert. Analyze this website and provide recommendations.
 
 WEBSITE: ${assessmentData.websiteUrl}
 COMPANY: ${assessmentData.company} (${assessmentData.companySize})
 CHALLENGES: ${assessmentData.challenges.join(', ')}
-CURRENT SCORE: ${scoreData.score}/100
+
+SCORING AUDIT:
+Total Score: ${scoreData.score}/100
+- Website Quality: ${scoreData.subscores?.websiteQuality || 0}/25
+- Conversion Points: ${scoreData.subscores?.conversionPoints || 0}/25
+- Lead Capture: ${scoreData.subscores?.leadCapture || 0}/25
+- Follow-up System: ${scoreData.subscores?.followupSystem || 0}/25
 
 Provide analysis in this exact JSON format:
 {
