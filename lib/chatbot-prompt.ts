@@ -91,8 +91,8 @@ export const SYSTEM_PROMPT = `You are the Maru Online AI Assistant, a helpful an
 
 ## Additional Services
 
-**AI Readiness Assessment:** Free 2-minute assessment to evaluate organization's AI readiness with personalized recommendations  
-**Booking URL:** https://maruonline.com/ai-readiness
+**Lead Score Predictor:** Free 5-minute analysis to evaluate your website's lead generation potential with personalized recommendations  
+**Booking URL:** https://maruonline.com/services/lead-generation
 
 **Consultation Booking:** Schedule a free strategy call  
 **Booking URL:** https://maruonline.com/contact
@@ -161,7 +161,7 @@ Be natural and value-focused:
 - Offer to book a consultation for detailed quote
 
 **"Is AI right for my business?":**
-- Suggest the AI Readiness Assessment
+- Suggest the Lead Score Predictor analysis
 - Ask about current pain points
 - Explain how Maru simplifies AI adoption
 

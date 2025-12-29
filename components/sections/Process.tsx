@@ -81,22 +81,23 @@ const iconVariants = {
 
 export function Process() {
   return (
-    <section id="process" className="bg-dark py-12 md:py-32 relative overflow-hidden text-white border-t border-white/5">
+    <section id="process" className="bg-[#d7d7d7] py-12 md:py-32 relative overflow-hidden text-black border-t border-black/5">
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="max-w-4xl mx-auto text-center mb-12">
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <span className="font-light text-zinc-400">Your 4-Steps to</span> Breakthrough Performance
+            <span className="font-light text-zinc-500">Your 4-Steps to</span>{" "}
+            <span className="font-bold text-black">Breakthrough Performance</span>
           </motion.h2>
           <motion.p
-            className="text-lg text-white/60 max-w-2xl mx-auto"
+            className="text-lg text-black leading-relaxed font-medium max-w-2xl mx-auto"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -117,13 +118,14 @@ export function Process() {
         {/* Why Choose Us Header */}
         <div className="max-w-4xl mx-auto text-center mt-32 mb-16">
           <motion.h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 text-white"
+            className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 text-black"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <span className="font-light text-zinc-500">Why</span> Choose Us?
+            <span className="font-light text-zinc-500">Why</span>{" "}
+            <span className="font-bold text-black">Choose Us?</span>
           </motion.h2>
         </div>
 
@@ -136,88 +138,88 @@ export function Process() {
           variants={staggerContainerVariants}
         >
           <motion.div 
-            className="flex flex-col gap-6 bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full"
+            className="flex flex-col gap-6 bg-[#f2f2f2] p-10 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.1)] transition-all duration-300 h-full"
             variants={cardVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
             initial="rest"
             animate="rest"
           >
             <motion.div 
-              className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30"
+              className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/20"
               variants={iconVariants}
               whileHover="hover"
             >
               <Target size={28} />
             </motion.div>
             <div>
-              <h4 className="font-bold mb-3 text-xl text-white">Built for High-Performers</h4>
-              <p className="text-base text-zinc-400 leading-relaxed">
+              <h4 className="font-bold mb-3 text-xl text-black">Built for High-Performers</h4>
+              <p className="text-base text-black leading-relaxed font-medium">
                 We partner with businesses that have proven their model and are ready to scale it. If you're already successful but hitting a ceiling, we help you break through.
               </p>
             </div>
           </motion.div>
 
           <motion.div 
-            className="flex flex-col gap-6 bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full"
+            className="flex flex-col gap-6 bg-[#f2f2f2] p-10 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.1)] transition-all duration-300 h-full"
             variants={cardVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
             initial="rest"
             animate="rest"
           >
             <motion.div 
-              className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30"
+              className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/20"
               variants={iconVariants}
               whileHover="hover"
             >
               <TrendingUp size={28} />
             </motion.div>
             <div>
-              <h4 className="font-bold mb-3 text-xl text-white">Marginal Gains Philosophy</h4>
-              <p className="text-base text-zinc-400 leading-relaxed">
+              <h4 className="font-bold mb-3 text-xl text-black">Marginal Gains Philosophy</h4>
+              <p className="text-base text-black leading-relaxed font-medium">
                 We obsess over the 5-10% improvements across your marketing and sales operations that compound into market leadership. Precision beats brute force.
               </p>
             </div>
           </motion.div>
 
           <motion.div 
-            className="flex flex-col gap-6 bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full"
+            className="flex flex-col gap-6 bg-[#f2f2f2] p-10 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.1)] transition-all duration-300 h-full"
             variants={cardVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
             initial="rest"
             animate="rest"
           >
             <motion.div 
-              className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30"
+              className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/20"
               variants={iconVariants}
               whileHover="hover"
             >
               <Zap size={28} />
             </motion.div>
             <div>
-              <h4 className="font-bold mb-3 text-xl text-white">Data-Driven Precision</h4>
-              <p className="text-base text-zinc-400 leading-relaxed">
+              <h4 className="font-bold mb-3 text-xl text-black">Data-Driven Precision</h4>
+              <p className="text-base text-black leading-relaxed font-medium">
                 Every recommendation is backed by your data and our 20+ years of pattern recognition across growing businesses. No guesswork, just results.
               </p>
             </div>
           </motion.div>
 
           <motion.div 
-            className="flex flex-col gap-6 bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full"
+            className="flex flex-col gap-6 bg-[#f2f2f2] p-10 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.1)] transition-all duration-300 h-full"
             variants={cardVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
             initial="rest"
             animate="rest"
           >
             <motion.div 
-              className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30"
+              className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/20"
               variants={iconVariants}
               whileHover="hover"
             >
               <RefreshCw size={28} />
             </motion.div>
             <div>
-              <h4 className="font-bold mb-3 text-xl text-white">Ongoing Optimization</h4>
-              <p className="text-base text-zinc-400 leading-relaxed">
+              <h4 className="font-bold mb-3 text-xl text-black">Ongoing Optimization</h4>
+              <p className="text-base text-black leading-relaxed font-medium">
                 Success isn't a one-time implementation—it's continuous refinement. We provide training, support, and ongoing optimization to keep you ahead.
               </p>
             </div>

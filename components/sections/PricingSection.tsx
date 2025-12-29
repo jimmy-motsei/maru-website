@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 interface PricingTier {
   price: string;
@@ -144,16 +145,18 @@ export function PricingSection({
               )}
 
               {/* CTA Button */}
-              <Link
-                href={tier.href}
-                className={`mt-auto block text-center py-3 px-6 rounded-full font-medium transition-all duration-300 ${
-                  tier.featured
-                    ? "bg-accent text-dark hover:bg-accent-light"
-                    : "bg-white/10 text-white hover:bg-white/20"
-                }`}
-              >
-                Choose {tier.title}
-              </Link>
+              {tier.featured ? (
+                <CTAPrimary href={tier.href} className="w-full">
+                  Choose {tier.title}
+                </CTAPrimary>
+              ) : (
+                <Link
+                  href={tier.href}
+                  className="mt-auto block text-center py-3 px-6 rounded-full font-medium transition-all duration-300 bg-white/10 text-white hover:bg-white/20"
+                >
+                  Choose {tier.title}
+                </Link>
+              )}
             </motion.div>
           ))}
         </motion.div>
@@ -165,19 +168,11 @@ export function PricingSection({
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-center"
+            className="flex justify-center"
           >
-            <Link
-              href={customCTAHref}
-              className="inline-flex items-center bg-accent hover:bg-accent-dark text-dark font-medium rounded-full pl-8 pr-2 py-2.5 transition-colors group"
-            >
-              <span className="text-sm tracking-wide uppercase mr-4">
-                {customCTAText}
-              </span>
-              <span className="bg-dark text-white rounded-full p-3 group-hover:bg-black transition-colors">
-                <ArrowRight size={16} />
-              </span>
-            </Link>
+            <CTAPrimary href={customCTAHref}>
+              {customCTAText}
+            </CTAPrimary>
           </motion.div>
         )}
       </div>

@@ -70,9 +70,9 @@ const STORAGE_KEYS = {
 const ACTION_BUTTONS = [
   { 
     id: 'assessment', 
-    label: 'Free AI Readiness Assessment', 
+    label: 'Free Lead Score Predictor', 
     icon: Lightbulb,
-    message: "I'd like to take the free AI readiness assessment to see how AI can help my business.",
+    message: "I'd like to take the free Lead Score Predictor analysis to see how optimized my website is for leads.",
   },
   { 
     id: 'lead-gen', 

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 import EmailCaptureModal from './EmailCaptureModal';
+import { CTAPrimary } from '@/components/ui/CTAPrimary';
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -50,30 +51,16 @@ export default function PrimaryCTASection() {
             discovered their lead generation potential
           </motion.p>
 
-          {/* Single, Large CTA Button - MARU Style */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
-            className="mb-10"
+            className="mb-10 flex justify-center"
           >
-            <button
-              onClick={() => setShowModal(true)}
-              className="
-                group bg-[#22d3ee] text-black hover:bg-[#5cc5d1]
-                transition-all duration-300 rounded-full
-                pl-8 pr-3 py-4
-                flex items-center justify-between gap-4 mx-auto
-                font-bold tracking-tight text-base md:text-lg
-                hover:scale-105 hover:shadow-lg hover:shadow-[#22d3ee]/30
-              "
-            >
+            <CTAPrimary onClick={() => setShowModal(true)}>
               GET MY FREE LEAD SCORE NOW
-              <span className="bg-black/10 group-hover:bg-black/20 w-12 h-12 rounded-full flex items-center justify-center transition-all">
-                <ArrowRight size={20} className="text-black group-hover:translate-x-0.5 transition-transform" />
-              </span>
-            </button>
+            </CTAPrimary>
           </motion.div>
 
           {/* Friction Reducers */}

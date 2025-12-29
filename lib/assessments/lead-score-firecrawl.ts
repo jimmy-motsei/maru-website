@@ -152,6 +152,9 @@ Company Context:
 - Name: ${companyInfo.company_name || 'Unknown'}
 - Industry: ${companyInfo.industry || 'Unknown'}
 - Size: ${companyInfo.company_size || 'Unknown'}
+- Uses CRM: ${companyInfo.has_crm || 'Unknown'}
+- Has Active Strategy: ${companyInfo.has_strategy || 'Unknown'}
+- Review Frequency: ${companyInfo.review_frequency || 'Unknown'}
 
 Provide analysis in JSON format:
 {

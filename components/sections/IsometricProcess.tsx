@@ -75,16 +75,16 @@ const DetailCard = ({ step, index }: { step: typeof steps[0], index: number }) =
       viewport={{ once: true }}
       className={cn(
         "absolute top-1/2 -translate-y-1/2 hidden md:flex flex-col p-6 rounded-2xl w-80 md:w-96",
-        "bg-glass-white backdrop-blur-md shadow-lg border",
+        "bg-[#f2f2f2] backdrop-blur-md shadow-lg border",
         step.border,
         isRight ? "left-[calc(50%+8rem)]" : "right-[calc(50%+8rem)] text-right items-end"
       )}
     >
-        <span className={cn("text-xs font-bold uppercase tracking-wider mb-1 opacity-70", step.text)}>
+        <span className={cn("text-[10px] font-bold uppercase tracking-wider mb-1 opacity-70", step.text)}>
              Step {step.id}
         </span>
-        <h3 className={cn("font-bold text-xl mb-3", step.text)}>{step.title}</h3>
-        <p className="text-base text-white/90 leading-relaxed font-medium">
+        <h3 className="font-bold text-black text-xl mb-3">{step.title}</h3>
+        <p className="text-base text-black leading-relaxed font-medium">
           {step.description}
         </p>
     </motion.div>
@@ -146,7 +146,7 @@ const CentralNode = ({ step, index }: { step: typeof steps[0], index: number }) 
 
 const VerticalConnector = ({ color }: { color?: string }) => {
     return (
-        <div className="h-12 w-[2px] bg-white/10 relative z-0">
+        <div className="h-12 w-[2px] bg-black/10 relative z-0">
              <motion.div 
                className="absolute top-0 left-0 w-full h-1/2"
                style={{ backgroundColor: color || "#00f0ff", boxShadow: `0 0 10px ${color}` }}
@@ -162,8 +162,8 @@ export function IsometricProcess() {
     <div className="w-full bg-transparent py-24 relative overflow-hidden min-h-[900px] flex items-center justify-center">
       
       {/* Grid Pattern */}
-      <div className="absolute inset-0 opacity-20 bg-[image:var(--image-grid-pattern)] bg-[size:40px_40px]" />
-      <div className="absolute inset-0 bg-radial-gradient from-transparent to-black/90 pointer-events-none" />
+      <div className="absolute inset-0 opacity-10 bg-[image:var(--image-grid-pattern)] bg-[size:40px_40px]" />
+      <div className="absolute inset-0 bg-radial-gradient from-transparent to-[#d7d7d7]/50 pointer-events-none" />
       
       {/* Centerline Container */}
       <div className="relative flex flex-col items-center max-w-7xl mx-auto w-full px-4">

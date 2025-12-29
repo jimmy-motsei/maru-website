@@ -132,39 +132,18 @@ export function Services() {
                   {service.description}
                 </p>
                 
-                {/* Assessment CTA */}
-                <div className="mb-4 p-4 bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-xl">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-cyan-100 rounded-lg">
-                      <Zap className="w-4 h-4 text-cyan-600" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="text-sm font-semibold text-cyan-800 mb-1">
-                        Free 2-Minute Assessment
-                      </div>
-                      <div className="text-xs text-cyan-600">
-                        {service.assessmentCTA}
-                      </div>
-                    </div>
-                    <Link
-                      href={`/assessments/${service.assessmentTool}`}
-                      className="bg-cyan-500 text-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-cyan-600 transition-colors"
-                    >
-                      Start Now
-                    </Link>
-                  </div>
-                </div>
-                
                 {/* Read More Link */}
                 <Link 
                   href={service.link}
-                  className="inline-flex items-center gap-2 text-black font-medium hover:text-[#1a9aa5] transition-colors group/link"
+                  className="inline-flex items-center gap-4 text-black font-bold uppercase text-sm tracking-wider transition-colors group/link w-fit"
                 >
-                  Learn More About This Service
-                  <ArrowRight 
-                    size={16} 
-                    className="group-hover/link:translate-x-1 transition-transform" 
-                  />
+                  <span>READ MORE</span>
+                  <div className="w-10 h-10 rounded-full bg-gray-200/50 flex items-center justify-center group-hover/link:bg-[#22d3ee] transition-colors duration-300">
+                    <ArrowRight 
+                      size={20} 
+                      className="group-hover/link:translate-x-0.5 transition-transform" 
+                    />
+                  </div>
                 </Link>
               </div>
             </motion.div>

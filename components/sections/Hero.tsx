@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 export function Hero() {
     return (
@@ -47,7 +48,7 @@ export function Hero() {
                                 <div className="flex items-center gap-6 mt-3 text-sm text-zinc-500">
                                     <div className="flex items-center gap-2">
                                         <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                                        <span>4 Free Assessment Tools</span>
+                                        <span>Free Assessment Tools</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
@@ -84,39 +85,16 @@ export function Hero() {
                                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                             >
                                 {/* Primary CTA */}
-                                <Link
-                                    href="/website-audit"
-                                    className="
-                    group bg-[#22d3ee] text-black hover:bg-[#5cc5d1]
-                    transition-all duration-300 rounded-full
-                    pl-8 pr-2 py-3
-                    flex items-center justify-between gap-4
-                    font-bold tracking-tight text-sm md:text-base
-                    hover:scale-105 hover:shadow-xl
-                  "
-                                >
+                                <CTAPrimary href="/website-audit">
                                     GET FREE WEBSITE AUDIT
-                                    <span className="bg-black/10 group-hover:bg-black/20 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                    <ArrowRight size={18} className="text-black" />
-                  </span>
-                                </Link>
-
-                                {/* Secondary CTA */}
-                                <Link
+                                </CTAPrimary>
+                                
+                                <CTAPrimary 
                                     href="/#assessments"
-                                    className="
-                    group bg-white/10 text-white hover:bg-white/20
-                    transition-all duration-300 rounded-full
-                    pl-6 pr-2 py-3 border border-white/20
-                    flex items-center justify-between gap-3
-                    font-semibold text-sm md:text-base
-                  "
+                                    className="bg-white/10 text-white border border-white/20 hover:bg-white/20 hover:shadow-none"
                                 >
                                     TAKE 2-MIN ASSESSMENT
-                                    <span className="bg-white/10 group-hover:bg-white/20 w-8 h-8 rounded-full flex items-center justify-center transition-colors">
-                    <ArrowRight size={16} className="text-white" />
-                  </span>
-                                </Link>
+                                </CTAPrimary>
 
                                 {/* Tertiary CTA */}
                                 <Link

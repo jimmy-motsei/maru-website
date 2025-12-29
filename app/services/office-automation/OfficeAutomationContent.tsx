@@ -160,10 +160,10 @@ export default function OfficeAutomationPage() {
                   We don't automate for automation's sake. We audit where your team wastes time on repetitive work, then build systems that eliminate those bottlenecks—without disrupting how you operate today.
                 </p>
                 <Link
-                  href="/ai-readiness"
+                  href="/services/lead-generation"
                   className="inline-flex items-center gap-2 text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors group"
                 >
-                  <span className="font-medium">Get Your Free AI Readiness Assessment</span>
+                  <span className="font-medium">Get Your Free Lead Score Analysis</span>
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>

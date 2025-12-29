@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, CheckCircle, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 import { submitToHubSpot, HUBSPOT_FORMS } from "@/lib/hubspot";
 
@@ -172,30 +173,25 @@ export default function AIReadinessPage() {
               >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8">
                   <Sparkles size={16} className="text-accent" />
-                  <span className="text-sm font-medium text-accent">AI Readiness Assessment</span>
+                  <span className="text-sm font-medium text-accent uppercase tracking-wider">Free AI-Powered Assessment Tool</span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                  Find Out If Your Business{" "}
-                  <span className="font-light text-white/60">Is AI-Ready</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
+                  <span className="font-normal">Is Your Website</span>{" "}
+                  <span className="font-bold">Optimized for Leads?</span>
                 </h1>
 
-                <p className="text-lg text-white/60 mb-12 max-w-xl mx-auto">
-                  Answer 5 quick questions to discover your organization's AI readiness score 
-                  and get personalized recommendations.
+                <p className="text-lg text-[#B4BCC8] mb-12 max-w-2xl mx-auto font-normal">
+                  Most B2B websites turn only 1-2 out of every 100 visitors into leads. Top performers get 5-6 leads from those same 100 visitors—Take our 5-minute analysis and discover your lead optimization score.
                 </p>
 
-                <button
+                <CTAPrimary
                   onClick={handleNext}
-                  className="group inline-flex items-center gap-4 bg-accent hover:bg-accent-dark text-black font-bold rounded-full pl-8 pr-3 py-4 transition-all duration-300"
                 >
-                  <span className="text-sm tracking-widest uppercase">Get your free assessment</span>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white transition-all duration-300 group-hover:bg-white group-hover:text-black">
-                    <ArrowRight size={18} />
-                  </span>
-                </button>
+                  GET YOUR FREE LEAD ANALYSIS
+                </CTAPrimary>
 
-                <p className="mt-8 text-sm text-white/40">Takes less than 2 minutes</p>
+                <p className="mt-8 text-sm text-white/40">Takes less than 5 minutes</p>
               </motion.div>
             )}
 
@@ -418,16 +414,12 @@ export default function AIReadinessPage() {
                 </div>
 
                 {/* CTA */}
-                <div className="space-y-4">
-                  <Link
-                    href="/services"
-                    className="inline-flex items-center gap-4 bg-accent hover:bg-accent-dark text-black font-bold rounded-full pl-8 pr-3 py-4 transition-all duration-300"
+                <div className="space-y-4 flex flex-col items-center">
+                  <CTAPrimary
+                    href="/contact"
                   >
-                    <span className="text-sm tracking-widest uppercase">book a free consultation</span>
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white">
-                      <ArrowRight size={18} />
-                    </span>
-                  </Link>
+                    book a free consultation
+                  </CTAPrimary>
 
                   <div>
                     <Link href="/" className="text-white/60 hover:text-white transition-colors text-sm">

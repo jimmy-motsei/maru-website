@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowDown, LucideIcon } from "lucide-react";
+import { ArrowDown, ArrowRight, LucideIcon } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 interface Breadcrumb {
   label: string;
@@ -17,6 +18,7 @@ interface ServiceHeroProps {
   subtitle?: string;
   description?: string;
   scrollToId?: string;
+  onCtaClick?: () => void;
 }
 
 export function ServiceHero({
@@ -26,6 +28,7 @@ export function ServiceHero({
   subtitle,
   description,
   scrollToId = "service-details",
+  onCtaClick,
 }: ServiceHeroProps) {
   return (
     <section className="bg-dark relative min-h-[70vh] flex items-center overflow-hidden">
@@ -74,14 +77,21 @@ export function ServiceHero({
 
         {/* Subtitle */}
         {subtitle && (
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl text-white font-medium max-w-3xl mb-4"
+            className="flex flex-col gap-8 items-start"
           >
-            {subtitle}
-          </motion.p>
+            <p className="text-xl md:text-2xl text-white font-medium max-w-3xl">
+              {subtitle}
+            </p>
+            {onCtaClick && (
+              <CTAPrimary onClick={onCtaClick}>
+                GET MY FREE LEAD SCORE NOW
+              </CTAPrimary>
+            )}
+          </motion.div>
         )}
 
         {/* Description */}

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { fadeUpVariants } from "@/lib/animations";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 export function AIReadinessTeaser() {
   return (
@@ -22,70 +23,61 @@ export function AIReadinessTeaser() {
             variants={fadeUpVariants}
           >
             <Sparkles size={16} className="text-accent" />
-            <span className="text-sm font-medium text-accent">Free Assessment Tool</span>
+            <span className="text-sm font-medium text-accent uppercase tracking-wider">Free AI-Powered Assessment Tool</span>
           </motion.div>
 
           {/* Headline */}
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+            className="text-4xl md:text-5xl lg:text-7xl text-white leading-tight mb-6"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            Is Your Business{" "}
-            <span className="font-light text-white/90">AI-Ready?</span>
+            <span className="font-normal">Is Your Website</span>{" "}
+            <span className="font-bold">Optimized for Leads?</span>
           </motion.h2>
 
           {/* Subheadline */}
           <motion.p
-            className="text-lg md:text-xl text-white/90 leading-relaxed mb-12 max-w-2xl mx-auto font-medium"
+            className="text-lg md:text-xl text-[#B4BCC8] leading-relaxed mb-12 max-w-3xl mx-auto font-normal"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            Take our 2-minute assessment and discover your organization's AI readiness score. 
-            Get personalized recommendations to accelerate your AI journey.
+            Most B2B websites turn only 1-2 out of every 100 visitors into leads. Top performers get 5-6 leads from those same 100 visitors—Take our 5-minute analysis and discover your lead optimization score.
           </motion.p>
 
-          {/* CTA Button */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <Link
-              href="/ai-readiness"
-              className="group inline-flex items-center gap-4 bg-accent hover:bg-accent-dark text-black font-bold rounded-full pl-8 pr-3 py-4 transition-all duration-300"
-            >
-              <span className="text-sm tracking-widest uppercase">Get your free assessment</span>
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white transition-all duration-300 group-hover:bg-white group-hover:text-black">
-                <ArrowRight size={18} />
-              </span>
-            </Link>
+            <CTAPrimary href="/lead-generation">
+              GET YOUR FREE LEAD ANALYSIS
+            </CTAPrimary>
           </motion.div>
 
           {/* Trust Indicators */}
           <motion.div
-            className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-white/80 font-medium"
+            className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-accent font-normal"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
             <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-accent" />
-              5 Quick Questions
+              5-Minute Assessment
             </span>
+            <span className="text-accent">•</span>
             <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-accent" />
-              Instant Results
+              No Credit Card Required
             </span>
+            <span className="text-accent">•</span>
             <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-accent" />
-              Personalized Insights
+              Free Summary Report
             </span>
           </motion.div>
         </div>

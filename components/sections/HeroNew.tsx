@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Target, TrendingDown, FileText, Settings } from "lucide-react";
 import Link from "next/link";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 export function Hero() {
     return (
@@ -60,49 +61,17 @@ export function Hero() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                             >
-                                <div className="flex flex-col sm:flex-row gap-4">
-                                    <Link
-                                        href="/lead-score-predictor"
-                                        className="
-                        group bg-[#22d3ee] text-black hover:bg-[#5cc5d1]
-                        transition-all duration-300 rounded-full
-                        pl-8 pr-2 py-3
-                        flex items-center justify-between gap-4
-                        font-bold tracking-tight text-sm md:text-base
-                        hover:scale-105 hover:shadow-lg
-                      "
-                                    >
-                                        START FREE ANALYSIS
-                                        <span className="bg-black/10 group-hover:bg-black/20 w-10 h-10 rounded-full flex items-center justify-center transition-all">
-                        <ArrowRight size={18} className="text-black group-hover:translate-x-0.5 transition-transform" />
-                      </span>
-                                    </Link>
+                                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                                    <CTAPrimary href="/lead-score-predictor">
+                                        Get Free Assessment
+                                    </CTAPrimary>
                                     
-                                    <Link
+                                    <CTAPrimary 
                                         href="/contact"
-                                        className="
-                        group border-2 border-zinc-700 text-white hover:border-cyan-400
-                        transition-all duration-300 rounded-full
-                        px-8 py-3
-                        flex items-center justify-center gap-2
-                        font-semibold tracking-tight text-sm md:text-base
-                        hover:bg-cyan-400/10
-                      "
+                                        className="bg-transparent border-2 border-zinc-700 text-white hover:border-[#3DD6D0] hover:bg-[#3DD6D0]/10 hover:shadow-none"
                                     >
                                         Book Consultation
-                                    </Link>
-                                </div>
-
-                                <div className="text-sm text-zinc-400 flex flex-col sm:flex-row gap-2 sm:gap-4">
-                                    <div className="flex items-center gap-1">
-                                        <span className="text-green-400 font-medium">✓</span> No signup required
-                                    </div>
-                                    <div className="flex items-center gap-1">
-                                        <span className="text-green-400 font-medium">✓</span> 2-minute assessment
-                                    </div>
-                                    <div className="flex items-center gap-1">
-                                        <span className="text-green-400 font-medium">✓</span> Instant results
-                                    </div>
+                                    </CTAPrimary>
                                 </div>
                             </motion.div>
                         </div>

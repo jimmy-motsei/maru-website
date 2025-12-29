@@ -160,10 +160,10 @@ export default function SalesSystemsPage() {
                   Your CRM should make selling easier, not harder. We integrate seamlessly with your existing tools and add AI layers that coach your team in real-time—no system overhaul required.
                 </p>
                 <Link
-                  href="/ai-readiness"
+                  href="/services/lead-generation"
                   className="inline-flex items-center gap-2 text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors group"
                 >
-                  <span className="font-medium">Get Your Free AI Readiness Assessment</span>
+                  <span className="font-medium">Get Your Free Lead Score Analysis</span>
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>

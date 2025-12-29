@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Sparkles, Loader2, Globe } from 'lucide-react';
 import Link from 'next/link';
+import { CTAPrimary } from '@/components/ui/CTAPrimary';
 import { submitToHubSpot, HUBSPOT_FORMS } from '@/lib/hubspot';
 
 // Tier definitions
@@ -166,9 +167,9 @@ export default function WebsiteAuditPage() {
                   <span className="text-sm font-medium text-accent">Free Website Audit</span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                  Is Your Website{' '}
-                  <span className="font-light text-white/60">AI-Ready?</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
+                  <span className="font-normal">Is Your Website</span>{" "}
+                  <span className="font-bold">Optimized for Leads?</span>
                 </h1>
 
                 <p className="text-lg text-white/60 mb-12 max-w-xl mx-auto">
@@ -191,16 +192,12 @@ export default function WebsiteAuditPage() {
                   )}
                 </div>
 
-                <button
+                <CTAPrimary
                   onClick={handleAnalyze}
                   disabled={!websiteUrl.trim()}
-                  className="group inline-flex items-center gap-4 bg-accent hover:bg-accent-dark text-black font-bold rounded-full pl-8 pr-3 py-4 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="text-sm tracking-widest uppercase">Analyze My Website</span>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white transition-all duration-300 group-hover:bg-white group-hover:text-black">
-                    <ArrowRight size={18} />
-                  </span>
-                </button>
+                  Analyze My Website
+                </CTAPrimary>
 
                 <p className="mt-8 text-sm text-white/40">Takes less than 10 seconds • No credit card required</p>
               </motion.div>
@@ -406,16 +403,12 @@ export default function WebsiteAuditPage() {
                 </div>
 
                 {/* CTA */}
-                <div className="space-y-4">
-                  <Link
+                <div className="space-y-4 flex flex-col items-center">
+                  <CTAPrimary
                     href="/contact"
-                    className="inline-flex items-center gap-4 bg-accent hover:bg-accent-dark text-black font-bold rounded-full pl-8 pr-3 py-4 transition-all duration-300"
                   >
-                    <span className="text-sm tracking-widest uppercase">Book a Free Consultation</span>
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white">
-                      <ArrowRight size={18} />
-                    </span>
-                  </Link>
+                    Book a Free Consultation
+                  </CTAPrimary>
 
                   <div>
                     <Link href="/" className="text-white/60 hover:text-white transition-colors text-sm">
