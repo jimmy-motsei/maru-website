@@ -84,7 +84,7 @@ export default function EmailCaptureModal({ isOpen, onClose }: EmailCaptureModal
 
       // Close modal and navigate to question flow
       onClose();
-      router.push('/lead-score-predictor/questions');
+      router.push('/website-lead-grader/questions');
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
@@ -101,8 +101,8 @@ export default function EmailCaptureModal({ isOpen, onClose }: EmailCaptureModal
   };
 
   const benefits = [
-    "Personalized 0-100 Lead Score",
-    "Gap analysis & recommendations",
+    "Your Website Grade (0-100 Performance Score)",
+    "Performance analysis & recommendations",
     "Free PDF report to share"
   ];
 
@@ -124,7 +124,7 @@ export default function EmailCaptureModal({ isOpen, onClose }: EmailCaptureModal
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative bg-[#111111] border border-[#22d3ee]/20 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto"
+            className="relative bg-[#111111] border border-[#3DD6D0]/20 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto"
           >
             {/* Close button */}
             <button
@@ -137,15 +137,15 @@ export default function EmailCaptureModal({ isOpen, onClose }: EmailCaptureModal
             <div className="p-8">
               {/* Icon */}
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 bg-[#22d3ee]/10 rounded-2xl flex items-center justify-center border border-[#22d3ee]/30">
-                  <Mail className="w-8 h-8 text-[#22d3ee]" />
+                <div className="w-16 h-16 bg-[#3DD6D0]/10 rounded-2xl flex items-center justify-center border border-[#3DD6D0]/30">
+                  <Mail className="w-8 h-8 text-[#3DD6D0]" />
                 </div>
               </div>
 
               {/* Header */}
               <div className="text-center mb-6">
                 <h2 className="text-2xl font-bold text-white mb-2">
-                  Get Your Free Lead Score
+                  Get Your Free Website Grade
                 </h2>
                 <p className="text-zinc-400">
                   We'll email you your personalized results
@@ -153,7 +153,7 @@ export default function EmailCaptureModal({ isOpen, onClose }: EmailCaptureModal
               </div>
 
               {/* Benefits List */}
-              <div className="bg-[#1a1a1a] rounded-xl p-4 mb-6 border border-[#22d3ee]/10">
+              <div className="bg-[#1a1a1a] rounded-xl p-4 mb-6 border border-[#3DD6D0]/10">
                 <p className="text-sm text-zinc-500 mb-3">What you'll receive:</p>
                 <ul className="space-y-2">
                   {benefits.map((benefit, index) => (
@@ -179,7 +179,7 @@ export default function EmailCaptureModal({ isOpen, onClose }: EmailCaptureModal
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     placeholder="john@company.com"
-                    className={`w-full px-4 py-3 bg-[#1a1a1a] border rounded-xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent transition-all ${
+                    className={`w-full px-4 py-3 bg-[#1a1a1a] border rounded-xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-[#3DD6D0] focus:border-transparent transition-all ${
                       errors.email ? 'border-red-500' : 'border-zinc-700'
                     }`}
                     required
@@ -199,7 +199,7 @@ export default function EmailCaptureModal({ isOpen, onClose }: EmailCaptureModal
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
                     placeholder="John Smith"
-                    className={`w-full px-4 py-3 bg-[#1a1a1a] border rounded-xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent transition-all ${
+                    className={`w-full px-4 py-3 bg-[#1a1a1a] border rounded-xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-[#3DD6D0] focus:border-transparent transition-all ${
                       errors.name ? 'border-red-500' : 'border-zinc-700'
                     }`}
                     required
@@ -219,7 +219,7 @@ export default function EmailCaptureModal({ isOpen, onClose }: EmailCaptureModal
                     value={formData.company}
                     onChange={(e) => handleInputChange('company', e.target.value)}
                     placeholder="Your Company"
-                    className={`w-full px-4 py-3 bg-[#1a1a1a] border rounded-xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent transition-all ${
+                    className={`w-full px-4 py-3 bg-[#1a1a1a] border rounded-xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-[#3DD6D0] focus:border-transparent transition-all ${
                       errors.company ? 'border-red-500' : 'border-zinc-700'
                     }`}
                     required
@@ -239,7 +239,7 @@ export default function EmailCaptureModal({ isOpen, onClose }: EmailCaptureModal
                     value={formData.website}
                     onChange={(e) => handleInputChange('website', e.target.value)}
                     placeholder="https://yourcompany.com"
-                    className="w-full px-4 py-3 bg-[#1a1a1a] border border-zinc-700 rounded-xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-[#1a1a1a] border border-zinc-700 rounded-xl text-white placeholder-zinc-600 focus:ring-2 focus:ring-[#3DD6D0] focus:border-transparent transition-all"
                   />
                 </div>
 
@@ -248,12 +248,12 @@ export default function EmailCaptureModal({ isOpen, onClose }: EmailCaptureModal
                   type="submit"
                   disabled={isSubmitting}
                   className="
-                    w-full group bg-[#22d3ee] text-black hover:bg-[#5cc5d1]
+                    w-full group bg-[#3DD6D0] text-black hover:bg-[#5cc5d1]
                     transition-all duration-300 rounded-full
                     pl-6 pr-2 py-3
                     flex items-center justify-between gap-4
                     font-bold tracking-tight
-                    hover:shadow-lg hover:shadow-[#22d3ee]/30
+                    hover:shadow-lg hover:shadow-[#3DD6D0]/30
                     disabled:opacity-50 disabled:cursor-not-allowed
                   "
                 >

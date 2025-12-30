@@ -18,11 +18,11 @@ const steps = [
     description: "Our consultants analyze your current performance, identifying optimization opportunities that unlock your next level of growth.",
     icon: ClipboardCheck,
     color: "cyan",
-    hex: "#22d3ee",
-    text: "text-[#22d3ee]",
-    border: "border-[#22d3ee]/50",
-    bg: "bg-[#22d3ee]/10",
-    shadow: "shadow-[0_0_20px_rgba(34,211,238,0.4)]",
+    hex: "#3DD6D0",
+    text: "text-[#3DD6D0]",
+    border: "border-[#3DD6D0]/50",
+    bg: "bg-[#3DD6D0]/10",
+    shadow: "shadow-[0_0_20px_rgba(61,214,208,0.4)]",
   },
   {
     id: "02",
@@ -30,11 +30,11 @@ const steps = [
     description: "We deliver a precision roadmap—prioritized by impact—showing you exactly where AI and automation will move the needle most.",
     icon: Map,
     color: "cyan",
-    hex: "#22d3ee",
-    text: "text-[#22d3ee]",
-    border: "border-[#22d3ee]/50",
-    bg: "bg-[#22d3ee]/10",
-    shadow: "shadow-[0_0_20px_rgba(34,211,238,0.4)]",
+    hex: "#3DD6D0",
+    text: "text-[#3DD6D0]",
+    border: "border-[#3DD6D0]/50",
+    bg: "bg-[#3DD6D0]/10",
+    shadow: "shadow-[0_0_20px_rgba(61,214,208,0.4)]",
   },
   {
     id: "03",
@@ -42,11 +42,11 @@ const steps = [
     description: "Once our engineers have the scope, they'll get busy automating your tasks and integrating your tech.",
     icon: Settings,
     color: "cyan",
-    hex: "#22d3ee",
-    text: "text-[#22d3ee]",
-    border: "border-[#22d3ee]/50",
-    bg: "bg-[#22d3ee]/10",
-    shadow: "shadow-[0_0_20px_rgba(34,211,238,0.4)]",
+    hex: "#3DD6D0",
+    text: "text-[#3DD6D0]",
+    border: "border-[#3DD6D0]/50",
+    bg: "bg-[#3DD6D0]/10",
+    shadow: "shadow-[0_0_20px_rgba(61,214,208,0.4)]",
   },
   {
     id: "04",
@@ -54,11 +54,11 @@ const steps = [
     description: "We provide ongoing optimization and support to ensure your systems continue delivering marginal gains that compound into market leadership.",
     icon: GraduationCap,
     color: "cyan",
-    hex: "#22d3ee",
-    text: "text-[#22d3ee]",
-    border: "border-[#22d3ee]/50",
-    bg: "bg-[#22d3ee]/10",
-    shadow: "shadow-[0_0_20px_rgba(34,211,238,0.4)]",
+    hex: "#3DD6D0",
+    text: "text-[#3DD6D0]",
+    border: "border-[#3DD6D0]/50",
+    bg: "bg-[#3DD6D0]/10",
+    shadow: "shadow-[0_0_20px_rgba(61,214,208,0.4)]",
   },
 ];
 
@@ -149,7 +149,7 @@ const VerticalConnector = ({ color }: { color?: string }) => {
         <div className="h-12 w-[2px] bg-black/10 relative z-0">
              <motion.div 
                className="absolute top-0 left-0 w-full h-1/2"
-               style={{ backgroundColor: color || "#00f0ff", boxShadow: `0 0 10px ${color}` }}
+               style={{ backgroundColor: color || "#3DD6D0", boxShadow: `0 0 10px ${color}` }}
                animate={{ top: ["0%", "100%"], opacity: [0, 1, 0] }}
                transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
              />

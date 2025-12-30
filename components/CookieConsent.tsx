@@ -120,7 +120,7 @@ export default function CookieConsent() {
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="px-6 py-2.5 rounded-lg text-sm font-bold text-black bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-[0_0_20px_rgba(34,211,238,0.2)]"
+                className="px-6 py-2.5 rounded-lg text-sm font-bold text-black bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-[0_0_20px_rgba(61,214,208,0.2)]"
               >
                 Accept All
               </button>
@@ -248,7 +248,7 @@ export default function CookieConsent() {
               </button>
               <button
                 onClick={handleSavePreferences}
-                className="px-6 py-2.5 rounded-lg text-sm font-bold text-black bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-[0_0_20px_rgba(34,211,238,0.2)]"
+                className="px-6 py-2.5 rounded-lg text-sm font-bold text-black bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-[0_0_20px_rgba(61,214,208,0.2)]"
               >
                 Save Preferences
               </button>

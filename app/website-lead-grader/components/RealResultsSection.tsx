@@ -32,7 +32,7 @@ const fadeUpVariants = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
+    transition: { duration: 0.6, ease: 'easeOut' as const }
   }
 };
 
@@ -42,7 +42,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: 'easeOut' }
+    transition: { duration: 0.5, ease: 'easeOut' as const }
   }
 };
 
@@ -68,7 +68,7 @@ export default function RealResultsSection() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            See how <span className="text-[#22d3ee] font-semibold">1,247+</span> companies transformed their lead generation in 90 days
+            See how <span className="text-[#3DD6D0] font-semibold">1,247+</span> companies transformed their lead generation in 90 days
           </motion.p>
         </div>
 
@@ -91,10 +91,10 @@ export default function RealResultsSection() {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group"
             >
-              <div className="bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full flex flex-col">
+              <div className="bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#3DD6D0] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(61,214,208,0.15)] transition-all duration-300 h-full flex flex-col">
                 {/* Company Header */}
                 <div className="flex items-center mb-8">
-                  <div className="w-12 h-12 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30 mr-4">
+                  <div className="w-12 h-12 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#3DD6D0] border border-[#3DD6D0]/30 mr-4">
                     <Building2 size={24} />
                   </div>
                   <div>
@@ -133,7 +133,7 @@ export default function RealResultsSection() {
                       style={{ left: `${result.beforeScore}%` }}
                     ></div>
                   </div>
-                  <p className="text-center text-sm text-zinc-500 mt-2">Lead Score</p>
+                  <p className="text-center text-sm text-zinc-500 mt-2">Website Grade</p>
                 </div>
 
                 {/* Lead Increase - Prominent */}
@@ -157,7 +157,7 @@ export default function RealResultsSection() {
           className="text-center"
         >
           <p className="text-xl md:text-2xl text-zinc-400 font-light">
-            What could <span className="text-[#22d3ee] font-bold">YOUR</span> results look like?
+            What could <span className="text-[#3DD6D0] font-bold">YOUR</span> results look like?
           </p>
         </motion.div>
       </div>

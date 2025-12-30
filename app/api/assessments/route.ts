@@ -69,6 +69,10 @@ export async function POST(request: NextRequest) {
     await trackActivity(lead.id, 'assessment_start', { app_type });
 
     // 6. Create assessment record
+    if (!supabaseAdmin) {
+       return NextResponse.json({ success: false, error: 'Supabase not configured' }, { status: 500 });
+    }
+
     const { data: assessment, error: assessmentError } = await supabaseAdmin
       .from('assessments')
       .insert({

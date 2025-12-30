@@ -22,9 +22,14 @@ export default function DataPrivacySecurityPage() {
     <DocLayout
       title="Data Privacy & Security"
       description="Comprehensive guide to our data protection practices and security measures"
-      readingTime="12 min read"
+      readTime="12 min read"
       category="Best Practices"
       lastUpdated="2024-12-19"
+      breadcrumbs={[
+        { label: 'Knowledge Base', href: '/knowledge' },
+        { label: 'Best Practices', href: '/knowledge/best-practices' },
+        { label: 'Data Privacy & Security', href: '#' },
+      ]}
     >
       <TableOfContents items={tocItems} />
 

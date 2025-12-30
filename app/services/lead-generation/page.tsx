@@ -117,7 +117,7 @@ export default function LeadGenerationPage() {
             <h2 className="text-3xl md:text-4xl font-light text-gray-500 mb-2">
               What You'll Discover <span className="font-bold text-black text-4xl md:text-5xl">in 2 Minutes</span>
             </h2>
-            <p className="text-[#22d3ee] text-xl font-medium">
+            <p className="text-[#3DD6D0] text-xl font-medium">
               Our AI-powered analysis reveals everything you need to 5x your leads
             </p>
           </div>
@@ -132,7 +132,7 @@ export default function LeadGenerationPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-[#f2f2f2] p-8 rounded-3xl shadow-lg shadow-gray-200/50 border border-gray-100 flex items-start gap-6 group hover:shadow-xl transition-shadow"
               >
-                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#e0f7fa] flex items-center justify-center text-[#22d3ee] shadow-[0_0_15px_rgba(34,211,238,0.2)] group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#e0f7fa] flex items-center justify-center text-[#3DD6D0] shadow-[0_0_15px_rgba(61,214,208,0.2)] group-hover:scale-110 transition-transform">
                   <item.icon size={28} />
                 </div>
                 <div>
@@ -145,7 +145,7 @@ export default function LeadGenerationPage() {
 
           <div className="mt-12 flex justify-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 text-sm text-gray-500 shadow-sm">
-              <Clock size={16} className="text-[#22d3ee]" />
+              <Clock size={16} className="text-[#3DD6D0]" />
               <span>Avg. completion time: <b>2 min 14 sec</b></span>
             </div>
           </div>
@@ -175,20 +175,20 @@ export default function LeadGenerationPage() {
                   transition={{ delay: index * 0.1 }}
                   className="relative group"
                 >
-                  <div className="bg-[#f2f2f2] p-10 md:p-12 rounded-2xl border border-black/5 h-full relative z-10 hover:border-[#22d3ee]/30 transition-colors shadow-sm">
-                    <div className="absolute top-0 left-0 w-1 h-full bg-[#22d3ee] rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="bg-[#f2f2f2] p-10 md:p-12 rounded-2xl border border-black/5 h-full relative z-10 hover:border-[#3DD6D0]/30 transition-colors shadow-sm">
+                    <div className="absolute top-0 left-0 w-1 h-full bg-[#3DD6D0] rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-16 h-16 rounded-full border-2 border-[#22d3ee] flex items-center justify-center mb-8 relative bg-white">
+                      <div className="w-16 h-16 rounded-full border-2 border-[#3DD6D0] flex items-center justify-center mb-8 relative bg-white">
                         <span className="text-lg font-bold text-black">{step.number}</span>
                         {index < workflowSteps.length - 1 && (
-                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-[#22d3ee]/30">
+                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-[#3DD6D0]/30">
                             <ArrowRight size={24} />
                           </div>
                         )}
                       </div>
                       
-                      <div className="w-12 h-12 rounded-xl border border-black/10 flex items-center justify-center text-[#22d3ee] mb-6">
+                      <div className="w-12 h-12 rounded-xl border border-black/10 flex items-center justify-center text-[#3DD6D0] mb-6">
                         <step.icon size={24} />
                       </div>
                       
@@ -224,7 +224,7 @@ export default function LeadGenerationPage() {
             Ready to <span className="font-bold text-black">See Your Score?</span>
           </h2>
           <p className="text-gray-600 text-lg mb-12 max-w-2xl mx-auto">
-            Join <span className="text-[#22d3ee] font-bold">1,247+</span> B2B companies who've already discovered their lead generation potential
+            Join <span className="text-[#3DD6D0] font-bold">1,247+</span> B2B companies who've already discovered their lead generation potential
           </p>
 
           <CTAPrimary
@@ -236,15 +236,15 @@ export default function LeadGenerationPage() {
 
           <div className="mt-8 flex flex-wrap justify-center gap-8 text-sm text-gray-500">
             <div className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-[#22d3ee]" />
+              <CheckCircle2 size={16} className="text-[#3DD6D0]" />
               <span>No credit card required</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-[#22d3ee]" />
+              <CheckCircle2 size={16} className="text-[#3DD6D0]" />
               <span>Results in 2 minutes</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-[#22d3ee]" />
+              <CheckCircle2 size={16} className="text-[#3DD6D0]" />
               <span>Free PDF report included</span>
             </div>
           </div>
@@ -255,7 +255,7 @@ export default function LeadGenerationPage() {
       <section className="py-24 bg-black text-white">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-16">
-            <div className="w-12 h-12 rounded-full border border-[#22d3ee] flex items-center justify-center text-[#22d3ee] mb-6">
+            <div className="w-12 h-12 rounded-full border border-[#3DD6D0] flex items-center justify-center text-[#3DD6D0] mb-6">
               <HelpCircle size={24} />
             </div>
             <h2 className="text-4xl md:text-5xl font-light text-gray-400 mb-2">

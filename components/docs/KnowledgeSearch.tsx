@@ -28,10 +28,10 @@ const searchData: SearchResult[] = [
     readTime: '10 min',
   },
   {
-    title: 'Lead Score Predictor Guide',
-    description: 'Master the AI-powered lead scoring system and website analysis.',
+    title: 'Website Lead Grader Guide',
+    description: 'Master the AI-powered website grading system and lead generation analysis.',
     category: 'Assessment Tools',
-    url: '/knowledge/assessment-tools/lead-score-predictor',
+    url: '/knowledge/assessment-tools/website-lead-grader',
     readTime: '15 min',
   },
   {

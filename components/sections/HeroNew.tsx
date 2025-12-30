@@ -26,17 +26,17 @@ export function Hero() {
                                 <span className="font-extralight text-zinc-500">Discover Your</span>{" "}
                                 <span className="font-medium text-white">Lead Generation</span><br />
                                 <span className="font-extralight text-zinc-500">Potential with</span>{" "}
-                                <span className="font-medium text-[#22d3ee]">AI Analysis</span>
+                                <span className="font-medium text-[#3DD6D0]">AI Analysis</span>
                             </motion.h1>
 
                             {/* Sub-headline */}
                             <motion.p
-                                className="text-[20px] md:text-[24px] lg:text-[26px] font-medium text-[#22d3ee] leading-[1.3] mt-4"
+                                className="text-[20px] md:text-[24px] lg:text-[26px] font-medium text-[#3DD6D0] leading-[1.3] mt-4"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
                             >
-                                Get your free Lead Score Predictor analysis in 2 minutes
+                                Get your free Website Lead Grader analysis in 2 minutes
                             </motion.p>
 
                             {/* Benefit paragraph */}
@@ -62,7 +62,7 @@ export function Hero() {
                                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                             >
                                 <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                                    <CTAPrimary href="/lead-score-predictor">
+                                    <CTAPrimary href="/website-lead-grader">
                                         Get Free Assessment
                                     </CTAPrimary>
                                     

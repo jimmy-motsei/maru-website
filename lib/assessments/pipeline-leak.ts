@@ -202,7 +202,9 @@ function determineStageOrder(stages: string[]): string[] {
 
 function identifyLeaks(metrics: any, data: PipelineData[]): PipelineLeak[] {
   const leaks: PipelineLeak[] = [];
-  const { conversionRates, avgTimeInStage, stageCounts } = metrics;
+  const conversionRates = metrics.conversionRates as Record<string, number>;
+  const avgTimeInStage = metrics.avgTimeInStage as Record<string, number>;
+  const stageCounts = metrics.stageCounts as Record<string, number>;
 
   Object.entries(conversionRates).forEach(([stage, rate]) => {
     const avgDays = avgTimeInStage[stage] || 0;

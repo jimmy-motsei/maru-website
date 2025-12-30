@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
 import Script from "next/script";
+import ClientChatWidget from "@/components/ClientChatWidget";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { FooterCTA } from "@/components/layout/FooterCTA";
@@ -9,8 +10,6 @@ import Preloader from "@/components/ui/Preloader";
 import { ConversionTracking } from "@/components/analytics/ConversionTracking";
 import { PerformanceMonitor } from "@/components/analytics/PerformanceMonitor";
 import { JourneyAnalytics } from "@/components/analytics/JourneyAnalytics";
-// import CookieConsent from "@/components/CookieConsent";
-// import CookieManager from "@/components/CookieManager";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -50,6 +49,7 @@ export default function RootLayout({
         <Header />
         <PageFrame />
         {children}
+        <ClientChatWidget />
         <FooterCTA />
         {/* <CookieManager /> */}
         {/* <CookieConsent /> */}

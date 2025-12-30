@@ -4,6 +4,11 @@ import { supabaseAdmin } from '@/lib/supabase';
 export async function POST(request: NextRequest) {
   try {
     const supabase = supabaseAdmin;
+
+    if (!supabase) {
+      return NextResponse.json({ success: true, skipped: true });
+    }
+
     const journeyData = await request.json();
     
     // Get or create lead based on session/IP

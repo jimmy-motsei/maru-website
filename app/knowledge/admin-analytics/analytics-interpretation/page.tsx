@@ -22,9 +22,14 @@ export default function AnalyticsInterpretationPage() {
     <DocLayout
       title="Analytics Interpretation"
       description="Master the art of interpreting analytics data to optimize your lead generation performance"
-      readingTime="15 min read"
+      readTime="15 min read"
       category="Admin & Analytics"
       lastUpdated="2024-12-19"
+      breadcrumbs={[
+        { label: 'Knowledge Base', href: '/knowledge' },
+        { label: 'Admin & Analytics', href: '/knowledge/admin-analytics' },
+        { label: 'Analytics Interpretation', href: '#' },
+      ]}
     >
       <TableOfContents items={tocItems} />
 
@@ -187,7 +192,7 @@ export default function AnalyticsInterpretationPage() {
           <h3>Assessment Analytics</h3>
           <div className="space-y-4 my-6">
             <div className="border-l-4 border-green-500 pl-4">
-              <h4 className="font-semibold">Lead Score Predictor Analytics</h4>
+              <h4 className="font-semibold">Website Lead Grader Analytics</h4>
               <p className="text-sm text-gray-600">Track website analysis performance and lead quality predictions</p>
             </div>
             <div className="border-l-4 border-blue-500 pl-4">

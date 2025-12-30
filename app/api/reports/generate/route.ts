@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
     if (type === 'lead_score') {
       const pdfBuffer = generateLeadScorePDF(data);
       
-      return new NextResponse(pdfBuffer, {
+      return new NextResponse(pdfBuffer as unknown as BodyInit, {
         headers: {
           'Content-Type': 'application/pdf',
           'Content-Disposition': 'attachment; filename="lead-score-report.pdf"',
@@ -28,7 +28,7 @@ function generateLeadScorePDF(data: any): Buffer {
   
   // Header
   doc.setFontSize(20);
-  doc.text('Lead Generation Score Report', 20, 30);
+  doc.text('Website Lead Grader Report', 20, 30);
   
   // Company info
   doc.setFontSize(12);

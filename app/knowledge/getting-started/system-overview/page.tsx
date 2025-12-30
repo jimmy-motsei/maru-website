@@ -65,7 +65,7 @@ export default function SystemOverviewPage() {
 
       <div className="grid md:grid-cols-2 gap-6 my-8">
         <div className="border border-slate-200 rounded-lg p-6">
-          <h4 className="font-semibold text-slate-900 mb-2">🎯 Lead Score Predictor</h4>
+          <h4 className="font-semibold text-slate-900 mb-2">🎯 Website Lead Grader</h4>
           <p className="text-slate-600 text-sm">
             AI-powered website analysis that evaluates lead generation readiness and provides 
             actionable recommendations for improvement.
@@ -139,7 +139,7 @@ Analytics: Custom analytics system`}
       <Step number={1} title="Explore Assessment Tools">
         <p>
           Visit the assessment tools to understand how each one works and what insights they provide. 
-          Start with the Lead Score Predictor for a quick overview of your lead generation readiness.
+          Start with the Website Lead Grader for a quick overview of your lead generation readiness.
         </p>
       </Step>
 

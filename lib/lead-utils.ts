@@ -8,6 +8,7 @@ export async function createOrUpdateLead(data: {
   industry?: string;
   company_size?: string;
 }): Promise<Lead> {
+  if (!supabaseAdmin) throw new Error('Supabase admin not initialized');
   const { data: existingLead } = await supabaseAdmin
     .from('leads')
     .select('*')
@@ -15,6 +16,7 @@ export async function createOrUpdateLead(data: {
     .single();
 
   if (existingLead) {
+    if (!supabaseAdmin) throw new Error('Supabase admin not initialized'); // Redundant but TS might need it for flow analysis? No, it's global constant.
     const { data: updatedLead } = await supabaseAdmin
       .from('leads')
       .update({
@@ -44,6 +46,7 @@ export async function trackActivity(
   activityType: LeadActivity['activity_type'],
   metadata?: Record<string, any>
 ) {
+  if (!supabaseAdmin) throw new Error('Supabase admin not initialized');
   await supabaseAdmin
     .from('lead_activities')
     .insert({
@@ -54,6 +57,7 @@ export async function trackActivity(
 }
 
 export async function updateLeadScore(leadId: string) {
+  if (!supabaseAdmin) throw new Error('Supabase admin not initialized');
   const { data: assessments } = await supabaseAdmin
     .from('assessments')
     .select('score')

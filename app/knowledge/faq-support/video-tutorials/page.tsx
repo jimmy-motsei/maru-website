@@ -16,7 +16,7 @@ const upcomingVideos = [
     category: 'Getting Started'
   },
   {
-    title: 'Lead Score Predictor Explained',
+    title: 'Website Lead Grader Explained',
     duration: '4 min', 
     description: 'Discover your website\'s lead generation potential',
     icon: Users,
@@ -125,8 +125,8 @@ export default function VideoTutorialsPage() {
           <p className="text-dark/60 mb-4">
             Start using the assessment tools right away with our written guides.
           </p>
-          <a href="/assessments/lead-score" className="text-accent hover:underline">
-            Try Lead Score Predictor →
+          <a href="/website-lead-grader" className="text-accent hover:underline">
+            Try Website Lead Grader →
           </a>
         </div>
       </div>

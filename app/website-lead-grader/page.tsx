@@ -7,23 +7,23 @@ import PrimaryCTASection from './components/PrimaryCTASection';
 import FAQSection from './components/FAQSection';
 
 export const metadata: Metadata = {
-  title: 'Is Your Website Leaking Leads? | Free Lead Score Predictor™',
-  description: 'Most B2B websites convert at 1-2%. Top performers hit 5-6%. Get your free AI-powered lead generation score (0-100) in 2 minutes. Join 1,247+ companies.',
+  title: 'Is Your Website Leaking Leads? | Free Website Lead Grader™',
+  description: 'Most B2B websites convert at 1-2%. Top performers hit 5-6%. Get your free AI-powered lead generation grade (0-100) in 2 minutes. Join 1,247+ companies.',
   keywords: 'lead generation, B2B leads, website optimization, conversion rate, lead scoring, AI analysis, website audit',
   openGraph: {
-    title: 'Is Your Website Leaking Leads? | Free Lead Score',
-    description: 'Most B2B websites convert at 1-2%. What\'s your number? Get your free lead score in 2 minutes.',
+    title: 'Is Your Website Leaking Leads? | Free Website Grade',
+    description: 'Most B2B websites convert at 1-2%. What\'s your number? Get your free lead grade in 2 minutes.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Is Your Website Leaking Leads?',
-    description: 'Get your free lead generation score in 2 minutes',
+    description: 'Get your free lead generation grade in 2 minutes',
   }
 };
 
 /**
- * Lead Score Predictor™ - Redesigned UX Flow
+ * Website Lead Grader™ - Redesigned UX Flow
  * 
  * New Flow: "Hook → Prove → Explain → Convert"
  * 
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
  *    For remaining doubters
  *    Accordion format - doesn't clutter
  */
-export default function LeadScorePredictorPage() {
+export default function WebsiteLeadGraderPage() {
   return (
     <main className="min-h-screen">
       {/* Section 1: Problem Hook - Creates curiosity, NO CTA */}

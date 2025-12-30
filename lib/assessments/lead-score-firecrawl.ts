@@ -89,7 +89,7 @@ async function scrapeWithFirecrawl(url: string): Promise<WebsiteData> {
   const app = new FirecrawlApp({ apiKey: process.env.FIRECRAWL_API_KEY });
   
   const startTime = Date.now();
-  const result = await app.scrapeUrl(url, {
+  const result = await app.scrape(url, {
     formats: ['markdown', 'html'],
     includeTags: ['title', 'meta', 'h1', 'h2', 'h3', 'img', 'a', 'script'],
     onlyMainContent: true,

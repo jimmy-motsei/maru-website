@@ -313,7 +313,7 @@ function AuditDisplay({ results }: { results: TechAuditResult }) {
         <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
           <h3 className="text-lg font-semibold text-white mb-4">Monthly Spend</h3>
           <div className="text-3xl font-bold text-cyan-400 mb-2">
-            ${results.total_monthly_cost.toLocaleString()}
+            ${results.totalMonthlyCost.toLocaleString()}
           </div>
           <p className="text-zinc-400">Total software costs</p>
         </div>
@@ -321,22 +321,22 @@ function AuditDisplay({ results }: { results: TechAuditResult }) {
         <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
           <h3 className="text-lg font-semibold text-white mb-4">Potential Savings</h3>
           <div className="text-3xl font-bold text-green-400 mb-2">
-            ${results.redundancies_found.reduce((sum, r) => sum + r.potential_savings, 0).toLocaleString()}
+            ${results.summary.potentialSavings.toLocaleString()}
           </div>
           <p className="text-zinc-400">From eliminating redundancies</p>
         </div>
       </div>
 
-      {results.redundancies_found.length > 0 && (
+      {results.redundancies.length > 0 && (
         <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
           <h3 className="text-xl font-semibold text-white mb-4">Redundancies Found</h3>
           <div className="space-y-4">
-            {results.redundancies_found.map((redundancy, index) => (
+            {results.redundancies.map((redundancy, index) => (
               <div key={index} className="p-4 bg-zinc-800 rounded-lg">
                 <div className="flex justify-between items-center mb-2">
                   <h4 className="font-medium text-white">{redundancy.category}</h4>
                   <span className="text-green-400 font-semibold">
-                    ${redundancy.potential_savings}/month
+                    ${redundancy.potentialSavings}/month
                   </span>
                 </div>
                 <p className="text-zinc-400 text-sm">

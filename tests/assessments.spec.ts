@@ -9,7 +9,7 @@ test.describe('Lead Generation Engine Tests', () => {
     await expect(page.locator('text=Discover Your Revenue Potential')).toBeVisible();
     
     // Check assessment preview cards
-    await expect(page.locator('text=Lead Score')).toBeVisible();
+    await expect(page.locator('text=Website Grade')).toBeVisible();
     await expect(page.locator('text=Pipeline Leaks')).toBeVisible();
     await expect(page.locator('text=AI Proposals')).toBeVisible();
     await expect(page.locator('text=Tech Stack')).toBeVisible();
@@ -18,11 +18,11 @@ test.describe('Lead Generation Engine Tests', () => {
     await expect(page.locator('text=START FREE AUDIT')).toBeVisible();
   });
 
-  test('Lead Score Predictor - Complete Flow', async ({ page }) => {
-    await page.goto('/assessments/lead-score');
+  test('Website Lead Grader - Complete Flow', async ({ page }) => {
+    await page.goto('/website-lead-grader');
     
     // Check page loads
-    await expect(page.locator('text=Lead Generation Score Predictor')).toBeVisible();
+    await expect(page.locator('text=Website Lead Grader')).toBeVisible();
     
     // Step 1: Website Information
     await page.fill('input[name="website_url"]', 'https://example.com');
@@ -42,8 +42,8 @@ test.describe('Lead Generation Engine Tests', () => {
     await expect(page.locator('text=Analyzing Your Website')).toBeVisible();
     
     // Wait for results (up to 60 seconds for AI processing)
-    await expect(page.locator('text=Your Lead Generation Score')).toBeVisible({ timeout: 60000 });
-    await expect(page.locator('text=Overall Lead Score')).toBeVisible();
+    await expect(page.locator('text=Your Website Lead Generation Grade')).toBeVisible({ timeout: 60000 });
+    await expect(page.locator('text=Overall Website Grade')).toBeVisible();
     await expect(page.locator('text=Recommendations')).toBeVisible();
   });
 
@@ -81,7 +81,7 @@ test.describe('Lead Generation Engine Tests', () => {
     
     // Check AI Audits in navigation
     await expect(page.locator('text=AI Audits')).toBeVisible();
-    await expect(page.locator('text=Lead Score Predictor')).toBeVisible();
+    await expect(page.locator('text=Website Lead Grader')).toBeVisible();
     await expect(page.locator('text=Pipeline Leak Detector')).toBeVisible();
     await expect(page.locator('text=Proposal Accelerator')).toBeVisible();
     await expect(page.locator('text=Tech Stack Auditor')).toBeVisible();
@@ -119,15 +119,15 @@ test.describe('Lead Generation Engine Tests', () => {
     await expect(page.locator('text=Discover Your Revenue Potential')).toBeVisible();
     
     // Check assessment cards stack properly
-    await expect(page.locator('text=Lead Score')).toBeVisible();
+    await expect(page.locator('text=Website Grade')).toBeVisible();
     
     // Test assessment page on mobile
-    await page.goto('/assessments/lead-score');
-    await expect(page.locator('text=Lead Generation Score Predictor')).toBeVisible();
+    await page.goto('/website-lead-grader');
+    await expect(page.locator('text=Website Lead Grader')).toBeVisible();
   });
 
   test('Form validation works', async ({ page }) => {
-    await page.goto('/assessments/lead-score');
+    await page.goto('/website-lead-grader');
     
     // Try to proceed without filling required fields
     await page.click('button:has-text("Next")');
@@ -145,7 +145,7 @@ test.describe('Lead Generation Engine Tests', () => {
   });
 
   test('Error handling for invalid URLs', async ({ page }) => {
-    await page.goto('/assessments/lead-score');
+    await page.goto('/website-lead-grader');
     
     // Enter invalid URL
     await page.fill('input[name="website_url"]', 'not-a-url');

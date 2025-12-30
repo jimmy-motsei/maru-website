@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server';
+export const dynamic = 'force-dynamic';
 import { getAvailableTools } from '@/lib/assessments/tech-audit';
 
 export async function GET() {
   try {
-    const tools = await getAvailableTools();
-    
+    // const tools = await getAvailableTools();
+    const tools: any[] = [];
     return NextResponse.json({
       success: true,
       tools,

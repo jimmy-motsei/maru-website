@@ -313,6 +313,10 @@ function createSummary(redundancies: Redundancy[], optimizations: Optimization[]
 // Helper function to get available tools from database
 export async function getAvailableTools(): Promise<any[]> {
   try {
+    if (!supabaseAdmin) {
+      console.warn('Supabase admin client not initialized');
+      return [];
+    }
     const { data: tools, error } = await supabaseAdmin
       .from('tools')
       .select('*')

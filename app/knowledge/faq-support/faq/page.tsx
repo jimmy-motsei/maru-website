@@ -13,7 +13,7 @@ const faqCategories = [
     questions: [
       {
         q: 'What is the Maru Lead Generation Engine?',
-        a: 'The Maru Lead Generation Engine is an AI-powered platform that helps businesses identify, capture, and convert high-quality leads through intelligent assessments. It includes four specialized tools: Lead Score Predictor, Pipeline Leak Detector, Proposal Accelerator, and Tech Stack Auditor.'
+        a: 'The Maru Lead Generation Engine is an AI-powered platform that helps businesses identify, capture, and convert high-quality leads through intelligent assessments. It includes four specialized tools: Website Lead Grader, Pipeline Leak Detector, Proposal Accelerator, and Tech Stack Auditor.'
       },
       {
         q: 'How long does it take to complete an assessment?',
@@ -34,7 +34,7 @@ const faqCategories = [
     questions: [
       {
         q: 'Which assessment tool should I start with?',
-        a: 'We recommend starting with the Lead Score Predictor as it provides a comprehensive overview of your lead generation readiness. If you have existing sales data, the Pipeline Leak Detector can provide immediate insights into revenue opportunities.'
+        a: 'We recommend starting with the Website Lead Grader as it provides a comprehensive overview of your lead generation readiness. If you have existing sales data, the Pipeline Leak Detector can provide immediate insights into revenue opportunities.'
       },
       {
         q: 'How accurate are the AI-generated recommendations?',
@@ -63,7 +63,7 @@ const faqCategories = [
       },
       {
         q: 'How often should I re-run assessments?',
-        a: 'We recommend re-running assessments monthly or after implementing significant changes to track progress. The Lead Score Predictor is particularly useful for monitoring improvements over time.'
+        a: 'We recommend re-running assessments monthly or after implementing significant changes to track progress. The Website Lead Grader is particularly useful for monitoring improvements over time.'
       },
       {
         q: 'What happens to my data?',

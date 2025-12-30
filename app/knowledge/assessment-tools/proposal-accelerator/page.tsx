@@ -315,17 +315,17 @@ export default function ProposalAcceleratorPage() {
         <div className="text-center p-4 border border-gray-200 rounded-lg">
           <div className="text-2xl font-bold text-accent mb-2">Response Rate</div>
           <p className="text-sm text-dark/60">% of proposals that get a response</p>
-          <p className="text-xs text-dark/50 mt-1">Target: >80%</p>
+          <p className="text-xs text-dark/50 mt-1">Target: &gt;80%</p>
         </div>
         <div className="text-center p-4 border border-gray-200 rounded-lg">
           <div className="text-2xl font-bold text-blue-600 mb-2">Win Rate</div>
           <p className="text-sm text-dark/60">% of proposals that result in sales</p>
-          <p className="text-xs text-dark/50 mt-1">Target: >25%</p>
+          <p className="text-xs text-dark/50 mt-1">Target: &gt;25%</p>
         </div>
         <div className="text-center p-4 border border-gray-200 rounded-lg">
           <div className="text-2xl font-bold text-green-600 mb-2">Time to Close</div>
           <p className="text-sm text-dark/60">Days from proposal to decision</p>
-          <p className="text-xs text-dark/50 mt-1">Target: <30 days</p>
+          <p className="text-xs text-dark/50 mt-1">Target: &lt;30 days</p>
         </div>
       </div>
 

@@ -243,7 +243,7 @@ Or click "View All Leads" from dashboard quick actions`}
             <li>• <strong>Hot Leads:</strong> Score 80+, Last 7 days, Completed 2+ assessments</li>
             <li>• <strong>Enterprise Prospects:</strong> Company size = Enterprise, Score 60+</li>
             <li>• <strong>Tech Industry:</strong> Industry = Technology, Any score, Last 30 days</li>
-            <li>• <strong>Inactive Leads:</strong> No activity > 30 days, Score > 50</li>
+            <li>• <strong>Inactive Leads:</strong> No activity &gt; 30 days, Score &gt; 50</li>
           </ul>
         </div>
       </Step>

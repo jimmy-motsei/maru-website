@@ -17,10 +17,10 @@ export function AssessmentShowcase() {
           {/* Enhanced Header */}
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Discover Your <span className="text-[#22d3ee]">Lead Generation Potential</span>
+              Discover Your <span className="text-[#3DD6D0]">Lead Generation Potential</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Get instant insights with our AI-powered Lead Score Predictor. No signup required.
+              Get instant insights with our AI-powered Website Lead Grader. No signup required.
             </p>
           </div>
 
@@ -47,13 +47,13 @@ export function AssessmentShowcase() {
           {/* Primary CTA */}
           <div className="text-center">
             <Link
-              href="/lead-score-predictor"
+              href="/website-lead-grader"
               className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-cyan-400 hover:to-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               Start Your Free Analysis
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <p className="text-zinc-400 text-sm mt-3">Lead Score Predictor • Takes 2 minutes • 100% Free</p>
+            <p className="text-zinc-400 text-sm mt-3">Website Lead Grader • Takes 2 minutes • 100% Free</p>
           </div>
         </motion.div>
 
@@ -69,7 +69,7 @@ export function AssessmentShowcase() {
               FEATURED TOOL
             </div>
             <Link
-              href="/lead-score-predictor"
+              href="/website-lead-grader"
               className="group block p-8 bg-zinc-900 border border-cyan-400/20 hover:border-cyan-400/50 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02] ring-2 ring-cyan-500/30"
             >
               <div className="flex items-start gap-6">
@@ -80,7 +80,7 @@ export function AssessmentShowcase() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                      Lead Score Predictor™
+                      Website Lead Grader™
                     </h3>
                     <ArrowRight className="w-5 h-5 text-zinc-400 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
                   </div>
@@ -91,7 +91,7 @@ export function AssessmentShowcase() {
                   
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium text-cyan-400">
-                      0-100 Score • 5-6x Lead Increase
+                      0-100 Grade • 5-6x Lead Increase
                     </span>
                     <span className="text-sm text-zinc-500">
                       Free • 2 min assessment

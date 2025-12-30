@@ -25,7 +25,7 @@ const steps = [
   {
     number: "04",
     icon: Inbox,
-    title: "Get Your Score",
+    title: "Get Your Grade",
     description: "Results in your inbox instantly"
   }
 ];
@@ -42,7 +42,7 @@ const fadeUpVariants = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
+    transition: { duration: 0.6, ease: 'easeOut' as const }
   }
 };
 
@@ -52,7 +52,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: 'easeOut' }
+    transition: { duration: 0.5, ease: 'easeOut' as const }
   }
 };
 
@@ -78,7 +78,7 @@ export default function HowItWorksSection() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            Get your personalized lead score in 4 simple steps
+            Get your personalized website grade in 4 simple steps
           </motion.p>
         </div>
 
@@ -103,19 +103,19 @@ export default function HowItWorksSection() {
             >
               {/* Connecting Arrow (hidden on mobile/tablet) */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:flex absolute top-1/2 -right-3 z-10 items-center justify-center w-6 text-[#22d3ee] font-bold text-xl">
+                <div className="hidden lg:flex absolute top-1/2 -right-3 z-10 items-center justify-center w-6 text-[#3DD6D0] font-bold text-xl">
                   →
                 </div>
               )}
               
-              <div className="bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.15)] transition-all duration-300 h-full flex flex-col items-center text-center">
+              <div className="bg-[#111111] p-8 rounded-2xl border-l-4 border-l-[#3DD6D0] shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_40px_rgba(61,214,208,0.15)] transition-all duration-300 h-full flex flex-col items-center text-center">
                 {/* Step Number */}
-                <div className="w-16 h-16 bg-gradient-to-br from-[#22d3ee] to-[#1a9aa5] text-black rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-lg shadow-[#22d3ee]/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#3DD6D0] to-[#1a9aa5] text-black rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-lg shadow-[#3DD6D0]/20">
                   {step.number}
                 </div>
                 
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-[#1a1a1a] flex items-center justify-center text-[#3DD6D0] border border-[#3DD6D0]/30 mb-4">
                   <step.icon size={24} />
                 </div>
                 
@@ -137,7 +137,7 @@ export default function HowItWorksSection() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUpVariants}
-          className="bg-[#111111] rounded-2xl p-6 border border-[#22d3ee]/10"
+          className="bg-[#111111] rounded-2xl p-6 border border-[#3DD6D0]/10"
         >
           <div className="flex flex-wrap justify-center gap-6 md:gap-12">
             {frictionReducers.map((item, index) => (

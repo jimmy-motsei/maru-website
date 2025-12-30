@@ -97,7 +97,7 @@ headers: {
       <div className="bg-slate-50 rounded-lg p-6 my-6">
         <h4 className="font-semibold mb-3">Assessment Types</h4>
         <ul className="space-y-2 text-sm">
-          <li><code className="bg-slate-200 px-2 py-1 rounded">lead_score</code> - Lead Score Predictor</li>
+          <li><code className="bg-slate-200 px-2 py-1 rounded">lead_score</code> - Website Lead Grader</li>
           <li><code className="bg-slate-200 px-2 py-1 rounded">pipeline_leak</code> - Pipeline Leak Detector</li>
           <li><code className="bg-slate-200 px-2 py-1 rounded">proposal</code> - Proposal Accelerator</li>
           <li><code className="bg-slate-200 px-2 py-1 rounded">tech_audit</code> - Tech Stack Auditor</li>
@@ -125,7 +125,7 @@ headers: {
 }`}
       </CodeBlock>
 
-      <h4>GET /api/assessments/{id}</h4>
+      <h4>GET /api/assessments/{'{id}'}</h4>
       <p>Retrieve a specific assessment by ID.</p>
 
       <CodeBlock language="json" title="Response">
@@ -168,7 +168,7 @@ headers: {
   .then(data => console.log(data));`}
       </CodeBlock>
 
-      <h4>GET /api/leads/{id}</h4>
+      <h4>GET /api/leads/{'{id}'}</h4>
       <p>Retrieve a specific lead with all associated assessments.</p>
 
       <CodeBlock language="json" title="Response">

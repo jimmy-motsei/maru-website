@@ -17,7 +17,7 @@ export default function HeroSection() {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' }
+      transition: { duration: 0.8, ease: 'easeOut' as const }
     }
   };
 
@@ -35,9 +35,9 @@ export default function HeroSection() {
                 initial="hidden"
                 animate="visible"
                 variants={fadeUpVariants}
-                className="inline-flex items-center px-4 py-2 bg-[#22d3ee]/10 border border-[#22d3ee]/30 text-[#22d3ee] text-sm font-medium rounded-full w-fit"
+                className="inline-flex items-center px-4 py-2 bg-[#3DD6D0]/10 border border-[#3DD6D0]/30 text-[#3DD6D0] text-sm font-medium rounded-full w-fit"
               >
-                🔍 FREE AI-POWERED TOOL
+                🔍 FREE WEBSITE PERFORMANCE TOOL
               </motion.div>
 
               {/* Headline - Following MARU Pattern */}
@@ -47,8 +47,8 @@ export default function HeroSection() {
                 animate="visible"
                 variants={fadeUpVariants}
               >
-                <span className="font-extralight text-zinc-500">Is Your Website</span>{" "}
-                <span className="font-medium text-[#ef4444]">Leaking Leads</span>
+                <span className="font-extralight text-zinc-500">How Is Your Website</span>{" "}
+                <span className="font-medium text-[#3DD6D0]">Performing at Lead Generation</span>
                 <span className="font-medium text-white">?</span>
               </motion.h1>
 
@@ -59,7 +59,7 @@ export default function HeroSection() {
                 animate="visible"
                 variants={{
                   ...fadeUpVariants,
-                  visible: { ...fadeUpVariants.visible, transition: { duration: 0.8, delay: 0.15, ease: 'easeOut' } }
+                  visible: { ...fadeUpVariants.visible, transition: { duration: 0.8, delay: 0.15, ease: 'easeOut' as const } }
                 }}
               >
                 <p className="text-[18px] md:text-[22px] lg:text-[24px] font-light text-zinc-400 leading-[1.4]">
@@ -79,10 +79,10 @@ export default function HeroSection() {
                 animate="visible"
                 variants={{
                   ...fadeUpVariants,
-                  visible: { ...fadeUpVariants.visible, transition: { duration: 0.8, delay: 0.3, ease: 'easeOut' } }
+                  visible: { ...fadeUpVariants.visible, transition: { duration: 0.8, delay: 0.3, ease: 'easeOut' as const } }
                 }}
               >
-                What's <span className="text-[#22d3ee]">your</span> number?
+                What's <span className="text-[#3DD6D0]">your</span> number?
               </motion.p>
 
               {/* Scroll Indicator - NO CTA Button */}
@@ -91,20 +91,20 @@ export default function HeroSection() {
                 animate="visible"
                 variants={{
                   ...fadeUpVariants,
-                  visible: { ...fadeUpVariants.visible, transition: { duration: 0.8, delay: 0.5, ease: 'easeOut' } }
+                  visible: { ...fadeUpVariants.visible, transition: { duration: 0.8, delay: 0.5, ease: 'easeOut' as const } }
                 }}
                 className="pt-12 flex flex-col items-start cursor-pointer group"
                 onClick={scrollToResults}
               >
-                <p className="text-zinc-500 mb-3 group-hover:text-[#22d3ee] transition-colors flex items-center gap-2">
+                <p className="text-zinc-500 mb-3 group-hover:text-[#3DD6D0] transition-colors flex items-center gap-2">
                   <span>↓</span> See what others discovered
                 </p>
                 <motion.div
                   animate={{ y: [0, 8, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
-                  className="w-10 h-10 rounded-full border-2 border-zinc-700 group-hover:border-[#22d3ee] flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full border-2 border-zinc-700 group-hover:border-[#3DD6D0] flex items-center justify-center transition-colors"
                 >
-                  <ChevronDown className="w-5 h-5 text-zinc-500 group-hover:text-[#22d3ee] transition-colors" />
+                  <ChevronDown className="w-5 h-5 text-zinc-500 group-hover:text-[#3DD6D0] transition-colors" />
                 </motion.div>
               </motion.div>
             </div>

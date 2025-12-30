@@ -22,9 +22,14 @@ export default function ExportReportingPage() {
     <DocLayout
       title="Export & Reporting"
       description="Comprehensive guide to exporting data and creating custom reports for deeper analysis"
-      readingTime="13 min read"
+      readTime="13 min read"
       category="Admin & Analytics"
       lastUpdated="2024-12-19"
+      breadcrumbs={[
+        { label: 'Knowledge Base', href: '/knowledge' },
+        { label: 'Admin & Analytics', href: '/knowledge/admin-analytics' },
+        { label: 'Export & Reporting', href: '#' },
+      ]}
     >
       <TableOfContents items={tocItems} />
 

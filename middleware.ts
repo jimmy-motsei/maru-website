@@ -22,6 +22,22 @@ export function middleware(request: NextRequest) {
     return new Response(null, { status: 200, headers: response.headers });
   }
 
+  // Maintenance Mode Check
+  if (process.env.MAINTENANCE_MODE === 'true') {
+    const { pathname } = request.nextUrl;
+    
+    // Bypass for maintenance page, assets, and admin
+    if (
+      pathname !== '/maintenance' &&
+      !pathname.startsWith('/_next') &&
+      !pathname.startsWith('/static') &&
+      !pathname.startsWith('/admin') &&
+      !pathname.match(/\.(png|jpg|jpeg|gif|ico|svg|css|js)$/)
+    ) {
+      return NextResponse.redirect(new URL('/maintenance', request.url));
+    }
+  }
+
   // Admin route protection
   if (request.nextUrl.pathname.startsWith('/admin')) {
     // Allow login page

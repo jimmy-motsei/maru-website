@@ -3,6 +3,9 @@ import { supabaseAdmin } from '@/lib/supabase';
 
 export async function GET(request: NextRequest) {
   try {
+    if (!supabaseAdmin) {
+      return NextResponse.json({ error: 'Supabase not configured' }, { status: 500 });
+    }
     const { data: leads, error } = await supabaseAdmin
       .from('leads')
       .select('*')

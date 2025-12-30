@@ -48,6 +48,12 @@ export default function ResultsDashboard({ results }: ResultsDashboardProps) {
       // Get user email from session storage
       const leadData = JSON.parse(sessionStorage.getItem('leadData') || '{}');
       
+      if (!leadData.email) {
+        alert('❌ Email address not found. Please refresh and try again.');
+        setIsEmailSending(false);
+        return;
+      }
+
       // Track email request
       if (typeof window !== 'undefined' && window.gtag) {
         window.gtag('event', 'email_results_request', {
@@ -56,20 +62,45 @@ export default function ResultsDashboard({ results }: ResultsDashboardProps) {
         });
       }
 
-      const response = await fetch('/api/send-results', {
+      // Send the report via API
+      const response = await fetch('/api/email/send', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'assessment_complete',
           email: leadData.email,
-          name: leadData.name,
-          results 
+          contactInfo: {
+            first_name: leadData.name,
+            company_name: leadData.company,
+            website_url: leadData.website
+          },
+          assessmentType: 'lead_score',
+          assessmentData: {
+            score: results.score,
+            subscores: results.subscores,
+            strengths: results.strengths,
+            gaps: results.gaps,
+            recommendations: results.recommendations, // This passes the full object
+          }
         }),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         alert('✅ Complete report sent to your email!');
+        
+        // Track successful email send
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'email_results_sent', {
+            analysis_id: results.analysisId,
+            email_id: result.emailId // Note: API might not return emailId, check API response
+          });
+        }
       } else {
-        throw new Error('Failed to send email');
+        throw new Error(result.error || 'Failed to send email');
       }
       
     } catch (error) {
@@ -100,8 +131,8 @@ export default function ResultsDashboard({ results }: ResultsDashboardProps) {
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Your Lead Score Analysis</h1>
-              <p className="text-gray-600 mt-1">Complete assessment results and recommendations</p>
+              <h1 className="text-3xl font-bold text-gray-900">Your Website Lead Generation Grade</h1>
+              <p className="text-gray-600 mt-1">Complete performance analysis and optimization roadmap</p>
             </div>
             <div className="text-sm text-gray-500">
               Analysis ID: {results.analysisId}
@@ -120,7 +151,7 @@ export default function ResultsDashboard({ results }: ResultsDashboardProps) {
             transition={{ duration: 0.5 }}
             className="bg-white rounded-lg p-8 shadow-lg text-center"
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Lead Generation Score</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Lead Generation Grade</h2>
             
             <div className="relative w-48 h-48 mx-auto mb-6">
               <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
@@ -173,7 +204,7 @@ export default function ResultsDashboard({ results }: ResultsDashboardProps) {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white rounded-lg p-8 shadow-lg"
           >
-            <h3 className="text-xl font-bold text-gray-900 mb-6">Score Breakdown</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-6">Grade Breakdown</h3>
             
             <div className="space-y-6">
               {Object.entries(results.subscores).map(([key, score], index) => {
@@ -241,7 +272,7 @@ export default function ResultsDashboard({ results }: ResultsDashboardProps) {
           <div className="bg-white rounded-lg p-8 shadow-lg">
             <div className="flex items-center mb-6">
               <CheckCircle className="w-6 h-6 text-green-600 mr-3" />
-              <h3 className="text-xl font-bold text-green-600">What's Working ✓</h3>
+              <h3 className="text-xl font-bold text-green-600">High-Performing Areas ✓</h3>
             </div>
             <ul className="space-y-3">
               {results.strengths.map((strength, index) => (
@@ -256,7 +287,7 @@ export default function ResultsDashboard({ results }: ResultsDashboardProps) {
           <div className="bg-white rounded-lg p-8 shadow-lg">
             <div className="flex items-center mb-6">
               <XCircle className="w-6 h-6 text-red-600 mr-3" />
-              <h3 className="text-xl font-bold text-red-600">Critical Gaps ✗</h3>
+              <h3 className="text-xl font-bold text-red-600">Performance Gaps to Address ✗</h3>
             </div>
             <ul className="space-y-3">
               {results.gaps.map((gap, index) => (
@@ -276,7 +307,7 @@ export default function ResultsDashboard({ results }: ResultsDashboardProps) {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="mb-12"
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Your 90-Day Action Plan</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Your Optimization Roadmap</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Phase 1 */}

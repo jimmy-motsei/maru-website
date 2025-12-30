@@ -22,9 +22,13 @@ export default function IntegrationWorkflowsPage() {
     <DocLayout
       title="Integration Workflows"
       description="Connect our assessment tools with your existing business systems for seamless data flow"
-      readingTime="16 min read"
+      readTime="16 min read"
       category="Best Practices"
       lastUpdated="2024-12-19"
+      breadcrumbs={[
+        { label: 'Best Practices', href: '/knowledge/best-practices' },
+        { label: 'Integration Workflows', href: '/knowledge/best-practices/integration-workflows' },
+      ]}
     >
       <TableOfContents items={tocItems} />
 
@@ -402,7 +406,7 @@ export default function IntegrationWorkflowsPage() {
                 <span className="text-gray-600">Create new assessment</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-green-600">GET /api/assessments/{id}</span>
+                <span className="text-green-600">GET /api/assessments/{'{id}'}</span>
                 <span className="text-gray-600">Get assessment details</span>
               </div>
               <div className="flex justify-between">
@@ -410,7 +414,7 @@ export default function IntegrationWorkflowsPage() {
                 <span className="text-gray-600">List leads with scores</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-purple-600">PUT /api/leads/{id}</span>
+                <span className="text-purple-600">PUT /api/leads/{'{id}'}</span>
                 <span className="text-gray-600">Update lead information</span>
               </div>
             </div>
@@ -479,9 +483,9 @@ export default function IntegrationWorkflowsPage() {
               <p className="text-sm text-gray-600 mb-2">Automatically update your internal lead scoring system</p>
               <div className="bg-gray-50 rounded p-3 text-sm font-mono">
                 // Webhook handler for score updates<br/>
-                app.post('/webhook/score-update', (req, res) => {`{`}<br/>
+                app.post('/webhook/score-update', (req, res) ={'>'} {'{'}<br/>
                 &nbsp;&nbsp;updateInternalLeadScore(req.body.lead_id, req.body.score);<br/>
-                {`}`});
+                {'}'});
               </div>
             </div>
           </div>

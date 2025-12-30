@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   // Performance optimizations
   compress: true,
   poweredByHeader: false,
+  transpilePackages: ['maru-chatbot'],
   
   // Image optimization
   images: {
@@ -13,17 +14,19 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   
+  
+  // Server-side external packages (prevents bundling in client)
+  serverExternalPackages: [
+    '@pinecone-database/pinecone',
+    '@langchain/pinecone',
+    '@langchain/google-genai',
+    '@langchain/core',
+    'langchain',
+  ],
+  
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
   
   // Headers for better caching

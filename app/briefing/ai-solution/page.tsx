@@ -108,7 +108,7 @@ export default function AISolutionBriefing() {
       <main className="relative min-h-screen bg-[#0a192f] text-white flex items-center justify-center">
         <AtmosphericBackground variant="subtle" />
         <div className="relative z-10 max-w-lg w-full text-center p-8 bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10">
-          <h2 className="text-3xl font-bold mb-4 text-[#00f0ff]">Brief Received</h2>
+          <h2 className="text-3xl font-bold mb-4 text-[#3DD6D0]">Brief Received</h2>
           <p className="text-zinc-400 mb-8">
             Thank you for submitting your AI Solution brief. Our team will review your requirements and get back to you shortly.
           </p>
@@ -125,7 +125,7 @@ export default function AISolutionBriefing() {
       <div className="container relative z-10 mx-auto px-6 pt-12 md:pt-20">
         <Link 
           href="/briefing" 
-          className="inline-flex items-center text-sm font-bold uppercase tracking-widest text-zinc-500 hover:text-[#00f0ff] mb-8 transition-colors"
+          className="inline-flex items-center text-sm font-bold uppercase tracking-widest text-zinc-500 hover:text-[#3DD6D0] mb-8 transition-colors"
         >
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Briefings
         </Link>
@@ -143,7 +143,7 @@ export default function AISolutionBriefing() {
             
             {/* 0) Current Systems */}
             <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
-              <h2 className="text-2xl font-bold mb-8 text-[#00f0ff]">0. Current Systems & Pain Points</h2>
+              <h2 className="text-2xl font-bold mb-8 text-[#3DD6D0]">0. Current Systems & Pain Points</h2>
               
               <div className="space-y-8">
                 <div>
@@ -155,7 +155,7 @@ export default function AISolutionBriefing() {
                            type="checkbox" 
                            value={sys} 
                            {...register("current_systems")} 
-                           className="appearance-none h-5 w-5 border border-white/20 rounded bg-transparent checked:bg-[#00f0ff] checked:border-[#00f0ff] transition-all"
+                           className="appearance-none h-5 w-5 border border-white/20 rounded bg-transparent checked:bg-[#3DD6D0] checked:border-[#3DD6D0] transition-all"
                          />
                          <span className="text-sm font-medium text-zinc-400 group-hover:text-white transition-colors">{sys}</span>
                       </label>
@@ -201,7 +201,7 @@ export default function AISolutionBriefing() {
 
             {/* 1) Business Context */}
             <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
-              <h2 className="text-2xl font-bold mb-8 text-[#00f0ff]">1. Business Context</h2>
+              <h2 className="text-2xl font-bold mb-8 text-[#3DD6D0]">1. Business Context</h2>
               <div className="space-y-8">
                 <div>
                   <Label className="text-white">Current challenges / goals for AI *</Label>
@@ -221,7 +221,7 @@ export default function AISolutionBriefing() {
                             type="checkbox" 
                             value={item} 
                             {...register("process_targets")} 
-                            className="appearance-none h-5 w-5 border border-white/20 rounded bg-transparent checked:bg-[#00f0ff] checked:border-[#00f0ff] transition-all"
+                            className="appearance-none h-5 w-5 border border-white/20 rounded bg-transparent checked:bg-[#3DD6D0] checked:border-[#3DD6D0] transition-all"
                           />
                           <span className="text-sm font-medium text-zinc-400 group-hover:text-white transition-colors">{item}</span>
                        </label>
@@ -237,7 +237,7 @@ export default function AISolutionBriefing() {
                 
                 {/* 2) Data */}
                 <div className="space-y-6">
-                   <h2 className="text-xl font-bold text-[#00f0ff]">2. Data & Integrations</h2>
+                   <h2 className="text-xl font-bold text-[#3DD6D0]">2. Data & Integrations</h2>
                    <div>
                      <Label>Systems to integrate</Label>
                      <Input {...register("integration_systems")} placeholder="HubSpot, Slack, WhatsApp, GA4..." />
@@ -250,13 +250,13 @@ export default function AISolutionBriefing() {
 
                 {/* 3) Features */}
                 <div className="space-y-6">
-                  <h2 className="text-xl font-bold text-[#00f0ff]">3. Features & Channels</h2>
+                  <h2 className="text-xl font-bold text-[#3DD6D0]">3. Features & Channels</h2>
                   <div>
                     <Label>Desired AI Capabilities</Label>
                     <div className="grid grid-cols-1 gap-2">
                        {["Conversational Agent", "Agentic Workflows", "Summarization", "Classification", "Recommendation"].map(f => (
                           <label key={f} className="flex items-center space-x-3 cursor-pointer">
-                            <input type="checkbox" value={f} {...register("ai_features")} className="appearance-none h-4 w-4 border border-white/20 rounded checked:bg-[#00f0ff]" />
+                            <input type="checkbox" value={f} {...register("ai_features")} className="appearance-none h-4 w-4 border border-white/20 rounded checked:bg-[#3DD6D0]" />
                             <span className="text-sm text-zinc-300">{f}</span>
                           </label>
                        ))}
@@ -267,7 +267,7 @@ export default function AISolutionBriefing() {
                      <div className="flex gap-4 flex-wrap">
                         {["Website", "WhatsApp", "Email", "Internal Tool"].map(c => (
                            <label key={c} className="flex items-center space-x-2 cursor-pointer">
-                             <input type="checkbox" value={c} {...register("ai_channels")} className="appearance-none h-4 w-4 border border-white/20 rounded checked:bg-[#00f0ff]" />
+                             <input type="checkbox" value={c} {...register("ai_channels")} className="appearance-none h-4 w-4 border border-white/20 rounded checked:bg-[#3DD6D0]" />
                              <span className="text-sm text-zinc-300">{c}</span>
                            </label>
                         ))}
@@ -280,7 +280,7 @@ export default function AISolutionBriefing() {
 
             {/* 6) Budget */}
             <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
-               <h2 className="text-xl font-bold mb-6 text-[#00f0ff]">Logistics</h2>
+               <h2 className="text-xl font-bold mb-6 text-[#3DD6D0]">Logistics</h2>
                <div className="grid md:grid-cols-3 gap-8">
                   <div>
                     <Label>Budget Range (ZAR)</Label>

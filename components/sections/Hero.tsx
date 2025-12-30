@@ -42,7 +42,7 @@ export function Hero() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
                             >
-                                <p className="text-[20px] md:text-[24px] lg:text-[26px] font-medium text-[#22d3ee] leading-[1.3]">
+                                <p className="text-[20px] md:text-[24px] lg:text-[26px] font-medium text-[#3DD6D0] leading-[1.3]">
                                     Strategic AI & automation consulting for scaling businesses
                                 </p>
                                 <div className="flex items-center gap-6 mt-3 text-sm text-zinc-500">
@@ -74,7 +74,7 @@ export function Hero() {
                                 transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                             >
                                 At Maru, we improve business growth and lower costs through automation consulting, digital transformation, and custom AI development. 
-                                <span className="text-[#22d3ee] font-medium">Start with a free website audit</span> or take a 2-minute assessment to discover your growth opportunities.
+                                <span className="text-[#3DD6D0] font-medium">Start with a free website audit</span> or take a 2-minute assessment to discover your growth opportunities.
                             </motion.p>
 
                             {/* CTAs - Optimized Hierarchy */}
@@ -102,7 +102,7 @@ export function Hero() {
                                     className="
                     flex items-center gap-2
                     text-zinc-400 font-medium text-sm
-                    hover:text-[#22d3ee] transition-colors group
+                    hover:text-[#3DD6D0] transition-colors group
                   "
                                 >
                                     How We Work

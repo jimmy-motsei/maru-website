@@ -13,7 +13,7 @@ export default function QuestionsPage() {
     const storedLeadData = sessionStorage.getItem('leadData');
     if (!storedLeadData) {
       // Redirect back to main page if no lead data
-      router.push('/lead-score-predictor');
+      router.push('/website-lead-grader');
       return;
     }
 

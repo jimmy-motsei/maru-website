@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 // =============================================================================
 // DESIGN TOKENS (Extracted from Ashley Theme SCSS)
 // =============================================================================
-// Primary Cyan: #00f0ff (Maru Cyan) / #22d3ee (Tailwind cyan-400)
+// Primary Cyan: #3DD6D0 (Maru Turquoise)
 // Transition Easing: cubic-bezier(0, 0, 0.3642, 1)
-// Neon Glow: 0 0 5px #00f0ff, 0 0 20px rgba(0, 240, 255, 0.4)
+// Neon Glow: 0 0 5px #3DD6D0, 0 0 20px rgba(61, 214, 208, 0.4)
 // Glass White: rgba(255, 255, 255, 0.05)
 // Deep Black: #050505
 // =============================================================================
@@ -36,7 +36,7 @@ interface DiamondIconProps {
 export function DiamondIcon({
   icon,
   className,
-  glowColor = "#22d3ee",
+  glowColor = "#3DD6D0",
   size = "md",
 }: DiamondIconProps) {
   const sizeClasses = {
@@ -91,7 +91,7 @@ export function DiamondIcon({
         transition={{ duration: 0.4, ease: [0, 0, 0.3642, 1] }}
       >
         {/* Icon (counter-rotated to stay upright) */}
-        <div className="-rotate-45 text-[#22d3ee]">
+        <div className="-rotate-45 text-[#3DD6D0]">
           {icon}
         </div>
       </motion.div>
@@ -120,7 +120,7 @@ export function ProcessCard({
         // Transition
         "transition-all duration-[400ms]",
         // Hover border
-        glowOnHover && "hover:border-[#22d3ee]/50",
+        glowOnHover && "hover:border-[#3DD6D0]/50",
         className
       )}
       initial="rest"
@@ -131,11 +131,11 @@ export function ProcessCard({
       }}
       variants={{
         rest: {
-          boxShadow: "0 0 0 0 rgba(34, 211, 238, 0)",
+          boxShadow: "0 0 0 0 rgba(61, 214, 208, 0)",
         },
         hover: glowOnHover
           ? {
-              boxShadow: "0 0 30px rgba(34, 211, 238, 0.15), 0 0 60px rgba(34, 211, 238, 0.05)",
+              boxShadow: "0 0 30px rgba(61, 214, 208, 0.15), 0 0 60px rgba(61, 214, 208, 0.05)",
             }
           : {},
       }}
@@ -166,7 +166,7 @@ export function FeatureCard({
         // Transition
         "transition-all duration-[400ms]",
         // Hover
-        glowOnHover && "hover:border-[#22d3ee]/40",
+        glowOnHover && "hover:border-[#3DD6D0]/40",
         className
       )}
       initial="rest"
@@ -176,11 +176,11 @@ export function FeatureCard({
       }}
       variants={{
         rest: {
-          boxShadow: "0 0 0 0 rgba(34, 211, 238, 0)",
+          boxShadow: "0 0 0 0 rgba(61, 214, 208, 0)",
         },
         hover: glowOnHover
           ? {
-              boxShadow: "0 0 20px rgba(34, 211, 238, 0.1)",
+              boxShadow: "0 0 20px rgba(61, 214, 208, 0.1)",
             }
           : {},
       }}
@@ -200,7 +200,7 @@ interface IconBoxProps {
   color?: string;
 }
 
-export function IconBox({ icon, className, color = "#22d3ee" }: IconBoxProps) {
+export function IconBox({ icon, className, color = "#3DD6D0" }: IconBoxProps) {
   return (
     <div
       className={cn(
@@ -234,7 +234,7 @@ export function StepBadge({ number, className }: StepBadgeProps) {
         "inline-flex items-center justify-center",
         "px-3 py-1 rounded-full",
         "text-xs font-medium tracking-wider uppercase",
-        "bg-[#22d3ee]/10 text-[#22d3ee] border border-[#22d3ee]/20",
+        "bg-[#3DD6D0]/10 text-[#3DD6D0] border border-[#3DD6D0]/20",
         className
       )}
     >

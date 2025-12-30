@@ -22,9 +22,14 @@ export default function LeadGenerationBestPracticesPage() {
     <DocLayout
       title="Lead Generation Best Practices"
       description="Master proven strategies and methodologies for effective lead generation"
-      readingTime="18 min read"
+      readTime="18 min read"
       category="Best Practices"
       lastUpdated="2024-12-19"
+      breadcrumbs={[
+        { label: 'Knowledge Base', href: '/knowledge' },
+        { label: 'Best Practices', href: '/knowledge/best-practices' },
+        { label: 'Lead Generation Best Practices', href: '#' },
+      ]}
     >
       <TableOfContents items={tocItems} />
 
@@ -333,8 +338,8 @@ export default function LeadGenerationBestPracticesPage() {
               Use our assessment tools to identify opportunities in your current lead generation process and get personalized recommendations.
             </p>
             <div className="space-y-2">
-              <a href="/knowledge/assessment-tools/lead-score-predictor" className="text-blue-600 hover:text-blue-800 underline block">
-                → Lead Score Predictor Guide
+              <a href="/knowledge/assessment-tools/website-lead-grader" className="text-blue-600 hover:text-blue-800 underline block">
+                → Website Lead Grader Guide
               </a>
               <a href="/knowledge/assessment-tools/pipeline-leak-detector" className="text-blue-600 hover:text-blue-800 underline block">
                 → Pipeline Leak Detector Guide

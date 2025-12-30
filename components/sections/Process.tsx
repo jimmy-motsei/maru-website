@@ -138,14 +138,14 @@ export function Process() {
           variants={staggerContainerVariants}
         >
           <motion.div 
-            className="flex flex-col gap-6 bg-[#f2f2f2] p-10 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.1)] transition-all duration-300 h-full"
+            className="flex flex-col gap-6 bg-[#f2f2f2] p-10 rounded-2xl border-l-4 border-l-[#3DD6D0] shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(61,214,208,0.1)] transition-all duration-300 h-full"
             variants={cardVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
             initial="rest"
             animate="rest"
           >
             <motion.div 
-              className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/20"
+              className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-[#3DD6D0] border border-[#3DD6D0]/20"
               variants={iconVariants}
               whileHover="hover"
             >
@@ -160,14 +160,14 @@ export function Process() {
           </motion.div>
 
           <motion.div 
-            className="flex flex-col gap-6 bg-[#f2f2f2] p-10 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.1)] transition-all duration-300 h-full"
+            className="flex flex-col gap-6 bg-[#f2f2f2] p-10 rounded-2xl border-l-4 border-l-[#3DD6D0] shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(61,214,208,0.1)] transition-all duration-300 h-full"
             variants={cardVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
             initial="rest"
             animate="rest"
           >
             <motion.div 
-              className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/20"
+              className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-[#3DD6D0] border border-[#3DD6D0]/20"
               variants={iconVariants}
               whileHover="hover"
             >
@@ -182,14 +182,14 @@ export function Process() {
           </motion.div>
 
           <motion.div 
-            className="flex flex-col gap-6 bg-[#f2f2f2] p-10 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.1)] transition-all duration-300 h-full"
+            className="flex flex-col gap-6 bg-[#f2f2f2] p-10 rounded-2xl border-l-4 border-l-[#3DD6D0] shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(61,214,208,0.1)] transition-all duration-300 h-full"
             variants={cardVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
             initial="rest"
             animate="rest"
           >
             <motion.div 
-              className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/20"
+              className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-[#3DD6D0] border border-[#3DD6D0]/20"
               variants={iconVariants}
               whileHover="hover"
             >
@@ -204,14 +204,14 @@ export function Process() {
           </motion.div>
 
           <motion.div 
-            className="flex flex-col gap-6 bg-[#f2f2f2] p-10 rounded-2xl border-l-4 border-l-[#22d3ee] shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(34,211,238,0.1)] transition-all duration-300 h-full"
+            className="flex flex-col gap-6 bg-[#f2f2f2] p-10 rounded-2xl border-l-4 border-l-[#3DD6D0] shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(61,214,208,0.1)] transition-all duration-300 h-full"
             variants={cardVariants}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
             initial="rest"
             animate="rest"
           >
             <motion.div 
-              className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/20"
+              className="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-[#3DD6D0] border border-[#3DD6D0]/20"
               variants={iconVariants}
               whileHover="hover"
             >

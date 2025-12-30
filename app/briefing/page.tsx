@@ -16,7 +16,7 @@ const forms = [
     description: "Define your business needs for AI automation, chatbots, and agentic workflows.",
     href: "/briefing/ai-solution",
     icon: <Bot size={24} />,
-    color: "#22d3ee", // Cyan
+    color: "#3DD6D0", // Cyan
   },
   {
     title: "Web Development Briefing",
@@ -65,7 +65,7 @@ export default function BriefingPage() {
                     />
                   </div>
                   
-                  <h3 className="mb-3 text-2xl font-bold text-white group-hover:text-[#22d3ee] transition-colors">
+                  <h3 className="mb-3 text-2xl font-bold text-white group-hover:text-[#3DD6D0] transition-colors">
                     {form.title}
                   </h3>
                   
@@ -73,7 +73,7 @@ export default function BriefingPage() {
                     {form.description}
                   </p>
                   
-                  <div className="flex items-center text-sm font-bold uppercase tracking-widest text-[#22d3ee]">
+                  <div className="flex items-center text-sm font-bold uppercase tracking-widest text-[#3DD6D0]">
                     Start Brief
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>

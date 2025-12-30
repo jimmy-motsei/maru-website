@@ -42,11 +42,11 @@ export default function QuickStartGuidePage() {
         <p>Start by selecting the assessment that best fits your immediate needs:</p>
         <div className="grid md:grid-cols-2 gap-4 mt-4">
           <div className="border border-slate-200 rounded-lg p-4">
-            <h4 className="font-semibold mb-2">🎯 Lead Score Predictor</h4>
+            <h4 className="font-semibold mb-2">🎯 Website Lead Grader</h4>
             <p className="text-sm text-slate-600 mb-3">
-              Best for: Understanding your website's lead generation potential
+              Best for: Understanding your website's lead generation performance
             </p>
-            <a href="/assessments/lead-score" className="text-accent hover:underline text-sm">
+            <a href="/website-lead-grader" className="text-accent hover:underline text-sm">
               Start Assessment →
             </a>
           </div>
@@ -141,9 +141,9 @@ Password: MaruAdmin2024!`}
 
       <h3>Recommended Reading</h3>
       <div className="grid md:grid-cols-2 gap-4 mt-6">
-        <a href="/knowledge/assessment-tools/lead-score-predictor" className="border border-slate-200 rounded-lg p-4 hover:border-accent transition-colors">
-          <h4 className="font-semibold text-slate-900 mb-2">Lead Score Predictor Deep Dive</h4>
-          <p className="text-slate-600 text-sm">Master the lead scoring system</p>
+        <a href="/knowledge/assessment-tools/website-lead-grader" className="border border-slate-200 rounded-lg p-4 hover:border-accent transition-colors">
+          <h4 className="font-semibold text-slate-900 mb-2">Website Lead Grader Deep Dive</h4>
+          <p className="text-slate-600 text-sm">Master the website grading system</p>
         </a>
         <a href="/knowledge/admin-analytics/dashboard-overview" className="border border-slate-200 rounded-lg p-4 hover:border-accent transition-colors">
           <h4 className="font-semibold text-slate-900 mb-2">Dashboard Overview</h4>

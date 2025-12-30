@@ -34,7 +34,7 @@ export default function FirstAssessmentPage() {
       
       <p>
         Your first assessment is crucial for understanding how the Maru Lead Generation Engine works 
-        and what insights it can provide for your business. This walkthrough uses the Lead Score Predictor 
+        and what insights it can provide for your business. This walkthrough uses the Website Lead Grader 
         as it's the most comprehensive and beginner-friendly tool.
       </p>
 
@@ -50,7 +50,7 @@ export default function FirstAssessmentPage() {
 
       <h2 id="choosing-tool">Choosing Your First Tool</h2>
 
-      <p>We recommend starting with the <strong>Lead Score Predictor</strong> because it:</p>
+      <p>We recommend starting with the <strong>Website Lead Grader</strong> because it:</p>
       <ul>
         <li>Requires only basic company information</li>
         <li>Provides comprehensive analysis</li>
@@ -62,7 +62,7 @@ export default function FirstAssessmentPage() {
         <h3 className="font-semibold text-dark mb-3">Assessment Tool Comparison</h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-medium text-dark mb-2">🎯 Lead Score Predictor</h4>
+            <h4 className="font-medium text-dark mb-2">🎯 Website Lead Grader</h4>
             <p className="text-sm text-dark/60 mb-2">Best for: First-time users</p>
             <p className="text-sm text-dark/60">Requires: Company info + website URL</p>
           </div>
@@ -76,10 +76,10 @@ export default function FirstAssessmentPage() {
 
       <h2 id="step-by-step">Step-by-Step Walkthrough</h2>
 
-      <Step number={1} title="Navigate to Lead Score Predictor">
+      <Step number={1} title="Navigate to Website Lead Grader">
         <p>From the homepage, click "START FREE AUDIT" or navigate directly:</p>
         <CodeBlock language="text">
-{`URL: http://localhost:3000/assessments/lead-score`}
+{`URL: http://localhost:3000/website-lead-grader`}
         </CodeBlock>
         <p>You'll see a clean form with several input fields.</p>
       </Step>
@@ -244,9 +244,9 @@ export default function FirstAssessmentPage() {
 
       <h3>Recommended Next Articles</h3>
       <div className="grid md:grid-cols-2 gap-4 mt-6">
-        <a href="/knowledge/assessment-tools/lead-score-predictor" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
-          <h4 className="font-medium text-dark mb-2">Lead Score Predictor Deep Dive</h4>
-          <p className="text-dark/60 text-sm">Master all features of the lead scoring system</p>
+        <a href="/knowledge/assessment-tools/website-lead-grader" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
+          <h4 className="font-medium text-dark mb-2">Website Lead Grader Deep Dive</h4>
+          <p className="text-dark/60 text-sm">Master all features of the grading system</p>
         </a>
         <a href="/knowledge/admin-analytics/dashboard-overview" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
           <h4 className="font-medium text-dark mb-2">Admin Dashboard Overview</h4>

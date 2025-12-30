@@ -25,7 +25,7 @@ const knowledgeCategories = [
     description: 'Detailed guides for each assessment tool',
     icon: Users,
     articles: [
-      { title: 'Lead Score Predictor Guide', slug: 'lead-score-predictor', readTime: '15 min' },
+      { title: 'Website Lead Grader Guide', slug: 'website-lead-grader', readTime: '15 min' },
       { title: 'Pipeline Leak Detector Manual', slug: 'pipeline-leak-detector', readTime: '18 min' },
       { title: 'Proposal Accelerator Guide', slug: 'proposal-accelerator', readTime: '20 min' },
       { title: 'Tech Stack Auditor Documentation', slug: 'tech-stack-auditor', readTime: '22 min' },
@@ -170,10 +170,10 @@ export default function KnowledgeBaseContent() {
                     <p className="text-dark/60 text-base leading-relaxed mt-2">Get up and running in 10 minutes</p>
                   </div>
                 </Link>
-                <Link href="/knowledge/assessment-tools/lead-score-predictor" className="group">
+                <Link href="/knowledge/assessment-tools/website-lead-grader" className="group">
                   <div className="bg-white p-6 rounded-xl border border-gray-200 hover:border-accent transition-colors">
-                    <h3 className="font-semibold text-dark group-hover:text-accent">Lead Score Predictor</h3>
-                    <p className="text-dark/60 text-base leading-relaxed mt-2">Master the lead scoring system</p>
+                    <h3 className="font-semibold text-dark group-hover:text-accent">Website Lead Grader</h3>
+                    <p className="text-dark/60 text-base leading-relaxed mt-2">Master the website grading system</p>
                   </div>
                 </Link>
                 <Link href="/knowledge/technical/api-reference" className="group">

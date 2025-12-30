@@ -12,7 +12,7 @@ export function Services() {
       title: "Generate Qualified Leads Consistently",
       description: "Precision targeting meets intelligent automation. We build marketing systems that attract your ideal clients and nurture them with personalized journeys—delivering qualified leads to your sales team on autopilot.",
       icon: Mountain,
-      hex: "#22d3ee",
+      hex: "#3DD6D0",
       link: "/services/lead-generation",
       assessmentTool: "lead-score",
       assessmentCTA: "Check Your Lead Generation Potential",
@@ -23,7 +23,7 @@ export function Services() {
       title: "Convert More Opportunities Into Revenue",
       description: "Transform your CRM into a revenue-generating engine. Our AI-powered automations optimize every touchpoint in your sales pipeline, improving conversion rates and ensuring no opportunity slips through the cracks.",
       icon: Megaphone,
-      hex: "#22d3ee",
+      hex: "#3DD6D0",
       link: "/services/sales-systems",
       assessmentTool: "pipeline-leak",
       assessmentCTA: "Find Revenue Leaks in Your Pipeline",
@@ -34,7 +34,7 @@ export function Services() {
       title: "Shorten Your Sales Cycle and Close More Deals",
       description: "Speed wins deals. We automate follow-ups, streamline proposals, and give your sales team the insights they need to close faster—improving win rates and accelerating your path to revenue.",
       icon: TrendingUp,
-      hex: "#22d3ee",
+      hex: "#3DD6D0",
       link: "/services/sales-systems",
       assessmentTool: "proposal",
       assessmentCTA: "Generate Your First AI Proposal",
@@ -45,7 +45,7 @@ export function Services() {
       title: "Maximize ROI from Your Tech Stack",
       description: "Your existing tools have untapped potential. We connect and optimize your software ecosystem to eliminate data silos, reduce manual work, and unlock the hidden value in your technology investments.",
       icon: Target,
-      hex: "#22d3ee",
+      hex: "#3DD6D0",
       link: "/services/office-automation",
       assessmentTool: "tech-audit",
       assessmentCTA: "Audit Your Tech Stack Costs",
@@ -110,7 +110,7 @@ export function Services() {
               className="group"
             >
               {/* Card - Enhanced with Assessment CTA */}
-              <div className="bg-gray-50 p-8 rounded-2xl shadow-xl hover:shadow-2xl border-l-4 border-l-[#22d3ee] transition-all duration-300 h-full flex flex-col">
+              <div className="bg-gray-50 p-8 rounded-2xl shadow-xl hover:shadow-2xl border-l-4 border-l-[#3DD6D0] transition-all duration-300 h-full flex flex-col">
                 
                 {/* Category Tag */}
                 <div className="flex items-center gap-3 mb-4">
@@ -138,7 +138,7 @@ export function Services() {
                   className="inline-flex items-center gap-4 text-black font-bold uppercase text-sm tracking-wider transition-colors group/link w-fit"
                 >
                   <span>READ MORE</span>
-                  <div className="w-10 h-10 rounded-full bg-gray-200/50 flex items-center justify-center group-hover/link:bg-[#22d3ee] transition-colors duration-300">
+                  <div className="w-10 h-10 rounded-full bg-gray-200/50 flex items-center justify-center group-hover/link:bg-[#3DD6D0] transition-colors duration-300">
                     <ArrowRight 
                       size={20} 
                       className="group-hover/link:translate-x-0.5 transition-transform" 

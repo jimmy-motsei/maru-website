@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET() {
-  const results = {
+  const results: Record<string, { status: string; error: string | null }> = {
     gemini: { status: 'unknown', error: null },
     firecrawl: { status: 'unknown', error: null },
     resend: { status: 'unknown', error: null }

@@ -11,7 +11,7 @@ const fadeUpVariants = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
+    transition: { duration: 0.6, ease: 'easeOut' as const }
   }
 };
 
@@ -36,7 +36,7 @@ export default function PrimaryCTASection() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <span className="font-light text-black/50">Ready to</span> See Your Score?
+            <span className="font-light text-black/50">Ready to</span> See Your Grade?
           </motion.h2>
           
           {/* Social Proof Reinforcement */}
@@ -59,7 +59,7 @@ export default function PrimaryCTASection() {
             className="mb-10 flex justify-center"
           >
             <CTAPrimary onClick={() => setShowModal(true)}>
-              GET MY FREE LEAD SCORE NOW
+              GET MY FREE WEBSITE GRADE NOW
             </CTAPrimary>
           </motion.div>
 

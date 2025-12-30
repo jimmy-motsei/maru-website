@@ -161,7 +161,7 @@ export default function SalesSystemsPage() {
                 </p>
                 <Link
                   href="/services/lead-generation"
-                  className="inline-flex items-center gap-2 text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors group"
+                  className="inline-flex items-center gap-2 text-[#3DD6D0] hover:text-[#3DD6D0]/80 transition-colors group"
                 >
                   <span className="font-medium">Get Your Free Lead Score Analysis</span>
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

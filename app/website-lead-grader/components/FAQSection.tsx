@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: "What happens after I complete it?",
-    answer: "You'll receive your Lead Generation Score (0-100) immediately on screen, plus a detailed PDF report sent to your email with specific recommendations prioritized by impact."
+    answer: "You'll receive your Website Lead Generation Grade (0-100) immediately on screen, plus a detailed PDF report sent to your email with specific recommendations prioritized by impact."
   },
   {
     question: "Will you spam me?",
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "Can I use this for my clients?",
-    answer: "Yes! Many agencies use our Lead Score Predictor to audit client websites. The PDF report is designed to be shared with stakeholders and makes a great addition to proposals."
+    answer: "Yes! Many agencies use our Website Lead Grader to audit client websites. The PDF report is designed to be shared with stakeholders and makes a great addition to proposals."
   }
 ];
 
@@ -32,7 +32,7 @@ const fadeUpVariants = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
+    transition: { duration: 0.6, ease: 'easeOut' as const }
   }
 };
 
@@ -54,9 +54,9 @@ export default function FAQSection() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeUpVariants}
-              className="inline-flex items-center justify-center w-14 h-14 bg-[#22d3ee]/10 rounded-full mb-6 border border-[#22d3ee]/30"
+              className="inline-flex items-center justify-center w-14 h-14 bg-[#3DD6D0]/10 rounded-full mb-6 border border-[#3DD6D0]/30"
             >
-              <HelpCircle className="w-7 h-7 text-[#22d3ee]" />
+              <HelpCircle className="w-7 h-7 text-[#3DD6D0]" />
             </motion.div>
             <motion.h2
               initial="hidden"
@@ -89,7 +89,7 @@ export default function FAQSection() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-[#111111] rounded-2xl border border-[#22d3ee]/10 overflow-hidden hover:border-[#22d3ee]/30 transition-colors"
+                className="bg-[#111111] rounded-2xl border border-[#3DD6D0]/10 overflow-hidden hover:border-[#3DD6D0]/30 transition-colors"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
@@ -99,9 +99,9 @@ export default function FAQSection() {
                   <motion.div
                     animate={{ rotate: openIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
-                    className="flex-shrink-0 w-8 h-8 bg-[#1a1a1a] rounded-lg flex items-center justify-center border border-[#22d3ee]/20"
+                    className="flex-shrink-0 w-8 h-8 bg-[#1a1a1a] rounded-lg flex items-center justify-center border border-[#3DD6D0]/20"
                   >
-                    <ChevronDown className="w-4 h-4 text-[#22d3ee]" />
+                    <ChevronDown className="w-4 h-4 text-[#3DD6D0]" />
                   </motion.div>
                 </button>
                 
@@ -114,7 +114,7 @@ export default function FAQSection() {
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-5 text-zinc-400 leading-relaxed border-t border-[#22d3ee]/10 pt-4">
+                      <div className="px-6 pb-5 text-zinc-400 leading-relaxed border-t border-[#3DD6D0]/10 pt-4">
                         {faq.answer}
                       </div>
                     </motion.div>

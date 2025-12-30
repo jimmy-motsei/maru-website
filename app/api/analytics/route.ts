@@ -13,6 +13,11 @@ export async function POST(request: NextRequest) {
 
     const supabase = supabaseAdmin;
 
+    if (!supabase) {
+      console.warn('Supabase not configured, skipping analytics');
+      return NextResponse.json({ success: true, skipped: true });
+    }
+
     // Store analytics event
     const { error } = await supabase
       .from('analytics_events')
@@ -24,7 +29,7 @@ export async function POST(request: NextRequest) {
         step,
         metadata: data,
         user_agent: request.headers.get('user-agent'),
-        ip_address: request.ip || request.headers.get('x-forwarded-for'),
+        ip_address: request.headers.get('x-forwarded-for'),
       });
 
     if (error) {

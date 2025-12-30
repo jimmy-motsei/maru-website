@@ -140,6 +140,10 @@ export default function PipelineLeakPage() {
 }
 
 function LeakDisplay({ results }: { results: PipelineLeakResult }) {
+  const stalledDeals = results.leaks.filter(l => l.description.toLowerCase().includes('stalled') || l.avgDaysInStage > 30).length;
+  const bottlenecks = results.leaks.filter(l => l.description.toLowerCase().includes('bottleneck')).length;
+  const velocityIssues = results.leaks.filter(l => l.description.toLowerCase().includes('velocity') || l.avgDaysInStage > 60).length;
+
   return (
     <div className="space-y-8">
       {/* Pipeline Health Score */}
@@ -158,7 +162,7 @@ function LeakDisplay({ results }: { results: PipelineLeakResult }) {
         <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
           <h3 className="text-lg font-semibold text-white mb-4">Revenue at Risk</h3>
           <div className="text-3xl font-bold text-red-400 mb-2">
-            ${results.revenue_at_risk.toLocaleString()}
+            ${results.summary.potentialRevenue.toLocaleString()}
           </div>
           <p className="text-zinc-400">Potential revenue loss from pipeline leaks</p>
         </div>
@@ -166,7 +170,7 @@ function LeakDisplay({ results }: { results: PipelineLeakResult }) {
         <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
           <h3 className="text-lg font-semibold text-white mb-4">Total Deals Analyzed</h3>
           <div className="text-3xl font-bold text-cyan-400 mb-2">
-            {results.total_deals}
+            {results.totalDeals}
           </div>
           <p className="text-zinc-400">Deals in your pipeline</p>
         </div>
@@ -176,7 +180,7 @@ function LeakDisplay({ results }: { results: PipelineLeakResult }) {
       <div className="grid md:grid-cols-3 gap-6">
         <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl text-center">
           <div className="text-2xl font-bold text-yellow-400 mb-2">
-            {results.leaks_detected.stalled_deals}
+            {stalledDeals}
           </div>
           <h4 className="font-medium text-white mb-1">Stalled Deals</h4>
           <p className="text-sm text-zinc-400">No activity in 30+ days</p>
@@ -184,7 +188,7 @@ function LeakDisplay({ results }: { results: PipelineLeakResult }) {
         
         <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl text-center">
           <div className="text-2xl font-bold text-orange-400 mb-2">
-            {results.leaks_detected.stage_bottlenecks}
+            {bottlenecks}
           </div>
           <h4 className="font-medium text-white mb-1">Stage Bottlenecks</h4>
           <p className="text-sm text-zinc-400">Deals stuck in stages</p>
@@ -192,7 +196,7 @@ function LeakDisplay({ results }: { results: PipelineLeakResult }) {
         
         <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl text-center">
           <div className="text-2xl font-bold text-red-400 mb-2">
-            {results.leaks_detected.velocity_issues}
+            {velocityIssues}
           </div>
           <h4 className="font-medium text-white mb-1">Velocity Issues</h4>
           <p className="text-sm text-zinc-400">Slow-moving deals</p>

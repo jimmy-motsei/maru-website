@@ -3,8 +3,8 @@ import DocLayout from '@/components/docs/DocLayout';
 import { Callout, CodeBlock, Step, TableOfContents } from '@/components/docs/ContentComponents';
 
 export const metadata: Metadata = {
-  title: 'Lead Score Predictor Guide | Maru Lead Generation Engine',
-  description: 'Master the AI-powered lead scoring system. Complete guide to website analysis and optimization recommendations.',
+  title: 'Website Lead Grader Guide | Maru Lead Generation Engine',
+  description: 'Master the AI-powered website grading system. Complete guide to website analysis and optimization recommendations.',
 };
 
 const tableOfContents = [
@@ -16,17 +16,17 @@ const tableOfContents = [
   { id: 'optimization-tips', title: 'Optimization Tips', level: 1 },
 ];
 
-export default function LeadScorePredictorPage() {
+export default function WebsiteLeadGraderPage() {
   return (
     <DocLayout
-      title="Lead Score Predictor Guide"
-      description="Master the AI-powered lead scoring system. Complete guide to website analysis and optimization recommendations."
+      title="Website Lead Grader Guide"
+      description="Master the AI-powered website grading system. Complete guide to website analysis and optimization recommendations."
       category="Assessment Tools"
       readTime="15 min"
       lastUpdated="December 23, 2024"
       breadcrumbs={[
         { label: 'Assessment Tools', href: '/knowledge/assessment-tools' },
-        { label: 'Lead Score Predictor', href: '/knowledge/assessment-tools/lead-score-predictor' },
+        { label: 'Website Lead Grader', href: '/knowledge/assessment-tools/website-lead-grader' },
       ]}
     >
       <TableOfContents items={tableOfContents} />
@@ -34,9 +34,9 @@ export default function LeadScorePredictorPage() {
       <h2 id="overview">Overview</h2>
       
       <p>
-        The Lead Score Predictor is an AI-powered assessment tool that evaluates your website's 
-        lead generation potential and provides actionable recommendations for improvement. It analyzes 
-        multiple factors to give you a comprehensive score from 0-100.
+        The Website Lead Grader is an AI-powered assessment tool that evaluates your website's 
+        lead generation performance and provides actionable recommendations for improvement. It analyzes 
+        multiple factors to give you a comprehensive grade from 0-100.
       </p>
 
       <Callout type="info" title="What You'll Get">
@@ -52,7 +52,7 @@ export default function LeadScorePredictorPage() {
       <h2 id="how-it-works">How It Works</h2>
 
       <p>
-        The Lead Score Predictor uses Google Gemini AI to analyze your company information and 
+        The Website Lead Grader uses Google Gemini AI to analyze your company information and 
         website details. Here's the process:
       </p>
 
@@ -140,10 +140,10 @@ export default function LeadScorePredictorPage() {
       </Callout>
 
       <Step number={1} title="Access the Assessment">
-        <p>Navigate to the Lead Score Predictor:</p>
+        <p>Navigate to the Website Lead Grader:</p>
         <CodeBlock language="text">
-{`URL: /assessments/lead-score
-Or click "START FREE AUDIT" from the homepage`}
+{`URL: /website-lead-grader
+Or click "Grade My Website" from the homepage`}
         </CodeBlock>
       </Step>
 
@@ -162,7 +162,7 @@ Or click "START FREE AUDIT" from the homepage`}
 
       <Step number={3} title="Submit and Wait">
         <p>
-          Click "Analyze Website" and wait 30-60 seconds for AI processing. 
+          Click "Calculate My Grade" and wait 30-60 seconds for AI processing. 
           The system will analyze your website and generate personalized recommendations.
         </p>
       </Step>

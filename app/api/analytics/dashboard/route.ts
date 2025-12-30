@@ -10,6 +10,9 @@ export async function GET(request: NextRequest) {
   }
 
   try {
+    if (!supabaseAdmin) {
+      return NextResponse.json({ error: 'Supabase not configured' }, { status: 500 });
+    }
     const { searchParams } = new URL(request.url);
     const timeframe = searchParams.get('timeframe') || '30d';
     const assessmentType = searchParams.get('assessment_type');

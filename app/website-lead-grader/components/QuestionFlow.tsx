@@ -141,7 +141,7 @@ export default function QuestionFlow({ leadData }: QuestionFlowProps) {
       }
 
       // Navigate to analysis page
-      router.push('/lead-score-predictor/analysis');
+      router.push('/website-lead-grader/analysis');
     } catch (error) {
       console.error('Error submitting assessment:', error);
     } finally {
@@ -290,7 +290,7 @@ export default function QuestionFlow({ leadData }: QuestionFlowProps) {
                 'Processing...'
               ) : currentQuestion === questions.length - 1 ? (
                 <>
-                  Analyze My Website
+                  Calculate My Grade
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </>
               ) : (

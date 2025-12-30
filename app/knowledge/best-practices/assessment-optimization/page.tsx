@@ -22,9 +22,14 @@ export default function AssessmentOptimizationPage() {
     <DocLayout
       title="Assessment Optimization"
       description="Maximize the value and accuracy of your assessment results"
-      readingTime="14 min read"
+      readTime="14 min read"
       category="Best Practices"
       lastUpdated="2024-12-19"
+      breadcrumbs={[
+        { label: 'Knowledge Base', href: '/knowledge' },
+        { label: 'Best Practices', href: '/knowledge/best-practices' },
+        { label: 'Assessment Optimization', href: '#' },
+      ]}
     >
       <TableOfContents items={tocItems} />
 
@@ -75,7 +80,7 @@ export default function AssessmentOptimizationPage() {
             Define what you want to achieve with each assessment:
           </p>
           <ul className="text-base leading-relaxed">
-            <li><strong>Lead Score Predictor:</strong> Identify high-potential prospects and improve qualification</li>
+            <li><strong>Website Lead Grader:</strong> Identify high-potential prospects and improve qualification</li>
             <li><strong>Pipeline Leak Detector:</strong> Find bottlenecks and optimize conversion rates</li>
             <li><strong>Proposal Accelerator:</strong> Streamline proposal creation and improve win rates</li>
             <li><strong>Tech Stack Auditor:</strong> Reduce costs and eliminate redundancies</li>
@@ -101,7 +106,7 @@ export default function AssessmentOptimizationPage() {
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2">Lead Score Predictor</td>
+                  <td className="border border-gray-300 px-4 py-2">Website Lead Grader</td>
                   <td className="border border-gray-300 px-4 py-2">Website URL + Industry</td>
                   <td className="border border-gray-300 px-4 py-2">+ Company size + Revenue + Contact info</td>
                 </tr>
@@ -155,7 +160,7 @@ export default function AssessmentOptimizationPage() {
           
           <div className="space-y-8">
             <div className="border-l-4 border-green-500 pl-6">
-              <h3 className="text-green-700">Lead Score Predictor Optimization</h3>
+              <h3 className="text-green-700">Website Lead Grader Optimization</h3>
               
               <h4>Website Preparation</h4>
               <ul className="text-base leading-relaxed">
@@ -409,8 +414,8 @@ export default function AssessmentOptimizationPage() {
               Apply these optimization techniques to get more accurate and actionable insights from our assessment tools.
             </p>
             <div className="space-y-2">
-              <a href="/knowledge/assessment-tools/lead-score-predictor" className="text-blue-600 hover:text-blue-800 underline block">
-                → Start with Lead Score Predictor
+              <a href="/knowledge/assessment-tools/website-lead-grader" className="text-blue-600 hover:text-blue-800 underline block">
+                → Start with Website Lead Grader
               </a>
               <a href="/knowledge/best-practices/lead-generation-best-practices" className="text-blue-600 hover:text-blue-800 underline block">
                 → Review Lead Generation Best Practices
