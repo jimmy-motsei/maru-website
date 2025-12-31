@@ -9,7 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ className, variant = "primary", href, children, ...props }: ButtonProps) {
-  const baseStyles = "group inline-flex h-[60px] lg:h-[70px] items-center justify-center rounded-full px-4 pl-10 text-xs font-medium uppercase tracking-[2px] transition-all duration-400 hover:scale-[1.015] hover:brightness-110";
+  const baseStyles = "group inline-flex h-[60px] lg:h-[70px] items-center justify-center rounded-full pl-[40px] pr-[10px] lg:pl-[50px] lg:pr-[15px] text-[12px] font-medium uppercase tracking-[2px] transition-all duration-400 hover:scale-[1.015] hover:brightness-110";
   
   const variants = {
     primary: "bg-accent text-black",
@@ -21,7 +21,7 @@ export function Button({ className, variant = "primary", href, children, ...prop
     <>
       {children && <span className="whitespace-nowrap">{children}</span>}
       <div className={cn(
-        "ml-6 flex h-10 w-10 items-center justify-center rounded-full bg-black transition-transform duration-400 group-hover:scale-115",
+        "ml-[30px] flex h-10 w-10 items-center justify-center rounded-full bg-black transition-transform duration-400 group-hover:scale-115",
         variant === "icon" && "ml-0 bg-accent text-black"
       )}>
         <ArrowRight className={cn("h-4 w-4", variant === "primary" ? "text-accent" : "text-black")} />

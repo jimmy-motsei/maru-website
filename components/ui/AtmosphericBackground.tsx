@@ -13,28 +13,18 @@ export function AtmosphericBackground({ variant = "hero", className, theme = "da
   const strokeColor = "text-[#3DD6D0]"; // Maru Brand Cyan
 
   if (variant === "overlay") {
-    // ... existing overlay code ...
+    // Navigation overlay - cloud positioned in top-right corner (matches Ashley theme)
     return (
       <div className={cn("absolute inset-0 pointer-events-none overflow-hidden select-none", className)}>
-        <div className="absolute top-[-20%] right-[-10%] scale-[0.8] origin-top-right opacity-50">
-           <div className="absolute top-0 right-0 w-[800px] h-[600px]">
-              <CloudWireframe 
-                 className={cn("w-full h-full rotate-12", strokeColor)} 
-                 duration={40} 
-                 delay={0} 
-                 strokeWidth={1.2} 
-                 showNodes={true}
-                 opacity={0.5}
-              />
-           </div>
-           <div className="absolute top-[10%] right-[20%] w-[900px] h-[700px] -z-10">
-              <CloudWireframe 
-                 className={cn("w-full h-full -rotate-6", strokeColor)} 
-                 duration={50} 
-                 delay={2}
-                 opacity={0.4}
-              />
-           </div>
+        <div className="absolute top-0 right-0 w-[600px] h-[400px] opacity-60 lg:opacity-70">
+           <CloudWireframe 
+              className={cn("w-full h-full", strokeColor)} 
+              duration={40} 
+              delay={0} 
+              strokeWidth={1.5} 
+              showNodes={true}
+              opacity={0.7}
+           />
         </div>
       </div>
     );

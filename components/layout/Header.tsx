@@ -124,7 +124,7 @@ export function Header() {
             </div>
 
             {/* Overlay Content */}
-            <div className="container mx-auto px-6 lg:px-12 min-h-[calc(100vh-100px)] flex flex-col justify-center pb-12 relative">
+            <div className="container mx-auto px-6 lg:px-12 h-[calc(100vh-100px)] flex flex-col pt-[200px] lg:pt-[300px] relative">
               
               {/* Cloud Network Background - New Maru Aesthetic */}
               <AtmosphericBackground variant="overlay" className="z-0" />
@@ -132,23 +132,26 @@ export function Header() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 relative z-10">
                 
                 {/* Left Column: Primary Navigation */}
-                <div className="lg:col-span-5 flex flex-col justify-center space-y-4 lg:space-y-6">
-                  {menuItems.primary.map((item, index) => (
-                    <motion.div
-                      key={item.name}
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
-                    >
-                      <Link
-                        href={item.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className={`block type-h1 font-light tracking-tight transition-colors duration-300 text-white hover:text-accent`}
+                <div className="lg:col-span-5 flex flex-col">
+                  <ul className="list-none p-0 m-0">
+                    {menuItems.primary.map((item, index) => (
+                      <motion.li
+                        key={item.name}
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
+                        className="mb-[8px] lg:mb-[10px] last:mb-0"
                       >
-                        {item.name}
-                      </Link>
-                    </motion.div>
-                  ))}
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="block text-[26px] lg:text-[34px] font-medium text-white/80 hover:text-accent transition-all duration-400 hover:translate-x-[5px] leading-[1.1]"
+                        >
+                          {item.name}
+                        </Link>
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
 
                 {/* Vertical Divider Line */}
@@ -162,25 +165,25 @@ export function Header() {
                 </div>
 
                 {/* Right Column: Secondary Links & Details */}
-                <div className="lg:col-span-6 flex flex-col justify-between pt-8 lg:pt-0 pl-0 lg:pl-12">
+                <div className="lg:col-span-6 flex flex-col justify-start pt-8 lg:pt-0 pl-0 lg:pl-[60px]">
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 lg:mt-20">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
                     {/* AI Audits / Assessments */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 }}
                     >
-                      <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-6">
+                      <h3 className="text-[15px] font-semibold text-white mb-6">
                         AI Audits
                       </h3>
-                      <ul className="space-y-4">
+                      <ul className="space-y-[15px]">
                         {menuItems.projects.map((project) => (
                           <li key={project.name}>
                             <Link
                               href={project.href}
                               onClick={() => setIsMenuOpen(false)}
-                              className="text-gray-600 hover:text-white transition-colors text-base"
+                              className="text-[15px] text-white/50 hover:text-white hover:translate-x-[5px] transition-all duration-200 block"
                             >
                               {project.name}
                             </Link>
@@ -195,16 +198,16 @@ export function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.6 }}
                     >
-                      <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-6">
+                      <h3 className="text-[15px] font-semibold text-white mb-6">
                         Useful links
                       </h3>
-                      <ul className="space-y-4">
+                      <ul className="space-y-[15px]">
                         {menuItems.usefulLinks.map((link) => (
                           <li key={link.name}>
                             <Link
                               href={link.href}
                               onClick={() => setIsMenuOpen(false)}
-                              className="text-gray-600 hover:text-white transition-colors text-base"
+                              className="text-[15px] text-white/50 hover:text-white hover:translate-x-[5px] transition-all duration-200 block"
                             >
                               {link.name}
                             </Link>

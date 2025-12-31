@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Outfit, Inter } from "next/font/google";
 import Script from "next/script";
 import ClientChatWidget from "@/components/ClientChatWidget";
@@ -45,7 +46,9 @@ export default function RootLayout({
         <Preloader />
         <ConversionTracking />
         <PerformanceMonitor />
-        <JourneyAnalytics />
+        <Suspense fallback={null}>
+          <JourneyAnalytics />
+        </Suspense>
         <Header />
         <PageFrame />
         {children}
