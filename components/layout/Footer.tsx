@@ -180,6 +180,11 @@ export function Footer() {
                     WhatsApp Solutions
                   </Link>
                 </li>
+                <li>
+                  <Link href="/services/website-development" className="text-white/70 hover:text-accent transition-colors duration-300">
+                    Web Development
+                  </Link>
+                </li>
               </ul>
             </motion.div>
 
