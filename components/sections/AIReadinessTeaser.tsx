@@ -55,7 +55,7 @@ export function AIReadinessTeaser() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <CTAPrimary href="/lead-generation">
+            <CTAPrimary href="https://leads.maruonline.com">
               GET YOUR FREE LEAD ANALYSIS
             </CTAPrimary>
           </motion.div>

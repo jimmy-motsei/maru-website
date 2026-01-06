@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+
 import { ArrowRight, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
-import EmailCaptureModal from './EmailCaptureModal';
+
 import { CTAPrimary } from '@/components/ui/CTAPrimary';
 
 const fadeUpVariants = {
@@ -16,7 +16,7 @@ const fadeUpVariants = {
 };
 
 export default function PrimaryCTASection() {
-  const [showModal, setShowModal] = useState(false);
+
 
   const frictionReducers = [
     "No credit card required",
@@ -58,7 +58,7 @@ export default function PrimaryCTASection() {
             variants={fadeUpVariants}
             className="mb-10 flex justify-center"
           >
-            <CTAPrimary onClick={() => setShowModal(true)}>
+            <CTAPrimary href="https://leads.maruonline.com">
               GET MY FREE LEAD SCORE NOW
             </CTAPrimary>
           </motion.div>
@@ -81,7 +81,7 @@ export default function PrimaryCTASection() {
         </div>
       </div>
 
-      <EmailCaptureModal isOpen={showModal} onClose={() => setShowModal(false)} />
+
     </section>
   );
 }
