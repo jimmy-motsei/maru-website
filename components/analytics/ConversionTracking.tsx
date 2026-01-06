@@ -42,8 +42,8 @@ export function ConversionTracking() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(eventData),
-      }).catch(() => {
-        // Fail silently for analytics
+      }).catch((err) => {
+        console.error('Analytics failed:', err);
       });
     }
   };

@@ -106,7 +106,6 @@ export function TechConnect() {
              fill
              className="object-cover"
              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-             priority
            />
            
            {/* Dark Overlay for text legibility if needed, lighter here for clear workspace feel */}

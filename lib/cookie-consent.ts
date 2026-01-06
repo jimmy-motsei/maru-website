@@ -41,7 +41,22 @@ export const useCookieConsent = () => {
     const getStored = () => {
       try {
         const item = localStorage.getItem(COOKIE_CONSENT_KEY);
-        return item ? JSON.parse(item) : null;
+        if (!item) return null;
+        
+        const parsed = JSON.parse(item);
+        // Ensure structure is valid by merging with defaults
+        if (parsed && typeof parsed === 'object') {
+             // Handle case where categories might be missing or incomplete
+             if (!parsed.categories) {
+                 return { ...DEFAULT_CONSENT, ...parsed, categories: DEFAULT_CONSENT.categories };
+             }
+             return {
+                 ...DEFAULT_CONSENT,
+                 ...parsed,
+                 categories: { ...DEFAULT_CONSENT.categories, ...parsed.categories }
+             };
+        }
+        return null;
       } catch { return null; }
     };
     setConsent(getStored());
