@@ -95,6 +95,18 @@ export const aiReadinessAssessments = pgTable('ai_readiness_assessments', {
 });
 
 // =============================================================================
+// LEAD ACTIVITIES TABLE
+// =============================================================================
+
+export const leadActivities = pgTable('lead_activities', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  leadId: uuid('lead_id').references(() => leads.id, { onDelete: 'cascade' }),
+  activityType: varchar('activity_type', { length: 100 }).notNull(),
+  metadata: jsonb('metadata'),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
+});
+
+// =============================================================================
 // TYPE EXPORTS
 // =============================================================================
 
@@ -106,3 +118,5 @@ export type PipelineAnalysis = typeof pipelineAnalyses.$inferSelect;
 export type NewPipelineAnalysis = typeof pipelineAnalyses.$inferInsert;
 export type AIReadinessAssessment = typeof aiReadinessAssessments.$inferSelect;
 export type NewAIReadinessAssessment = typeof aiReadinessAssessments.$inferInsert;
+export type LeadActivity = typeof leadActivities.$inferSelect;
+export type NewLeadActivity = typeof leadActivities.$inferInsert;

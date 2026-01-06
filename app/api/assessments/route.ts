@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabaseAdmin } from '@/lib/supabase';
+import { dbLeadEngine } from '@/lib/db';
+import { assessments } from '@/lib/db/schema/lead-engine';
+import { eq } from 'drizzle-orm';
 import { createOrUpdateLead, updateLeadScore, trackActivity } from '@/lib/lead-utils';
-import { Assessment, Lead } from '@/lib/types/lead-generation';
 import { rateLimit, createRateLimitResponse } from '@/lib/rate-limit';
 import { validateInput, sanitizeString, sanitizeEmail, sanitizeUrl } from '@/lib/validation';
 import { z } from 'zod';
@@ -69,19 +70,19 @@ export async function POST(request: NextRequest) {
     await trackActivity(lead.id, 'assessment_start', { app_type });
 
     // 6. Create assessment record
-    const { data: assessment, error: assessmentError } = await supabaseAdmin
-      .from('assessments')
-      .insert({
-        lead_id: lead.id,
-        app_type,
-        input_data: sanitizedData.input_data,
+    const [assessment] = await dbLeadEngine
+      .insert(assessments)
+      .values({
+        leadId: lead.id,
+        email: sanitizedData.email,
+        type: app_type,
+        inputData: sanitizedData.input_data,
         status: 'in_progress',
+        createdAt: new Date(),
       })
-      .select()
-      .single();
+      .returning();
 
-    if (assessmentError) {
-      console.error('Assessment creation error:', assessmentError);
+    if (!assessment) {
       return NextResponse.json(
         { success: false, error: 'Failed to create assessment' },
         { status: 500, headers }
@@ -112,6 +113,13 @@ export async function POST(request: NextRequest) {
       }
     } catch (processingError) {
       console.error('Assessment processing error:', processingError);
+      
+      // Update status to failed
+      await dbLeadEngine
+         .update(assessments)
+         .set({ status: 'failed' })
+         .where(eq(assessments.id, assessment.id));
+
       return NextResponse.json(
         { success: false, error: 'Assessment processing failed' },
         { status: 500, headers }
@@ -119,24 +127,16 @@ export async function POST(request: NextRequest) {
     }
 
     // 8. Update assessment with results
-    const { error: updateError } = await supabaseAdmin
-      .from('assessments')
-      .update({
-        analysis_data: analysisResult,
+    await dbLeadEngine
+      .update(assessments)
+      .set({
+        analysisData: analysisResult,
         score: analysisResult.score,
         recommendations: analysisResult.recommendations,
         status: 'completed',
-        completed_at: new Date().toISOString(),
+        completedAt: new Date(),
       })
-      .eq('id', assessment.id);
-
-    if (updateError) {
-      console.error('Assessment update error:', updateError);
-      return NextResponse.json(
-        { success: false, error: 'Failed to update assessment' },
-        { status: 500, headers }
-      );
-    }
+      .where(eq(assessments.id, assessment.id));
 
     // 9. Update lead score and track completion
     await updateLeadScore(lead.id);
