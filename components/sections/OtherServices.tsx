@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Target, TrendingUp, Cog, MessageCircle, LucideIcon } from "lucide-react";
+import { ArrowRight, Target, TrendingUp, Cog, MessageCircle, Code2, LucideIcon } from "lucide-react";
 
 interface ServiceInfo {
   id: string;
@@ -52,6 +52,15 @@ const allServices: ServiceInfo[] = [
     href: "/services/whatsapp-solutions",
     icon: MessageCircle,
     iconColor: "#22c55e",
+  },
+  {
+    id: "website-development",
+    title: "Web Development",
+    description: "High-performance websites built to convert visitors into leads with blazing speed and modern architecture.",
+    features: ["Next.js/React", "90+ Lighthouse Scores", "SEO-First Design", "Conversion Optimization"],
+    href: "/services/website-development",
+    icon: Code2,
+    iconColor: "#22d3ee",
   },
 ];
 
