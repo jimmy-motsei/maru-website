@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Outfit, Inter } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { FooterCTA } from "@/components/layout/FooterCTA";
 import { PageFrame } from "@/components/layout/PageFrame";
-import Preloader from "@/components/ui/Preloader";
 import { ConversionTracking } from "@/components/analytics/ConversionTracking";
 import { PerformanceMonitor } from "@/components/analytics/PerformanceMonitor";
 import { JourneyAnalytics } from "@/components/analytics/JourneyAnalytics";
-// import CookieConsent from "@/components/CookieConsent";
-// import CookieManager from "@/components/CookieManager";
+import CookieConsent from "@/components/ui/CookieConsent";
+import CookieManager from "@/components/CookieManager";
+
+import BookingModal from "@/components/ui/BookingModal";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -26,11 +27,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Maru Online | AI Marketing Solutions",
-  description: "Bridge your business into the age of AI with Maru Online. We combine comprehensive marketing solutions with cutting-edge AI technology.",
+  description: "Bridge your business into the age of AI with Maru Online.",
 };
-
-// HubSpot Portal ID
-const HUBSPOT_PORTAL_ID = "146669350";
 
 export default function RootLayout({
   children,
@@ -43,16 +41,18 @@ export default function RootLayout({
         className={`${outfit.variable} ${inter.variable} antialiased font-sans bg-dark text-white`}
         suppressHydrationWarning
       >
-        <Preloader />
         <ConversionTracking />
         <PerformanceMonitor />
-        <JourneyAnalytics />
+        <Suspense fallback={null}>
+          <JourneyAnalytics />
+        </Suspense>
         <Header />
         <PageFrame />
         {children}
         <FooterCTA />
-        {/* <CookieManager /> */}
-        {/* <CookieConsent /> */}
+        <CookieManager />
+        <CookieConsent />
+        <BookingModal />
       </body>
     </html>
   );

@@ -226,18 +226,12 @@ export default function KnowledgeBaseContent() {
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
                 Can't find what you're looking for? Our support team is here to help you get the most out of your lead generation engine.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex justify-center">
                 <Link
                   href="/contact"
                   className="bg-white text-accent px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
                 >
                   Contact Support
-                </Link>
-                <Link
-                  href="/knowledge/faq-support/video-tutorials"
-                  className="border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
-                >
-                  Watch Tutorials
                 </Link>
               </div>
             </div>

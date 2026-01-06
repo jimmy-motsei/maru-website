@@ -22,7 +22,7 @@ export default function DataPrivacySecurityPage() {
     <DocLayout
       title="Data Privacy & Security"
       description="Comprehensive guide to our data protection practices and security measures"
-      readingTime="12 min read"
+      readTime="12 min read"
       category="Best Practices"
       lastUpdated="2024-12-19"
     >

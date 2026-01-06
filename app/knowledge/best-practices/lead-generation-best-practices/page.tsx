@@ -22,7 +22,7 @@ export default function LeadGenerationBestPracticesPage() {
     <DocLayout
       title="Lead Generation Best Practices"
       description="Master proven strategies and methodologies for effective lead generation"
-      readingTime="18 min read"
+      readTime="18 min read"
       category="Best Practices"
       lastUpdated="2024-12-19"
     >

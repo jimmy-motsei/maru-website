@@ -220,8 +220,8 @@ export default function ServicesPage() {
             className="mb-8"
           >
             <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-muted mb-6">
-              AI & <span className="font-light">Automation</span> That Actually<br />
-              Drives <span className="font-light">Revenue</span>
+              Ai Automation <span className="font-light">Systems</span><br />
+              that drive <span className="font-light">Revenue</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/60 max-w-3xl">
               Smart systems that generate leads, close sales, and run your operations—so you can focus on growth
@@ -432,7 +432,7 @@ export default function ServicesPage() {
 
             {/* FAQ Items */}
             <motion.div
-              className="divide-y divide-white/10"
+              className="divide-y divide-white/20"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -481,7 +481,7 @@ export default function ServicesPage() {
                     <span className="text-lg font-medium text-white group-open:text-accent transition-colors">
                       {faq.q}
                     </span>
-                    <span className="text-2xl text-white/40 group-open:rotate-45 transition-transform duration-300">
+                    <span className="text-2xl text-white/50 group-open:rotate-45 transition-transform duration-300">
                       +
                     </span>
                   </summary>
@@ -578,7 +578,7 @@ export default function ServicesPage() {
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <div className="flex items-baseline gap-4 mb-3">
-                    <span className="text-3xl font-bold text-accent">R Custom</span>
+                    <span className="text-3xl font-bold text-accent">Custom</span>
                     <h3 className="text-2xl font-bold text-white">Enterprise Solution</h3>
                   </div>
                   <p className="text-white/60">
@@ -632,7 +632,7 @@ export default function ServicesPage() {
               <span className="font-light">10+ Hours Per Week</span>
             </h2>
             <p className="text-xl text-dark/60 mb-12 max-w-2xl mx-auto">
-              Get your free AI opportunity assessment—no obligation, just insights
+              Get your free Ai Readiness Assessment—no obligation, just insights
             </p>
 
             {/* Pill Button - Ashley Style */}

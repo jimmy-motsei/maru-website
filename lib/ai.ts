@@ -1,10 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-if (!process.env.GOOGLE_AI_API_KEY) {
-  throw new Error('GOOGLE_AI_API_KEY environment variable is required');
-}
-
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY);
+const apiKey = process.env.GOOGLE_AI_API_KEY || 'placeholder-key';
+const genAI = new GoogleGenerativeAI(apiKey);
 
 export async function generateAIResponse(prompt: string, systemPrompt?: string): Promise<string> {
   try {

@@ -145,7 +145,7 @@ export default function ResultsDashboard({ results }: ResultsDashboardProps) {
                   strokeDasharray={`${2 * Math.PI * 40}`}
                   initial={{ strokeDashoffset: 2 * Math.PI * 40 }}
                   animate={{ strokeDashoffset: 2 * Math.PI * 40 * (1 - results.score / 100) }}
-                  transition={{ duration: 1.5, ease: "easeOut" }}
+                  transition={{ duration: 1.5, ease: "easeOut" as const }}
                 />
                 <defs>
                   <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">

@@ -137,23 +137,18 @@ export default function AIReadinessPage() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* Minimal Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
-        <div className="container mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold">
-            Maru<span className="text-accent">.</span>
-          </Link>
-          <Link href="/" className="text-sm text-white/60 hover:text-white transition-colors">
-            ← Back to Home
-          </Link>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm">
+        <div className="container mx-auto px-6 lg:px-8 py-6">
+          <Link href="/" className="text-white font-bold text-3xl tracking-tight hover:text-[#22d3ee] transition-colors">M.</Link>
         </div>
         {/* Progress Bar */}
-        <div className="h-1 bg-white/10">
-          <motion.div
-            className="h-full bg-accent"
-            initial={{ width: 0 }}
-            animate={{ width: `${progress}%` }}
-            transition={{ duration: 0.3 }}
-          />
+        <div className="h-1 bg-white/5 w-full">
+           <motion.div
+             className="h-full bg-[#22d3ee] shadow-[0_0_10px_rgba(34,211,238,0.5)]"
+             initial={{ width: 0 }}
+             animate={{ width: `${progress}%` }}
+             transition={{ duration: 0.5, ease: "easeInOut" }}
+           />
         </div>
       </header>
 
@@ -171,24 +166,24 @@ export default function AIReadinessPage() {
                 transition={{ duration: 0.4 }}
                 className="text-center"
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8">
-                  <Sparkles size={16} className="text-accent" />
-                  <span className="text-sm font-medium text-accent uppercase tracking-wider">Free AI-Powered Assessment Tool</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#22d3ee]/10 border border-[#22d3ee]/30 mb-8">
+                  <Sparkles size={16} className="text-[#22d3ee]" />
+                  <span className="text-sm font-medium text-[#22d3ee] uppercase tracking-wider">Free AI-Powered Assessment Tool</span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
-                  <span className="font-normal">Is Your Website</span>{" "}
-                  <span className="font-bold">Optimized for Leads?</span>
+                <h1 className="tracking-tight leading-[0.95] text-[27px] md:text-[40px] lg:text-[54px] xl:text-[61px] 2xl:text-[67px] mb-6">
+                  <span className="font-extralight text-zinc-500">Is your Marketing</span>{" "}
+                  <span className="font-bold text-white">Ai-Optimized?</span>
                 </h1>
 
-                <p className="text-lg text-[#B4BCC8] mb-12 max-w-2xl mx-auto font-normal">
-                  Most B2B websites turn only 1-2 out of every 100 visitors into leads. Top performers get 5-6 leads from those same 100 visitors—Take our 5-minute analysis and discover your lead optimization score.
+                <p className="text-[18px] md:text-[22px] lg:text-[24px] font-light text-zinc-400 leading-[1.5] mb-12 max-w-3xl mx-auto">
+                  Stop guessing and start scaling. Our AI-driven analysis audits your entire marketing stack to uncover hidden revenue leaks, streamline operations, and identify the exact AI tools that will accelerate your growth.
                 </p>
 
                 <CTAPrimary
                   onClick={handleNext}
                 >
-                  GET YOUR FREE LEAD ANALYSIS
+                  GET YOUR FREE ASSESSMENT
                 </CTAPrimary>
 
                 <p className="mt-8 text-sm text-white/40">Takes less than 5 minutes</p>
@@ -210,12 +205,12 @@ export default function AIReadinessPage() {
                 </div>
 
                 {/* Pillar Badge */}
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold tracking-wider uppercase mb-6">
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#22d3ee]/10 text-[#22d3ee] text-xs font-bold tracking-wider uppercase mb-6">
                   {currentQuestion.pillar}
                 </div>
 
                 {/* Question */}
-                <h2 className="text-2xl md:text-3xl font-bold mb-10">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-10 text-white">
                   {currentQuestion.question}
                 </h2>
 
@@ -227,15 +222,15 @@ export default function AIReadinessPage() {
                       <button
                         key={index}
                         onClick={() => handleAnswer(currentQuestion.id, option.score)}
-                        className={`w-full text-left p-5 rounded-xl border transition-all duration-300 ${
+                        className={`w-full text-left p-6 rounded-xl border transition-all duration-300 group ${
                           isSelected
-                            ? "border-accent bg-accent/10 text-white"
-                            : "border-white/10 bg-white/5 text-white/80 hover:border-white/30 hover:bg-white/10"
+                            ? "border-[#22d3ee] bg-[#22d3ee]/10 text-white"
+                            : "border-white/10 bg-white/5 text-white/60 hover:border-[#22d3ee]/50 hover:bg-white/10 hover:text-white"
                         }`}
                       >
                         <div className="flex items-center justify-between">
-                          <span>{option.label}</span>
-                          {isSelected && <CheckCircle size={20} className="text-accent" />}
+                          <span className="text-lg font-medium">{option.label}</span>
+                          {isSelected && <CheckCircle size={24} className="text-[#22d3ee]" />}
                         </div>
                       </button>
                     );
@@ -255,7 +250,7 @@ export default function AIReadinessPage() {
                   {answers[currentQuestion.id] !== undefined && (
                     <button
                       onClick={handleNext}
-                      className="flex items-center gap-2 text-accent hover:text-accent-light transition-colors"
+                      className="flex items-center gap-2 text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors font-medium border-b border-[#22d3ee] pb-0.5"
                     >
                       <span>Next</span>
                       <ArrowRight size={18} />
@@ -320,13 +315,13 @@ export default function AIReadinessPage() {
                     />
                   </div>
 
-                  <button
+                  <CTAPrimary
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-accent hover:bg-accent-dark text-black font-bold py-4 rounded-full transition-all duration-300 disabled:opacity-50"
+                    className="w-full !py-4 !text-lg !rounded-full"
                   >
                     {isSubmitting ? "Processing..." : "See My Results"}
-                  </button>
+                  </CTAPrimary>
                 </form>
 
                 <button
@@ -371,7 +366,7 @@ export default function AIReadinessPage() {
                       stroke="currentColor"
                       strokeWidth="12"
                       strokeLinecap="round"
-                      className="text-accent"
+                      className="text-[#22d3ee]"
                       strokeDasharray={553}
                       initial={{ strokeDashoffset: 553 }}
                       animate={{ strokeDashoffset: 553 - (553 * score) / 100 }}

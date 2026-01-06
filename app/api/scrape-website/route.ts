@@ -51,9 +51,9 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Scraping error:', error);
     return NextResponse.json({
-      success: true,
-      data: getMockScrapeData(url)
-    });
+      success: false,
+      error: 'Failed to scrape website'
+    }, { status: 500 });
   }
 }
 

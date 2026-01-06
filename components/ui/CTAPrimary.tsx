@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 interface CTAPrimaryProps {
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e?: React.MouseEvent) => void;
   href?: string;
   disabled?: boolean;
   className?: string;

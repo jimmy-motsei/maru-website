@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import PipelineLeakPage from './PipelineLeakPageNew';
 
 export const metadata: Metadata = {
@@ -13,5 +14,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PipelineLeakPage />;
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-dark text-white">Loading...</div>}>
+      <PipelineLeakPage />
+    </Suspense>
+  );
 }

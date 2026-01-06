@@ -107,9 +107,16 @@ export interface PipelineLeakInput {
 export interface PipelineLeakResult {
   score: number;
   totalDeals: number;
+  total_deals?: number; // Alternative property name used in some components
+  revenue_at_risk?: number;
   conversionRates: Record<string, number>;
   avgTimeInStage: Record<string, number>;
   leaks: PipelineLeak[];
+  leaks_detected?: {
+    stalled_deals: number;
+    stage_bottlenecks: number;
+    velocity_issues: number;
+  };
   recommendations: string[];
   summary: {
     biggestLeak: string;

@@ -22,7 +22,7 @@ export default function AnalyticsInterpretationPage() {
     <DocLayout
       title="Analytics Interpretation"
       description="Master the art of interpreting analytics data to optimize your lead generation performance"
-      readingTime="15 min read"
+      readTime="15 min read"
       category="Admin & Analytics"
       lastUpdated="2024-12-19"
     >

@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import KnowledgeBaseContent from '@/components/docs/KnowledgeBaseContent';
+import { OptimizedLoading } from '@/components/ui/OptimizedLoading';
 
 export const metadata: Metadata = {
   title: 'Knowledge Base | Maru Lead Generation Engine',
@@ -7,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function KnowledgeBasePage() {
-  return <KnowledgeBaseContent />;
+  return (
+    <Suspense fallback={<OptimizedLoading type="default" message="Loading Knowledge Base..." />}>
+      <KnowledgeBaseContent />
+    </Suspense>
+  );
 }

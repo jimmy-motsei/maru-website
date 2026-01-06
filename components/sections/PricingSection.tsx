@@ -101,7 +101,7 @@ export function PricingSection({
               <div className="mb-6">
                 <div className="flex items-baseline gap-2 mb-2">
                   <span className="text-accent text-4xl font-bold">
-                    R{tier.price}
+                    {tier.price === "Custom" ? tier.price : `R${tier.price}`}
                   </span>
                   {tier.price !== "Custom" && (
                     <span className="text-white/40 text-sm">/month</span>
@@ -146,7 +146,7 @@ export function PricingSection({
 
               {/* CTA Button */}
               {tier.featured ? (
-                <CTAPrimary href={tier.href} className="w-full">
+                <CTAPrimary href={tier.href} className="w-full [&>span:first-child]:flex-1 [&>span:first-child]:text-center">
                   Choose {tier.title}
                 </CTAPrimary>
               ) : (

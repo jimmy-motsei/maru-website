@@ -44,7 +44,7 @@ export function DecorativeLines() {
       viewBox="0 0 300 1404"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="text-white/20 ml-auto"
+      className="text-gray-500 ml-auto"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}

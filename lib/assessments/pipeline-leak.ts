@@ -204,7 +204,8 @@ function identifyLeaks(metrics: any, data: PipelineData[]): PipelineLeak[] {
   const leaks: PipelineLeak[] = [];
   const { conversionRates, avgTimeInStage, stageCounts } = metrics;
 
-  Object.entries(conversionRates).forEach(([stage, rate]) => {
+  Object.entries(conversionRates).forEach(([stage, rateValue]) => {
+    const rate = rateValue as number;
     const avgDays = avgTimeInStage[stage] || 0;
     const dealsInStage = stageCounts[stage] || 0;
     

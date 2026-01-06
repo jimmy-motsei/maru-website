@@ -43,7 +43,7 @@ class Logger {
       return realIP;
     }
     
-    return request.ip || 'unknown';
+    return 'unknown';
   }
 
   info(message: string, metadata?: Record<string, any>, request?: NextRequest) {

@@ -86,28 +86,25 @@ export async function analyzeWebsiteWithFirecrawl(input: any): Promise<LeadScore
 }
 
 async function scrapeWithFirecrawl(url: string): Promise<WebsiteData> {
-  const app = new FirecrawlApp({ apiKey: process.env.FIRECRAWL_API_KEY });
+  const app = new FirecrawlApp({ apiKey: process.env.FIRECRAWL_API_KEY || '' });
   
   const startTime = Date.now();
-  const result = await app.scrapeUrl(url, {
+  const result = await app.scrape(url, {
     formats: ['markdown', 'html'],
-    includeTags: ['title', 'meta', 'h1', 'h2', 'h3', 'img', 'a', 'script'],
-    onlyMainContent: true,
-    waitFor: 3000,
-    timeout: 30000,
-  });
+  }) as any;
   const loadTime = Date.now() - startTime;
 
   // Extract technologies from HTML
-  const technologies = extractTechnologies(result.html || '');
+  const html = result?.html || result?.data?.html || '';
+  const technologies = extractTechnologies(html);
 
   return {
     url,
-    title: result.metadata?.title || '',
-    description: result.metadata?.description || '',
-    content: result.markdown || '',
+    title: result?.metadata?.title || result?.data?.metadata?.title || '',
+    description: result?.metadata?.description || result?.data?.metadata?.description || '',
+    content: result?.markdown || result?.data?.markdown || '',
     technologies,
-    metadata: result.metadata || {},
+    metadata: result?.metadata || result?.data?.metadata || {},
     loadTime,
   };
 }

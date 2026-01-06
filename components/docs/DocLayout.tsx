@@ -14,7 +14,7 @@ interface DocLayoutProps {
   readTime: string;
   lastUpdated: string;
   author?: string;
-  breadcrumbs: Array<{ label: string; href: string }>;
+  breadcrumbs?: Array<{ label: string; href: string }>;
 }
 
 export default function DocLayout({
@@ -25,7 +25,7 @@ export default function DocLayout({
   readTime,
   lastUpdated,
   author = 'Maru Team',
-  breadcrumbs,
+  breadcrumbs = [],
 }: DocLayoutProps) {
   const allBreadcrumbs = [
     { label: 'Home', href: '/' },

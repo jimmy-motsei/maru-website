@@ -1,0 +1,108 @@
+/**
+ * Lead Engine Database Schema
+ * Database: maru_lead_engine
+ * 
+ * Contains: AI assessments, leads, pipeline analysis, scoring data
+ */
+
+import { 
+  pgTable, 
+  uuid, 
+  text, 
+  integer,
+  timestamp, 
+  varchar,
+  jsonb,
+  boolean
+} from 'drizzle-orm/pg-core';
+
+// =============================================================================
+// LEADS TABLE
+// =============================================================================
+
+export const leads = pgTable('leads', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  email: text('email').unique().notNull(),
+  companyName: text('company_name'),
+  website: text('website'),
+  industry: varchar('industry', { length: 100 }),
+  companySize: varchar('company_size', { length: 50 }),
+  source: varchar('source', { length: 100 }),
+  hubspotContactId: text('hubspot_contact_id'),
+  firstSeen: timestamp('first_seen', { withTimezone: true }).defaultNow(),
+  lastSeen: timestamp('last_seen', { withTimezone: true }).defaultNow(),
+  totalAssessments: integer('total_assessments').default(0),
+  metadata: jsonb('metadata'),
+});
+
+// =============================================================================
+// ASSESSMENTS TABLE (Website Audits, Lead Scoring)
+// =============================================================================
+
+export const assessments = pgTable('assessments', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  leadId: uuid('lead_id').references(() => leads.id, { onDelete: 'set null' }),
+  email: text('email').notNull(),
+  type: varchar('type', { length: 50 }).notNull(), // 'website_audit', 'lead_score', 'ai_readiness', 'pipeline_leak'
+  url: text('url'),
+  companyName: text('company_name'),
+  status: varchar('status', { length: 20 }).default('pending'), // 'pending', 'processing', 'completed', 'failed'
+  score: integer('score'),
+  inputData: jsonb('input_data'),
+  analysisData: jsonb('analysis_data'),
+  recommendations: text('recommendations').array(),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
+  completedAt: timestamp('completed_at', { withTimezone: true }),
+});
+
+// =============================================================================
+// PIPELINE ANALYSIS TABLE (for Pipeline Leak Detector)
+// =============================================================================
+
+export const pipelineAnalyses = pgTable('pipeline_analyses', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  leadId: uuid('lead_id').references(() => leads.id, { onDelete: 'set null' }),
+  email: text('email').notNull(),
+  companyName: text('company_name'),
+  totalDeals: integer('total_deals'),
+  score: integer('score'),
+  conversionRates: jsonb('conversion_rates'),
+  avgTimeInStage: jsonb('avg_time_in_stage'),
+  leaks: jsonb('leaks'),
+  recommendations: text('recommendations').array(),
+  summary: jsonb('summary'),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
+});
+
+// =============================================================================
+// AI READINESS ASSESSMENTS TABLE
+// =============================================================================
+
+export const aiReadinessAssessments = pgTable('ai_readiness_assessments', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  leadId: uuid('lead_id').references(() => leads.id, { onDelete: 'set null' }),
+  email: text('email').notNull(),
+  companyName: text('company_name'),
+  industry: varchar('industry', { length: 100 }),
+  companySize: varchar('company_size', { length: 50 }),
+  responses: jsonb('responses'), // Question/answer pairs
+  readinessScore: integer('readiness_score'),
+  categoryScores: jsonb('category_scores'),
+  recommendations: text('recommendations').array(),
+  reportGenerated: boolean('report_generated').default(false),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
+  completedAt: timestamp('completed_at', { withTimezone: true }),
+});
+
+// =============================================================================
+// TYPE EXPORTS
+// =============================================================================
+
+export type Lead = typeof leads.$inferSelect;
+export type NewLead = typeof leads.$inferInsert;
+export type Assessment = typeof assessments.$inferSelect;
+export type NewAssessment = typeof assessments.$inferInsert;
+export type PipelineAnalysis = typeof pipelineAnalyses.$inferSelect;
+export type NewPipelineAnalysis = typeof pipelineAnalyses.$inferInsert;
+export type AIReadinessAssessment = typeof aiReadinessAssessments.$inferSelect;
+export type NewAIReadinessAssessment = typeof aiReadinessAssessments.$inferInsert;

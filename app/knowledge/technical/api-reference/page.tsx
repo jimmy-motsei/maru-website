@@ -125,7 +125,7 @@ headers: {
 }`}
       </CodeBlock>
 
-      <h4>GET /api/assessments/{id}</h4>
+      <h4>GET /api/assessments/{'{id}'}</h4>
       <p>Retrieve a specific assessment by ID.</p>
 
       <CodeBlock language="json" title="Response">
@@ -168,7 +168,7 @@ headers: {
   .then(data => console.log(data));`}
       </CodeBlock>
 
-      <h4>GET /api/leads/{id}</h4>
+      <h4>GET /api/leads/{'{id}'}</h4>
       <p>Retrieve a specific lead with all associated assessments.</p>
 
       <CodeBlock language="json" title="Response">

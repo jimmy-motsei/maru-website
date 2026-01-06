@@ -143,7 +143,7 @@ export function Header() {
                       <Link
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`block type-h1 font-light tracking-tight transition-colors duration-300 text-white hover:text-accent`}
+                        className={`block text-2xl md:text-3xl lg:text-4xl font-light tracking-tight transition-colors duration-300 text-white hover:text-accent`}
                       >
                         {item.name}
                       </Link>
@@ -180,7 +180,7 @@ export function Header() {
                             <Link
                               href={project.href}
                               onClick={() => setIsMenuOpen(false)}
-                              className="text-gray-600 hover:text-white transition-colors text-base"
+                              className="text-gray-400 hover:text-white transition-colors text-base"
                             >
                               {project.name}
                             </Link>
@@ -204,7 +204,7 @@ export function Header() {
                             <Link
                               href={link.href}
                               onClick={() => setIsMenuOpen(false)}
-                              className="text-gray-600 hover:text-white transition-colors text-base"
+                              className="text-gray-400 hover:text-white transition-colors text-base"
                             >
                               {link.name}
                             </Link>
@@ -231,7 +231,7 @@ export function Header() {
                   >
                     <div>
                       <h3 className="text-white font-bold mb-2">Johannesburg</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
+                      <p className="text-gray-400 text-sm leading-relaxed">
                         South Africa
                       </p>
                     </div>
@@ -240,7 +240,7 @@ export function Header() {
                       <h3 className="text-white font-bold mb-2">Get in touch</h3>
                       <a
                         href={`mailto:${siteConfig.contact.email}`}
-                        className="text-gray-600 text-sm hover:text-white transition-colors"
+                        className="text-gray-400 text-sm hover:text-white transition-colors"
                       >
                          {siteConfig.contact.email}
                       </a>

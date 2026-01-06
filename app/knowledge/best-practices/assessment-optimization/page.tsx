@@ -22,7 +22,7 @@ export default function AssessmentOptimizationPage() {
     <DocLayout
       title="Assessment Optimization"
       description="Maximize the value and accuracy of your assessment results"
-      readingTime="14 min read"
+      readTime="14 min read"
       category="Best Practices"
       lastUpdated="2024-12-19"
     >

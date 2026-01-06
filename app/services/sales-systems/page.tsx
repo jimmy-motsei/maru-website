@@ -105,7 +105,7 @@ const pricingTiers = [
   {
     price: "24,999",
     title: "Enterprise",
-    subtitle: "Compete with enterprise sales operations",
+    subtitle: "Complete your enterprise sales operations",
     description: "For teams of 15+ reps who need every advantage.",
     features: [
       "Everything in Growth, plus:",

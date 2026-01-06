@@ -1,9 +1,9 @@
 import { cookies } from 'next/headers';
 import { NextRequest } from 'next/server';
 
-export function isAuthenticated(): boolean {
+export async function isAuthenticated(): Promise<boolean> {
   try {
-    const cookieStore = cookies();
+    const cookieStore = await cookies();
     const session = cookieStore.get('admin-session');
     
     if (!session?.value) {

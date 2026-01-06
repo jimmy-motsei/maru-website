@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
         step,
         metadata: data,
         user_agent: request.headers.get('user-agent'),
-        ip_address: request.ip || request.headers.get('x-forwarded-for'),
+        ip_address: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip'),
       });
 
     if (error) {

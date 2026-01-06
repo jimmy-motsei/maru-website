@@ -8,6 +8,7 @@ import { ArrowRight, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { Footer } from "@/components/layout/Footer";
 import { submitToHubSpot, HUBSPOT_FORMS } from "@/lib/hubspot";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -240,20 +241,17 @@ export default function ContactPage() {
                   className="flex flex-col md:flex-row md:items-center md:justify-between gap-6"
                 >
                   <p className="text-dark/60 text-sm">
-                    <span className="text-accent">*</span> We promise not to disclose your personal information to third parties.
+                    <span className="text-accent">*</span> Your personal information is processed responsibly in accordance with POPIA. We are committed to protecting your privacy and will not disclose your details to third parties without consent.
                   </p>
                   
                   <div className="flex flex-col items-end">
-                    <button
+                    <CTAPrimary
                       type="submit"
                       disabled={isSubmitting}
-                      className="group inline-flex items-center gap-4 bg-dark text-white px-8 py-4 rounded-full hover:bg-accent transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full sm:w-auto"
                     >
-                      <span className="font-medium">
-                        {isSubmitting ? "Sending..." : "Submit Request"}
-                      </span>
-                      {!isSubmitting && <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
-                    </button>
+                      {isSubmitting ? "Sending..." : "Submit"}
+                    </CTAPrimary>
                     {formStatus && (
                       <p className={`mt-2 text-sm ${formStatus.success ? "text-green-600" : "text-red-500"}`}>
                         {formStatus.message}

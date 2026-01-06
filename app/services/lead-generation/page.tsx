@@ -95,7 +95,7 @@ export default function LeadGenerationPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <main className="bg-white">
+    <main className="bg-[#050505] min-h-screen text-white">
       {/* Hero Section */}
       <ServiceHero
         breadcrumbs={breadcrumbs}
@@ -111,11 +111,12 @@ export default function LeadGenerationPage() {
       />
 
       {/* Discovery Section */}
-      <section className="py-24 bg-[#f8fafc]">
+      <section className="py-24 bg-[#0A0A0A]">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-light text-gray-500 mb-2">
-              What You'll Discover <span className="font-bold text-black text-4xl md:text-5xl">in 2 Minutes</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6">
+              <span className="font-light text-zinc-500">What You'll Discover</span><br />
+              <span className="font-bold text-white">in 2 Minutes</span>
             </h2>
             <p className="text-[#22d3ee] text-xl font-medium">
               Our AI-powered analysis reveals everything you need to 5x your leads
@@ -130,36 +131,38 @@ export default function LeadGenerationPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-[#f2f2f2] p-8 rounded-3xl shadow-lg shadow-gray-200/50 border border-gray-100 flex items-start gap-6 group hover:shadow-xl transition-shadow"
+                className="bg-white/5 p-8 rounded-3xl border border-white/10 flex items-start gap-6 group hover:border-[#22d3ee]/50 transition-colors"
               >
-                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#e0f7fa] flex items-center justify-center text-[#22d3ee] shadow-[0_0_15px_rgba(34,211,238,0.2)] group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#22d3ee]/10 flex items-center justify-center text-[#22d3ee] shadow-[0_0_15px_rgba(34,211,238,0.2)] group-hover:scale-110 transition-transform">
                   <item.icon size={28} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-black mb-2">{item.title}</h3>
-                  <p className="text-gray-500 leading-relaxed text-sm">{item.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-zinc-400 leading-relaxed text-sm">{item.description}</p>
                 </div>
               </motion.div>
             ))}
           </div>
 
           <div className="mt-12 flex justify-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 text-sm text-gray-500 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-zinc-400">
               <Clock size={16} className="text-[#22d3ee]" />
-              <span>Avg. completion time: <b>2 min 14 sec</b></span>
+              <span>Avg. completion time: <b className="text-white">2 min 14 sec</b></span>
             </div>
           </div>
         </div>
       </section>
 
       {/* How It Works Section */}
-      <section className="py-24 bg-[#d7d7d7] text-black overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-8">
+      <section className="py-24 bg-[#050505] text-white overflow-hidden relative">
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-light text-gray-600 mb-2">
-              Here's <span className="font-bold text-black text-4xl md:text-5xl">How It Works</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6">
+              <span className="font-light text-zinc-500">Here's</span>{" "}
+              <span className="font-bold text-white">How It Works</span>
             </h2>
-            <p className="text-gray-600 text-lg">
+            <p className="text-zinc-400 text-lg">
               Get your personalized lead score in 4 simple steps
             </p>
           </div>
@@ -175,12 +178,12 @@ export default function LeadGenerationPage() {
                   transition={{ delay: index * 0.1 }}
                   className="relative group"
                 >
-                  <div className="bg-[#f2f2f2] p-10 md:p-12 rounded-2xl border border-black/5 h-full relative z-10 hover:border-[#22d3ee]/30 transition-colors shadow-sm">
+                  <div className="bg-white/5 p-10 md:p-12 rounded-2xl border border-white/10 h-full relative z-10 hover:border-[#22d3ee]/50 transition-colors">
                     <div className="absolute top-0 left-0 w-1 h-full bg-[#22d3ee] rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-16 h-16 rounded-full border-2 border-[#22d3ee] flex items-center justify-center mb-8 relative bg-white">
-                        <span className="text-lg font-bold text-black">{step.number}</span>
+                      <div className="w-16 h-16 rounded-full border-2 border-[#22d3ee] flex items-center justify-center mb-8 relative bg-[#050505]">
+                        <span className="text-lg font-bold text-white">{step.number}</span>
                         {index < workflowSteps.length - 1 && (
                           <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-[#22d3ee]/30">
                             <ArrowRight size={24} />
@@ -188,12 +191,12 @@ export default function LeadGenerationPage() {
                         )}
                       </div>
                       
-                      <div className="w-12 h-12 rounded-xl border border-black/10 flex items-center justify-center text-[#22d3ee] mb-6">
+                      <div className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center text-[#22d3ee] mb-6 bg-white/5">
                         <step.icon size={24} />
                       </div>
                       
-                      <h3 className="text-xl font-bold mb-3 text-black">{step.title}</h3>
-                      <p className="text-black text-sm leading-relaxed font-medium">{step.description}</p>
+                      <h3 className="text-xl font-bold mb-3 text-white">{step.title}</h3>
+                      <p className="text-zinc-400 text-sm leading-relaxed font-medium">{step.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -208,9 +211,9 @@ export default function LeadGenerationPage() {
               "Free forever",
               "Unsubscribe anytime"
             ].map((text, i) => (
-              <div key={i} className="flex items-center justify-center gap-2 bg-black/5 py-3 px-4 rounded-full border border-black/10">
-                <CheckCircle2 size={16} className="text-green-600 shrink-0" />
-                <span className="text-xs font-medium text-gray-700">{text}</span>
+              <div key={i} className="flex items-center justify-center gap-2 bg-white/5 py-3 px-4 rounded-full border border-white/10">
+                <CheckCircle2 size={16} className="text-[#22d3ee] shrink-0" />
+                <span className="text-xs font-medium text-zinc-300">{text}</span>
               </div>
             ))}
           </div>
@@ -218,12 +221,13 @@ export default function LeadGenerationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-white relative">
+      <section className="py-24 bg-[#0A0A0A] relative">
         <div className="container mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-400 mb-4">
-            Ready to <span className="font-bold text-black">See Your Score?</span>
+          <h2 className="text-4xl md:text-5xl mb-6">
+            <span className="font-light text-zinc-500">Ready to</span>{" "}
+            <span className="font-bold text-white">See Your Score?</span>
           </h2>
-          <p className="text-gray-600 text-lg mb-12 max-w-2xl mx-auto">
+          <p className="text-zinc-400 text-lg mb-12 max-w-2xl mx-auto">
             Join <span className="text-[#22d3ee] font-bold">1,247+</span> B2B companies who've already discovered their lead generation potential
           </p>
 
@@ -234,7 +238,7 @@ export default function LeadGenerationPage() {
             GET MY FREE LEAD SCORE NOW
           </CTAPrimary>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-8 text-sm text-gray-500">
+          <div className="mt-8 flex flex-wrap justify-center gap-8 text-sm text-zinc-500">
             <div className="flex items-center gap-2">
               <CheckCircle2 size={16} className="text-[#22d3ee]" />
               <span>No credit card required</span>
@@ -252,7 +256,7 @@ export default function LeadGenerationPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-black text-white">
+      <section className="py-24 bg-[#050505] text-white">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-16">
             <div className="w-12 h-12 rounded-full border border-[#22d3ee] flex items-center justify-center text-[#22d3ee] mb-6">

@@ -166,6 +166,7 @@ export default function LeadScorePage() {
           className="mb-12"
         />
 
+        <h3 className="text-3xl font-bold text-white text-center mb-10">What you will get</h3>
         <div className="grid md:grid-cols-3 gap-6 text-center">
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
             <Globe className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
