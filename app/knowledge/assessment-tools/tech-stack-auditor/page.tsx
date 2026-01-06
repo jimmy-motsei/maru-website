@@ -127,7 +127,7 @@ export default function TechStackAuditorPage() {
       <Step number={1} title="Navigate to Tech Stack Auditor">
         <p>Access the tool from the assessments section:</p>
         <CodeBlock language="text">
-{`URL: http://localhost:3000/assessments/tech-audit`}
+{`URL: https://tech-stack-audit.vercel.app`}
         </CodeBlock>
       </Step>
 

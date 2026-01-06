@@ -62,8 +62,8 @@ export default function PipelineLeakDetectorPage() {
       <Callout type="success" title="Access the Tool">
         <p>
           <strong>URL:</strong>{' '}
-          <a href="https://pipeline.maruonline.com" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
-            https://pipeline.maruonline.com
+          <a href="https://pipeline-leak-detector.vercel.app" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+            https://pipeline-leak-detector.vercel.app
           </a>
         </p>
         <p className="text-sm text-dark/60 mt-2">
@@ -163,7 +163,7 @@ LostDeal,Closed Lost,2024-01-10,2024-02-10,30000,Website`}
       <Step number={1} title="Navigate to the Pipeline Leak Detector">
         <p>Open the standalone application in your browser:</p>
         <CodeBlock language="text">
-{`URL: https://pipeline.maruonline.com`}
+{`URL: https://pipeline-leak-detector.vercel.app`}
         </CodeBlock>
         <p className="mt-2">You'll see a dark-themed interface with the signature Maru Turquoise accents.</p>
       </Step>
@@ -409,7 +409,7 @@ Example:
       <ul>
         <li><strong>Framework:</strong> Next.js 16 (App Router) with TypeScript</li>
         <li><strong>AI Engine:</strong> Google Gemini for intelligent recommendation generation</li>
-        <li><strong>Database:</strong> Neon (Vercel Postgres) for secure data storage</li>
+        <li><strong>Database:</strong> Neon (Serverless Postgres) with Drizzle ORM</li>
         <li><strong>Styling:</strong> Tailwind CSS with Maru Turquoise (#3DD6D0) brand colors</li>
         <li><strong>Animations:</strong> Framer Motion for smooth transitions</li>
       </ul>
