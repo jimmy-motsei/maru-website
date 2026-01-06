@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabaseAdmin } from '@/lib/supabase';
+import { dbWebsite } from '@/lib/db';
+import { analyticsEvents } from '@/lib/db/schema/website';
 
 export async function POST(request: NextRequest) {
   try {
@@ -11,26 +12,17 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const supabase = supabaseAdmin;
-
-    // Store analytics event
-    const { error } = await supabase
-      .from('analytics_events')
-      .insert({
-        event_type: event,
-        page_path: page,
-        timestamp: new Date(timestamp),
-        assessment_type,
-        step,
-        metadata: data,
-        user_agent: request.headers.get('user-agent'),
-        ip_address: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip'),
-      });
-
-    if (error) {
-      console.error('Analytics error:', error);
-      return NextResponse.json({ error: 'Failed to store event', details: error.message }, { status: 500 });
-    }
+    // Store analytics event using Drizzle/Neon
+    await dbWebsite.insert(analyticsEvents).values({
+      eventType: event,
+      pagePath: page,
+      createdAt: timestamp ? new Date(timestamp) : new Date(),
+      assessmentType: assessment_type,
+      step,
+      metadata: data,
+      userAgent: request.headers.get('user-agent') || null,
+      ipAddress: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || null,
+    });
 
     return NextResponse.json({ success: true });
   } catch (error) {

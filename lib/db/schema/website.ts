@@ -55,6 +55,22 @@ export const adminUsers = pgTable('admin_users', {
 });
 
 // =============================================================================
+// ANALYTICS TABLE
+// =============================================================================
+
+export const analyticsEvents = pgTable('analytics_events', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  eventType: varchar('event_type', { length: 100 }).notNull(),
+  pagePath: text('page_path').notNull(),
+  assessmentType: varchar('assessment_type', { length: 100 }),
+  step: varchar('step', { length: 100 }),
+  metadata: jsonb('metadata'),
+  userAgent: text('user_agent'),
+  ipAddress: text('ip_address'),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
+});
+
+// =============================================================================
 // TYPE EXPORTS
 // =============================================================================
 
@@ -64,3 +80,5 @@ export type Session = typeof sessions.$inferSelect;
 export type NewSession = typeof sessions.$inferInsert;
 export type AdminUser = typeof adminUsers.$inferSelect;
 export type NewAdminUser = typeof adminUsers.$inferInsert;
+export type AnalyticsEvent = typeof analyticsEvents.$inferSelect;
+export type NewAnalyticsEvent = typeof analyticsEvents.$inferInsert;
