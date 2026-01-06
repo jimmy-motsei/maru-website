@@ -195,7 +195,7 @@ export function Footer() {
             >
               <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-6">Get in Touch</h3>
               <p className="text-white/90 mb-6 leading-relaxed">
-                AI-powered automation solutions for African businesses. Transform your operations, scale with confidence.
+                AI-powered marketing solutions for SMEs ready to scale. Transform your marketing operations, scale with confidence.
               </p>
               <div className="space-y-4">
                 <p className="text-white/70">hello@maruonline.com</p>
