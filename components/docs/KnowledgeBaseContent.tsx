@@ -125,7 +125,7 @@ export default function KnowledgeBaseContent() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 max-w-4xl"
+            className="hero-h1 text-white mb-6 max-w-4xl"
           >
             Knowledge Base
           </motion.h1>

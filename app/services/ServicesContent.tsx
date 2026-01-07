@@ -219,7 +219,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-muted mb-6">
+            <h1 className="hero-h1 font-bold text-muted mb-6">
               Ai Automation <span className="font-light">Systems</span><br />
               that drive <span className="font-light">Revenue</span>
             </h1>

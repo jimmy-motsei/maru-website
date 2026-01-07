@@ -44,7 +44,7 @@ export default function AboutContent() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-muted mb-6">
+            <h1 className="hero-h1 font-bold text-muted mb-6">
               <span className="font-thin text-gray-600">Trusted AI</span> marketing automation <span className="font-light">experts</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/60 max-w-3xl">
