@@ -225,7 +225,7 @@ export function Footer() {
             {/* Legal Links */}
             <motion.div
               variants={itemVariants}
-              className="lg:col-span-6 flex justify-end"
+              className="lg:col-span-6 flex justify-start lg:justify-end"
             >
               <ul className="flex flex-wrap gap-x-8 gap-y-3">
                 {footerNavigation.legal.map((item) => (

@@ -141,20 +141,7 @@ const itemVariants = {
   },
 };
 
-// Enhanced workflow step animations with alternating slide direction
-const workflowStepVariants = {
-  hiddenLeft: { opacity: 0, x: -60, filter: "blur(4px)" },
-  hiddenRight: { opacity: 0, x: 60, filter: "blur(4px)" },
-  visible: {
-    opacity: 1,
-    x: 0,
-    filter: "blur(0px)",
-    transition: { 
-      duration: 0.6, 
-      ease: "easeOut" as const
-    },
-  },
-};
+
 
 // Number circle animation with spring physics
 const circleVariants = {

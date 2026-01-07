@@ -153,7 +153,7 @@ export default function AIReadinessPage() {
       </header>
 
       {/* Main Content */}
-      <div className="pt-12 md:pt-24 pb-16 min-h-screen flex items-center justify-center">
+      <div className="pt-32 md:pt-40 pb-16 min-h-screen flex items-center justify-center">
         <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
           <AnimatePresence mode="wait">
             {/* INTRO SCREEN */}

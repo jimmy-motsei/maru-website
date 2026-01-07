@@ -43,7 +43,7 @@ export function ServiceHero({
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <ol className="flex items-center gap-2 text-sm">
+          <ol className="flex flex-wrap items-center gap-2 text-sm">
             {breadcrumbs.map((crumb, index) => (
               <li key={crumb.href} className="flex items-center gap-2">
                 <Link
