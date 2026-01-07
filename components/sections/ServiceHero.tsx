@@ -35,13 +35,13 @@ export function ServiceHero({
       {/* Animated Background Element */}
       <AtmosphericBackground variant="hero" />
 
-      <div className="container mx-auto px-6 lg:px-8 py-24 lg:py-32 relative z-10">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10 pt-[clamp(150px,20vh,200px)] pb-[clamp(80px,12vh,140px)]">
         {/* Breadcrumbs */}
         <motion.nav
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-12"
+          className="mb-8"
         >
           <ol className="flex flex-wrap items-center gap-2 text-sm">
             {breadcrumbs.map((crumb, index) => (
@@ -69,7 +69,7 @@ export function ServiceHero({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="hero-h1 text-white mb-8 max-w-4xl"
+          className="hero-h1 text-white mb-10 max-w-4xl"
         >
           <span className="font-bold">{titleBold}</span>{" "}
           <span className="font-light text-white/80">{titleLight}</span>
@@ -81,7 +81,7 @@ export function ServiceHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col gap-8 items-start"
+            className="flex flex-col gap-8 items-start mb-12"
           >
             <p className="text-xl md:text-2xl text-white font-medium max-w-3xl">
               {subtitle}
@@ -112,7 +112,7 @@ export function ServiceHero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="inline-flex items-center gap-3 text-white/60 hover:text-accent transition-colors group"
+          className="inline-flex items-center gap-3 text-white/60 hover:text-accent transition-colors group mt-4"
         >
           <span className="text-sm font-medium">About this service</span>
           <ArrowDown size={16} className="animate-bounce" />

@@ -93,7 +93,7 @@ export default function KnowledgeBaseContent() {
       <section className="bg-dark relative min-h-[50vh] flex items-end overflow-hidden">
         <AtmosphericBackground variant="hero" />
 
-        <div className="container mx-auto px-6 lg:px-8 py-16 relative z-10">
+        <div className="container mx-auto px-6 lg:px-8 relative z-10 pt-[clamp(150px,20vh,200px)] pb-[clamp(80px,12vh,140px)]">
           <motion.nav
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -134,7 +134,7 @@ export default function KnowledgeBaseContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-white/60 text-lg max-w-2xl mb-8"
+            className="text-white/60 text-lg max-w-2xl mb-12"
           >
             Everything you need to know about the Maru Lead Generation Engine. 
             From quick start guides to advanced integrations.
@@ -145,7 +145,7 @@ export default function KnowledgeBaseContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="max-w-2xl"
+            className="max-w-2xl mt-4"
           >
             <KnowledgeSearch />
           </motion.div>

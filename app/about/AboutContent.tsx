@@ -15,13 +15,13 @@ export default function AboutContent() {
         {/* Background Atmosphere */}
         <AtmosphericBackground variant="hero" />
 
-        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-6 lg:px-8 relative z-10 pt-[clamp(150px,20vh,200px)] pb-[clamp(80px,12vh,140px)]">
           {/* Breadcrumbs */}
           <motion.nav
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-16"
+            className="mb-8"
           >
             <ul className="flex items-center gap-2 text-sm">
               <li>
@@ -42,7 +42,7 @@ export default function AboutContent() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
+            className="mb-12"
           >
             <h1 className="hero-h1 font-bold text-muted mb-6">
               <span className="font-thin text-gray-600">Trusted AI</span> marketing automation <span className="font-light">experts</span>
@@ -58,7 +58,7 @@ export default function AboutContent() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="inline-flex items-center gap-3 text-accent hover:text-accent-light transition-colors group"
+            className="inline-flex items-center gap-3 text-accent hover:text-accent-light transition-colors group mt-4"
           >
             <span className="text-sm font-medium">Our story</span>
             <ArrowDown size={16} className="animate-bounce" />
