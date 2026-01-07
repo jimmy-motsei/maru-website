@@ -24,6 +24,13 @@ const menuItems = {
     { name: "Proposal Accelerator", href: "/assessments/proposal" },
     { name: "Tech Stack Auditor", href: "/assessments/tech-audit" },
   ],
+  services: [
+    { name: "Lead Generation", href: "/services/lead-generation" },
+    { name: "Sales Systems", href: "/services/sales-systems" },
+    { name: "Office Automation", href: "/services/office-automation" },
+    { name: "WhatsApp Solutions", href: "/services/whatsapp-solutions" },
+    { name: "Web Development", href: "/services/website-development" },
+  ],
   usefulLinks: [
     { name: "Privacy Policy", href: "/privacy-policy" },
     { name: "Terms and conditions", href: "/terms-conditions" },
@@ -189,24 +196,24 @@ export function Header() {
                       </ul>
                     </motion.div>
 
-                    {/* Useful Links */}
+                    {/* Services */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.6 }}
                     >
                       <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-6">
-                        Useful links
+                        Services
                       </h3>
                       <ul className="space-y-4">
-                        {menuItems.usefulLinks.map((link) => (
-                          <li key={link.name}>
+                        {menuItems.services.map((service) => (
+                          <li key={service.name}>
                             <Link
-                              href={link.href}
+                              href={service.href}
                               onClick={() => setIsMenuOpen(false)}
                               className="text-gray-400 hover:text-white transition-colors text-base"
                             >
-                              {link.name}
+                              {service.name}
                             </Link>
                           </li>
                         ))}
