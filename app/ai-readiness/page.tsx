@@ -171,7 +171,7 @@ export default function AIReadinessPage() {
                   <span className="text-sm font-medium text-[#22d3ee] uppercase tracking-wider">Free AI-Powered Assessment Tool</span>
                 </div>
 
-                <h1 className="tracking-tight leading-[0.95] text-[27px] md:text-[40px] lg:text-[54px] xl:text-[61px] 2xl:text-[67px] mb-6">
+                <h1 className="hero-h1 mb-6">
                   <span className="font-extralight text-zinc-500">Is your Marketing</span>{" "}
                   <span className="font-bold text-white">Ai-Optimized?</span>
                 </h1>

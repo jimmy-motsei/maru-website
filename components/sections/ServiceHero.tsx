@@ -69,7 +69,7 @@ export function ServiceHero({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-8 max-w-4xl"
+          className="hero-h1 text-white mb-8 max-w-4xl"
         >
           <span className="font-bold">{titleBold}</span>{" "}
           <span className="font-light text-white/80">{titleLight}</span>

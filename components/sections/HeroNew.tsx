@@ -22,7 +22,7 @@ export function Hero() {
                     <div className="backdrop-blur-[1px] rounded-3xl p-4 md:p-0">
                         <div className="flex flex-col gap-8 md:gap-12">
                             {/* CSS Animated H1 for LCP */}
-                            <h1 className="tracking-tight leading-[0.95] text-[27px] md:text-[40px] lg:text-[54px] xl:text-[61px] 2xl:text-[67px] animate-fade-up opacity-0 [animation-fill-mode:forwards]">
+                            <h1 className="hero-h1 animate-fade-up opacity-0 [animation-fill-mode:forwards]">
                                 <span className="font-extralight text-zinc-500">Discover Your</span>{" "}
                                 <span className="font-medium text-white">Lead Generation</span><br />
                                 <span className="font-extralight text-zinc-500">Potential with</span>{" "}

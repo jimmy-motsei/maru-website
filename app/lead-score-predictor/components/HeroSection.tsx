@@ -43,7 +43,7 @@ export default function HeroSection() {
 
               {/* Headline */}
               <motion.h1
-                className="tracking-tight leading-[0.95] text-[27px] md:text-[40px] lg:text-[54px] xl:text-[61px] 2xl:text-[67px]"
+                className="hero-h1"
                 initial="hidden"
                 animate="visible"
                 variants={fadeUpVariants}

@@ -24,7 +24,7 @@ export function Hero() {
                         <div className="flex flex-col gap-8 md:gap-12">
                             {/* Headline */}
                             <motion.h1
-                                className="tracking-tight leading-[0.95] text-[27px] md:text-[40px] lg:text-[54px] xl:text-[61px] 2xl:text-[67px]"
+                                className="hero-h1"
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, ease: "easeOut" }}
