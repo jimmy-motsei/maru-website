@@ -34,8 +34,8 @@ export function AIReadinessTeaser() {
             viewport={{ once: true }}
             variants={fadeUpVariants}
           >
-            <span className="font-normal">Is Your Website</span>{" "}
-            <span className="font-bold">Optimized for Leads?</span>
+            <span className="font-extralight text-zinc-500">Is Your Website</span>{" "}
+            <span className="font-medium">Optimized for Leads?</span>
           </motion.h2>
 
           {/* Subheadline */}

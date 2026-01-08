@@ -11,6 +11,8 @@ interface CTAPrimaryProps {
   className?: string;
   type?: 'button' | 'submit' | 'reset';
   ariaLabel?: string;
+  target?: '_blank' | '_self' | '_parent' | '_top';
+  rel?: string;
 }
 
 export const CTAPrimary: React.FC<CTAPrimaryProps> = ({
@@ -20,7 +22,9 @@ export const CTAPrimary: React.FC<CTAPrimaryProps> = ({
   disabled = false,
   className = '',
   type = 'button',
-  ariaLabel
+  ariaLabel,
+  target,
+  rel
 }) => {
   const baseStyles = cn(
     "inline-flex items-center justify-between",
@@ -53,6 +57,23 @@ export const CTAPrimary: React.FC<CTAPrimaryProps> = ({
   );
 
   if (href && !disabled) {
+    // Check if external link (starts with http:// or https://)
+    const isExternal = href.startsWith('http://') || href.startsWith('https://');
+    
+    if (isExternal) {
+      return (
+        <a 
+          href={href} 
+          className={cn(baseStyles, "group")} 
+          aria-label={ariaLabel}
+          target={target || '_blank'}
+          rel={rel || 'noopener noreferrer'}
+        >
+          {content}
+        </a>
+      );
+    }
+    
     return (
       <Link href={href} className={cn(baseStyles, "group")} aria-label={ariaLabel}>
         {content}

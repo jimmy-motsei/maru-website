@@ -89,8 +89,8 @@ export function TechConnect() {
         
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-black mb-4">
-            <span className="font-light">Connect your favourite</span> business software
+          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-black mb-4">
+            <span className="font-extralight text-gray-400">Connect your favourite</span> business software
           </h2>
           <p className="text-black max-w-2xl mx-auto">
              Seamlessly integrate with the tools you already use.

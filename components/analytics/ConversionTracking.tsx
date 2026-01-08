@@ -92,9 +92,3 @@ export const useAssessmentTracking = (assessmentType: string) => {
 };
 
 // Global type declaration
-declare global {
-  interface Window {
-    trackConversion: (event: string, data?: Record<string, any>) => void;
-    gtag: (...args: any[]) => void;
-  }
-}

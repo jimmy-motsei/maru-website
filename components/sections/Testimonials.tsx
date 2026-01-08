@@ -59,10 +59,10 @@ export function Testimonials() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            Proven Results <span className="font-light">from</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-tight text-gray-900">
+            Proven Results <span className="font-extralight text-gray-400">from</span>
             <br />
-            Real <span className="font-light">SMEs</span>
+            Real <span className="font-extralight text-gray-400">SMEs</span>
           </h2>
         </motion.div>
 

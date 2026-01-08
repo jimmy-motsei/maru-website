@@ -115,8 +115,8 @@ export default function LeadGenerationPage() {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6">
-              <span className="font-light text-zinc-500">What You'll Discover</span><br />
-              <span className="font-bold text-white">in 2 Minutes</span>
+              <span className="font-extralight text-zinc-500">What You'll Discover</span><br />
+              <span className="font-medium text-white">in 2 Minutes</span>
             </h2>
             <p className="text-[#22d3ee] text-xl font-medium">
               Our AI-powered analysis reveals everything you need to 5x your leads
@@ -159,8 +159,8 @@ export default function LeadGenerationPage() {
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6">
-              <span className="font-light text-zinc-500">Here's</span>{" "}
-              <span className="font-bold text-white">How It Works</span>
+              <span className="font-extralight text-zinc-500">Here's</span>{" "}
+              <span className="font-medium text-white">How It Works</span>
             </h2>
             <p className="text-zinc-400 text-lg">
               Get your personalized lead score in 4 simple steps
@@ -224,8 +224,8 @@ export default function LeadGenerationPage() {
       <section className="py-24 bg-[#0A0A0A] relative">
         <div className="container mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl mb-6">
-            <span className="font-light text-zinc-500">Ready to</span>{" "}
-            <span className="font-bold text-white">See Your Score?</span>
+            <span className="font-extralight text-zinc-500">Ready to</span>{" "}
+            <span className="font-medium text-white">See Your Score?</span>
           </h2>
           <p className="text-zinc-400 text-lg mb-12 max-w-2xl mx-auto">
             Join <span className="text-[#22d3ee] font-bold">1,247+</span> B2B companies who've already discovered their lead generation potential
@@ -262,8 +262,9 @@ export default function LeadGenerationPage() {
             <div className="w-12 h-12 rounded-full border border-[#22d3ee] flex items-center justify-center text-[#22d3ee] mb-6">
               <HelpCircle size={24} />
             </div>
-            <h2 className="text-4xl md:text-5xl font-light text-gray-400 mb-2">
-              Common <span className="font-bold text-white">Questions</span>
+            <h2 className="text-4xl md:text-5xl mb-2">
+              <span className="font-extralight text-zinc-500">Common</span>{" "}
+              <span className="font-medium text-white">Questions</span>
             </h2>
             <p className="text-gray-400">Everything you need to know before getting started</p>
           </div>

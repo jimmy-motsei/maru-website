@@ -19,6 +19,16 @@
   body {
     @apply bg-[#050505] text-white;
   }
-}.hero-h1 {
+  
+  h1 {
+    @apply font-medium tracking-tight;
+  }
+
+  h2 {
+    @apply font-medium tracking-tight;
+  }
+}
+
+.hero-h1 {
   @apply tracking-tight leading-[0.95] text-[27px] md:text-[40px] lg:text-[54px] xl:text-[61px] 2xl:text-[67px];
 }

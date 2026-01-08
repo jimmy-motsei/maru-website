@@ -46,13 +46,15 @@ export function AssessmentShowcase() {
           
           {/* Primary CTA */}
           <div className="text-center">
-            <Link
-              href="/lead-score-predictor"
+            <a
+              href="https://leads.maruonline.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-cyan-400 hover:to-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               Start Your Free Analysis
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </a>
             <p className="text-zinc-400 text-sm mt-3">Lead Score Predictor • Takes 2 minutes • 100% Free</p>
           </div>
         </motion.div>
@@ -68,8 +70,10 @@ export function AssessmentShowcase() {
             <div className="absolute -top-3 left-6 bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold z-10">
               FEATURED TOOL
             </div>
-            <Link
-              href="/lead-score-predictor"
+            <a
+              href="https://leads.maruonline.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group block p-8 bg-zinc-900 border border-cyan-400/20 hover:border-cyan-400/50 rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02] ring-2 ring-cyan-500/30"
             >
               <div className="flex items-start gap-6">
@@ -108,7 +112,7 @@ export function AssessmentShowcase() {
                   </div>
                 </div>
               </div>
-            </Link>
+            </a>
           </motion.div>
         </div>
 

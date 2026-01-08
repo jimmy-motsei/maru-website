@@ -1,47 +1,188 @@
 "use client";
+
 import { motion } from "framer-motion";
-import { Megaphone, Mountain, TrendingUp, Target, ArrowRight, Zap } from "lucide-react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+const tools = [
+  {
+    step: 1,
+    label: "DIAGNOSE",
+    title: "Website Lead Grader™",
+    description: "Grade your website's lead generation performance and discover optimization opportunities",
+    cta: "Get My Grade",
+    href: "https://leads.maruonline.com",
+  },
+  {
+    step: 2,
+    label: "OPTIMIZE",
+    title: "Pipeline Leak Detector™",
+    description: "Find where deals are stalling in your sales process and get specific fixes",
+    cta: "Analyze Pipeline",
+    href: "https://pipeline.maruonline.com",
+  },
+  {
+    step: 3,
+    label: "STREAMLINE",
+    title: "Tech Stack Auditor™",
+    description: "Eliminate redundant software and optimize your tools for maximum efficiency",
+    cta: "Audit My Stack",
+    href: "/assessments/tech-audit",
+  },
+  {
+    step: 4,
+    label: "LEARN",
+    title: "Maru Academy",
+    description: "Master the frameworks and systems to build sustainable lead generation",
+    cta: "Explore Courses",
+    href: "https://academy.maruonline.com",
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
 
 export function Services() {
-  const services = [
-    {
-      id: "01", category: "MARKETING AUTOMATION", title: "Generate Qualified Leads Consistently", description: "Precision targeting meets intelligent automation.", icon: Mountain, link: "/services/lead-generation", assessmentCTA: "Check Your Lead Generation Potential", assessmentTool: "lead-score"
-    },
-    {
-      id: "02", category: "CRM AUTOMATION", title: "Convert More Opportunities Into Revenue", description: "Transform your CRM into a revenue-generating engine.", icon: Megaphone, link: "/services/sales-systems", assessmentCTA: "Find Revenue Leaks", assessmentTool: "pipeline-leak"
-    },
-    {
-      id: "03", category: "SALES AUTOMATION", title: "Shorten Your Sales Cycle", description: "Speed wins deals. Automate follow-ups and proposals.", icon: TrendingUp, link: "/services/sales-systems", assessmentCTA: "Generate AI Proposal", assessmentTool: "proposal"
-    },
-    {
-      id: "04", category: "SOFTWARE INTEGRATION", title: "Maximize ROI from Your Tech Stack", description: "Connect your ecosystem to eliminate data silos.", icon: Target, link: "/services/office-automation", assessmentCTA: "Audit Tech Stack Costs", assessmentTool: "tech-audit"
-    },
-  ];
-
   return (
-    <section className="bg-[#050505] py-12 md:py-32 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#22d3ee]/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((service) => (
-            <div key={service.id} className="h-full flex flex-col p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-[#22d3ee]/50 transition-all duration-300">
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#22d3ee] mb-6">{service.category}</span>
-                <h3 className="font-bold text-2xl text-white mb-4">{service.title}</h3>
-                <p className="text-zinc-400 mb-8 flex-grow">{service.description}</p>
-                <div className="mt-auto space-y-4 border-t border-white/10 pt-6">
-                    <Link href={service.link} className="flex items-center justify-between text-white font-medium group/link">
-                        <span className="group-hover/link:text-[#22d3ee]">Explore Solution</span>
-                        <ArrowRight size={20} className="text-zinc-500 group-hover/link:text-[#22d3ee]" />
+    <section className="py-20 md:py-32 bg-[#f5f5f5]">
+      <div className="container mx-auto px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl mb-6 text-gray-900">
+            <span className="font-extralight text-zinc-500">Find & Fix Every</span>{" "}
+            <span className="font-medium">Lead Generation Leak</span>
+            <br />
+            <span className="font-extralight text-zinc-500">in Your Business</span>
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Four AI-powered diagnostic tools that work together to transform
+            your website, sales process, and operations into a lead-generating system.
+          </p>
+        </motion.div>
+
+        {/* The Journey - 4 Cards */}
+        <motion.div
+          className="mb-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {tools.map((tool) => (
+              <motion.div
+                key={tool.step}
+                variants={itemVariants}
+                className="h-full"
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                {/* Card - OtherServices Style */}
+                <div className="bg-gray-50 rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl border-l-4 border-l-[#22d3ee] transition-all duration-300 group flex flex-col">
+                  {/* Step Icon */}
+                  <motion.div
+                    className="w-14 h-14 rounded-full bg-[#22d3ee]/10 flex items-center justify-center mb-6"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
+                    <span className="text-xl font-bold text-[#22d3ee]">
+                      {tool.step}
+                    </span>
+                  </motion.div>
+
+                  {/* Label */}
+                  <div className="text-xs font-bold tracking-[0.15em] text-[#22d3ee] mb-2">
+                    {tool.label}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-dark mb-3 group-hover:text-[#22d3ee] transition-colors">
+                    {tool.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-dark/70 mb-6 text-base leading-relaxed flex-grow">
+                    {tool.description}
+                  </p>
+
+                  {/* Read More Link */}
+                  {tool.href.startsWith('http') ? (
+                    <motion.a
+                      href={tool.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-dark/70 hover:text-[#22d3ee] group-hover:gap-4 transition-all duration-300"
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <span className="text-sm font-medium">{tool.cta}</span>
+                      <ArrowRight size={16} />
+                    </motion.a>
+                  ) : (
+                    <Link
+                      href={tool.href}
+                      className="flex items-center gap-2 text-dark/70 hover:text-[#22d3ee] group-hover:gap-4 transition-all duration-300"
+                    >
+                      <span className="text-sm font-medium">{tool.cta}</span>
+                      <ArrowRight size={16} />
                     </Link>
-                    <Link href={`/assessments/${service.assessmentTool}`} className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white py-2 px-3 rounded-lg bg-white/5">
-                        <Zap size={14} className="text-[#22d3ee]" fill="#22d3ee" />
-                        <span>{service.assessmentCTA}</span>
-                    </Link>
+                  )}
                 </div>
-            </div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <p className="text-lg text-gray-600 mb-6">
+            Not sure where to start?
+          </p>
+          <motion.a
+            href="https://leads.maruonline.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center bg-[#22d3ee] hover:bg-[#1cb8cc] text-black font-medium rounded-full pl-8 pr-2 py-2.5 transition-colors group shadow-lg"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <span className="text-sm tracking-wide uppercase mr-4">
+              Start With a Free Website Grade
+            </span>
+            <span className="bg-black text-white rounded-full p-3 group-hover:bg-gray-900 transition-colors">
+              <ArrowRight size={16} />
+            </span>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );

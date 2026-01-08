@@ -9,7 +9,7 @@ export function Process() {
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-            <span className="font-light text-zinc-500">Your 4-Steps to</span> <span className="font-bold text-white">Breakthrough Performance</span>
+            <span className="font-extralight text-zinc-500">Your 4-Steps to</span> <span className="font-medium text-white">Breakthrough Performance</span>
           </h2>
         </div>
         <div className="mb-24 -mx-4 md:-mx-8 lg:-mx-16"><IsometricProcess /></div>

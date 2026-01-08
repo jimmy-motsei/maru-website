@@ -206,9 +206,9 @@ export default function ServicesPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-12"
           >
-            <h1 className="hero-h1 font-bold text-muted mb-6">
-              Ai Automation <span className="font-light">Systems</span><br />
-              that drive <span className="font-light">Revenue</span>
+            <h1 className="hero-h1 font-medium mb-6 text-white">
+              Ai Automation <span className="font-extralight text-zinc-500">Systems</span><br />
+              <span className="font-extralight text-zinc-500">that drive</span> Revenue
             </h1>
             <p className="text-xl md:text-2xl text-white/60 max-w-3xl">
               Smart systems that generate leads, close sales, and run your operations—so you can focus on growth
@@ -339,9 +339,9 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-dark"
+              className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-dark"
             >
-              How we <span className="font-light">work</span>
+              <span className="font-extralight text-zinc-500">How we</span> work
             </motion.h2>
           </div>
 
@@ -412,8 +412,8 @@ export default function ServicesPage() {
               <p className="text-accent text-sm font-medium mb-4">
                 Common Questions
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                Frequently <span className="font-light">Asked</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white">
+                <span className="font-extralight text-zinc-500">Frequently</span> Asked
               </h2>
             </motion.div>
 
@@ -493,8 +493,8 @@ export default function ServicesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-              Flexible <span className="font-light">packages</span> for every stage
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white mb-4">
+              Flexible packages <span className="font-extralight text-zinc-500">for every stage</span>
             </h2>
             <p className="text-white/60 text-lg max-w-2xl mx-auto">
               Choose the package that fits your business needs, or contact us for a tailored solution.
@@ -614,9 +614,9 @@ export default function ServicesPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl mb-6 font-bold text-dark">
-              Find Out Where AI Can Save You<br />
-              <span className="font-light">10+ Hours Per Week</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl mb-6 font-medium tracking-tight text-dark">
+              <span className="font-extralight text-zinc-500">Find Out Where AI Can Save You</span><br />
+              10+ Hours Per Week
             </h2>
             <p className="text-xl text-dark/60 mb-12 max-w-2xl mx-auto">
               Get your free Ai Readiness Assessment—no obligation, just insights

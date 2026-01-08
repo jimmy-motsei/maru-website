@@ -71,8 +71,8 @@ export function ServiceHero({
           transition={{ duration: 0.6, delay: 0.1 }}
           className="hero-h1 text-white mb-10 max-w-4xl"
         >
-          <span className="font-bold">{titleBold}</span>{" "}
-          <span className="font-light text-white/80">{titleLight}</span>
+          <span className="font-medium">{titleBold}</span>{" "}
+          <span className="font-extralight text-zinc-500">{titleLight}</span>
         </motion.h1>
 
         {/* Subtitle */}
