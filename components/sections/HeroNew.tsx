@@ -36,7 +36,7 @@ export function Hero() {
                               className="flex flex-col gap-8 md:gap-12"
                             >
                                 <motion.p variants={fadeInUp} className="text-[20px] md:text-[24px] lg:text-[26px] font-medium text-[#22d3ee] leading-[1.3] mt-[-1rem]">
-                                    Get your free website Lead Grading Assessment in 2 minutes
+                                    Get your free website <span className="text-white font-bold">Lead Grading Assessment</span> in 2 minutes
                                 </motion.p>
                                 <motion.div variants={fadeInUp} className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8">
                                     <CTAPrimary href="https://leads.maruonline.com">Get Free Assessment</CTAPrimary>
