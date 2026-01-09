@@ -29,9 +29,10 @@ export const CTAPrimary: React.FC<CTAPrimaryProps> = ({
   const baseStyles = cn(
     "inline-flex items-center justify-between",
     "bg-[#3DD6D0] text-black",
-    "font-bold uppercase text-sm tracking-[0.5px]",
-    "px-8 py-4 rounded-[50px]",
-    "gap-4 min-h-[56px]",
+    "font-bold uppercase text-xs md:text-sm tracking-[0.5px]",
+    "px-5 md:px-8 py-4 rounded-[50px]",
+    "gap-2 md:gap-4 min-h-[56px]",
+    "whitespace-nowrap",
     "transition-all duration-300 ease-in-out",
     "hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)]",
     "active:translate-y-0 active:shadow-[0_2px_8px_rgba(61,214,208,0.3)]",

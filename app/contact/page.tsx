@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
-import { Footer } from "@/components/layout/Footer";
+
 import { submitToHubSpot, HUBSPOT_FORMS } from "@/lib/hubspot";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
@@ -336,7 +336,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-      <Footer />
+
     </main>
   );
 }
