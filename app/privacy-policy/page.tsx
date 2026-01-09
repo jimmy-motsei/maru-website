@@ -12,8 +12,8 @@ export default function PrivacyPolicyPage() {
     <LegalLayout
       title="Privacy Policy"
       description="Your privacy is important to us. This policy explains how we collect, use, and protect your information in compliance with South African law."
-      lastUpdated="January 2025"
-      effectiveDate="January 1, 2025"
+      lastUpdated="January 9, 2026"
+      effectiveDate="January 9, 2026"
     >
       <section className="mb-12">
         <h2 className="text-2xl font-medium text-white mb-6">1. Introduction</h2>
@@ -91,12 +91,30 @@ export default function PrivacyPolicyPage() {
         <p className="text-light-soft mb-4">
           We may collect the following personal information:
         </p>
-        <ul className="list-disc list-inside space-y-2 text-light-soft">
+        <ul className="list-disc list-inside space-y-2 text-light-soft mb-8">
           <li>Name and contact details (email, phone number)</li>
           <li>Company name and job title</li>
           <li>Business information and requirements</li>
           <li>Communication preferences</li>
           <li>Website usage data and analytics</li>
+        </ul>
+
+        <h3 className="text-xl font-medium text-white mb-4">
+          3.2 AI Data Processing
+        </h3>
+        <p className="text-light-soft mb-4">
+          As an AI Academy and service provider, we process specific data related to artificial intelligence services:
+        </p>
+        <ul className="list-disc list-inside space-y-2 text-light-soft">
+          <li>
+            <strong className="text-white">User Prompts & Inputs:</strong> Text and data you input into our interactive tools, playgrounds, or chatbots are processed to generate responses. These inputs are stored to provide your interaction history.
+          </li>
+          <li>
+            <strong className="text-white">Third-Party Model Processing:</strong> Our services utilize third-party AI models (e.g., Google Gemini, OpenAI). Your anonymized prompts may be processed by these providers solely for the purpose of generating responses. We do not allow these providers to use your data for training their public models without your explicit consent.
+          </li>
+          <li>
+            <strong className="text-white">Learning Progress:</strong> We analyze your interactions with our curriculum, including quiz scores and exercise submissions, to tailor your learning experience.
+          </li>
         </ul>
       </section>
 
@@ -119,7 +137,24 @@ export default function PrivacyPolicyPage() {
 
       <section className="mb-12">
         <h2 className="text-2xl font-medium text-white mb-6">
-          5. Your Rights Under POPIA
+          5. Automated Decision Making
+        </h2>
+        <p className="text-light-soft mb-4">
+          In compliance with Section 71 of POPIA, we inform you that we use automated systems to:
+        </p>
+        <ul className="list-disc list-inside space-y-2 text-light-soft mb-4">
+          <li>Grade multiple-choice quizzes immediately upon submission.</li>
+          <li>Award automated badges and certificates based on completion criteria.</li>
+          <li>Assess "AI Readiness" scores based on form inputs.</li>
+        </ul>
+        <p className="text-light-soft">
+          These automated decisions do not have legal or similarly significant effects on you. However, if you believe an automated grading or scoring error has occurred, you have the right to request manual review by contacting our support team.
+        </p>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-medium text-white mb-6">
+          6. Your Rights Under POPIA
         </h2>
         <p className="text-light-soft mb-4">
           As a data subject under the Protection of Personal Information Act
@@ -165,7 +200,7 @@ export default function PrivacyPolicyPage() {
 
       <section className="mb-12">
         <h2 className="text-2xl font-medium text-white mb-6">
-          6. PAIA Compliance
+          7. PAIA Compliance
         </h2>
         <p className="text-light-soft mb-4">
           In accordance with the Promotion of Access to Information Act (PAIA)
@@ -187,7 +222,7 @@ export default function PrivacyPolicyPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-medium text-white mb-6">7. Data Security</h2>
+        <h2 className="text-2xl font-medium text-white mb-6">8. Data Security</h2>
         <p className="text-light-soft mb-4">
           In compliance with POPIA Section 19 (Security Safeguards), we implement
           appropriate technical and organizational security measures to protect
@@ -206,7 +241,7 @@ export default function PrivacyPolicyPage() {
 
       <section className="mb-12">
         <h2 className="text-2xl font-medium text-white mb-6">
-          8. Contact Information
+          9. Contact Information
         </h2>
         <p className="text-light-soft mb-4">
           For questions about this Privacy Policy or to exercise your rights,
@@ -232,7 +267,7 @@ export default function PrivacyPolicyPage() {
 
       <section>
         <h2 className="text-2xl font-medium text-white mb-6">
-          9. Complaints and Enforcement
+          10. Complaints and Enforcement
         </h2>
         <p className="text-light-soft mb-4">
           If you believe we have not handled your personal information in
