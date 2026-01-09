@@ -22,7 +22,7 @@ export default function TermsConditionsPage() {
             Terms and Conditions
           </h1>
           <p className="text-dark/60">
-            Last updated: {new Date().toLocaleDateString('en-ZA', { year: 'numeric', month: 'long', day: 'numeric' })}
+            Last updated: January 9, 2026
           </p>
         </div>
 
@@ -76,6 +76,10 @@ export default function TermsConditionsPage() {
             </ul>
             <p className="text-dark/70 leading-relaxed">
               Late payments may incur a 2% monthly interest charge. Projects may be paused if payment is overdue by more than 14 days.
+            </p>
+            <p className="text-dark/70 leading-relaxed">
+              <strong>Refunds for Digital Courses (Maru AI Academy):</strong><br />
+              We offer a 7-day money-back guarantee on all digital courses, provided you have not completed more than 20% of the course content and have not generated a certificate. Once more than 20% of the content is accessed or a certificate is claimed, the product is considered "consumed" and is non-refundable.
             </p>
           </section>
 
