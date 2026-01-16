@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { rateLimit, createRateLimitResponse } from '@/lib/rate-limit';
+import { verifySession } from '@/lib/auth';
 
 export function middleware(request: NextRequest) {
   // Security headers
@@ -24,46 +25,25 @@ export function middleware(request: NextRequest) {
 
   // Admin route protection
   if (request.nextUrl.pathname.startsWith('/admin')) {
-    // Allow login page
     if (request.nextUrl.pathname === '/admin/login') {
       return response;
     }
 
-    // Check for admin session
-    const session = request.cookies.get('admin-session');
+    const token = request.cookies.get('admin-session')?.value;
     
-    if (!session?.value) {
+    if (!token) {
       return NextResponse.redirect(new URL('/admin/login', request.url));
     }
 
-    // Validate session
-    try {
-      const decoded = Buffer.from(session.value, 'base64').toString();
-      const [email, timestamp] = decoded.split(':');
-      
-      const sessionTime = parseInt(timestamp);
-      const now = Date.now();
-      const twentyFourHours = 24 * 60 * 60 * 1000;
-      
-      if (now - sessionTime > twentyFourHours) {
-        const loginResponse = NextResponse.redirect(new URL('/admin/login', request.url));
-        loginResponse.cookies.delete('admin-session');
-        return loginResponse;
-      }
-
-      const adminEmail = process.env.ADMIN_EMAIL || 'hello@maruonline.com';
-      if (email !== adminEmail) {
-        const loginResponse = NextResponse.redirect(new URL('/admin/login', request.url));
-        loginResponse.cookies.delete('admin-session');
-        return loginResponse;
-      }
-
-      return response;
-    } catch {
+    const session = await verifySession(token);
+    
+    if (!session) {
       const loginResponse = NextResponse.redirect(new URL('/admin/login', request.url));
       loginResponse.cookies.delete('admin-session');
       return loginResponse;
     }
+
+    return response;
   }
 
   // API rate limiting

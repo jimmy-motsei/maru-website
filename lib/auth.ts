@@ -1,58 +1,39 @@
-import { cookies } from 'next/headers';
-import { NextRequest } from 'next/server';
+import { SignJWT, jwtVerify } from 'jose';
 
-export async function isAuthenticated(): Promise<boolean> {
-  try {
-    const cookieStore = await cookies();
-    const session = cookieStore.get('admin-session');
-    
-    if (!session?.value) {
-      return false;
-    }
+const JWT_SECRET = new TextEncoder().encode(
+  process.env.JWT_SECRET || 'default-jwt-secret-change-in-production'
+);
 
-    // Decode and validate session
-    const decoded = Buffer.from(session.value, 'base64').toString();
-    const [email, timestamp] = decoded.split(':');
-    
-    // Check if session is expired (24 hours)
-    const sessionTime = parseInt(timestamp);
-    const now = Date.now();
-    const twentyFourHours = 24 * 60 * 60 * 1000;
-    
-    if (now - sessionTime > twentyFourHours) {
-      return false;
-    }
-
-    return email === (process.env.ADMIN_EMAIL || 'hello@maruonline.com');
-  } catch {
-    return false;
-  }
+export interface SessionPayload {
+  email: string;
+  role: string;
+  exp: number;
 }
 
-export function getSessionFromRequest(request: NextRequest): string | null {
+export async function createSession(email: string, role: string = 'admin'): Promise<string> {
+  const token = await new SignJWT({ email, role })
+    .setProtectedHeader({ alg: 'HS256' })
+    .setIssuedAt()
+    .setExpirationTime('24h')
+    .sign(JWT_SECRET);
+  
+  return token;
+}
+
+export async function verifySession(token: string): Promise<SessionPayload | null> {
   try {
-    const session = request.cookies.get('admin-session');
-    return session?.value || null;
+    const { payload } = await jwtVerify(token, JWT_SECRET);
+    return payload as SessionPayload;
   } catch {
     return null;
   }
 }
 
-export function validateSession(sessionToken: string): boolean {
-  try {
-    const decoded = Buffer.from(sessionToken, 'base64').toString();
-    const [email, timestamp] = decoded.split(':');
-    
-    const sessionTime = parseInt(timestamp);
-    const now = Date.now();
-    const twentyFourHours = 24 * 60 * 60 * 1000;
-    
-    if (now - sessionTime > twentyFourHours) {
-      return false;
-    }
-
-    return email === (process.env.ADMIN_EMAIL || 'hello@maruonline.com');
-  } catch {
+export function verifyPassword(password: string): boolean {
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  if (!adminPassword) {
+    console.error('ADMIN_PASSWORD not configured');
     return false;
   }
+  return password === adminPassword;
 }

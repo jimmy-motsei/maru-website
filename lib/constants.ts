@@ -20,3 +20,9 @@ export const SPACING = {
 export const ANIMATION = {
   EASE_CUSTOM: [0, 0, 0.3642, 1] as const,
 } as const;
+
+// API Rate Limits
+export const RATE_LIMITS = {
+  EMAIL: 5, // 5 emails per hour
+  API: 100, // 100 requests per hour
+} as const;

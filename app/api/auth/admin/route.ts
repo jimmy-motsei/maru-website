@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { createSession, verifyPassword } from '@/lib/auth';
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'hello@maruonline.com';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,18 +14,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Simple credential check
-    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-      // Create session token
-      const sessionToken = Buffer.from(`${email}:${Date.now()}`).toString('base64');
+    if (email === ADMIN_EMAIL && verifyPassword(password)) {
+      const token = await createSession(email, 'admin');
       
-      // Set secure cookie
       const response = NextResponse.json({ success: true });
-      response.cookies.set('admin-session', sessionToken, {
+      response.cookies.set('admin-session', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
-        maxAge: 24 * 60 * 60, // 24 hours
+        maxAge: 24 * 60 * 60,
       });
 
       return response;
@@ -46,8 +43,12 @@ export async function POST(request: NextRequest) {
 }
 
 export async function DELETE() {
-  // Logout - clear session
   const response = NextResponse.json({ success: true });
-  response.cookies.delete('admin-session');
+  response.cookies.set('admin-session', '', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
+    maxAge: 0,
+  });
   return response;
 }
