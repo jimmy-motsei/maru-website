@@ -5,7 +5,13 @@ interface RateLimitEntry {
   resetTime: number;
 }
 
-// In-memory rate limit storage (use Redis in production)
+// Rate limiting storage
+// NOTE: This in-memory implementation is suitable for development only.
+// For production with serverless/multi-instance deployments, use:
+// - Vercel KV (Redis)
+// - Upstash Redis
+// - AWS ElastiCache
+// - Or similar distributed cache solution
 const rateLimitStore = new Map<string, RateLimitEntry>();
 
 interface RateLimitConfig {

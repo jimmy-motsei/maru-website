@@ -3,7 +3,13 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const partners = [
+interface Partner {
+  name: string;
+  logo: string;
+  heightClass?: string;
+}
+
+const partners: Partner[] = [
   { name: "B2B Group 8", logo: "/images/partners/B2B-logo.png" },
   { name: "Digivation", logo: "/images/partners/digivation_test.png", heightClass: "h-[30px]" },
   { name: "Roka Initiatives", logo: "/images/partners/Roka-logo.png", heightClass: "h-10" },
@@ -55,7 +61,6 @@ export function Partners() {
                 width={200}
                 height={80}
                 className={`w-auto object-contain grayscale hover:grayscale-0 transition-all duration-500 ${
-                  // @ts-ignore
                   partner.heightClass || "h-[50px]"
                 }`}
               />
