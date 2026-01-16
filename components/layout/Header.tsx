@@ -21,7 +21,7 @@ const menuItems = {
   projects: [
     { name: "Lead Score Predictor", href: "/assessments/lead-score" },
     { name: "Pipeline Leak Detector", href: "/assessments/pipeline-leak" },
-    { name: "Proposal Accelerator", href: "/assessments/proposal" },
+
     { name: "Tech Stack Auditor", href: "/assessments/tech-audit" },
   ],
   services: [
