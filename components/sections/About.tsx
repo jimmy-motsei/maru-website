@@ -9,38 +9,66 @@ export function About() {
     <section id="about" className="bg-white py-32 text-black">
       <div className="container mx-auto px-6 lg:px-8">
         <motion.div 
-          className="grid items-center gap-16 lg:grid-cols-2"
+          className="max-w-4xl mx-auto"
           variants={staggerContainerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Left Column: Text Content */}
+          {/* Single Column: Text Content */}
           <div className="space-y-8">
             <motion.h2 
-              className="text-4xl font-bold leading-tight md:text-6xl lg:text-[68px]"
+              className="text-4xl font-bold leading-tight md:text-5xl lg:text-6xl mb-8"
               variants={fadeUpVariants}
             >
-              <span className="font-thin text-gray-600">Trusted AI</span> marketing automation experts
+              <span className="font-light text-gray-600">The</span> Anti-Agency
             </motion.h2>
 
             <motion.p 
-              className="text-lg leading-relaxed text-black/80"
+              className="text-xl leading-relaxed text-black font-semibold"
               variants={fadeUpVariants}
             >
-              Established in 2002, MaruOnline brings over two decades of marketing expertise—from building brands from scratch to scaling existing ones.
+              We're not another AI agency that discovered marketing last year.
             </motion.p>
 
             <motion.p 
               className="text-lg leading-relaxed text-black/80"
               variants={fadeUpVariants}
             >
-              We use AI as a strategic tool to do what we do best: help high-performing SMEs break through growth plateaus. Through intelligent automation, we identify hidden opportunities and execute with precision—giving consistent performers the edge they need to dominate their market.
+              Our founder spent years in marketing before rebuilding this business around a simple observation: SMEs are drowning in tools they don't know how to use. CRMs sitting empty. Automation sending generic emails. Websites that look good but convert nobody.
             </motion.p>
 
-            {/* Quote Block */}
+            <motion.p 
+              className="text-lg leading-relaxed text-black/80"
+              variants={fadeUpVariants}
+            >
+              The problem isn't the tools. It's that most businesses try to do enterprise marketing on an SME budget, guided by agencies that learned their craft from blog posts.
+            </motion.p>
+
+            <motion.p 
+              className="text-lg leading-relaxed text-black/80"
+              variants={fadeUpVariants}
+            >
+              We took a different path. Instead of scaling an agency, we went deep—learning web development, mastering digital systems, understanding how the pieces actually fit together. Not from theory, but from building, breaking, and fixing marketing systems until we understood what works.
+            </motion.p>
+
+            <motion.p 
+              className="text-lg leading-relaxed text-black/80"
+              variants={fadeUpVariants}
+            >
+              Now we use AI to diagnose problems faster and implement solutions more precisely. But the insight comes from understanding how SME marketing actually fails—and how to fix it without the enterprise price tag.
+            </motion.p>
+
+            <motion.p 
+              className="text-lg leading-relaxed text-black/80"
+              variants={fadeUpVariants}
+            >
+              We started with lead generation because it's where most businesses bleed revenue. But our mission is broader: solving the marketing problems that keep SMEs stuck, one system at a time.
+            </motion.p>
+
+            {/* Quote Block - Relocated to end */}
             <motion.div 
-              className="mt-12 flex items-center gap-6 rounded-2xl bg-gray-50 p-8 border-l-4 border-accent"
+              className="mt-16 flex items-center gap-6 rounded-2xl bg-gray-50 p-8 border-l-4 border-accent"
               variants={fadeUpVariants}
             >
               <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full">
@@ -52,29 +80,13 @@ export function About() {
                 />
               </div>
               <div>
-                <h6 className="text-lg font-medium leading-snug mb-2">
-                  "We automate all the boring stuff, so you can focus on growing your business"
+                <h6 className="text-lg leading-snug mb-2">
+                  "<span className="font-bold">We solve</span> <span className="font-light">marketing problems using</span> <span className="font-bold">AI intelligence</span><span className="font-light">—not AI hype.</span>"
                 </h6>
                 <p className="text-sm text-black/60 font-medium">
                   Founder - Jimmy Motsei
                 </p>
               </div>
-            </motion.div>
-          </div>
-
-          {/* Right Column: Image */}
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-3xl border border-black/5" />
-            <motion.div 
-              className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl"
-              variants={scaleInVariants}
-            >
-              <Image
-                src="/assets/images/illustrations/visionary-woman.png"
-                alt="Visionary African Woman - AI & Automation Leadership"
-                fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
-              />
             </motion.div>
           </div>
         </motion.div>

@@ -111,8 +111,7 @@ export function FooterCTA() {
                 />
               </Link>
               <p className="text-white/60 text-base leading-relaxed mb-6">
-                AI-powered automation solutions for African businesses. 
-                Transform your operations, scale with confidence.
+                Solving marketing problems for African SMEs—one broken system at a time.
               </p>
               {/* Social Icons */}
               <div className="flex items-center gap-3">
