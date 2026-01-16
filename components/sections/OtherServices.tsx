@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Code2, MessageCircle, GraduationCap, LucideIcon } from "lucide-react";
+import { SafeLink } from "@/components/ui/SafeLink";
 
 interface ServiceInfo {
   id: string;
@@ -92,13 +92,13 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Link
+            <SafeLink
               href="/services"
               className="inline-flex items-center gap-2 text-dark hover:text-accent transition-colors group"
             >
               <span className="font-medium">View all</span>
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </SafeLink>
           </motion.div>
         </div>
 
@@ -114,7 +114,7 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
             const IconComponent = service.icon;
             return (
               <motion.div key={service.id} variants={itemVariants}>
-                <div className="bg-gray-50 rounded-2xl p-8 h-full shadow-sm border border-[#22d3ee]">
+                <div className="bg-gray-50 rounded-2xl p-8 h-full shadow-sm border border-cyan-primary">
                   {/* Icon */}
                   <div
                     className="w-14 h-14 rounded-full flex items-center justify-center mb-6"

@@ -21,7 +21,7 @@ export function Button({ className, variant = "primary", href, children, ...prop
     <>
       {children && <span className="whitespace-nowrap">{children}</span>}
       <div className={cn(
-        "ml-6 flex h-10 w-10 items-center justify-center rounded-full bg-black transition-transform duration-400 group-hover:scale-115",
+        "ml-6 flex h-10 w-10 items-center justify-center rounded-full bg-black transition-transform duration-400 group-hover:scale-110",
         variant === "icon" && "ml-0 bg-accent text-black"
       )}>
         <ArrowRight className={cn("h-4 w-4", variant === "primary" ? "text-accent" : "text-black")} />

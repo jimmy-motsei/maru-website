@@ -2,10 +2,11 @@
 import { motion } from "framer-motion";
 import { Target, TrendingUp, Zap, RefreshCw } from "lucide-react";
 import { IsometricProcess } from "./IsometricProcess";
+import { SPACING } from "@/lib/constants";
 
 export function Process() {
   return (
-    <section id="process" className="bg-[#050505] py-12 md:py-32 relative overflow-hidden text-white border-t border-white/5">
+    <section id="process" className={`bg-[#050505] ${SPACING.SECTION} relative overflow-hidden text-white border-t border-white/5`}>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">

@@ -1,45 +1,22 @@
-export const SITE_CONFIG = {
-  name: "Maru Online",
-  description: "Bridge your business into the age of AI",
-  url: "https://maruonline.com",
-  ogImage: "https://maruonline.com/og.jpg",
-  links: {
-    twitter: "https://twitter.com/maruonline",
-    github: "https://github.com/maruonline",
-  },
-  contact: {
-    email: "hello@maruonline.com",
-    phone: "+27(0)83 393 4864",
-    address: {
-      kzn: "247 Ballito Village, Ballito, 4420",
-      gauteng: "61 4th Street, Linden, Johannesburg",
-    },
-  },
-};
+/**
+ * Design System Constants
+ */
 
-export const NAV_LINKS = [
-  { name: "Homepage", href: "/" },
-  {
-    name: "Services",
-    href: "/services",
-    subItems: [
-      { name: "SmartGuest AI", href: "/services/smartguest-ai" },
-      { name: "BizInsight AI", href: "/services/bizinsight-ai" },
-      { name: "AI Mastery Workshops", href: "/services/ai-mastery-workshops" },
-      { name: "Custom AI Solutions", href: "/services/custom-ai-solutions" },
-    ],
-  },
-  {
-    name: "Resources",
-    href: "/knowledge",
-    subItems: [{ name: "Knowledge", href: "/knowledge" }],
-  },
-  {
-    name: "Other pages",
-    href: "/contact",
-    subItems: [
-      { name: "Contact", href: "/contact" },
-      { name: "404", href: "/404" },
-    ],
-  },
-];
+// Colors
+export const COLORS = {
+  CYAN_PRIMARY: '#22d3ee',
+  CYAN_HOVER: '#1cb8cc',
+  ACCENT: '#3db8c6',
+  DARK: '#050505',
+} as const;
+
+// Spacing
+export const SPACING = {
+  SECTION: 'py-20 md:py-32',
+  SECTION_LARGE: 'py-24 lg:py-32',
+} as const;
+
+// Animation
+export const ANIMATION = {
+  EASE_CUSTOM: [0, 0, 0.3642, 1] as const,
+} as const;

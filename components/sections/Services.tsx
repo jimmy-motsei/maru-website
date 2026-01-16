@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { SPACING } from "@/lib/constants";
 
 const tools = [
   {
@@ -61,7 +62,7 @@ const itemVariants = {
 
 export function Services() {
   return (
-    <section className="py-20 md:py-32 bg-[#f5f5f5]">
+    <section className={`${SPACING.SECTION} bg-[#f5f5f5]`}>
       <div className="container mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -101,25 +102,25 @@ export function Services() {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 {/* Card - OtherServices Style */}
-                <div className="bg-gray-50 rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl border-l-4 border-l-[#22d3ee] transition-all duration-300 group flex flex-col">
+                <div className="bg-gray-50 rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl border-l-4 border-l-cyan-primary transition-all duration-300 group flex flex-col">
                   {/* Step Icon */}
                   <motion.div
-                    className="w-14 h-14 rounded-full bg-[#22d3ee]/10 flex items-center justify-center mb-6"
+                    className="w-14 h-14 rounded-full bg-cyan-primary/10 flex items-center justify-center mb-6"
                     whileHover={{ scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    <span className="text-xl font-bold text-[#22d3ee]">
+                    <span className="text-xl font-bold text-cyan-primary">
                       {tool.step}
                     </span>
                   </motion.div>
 
                   {/* Label */}
-                  <div className="text-xs font-bold tracking-[0.15em] text-[#22d3ee] mb-2">
+                  <div className="text-xs font-bold tracking-[0.15em] text-cyan-primary mb-2">
                     {tool.label}
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-dark mb-3 group-hover:text-[#22d3ee] transition-colors">
+                  <h3 className="text-xl font-bold text-dark mb-3 group-hover:text-cyan-primary transition-colors">
                     {tool.title}
                   </h3>
 
@@ -134,7 +135,7 @@ export function Services() {
                       href={tool.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-dark/70 hover:text-[#22d3ee] group-hover:gap-4 transition-all duration-300"
+                      className="flex items-center gap-2 text-dark/70 hover:text-cyan-primary group-hover:gap-4 transition-all duration-300"
                       whileTap={{ scale: 0.98 }}
                     >
                       <span className="text-sm font-medium">{tool.cta}</span>
@@ -143,7 +144,7 @@ export function Services() {
                   ) : (
                     <Link
                       href={tool.href}
-                      className="flex items-center gap-2 text-dark/70 hover:text-[#22d3ee] group-hover:gap-4 transition-all duration-300"
+                      className="flex items-center gap-2 text-dark/70 hover:text-cyan-primary group-hover:gap-4 transition-all duration-300"
                     >
                       <span className="text-sm font-medium">{tool.cta}</span>
                       <ArrowRight size={16} />
@@ -170,7 +171,7 @@ export function Services() {
             href="https://leads.maruonline.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center bg-[#22d3ee] hover:bg-[#1cb8cc] text-black font-medium rounded-full pl-8 pr-2 py-2.5 transition-colors group shadow-lg"
+            className="inline-flex items-center bg-cyan-primary hover:bg-cyan-hover text-black font-medium rounded-full pl-8 pr-2 py-2.5 transition-colors group shadow-lg"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}

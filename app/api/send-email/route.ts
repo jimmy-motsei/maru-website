@@ -6,19 +6,14 @@ export async function POST(request: Request) {
     const { type, data } = await request.json();
 
     // 1. Create Transporter
-    // In production, these should be environment variables:
-    // SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || "smtp.gmail.com",
       port: Number(process.env.SMTP_PORT) || 465,
-      secure: true, // true for 465, false for other ports
+      secure: true,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-      tls: {
-          rejectUnauthorized: false
-      }
     });
 
     // 2. Format Email Content based on Form Type
@@ -47,12 +42,12 @@ export async function POST(request: Request) {
     htmlContent += `</table>`;
 
     // 3. Send Email
-    // If no ENV vars are set, this deals with a "mock" success for dev if credentials fail, or real error
     if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-      console.warn("⚠️ SMTP Credentials missing in .env. Email not sent.");
-      // We return success here so the frontend doesn't break during testing
-      // Remove this mock return in production!
-      return NextResponse.json({ success: true, message: "Mock success (SMTP not configured)" });
+      console.error("⚠️ SMTP Credentials missing in .env");
+      return NextResponse.json(
+        { error: "Email service not configured" },
+        { status: 503 }
+      );
     }
 
     const mailOptions = {

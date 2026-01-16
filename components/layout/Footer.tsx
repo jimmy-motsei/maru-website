@@ -107,10 +107,11 @@ export function Footer() {
             {/* Logo */}
             <motion.div variants={itemVariants} className="lg:col-span-4">
               <Link href="/" className="inline-block">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/images/brand/maru-logo-neutral.png"
                   alt="Maru Logo"
+                  width={120}
+                  height={120}
                   className="h-[120px] w-auto"
                 />
               </Link>
