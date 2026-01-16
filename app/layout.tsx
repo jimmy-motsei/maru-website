@@ -10,6 +10,7 @@ import { PerformanceMonitor } from "@/components/analytics/PerformanceMonitor";
 import { JourneyAnalytics } from "@/components/analytics/JourneyAnalytics";
 import CookieConsent from "@/components/ui/CookieConsent";
 import CookieManager from "@/components/CookieManager";
+import { Analytics } from "@vercel/analytics/react";
 
 import BookingModal from "@/components/ui/BookingModal";
 
@@ -53,6 +54,7 @@ export default function RootLayout({
         <CookieManager />
         <CookieConsent />
         <BookingModal />
+        <Analytics />
       </body>
     </html>
   );
