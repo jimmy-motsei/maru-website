@@ -1,4 +1,5 @@
 import { SignJWT, jwtVerify } from 'jose';
+import { NextRequest } from 'next/server';
 
 const JWT_SECRET = new TextEncoder().encode(
   process.env.JWT_SECRET || 'default-jwt-secret-change-in-production'
@@ -23,10 +24,23 @@ export async function createSession(email: string, role: string = 'admin'): Prom
 export async function verifySession(token: string): Promise<SessionPayload | null> {
   try {
     const { payload } = await jwtVerify(token, JWT_SECRET);
-    return payload as SessionPayload;
+    if (payload.email && payload.role) {
+      return {
+        email: payload.email as string,
+        role: payload.role as string,
+        exp: payload.exp as number,
+      };
+    }
+    return null;
   } catch {
     return null;
   }
+}
+
+export async function getSessionFromRequest(request: NextRequest): Promise<SessionPayload | null> {
+  const token = request.cookies.get('admin-session')?.value;
+  if (!token) return null;
+  return verifySession(token);
 }
 
 export function verifyPassword(password: string): boolean {

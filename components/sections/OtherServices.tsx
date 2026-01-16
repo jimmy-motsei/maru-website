@@ -22,7 +22,7 @@ const fixedServices: ServiceInfo[] = [
     features: ["Next.js/React", "90+ Lighthouse Scores", "SEO-First Design", "Conversion Optimization"],
     href: "/services/website-development",
     icon: Code2,
-    iconColor: "#22d3ee",
+    iconColor: "var(--color-cyan-primary)",
   },
   {
     id: "support-chatbot",

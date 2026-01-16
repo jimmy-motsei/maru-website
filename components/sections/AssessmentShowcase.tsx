@@ -17,7 +17,7 @@ export function AssessmentShowcase() {
           {/* Enhanced Header */}
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Discover Your <span className="text-[#22d3ee]">Lead Generation Potential</span>
+              Discover Your <span className="text-[var(--color-cyan-primary)]">Lead Generation Potential</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
               Get instant insights with our AI-powered Lead Score Predictor. No signup required.

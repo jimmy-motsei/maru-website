@@ -75,7 +75,7 @@ const services = [
     link: "/services/whatsapp-solutions",
     offset: false,
     icon: MessageCircle,
-    iconColor: "#22d3ee", // Cyan (multi-channel)
+    iconColor: "var(--color-cyan-primary)", // Cyan (multi-channel)
   },
 ];
 

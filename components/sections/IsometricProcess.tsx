@@ -8,15 +8,15 @@ import { twMerge } from "tailwind-merge";
 function cn(...inputs: ClassValue[]) { return twMerge(clsx(inputs)); }
 
 const steps = [
-  { id: "01", title: "Health Check", description: "Our consultants analyze your current performance.", icon: ClipboardCheck, hex: "#22d3ee" },
-  { id: "02", title: "Roadmap", description: "We deliver a precision roadmap prioritized by impact.", icon: Map, hex: "#22d3ee" },
-  { id: "03", title: "Implementation", description: "Our engineers automate your tasks and integrate tech.", icon: Settings, hex: "#22d3ee" },
-  { id: "04", title: "Support", description: "Ongoing optimization to ensure systems deliver gains.", icon: GraduationCap, hex: "#22d3ee" },
+  { id: "01", title: "Health Check", description: "Our consultants analyze your current performance.", icon: ClipboardCheck, hex: "var(--color-cyan-primary)" },
+  { id: "02", title: "Roadmap", description: "We deliver a precision roadmap prioritized by impact.", icon: Map, hex: "var(--color-cyan-primary)" },
+  { id: "03", title: "Implementation", description: "Our engineers automate your tasks and integrate tech.", icon: Settings, hex: "var(--color-cyan-primary)" },
+  { id: "04", title: "Support", description: "Ongoing optimization to ensure systems deliver gains.", icon: GraduationCap, hex: "var(--color-cyan-primary)" },
 ];
 
 const MobileDetailContent = ({ step }: { step: typeof steps[0] }) => (
   <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="md:hidden text-center mt-6 px-4 max-w-sm">
-     <span className="text-xs font-bold uppercase tracking-wider block mb-2 text-[#22d3ee]">Step {step.id}</span>
+     <span className="text-xs font-bold uppercase tracking-wider block mb-2 text-[var(--color-cyan-primary)]">Step {step.id}</span>
      <h3 className="font-bold text-white text-2xl mb-2">{step.title}</h3>
      <p className="text-zinc-400">{step.description}</p>
   </motion.div>
@@ -46,7 +46,7 @@ export function IsometricProcess() {
                      </div>
                   </div>
                   <div className="relative z-10 flex flex-col items-center">
-                       <div className="relative w-28 h-28 sm:w-40 sm:h-40 flex items-center justify-center border-2 rounded-3xl rotate-45 bg-[#050505] border-[#22d3ee]/50 shadow-[0_0_30px_rgba(34,211,238,0.3)]">
+                       <div className="relative w-28 h-28 sm:w-40 sm:h-40 flex items-center justify-center border-2 rounded-3xl rotate-45 bg-[#050505] border-[var(--color-cyan-primary)]/50 shadow-[0_0_30px_rgba(34,211,238,0.3)]">
                          <step.icon className="w-12 h-12 -rotate-45 text-white" />
                        </div>
                        <MobileDetailContent step={step} />

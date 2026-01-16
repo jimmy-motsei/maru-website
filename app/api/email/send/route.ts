@@ -16,7 +16,7 @@ const emailTemplates = {
         <title>Assessment Results</title>
       </head>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-        <div style="background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
+        <div style="background: linear-gradient(135deg, var(--color-cyan-primary) 0%, #3b82f6 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
           <h1 style="color: white; margin: 0; font-size: 28px;">Your Assessment Results Are Ready!</h1>
           <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">
             ${getAssessmentDisplayName(data.assessmentType)} Analysis Complete
@@ -28,14 +28,14 @@ const emailTemplates = {
           
           <p>Thank you for completing our ${getAssessmentDisplayName(data.assessmentType)} assessment. Your personalized analysis is now ready!</p>
           
-          <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #22d3ee;">
-            <h3 style="color: #22d3ee; margin-top: 0;">Key Highlights:</h3>
+          <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid var(--color-cyan-primary);">
+            <h3 style="color: var(--color-cyan-primary); margin-top: 0;">Key Highlights:</h3>
             ${getAssessmentHighlights(data)}
           </div>
           
           <div style="text-align: center; margin: 30px 0;">
             <a href="${process.env.NEXT_PUBLIC_SITE_URL}/contact" 
-               style="background: #22d3ee; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">
+               style="background: var(--color-cyan-primary); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">
               Schedule a Free Consultation
             </a>
           </div>
@@ -47,7 +47,7 @@ const emailTemplates = {
           <div style="text-align: center; color: #666; font-size: 14px;">
             <p><strong>Maru Online</strong><br>
             AI-Powered Business Solutions<br>
-            <a href="mailto:hello@maruonline.com" style="color: #22d3ee;">hello@maruonline.com</a></p>
+            <a href="mailto:hello@maruonline.com" style="color: var(--color-cyan-primary);">hello@maruonline.com</a></p>
           </div>
         </div>
       </body>
@@ -63,7 +63,7 @@ const emailTemplates = {
       <html>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="background: #f8f9fa; padding: 30px; border-radius: 10px;">
-          <h2 style="color: #22d3ee;">Ready to take action on your assessment results?</h2>
+          <h2 style="color: var(--color-cyan-primary);">Ready to take action on your assessment results?</h2>
           
           <p>Hi ${data.contactInfo?.first_name || 'there'},</p>
           
@@ -79,7 +79,7 @@ const emailTemplates = {
           
           <div style="text-align: center; margin: 30px 0;">
             <a href="${process.env.NEXT_PUBLIC_SITE_URL}/contact" 
-               style="background: #22d3ee; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">
+               style="background: var(--color-cyan-primary); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">
               Book Your Free Strategy Session
             </a>
           </div>

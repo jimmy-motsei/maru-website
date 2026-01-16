@@ -249,7 +249,7 @@ export default function WebsiteDevelopmentPage() {
             variants={fadeUpVariants}
             className="text-center mb-16"
           >
-            <span className="inline-block px-4 py-2 bg-[#22d3ee]/10 border border-[#22d3ee]/20 rounded-full text-[#22d3ee] text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-2 bg-[var(--color-cyan-primary)]/10 border border-[var(--color-cyan-primary)]/20 rounded-full text-[var(--color-cyan-primary)] text-sm font-medium mb-6">
               The Maru Difference
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6">
@@ -257,7 +257,7 @@ export default function WebsiteDevelopmentPage() {
               <span className="font-bold text-white">Websites.</span>
               <br />
               <span className="font-light text-zinc-500">We Build</span>{" "}
-              <span className="font-bold text-[#22d3ee]">Lead-Converting Engines.</span>
+              <span className="font-bold text-[var(--color-cyan-primary)]">Lead-Converting Engines.</span>
             </h2>
           </motion.div>
 
@@ -297,23 +297,23 @@ export default function WebsiteDevelopmentPage() {
               viewport={{ once: true }}
               variants={fadeUpVariants}
               custom={0.2}
-              className="bg-gradient-to-br from-[#22d3ee]/10 to-[#0ea5e9]/5 backdrop-blur-sm p-8 rounded-3xl border border-[#22d3ee]/30 relative overflow-hidden"
+              className="bg-gradient-to-br from-[var(--color-cyan-primary)]/10 to-[#0ea5e9]/5 backdrop-blur-sm p-8 rounded-3xl border border-[var(--color-cyan-primary)]/30 relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#22d3ee]/10 rounded-full blur-3xl" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-cyan-primary)]/10 rounded-full blur-3xl" />
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 rounded-xl bg-[#22d3ee]/20 flex items-center justify-center">
-                    <Rocket className="w-6 h-6 text-[#22d3ee]" />
+                  <div className="w-12 h-12 rounded-xl bg-[var(--color-cyan-primary)]/20 flex items-center justify-center">
+                    <Rocket className="w-6 h-6 text-[var(--color-cyan-primary)]" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white">The Maru Way</h3>
-                    <p className="text-[#22d3ee] text-sm">Next.js / React / Vercel</p>
+                    <p className="text-[var(--color-cyan-primary)] text-sm">Next.js / React / Vercel</p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   {comparisonData.maruWay.map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <item.icon className="w-5 h-5 text-[#22d3ee] shrink-0" />
+                      <item.icon className="w-5 h-5 text-[var(--color-cyan-primary)] shrink-0" />
                       <span className="text-white">{item.text}</span>
                     </div>
                   ))}
@@ -352,14 +352,14 @@ export default function WebsiteDevelopmentPage() {
                 viewport={{ once: true }}
                 variants={fadeUpVariants}
                 custom={index * 0.1}
-                className="group bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:border-[#22d3ee]/50 transition-all duration-300"
+                className="group bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:border-[var(--color-cyan-primary)]/50 transition-all duration-300"
               >
                 <div className="flex items-start justify-between mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-[#22d3ee]/10 flex items-center justify-center text-[#22d3ee] group-hover:scale-110 transition-transform">
+                  <div className="w-14 h-14 rounded-2xl bg-[var(--color-cyan-primary)]/10 flex items-center justify-center text-[var(--color-cyan-primary)] group-hover:scale-110 transition-transform">
                     <feature.icon size={28} />
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-[#22d3ee]">{feature.stat}</div>
+                    <div className="text-2xl font-bold text-[var(--color-cyan-primary)]">{feature.stat}</div>
                     <div className="text-xs text-zinc-500">{feature.statLabel}</div>
                   </div>
                 </div>
@@ -402,8 +402,8 @@ export default function WebsiteDevelopmentPage() {
                   custom={index * 0.1}
                   className="relative group"
                 >
-                  <div className="bg-white/5 p-8 rounded-2xl border border-white/10 h-full hover:border-[#22d3ee]/50 transition-colors">
-                    <div className="w-12 h-12 rounded-full border-2 border-[#22d3ee] flex items-center justify-center mb-6 bg-[#050505]">
+                  <div className="bg-white/5 p-8 rounded-2xl border border-white/10 h-full hover:border-[var(--color-cyan-primary)]/50 transition-colors">
+                    <div className="w-12 h-12 rounded-full border-2 border-[var(--color-cyan-primary)] flex items-center justify-center mb-6 bg-[#050505]">
                       <span className="text-lg font-bold text-white">{step.number}</span>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
@@ -411,7 +411,7 @@ export default function WebsiteDevelopmentPage() {
                   </div>
                   {/* Connector arrow */}
                   {index < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 text-[#22d3ee]/30 z-10">
+                    <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 text-[var(--color-cyan-primary)]/30 z-10">
                       <ArrowRight size={24} />
                     </div>
                   )}
@@ -425,7 +425,7 @@ export default function WebsiteDevelopmentPage() {
       {/* Final CTA Section */}
       <section className="py-24 bg-gradient-to-b from-[#0A0A0A] to-[#050505] relative overflow-hidden">
         {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#22d3ee]/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--color-cyan-primary)]/5 rounded-full blur-3xl" />
         
         <div className="container mx-auto px-6 lg:px-8 text-center relative z-10">
           <motion.div
@@ -450,7 +450,7 @@ export default function WebsiteDevelopmentPage() {
               
               <Link
                 href="/website-audit"
-                className="inline-flex items-center gap-3 px-8 py-4 border border-zinc-700 text-white font-medium rounded-full hover:border-[#22d3ee] hover:text-[#22d3ee] transition-all group"
+                className="inline-flex items-center gap-3 px-8 py-4 border border-zinc-700 text-white font-medium rounded-full hover:border-[var(--color-cyan-primary)] hover:text-[var(--color-cyan-primary)] transition-all group"
               >
                 <span>Get Free Website Audit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -459,15 +459,15 @@ export default function WebsiteDevelopmentPage() {
 
             <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-zinc-500">
               <div className="flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-[#22d3ee]" />
+                <CheckCircle2 size={16} className="text-[var(--color-cyan-primary)]" />
                 <span>No obligation</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-[#22d3ee]" />
+                <CheckCircle2 size={16} className="text-[var(--color-cyan-primary)]" />
                 <span>30-minute strategy session</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-[#22d3ee]" />
+                <CheckCircle2 size={16} className="text-[var(--color-cyan-primary)]" />
                 <span>Custom proposal included</span>
               </div>
             </div>

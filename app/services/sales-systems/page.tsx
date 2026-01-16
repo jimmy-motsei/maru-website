@@ -134,9 +134,9 @@ export default function SalesSystemsPage() {
               <motion.div
                 key={index}
                 variants={fadeUpVariants}
-                className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[#22d3ee] flex items-start gap-6 group hover:border-[#22d3ee] hover:shadow-lg transition-all"
+                className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[var(--color-cyan-primary)] flex items-start gap-6 group hover:border-[var(--color-cyan-primary)] hover:shadow-lg transition-all"
               >
-                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#22d3ee]/5 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30 group-hover:scale-110 group-hover:bg-[#22d3ee]/10 transition-all">
+                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[var(--color-cyan-primary)]/5 flex items-center justify-center text-[var(--color-cyan-primary)] border border-[var(--color-cyan-primary)]/30 group-hover:scale-110 group-hover:bg-[var(--color-cyan-primary)]/10 transition-all">
                   <item.icon size={28} />
                 </div>
                 <div>
@@ -178,7 +178,7 @@ export default function SalesSystemsPage() {
               <motion.p className="text-xl font-semibold text-white" variants={fadeUpVariants}>
                 Your CRM is supposed to help, but it's just another admin burden.
               </motion.p>
-              <motion.p className="text-[#22d3ee] text-xl font-bold" variants={fadeUpVariants}>
+              <motion.p className="text-[var(--color-cyan-primary)] text-xl font-bold" variants={fadeUpVariants}>
                 We automate the repetitive work so your team can sell.
               </motion.p>
             </motion.div>
@@ -219,18 +219,18 @@ export default function SalesSystemsPage() {
                   variants={fadeUpVariants}
                   className="relative group"
                 >
-                  <div className="bg-gray-100 p-10 md:p-12 rounded-2xl border border-gray-300 border-l-4 border-l-[#22d3ee] h-full relative z-10 hover:border-[#22d3ee] hover:shadow-lg transition-all">
+                  <div className="bg-gray-100 p-10 md:p-12 rounded-2xl border border-gray-300 border-l-4 border-l-[var(--color-cyan-primary)] h-full relative z-10 hover:border-[var(--color-cyan-primary)] hover:shadow-lg transition-all">
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-16 h-16 rounded-full border-2 border-[#22d3ee] flex items-center justify-center mb-8 relative bg-white">
+                      <div className="w-16 h-16 rounded-full border-2 border-[var(--color-cyan-primary)] flex items-center justify-center mb-8 relative bg-white">
                         <span className="text-lg font-bold text-black">{step.number}</span>
                         {index < workflowSteps.length - 1 && (
-                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-[#22d3ee]/30">
+                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-[var(--color-cyan-primary)]/30">
                             <ArrowRight size={24} />
                           </div>
                         )}
                       </div>
                       
-                      <div className="w-12 h-12 rounded-xl border border-gray-300 flex items-center justify-center text-[#22d3ee] mb-6 bg-gray-50">
+                      <div className="w-12 h-12 rounded-xl border border-gray-300 flex items-center justify-center text-[var(--color-cyan-primary)] mb-6 bg-gray-50">
                         <step.icon size={24} />
                       </div>
                       
@@ -264,9 +264,9 @@ export default function SalesSystemsPage() {
                   <motion.div
                     key={index}
                     variants={fadeUpVariants}
-                    className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 hover:border-[#22d3ee]/50 transition-colors"
+                    className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 hover:border-[var(--color-cyan-primary)]/50 transition-colors"
                   >
-                    <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0" />
+                    <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0" />
                     <span className="text-zinc-300">{item}</span>
                   </motion.div>
                 ))}
@@ -305,21 +305,21 @@ export default function SalesSystemsPage() {
 
               <motion.div className="space-y-4 mb-8" variants={fadeUpVariants}>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-1" />
                   <div>
                     <p className="text-black font-medium">Analyze your actual data, not assumptions</p>
                     <p className="text-gray-600 text-sm">We look at real pipeline behavior, not guesswork</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-1" />
                   <div>
                     <p className="text-black font-medium">Identify specific problems, not generic 'opportunities'</p>
                     <p className="text-gray-600 text-sm">Pinpoint exactly where you're losing deals</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-1" />
                   <div>
                     <p className="text-black font-medium">Prioritize fixes by revenue impact, not what's trendy</p>
                     <p className="text-gray-600 text-sm">Focus on changes that actually close more deals</p>
@@ -327,7 +327,7 @@ export default function SalesSystemsPage() {
                 </div>
               </motion.div>
 
-              <motion.p className="text-xl text-[#22d3ee] font-bold" variants={fadeUpVariants}>
+              <motion.p className="text-xl text-[var(--color-cyan-primary)] font-bold" variants={fadeUpVariants}>
                 You get actionable insights whether you hire us or not. If the diagnostic reveals problems you can't fix yourself, we're here.
               </motion.p>
             </motion.div>
@@ -364,9 +364,9 @@ export default function SalesSystemsPage() {
             {/* Growth Package */}
             <motion.div
               variants={fadeUpVariants}
-              className="bg-white/5 p-8 rounded-3xl border-2 border-[#22d3ee] relative"
+              className="bg-white/5 p-8 rounded-3xl border-2 border-[var(--color-cyan-primary)] relative"
             >
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#22d3ee] text-black px-4 py-1 rounded-full text-sm font-bold">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--color-cyan-primary)] text-black px-4 py-1 rounded-full text-sm font-bold">
                 ⭐ BEST FOR MOST SMEs
               </div>
               <h3 className="text-2xl font-bold text-white mb-3 mt-2">Growth Package</h3>
@@ -376,7 +376,7 @@ export default function SalesSystemsPage() {
               <ul className="space-y-3 mb-8">
                 {growthFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                    <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                     <span className="text-zinc-300 text-sm">{feature}</span>
                   </li>
                 ))}
@@ -389,7 +389,7 @@ export default function SalesSystemsPage() {
             {/* Enterprise Package */}
             <motion.div
               variants={fadeUpVariants}
-              className="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-[#22d3ee]/50 transition-colors"
+              className="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-[var(--color-cyan-primary)]/50 transition-colors"
             >
               <h3 className="text-2xl font-bold text-white mb-3">Enterprise Package</h3>
               <p className="text-zinc-400 mb-6">
@@ -398,7 +398,7 @@ export default function SalesSystemsPage() {
               <ul className="space-y-3 mb-8">
                 {enterpriseFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                    <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                     <span className="text-zinc-300 text-sm">{feature}</span>
                   </li>
                 ))}
@@ -418,7 +418,7 @@ export default function SalesSystemsPage() {
           >
             <motion.p className="text-zinc-400" variants={fadeUpVariants}>
               Not sure what you need?{" "}
-              <a href="https://pipeline.maruonline.com" target="_blank" rel="noopener noreferrer" className="text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors font-medium">
+              <a href="https://pipeline.maruonline.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-cyan-primary)] hover:text-[var(--color-cyan-primary)]/80 transition-colors font-medium">
                 Take our 2-minute Pipeline Assessment →
               </a>
             </motion.p>

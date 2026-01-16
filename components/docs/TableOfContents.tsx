@@ -67,7 +67,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
               href={`#${item.id}`}
               className={`text-sm transition-colors ${
                 activeId === item.id
-                  ? 'text-[#22d3ee] font-medium'
+                  ? 'text-[var(--color-cyan-primary)] font-medium'
                   : 'text-zinc-400 hover:text-white'
               }`}
             >

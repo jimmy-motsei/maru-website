@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 import { rateLimit, createRateLimitResponse } from '@/lib/rate-limit';
 import { verifySession } from '@/lib/auth';
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   // Security headers
   const response = NextResponse.next();
   

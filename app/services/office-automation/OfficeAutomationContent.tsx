@@ -149,9 +149,9 @@ export default function OfficeAutomationContent() {
               <motion.div
                 key={index}
                 variants={fadeUpVariants}
-                className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[#22d3ee] flex items-start gap-6 group hover:border-[#22d3ee] hover:shadow-lg transition-all"
+                className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[var(--color-cyan-primary)] flex items-start gap-6 group hover:border-[var(--color-cyan-primary)] hover:shadow-lg transition-all"
               >
-                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#22d3ee]/5 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30 group-hover:scale-110 group-hover:bg-[#22d3ee]/10 transition-all">
+                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[var(--color-cyan-primary)]/5 flex items-center justify-center text-[var(--color-cyan-primary)] border border-[var(--color-cyan-primary)]/30 group-hover:scale-110 group-hover:bg-[var(--color-cyan-primary)]/10 transition-all">
                   <item.icon size={28} />
                 </div>
                 <div>
@@ -193,7 +193,7 @@ export default function OfficeAutomationContent() {
               <motion.p className="text-xl font-semibold text-white" variants={fadeUpVariants}>
                 And your team wastes hours each week copying data between systems.
               </motion.p>
-              <motion.p className="text-[#22d3ee] text-xl font-bold" variants={fadeUpVariants}>
+              <motion.p className="text-[var(--color-cyan-primary)] text-xl font-bold" variants={fadeUpVariants}>
                 We make your tools talk to each other so your data tells one story.
               </motion.p>
             </motion.div>
@@ -221,9 +221,9 @@ export default function OfficeAutomationContent() {
                 <h3 className="text-2xl font-bold text-black mb-6">Marketing Tools</h3>
                 <div className="space-y-4">
                   {marketingTools.map((tool, index) => (
-                    <div key={index} className="bg-gray-100 p-4 rounded-2xl border border-gray-300 hover:border-[#22d3ee] transition-colors">
+                    <div key={index} className="bg-gray-100 p-4 rounded-2xl border border-gray-300 hover:border-[var(--color-cyan-primary)] transition-colors">
                       <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[#22d3ee]/5 flex items-center justify-center text-[#22d3ee] shrink-0 border border-[#22d3ee]/30">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-cyan-primary)]/5 flex items-center justify-center text-[var(--color-cyan-primary)] shrink-0 border border-[var(--color-cyan-primary)]/30">
                           <tool.icon size={20} />
                         </div>
                         <div>
@@ -241,9 +241,9 @@ export default function OfficeAutomationContent() {
                 <h3 className="text-2xl font-bold text-black mb-6">Sales Tools</h3>
                 <div className="space-y-4">
                   {salesTools.map((tool, index) => (
-                    <div key={index} className="bg-gray-100 p-4 rounded-2xl border border-gray-300 hover:border-[#22d3ee] transition-colors">
+                    <div key={index} className="bg-gray-100 p-4 rounded-2xl border border-gray-300 hover:border-[var(--color-cyan-primary)] transition-colors">
                       <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[#22d3ee]/5 flex items-center justify-center text-[#22d3ee] shrink-0 border border-[#22d3ee]/30">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-cyan-primary)]/5 flex items-center justify-center text-[var(--color-cyan-primary)] shrink-0 border border-[var(--color-cyan-primary)]/30">
                           <tool.icon size={20} />
                         </div>
                         <div>
@@ -261,9 +261,9 @@ export default function OfficeAutomationContent() {
                 <h3 className="text-2xl font-bold text-black mb-6">Operations Tools</h3>
                 <div className="space-y-4">
                   {operationsTools.map((tool, index) => (
-                    <div key={index} className="bg-gray-100 p-4 rounded-2xl border border-gray-300 hover:border-[#22d3ee] transition-colors">
+                    <div key={index} className="bg-gray-100 p-4 rounded-2xl border border-gray-300 hover:border-[var(--color-cyan-primary)] transition-colors">
                       <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[#22d3ee]/5 flex items-center justify-center text-[#22d3ee] shrink-0 border border-[#22d3ee]/30">
+                        <div className="w-10 h-10 rounded-lg bg-[var(--color-cyan-primary)]/5 flex items-center justify-center text-[var(--color-cyan-primary)] shrink-0 border border-[var(--color-cyan-primary)]/30">
                           <tool.icon size={20} />
                         </div>
                         <div>
@@ -313,18 +313,18 @@ export default function OfficeAutomationContent() {
                   variants={fadeUpVariants}
                   className="relative group"
                 >
-                  <div className="bg-white/5 p-8 rounded-2xl border border-white/10 h-full relative z-10 hover:border-[#22d3ee]/50 transition-colors">
+                  <div className="bg-white/5 p-8 rounded-2xl border border-white/10 h-full relative z-10 hover:border-[var(--color-cyan-primary)]/50 transition-colors">
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-16 h-16 rounded-full border-2 border-[#22d3ee] flex items-center justify-center mb-8 relative bg-[#0A0A0A]">
+                      <div className="w-16 h-16 rounded-full border-2 border-[var(--color-cyan-primary)] flex items-center justify-center mb-8 relative bg-[#0A0A0A]">
                         <span className="text-lg font-bold text-white">{step.number}</span>
                         {index < workflowSteps.length - 1 && (
-                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-[#22d3ee]/30">
+                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-[var(--color-cyan-primary)]/30">
                             <ArrowRight size={24} />
                           </div>
                         )}
                       </div>
                       
-                      <div className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center text-[#22d3ee] mb-6 bg-white/5">
+                      <div className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center text-[var(--color-cyan-primary)] mb-6 bg-white/5">
                         <step.icon size={24} />
                       </div>
                       
@@ -358,9 +358,9 @@ export default function OfficeAutomationContent() {
                   <motion.div
                     key={index}
                     variants={fadeUpVariants}
-                    className="flex items-center gap-3 bg-gray-100 p-4 rounded-xl border border-gray-300 hover:border-[#22d3ee] transition-colors"
+                    className="flex items-center gap-3 bg-gray-100 p-4 rounded-xl border border-gray-300 hover:border-[var(--color-cyan-primary)] transition-colors"
                   >
-                    <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0" />
+                    <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0" />
                     <span className="text-gray-700">{item}</span>
                   </motion.div>
                 ))}
@@ -399,21 +399,21 @@ export default function OfficeAutomationContent() {
 
               <motion.div className="space-y-4 mb-8" variants={fadeUpVariants}>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-1" />
                   <div>
                     <p className="text-white font-medium">Analyze your actual data, not assumptions</p>
                     <p className="text-zinc-400 text-sm">We map your real tech stack and workflows, not templates</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-1" />
                   <div>
                     <p className="text-white font-medium">Identify specific problems, not generic 'opportunities'</p>
                     <p className="text-zinc-400 text-sm">Pinpoint exactly where data silos are costing you time</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-1" />
                   <div>
                     <p className="text-white font-medium">Prioritize fixes by revenue impact, not what's trendy</p>
                     <p className="text-zinc-400 text-sm">Focus on integrations that save the most time and money</p>
@@ -421,7 +421,7 @@ export default function OfficeAutomationContent() {
                 </div>
               </motion.div>
 
-              <motion.p className="text-xl text-[#22d3ee] font-bold" variants={fadeUpVariants}>
+              <motion.p className="text-xl text-[var(--color-cyan-primary)] font-bold" variants={fadeUpVariants}>
                 You get actionable insights whether you hire us or not. If the diagnostic reveals problems you can't fix yourself, we're here.
               </motion.p>
             </motion.div>
@@ -458,7 +458,7 @@ export default function OfficeAutomationContent() {
             {/* Starter Package */}
             <motion.div
               variants={fadeUpVariants}
-              className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[#22d3ee] hover:border-[#22d3ee] hover:shadow-lg transition-all"
+              className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[var(--color-cyan-primary)] hover:border-[var(--color-cyan-primary)] hover:shadow-lg transition-all"
             >
               <h3 className="text-2xl font-bold text-black mb-2">Starter Package</h3>
               <p className="text-sm text-gray-600 mb-4">Best for: Small teams with 3-5 core tools</p>
@@ -469,19 +469,19 @@ export default function OfficeAutomationContent() {
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">Up to 3 tool integrations</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">Basic automation workflows</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">Setup, testing, and training</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">1 month post-launch support</span>
                 </li>
               </ul>
@@ -493,9 +493,9 @@ export default function OfficeAutomationContent() {
             {/* Growth Package - Featured */}
             <motion.div
               variants={fadeUpVariants}
-              className="bg-gray-100 p-8 rounded-3xl border-2 border-[#22d3ee] relative shadow-lg"
+              className="bg-gray-100 p-8 rounded-3xl border-2 border-[var(--color-cyan-primary)] relative shadow-lg"
             >
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#22d3ee] text-black px-4 py-1 rounded-full text-sm font-bold">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--color-cyan-primary)] text-black px-4 py-1 rounded-full text-sm font-bold">
                 ⭐ MOST POPULAR
               </div>
               <h3 className="text-2xl font-bold text-black mb-2">Growth Package</h3>
@@ -507,23 +507,23 @@ export default function OfficeAutomationContent() {
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">Up to 8 tool integrations</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">Advanced automation workflows</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">Custom dashboard setup</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">3 months post-launch support</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">Monthly optimization reviews</span>
                 </li>
               </ul>
@@ -535,7 +535,7 @@ export default function OfficeAutomationContent() {
             {/* Enterprise Package */}
             <motion.div
               variants={fadeUpVariants}
-              className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[#22d3ee] hover:border-[#22d3ee] hover:shadow-lg transition-all"
+              className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[var(--color-cyan-primary)] hover:border-[var(--color-cyan-primary)] hover:shadow-lg transition-all"
             >
               <h3 className="text-2xl font-bold text-black mb-2">Enterprise Package</h3>
               <p className="text-sm text-gray-600 mb-4">Best for: Complex tech stacks with custom requirements</p>
@@ -545,27 +545,27 @@ export default function OfficeAutomationContent() {
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">Unlimited integrations</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">Complex workflow automation</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">Custom API development</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">Dedicated integration manager</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">Ongoing unlimited support</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
                   <span className="text-gray-700 text-sm">SLA guarantees</span>
                 </li>
               </ul>
@@ -584,7 +584,7 @@ export default function OfficeAutomationContent() {
           >
             <motion.p className="text-gray-600" variants={fadeUpVariants}>
               Not sure which package fits?{" "}
-              <a href="#" className="text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors font-medium">
+              <a href="#" className="text-[var(--color-cyan-primary)] hover:text-[var(--color-cyan-primary)]/80 transition-colors font-medium">
                 Take our Tech Stack Audit →
               </a>
             </motion.p>
