@@ -2,178 +2,151 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Script from "next/script";
-import { ArrowRight, ArrowDown, Target, TrendingUp, Cog, MessageCircle, Search, Map, PenTool, Hammer, FlaskConical, Rocket, GraduationCap, LineChart } from "lucide-react";
+import { ArrowRight, AlertCircle, DollarSign, Wrench, BarChart3, TrendingUp, MessageSquare, Link2, Search, Hammer, Rocket, LineChart, CheckCircle2, AlertTriangle, CreditCard, Settings } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
-import { DecorativeLines } from "@/components/ui/DecorativeLines";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
+import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
 
+import { siteConfig } from "@/config/site";
 
-const services = [
+const problemsWithAgencies = [
+  {
+    icon: AlertCircle,
+    title: "They Commit Before They Understand",
+    description: "Most agencies pitch you a solution in the first meeting—before analyzing your actual data or understanding your real problems.",
+  },
+  {
+    icon: DollarSign,
+    title: "Enterprise Solutions, SME Budgets",
+    description: "They try to sell you the same complex systems they built for corporates, at prices that don't make sense for your revenue.",
+  },
+  {
+    icon: Wrench,
+    title: "Tools Without Strategy",
+    description: "They implement software without understanding how the pieces should work together—leaving you with more problems than you started with.",
+  },
+];
+
+const serviceCards = [
   {
     id: "01",
-    title: "Website Conversion",
-    subtitle: "Is your website leaking leads?",
-    description:
-      "Most B2B websites convert only 1-2% of visitors. Our AI analysis finds exactly where you're losing prospects—and how to fix it. Stop guessing what's wrong. Get a data-driven diagnosis in 2 minutes.",
-    features: [
-      "Your current conversion score vs. industry benchmarks",
-      "Specific gaps causing visitors to leave without converting",
-      "Priority fixes ranked by revenue impact",
-      "Custom roadmap to double your conversion rate",
+    title: "Fix Your Website Conversion",
+    icon: BarChart3,
+    iconColor: "#f97316",
+    problem: "Your website gets traffic but doesn't convert visitors into leads",
+    fixes: [
+      "Low conversion rates (1-2% → 5-6%)",
+      "Unclear value propositions",
+      "Poor lead capture design",
+      "Slow page speed killing conversions",
     ],
-    link: "/services/lead-generation",
-    offset: true,
-    icon: Target,
-    iconColor: "#f97316", // Orange
+    ctaText: "Learn More",
+    ctaLink: "/services/lead-generation",
   },
   {
     id: "02",
-    title: "Sales Process Optimization",
-    subtitle: "Where are your deals stalling?",
-    description:
-      "Your pipeline is full, but nothing's closing. We find exactly where prospects drop off—and automate the fixes so your team can focus on selling, not admin. Free pipeline analysis reveals which stages are bleeding deals.",
-    features: [
-      "Pipeline leak detection – Find where deals are dying",
-      "Automation that saves 20+ hours per week",
-      "CRM integration without the data entry nightmare",
-      "Sales workflows that actually get used by your team",
-    ],
-    link: "/services/sales-systems",
-    offset: false,
+    title: "Optimize Your Sales Process",
     icon: TrendingUp,
-    iconColor: "#10b981", // Emerald
+    iconColor: "#10b981",
+    problem: "Deals are stalling in your pipeline and your team wastes time on admin",
+    fixes: [
+      "Deals dying at specific stages",
+      "Manual data entry slowing reps down",
+      "No follow-up automation",
+      "Marketing and sales disconnected",
+    ],
+    ctaText: "Learn More",
+    ctaLink: "/services/sales-systems",
   },
   {
     id: "03",
-    title: "Marketing Stack Integration",
-    subtitle: "Your tools should work together",
-    description:
-      "You're paying for 10+ software tools that don't share data. We connect your stack so information flows automatically—no more manual exports, imports, or duplicate data entry. Free tech stack audit shows what's broken.",
-    features: [
-      "Complete map of your tools and data flows",
-      "Redundant software you can eliminate (immediate savings)",
-      "Integration opportunities to eliminate manual work",
-      "Custom roadmap prioritized by impact, not what's trendy",
+    title: "Automate Your Follow-Up",
+    icon: MessageSquare,
+    iconColor: "#22d3ee",
+    problem: "Leads go cold because follow-up is slow or inconsistent",
+    fixes: [
+      "Slow response times (industry avg: 42 hours)",
+      "Reps giving up after 1-2 touches",
+      "Manual follow-up that doesn't scale",
+      "Disconnected channels (email, SMS, WhatsApp)",
     ],
-    link: "/services/office-automation",
-    offset: true,
-    icon: Cog,
-    iconColor: "#a855f7", // Purple
+    ctaText: "Learn More",
+    ctaLink: "/services/whatsapp-solutions",
   },
   {
     id: "04",
-    title: "Follow-Up Automation",
-    subtitle: "Stop losing deals to slow response",
-    description:
-      "80% of sales require 5+ follow-ups, but most reps give up after 2. We automate intelligent, multi-channel follow-up that feels personal—without the manual work. Your follow-up readiness score shows what's costing you deals.",
-    features: [
-      "Automated email, SMS & WhatsApp sequences that feel human",
-      "Behavioral triggers – Right message, right time, right channel",
-      "Smart lead scoring for instant prioritization",
-      "Never miss a follow-up, even when your team is swamped",
+    title: "Integrate Your Marketing Stack",
+    icon: Link2,
+    iconColor: "#a855f7",
+    problem: "Your tools don't talk to each other, forcing manual data transfer",
+    fixes: [
+      "Data living in silos across 10+ tools",
+      "Hours wasted on manual data entry",
+      "Redundant software you're paying for",
+      "Missing integrations causing errors",
     ],
-    link: "/services/whatsapp-solutions",
-    offset: false,
-    icon: MessageCircle,
-    iconColor: "var(--color-cyan-primary)", // Cyan (multi-channel)
+    ctaText: "Learn More",
+    ctaLink: "/services/office-automation",
   },
 ];
 
-const workflowSteps = [
+const howWeWorkSteps = [
   {
     number: "01",
-    title: "Discovery & Strategy",
-    subtitle: "We audit your current systems and map your growth bottlenecks",
-    description:
-      "No cookie-cutter solutions. We analyze where you're losing time, money, or customers—then build a roadmap prioritized by ROI.",
-    deliverable: "Strategic automation roadmap with projected time and cost savings",
     icon: Search,
+    title: "Free Diagnostic First",
+    description: "We don't pitch solutions before understanding your problem. Take our free assessment—get actionable insights whether you hire us or not.",
   },
   {
     number: "02",
-    title: "Design & Build",
-    subtitle: "We create and test your custom automation before going live",
-    description:
-      "Our team builds AI systems tailored to your processes—not the other way around. We integrate with your existing tools and train the AI on your specific workflows.",
-    deliverable: "Fully functional system tested with real scenarios from your business",
     icon: Hammer,
+    title: "Custom Roadmap",
+    description: "Based on your diagnostic, we prioritize fixes by revenue impact. No cookie-cutter solutions—just what your business actually needs.",
   },
   {
     number: "03",
-    title: "Test & Deploy",
-    subtitle: "We launch in phases to minimize disruption and maximize adoption",
-    description:
-      "We roll out gradually, monitor performance, and adjust based on real results—not assumptions. Your team gets hands-on training, not a manual.",
-    deliverable: "Live system with documented processes and trained team",
     icon: Rocket,
+    title: "We Build & Integrate",
+    description: "Our team handles the technical work—automation setup, system integration, and testing. You focus on running your business.",
   },
   {
     number: "04",
-    title: "Train & Optimize",
-    subtitle: "We monitor, measure, and improve until you hit your ROI targets",
-    description:
-      "This isn't 'set and forget.' We track performance weekly, optimize based on data, and scale what's working. You get better results over time, not just at launch.",
-    deliverable: "Monthly performance reports with optimization recommendations",
     icon: LineChart,
+    title: "Continuous Improvement",
+    description: "Monthly optimization calls, performance tracking, and ongoing support. We stay until your systems consistently deliver results.",
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
+const faqs = [
+  {
+    question: "How is this different from hiring a traditional agency?",
+    answer: "Traditional agencies pitch you a solution before understanding your problem. We start with a free diagnostic that analyzes your actual data. You see the problems first, then decide if you want our help fixing them. No pressure, no sales tactics—just insights.",
   },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 },
+  {
+    question: "Do I need all four services?",
+    answer: "No. Most businesses start with one or two services based on their biggest pain point. Our diagnostics help you identify which problems to tackle first. You can add services as you grow.",
   },
-};
-
-
-
-// Number circle animation with spring physics
-const circleVariants = {
-  hidden: { scale: 0.5, opacity: 0 },
-  visible: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      type: "spring" as const,
-      stiffness: 200,
-      damping: 15,
-    },
+  {
+    question: "What if I already have an agency or in-house team?",
+    answer: "We often work alongside existing teams. Our diagnostics reveal gaps they might have missed, and we can handle specific projects (like integrating your tech stack) without replacing your current setup.",
   },
-};
-
-// Vertical line grow animation
-const lineVariants = {
-  hidden: { scaleY: 0, originY: 0 },
-  visible: {
-    scaleY: 1,
-    transition: {
-      duration: 1.5,
-      ease: "easeOut" as const,
-    },
+  {
+    question: "How long until I see results?",
+    answer: "Most clients see measurable improvements within 30-60 days. Website conversion fixes can show results in weeks. More complex projects (like full pipeline automation) take 2-3 months to implement and optimize.",
   },
-};
+  {
+    question: "What if the diagnostic shows I don't need your services?",
+    answer: "That happens sometimes—and we're fine with it. If your systems are working well, we'll tell you. The diagnostic is free and gives you valuable insights regardless. We only work with businesses where we're confident we can deliver ROI.",
+  },
+];
 
 export default function ServicesPage() {
   return (
     <main className="bg-dark">
-      {/* Hero Banner - Dark with Atmospheric Background */}
+      {/* Hero Section - Dark with Atmospheric Background */}
       <section className="relative min-h-[80vh] flex items-end pb-24 overflow-hidden">
-        {/* Background Atmosphere */}
         <AtmosphericBackground variant="hero" />
-
+        
         <div className="container mx-auto px-6 lg:px-8 relative z-10 pt-[clamp(150px,20vh,200px)] pb-[clamp(80px,12vh,140px)]">
           {/* Breadcrumbs */}
           <motion.nav
@@ -184,10 +157,7 @@ export default function ServicesPage() {
           >
             <ul className="flex items-center gap-2 text-sm">
               <li>
-                <Link
-                  href="/"
-                  className="text-accent hover:text-accent-light transition-colors"
-                >
+                <Link href="/" className="text-accent hover:text-accent-light transition-colors">
                   Homepage
                 </Link>
               </li>
@@ -196,7 +166,7 @@ export default function ServicesPage() {
             </ul>
           </motion.nav>
 
-          {/* Title - Benefit-Focused */}
+          {/* Hero Title */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -204,435 +174,347 @@ export default function ServicesPage() {
             className="mb-12"
           >
             <h1 className="hero-h1 font-medium mb-6 text-white">
-              Ai Automation <span className="font-extralight text-zinc-500">Systems</span><br />
-              <span className="font-extralight text-zinc-500">that drive</span> Revenue
+              We Fix <span className="font-extralight text-zinc-500">Marketing Systems</span><br />
+              That Leak Revenue
             </h1>
-            <p className="text-xl md:text-2xl text-white/60 max-w-3xl">
-              Smart systems that generate leads, close sales, and run your operations—so you can focus on growth
+            <p className="text-xl md:text-2xl text-white/60 max-w-3xl mb-8">
+              Stop losing leads to broken websites, stalled pipelines, and disconnected tools. We diagnose the problem, then fix it—no fluff, no enterprise price tag.
             </p>
-          </motion.div>
-
-          {/* Scroll indicator */}
-          <motion.a
-            href="#services"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="inline-flex items-center gap-3 text-accent hover:text-accent-light transition-colors group mt-4"
-          >
-            <span className="text-sm font-medium">Our services</span>
-            <ArrowDown size={16} className="animate-bounce" />
-          </motion.a>
-        </div>
-      </section>
-
-      {/* Services Section - Dark Background */}
-      <section id="services" className="bg-dark relative py-24 lg:py-32">
-        <div className="container mx-auto px-6 lg:px-8">
-          <h2 className="sr-only">Our Services</h2>
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
-            {/* Left Column - Animated Decorative Lines */}
-            <div className="hidden lg:block lg:w-5/12 relative">
-              <div className="sticky top-32">
-                <DecorativeLines />
-              </div>
-            </div>
-
-            {/* Right Column - Service Cards Grid */}
-            <div className="lg:w-7/12">
-              <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 gap-0"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
+            
+            <div className="flex flex-wrap gap-4">
+              <CTAPrimary className="text-base">
+                Start With a Free Diagnostic
+              </CTAPrimary>
+              <a
+                href="#services"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/15 text-white rounded-full transition-colors border border-white/20"
               >
-                {services.map((service) => (
-                  <motion.div
-                    key={service.id}
-                    variants={itemVariants}
-                    className={service.offset ? "lg:-mt-16" : "lg:mt-16"}
-                  >
-                    <Link
-                      href={service.link}
-                      className="group block p-8 lg:p-10 h-full transition-all duration-300"
-                    >
-                      {/* Service Icon */}
-                      <div 
-                        className="w-14 h-14 rounded-full flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110"
-                        style={{ backgroundColor: `${service.iconColor}20` }}
-                      >
-                        <service.icon 
-                          size={28} 
-                          style={{ color: service.iconColor }}
-                        />
-                      </div>
-
-                      {/* Service Title */}
-                      <h3 className="text-xl md:text-2xl font-bold text-muted mb-3 group-hover:text-accent transition-colors duration-300">
-                        {service.title.split(" ").slice(0, -1).join(" ")}
-                        <br />
-                        {service.title.split(" ").slice(-1)}
-                      </h3>
-
-                       {/* Subtitle */}
-                      {service.subtitle && (
-                        <p className="text-accent text-base md:text-lg font-medium mb-4 leading-snug">
-                          {service.subtitle}
-                        </p>
-                      )}
-
-                      {/* Description */}
-                      <p className="text-white/70 text-base leading-relaxed mb-6">
-                        {service.description}
-                      </p>
-
-                      {/* Features List */}
-                      <ul className="space-y-2 mb-8">
-                        {service.features.map((feature, featureIndex) => (
-                          <li
-                            key={featureIndex}
-                            className="text-white/70 text-base"
-                          >
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Read More Link */}
-                      <div className="flex items-center gap-2 text-accent group-hover:gap-4 transition-all duration-300">
-                        <span className="text-sm font-medium">Read more</span>
-                        <ArrowRight
-                          size={16}
-                          className="group-hover:translate-x-1 transition-transform"
-                        />
-                      </div>
-                    </Link>
-                  </motion.div>
-                ))}
-              </motion.div>
+                See Our Services
+                <ArrowRight size={16} />
+              </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-
-      {/* How We Work - Workflow Section */}
-      <section className="bg-[#f5f5f5] relative py-24 lg:py-32">
+      {/* The Problem with Most Agencies Section - WHITE BACKGROUND */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="max-w-4xl mb-20 mx-auto text-center">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-accent text-sm font-medium mb-4 uppercase tracking-wider"
-            >
-              Our Process
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-dark"
-            >
-              <span className="font-extralight text-zinc-500">How we</span> work
-            </motion.h2>
-          </div>
-
-          {/* Horizontal Workflow Steps */}
           <motion.div
-            variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainerVariants}
           >
-            {workflowSteps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                variants={itemVariants}
-                className="relative flex flex-col items-center text-center"
-              >
-                {/* Step Label */}
-                <div className="text-accent text-xs font-bold mb-4 uppercase tracking-widest">
-                  Step {step.number}
-                </div>
-
-                {/* Icon Circle */}
+            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-center mb-4 text-black" variants={fadeUpVariants}>
+              <span className="font-medium text-black">Why SMEs Struggle With</span> <span className="font-extralight text-gray-500">Marketing Technology</span>
+            </motion.h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto mt-16">
+              {problemsWithAgencies.map((problem, index) => (
                 <motion.div
-                  className="w-20 h-20 rounded-full bg-dark flex items-center justify-center mb-6 relative"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  key={index}
+                  variants={fadeUpVariants}
+                  className="text-center"
                 >
-                  <step.icon size={32} className="text-accent" />
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 rounded-full bg-accent/20 blur-md -z-10" />
-                </motion.div>
-
-                {/* Arrow - Hidden on last item and mobile */}
-                {index < workflowSteps.length - 1 && (
-                  <div className="hidden lg:block absolute -right-4 top-20 text-dark/20">
-                    <ArrowRight size={24} />
+                  <div className="w-16 h-16 rounded-2xl bg-[#22d3ee]/10 flex items-center justify-center mx-auto mb-6 border border-[#22d3ee]/30">
+                    <problem.icon size={32} className="text-[#22d3ee]" />
                   </div>
-                )}
+                  <h3 className="text-xl font-bold text-black mb-4">{problem.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{problem.description}</p>
+                </motion.div>
+              ))}
+            </div>
 
-                {/* Title */}
-                <h3 className="text-xl font-bold text-dark mb-3">
-                  {step.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-dark/70 text-sm leading-relaxed">
-                  {step.description}
-                </p>
-              </motion.div>
-            ))}
+            <motion.p className="text-center text-lg text-black font-medium mt-12 max-w-3xl mx-auto" variants={fadeUpVariants}>
+              Our approach is different. We start with diagnostics, recommend only what you need, and price it for businesses at your stage.
+            </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* FAQ Section - Black Background */}
-      <section className="bg-dark py-24 lg:py-32">
+      {/* Our Services Section - DARK BACKGROUND */}
+      <section id="services" className="py-24 bg-[#050505]">
+        <div className="container mx-auto px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainerVariants}
+          >
+            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-center mb-4 text-white" variants={fadeUpVariants}>
+              Four Ways We Fix Your <span className="font-extralight text-zinc-500">Marketing Systems</span>
+            </motion.h2>
+            <motion.p className="text-center text-zinc-400 text-lg mb-16 max-w-3xl mx-auto" variants={fadeUpVariants}>
+              Each service starts with a free diagnostic. No sales pitch, no obligation—just data-driven insights.
+            </motion.p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+              {serviceCards.map((service, index) => (
+                <motion.div
+                  key={service.id}
+                  variants={fadeUpVariants}
+                  className="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-[#22d3ee]/50 transition-all group"
+                >
+                  {/* Icon */}
+                  <div 
+                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+                    style={{ backgroundColor: `${service.iconColor}20` }}
+                  >
+                    <service.icon size={28} style={{ color: service.iconColor }} />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
+                  
+                  {/* Problem */}
+                  <p className="text-zinc-400 mb-4 leading-relaxed">
+                    <span className="font-semibold text-white">Problem:</span> {service.problem}
+                  </p>
+
+
+
+                  {/* What We Fix */}
+                  <p className="text-white font-semibold text-sm mb-3">What We Fix:</p>
+                  <ul className="space-y-2 mb-6">
+                    {service.fixes.map((fix, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-zinc-400 text-sm">
+                        <CheckCircle2 size={16} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                        <span>{fix}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTAs */}
+                  <div className="flex flex-col gap-3">
+                    <Link
+                      href={service.ctaLink}
+                      className="inline-flex items-center justify-center gap-2 bg-[#22d3ee] hover:bg-[#22d3ee]/90 text-black font-medium rounded-full px-6 py-3 transition-colors"
+                    >
+                      {service.ctaText}
+                      <ArrowRight size={16} />
+                    </Link>
+
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How We Work Section - WHITE BACKGROUND */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainerVariants}
+          >
+            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-center mb-16" variants={fadeUpVariants}>
+              <span className="font-extralight text-gray-400">How we</span> work
+            </motion.h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+              {howWeWorkSteps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeUpVariants}
+                  className="relative flex flex-col items-center text-center"
+                >
+                  {/* Step Number */}
+                  <div className="text-[#22d3ee] text-xs font-bold mb-4 uppercase tracking-widest">
+                    Step {step.number}
+                  </div>
+
+                  {/* Icon Circle */}
+                  <div className="w-20 h-20 rounded-full bg-black flex items-center justify-center mb-6 relative">
+                    <step.icon size={32} className="text-[#22d3ee]" />
+                    <div className="absolute inset-0 rounded-full bg-[#22d3ee]/20 blur-md -z-10" />
+                  </div>
+
+                  {/* Arrow - Hidden on last item and mobile */}
+                  {index < howWeWorkSteps.length - 1 && (
+                    <div className="hidden lg:block absolute -right-4 top-20 text-gray-300">
+                      <ArrowRight size={24} />
+                    </div>
+                  )}
+
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-black mb-3">{step.title}</h3>
+
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why We Start With Diagnostics Section - LIGHT BACKGROUND */}
+      <section className="py-24 bg-gray-100">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            {/* Section Header */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="mb-12"
-            >
-              <p className="text-accent text-sm font-medium mb-4">
-                Common Questions
-              </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white">
-                <span className="font-extralight text-zinc-500">Frequently</span> Asked
-              </h2>
-            </motion.div>
-
-            {/* FAQ Items */}
-            <motion.div
-              className="divide-y divide-white/20"
-              variants={containerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerContainerVariants}
             >
-              {[
-                {
-                  q: "How do projects get started?",
-                  a: "Book a free AI Readiness Assessment. We'll audit your processes, identify where automation delivers the biggest ROI, and give you a prioritized roadmap. Most pilot projects show results within 2-4 weeks.",
-                },
-                {
-                  q: "Is our data safe?",
-                  a: "Yes. All systems are POPIA-compliant and hosted on South African cloud infrastructure. We include consent logs, audit trails, and data encryption as standard.",
-                },
-                {
-                  q: "Which tools do you work with?",
-                  a: "We integrate with the tools you already use—HubSpot, Pipedrive, Airtable, Notion, Slack, Xero, QuickBooks, and more. If it has an API, we can connect it.",
-                },
-                {
-                  q: "Do you provide training?",
-                  a: "Every project includes hands-on training sessions and simple runbooks. Your team will know exactly how to use and maintain the systems we build.",
-                },
-                {
-                  q: "What's the typical ROI timeline?",
-                  a: "Most clients see measurable time savings within the first month. Full ROI (cost recovered through efficiency gains) typically occurs within 3-6 months, depending on project scope.",
-                },
-                {
-                  q: "Do we need technical staff to manage this?",
-                  a: "No. We build systems your current team can operate. If something breaks or needs updating, we provide ongoing support—no developers required on your end.",
-                },
-                {
-                  q: "What size projects do you take on?",
-                  a: "We work with SMEs spending between R15k-R150k monthly on marketing and operations. Whether you need one automated workflow or a full sales system overhaul, we scale to your needs.",
-                },
-                {
-                  q: "How much does it cost?",
-                  a: "Project costs range from R25k for single workflow automation to R200k+ for comprehensive sales and marketing systems. We provide fixed-price quotes after your free assessment—no surprises.",
-                },
-              ].map((faq, index) => (
-                <motion.details
-                  key={index}
-                  variants={itemVariants}
-                  className="group py-6"
-                >
-                  <summary className="cursor-pointer list-none flex items-center justify-between">
-                    <span className="text-lg font-medium text-white group-open:text-accent transition-colors">
-                      {faq.q}
-                    </span>
-                    <span className="text-2xl text-white/50 group-open:rotate-45 transition-transform duration-300">
-                      +
-                    </span>
-                  </summary>
-                  <div className="pt-4 text-white/60 leading-relaxed">
-                    {faq.a}
-                  </div>
-                </motion.details>
-              ))}
+              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-8" variants={fadeUpVariants}>
+                <span className="font-extralight text-gray-400">Why We Start</span>{" "}
+                <span className="font-medium text-black">With Diagnostics</span>
+              </motion.h2>
+              
+              <motion.p className="text-xl text-black mb-6" variants={fadeUpVariants}>
+                Unlike agencies that pitch before understanding your business, we start with diagnostics.
+              </motion.p>
+              
+              <motion.p className="text-lg text-gray-700 mb-8 leading-relaxed" variants={fadeUpVariants}>
+                Most agencies will give you a quote based on 30 minutes of discovery. We think that's backwards.
+              </motion.p>
+              
+              <motion.p className="text-lg text-gray-700 mb-8 leading-relaxed" variants={fadeUpVariants}>
+                Our free diagnostic does what a traditional agency discovery process costs <span className="text-black font-semibold">R15,000+ for:</span>
+              </motion.p>
+
+              <motion.div className="space-y-4 mb-8" variants={fadeUpVariants}>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <p className="text-gray-700"><span className="font-semibold text-black">Analyze your actual data,</span> not assumptions</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <p className="text-gray-700"><span className="font-semibold text-black">Identify specific problems,</span> not generic 'opportunities'</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <p className="text-gray-700"><span className="font-semibold text-black">Prioritize fixes by revenue impact,</span> not what's trendy</p>
+                </div>
+              </motion.div>
+
+              <motion.p className="text-xl text-black font-semibold" variants={fadeUpVariants}>
+                You get actionable insights whether you hire us or not. If the diagnostic reveals problems you can't fix yourself, we're here.
+              </motion.p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section - Flexible Packages */}
-      <section className="bg-dark py-24 lg:py-32">
+      {/* FAQ Section - DARK BACKGROUND */}
+      <section className="py-24 bg-[#050505]">
         <div className="container mx-auto px-6 lg:px-8">
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white mb-4">
-              Flexible packages <span className="font-extralight text-zinc-500">for every stage</span>
-            </h2>
-            <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              Choose the package that fits your business needs, or contact us for a tailored solution.
-            </p>
-          </motion.div>
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerContainerVariants}
+            >
+              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium mb-12 text-white" variants={fadeUpVariants}>
+                <span className="font-extralight text-zinc-500">Frequently</span> Asked
+              </motion.h2>
 
-          {/* Pricing Cards */}
+              <div className="divide-y divide-white/20">
+                {faqs.map((faq, index) => (
+                  <motion.details
+                    key={index}
+                    variants={fadeUpVariants}
+                    className="group py-6"
+                  >
+                    <summary className="cursor-pointer list-none flex items-center justify-between">
+                      <span className="text-lg font-medium text-white group-open:text-[#22d3ee] transition-colors">
+                        {faq.question}
+                      </span>
+                      <span className="text-2xl text-white/50 group-open:rotate-45 transition-transform duration-300">
+                        +
+                      </span>
+                    </summary>
+                    <div className="pt-4 text-zinc-400 leading-relaxed">
+                      {faq.answer}
+                    </div>
+                  </motion.details>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA Section - WHITE BACKGROUND */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6 lg:px-8">
           <motion.div
-            variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto space-y-6"
-          >
-            {/* Starter Package */}
-            <motion.div
-              variants={itemVariants}
-              className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-accent/50 transition-all duration-300 group"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <div className="flex items-baseline gap-4 mb-3">
-                    <span className="text-3xl font-bold text-accent">R4,999</span>
-                    <h3 className="text-2xl font-bold text-white">Starter Package</h3>
-                  </div>
-                  <p className="text-white/60">
-                    Perfect for small businesses looking to automate their first capture and basic scoring.
-                  </p>
-                </div>
-                <Link 
-                  href="/booking?plan=starter"
-                  className="ml-8 flex-shrink-0 w-10 h-10 rounded-full border border-accent flex items-center justify-center text-accent hover:bg-accent hover:text-dark transition-all duration-300"
-                >
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Growth Package */}
-            <motion.div
-              variants={itemVariants}
-              className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-accent/50 transition-all duration-300 group"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <div className="flex items-baseline gap-4 mb-3">
-                    <span className="text-3xl font-bold text-accent">R9,999</span>
-                    <h3 className="text-2xl font-bold text-white">Growth Package</h3>
-                  </div>
-                  <p className="text-white/60">
-                    Advanced tool control, CRM integration, and automated marketing sequences for scaling teams.
-                  </p>
-                </div>
-                <Link 
-                  href="/booking?plan=growth"
-                  className="ml-8 flex-shrink-0 w-10 h-10 rounded-full border border-accent flex items-center justify-center text-accent hover:bg-accent hover:text-dark transition-all duration-300"
-                >
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Enterprise Solution */}
-            <motion.div
-              variants={itemVariants}
-              className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-accent/50 transition-all duration-300 group"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <div className="flex items-baseline gap-4 mb-3">
-                    <span className="text-3xl font-bold text-accent">Custom</span>
-                    <h3 className="text-2xl font-bold text-white">Enterprise Solution</h3>
-                  </div>
-                  <p className="text-white/60">
-                    End-to-end bespoke plans at a fixed cadence with custom integrations and dedicated support.
-                  </p>
-                </div>
-                <Link 
-                  href="/booking?plan=enterprise"
-                  className="ml-8 flex-shrink-0 w-10 h-10 rounded-full border border-accent flex items-center justify-center text-accent hover:bg-accent hover:text-dark transition-all duration-300"
-                >
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center mt-12"
-          >
-            <Link
-              href="/booking"
-              className="inline-flex items-center bg-accent hover:bg-accent-dark text-black font-medium rounded-full pl-8 pr-2 py-2.5 transition-colors group"
-            >
-              <span className="text-sm tracking-wide uppercase mr-4">Get custom quote</span>
-              <span className="bg-dark text-white rounded-full p-3 group-hover:bg-black transition-colors">
-                <ArrowRight size={16} />
-              </span>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section - AI Readiness Test (Light Background) */}
-      <section className="bg-[#f5f5f5] py-24 lg:py-32">
-        <div className="container mx-auto px-6 lg:px-8">
-          {/* Main CTA - Centered */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainerVariants}
             className="text-center"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl mb-6 font-medium tracking-tight text-dark">
-              <span className="font-extralight text-zinc-500">Find Out Where AI Can Save You</span><br />
-              10+ Hours Per Week
-            </h2>
-            <p className="text-xl text-dark/60 mb-12 max-w-2xl mx-auto">
-              Get your free Ai Readiness Assessment—no obligation, just insights
-            </p>
+            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium mb-4 text-black" variants={fadeUpVariants}>
+              Ready to Find Your <span className="font-extralight text-gray-500">Leaks?</span>
+            </motion.h2>
+            <motion.p className="text-gray-700 text-lg mb-12 max-w-2xl mx-auto" variants={fadeUpVariants}>
+              No credit card required. No sales call. Just data-driven insights into where your marketing is breaking down.
+            </motion.p>
 
-            {/* Pill Button - Ashley Style */}
-            <Link
-              href="/ai-readiness"
-              className="inline-flex items-center bg-accent hover:bg-accent-dark text-black font-medium rounded-full pl-8 pr-2 py-2.5 transition-colors group"
-            >
-              <span className="text-sm tracking-wide uppercase mr-4">Get your free assessment</span>
-              <span className="bg-dark text-white rounded-full p-3 group-hover:bg-black transition-colors">
-                <ArrowRight size={16} />
-              </span>
-            </Link>
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-8" variants={fadeUpVariants}>
+              <Link
+                href="https://leads.maruonline.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-between bg-[#3DD6D0] hover:bg-[#3DD6D0]/90 text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)] group"
+              >
+                <span className="flex-1 text-center">Grade My Website</span>
+                <span className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
+                  <ArrowRight className="w-5 h-5 text-white" />
+                </span>
+              </Link>
+              <Link
+                href="https://pipeline.maruonline.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-between bg-[#3DD6D0] hover:bg-[#3DD6D0]/90 text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)] group"
+              >
+                <span className="flex-1 text-center">Analyze My Pipeline</span>
+                <span className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
+                  <ArrowRight className="w-5 h-5 text-white" />
+                </span>
+              </Link>
+              <Link
+                href={siteConfig.calendly.discoveryCall}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-between bg-[#3DD6D0] hover:bg-[#3DD6D0]/90 text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)] group"
+              >
+                <span className="flex-1 text-center">Get a Free Consultation</span>
+                <span className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
+                  <ArrowRight className="w-5 h-5 text-white" />
+                </span>
+              </Link>
+              <Link
+                href="/assessments/tech-audit"
+                className="inline-flex items-center justify-between bg-[#3DD6D0] hover:bg-[#3DD6D0]/90 text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)] group"
+              >
+                <span className="flex-1 text-center">Audit My Tech Stack</span>
+                <span className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
+                  <ArrowRight className="w-5 h-5 text-white" />
+                </span>
+              </Link>
+            </motion.div>
+
+            <motion.p className="text-gray-600" variants={fadeUpVariants}>
+              Not sure which diagnostic to take?{" "}
+              <Link href="/contact" className="text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors font-medium">
+                Talk to us →
+              </Link>{" "}
+              and we'll recommend where to start.
+            </motion.p>
           </motion.div>
         </div>
       </section>
-
     </main>
   );
 }

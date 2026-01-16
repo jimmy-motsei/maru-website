@@ -15,15 +15,7 @@ interface ServiceInfo {
 }
 
 const fixedServices: ServiceInfo[] = [
-  {
-    id: "website-development",
-    title: "Web Development",
-    description: "High-performance websites built to convert visitors into leads with blazing speed and modern architecture.",
-    features: ["Next.js/React", "90+ Lighthouse Scores", "SEO-First Design", "Conversion Optimization"],
-    href: "/services/website-development",
-    icon: Code2,
-    iconColor: "var(--color-cyan-primary)",
-  },
+
   {
     id: "support-chatbot",
     title: "Support Chatbot",
