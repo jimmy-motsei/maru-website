@@ -156,7 +156,7 @@ export function FooterCTA() {
                     href="/services/lead-generation"
                     className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
                   >
-                    Lead Generation
+                    Website Conversion
                   </Link>
                 </li>
                 <li>
@@ -164,7 +164,7 @@ export function FooterCTA() {
                     href="/services/sales-systems"
                     className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
                   >
-                    Sales Systems
+                    Sales Process
                   </Link>
                 </li>
                 <li>
@@ -172,15 +172,15 @@ export function FooterCTA() {
                     href="/services/office-automation"
                     className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
                   >
-                    Office Automation
+                    Marketing Integration
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/services/whatsapp-solutions"
-                    className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
+                    className="text-white/60 hover:text-accent transition-colors duration-300"
                   >
-                    WhatsApp Solutions
+                    Follow-Up Automation
                   </Link>
                 </li>
               </ul>

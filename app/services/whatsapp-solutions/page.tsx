@@ -1,195 +1,515 @@
 "use client";
 
-import Link from "next/link";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { Clock, Target, TrendingUp, DollarSign, Zap, MessageSquare, Mail, Send, CheckCircle2, Calendar, Database, Users, ArrowRight } from "lucide-react";
 import { ServiceHero } from "@/components/sections/ServiceHero";
-import { ServiceAccordion } from "@/components/ui/ServiceAccordion";
-import { PricingSection } from "@/components/sections/PricingSection";
 import { OtherServices } from "@/components/sections/OtherServices";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
+import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
+import Link from "next/link";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "WhatsApp Solutions", href: "/services/whatsapp-solutions" },
+  { label: "Follow-Up Automation", href: "/services/whatsapp-solutions" },
 ];
 
-const accordionItems = [
+const discoveryItems = [
   {
-    title: "AI Assistants",
-    // title: "AI Chatbots",
-    subtitle: "Answer common questions instantly, any time of day",
-    content:
-      "Stop losing leads because you're closed or in a meeting. Our AI assistants qualify prospects, answer FAQs, and schedule appointments—even at 2am on a Saturday.",
-      // "Stop losing leads because you're closed or in a meeting. Our AI chatbots qualify prospects, answer FAQs, and schedule appointments—even at 2am on a Saturday.",
-    features: [
-      "Natural language understanding (no rigid scripts)",
-      "Intelligent lead qualification and routing",
-      "Automatic appointment scheduling",
-      "FAQ responses with 95%+ accuracy",
-      "Seamless handoff to human agents when needed",
-    ],
-    timeSaved: "Typical impact: 60-80% reduction in response time, 24/7 availability",
+    title: "Your Average Follow-Up Response Time",
+    description: "vs. industry benchmarks—see where you stand",
+    icon: Clock,
   },
   {
-    title: "Personalized Messaging",
-    subtitle: "Tailored offers based on customer behavior",
-    content:
-      "Generic broadcasts don't work. Our system analyzes customer data to send the right message, to the right person, at the right time—with offers they actually want.",
-    features: [
-      "Behavioral triggers (abandoned carts, browsing history)",
-      "Dynamic product recommendations",
-      "Personalized promotions based on purchase history",
-      "Smart segmentation (demographics, engagement level)",
-      "A/B testing to optimize messaging",
-    ],
-    timeSaved: "Typical impact: 3-5x higher conversion rates vs. generic broadcasts",
+    title: "How Many Touches Your Team Averages Before Giving Up",
+    description: "Most stop at 2, winners average 8+",
+    icon: Target,
   },
   {
-    title: "24/7 Customer Engagement",
-    subtitle: "Never miss a lead, even at 2am",
-    content:
-      "Your competitors are responding while you're asleep. Our AI handles inquiries instantly, books appointments, and nurtures leads around the clock—no burnt-out team required.",
-    features: [
-      "Instant responses to common questions",
-      "After-hours lead capture and qualification",
-      "International time zone support",
-      "Automatic escalation for urgent issues",
-      "Conversation continuity (context remembered across sessions)",
-    ],
-    timeSaved: "Typical impact: 40-60% increase in after-hours lead capture",
+    title: "Estimated Deals Lost to Slow or Inconsistent Follow-Up",
+    description: "The real cost of manual follow-up",
+    icon: TrendingUp,
   },
   {
-    title: "Conversation Analytics",
-    subtitle: "See what customers really want",
-    content:
-      "Stop guessing what your customers need. Our analytics show you trending questions, sentiment patterns, and conversion bottlenecks—so you can improve continuously.",
-    features: [
-      "Real-time conversation dashboards",
-      "Sentiment analysis (happy, frustrated, confused customers)",
-      "Topic clustering (what people ask most)",
-      "Response time and resolution metrics",
-      "Conversion tracking (chat → booking → sale)",
-    ],
-    timeSaved: "Typical impact: Identify and fix service gaps 10x faster",
+    title: "ROI Projection: What Automation Would Save and Generate",
+    description: "Time saved + revenue recovered",
+    icon: DollarSign,
   },
 ];
 
-const pricingTiers = [
+const workflowSteps = [
   {
-    price: "2,999",
-    title: "Starter",
-    subtitle: "Test WhatsApp automation with your best customers",
-    description: "Perfect for small businesses taking their first step into conversational commerce.",
-    features: [
-      "Basic FAQ assistant (up to 50 common questions)",
-      // "Basic FAQ chatbot (up to 50 common questions)",
-      "1,000 conversations per month",
-      "Standard integrations (CRM, calendar)",
-      "Basic analytics dashboard",
-      "Email support",
-    ],
-    bestFor: "Businesses getting 50-100 WhatsApp inquiries/month",
-    href: "/booking?plan=whatsapp-starter",
+    number: "01",
+    title: "Behavior Triggers",
+    description: "Prospect takes an action (downloads content, visits pricing page)",
+    icon: Zap,
   },
   {
-    price: "7,999",
-    title: "Growth",
-    subtitle: "Turn WhatsApp into a revenue channel",
-    description: "For growing businesses ready to scale customer engagement and drive sales.",
-    features: [
-      "Everything in Starter, plus:",
-      "Advanced AI (handles complex questions)",
-      "Unlimited conversations",
-      "Personalized messaging and broadcast campaigns",
-      "CRM integration and lead routing",
-      "Appointment scheduling automation",
-      "Advanced analytics and A/B testing",
-      "5 hours monthly optimization",
-    ],
-    bestFor: "Businesses with 500+ monthly inquiries or running marketing campaigns",
-    href: "/booking?plan=whatsapp-growth",
-    featured: true,
+    number: "02",
+    title: "Smart Sequencing",
+    description: "Our AI determines the right message, channel, and timing",
+    icon: MessageSquare,
   },
   {
-    price: "Custom",
-    title: "Enterprise",
-    subtitle: "Multi-channel orchestration at scale",
-    description: "For established businesses managing high-volume customer conversations across channels.",
-    features: [
-      "Everything in Growth, plus:",
-      "Custom AI training (your brand voice and knowledge)",
-      "Multi-channel support (WhatsApp, SMS, web chat)",
-      "E-commerce integration (Shopify, WooCommerce)",
-      "Payment processing in-chat",
-      "Dedicated account manager",
-      "White-label options",
-      "Unlimited optimization and support",
-    ],
-    bestFor: "Organizations handling 5,000+ conversations/month",
-    href: "/booking?plan=whatsapp-enterprise",
+    number: "03",
+    title: "Automated Outreach",
+    description: "Messages sent via email, SMS, or WhatsApp",
+    icon: Send,
   },
+  {
+    number: "04",
+    title: "Human Handoff",
+    description: "Hot leads escalated to your team at the perfect moment",
+    icon: Users,
+  },
+];
+
+const automationItems = [
+  "Post-inquiry follow-up sequences",
+  "Meeting reminders and confirmations",
+  "Proposal follow-ups",
+  "Re-engagement campaigns for cold leads",
+  "Customer onboarding communications",
+  "Appointment scheduling and confirmations",
+];
+
+const channels = [
+  { name: "Email marketing platforms", description: "Mailchimp, HubSpot, etc.", icon: Mail },
+  { name: "WhatsApp Business API", description: "Direct messaging integration", icon: MessageSquare },
+  { name: "SMS/text messaging", description: "Multi-carrier support", icon: Send },
+  { name: "CRM systems", description: "Pipedrive, Salesforce, HubSpot", icon: Database },
+  { name: "Calendar/scheduling tools", description: "Calendly, Google Calendar", icon: Calendar },
+  { name: "Customer databases", description: "Seamless data sync", icon: Users },
 ];
 
 export default function WhatsAppSolutionsPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <main>
+    <main className="bg-[#050505] min-h-screen text-white">
       {/* Hero Section */}
       <ServiceHero
         breadcrumbs={breadcrumbs}
-        titleBold="WhatsApp Business"
-        titleLight="Solutions"
-        subtitle="Meet your customers where they already are—at scale"
-        description="Turn WhatsApp into a 24/7 sales and support channel. Engage customers with intelligent, personalized conversations that feel human, not robotic."
+        titleBold="Stop Losing Deals to"
+        titleLight="Slow Follow-Up"
+        subtitle="80% of sales require 5+ follow-ups, but most reps give up after 2. We automate intelligent, multi-channel follow-up that feels personal—without the manual work."
       />
 
-      {/* Service Details Section */}
-      <section id="service-details" className="bg-[#f5f5f5] py-12 lg:py-32">
+      {/* Discovery Section - WHITE BACKGROUND */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            {/* Left Column - Intro */}
-            <div className="lg:col-span-4">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-2xl md:text-3xl font-bold text-dark mb-6">
-                  Conversations That <span className="font-light">Feel Human,</span>
-                  <br />
-                  Scale Like <span className="font-light">Software</span>
-                </h2>
-                <p className="text-dark/80 mb-8 leading-relaxed">
-                  We design conversational experiences that feel personal while leveraging AI to handle hundreds of chats simultaneously. Your customers get instant answers, you get qualified leads—everyone wins.
-                </p>
-                <Link
-                  href="/services/lead-generation"
-                  className="inline-flex items-center gap-2 text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors group"
-                >
-                  <span className="font-medium">Get Your Free Lead Score Analysis</span>
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </motion.div>
-            </div>
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainerVariants}
+          >
+            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
+              <span className="font-extralight text-gray-400">What You'll</span> <span className="font-medium text-black">Discover</span>
+            </motion.h2>
+            <motion.p className="text-gray-600 text-lg mb-2" variants={fadeUpVariants}>
+              Our Follow-Up Readiness Assessment reveals:
+            </motion.p>
+          </motion.div>
 
-            {/* Right Column - Accordion */}
-            <div className="lg:col-span-8">
-              <ServiceAccordion items={accordionItems} />
-            </div>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainerVariants}
+          >
+            {discoveryItems.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={fadeUpVariants}
+                className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[#22d3ee] flex items-start gap-6 group hover:border-[#22d3ee] hover:shadow-lg transition-all"
+              >
+                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#22d3ee]/5 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30 group-hover:scale-110 group-hover:bg-[#22d3ee]/10 transition-all">
+                  <item.icon size={28} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black mb-2">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* The Problem We Solve Section - DARK BACKGROUND */}
+      <section className="py-24 bg-[#050505]">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div 
+              className="mb-12"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerContainerVariants}
+            >
+              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-8" variants={fadeUpVariants}>
+                <span className="font-extralight text-zinc-500">The Problem</span>{" "}
+                <span className="font-medium text-white">We Solve</span>
+              </motion.h2>
+            </motion.div>
+            <motion.div 
+              className="space-y-6 text-lg text-zinc-300 leading-relaxed"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerContainerVariants}
+            >
+              <motion.p variants={fadeUpVariants}>
+                Your leads go cold because consistent follow-up is impossible to maintain manually. Your team forgets, gets busy, or doesn't know what to say next.
+              </motion.p>
+              <motion.p className="text-xl font-semibold text-white" variants={fadeUpVariants}>
+                Meanwhile, competitors who respond faster win the deal.
+              </motion.p>
+              <motion.p className="text-[#22d3ee] text-xl font-bold" variants={fadeUpVariants}>
+                We make follow-up automatic, intelligent, and relentless—without feeling robotic.
+              </motion.p>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <PricingSection
-        headline="Choose Your"
-        subheadline="Messaging Plan"
-        description="Start small and scale up, or go all-in from day one. Every package includes setup, bot training, and 30 days of optimization."
-        tiers={pricingTiers}
-        customCTAText="Schedule a Demo"
-        customCTAHref="/booking"
-      />
+      {/* How It Works Section - WHITE BACKGROUND */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainerVariants}
+          >
+            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
+              <span className="font-extralight text-gray-400">How</span>{" "}
+              <span className="font-medium text-black">It Works</span>
+            </motion.h2>
+            <motion.p className="text-gray-600 text-lg" variants={fadeUpVariants}>
+              Automated follow-up flow that feels personal
+            </motion.p>
+          </motion.div>
+
+          <div className="relative max-w-7xl mx-auto">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={staggerContainerVariants}
+            >
+              {workflowSteps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeUpVariants}
+                  className="relative group"
+                >
+                  <div className="bg-gray-100 p-10 md:p-12 rounded-2xl border border-gray-300 border-l-4 border-l-[#22d3ee] h-full relative z-10 hover:border-[#22d3ee] hover:shadow-lg transition-all">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-16 h-16 rounded-full border-2 border-[#22d3ee] flex items-center justify-center mb-8 relative bg-white">
+                        <span className="text-lg font-bold text-black">{step.number}</span>
+                        {index < workflowSteps.length - 1 && (
+                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-[#22d3ee]/30">
+                            <ArrowRight size={24} />
+                          </div>
+                        )}
+                      </div>
+                      
+                      <div className="w-12 h-12 rounded-xl border border-gray-300 flex items-center justify-center text-[#22d3ee] mb-6 bg-gray-50">
+                        <step.icon size={24} />
+                      </div>
+                      
+                      <h3 className="text-xl font-bold mb-3 text-black">{step.title}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed font-medium">{step.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* What Gets Automated Section - DARK BACKGROUND */}
+      <section className="py-24 bg-[#0A0A0A]">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerContainerVariants}
+            >
+              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-12 text-center" variants={fadeUpVariants}>
+                <span className="font-extralight text-zinc-500">What Gets</span>{" "}
+                <span className="font-medium text-white">Automated</span>
+              </motion.h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {automationItems.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    variants={fadeUpVariants}
+                    className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 hover:border-[#22d3ee]/50 transition-colors"
+                  >
+                    <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0" />
+                    <span className="text-zinc-300">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Channels We Integrate Section - WHITE BACKGROUND */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainerVariants}
+          >
+            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-12 text-center" variants={fadeUpVariants}>
+              <span className="font-extralight text-gray-400">Channels We</span>{" "}
+              <span className="font-medium text-black">Integrate</span>
+            </motion.h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {channels.map((channel, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeUpVariants}
+                  className="bg-gray-100 p-6 rounded-2xl border border-gray-300 border-l-4 border-l-[#22d3ee] hover:border-[#22d3ee] hover:shadow-lg transition-all"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-[#22d3ee]/5 flex items-center justify-center text-[#22d3ee] mb-4 border border-[#22d3ee]/30">
+                    <channel.icon size={24} />
+                  </div>
+                  <h3 className="text-lg font-bold text-black mb-2">{channel.name}</h3>
+                  <p className="text-gray-600 text-sm">{channel.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why We Start With Diagnostics Section - DARK BACKGROUND */}
+      <section className="py-24 bg-[#050505]">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerContainerVariants}
+            >
+              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-12" variants={fadeUpVariants}>
+                <span className="font-extralight text-zinc-500">Why We Start</span>{" "}
+                <span className="font-medium text-white">With Diagnostics</span>
+              </motion.h2>
+              
+              <motion.p className="text-xl text-white mb-6" variants={fadeUpVariants}>
+                Unlike agencies that pitch before understanding your business, we start with diagnostics.
+              </motion.p>
+              
+              <motion.p className="text-lg text-zinc-300 mb-8 leading-relaxed" variants={fadeUpVariants}>
+                Most agencies will give you a quote based on 30 minutes of discovery. We think that's backwards.
+              </motion.p>
+              
+              <motion.p className="text-lg text-zinc-300 mb-8 leading-relaxed" variants={fadeUpVariants}>
+                Our free diagnostic does what a traditional agency discovery process costs <span className="text-white font-semibold">R15,000+ for:</span>
+              </motion.p>
+
+              <motion.div className="space-y-4 mb-8" variants={fadeUpVariants}>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <div>
+                    <p className="text-white font-medium">Analyze your actual data, not assumptions</p>
+                    <p className="text-zinc-400 text-sm">We look at real follow-up patterns, not guesswork</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <div>
+                    <p className="text-white font-medium">Identify specific problems, not generic 'opportunities'</p>
+                    <p className="text-zinc-400 text-sm">Pinpoint exactly where leads are dropping off</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <div>
+                    <p className="text-white font-medium">Prioritize fixes by revenue impact, not what's trendy</p>
+                    <p className="text-zinc-400 text-sm">Focus on automation that recovers the most lost deals</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.p className="text-xl text-[#22d3ee] font-bold" variants={fadeUpVariants}>
+                You get actionable insights whether you hire us or not. If the diagnostic reveals problems you can't fix yourself, we're here.
+              </motion.p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Tiers Section - WHITE BACKGROUND */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainerVariants}
+          >
+            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
+              <span className="font-extralight text-gray-400">Choose Your</span>{" "}
+              <span className="font-medium text-black">Messaging Plan</span>
+            </motion.h2>
+            <motion.p className="text-gray-600 text-lg" variants={fadeUpVariants}>
+              Start simple, scale as you grow
+            </motion.p>
+          </motion.div>
+
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainerVariants}
+          >
+            {/* Starter Tier */}
+            <motion.div
+              variants={fadeUpVariants}
+              className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[#22d3ee] hover:border-[#22d3ee] hover:shadow-lg transition-all"
+            >
+              <h3 className="text-2xl font-bold text-black mb-2">Starter</h3>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-black">R2,999</span>
+                <span className="text-gray-600">/month</span>
+              </div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Basic email automation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Up to 1,000 contacts</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">3 automated sequences</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Email support</span>
+                </li>
+              </ul>
+              <CTAPrimary className="w-full">
+                Get Started with Starter
+              </CTAPrimary>
+            </motion.div>
+
+            {/* Growth Tier - Featured */}
+            <motion.div
+              variants={fadeUpVariants}
+              className="bg-gray-100 p-8 rounded-3xl border-2 border-[#22d3ee] relative shadow-lg"
+            >
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#22d3ee] text-black px-4 py-1 rounded-full text-sm font-bold">
+                ⭐ MOST POPULAR
+              </div>
+              <h3 className="text-2xl font-bold text-black mb-2">Growth</h3>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-black">R7,999</span>
+                <span className="text-gray-600">/month</span>
+              </div>
+              <p className="text-sm text-gray-600 mb-4">Everything in Starter, plus:</p>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">WhatsApp Business integration</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">SMS capabilities</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Up to 5,000 contacts</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Unlimited sequences</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Multi-channel campaigns</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Advanced analytics</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">3 hours monthly optimization</span>
+                </li>
+              </ul>
+              <CTAPrimary className="w-full">
+                Get Started with Growth
+              </CTAPrimary>
+            </motion.div>
+
+            {/* Enterprise Tier */}
+            <motion.div
+              variants={fadeUpVariants}
+              className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[#22d3ee] hover:border-[#22d3ee] hover:shadow-lg transition-all"
+            >
+              <h3 className="text-2xl font-bold text-black mb-2">Enterprise</h3>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-black">Custom</span>
+              </div>
+              <p className="text-sm text-gray-600 mb-4">Everything in Growth, plus:</p>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Custom channel integrations</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Advanced AI personalization</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Unlimited contacts</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Dedicated account manager</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">24/7 support</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Custom SLAs</span>
+                </li>
+              </ul>
+              <CTAPrimary className="w-full">
+                Get Custom Quote
+              </CTAPrimary>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Other Services */}
       <OtherServices currentServiceId="whatsapp-solutions" />

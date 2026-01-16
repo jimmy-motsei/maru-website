@@ -44,7 +44,7 @@ export default function TermsConditionsPage() {
               <li>Lead generation and AI lead scoring systems</li>
               <li>Sales automation and CRM integration</li>
               <li>Office operations automation and workflow optimization</li>
-              <li>WhatsApp Business chatbot solutions</li>
+              <li>Multi-channel follow-up automation (email, SMS, WhatsApp)</li>
               <li>Custom AI integrations and bespoke enterprise solutions</li>
             </ul>
             <p className="text-dark/70 leading-relaxed">

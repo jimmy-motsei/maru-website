@@ -1,191 +1,430 @@
 "use client";
 
-import Link from "next/link";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { Target, Zap, Users, TrendingUp, CheckCircle2, Database, Mail, MessageSquare, BarChart3, GitBranch, ArrowRight } from "lucide-react";
 import { ServiceHero } from "@/components/sections/ServiceHero";
-import { ServiceAccordion } from "@/components/ui/ServiceAccordion";
-import { PricingSection } from "@/components/sections/PricingSection";
 import { OtherServices } from "@/components/sections/OtherServices";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
+import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Sales Systems", href: "/services/sales-systems" },
+  { label: "Sales Process", href: "/services/sales-systems" },
 ];
 
-const accordionItems = [
+const discoveryItems = [
   {
-    title: "CRM Automation",
-    subtitle: "Eliminate the busywork slowing down your sales cycle",
-    content:
-      "Never lose a deal to a forgotten follow-up or outdated data again. Our automations keep your CRM clean, current, and working for you—not the other way around.",
-    features: [
-      "Auto-logged calls, emails, and meetings",
-      "Smart task creation based on deal stage",
-      "Duplicate detection and data cleanup",
-      "Custom workflows for your sales process",
-      "Integration with email, calendar, and phone systems",
-    ],
+    title: "Which Pipeline Stages Are Bleeding Deals",
+    description: "Pinpoint exactly where prospects drop off",
+    icon: Target,
   },
   {
-    title: "Conversation Intelligence",
-    subtitle: "Turn every sales call into a coaching opportunity",
-    content:
-      "Our AI analyzes every conversation to identify what's working, surface objections before they kill deals, and give reps real-time guidance on how to win.",
-    features: [
-      "Automatic call transcription and analysis",
-      "Win/loss pattern recognition across your team",
-      "Real-time objection alerts and recommended responses",
-      "Competitor mention tracking",
-      "Personalized coaching insights for each rep",
-    ],
+    title: "Where Manual Work Is Slowing Your Team Down",
+    description: "Identify time-wasting tasks that should be automated",
+    icon: Zap,
   },
   {
-    title: "Deal Tracking & Forecasting",
-    subtitle: "Know exactly which deals will close—and which need attention",
-    content:
-      "Stop relying on gut feel and optimistic reps. Our AI predicts deal outcomes based on actual behavior patterns, so you can forecast accurately and intervene before deals go cold.",
-    features: [
-      "AI-powered close probability scores",
-      "Early warning alerts for at-risk deals",
-      "Pipeline health dashboards",
-      "Revenue forecasting based on real conversion data",
-      "Deal stage automation (move deals forward automatically)",
-    ],
+    title: "Automation Opportunities Saving 20+ Hours Per Week",
+    description: "Free your team to focus on selling, not admin",
+    icon: Users,
   },
   {
-    title: "Sales Analytics & Reporting",
-    subtitle: "See what's driving revenue—and what's wasting time",
-    content:
-      "No more spreadsheet archaeology. Get instant visibility into what's working across your entire sales operation, from first touch to closed deal.",
-    features: [
-      "Real-time performance dashboards",
-      "Rep activity vs. results analysis",
-      "Lead source ROI tracking",
-      "Sales velocity metrics (time-to-close by stage)",
-      "Custom reports that answer your specific questions",
-    ],
+    title: "Integration Gaps Between Marketing and Sales Tools",
+    description: "Find where data silos are costing you deals",
+    icon: TrendingUp,
   },
 ];
 
-const pricingTiers = [
+const workflowSteps = [
   {
-    price: "5,999",
-    title: "Essentials",
-    subtitle: "Stop losing deals to manual chaos",
-    description: "Perfect for teams of 2-5 reps who need the basics done right.",
-    features: [
-      "CRM auto-logging (calls, emails, meetings)",
-      "Task automation by deal stage",
-      "Basic pipeline reporting",
-      "Email integration",
-      "2 hours monthly optimization support",
-    ],
-    bestFor: "Small teams drowning in admin work",
-    href: "/booking?plan=sales-essentials",
+    number: "01",
+    title: "Pipeline Audit",
+    description: "Map your current sales process",
+    icon: Database,
   },
   {
-    price: "12,999",
-    title: "Growth",
-    subtitle: "Turn your CRM into a revenue engine",
-    description: "For teams of 5-15 reps ready to scale intelligently.",
-    features: [
-      "Everything in Essentials, plus:",
-      "Conversation intelligence (call analysis)",
-      "AI deal scoring and forecasting",
-      "Advanced analytics and custom reports",
-      "Lead routing automation",
-      "5 hours monthly optimization support",
-    ],
-    bestFor: "Growing teams that need predictable revenue",
-    href: "/booking?plan=sales-growth",
-    featured: true,
+    number: "02",
+    title: "Leak Detection",
+    description: "Find where deals are dying",
+    icon: Target,
   },
   {
-    price: "24,999",
-    title: "Enterprise",
-    subtitle: "Complete your enterprise sales operations",
-    description: "For teams of 15+ reps who need every advantage.",
-    features: [
-      "Everything in Growth, plus:",
-      "Real-time coaching and objection handling",
-      "Multi-team reporting and benchmarking",
-      "Custom integrations (ERP, billing, etc.)",
-      "Dedicated account manager",
-      "Unlimited optimization support",
-    ],
-    bestFor: "Established teams optimizing for efficiency",
-    href: "/booking?plan=sales-enterprise",
+    number: "03",
+    title: "Automation Build",
+    description: "Implement smart workflows",
+    icon: Zap,
   },
   {
-    price: "Custom",
-    title: "Custom Solutions",
-    subtitle: "Have specific needs? Let's build something tailored.",
-    description: "We create custom sales automation for unique workflows, complex integrations, or industry-specific requirements.",
-    href: "/booking?plan=custom",
+    number: "04",
+    title: "Sales Enablement",
+    description: "Train your team on the new system",
+    icon: Users,
   },
+];
+
+const automationItems = [
+  "Lead assignment and routing",
+  "Follow-up sequences and reminders",
+  "Data entry and CRM updates",
+  "Deal tracking and forecasting",
+  "Communication intelligence (email/WhatsApp sync)",
+  "Sales analytics and reporting",
+];
+
+const growthFeatures = [
+  "Pipeline audit & leak detection",
+  "Core automation workflows (lead routing, follow-up, data sync)",
+  "CRM integration and optimization",
+  "Sales team training",
+  "3 hours monthly optimization",
+  "Email & chat support",
+];
+
+const enterpriseFeatures = [
+  "Everything in Growth, plus:",
+  "Custom sales playbooks",
+  "Multi-team workflows and territories",
+  "Advanced BI and forecasting",
+  "Dedicated account manager",
+  "Unlimited optimization support",
+  "SLA guarantees",
 ];
 
 export default function SalesSystemsPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <main>
+    <main className="bg-[#050505] min-h-screen text-white">
       {/* Hero Section */}
       <ServiceHero
         breadcrumbs={breadcrumbs}
-        titleBold="Sales Systems"
-        titleLight="Automation"
-        subtitle="Your sales team should be selling, not doing data entry"
-        description="Automate your CRM, unlock AI-powered conversation insights, and eliminate up to 80% of manual admin work. Let your team focus on what actually closes deals."
+        titleBold="Where Are Your Deals"
+        titleLight="Stalling?"
+        subtitle="Your pipeline is full, but nothing's closing. We find exactly where prospects drop off—and automate the fixes so your team can focus on selling, not admin."
       />
 
-      {/* Service Details Section */}
-      <section id="service-details" className="bg-[#f5f5f5] py-12 lg:py-32">
+      {/* Discovery Section - WHITE BACKGROUND */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            {/* Left Column - Intro */}
-            <div className="lg:col-span-4">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-2xl md:text-3xl font-bold text-dark mb-6">
-                  How We <span className="font-light">Build Systems</span>
-                  <br />
-                  That Actually <span className="font-light">Get Used</span>
-                </h2>
-                <p className="text-dark/80 mb-8 leading-relaxed">
-                  Your CRM should make selling easier, not harder. We integrate seamlessly with your existing tools and add AI layers that coach your team in real-time—no system overhaul required.
-                </p>
-                <Link
-                  href="/services/lead-generation"
-                  className="inline-flex items-center gap-2 text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors group"
-                >
-                  <span className="font-medium">Get Your Free Lead Score Analysis</span>
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </motion.div>
-            </div>
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainerVariants}
+          >
+            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
+              <span className="font-extralight text-gray-400">What You'll</span> <span className="font-medium text-black">Discover</span>
+            </motion.h2>
+            <motion.p className="text-gray-600 text-lg mb-2" variants={fadeUpVariants}>
+              Our Pipeline Leak Detector analyzes your sales process and reveals:
+            </motion.p>
+          </motion.div>
 
-            {/* Right Column - Accordion */}
-            <div className="lg:col-span-8">
-              <ServiceAccordion items={accordionItems} />
-            </div>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainerVariants}
+          >
+            {discoveryItems.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={fadeUpVariants}
+                className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[#22d3ee] flex items-start gap-6 group hover:border-[#22d3ee] hover:shadow-lg transition-all"
+              >
+                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#22d3ee]/5 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/30 group-hover:scale-110 group-hover:bg-[#22d3ee]/10 transition-all">
+                  <item.icon size={28} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black mb-2">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* The Problem We Solve Section - DARK BACKGROUND */}
+      <section className="py-24 bg-[#050505]">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div 
+              className="mb-12"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerContainerVariants}
+            >
+              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-8" variants={fadeUpVariants}>
+                <span className="font-extralight text-zinc-500">The Problem</span>{" "}
+                <span className="font-medium text-white">We Solve</span>
+              </motion.h2>
+            </motion.div>
+            <motion.div 
+              className="space-y-6 text-lg text-zinc-300 leading-relaxed"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerContainerVariants}
+            >
+              <motion.p variants={fadeUpVariants}>
+                Your sales team spends more time on data entry, follow-up reminders, and status updates than actually selling. Leads from marketing sit uncontacted. Deals stall because no one followed up at the right time.
+              </motion.p>
+              <motion.p className="text-xl font-semibold text-white" variants={fadeUpVariants}>
+                Your CRM is supposed to help, but it's just another admin burden.
+              </motion.p>
+              <motion.p className="text-[#22d3ee] text-xl font-bold" variants={fadeUpVariants}>
+                We automate the repetitive work so your team can sell.
+              </motion.p>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <PricingSection
-        headline="Choose Your"
-        subheadline="Starting Point"
-        description="Start with essential automation or go all-in with enterprise intelligence. Every package includes setup, training, and 30 days of optimization support."
-        tiers={pricingTiers}
-        customCTAText="Schedule a Strategy Call"
-        customCTAHref="/booking"
-      />
+      {/* How It Works Section - WHITE BACKGROUND */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainerVariants}
+          >
+            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
+              <span className="font-extralight text-gray-400">How</span>{" "}
+              <span className="font-medium text-black">It Works</span>
+            </motion.h2>
+            <motion.p className="text-gray-600 text-lg" variants={fadeUpVariants}>
+              From audit to automation in 4 strategic steps
+            </motion.p>
+          </motion.div>
+
+          <div className="relative max-w-7xl mx-auto">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={staggerContainerVariants}
+            >
+              {workflowSteps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeUpVariants}
+                  className="relative group"
+                >
+                  <div className="bg-gray-100 p-10 md:p-12 rounded-2xl border border-gray-300 border-l-4 border-l-[#22d3ee] h-full relative z-10 hover:border-[#22d3ee] hover:shadow-lg transition-all">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-16 h-16 rounded-full border-2 border-[#22d3ee] flex items-center justify-center mb-8 relative bg-white">
+                        <span className="text-lg font-bold text-black">{step.number}</span>
+                        {index < workflowSteps.length - 1 && (
+                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-[#22d3ee]/30">
+                            <ArrowRight size={24} />
+                          </div>
+                        )}
+                      </div>
+                      
+                      <div className="w-12 h-12 rounded-xl border border-gray-300 flex items-center justify-center text-[#22d3ee] mb-6 bg-gray-50">
+                        <step.icon size={24} />
+                      </div>
+                      
+                      <h3 className="text-xl font-bold mb-3 text-black">{step.title}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed font-medium">{step.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* What Gets Automated Section - DARK BACKGROUND */}
+      <section className="py-24 bg-[#0A0A0A]">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerContainerVariants}
+            >
+              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-12 text-center" variants={fadeUpVariants}>
+                <span className="font-extralight text-zinc-500">What Gets</span>{" "}
+                <span className="font-medium text-white">Automated</span>
+              </motion.h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {automationItems.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    variants={fadeUpVariants}
+                    className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 hover:border-[#22d3ee]/50 transition-colors"
+                  >
+                    <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0" />
+                    <span className="text-zinc-300">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why We Start With Diagnostics Section - WHITE BACKGROUND */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerContainerVariants}
+            >
+              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-12" variants={fadeUpVariants}>
+                <span className="font-extralight text-gray-400">Why We Start</span>{" "}
+                <span className="font-medium text-black">With Diagnostics</span>
+              </motion.h2>
+              
+              <motion.p className="text-xl text-black mb-6" variants={fadeUpVariants}>
+                Unlike agencies that pitch before understanding your business, we start with diagnostics.
+              </motion.p>
+              
+              <motion.p className="text-lg text-gray-600 mb-8 leading-relaxed" variants={fadeUpVariants}>
+                Most agencies will give you a quote based on 30 minutes of discovery. We think that's backwards.
+              </motion.p>
+              
+              <motion.p className="text-lg text-gray-600 mb-8 leading-relaxed" variants={fadeUpVariants}>
+                Our free diagnostic does what a traditional agency discovery process costs <span className="text-black font-semibold">R15,000+ for:</span>
+              </motion.p>
+
+              <motion.div className="space-y-4 mb-8" variants={fadeUpVariants}>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <div>
+                    <p className="text-black font-medium">Analyze your actual data, not assumptions</p>
+                    <p className="text-gray-600 text-sm">We look at real pipeline behavior, not guesswork</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <div>
+                    <p className="text-black font-medium">Identify specific problems, not generic 'opportunities'</p>
+                    <p className="text-gray-600 text-sm">Pinpoint exactly where you're losing deals</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <div>
+                    <p className="text-black font-medium">Prioritize fixes by revenue impact, not what's trendy</p>
+                    <p className="text-gray-600 text-sm">Focus on changes that actually close more deals</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.p className="text-xl text-[#22d3ee] font-bold" variants={fadeUpVariants}>
+                You get actionable insights whether you hire us or not. If the diagnostic reveals problems you can't fix yourself, we're here.
+              </motion.p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Package Options Section - DARK BACKGROUND */}
+      <section className="py-24 bg-[#050505]">
+        <div className="container mx-auto px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainerVariants}
+          >
+            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
+              <span className="font-extralight text-zinc-500">Choose Your</span>{" "}
+              <span className="font-medium text-white">Starting Point</span>
+            </motion.h2>
+            <motion.p className="text-zinc-400 text-lg" variants={fadeUpVariants}>
+              Every package is customized based on your CRM, team size, and sales complexity. Here's what most SMEs start with:
+            </motion.p>
+          </motion.div>
+
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainerVariants}
+          >
+            {/* Growth Package */}
+            <motion.div
+              variants={fadeUpVariants}
+              className="bg-white/5 p-8 rounded-3xl border-2 border-[#22d3ee] relative"
+            >
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#22d3ee] text-black px-4 py-1 rounded-full text-sm font-bold">
+                ⭐ BEST FOR MOST SMEs
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3 mt-2">Growth Package</h3>
+              <p className="text-zinc-400 mb-6">
+                Perfect for businesses with 5-20 sales reps and established sales processes
+              </p>
+              <ul className="space-y-3 mb-8">
+                {growthFeatures.map((feature, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                    <span className="text-zinc-300 text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <CTAPrimary className="w-full">
+                Get Custom Quote for Growth Package
+              </CTAPrimary>
+            </motion.div>
+
+            {/* Enterprise Package */}
+            <motion.div
+              variants={fadeUpVariants}
+              className="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-[#22d3ee]/50 transition-colors"
+            >
+              <h3 className="text-2xl font-bold text-white mb-3">Enterprise Package</h3>
+              <p className="text-zinc-400 mb-6">
+                For complex sales organizations with multiple teams or custom requirements
+              </p>
+              <ul className="space-y-3 mb-8">
+                {enterpriseFeatures.map((feature, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                    <span className="text-zinc-300 text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <CTAPrimary className="w-full">
+                Schedule Enterprise Consultation
+              </CTAPrimary>
+            </motion.div>
+          </motion.div>
+
+          <motion.div 
+            className="text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainerVariants}
+          >
+            <motion.p className="text-zinc-400" variants={fadeUpVariants}>
+              Not sure what you need?{" "}
+              <a href="https://pipeline.maruonline.com" target="_blank" rel="noopener noreferrer" className="text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors font-medium">
+                Take our 2-minute Pipeline Assessment →
+              </a>
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Other Services */}
       <OtherServices currentServiceId="sales-systems" />

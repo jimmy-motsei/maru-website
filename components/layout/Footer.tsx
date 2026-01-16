@@ -162,22 +162,22 @@ export function Footer() {
               <ul className="space-y-4">
                 <li>
                   <Link href="/services/lead-generation" className="text-white/70 hover:text-accent transition-colors duration-300">
-                    Lead Generation
+                    Website Conversion
                   </Link>
                 </li>
                 <li>
                   <Link href="/services/sales-systems" className="text-white/70 hover:text-accent transition-colors duration-300">
-                    Sales Systems
+                    Sales Process
                   </Link>
                 </li>
                 <li>
                   <Link href="/services/office-automation" className="text-white/70 hover:text-accent transition-colors duration-300">
-                    Office Automation
+                    Marketing Integration
                   </Link>
                 </li>
                 <li>
                   <Link href="/services/whatsapp-solutions" className="text-white/70 hover:text-accent transition-colors duration-300">
-                    WhatsApp Solutions
+                    Follow-Up Automation
                   </Link>
                 </li>
                 <li>
@@ -195,7 +195,7 @@ export function Footer() {
             >
               <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-6">Get in Touch</h3>
               <p className="text-white/90 mb-6 leading-relaxed">
-                AI-powered marketing solutions for SMEs ready to scale. Transform your marketing operations, scale with confidence.
+                Marketing systems that actually work. Built for African SMEs tired of agencies that don't.
               </p>
               <div className="space-y-4">
                 <p className="text-white/70">hello@maruonline.com</p>

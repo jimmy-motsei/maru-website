@@ -78,14 +78,14 @@ export const SYSTEM_PROMPT = `You are the Maru Online AI Assistant, a helpful an
 
 **Best for:** Operations teams drowning in paperwork, businesses with fragmented software systems
 
-### 4. WhatsApp Business Solutions
-**What it does:** Automate customer communication and support through WhatsApp Business API.
-
-**Key Features:**
-- Automated Messaging: Welcome messages, away messages, FAQ responses
-- Customer Support: AI chatbot for common queries, human handoff for complex issues
-- Broadcast Campaigns: Targeted messaging to customer segments
-- Integration: Connect WhatsApp to CRM, support desk, e-commerce platforms
+### 4. Multi-Channel Follow-Up Automation
+**What it does:** Automate intelligent, multi-channel follow-up across email, SMS, and WhatsApp to never lose deals to slow response times.
+**Key capabilities:**
+- Automated Sequences: Post-inquiry follow-up, meeting reminders, proposal follow-ups
+- Multi-Channel Outreach: Email, SMS, WhatsApp Business API integration
+- Behavioral Triggers: Smart sequencing based on prospect actions
+- Lead Scoring: Prioritize hot leads for human handoff
+- Integration: Connect to CRM, email platforms, calendar tools, customer databases
 
 **Best for:** Customer-facing businesses, e-commerce, service providers with high inquiry volume
 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Target, TrendingUp, Cog, MessageCircle, Code2, LucideIcon } from "lucide-react";
+import { ArrowRight, Code2, MessageCircle, GraduationCap, LucideIcon } from "lucide-react";
 
 interface ServiceInfo {
   id: string;
@@ -14,45 +14,7 @@ interface ServiceInfo {
   iconColor: string;
 }
 
-const allServices: ServiceInfo[] = [
-  {
-    id: "lead-generation",
-    title: "Lead Generation",
-    description: "Transform your pipeline with intelligent lead scoring that identifies high-value prospects.",
-    features: ["AI Lead Scoring", "Prospect Identification", "Pipeline Automation", "Conversion Optimization"],
-    href: "/services/lead-generation",
-    icon: Target,
-    iconColor: "#f97316",
-  },
-  {
-    id: "sales-systems",
-    title: "Sales Systems",
-    description: "Automate your CRM workflows and unlock conversation intelligence that helps close deals faster.",
-    features: ["CRM Automation", "Conversation Intelligence", "Deal Tracking", "Sales Analytics"],
-    href: "/services/sales-systems",
-    icon: TrendingUp,
-    iconColor: "#10b981",
-  },
-  {
-    id: "office-automation",
-    title: "Office Ops Automation",
-    description: "Streamline document processing and automate repetitive workflows for your team.",
-    features: ["Document Processing", "Workflow Automation", "Task Management", "Process Optimization"],
-    href: "/services/office-automation",
-    icon: Cog,
-    iconColor: "#a855f7",
-  },
-  {
-    id: "whatsapp-solutions",
-    title: "WhatsApp Solutions",
-    description: "Engage customers 24/7 with intelligent assistants that deliver personalized messaging at scale.",
-    // description: "Engage customers 24/7 with intelligent chatbots that deliver personalized messaging at scale.",
-    features: ["AI Assistants", "Personalized Messaging", "24/7 Engagement", "Conversation Analytics"],
-    // features: ["AI Chatbots", "Personalized Messaging", "24/7 Engagement", "Conversation Analytics"],
-    href: "/services/whatsapp-solutions",
-    icon: MessageCircle,
-    iconColor: "#22c55e",
-  },
+const fixedServices: ServiceInfo[] = [
   {
     id: "website-development",
     title: "Web Development",
@@ -62,10 +24,28 @@ const allServices: ServiceInfo[] = [
     icon: Code2,
     iconColor: "#22d3ee",
   },
+  {
+    id: "support-chatbot",
+    title: "Support Chatbot",
+    description: "24/7 intelligent chatbot that answers customer questions, qualifies leads, and escalates to your team when needed.",
+    features: ["Instant Responses", "Lead Qualification", "Multi-language Support", "Human Handoff"],
+    href: "https://chatbot.maruonline.com",
+    icon: MessageCircle,
+    iconColor: "#22c55e",
+  },
+  {
+    id: "ai-academy",
+    title: "AI for Business Training",
+    description: "Practical AI training for teams. Learn to use ChatGPT, automate workflows, and apply AI to real business problems.",
+    features: ["Hands-on Curriculum", "Real Business Cases", "Team Training", "AI Implementation"],
+    href: "https://academy.maruonline.com",
+    icon: GraduationCap,
+    iconColor: "#f97316",
+  },
 ];
 
 interface OtherServicesProps {
-  currentServiceId: string;
+  currentServiceId?: string;
 }
 
 const containerVariants = {
@@ -89,7 +69,8 @@ const itemVariants = {
 };
 
 export function OtherServices({ currentServiceId }: OtherServicesProps) {
-  const otherServices = allServices.filter((s) => s.id !== currentServiceId);
+  // Always show all 3 services regardless of current page
+  const displayServices = fixedServices;
 
   return (
     <section className="bg-[#f5f5f5] py-24 lg:py-32">
@@ -129,14 +110,11 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {otherServices.map((service) => {
+          {displayServices.map((service) => {
             const IconComponent = service.icon;
             return (
               <motion.div key={service.id} variants={itemVariants}>
-                <Link
-                  href={service.href}
-                  className="block bg-gray-50 rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl border-l-4 border-l-[#22d3ee] transition-all duration-300 group"
-                >
+                <div className="bg-gray-50 rounded-2xl p-8 h-full shadow-sm border border-[#22d3ee]">
                   {/* Icon */}
                   <div
                     className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
@@ -146,7 +124,7 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-dark mb-3 group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-bold text-dark mb-3">
                     {service.title}
                   </h3>
 
@@ -156,7 +134,7 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
                   </p>
 
                   {/* Features */}
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="text-dark/70 text-base flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent" />
@@ -164,13 +142,7 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
                       </li>
                     ))}
                   </ul>
-
-                  {/* Read More */}
-                  <div className="flex items-center gap-2 text-accent group-hover:gap-4 transition-all duration-300">
-                    <span className="text-sm font-medium">Read more</span>
-                    <ArrowRight size={16} />
-                  </div>
-                </Link>
+                </div>
               </motion.div>
             );
           })}

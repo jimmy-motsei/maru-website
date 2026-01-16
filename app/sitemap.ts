@@ -37,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/services/whatsapp-solutions`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {

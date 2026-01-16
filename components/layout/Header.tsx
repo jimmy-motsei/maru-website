@@ -25,10 +25,10 @@ const menuItems = {
     { name: "Tech Stack Auditor", href: "/assessments/tech-audit" },
   ],
   services: [
-    { name: "Lead Generation", href: "/services/lead-generation" },
-    { name: "Sales Systems", href: "/services/sales-systems" },
-    { name: "Office Automation", href: "/services/office-automation" },
-    { name: "WhatsApp Solutions", href: "/services/whatsapp-solutions" },
+    { name: "Website Conversion", href: "/services/lead-generation" },
+    { name: "Sales Process", href: "/services/sales-systems" },
+    { name: "Follow-Up Automation", href: "/services/whatsapp-solutions" },
+    { name: "Marketing Integration", href: "/services/office-automation" },
     { name: "Web Development", href: "/services/website-development" },
   ],
   usefulLinks: [

@@ -11,15 +11,15 @@ import { DecorativeLines } from "@/components/ui/DecorativeLines";
 const services = [
   {
     id: "01",
-    title: "Lead Generation",
-    subtitle: "Fill your pipeline with qualified buyers, not tire-kickers",
+    title: "Website Conversion",
+    subtitle: "Is your website leaking leads?",
     description:
-      "We build AI-powered lead systems that identify and capture prospects actively searching for what you sell—then nurture them until they're sales-ready.",
+      "Most B2B websites convert only 1-2% of visitors. Our AI analysis finds exactly where you're losing prospects—and how to fix it. Stop guessing what's wrong. Get a data-driven diagnosis in 2 minutes.",
     features: [
-      "AI Lead Scoring – Prioritize hot prospects automatically",
-      "Predictive Lead Nurturing – Right message, right time, every time",
-      "Pipeline Automation – From first click to qualified opportunity",
-      "Conversion Optimization – Turn more visitors into viable leads",
+      "Your current conversion score vs. industry benchmarks",
+      "Specific gaps causing visitors to leave without converting",
+      "Priority fixes ranked by revenue impact",
+      "Custom roadmap to double your conversion rate",
     ],
     link: "/services/lead-generation",
     offset: true,
@@ -28,16 +28,15 @@ const services = [
   },
   {
     id: "02",
-    title: "Sales Systems",
-    subtitle: "Close more deals with less manual work",
+    title: "Sales Process Optimization",
+    subtitle: "Where are your deals stalling?",
     description:
-      "Automate the grunt work holding your sales team back. Our CRM integrations and conversation intelligence free up your team to do what they do best—sell.",
+      "Your pipeline is full, but nothing's closing. We find exactly where prospects drop off—and automate the fixes so your team can focus on selling, not admin. Free pipeline analysis reveals which stages are bleeding deals.",
     features: [
-      "CRM Automation – No more data entry, always up-to-date",
-      "Conversation Intelligence – Know what's working in every call",
-      "Deal Tracking – Never lose sight of opportunities",
-      "Sales Analytics – See exactly what drives revenue",
-      "Proposal Automation – Generate quotes in minutes, not hours",
+      "Pipeline leak detection – Find where deals are dying",
+      "Automation that saves 20+ hours per week",
+      "CRM integration without the data entry nightmare",
+      "Sales workflows that actually get used by your team",
     ],
     link: "/services/sales-systems",
     offset: false,
@@ -46,15 +45,15 @@ const services = [
   },
   {
     id: "03",
-    title: "Office Operations Automation",
-    subtitle: "Eliminate the busywork draining your team's time",
+    title: "Marketing Stack Integration",
+    subtitle: "Your tools should work together",
     description:
-      "Stop paying people to do robot work. We automate repetitive tasks so your team can focus on work that actually grows the business.",
+      "You're paying for 10+ software tools that don't share data. We connect your stack so information flows automatically—no more manual exports, imports, or duplicate data entry. Free tech stack audit shows what's broken.",
     features: [
-      "Document Processing – Extract data from invoices, forms, contracts instantly",
-      "Workflow Automation – Approvals, notifications, handoffs—all automatic",
-      "Data Entry Elimination – Systems talk to each other, not spreadsheets",
-      "Process Optimization – Find and fix bottlenecks before they cost you money",
+      "Complete map of your tools and data flows",
+      "Redundant software you can eliminate (immediate savings)",
+      "Integration opportunities to eliminate manual work",
+      "Custom roadmap prioritized by impact, not what's trendy",
     ],
     link: "/services/office-automation",
     offset: true,
@@ -63,22 +62,20 @@ const services = [
   },
   {
     id: "04",
-    title: "WhatsApp Business Solutions",
-    subtitle: "Meet your customers where they already are—at scale",
+    title: "Follow-Up Automation",
+    subtitle: "Stop losing deals to slow response",
     description:
-      "Turn WhatsApp into a 24/7 sales and support channel. Engage customers with intelligent, personalized conversations that feel human, not robotic.",
+      "80% of sales require 5+ follow-ups, but most reps give up after 2. We automate intelligent, multi-channel follow-up that feels personal—without the manual work. Your follow-up readiness score shows what's costing you deals.",
     features: [
-      "AI Assistants – Answer common questions instantly, any time",
-      // "AI Chatbots – Answer common questions instantly, any time",
-      "Personalized Messaging – Tailored offers based on customer behavior",
-      "24/7 Engagement – Never miss a lead, even at 2am",
-      "Conversation Analytics – See what customers really want",
-      "Broadcast Campaigns – Reach thousands with one-to-one feel",
+      "Automated email, SMS & WhatsApp sequences that feel human",
+      "Behavioral triggers – Right message, right time, right channel",
+      "Smart lead scoring for instant prioritization",
+      "Never miss a follow-up, even when your team is swamped",
     ],
     link: "/services/whatsapp-solutions",
     offset: false,
     icon: MessageCircle,
-    iconColor: "#22c55e", // Green (WhatsApp-like)
+    iconColor: "#22d3ee", // Cyan (multi-channel)
   },
 ];
 
