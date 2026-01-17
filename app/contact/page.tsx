@@ -122,10 +122,19 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl text-white mb-8"
+            className="text-4xl md:text-5xl lg:text-6xl text-white mb-6"
           >
-            Ready to Scale with AI?
+            Let's Find Where Your Marketing Is Breaking Down
           </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-8"
+          >
+            Free diagnostic. No sales pitch. Just data-driven insights into where you're leaking revenue.
+          </motion.p>
 
           <motion.a
             initial={{ opacity: 0, y: 20 }}
@@ -159,7 +168,7 @@ export default function ContactPage() {
             variants={fadeUpVariants}
             className="text-4xl md:text-5xl text-center mb-20"
           >
-            Start Your <span className="font-light">Transformation</span>
+            Get Started
           </motion.h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">

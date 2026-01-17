@@ -45,10 +45,10 @@ export default function AboutContent() {
             className="mb-12"
           >
             <h1 className="hero-h1 font-bold text-muted mb-6">
-              <span className="font-light text-gray-600">The</span> Anti-Agency
+              <span className="font-medium">Built Different.</span> <span className="font-light text-gray-600">Built for SMEs.</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/60 max-w-3xl">
-              <span className="font-light">We're not another</span> <span className="font-bold">AI agency</span> <span className="font-light">that discovered marketing last year</span>
+              A marketing consultancy founded on a decade of watching good businesses struggle with tools that weren't designed for their stage.
             </p>
           </motion.div>
 
@@ -82,42 +82,49 @@ export default function AboutContent() {
                 className="text-xl leading-relaxed text-black font-semibold"
                 variants={fadeUpVariants}
               >
-                We're not another AI agency that discovered marketing last year.
+                Our founder's marketing career revealed a pattern: SMEs investing in technology that made their problems worse, not better.
               </motion.p>
 
               <motion.p 
                 className="text-lg leading-relaxed text-black/80"
                 variants={fadeUpVariants}
               >
-                Our founder spent years in marketing before rebuilding this business around a simple observation: SMEs are drowning in tools they don't know how to use. CRMs sitting empty. Automation sending generic emails. Websites that look good but convert nobody.
+                Empty CRMs. Generic automation. Websites with traffic but no conversions.
               </motion.p>
 
               <motion.p 
                 className="text-lg leading-relaxed text-black/80"
                 variants={fadeUpVariants}
               >
-                The problem isn't the tools. It's that most businesses try to do enterprise marketing on an SME budget, guided by agencies that learned their craft from blog posts.
+                It wasn't a skills problem or a budget problem. It was a methodology gap. The marketing playbooks being sold to SMEs were designed for enterprises—different scale, different resources, different constraints.
               </motion.p>
 
               <motion.p 
                 className="text-lg leading-relaxed text-black/80"
                 variants={fadeUpVariants}
               >
-                We took a different path. Instead of scaling an agency, we went deep—learning web development, mastering digital systems, understanding how the pieces actually fit together. Not from theory, but from building, breaking, and fixing marketing systems until we understood what works.
+                The solution wasn't more tools. It was understanding how these systems actually function for businesses at this stage.
               </motion.p>
 
               <motion.p 
                 className="text-lg leading-relaxed text-black/80"
                 variants={fadeUpVariants}
               >
-                Now we use AI to diagnose problems faster and implement solutions more precisely. But the insight comes from understanding how SME marketing actually fails—and how to fix it without the enterprise price tag.
+                So we rebuilt from the ground up. Learned web development and systems architecture. Mastered the technical layer most agencies outsource. Studied where marketing technology breaks down—and how to fix it without enterprise complexity or enterprise pricing.
               </motion.p>
 
               <motion.p 
                 className="text-lg leading-relaxed text-black/80"
                 variants={fadeUpVariants}
               >
-                We started with lead generation because it's where most businesses bleed revenue. But our mission is broader: solving the marketing problems that keep SMEs stuck, one system at a time.
+                Today, we use AI to diagnose faster and implement more precisely. But the differentiation comes from understanding SME marketing at a systems level—what actually works, what creates friction, and how to bridge the gap.
+              </motion.p>
+
+              <motion.p 
+                className="text-lg leading-relaxed text-black/80"
+                variants={fadeUpVariants}
+              >
+                We started with lead generation because that's where revenue bleeds first. But the mission is broader: solving marketing problems that keep good businesses stuck.
               </motion.p>
 
               {/* Quote Block - Relocated to end */}
@@ -135,7 +142,7 @@ export default function AboutContent() {
                 </div>
                 <div>
                   <h6 className="text-lg leading-snug mb-2">
-                    "<span className="font-bold">We solve</span> <span className="font-light">marketing problems using</span> <span className="font-bold">AI intelligence</span><span className="font-light">—not AI hype.</span>"
+                    "<span className="font-bold">We solve</span> <span className="font-light">marketing problems with</span> <span className="font-bold">AI precision</span><span className="font-light">—not AI hype.</span>"
                   </h6>
                   <p className="text-sm text-black/60 font-medium">
                     Founder - Jimmy Motsei

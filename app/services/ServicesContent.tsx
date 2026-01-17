@@ -12,18 +12,18 @@ import { siteConfig } from "@/config/site";
 const problemsWithAgencies = [
   {
     icon: AlertCircle,
-    title: "They Commit Before They Understand",
-    description: "Most agencies pitch you a solution in the first meeting—before analyzing your actual data or understanding your real problems.",
+    title: "Solutions Before Symptoms",
+    description: "Most marketing technology projects start with a solution—a new CRM, a marketing automation platform, a website rebuild. But without understanding what's actually breaking down in your current system, you risk expensive changes that don't address the revenue leak.",
   },
   {
     icon: DollarSign,
-    title: "Enterprise Solutions, SME Budgets",
-    description: "They try to sell you the same complex systems they built for corporates, at prices that don't make sense for your revenue.",
+    title: "The Enterprise Playbook Doesn't Scale Down",
+    description: "There's a methodology gap in the market. Enterprise solutions are over-engineered for SME needs, but most providers only know how to implement that playbook. The tools, timelines, and cost structures weren't built for your stage—and forcing them to fit creates more friction than flow.",
   },
   {
     icon: Wrench,
-    title: "Tools Without Strategy",
-    description: "They implement software without understanding how the pieces should work together—leaving you with more problems than you started with.",
+    title: "Tools Without Context",
+    description: "A new platform gets implemented. Your team gets trained. But six months later, data still lives in three places, follow-up is still manual, and your website conversion hasn't moved. Why? Because tools were added without understanding how the whole system needs to work together.",
   },
 ];
 
@@ -207,7 +207,7 @@ export default function ServicesPage() {
             variants={staggerContainerVariants}
           >
             <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-center mb-4 text-black" variants={fadeUpVariants}>
-              <span className="font-medium text-black">Why SMEs Struggle With</span> <span className="font-extralight text-gray-500">Marketing Technology</span>
+              <span className="font-medium text-black">Why Marketing Technology Fails Most</span> <span className="font-extralight text-gray-500">SMEs</span>
             </motion.h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto mt-16">
@@ -227,7 +227,7 @@ export default function ServicesPage() {
             </div>
 
             <motion.p className="text-center text-lg text-black font-medium mt-12 max-w-3xl mx-auto" variants={fadeUpVariants}>
-              Our approach is different. We start with diagnostics, recommend only what you need, and price it for businesses at your stage.
+              <strong>A different starting point:</strong> We diagnose before we prescribe. Free analysis of what's actually broken, prioritized by revenue impact, with solutions sized for where your business is today.
             </motion.p>
           </motion.div>
         </div>
@@ -313,7 +313,7 @@ export default function ServicesPage() {
             variants={staggerContainerVariants}
           >
             <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-center mb-16" variants={fadeUpVariants}>
-              <span className="font-extralight text-gray-400">How we</span> work
+              <span className="font-medium text-black">How We</span> <span className="font-extralight text-gray-500">Work</span>
             </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
