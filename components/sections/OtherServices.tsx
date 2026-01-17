@@ -106,7 +106,7 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
             const IconComponent = service.icon;
             return (
               <motion.div key={service.id} variants={itemVariants}>
-                <div className="bg-gray-50 rounded-2xl p-8 h-full shadow-sm border border-cyan-primary">
+                <div className="bg-gray-50 rounded-2xl p-8 h-full shadow-sm border border-cyan-primary flex flex-col">
                   {/* Icon */}
                   <div
                     className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
@@ -126,7 +126,7 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
                   </p>
 
                   {/* Features */}
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 mb-8">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="text-dark/70 text-base flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent" />
@@ -134,6 +134,17 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
                       </li>
                     ))}
                   </ul>
+
+                  {/* CTA Button */}
+                  <div className="mt-auto">
+                    <SafeLink
+                      href={service.href}
+                      className="inline-flex items-center justify-center gap-2 bg-[#22d3ee] hover:bg-[#22d3ee]/90 text-black font-bold rounded-full px-6 py-3 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(34,211,238,0.5)] group w-full"
+                    >
+                      <span>See more</span>
+                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    </SafeLink>
+                  </div>
                 </div>
               </motion.div>
             );
