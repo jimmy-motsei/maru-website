@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Globe, TrendingUp, Layers, Clock } from "lucide-react";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 const diagnosticTools = [
   {
@@ -46,8 +47,9 @@ export function DiagnosticTools() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-[#050505] mb-6 text-center">
-            Diagnose Where the Playbook Breaks for Your Business
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#050505] mb-6 text-center leading-tight">
+            <span className="font-light text-zinc-500">Diagnose Where the Playbook</span>{" "}
+            <span className="font-bold text-[#050505]">Breaks for Your Business</span>
           </h2>
           <p className="text-xl text-zinc-600 max-w-4xl mx-auto mb-16 text-center leading-relaxed">
             Our diagnostics are built specifically for SMEs. We don't compare you to enterprises—we 
@@ -104,12 +106,12 @@ export function DiagnosticTools() {
                     </div>
                   </div>
 
-                  <a
+                  <CTAPrimary
                     href={tool.href}
-                    className="inline-flex items-center justify-center w-full px-6 py-3 bg-[var(--color-cyan-primary)] text-black font-bold uppercase text-sm rounded-full hover:bg-[#35C4BE] transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="w-full shadow-md hover:shadow-lg"
                   >
                     {tool.cta}
-                  </a>
+                  </CTAPrimary>
                 </motion.div>
               );
             })}
@@ -120,12 +122,12 @@ export function DiagnosticTools() {
             <p className="text-lg text-zinc-700 mb-4">
               Not sure which diagnostic to take first?
             </p>
-            <a
+            <CTAPrimary
               href="https://leads.maruonline.com"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[var(--color-cyan-primary)] text-black font-bold uppercase text-sm rounded-full hover:bg-[#35C4BE] transition-all duration-300 shadow-md hover:shadow-lg mb-3"
+              className="mb-3 shadow-md hover:shadow-lg"
             >
               Start With the Website Diagnostic
-            </a>
+            </CTAPrimary>
             <p className="text-sm text-zinc-500">
               It's where most SMEs discover their biggest revenue leaks.
             </p>

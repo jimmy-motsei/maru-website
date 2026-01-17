@@ -37,8 +37,9 @@ export function SocialProof() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-[#050505] mb-16 text-center">
-            SMEs Who Switched to the Right Playbook
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#050505] mb-16 text-center leading-tight">
+            <span className="font-light text-zinc-500">SMEs Who Switched</span>{" "}
+            <span className="font-bold text-[#050505]">to the Right Playbook</span>
           </h2>
 
           <div className="max-w-6xl mx-auto space-y-12">

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 export function FinalCTA() {
   return (
@@ -14,8 +15,9 @@ export function FinalCTA() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-[#050505] mb-6">
-            Find Out Where the Enterprise Playbook Is Failing You
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#050505] mb-6 leading-tight">
+            <span className="font-light text-zinc-500">Find Out Where the Enterprise Playbook</span>{" "}
+            <span className="font-bold text-[#050505]">Is Failing You</span>
           </h2>
 
           <p className="text-xl text-zinc-600 mb-10 leading-relaxed">
@@ -23,12 +25,12 @@ export function FinalCTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <a
+            <CTAPrimary
               href="https://leads.maruonline.com"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[var(--color-cyan-primary)] text-black font-bold uppercase text-sm rounded-full hover:bg-[#35C4BE] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+              className="shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               Start Free Diagnostic
-            </a>
+            </CTAPrimary>
 
             <a
               href="/services"

@@ -44,8 +44,9 @@ export function SMEMethodology() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-16 text-center">
-            The SME-Specific Methodology
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-white mb-16 text-center leading-tight">
+            <span className="font-light text-zinc-400">The SME-Specific</span>{" "}
+            <span className="font-bold text-white">Methodology</span>
           </h2>
 
           <div className="max-w-5xl mx-auto space-y-8">

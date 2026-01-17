@@ -13,8 +13,9 @@ export function ProblemEducation() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-[#050505] mb-12 text-center">
-            Why Enterprise Marketing Doesn't Work for SMEs
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#050505] mb-12 text-center leading-tight">
+            <span className="font-light text-zinc-500">Why Enterprise Marketing</span>{" "}
+            <span className="font-bold text-[#050505]">Doesn't Work for SMEs</span>
           </h2>
 
           <div className="max-w-6xl mx-auto">
