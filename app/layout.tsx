@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Outfit, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { FooterCTA } from "@/components/layout/FooterCTA";
@@ -42,6 +43,14 @@ export default function RootLayout({
         className={`${outfit.variable} ${inter.variable} antialiased font-sans bg-dark text-white`}
         suppressHydrationWarning
       >
+        {/* HubSpot Tracking Script */}
+        <Script
+          id="hs-script-loader"
+          src="//js-eu1.hs-scripts.com/146669350.js"
+          strategy="afterInteractive"
+          async
+          defer
+        />
         <ConversionTracking />
         <PerformanceMonitor />
         <Suspense fallback={null}>
