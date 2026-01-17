@@ -102,10 +102,9 @@ export default function StickyROICalculator() {
 
               <Link
                 href="/assessments/lead-score"
-                className="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-bold uppercase text-sm py-3 px-4 rounded-lg transition-colors flex items-center justify-center"
               >
                 Get Detailed Analysis
-                <ArrowRight className="w-4 h-4" />
               </Link>
 
               <p className="text-xs text-zinc-400 text-center">

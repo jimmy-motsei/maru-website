@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
 import { SPACING } from "@/lib/constants";
 
 const tools = [
@@ -167,22 +168,14 @@ export function Services() {
           <p className="text-lg text-gray-600 mb-6">
             Not sure where to start?
           </p>
-          <motion.a
+          <CTAPrimary
             href="https://leads.maruonline.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center bg-cyan-primary hover:bg-cyan-hover text-black font-medium rounded-full pl-8 pr-2 py-2.5 transition-colors group shadow-lg"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            className="shadow-lg"
           >
-            <span className="text-sm tracking-wide uppercase mr-4">
-              Start With a Free Website Grade
-            </span>
-            <span className="bg-black text-white rounded-full p-3 group-hover:bg-gray-900 transition-colors">
-              <ArrowRight size={16} />
-            </span>
-          </motion.a>
+            Start With a Free Website Grade
+          </CTAPrimary>
         </motion.div>
       </div>
     </section>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
@@ -27,35 +26,22 @@ export const CTAPrimary: React.FC<CTAPrimaryProps> = ({
   rel
 }) => {
   const baseStyles = cn(
-    "relative inline-flex items-center justify-center",
-    "bg-[#3DD6D0] text-black",
+    "inline-flex items-center justify-center",
+    "bg-[#22d3ee] text-black",
     "font-bold uppercase text-xs sm:text-sm md:text-base tracking-[0.5px]",
-    "px-4 sm:px-5 md:px-8 py-3 sm:py-4 rounded-[50px]",
+    "px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full",
     "min-h-[52px] sm:min-h-[56px]",
     "whitespace-nowrap",
     "transition-all duration-300 ease-in-out",
-    "hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)]",
-    "active:translate-y-0 active:shadow-[0_2px_8px_rgba(61,214,208,0.3)]",
-    "focus-visible:outline focus-visible:outline-3 focus-visible:outline-[#3DD6D0] focus-visible:outline-offset-3",
+    "hover:bg-[#06b6d4] hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(34,211,238,0.5)]",
+    "active:translate-y-0 active:shadow-[0_2px_8px_rgba(34,211,238,0.3)]",
+    "focus-visible:outline focus-visible:outline-3 focus-visible:outline-[#22d3ee] focus-visible:outline-offset-3",
     "disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0",
-    "w-full sm:w-auto", // Mobile full-width, desktop auto
+    "w-full sm:w-auto",
     className
   );
 
-  const arrowCircleStyles = cn(
-    "absolute right-1.5 sm:right-2 w-9 h-9 sm:w-10 sm:h-10 bg-black rounded-full",
-    "flex items-center justify-center flex-shrink-0",
-    "transition-transform duration-300 group-hover:translate-x-0.5"
-  );
-
-  const content = (
-    <>
-      <span className="flex-1 text-center pr-10 sm:pr-12">{children}</span>
-      <span className={arrowCircleStyles}>
-        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-      </span>
-    </>
-  );
+  const content = <span className="text-center">{children}</span>;
 
   if (href && !disabled) {
     // Check if external link (starts with http:// or https://)
@@ -65,7 +51,7 @@ export const CTAPrimary: React.FC<CTAPrimaryProps> = ({
       return (
         <a 
           href={href} 
-          className={cn(baseStyles, "group")} 
+          className={baseStyles} 
           aria-label={ariaLabel}
           target={target || '_blank'}
           rel={rel || 'noopener noreferrer'}
@@ -76,7 +62,7 @@ export const CTAPrimary: React.FC<CTAPrimaryProps> = ({
     }
     
     return (
-      <Link href={href} className={cn(baseStyles, "group")} aria-label={ariaLabel}>
+      <Link href={href} className={baseStyles} aria-label={ariaLabel}>
         {content}
       </Link>
     );
@@ -87,7 +73,7 @@ export const CTAPrimary: React.FC<CTAPrimaryProps> = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={cn(baseStyles, "group")}
+      className={baseStyles}
       aria-label={ariaLabel}
     >
       {content}

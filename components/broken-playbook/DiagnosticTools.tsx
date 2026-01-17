@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Globe, TrendingUp, Layers, Clock } from "lucide-react";
+import { Globe, TrendingUp, Layers, Clock } from "lucide-react";
 
 const diagnosticTools = [
   {
@@ -106,10 +106,9 @@ export function DiagnosticTools() {
 
                   <a
                     href={tool.href}
-                    className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[var(--color-cyan-primary)] text-black font-semibold rounded-full hover:bg-[var(--color-cyan-hover)] transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="inline-flex items-center justify-center w-full px-6 py-3 bg-[var(--color-cyan-primary)] text-black font-bold uppercase text-sm rounded-full hover:bg-[#35C4BE] transition-all duration-300 shadow-md hover:shadow-lg"
                   >
                     {tool.cta}
-                    <ArrowRight className="w-4 h-4" />
                   </a>
                 </motion.div>
               );
@@ -123,10 +122,9 @@ export function DiagnosticTools() {
             </p>
             <a
               href="https://leads.maruonline.com"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-cyan-primary)] text-black font-semibold rounded-full hover:bg-[var(--color-cyan-hover)] transition-all duration-300 shadow-md hover:shadow-lg mb-3"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[var(--color-cyan-primary)] text-black font-bold uppercase text-sm rounded-full hover:bg-[#35C4BE] transition-all duration-300 shadow-md hover:shadow-lg mb-3"
             >
               Start With the Website Diagnostic
-              <ArrowRight className="w-5 h-5" />
             </a>
             <p className="text-sm text-zinc-500">
               It's where most SMEs discover their biggest revenue leaks.

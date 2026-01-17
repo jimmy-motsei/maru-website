@@ -9,23 +9,24 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ className, variant = "primary", href, children, ...props }: ButtonProps) {
-  const baseStyles = "group inline-flex h-[60px] lg:h-[70px] items-center justify-center rounded-full px-4 pl-10 text-xs font-medium uppercase tracking-[2px] transition-all duration-400 hover:scale-[1.015] hover:brightness-110";
+  const baseStyles = "group inline-flex items-center justify-center rounded-full text-xs sm:text-sm font-bold uppercase tracking-[1px] transition-all duration-300 ease-in-out whitespace-nowrap";
   
   const variants = {
-    primary: "bg-accent text-black",
-    outline: "border border-white/20 text-white hover:bg-white/5",
-    icon: "p-0 h-10 w-10 lg:h-[70px] lg:w-[70px]",
+    primary: "bg-[#22d3ee] text-black h-[52px] sm:h-[56px] px-8 hover:bg-[#06b6d4] hover:shadow-[0_6px_20px_rgba(34,211,238,0.5)] hover:-translate-y-0.5",
+    outline: "border border-white/20 text-white h-[52px] sm:h-[56px] px-8 hover:bg-white/10",
+    icon: "p-0 h-10 w-10 lg:h-[70px] lg:w-[70px] justify-center",
   };
 
   const content = (
     <>
-      {children && <span className="whitespace-nowrap">{children}</span>}
-      <div className={cn(
-        "ml-6 flex h-10 w-10 items-center justify-center rounded-full bg-black transition-transform duration-400 group-hover:scale-110",
-        variant === "icon" && "ml-0 bg-accent text-black"
-      )}>
-        <ArrowRight className={cn("h-4 w-4", variant === "primary" ? "text-accent" : "text-black")} />
-      </div>
+      {children}
+      {variant === "icon" && (
+        <div className={cn(
+          "flex h-full w-full items-center justify-center rounded-full bg-accent text-black transition-transform duration-400 group-hover:scale-110"
+        )}>
+          <ArrowRight className="h-4 w-4" />
+        </div>
+      )}
     </>
   );
 

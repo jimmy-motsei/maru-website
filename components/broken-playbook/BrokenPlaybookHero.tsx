@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 export function BrokenPlaybookHero() {
   const scrollToSection = (id: string) => {
@@ -34,18 +33,16 @@ export function BrokenPlaybookHero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={() => scrollToSection("diagnostics")}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-cyan-primary)] text-black font-semibold rounded-full hover:bg-[var(--color-cyan-hover)] transition-all duration-300 shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] hover:-translate-y-1"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[var(--color-cyan-primary)] text-black font-bold uppercase text-sm rounded-full hover:bg-[#35C4BE] transition-all duration-300 shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] hover:-translate-y-1"
             >
               Find Where It's Breaking
-              <ArrowRight className="w-5 h-5" />
             </button>
 
             <button
               onClick={() => scrollToSection("why-it-matters")}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white font-medium rounded-full hover:bg-white/15 transition-all duration-300 border border-white/20"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-semibold uppercase text-sm rounded-full hover:bg-white/15 transition-all duration-300 border border-white/20"
             >
               Why This Matters
-              <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </motion.div>

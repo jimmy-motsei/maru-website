@@ -139,10 +139,9 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
                   <div className="mt-auto">
                     <SafeLink
                       href={service.href}
-                      className="inline-flex items-center justify-center gap-2 bg-[#22d3ee] hover:bg-[#22d3ee]/90 text-black font-bold rounded-full px-6 py-3 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(34,211,238,0.5)] group w-full"
+                      className="inline-flex items-center justify-center bg-[#22d3ee] hover:bg-[#22d3ee]/90 text-black font-bold uppercase text-sm rounded-full px-6 py-3 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(34,211,238,0.5)] w-full"
                     >
-                      <span>See more</span>
-                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      See more
                     </SafeLink>
                   </div>
                 </div>

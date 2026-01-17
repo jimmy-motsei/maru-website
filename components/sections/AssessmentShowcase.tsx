@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Target, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 export function AssessmentShowcase() {
   return (
@@ -46,15 +47,14 @@ export function AssessmentShowcase() {
           
           {/* Primary CTA */}
           <div className="text-center">
-            <a
+            <CTAPrimary 
               href="https://leads.maruonline.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-cyan-400 hover:to-blue-400 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="text-lg px-10 py-5"
             >
               Start Your Free Analysis
-              <ArrowRight className="w-5 h-5" />
-            </a>
+            </CTAPrimary>
             <p className="text-zinc-400 text-sm mt-3">Website Lead Grader • Takes 2 minutes • 100% Free</p>
           </div>
         </motion.div>

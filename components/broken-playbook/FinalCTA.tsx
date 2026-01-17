@@ -25,18 +25,16 @@ export function FinalCTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <a
               href="https://leads.maruonline.com"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-cyan-primary)] text-black font-semibold rounded-full hover:bg-[var(--color-cyan-hover)] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[var(--color-cyan-primary)] text-black font-bold uppercase text-sm rounded-full hover:bg-[#35C4BE] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               Start Free Diagnostic
-              <ArrowRight className="w-5 h-5" />
             </a>
 
             <a
               href="/services"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#050505] font-medium rounded-full hover:bg-zinc-50 transition-all duration-300 border-2 border-zinc-200 hover:border-[var(--color-cyan-primary)]"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#050505] font-semibold uppercase text-sm rounded-full hover:bg-zinc-50 transition-all duration-300 border-2 border-zinc-200 hover:border-[var(--color-cyan-primary)]"
             >
               See Our Methodology
-              <ArrowRight className="w-5 h-5" />
             </a>
           </div>
 
