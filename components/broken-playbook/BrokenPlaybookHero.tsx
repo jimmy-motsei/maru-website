@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 
 export function BrokenPlaybookHero() {
   const scrollToSection = (id: string) => {
@@ -9,8 +10,9 @@ export function BrokenPlaybookHero() {
   };
 
   return (
-    <section className="relative bg-[#050505] py-24 lg:py-32">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section className="relative bg-[#050505] py-24 lg:py-32 overflow-hidden">
+      <AtmosphericBackground variant="hero" />
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
