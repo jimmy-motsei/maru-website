@@ -197,8 +197,8 @@ export default function ServicesPage() {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <CTAPrimary className="text-base">
-                Start With a Free Diagnostic
+              <CTAPrimary href="/assessments/lead-score" className="text-base">
+                Start With a Free Diagnosis
               </CTAPrimary>
               <a
                 href="#services"
