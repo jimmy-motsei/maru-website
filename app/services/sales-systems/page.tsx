@@ -382,7 +382,7 @@ export default function SalesSystemsPage() {
                 ))}
               </ul>
               <CTAPrimary className="w-full">
-                Get Custom Quote for Growth Package
+                <span className="flex-1 text-center">Get Custom Quote</span>
               </CTAPrimary>
             </motion.div>
 
@@ -404,7 +404,7 @@ export default function SalesSystemsPage() {
                 ))}
               </ul>
               <CTAPrimary className="w-full">
-                Schedule Enterprise Consultation
+                <span className="flex-1 text-center">Schedule Consultation</span>
               </CTAPrimary>
             </motion.div>
           </motion.div>
