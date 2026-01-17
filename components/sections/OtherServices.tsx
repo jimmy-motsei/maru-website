@@ -21,7 +21,7 @@ const fixedServices: ServiceInfo[] = [
     title: "Support Chatbot",
     description: "24/7 intelligent chatbot that answers customer questions, qualifies leads, and escalates to your team when needed.",
     features: ["Instant Responses", "Lead Qualification", "Multi-language Support", "Human Handoff"],
-    href: "https://chatbot.maruonline.com",
+    href: "/services/customer-support-chatbots",
     icon: MessageCircle,
     iconColor: "#22c55e",
   },
