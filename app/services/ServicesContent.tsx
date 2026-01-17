@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, AlertCircle, DollarSign, Wrench, BarChart3, TrendingUp, MessageSquare, Link2, Search, Hammer, Rocket, LineChart, CheckCircle2, AlertTriangle, CreditCard, Settings } from "lucide-react";
+import { ArrowRight, AlertCircle, DollarSign, Wrench, BarChart3, TrendingUp, MessageSquare, MessageCircle, Link2, Search, Hammer, Rocket, LineChart, CheckCircle2, AlertTriangle, CreditCard, Settings } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
 import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
@@ -87,6 +87,21 @@ const serviceCards = [
     ],
     ctaText: "Learn More",
     ctaLink: "/services/office-automation",
+  },
+  {
+    id: "05",
+    title: "Deploy Smart Support Chatbots",
+    icon: MessageCircle,
+    iconColor: "#22c55e",
+    problem: "Customers get frustrated by generic chatbot responses that don't help",
+    fixes: [
+      "Generic responses that don't understand your business",
+      "No clear path to human support",
+      "Disconnected from your systems and data",
+      "Chatbots that create more problems than they solve",
+    ],
+    ctaText: "Learn More",
+    ctaLink: "/services/customer-support-chatbots",
   },
 ];
 
@@ -243,7 +258,7 @@ export default function ServicesPage() {
             variants={staggerContainerVariants}
           >
             <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-center mb-4 text-white" variants={fadeUpVariants}>
-              Four Ways We Fix Your <span className="font-extralight text-zinc-500">Marketing Systems</span>
+              Five Ways We Fix Your <span className="font-extralight text-zinc-500">Marketing Systems</span>
             </motion.h2>
             <motion.p className="text-center text-zinc-400 text-lg mb-16 max-w-3xl mx-auto" variants={fadeUpVariants}>
               Each service starts with a free diagnostic. No sales pitch, no obligation—just data-driven insights.

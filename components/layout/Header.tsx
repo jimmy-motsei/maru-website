@@ -29,7 +29,7 @@ const menuItems = {
     { name: "Sales Process", href: "/services/sales-systems" },
     { name: "Follow-Up Automation", href: "/services/whatsapp-solutions" },
     { name: "Marketing Integration", href: "/services/office-automation" },
-
+    { name: "Support Chatbots", href: "/services/customer-support-chatbots" },
   ],
   usefulLinks: [
     { name: "Privacy Policy", href: "/privacy-policy" },
