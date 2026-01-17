@@ -28,8 +28,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Maru Online | AI Marketing Solutions",
-  description: "Bridge your business into the age of AI with Maru Online.",
+  title: "Most SME Marketing Fails for One Reason: The Wrong Playbook | Maru Online",
+  description: "You're running enterprise marketing strategies on SME budgets. Free diagnostics show exactly where the playbook breaks down for your business—and what to fix first.",
 };
 
 export default function RootLayout({
