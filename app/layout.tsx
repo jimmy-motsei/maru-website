@@ -9,7 +9,7 @@ import { PageFrame } from "@/components/layout/PageFrame";
 import { ConversionTracking } from "@/components/analytics/ConversionTracking";
 import { PerformanceMonitor } from "@/components/analytics/PerformanceMonitor";
 import { JourneyAnalytics } from "@/components/analytics/JourneyAnalytics";
-import CookieConsent from "@/components/ui/CookieConsent";
+import CookieConsent from "@/components/CookieConsent";
 import CookieManager from "@/components/CookieManager";
 import { Analytics } from "@vercel/analytics/react";
 
