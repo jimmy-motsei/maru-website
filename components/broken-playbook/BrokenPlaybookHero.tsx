@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
+import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 export function BrokenPlaybookHero() {
   const scrollToSection = (id: string) => {
@@ -19,9 +20,9 @@ export function BrokenPlaybookHero() {
           transition={{ duration: 0.6 }}
           className="max-w-5xl mx-auto text-center"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-6 leading-tight">
-            Most SME Marketing Fails for One Reason:{" "}
-            <span className="text-[var(--color-cyan-primary)] font-semibold">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+            <span className="font-light text-zinc-400 block mb-2 sm:mb-0 sm:inline">Most SME Marketing Fails for One Reason:</span>{" "}
+            <span className="font-bold text-white">
               The Wrong Playbook
             </span>
           </h1>
@@ -33,12 +34,12 @@ export function BrokenPlaybookHero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button
+            <CTAPrimary
               onClick={() => scrollToSection("diagnostics")}
-              className="inline-flex items-center justify-center px-8 py-4 bg-[var(--color-cyan-primary)] text-black font-bold uppercase text-sm rounded-full hover:bg-[#35C4BE] transition-all duration-300 shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] hover:-translate-y-1"
+              className="w-full sm:w-auto"
             >
               Find Where It's Breaking
-            </button>
+            </CTAPrimary>
 
             <button
               onClick={() => scrollToSection("why-it-matters")}
