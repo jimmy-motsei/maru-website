@@ -27,11 +27,11 @@ export const CTAPrimary: React.FC<CTAPrimaryProps> = ({
   rel
 }) => {
   const baseStyles = cn(
-    "inline-flex items-center justify-between",
+    "relative inline-flex items-center justify-center",
     "bg-[#3DD6D0] text-black",
-    "font-bold uppercase text-xs md:text-sm tracking-[0.5px]",
+    "font-bold uppercase text-sm md:text-base tracking-[0.5px]",
     "px-5 md:px-8 py-4 rounded-[50px]",
-    "gap-2 md:gap-4 min-h-[56px]",
+    "min-h-[56px]",
     "whitespace-nowrap",
     "transition-all duration-300 ease-in-out",
     "hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)]",
@@ -43,14 +43,14 @@ export const CTAPrimary: React.FC<CTAPrimaryProps> = ({
   );
 
   const arrowCircleStyles = cn(
-    "w-10 h-10 bg-black rounded-full",
+    "absolute right-2 w-10 h-10 bg-black rounded-full",
     "flex items-center justify-center flex-shrink-0",
     "transition-transform duration-300 group-hover:translate-x-0.5"
   );
 
   const content = (
     <>
-      <span>{children}</span>
+      <span className="flex-1 text-center pr-12">{children}</span>
       <span className={arrowCircleStyles}>
         <ArrowRight className="w-5 h-5 text-white" />
       </span>
