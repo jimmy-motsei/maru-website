@@ -20,7 +20,7 @@ export function AssessmentShowcase() {
               Discover Your <span className="text-[var(--color-cyan-primary)]">Lead Generation Potential</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Get instant insights with our AI-powered Lead Score Predictor. No signup required.
+              Get instant insights with our AI-powered Website Lead Grader. No signup required.
             </p>
           </div>
 
@@ -55,7 +55,7 @@ export function AssessmentShowcase() {
               Start Your Free Analysis
               <ArrowRight className="w-5 h-5" />
             </a>
-            <p className="text-zinc-400 text-sm mt-3">Lead Score Predictor • Takes 2 minutes • 100% Free</p>
+            <p className="text-zinc-400 text-sm mt-3">Website Lead Grader • Takes 2 minutes • 100% Free</p>
           </div>
         </motion.div>
 
@@ -84,7 +84,7 @@ export function AssessmentShowcase() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                      Lead Score Predictor™
+                      Website Lead Grader™
                     </h3>
                     <ArrowRight className="w-5 h-5 text-zinc-400 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
                   </div>

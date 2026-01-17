@@ -19,7 +19,7 @@ const menuItems = {
     { name: "Contact", href: "/contact" },
   ],
   projects: [
-    { name: "Lead Score Predictor", href: "/assessments/lead-score" },
+    { name: "Website Lead Grader", href: "/assessments/lead-score" },
     { name: "Pipeline Leak Detector", href: "/assessments/pipeline-leak" },
 
     { name: "Tech Stack Auditor", href: "/assessments/tech-audit" },

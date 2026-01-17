@@ -12,7 +12,7 @@ interface AssessmentProgressionProps {
 const assessmentFlow = [
   {
     id: 'lead-score',
-    title: 'Lead Score Predictor',
+    title: 'Website Lead Grader',
     description: 'Analyze your website\'s lead generation potential',
     icon: Target,
     color: 'cyan',
