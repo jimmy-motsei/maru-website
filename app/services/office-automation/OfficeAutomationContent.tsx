@@ -108,8 +108,6 @@ const automationItems = [
 ];
 
 export default function OfficeAutomationContent() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <main className="bg-[#050505] min-h-screen text-white">
       {/* Hero Section */}
@@ -584,7 +582,7 @@ export default function OfficeAutomationContent() {
           >
             <motion.p className="text-gray-600" variants={fadeUpVariants}>
               Not sure which package fits?{" "}
-              <a href="#" className="text-[var(--color-cyan-primary)] hover:text-[var(--color-cyan-primary)]/80 transition-colors font-medium">
+              <a href="/assessments/tech-audit" className="text-[var(--color-cyan-primary)] hover:text-[var(--color-cyan-primary)]/80 transition-colors font-medium">
                 Take our Tech Stack Audit →
               </a>
             </motion.p>

@@ -75,7 +75,7 @@ export function News() {
             >
               {/* Meta */}
               <div className="flex items-center gap-4 mb-4 text-xs font-bold tracking-widest uppercase">
-                <span style={{ color: "#1a9aa5" }}>{item.category}</span>
+                <span className="text-[#1a9aa5]">{item.category}</span>
                 <span className="text-gray-600">{item.date}</span>
               </div>
 

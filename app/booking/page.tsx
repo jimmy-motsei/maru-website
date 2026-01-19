@@ -179,9 +179,8 @@ function BookingForm() {
                 </p>
                 <div className="mt-6 w-full rounded-lg bg-white/5 border border-white/10 overflow-hidden">
                     <div 
-                        className="calendly-inline-widget" 
+                        className="calendly-inline-widget w-full h-[700px]" 
                         data-url={siteConfig.calendly.discoveryCall} 
-                        style={{ minWidth: '320px', height: '700px' }} 
                     />
                     <Script 
                         src="https://assets.calendly.com/assets/external/widget.js" 

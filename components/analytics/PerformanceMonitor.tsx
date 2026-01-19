@@ -15,6 +15,7 @@ export function PerformanceMonitor() {
       // Largest Contentful Paint (LCP)
       new PerformanceObserver((list) => {
         const entries = list.getEntries();
+        if (entries.length === 0) return;
         const lastEntry = entries[entries.length - 1];
         const lcp = lastEntry.startTime;
         

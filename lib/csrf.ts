@@ -1,5 +1,10 @@
 import { NextRequest } from 'next/server';
 
+// Enforce CSRF_SECRET in production
+if (process.env.NODE_ENV === 'production' && !process.env.CSRF_SECRET) {
+  throw new Error('CSRF_SECRET must be set in production environment');
+}
+
 const CSRF_SECRET = process.env.CSRF_SECRET || 'default-csrf-secret-change-in-production';
 
 export function generateCSRFToken(): string {
