@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --max-warnings 0",
     "type-check": "tsc --noEmit",
     "db:push:website": "DATABASE_TARGET=website npx drizzle-kit push --force",
     "db:push:lead-engine": "DATABASE_TARGET=lead_engine npx drizzle-kit push --force",

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maru — LinkedIn Company Banner | AI-Powered Marketing Systems</title>
+  <meta name="description" content="AI-powered marketing systems for South African SMEs. Strategy, execution, and results without the big agency price tag." />
+  <meta property="og:title" content="Maru Online | Building AI-Powered Marketing Systems" />
+  <meta property="og:description" content="Helping South African SMEs grow with AI Strategy and Execution." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://maruonline.com" />
+
+  <!-- MaruOnline CSS (extracted from live site) -->
+  <link rel="stylesheet" href="https://maruonline.com/_next/static/chunks/5610a9cf1a8683ab.css" />
+  <link rel="stylesheet" href="https://maruonline.com/_next/static/chunks/cdde9508c3778053.css" />
+
+  <style>
+    :root{
+      /* Exact colors from About Hero */
+      --bg-dark: #1a1a1a;
+      --text-white: #FFFFFF;
+      --text-sub: #71717a; /* Zinc-500 */
+      --text-muted: #a1a1aa; /* Zinc-400 */
+      --accent-cyan: #3DB8C6; /* Teal */
+    }
+    
+    html, body {
+      height: 100%; 
+      margin: 0; 
+      padding: 0;
+      background: #1a1a1a;
+      overflow: hidden;
+    }
+    
+    body {
+      display: block;
+      /* LinkedIn Company Page Cover dimensions */
+      width: 1128px;
+      height: 191px;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* Artboard */
+    .artboard {
+      width: 1128px;
+      height: 191px;
+      position: absolute;
+      top: 0; 
+      left: 0;
+      overflow: hidden;
+      background-color: var(--bg-dark);
+      /* Ensure no external shadows */
+      box-shadow: none !important;
+      border: none !important;
+    }
+
+    /* Clouds SVG Container - Adjusted for short height */
+    .clouds-container {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* Specific Cloud Path Styles */
+    .cloud-path {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.15);
+      stroke-width: 0.8;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .cloud-path.dashed {
+      stroke-dasharray: 6 8;
+      stroke-opacity: 0.4;
+    }
+
+    .cloud-path.highlight {
+      stroke: rgba(255, 255, 255, 0.2);
+      stroke-width: 1.2;
+    }
+
+    .cloud-point {
+      fill: var(--accent-cyan);
+      opacity: 0.6;
+    }
+
+    /* Content layout - Centered but left-aligned */
+    /* SAFE ZONE: Start text at 300px from left to clear company logo */
+    .content {
+      position: absolute;
+      inset: 0;
+      padding-left: 300px; /* DEAD ZONE CLEARED */
+      padding-right: 40px;
+      display: flex;
+      flex-direction: row; 
+      align-items: center;
+      justify-content: flex-start; /* Align start of flex container */
+      z-index: 20;
+    }
+
+    .text-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Kicker - Removed for space */
+    .kicker {
+      display: none; 
+    }
+
+    /* Headline - Scaled down slightly to fit 191px height nicely */
+    .headline-main {
+      font-size: 28px;
+      font-weight: 600; /* Bold */
+      color: var(--text-white);
+      line-height: 1.1;
+    }
+
+    .headline-sub {
+      font-size: 28px;
+      font-weight: 300; /* Light */
+      color: var(--text-sub); /* Dark Grey */
+      margin-left: 6px;
+    }
+    
+    .headline-row {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 4px;
+    }
+
+    /* Description */
+    .description {
+      font-size: 13px; /* Smaller to fit */
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    
+    .accent-text {
+      color: var(--accent-cyan);
+      font-weight: 500;
+    }
+
+    /* URL - Pushed to right or kept inline? 
+       Let's keep it simple. If space permits, maybe absolute right?
+       Current request asks for left align start at 300px. 
+       Let's keep URL under description or absolute right. 
+    */
+    .url {
+      position: absolute;
+      right: 70px; /* Shifted left to ensure safety margin */
+      bottom: 20px;
+      font-size: 14px;
+      color: var(--accent-cyan);
+      font-weight: 500;
+      opacity: 0.9;
+    }
+    
+    /* Mark M. - REMOVED as it falls in the Logo Dead Zone (0-300px) */
+    .mark {
+      display: none;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="artboard" id="artboard">
+    <!-- M mark might be covered by logo, but good for brand. -->
+    <div class="mark">M.</div>
+
+    <svg class="clouds-container" viewBox="0 0 1128 191" preserveAspectRatio="xMidYMid slice">
+        <!-- Main Organic Contour - Flatter for the strip -->
+        <path class="cloud-path" d="M-50 250 C 50 250, 100 180, 200 190 C 280 120, 380 140, 500 120 C 650 100, 800 150, 900 120 C 1000 90, 1100 150, 1200 180" transform="translate(0, -30) scale(1.0)" />
+        
+        <!-- Dashed curve running through -->
+        <path class="cloud-path dashed" d="M200 150 C 300 100, 500 80, 700 110 C 850 130, 1000 80, 1150 100" transform="scale(1.0)" />
+        
+        <!-- Highlight Curve -->
+        <path class="cloud-path highlight" d="M400 100 C 500 60, 600 80, 700 60" transform="translate(0, 10)" />
+
+        <!-- Accent Points -->
+        <circle class="cloud-point" cx="500" cy="120" r="2.5" />
+        <circle class="cloud-point" cx="900" cy="120" r="3" />
+        <circle class="cloud-point" cx="300" cy="100" r="2" />
+    </svg>
+
+    <div class="content">
+      <div class="text-group">
+        <div class="kicker">Building</div>
+        <div class="headline-row">
+            <span class="headline-main">AI-Powered Marketing Systems.</span>
+            <span class="headline-sub">for SMEs.</span> 
+            <!-- Shortened "for South African SMEs" to "for SMEs" or "for SA SMEs" to fit? 
+                 Let's try full text but smaller if needed. Current 32px is tight. -->
+        </div>
+        <div class="description">
+           <span class="accent-text">Strategy + Execution + Results</span> without the big agency price tag.
+        </div>
+      </div>
+      
+      <div class="url">maruonline.com</div>
+    </div>
+  </div>
+</body>
+</html>

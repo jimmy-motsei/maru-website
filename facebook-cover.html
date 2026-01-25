@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maru — Facebook Cover Banner | AI-Powered Marketing Systems</title>
+  <meta name="description" content="AI-powered marketing systems for South African SMEs. Strategy, execution, and results without the big agency price tag." />
+  <meta property="og:title" content="Maru Online | Building AI-Powered Marketing Systems" />
+  <meta property="og:description" content="Helping South African SMEs grow with AI Strategy and Execution." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://maruonline.com" />
+
+  <!-- MaruOnline CSS -->
+  <link rel="stylesheet" href="https://maruonline.com/_next/static/chunks/5610a9cf1a8683ab.css" />
+  <link rel="stylesheet" href="https://maruonline.com/_next/static/chunks/cdde9508c3778053.css" />
+
+  <style>
+    :root{
+      /* Exact colors from About Hero */
+      --bg-dark: #1a1a1a;
+      --text-white: #FFFFFF;
+      --text-sub: #71717a; /* Zinc-500 */
+      --text-muted: #a1a1aa; /* Zinc-400 */
+      --accent-cyan: #3DB8C6; /* Teal */
+    }
+    
+    html, body {
+      height: 100%; 
+      margin: 0; 
+      padding: 0;
+      background: #1a1a1a;
+      overflow: hidden;
+    }
+    
+    body {
+      display: block;
+      /* Facebook Cover Dimensions (2x High Res)
+         Desktop sees: 1640 x 624 (Crops top/bottom)
+         Mobile sees: 1280 x 720 (Crops left/right)
+         Canvas: 1640 x 720
+      */
+      width: 1640px;
+      height: 720px;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* Artboard */
+    .artboard {
+      width: 1640px;
+      height: 720px;
+      position: absolute;
+      top: 0; 
+      left: 0;
+      overflow: hidden;
+      background-color: var(--bg-dark);
+      box-shadow: none !important;
+      border: none !important;
+    }
+
+    /* Clouds SVG Container */
+    .clouds-container {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* Specific Cloud Path Styles */
+    .cloud-path {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.15);
+      stroke-width: 1.0; /* Slightly thicker for larger canvas */
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .cloud-path.dashed {
+      stroke-dasharray: 8 10;
+      stroke-opacity: 0.4;
+    }
+
+    .cloud-path.highlight {
+      stroke: rgba(255, 255, 255, 0.2);
+      stroke-width: 1.5;
+    }
+
+    .cloud-point {
+      fill: var(--accent-cyan);
+      opacity: 0.6;
+    }
+
+    /* Content layout 
+       Safe Area: Center 1280px width, Center 624px height.
+       We align left, starting ~220px from left to be safe on mobile crop.
+    */
+    .content {
+      position: absolute;
+      inset: 0;
+      padding-left: 220px; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 20;
+    }
+
+    .stack {
+      max-width: 1000px;
+    }
+
+    /* Kicker */
+    .kicker {
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    /* Headline */
+    .headline-wrapper {
+      margin-bottom: 16px;
+    }
+
+    .headline-main {
+      font-size: 64px;
+      font-weight: 600; /* Bold */
+      color: var(--text-white);
+      line-height: 1.1;
+      display: inline;
+    }
+
+    .headline-sub {
+      font-size: 64px;
+      font-weight: 300; /* Light */
+      color: var(--text-sub); /* Dark Grey */
+      display: block;
+      margin-left: 0;
+      margin-top: 8px;
+    }
+
+    /* Description */
+    .description {
+      font-size: 24px;
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+    
+    .accent-text {
+      color: var(--accent-cyan);
+      font-weight: 500;
+    }
+
+    .url {
+      margin-top: 20px;
+      font-size: 22px;
+      color: var(--accent-cyan);
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    /* M. Mark - Positioned safely */
+    .mark {
+      position: absolute;
+      left: 100px; /* Mobile might cut this, but that's okay for decorative element */
+      top: 60px;
+      font-weight: 700;
+      color: var(--text-white);
+      font-size: 32px;
+      z-index: 30;
+      opacity: 0.8;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="artboard" id="artboard">
+    <div class="mark">M.</div>
+
+    <svg class="clouds-container" viewBox="0 0 1640 720" preserveAspectRatio="xMidYMid slice">
+        <!-- Main Organic Contour - Scaled up for 720px height -->
+        <path class="cloud-path" d="M100 850 C 0 850, -50 700, 50 600 C 30 500, 100 350, 200 380 C 280 240, 450 200, 600 280 C 750 120, 1000 160, 1100 360 C 1300 280, 1500 400, 1450 600 C 1500 700, 1400 850, 1200 850" transform="translate(0, -100) scale(1.6)" />
+        
+        <!-- Secondary Contour -->
+        <path class="cloud-path dashed" d="M900 600 C 950 500, 1050 400, 1200 440 C 1300 300, 1500 300, 1700 440" transform="translate(50, -50) scale(1.5)" />
+        
+        <!-- Highlight Curve -->
+        <path class="cloud-path highlight" d="M500 350 C 600 250, 800 250, 900 350" transform="scale(1.8)" />
+        
+        <!-- Accent Points -->
+        <circle class="cloud-point" cx="900" cy="350" r="5" />
+        <circle class="cloud-point" cx="500" cy="280" r="4" />
+        <circle class="cloud-point" cx="1450" cy="400" r="4" />
+    </svg>
+
+    <div class="content">
+      <div class="stack">
+        <!-- Kicker is less common on FB headers, let's keep it simple. -->
+        <div class="kicker">Building</div>
+        
+        <div class="headline-wrapper">
+          <span class="headline-main">AI-Powered<br>Marketing Systems.</span>
+          <span class="headline-sub">for South African SMEs.</span>
+        </div>
+        
+        <div class="description">
+           <span class="accent-text">Strategy + Execution + Results</span><br>without the big agency price tag.
+        </div>
+        
+        <div class="url">maruonline.com</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
