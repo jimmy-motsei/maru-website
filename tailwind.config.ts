@@ -8,11 +8,34 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
+       colors: {
+        'highlight': 'var(--color-highlight)',
+        'highlight-hover': 'var(--color-highlight-hover)',
         'cyan-primary': 'var(--color-cyan-primary)',
         'cyan-hover': 'var(--color-cyan-hover)',
         'accent': 'var(--color-accent)',
+        'orange-accent': 'var(--color-orange-accent)',
         'dark': 'var(--color-dark)',
+        'card-border': 'var(--color-card-border)',
+        'electric-cyan': '#00D9FF',
+        'warm-amber': '#FF9F1C',
+        'deep-navy': '#0A1219',
+      },
+      fontSize: {
+        h1: ['86px', '1.2'],
+        h2: ['68px', '1.2'],
+        h3: ['42px', '1.2'],
+        h4: ['28px', '1.2'],
+        h5: ['20px', '1.5'],
+        h6: ['18px', '1.5'],
+      },
+      spacing: {
+        'section': '120px',
+        'section-tab': '90px',
+        'input': '70px',
+      },
+      borderRadius: {
+        'pill': '70px',
       },
     },
   },

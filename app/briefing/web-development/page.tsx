@@ -125,7 +125,9 @@ export default function WebDevBriefing() {
         
         <div className="max-w-4xl mx-auto">
           <header className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Web Development Briefing</h1>
+            <h1 className="text-h1 font-medium text-white mb-4 leading-[1.2]">
+              Web Development <span className="font-thin text-zinc-500">Briefing</span>
+            </h1>
             <p className="text-zinc-400 text-lg font-light leading-relaxed">
               Tell us about your next website project. Focus on your goals, pain points, and must-haves. 
               We'll guide you through the rest.

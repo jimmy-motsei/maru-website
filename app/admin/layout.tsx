@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { BarChart3, Users, Settings, Home, LogOut } from 'lucide-react';
+import { BarChart3, Users, Home, LogOut } from 'lucide-react';
 
 export default function AdminLayout({
   children,

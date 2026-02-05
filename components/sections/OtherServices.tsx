@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, MessageCircle, GraduationCap, LucideIcon } from "lucide-react";
+import { ArrowRight, MessageCircle, GraduationCap, LucideIcon } from "lucide-react";
 import { SafeLink } from "@/components/ui/SafeLink";
 
 interface ServiceInfo {
@@ -15,7 +15,6 @@ interface ServiceInfo {
 }
 
 const fixedServices: ServiceInfo[] = [
-
   {
     id: "support-chatbot",
     title: "Support Chatbot",
@@ -60,7 +59,7 @@ const itemVariants = {
   },
 };
 
-export function OtherServices({ currentServiceId }: OtherServicesProps) {
+export function OtherServices({ currentServiceId: _currentServiceId }: OtherServicesProps) {
   // Always show all 3 services regardless of current page
   const displayServices = fixedServices;
 
@@ -74,9 +73,9 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-4xl font-medium tracking-tight text-dark mb-4 md:mb-0"
+            className="text-h2 font-medium text-black leading-[1.2] mb-4 md:mb-0"
           >
-            Other services
+            Other <span className="font-thin text-gray-400">Services</span>
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -106,7 +105,7 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
             const IconComponent = service.icon;
             return (
               <motion.div key={service.id} variants={itemVariants}>
-                <div className="bg-gray-50 rounded-2xl p-8 h-full shadow-sm border border-cyan-primary flex flex-col">
+                <div className="group bg-white rounded-2xl p-8 h-full shadow-sm border border-[#20A1A4] hover:border-[#E67F3E] transition-colors duration-300 flex flex-col">
                   {/* Icon */}
                   <div
                     className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
@@ -139,7 +138,7 @@ export function OtherServices({ currentServiceId }: OtherServicesProps) {
                   <div className="mt-auto">
                     <SafeLink
                       href={service.href}
-                      className="inline-flex items-center justify-center bg-[#22d3ee] hover:bg-[#22d3ee]/90 text-black font-bold uppercase text-sm rounded-full px-6 py-3 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(34,211,238,0.5)] w-full"
+                      className="inline-flex items-center justify-center bg-[#20A1A4] group-hover:bg-[#E67F3E] text-white font-bold uppercase text-sm rounded-full px-6 py-3 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg w-full"
                     >
                       See more
                     </SafeLink>

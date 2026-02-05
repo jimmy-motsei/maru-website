@@ -4,9 +4,9 @@ import { useState } from 'react';
 
 interface IntegrationData {
   email: string;
-  contactInfo?: any;
+  contactInfo?: Record<string, unknown>;
   assessmentType: string;
-  assessmentData: any;
+  assessmentData: unknown;
 }
 
 export function useIntegrations() {
@@ -116,7 +116,7 @@ export function useIntegrations() {
     }
   };
 
-  const scheduleFollowUp = async (data: IntegrationData, delayDays: number = 3) => {
+  const scheduleFollowUp = async (data: IntegrationData, _delayDays: number = 3) => {
     // In a real implementation, you'd use a job queue or cron job
     // For now, we'll just send immediately for testing
     return await sendEmail(data, 'follow_up');
@@ -133,7 +133,7 @@ export function useIntegrations() {
 }
 
 // Utility function to download PDF content as file
-export function downloadPDF(content: string, filename: string) {
+export function downloadPDF(content: string, _filename: string) {
   // Create a temporary HTML page for PDF conversion
   const printWindow = window.open('', '_blank');
   if (printWindow) {
@@ -149,7 +149,7 @@ export function downloadPDF(content: string, filename: string) {
 }
 
 // Utility function to format assessment data for integrations
-export function formatAssessmentData(assessmentType: string, rawData: any) {
+export function formatAssessmentData(assessmentType: string, rawData: Record<string, unknown>) {
   switch (assessmentType) {
     case 'lead_score':
       return {

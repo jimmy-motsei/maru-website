@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import TableOfContents from '@/components/docs/TableOfContents';
 
@@ -586,15 +587,15 @@ export default function ExportReportingPage() {
               Effective reporting transforms raw data into actionable business intelligence. Use these tools and best practices to create reports that drive decision-making.
             </p>
             <div className="space-y-2">
-              <a href="/knowledge/admin-analytics/analytics-interpretation" className="text-blue-600 hover:text-blue-800 underline block">
+              <Link href="/knowledge/admin-analytics/analytics-interpretation" className="text-blue-600 hover:text-blue-800 underline block">
                 → Analytics Interpretation Guide
-              </a>
-              <a href="/knowledge/admin-analytics/dashboard-overview" className="text-blue-600 hover:text-blue-800 underline block">
+              </Link>
+              <Link href="/knowledge/admin-analytics/dashboard-overview" className="text-blue-600 hover:text-blue-800 underline block">
                 → Dashboard Overview
-              </a>
-              <a href="/knowledge/best-practices/integration-workflows" className="text-blue-600 hover:text-blue-800 underline block">
+              </Link>
+              <Link href="/knowledge/best-practices/integration-workflows" className="text-blue-600 hover:text-blue-800 underline block">
                 → Integration Workflows
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Target, TrendingDown, FileText, Settings, ArrowRight, CheckCircle } from 'lucide-react';
+import { Target, TrendingDown, FileText, Settings, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 interface AssessmentProgressionProps {

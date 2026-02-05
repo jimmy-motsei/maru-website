@@ -105,7 +105,7 @@ export default function ProposalPage() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-cyan-400/20 border-t-cyan-400 rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 border-4 border-highlight/20 border-t-highlight rounded-full animate-spin mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-white mb-2">Generating Your Proposal</h2>
           <p className="text-zinc-400">Creating a customized proposal based on your requirements...</p>
         </div>
@@ -155,13 +155,13 @@ export default function ProposalPage() {
             {steps.map((step, index) => (
               <div key={index} className="flex items-center">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                  index <= currentStep ? 'bg-cyan-400 text-black' : 'bg-zinc-700 text-zinc-400'
+                  index <= currentStep ? 'bg-highlight text-black' : 'bg-zinc-700 text-zinc-400'
                 }`}>
                   {index < currentStep ? <CheckCircle className="w-4 h-4" /> : index + 1}
                 </div>
                 {index < steps.length - 1 && (
                   <div className={`w-16 h-1 mx-2 ${
-                    index < currentStep ? 'bg-cyan-400' : 'bg-zinc-700'
+                    index < currentStep ? 'bg-highlight' : 'bg-zinc-700'
                   }`} />
                 )}
               </div>
@@ -192,14 +192,14 @@ export default function ProposalPage() {
             {currentStep < steps.length - 1 ? (
               <button
                 onClick={handleNext}
-                className="px-6 py-3 bg-cyan-400 text-black font-medium rounded-lg hover:bg-cyan-300 transition-colors"
+                className="px-6 py-3 bg-highlight text-black font-medium rounded-lg hover:bg-highlight-hover transition-colors"
               >
                 Next
               </button>
             ) : (
               <button
                 onClick={handleSubmit}
-                className="px-6 py-3 bg-cyan-400 text-black font-medium rounded-lg hover:bg-cyan-300 transition-colors"
+                className="px-6 py-3 bg-highlight text-black font-medium rounded-lg hover:bg-highlight-hover transition-colors"
               >
                 Generate Proposal
               </button>
@@ -239,7 +239,7 @@ function CompanyInfoStep({ formData, onChange }: any) {
           type="text"
           value={formData.companyName}
           onChange={(e) => onChange('companyName', e.target.value)}
-          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
           placeholder="Your Company Name"
         />
       </div>
@@ -249,7 +249,7 @@ function CompanyInfoStep({ formData, onChange }: any) {
           <select
             value={formData.industry}
             onChange={(e) => onChange('industry', e.target.value)}
-            className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+            className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
           >
             <option value="">Select Industry</option>
             <option value="technology">Technology</option>
@@ -266,7 +266,7 @@ function CompanyInfoStep({ formData, onChange }: any) {
           <select
             value={formData.companySize}
             onChange={(e) => onChange('companySize', e.target.value)}
-            className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+            className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
           >
             <option value="">Select Size</option>
             <option value="startup">Startup (1-10 employees)</option>
@@ -281,7 +281,7 @@ function CompanyInfoStep({ formData, onChange }: any) {
           type="text"
           value={formData.projectType}
           onChange={(e) => onChange('projectType', e.target.value)}
-          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
           placeholder="e.g., CRM Implementation, Marketing Automation, AI Integration"
         />
       </div>
@@ -298,7 +298,7 @@ function ProjectDetailsStep({ formData, onChange }: any) {
           <select
             value={formData.budget}
             onChange={(e) => onChange('budget', e.target.value)}
-            className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+            className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
           >
             <option value="">Select Budget</option>
             <option value="under-10k">Under R10,000</option>
@@ -313,7 +313,7 @@ function ProjectDetailsStep({ formData, onChange }: any) {
           <select
             value={formData.timeline}
             onChange={(e) => onChange('timeline', e.target.value)}
-            className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+            className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
           >
             <option value="">Select Timeline</option>
             <option value="asap">ASAP (1 month)</option>
@@ -328,7 +328,7 @@ function ProjectDetailsStep({ formData, onChange }: any) {
         <textarea
           value={formData.challenges.join('\n')}
           onChange={(e) => onChange('challenges', e.target.value.split('\n').filter(Boolean))}
-          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none h-24"
+          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none h-24"
           placeholder="List your main challenges (one per line)"
         />
       </div>
@@ -337,7 +337,7 @@ function ProjectDetailsStep({ formData, onChange }: any) {
         <textarea
           value={formData.goals.join('\n')}
           onChange={(e) => onChange('goals', e.target.value.split('\n').filter(Boolean))}
-          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none h-24"
+          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none h-24"
           placeholder="List your project goals (one per line)"
         />
       </div>
@@ -354,7 +354,7 @@ function DecisionProcessStep({ formData, onChange }: any) {
           type="text"
           value={formData.stakeholders}
           onChange={(e) => onChange('stakeholders', e.target.value)}
-          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
           placeholder="e.g., CEO, CTO, Marketing Director"
         />
       </div>
@@ -363,7 +363,7 @@ function DecisionProcessStep({ formData, onChange }: any) {
         <textarea
           value={formData.decisionProcess}
           onChange={(e) => onChange('decisionProcess', e.target.value)}
-          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none h-24"
+          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none h-24"
           placeholder="Describe your decision-making process and timeline"
         />
       </div>
@@ -380,7 +380,7 @@ function ContactStep({ formData, onChange }: any) {
           type="email"
           value={formData.email}
           onChange={(e) => onChange('email', e.target.value)}
-          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+          className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
           placeholder="your@email.com"
         />
       </div>
@@ -457,13 +457,13 @@ function ProposalResults({ results }: { results: ProposalResult }) {
       </div>
 
       {/* Next Steps */}
-      <div className="p-6 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-cyan-800/30 rounded-xl">
+      <div className="p-6 bg-gradient-to-r from-highlight/20 to-highlight/5 border border-highlight/30 rounded-xl">
         <h3 className="text-lg font-semibold text-white mb-2">Ready to Send Your Proposal?</h3>
         <p className="text-zinc-400 mb-4">
           Your AI-generated proposal is ready for customization and delivery to your client.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
-          <button className="px-6 py-3 bg-cyan-400 text-black font-medium rounded-lg hover:bg-cyan-300 transition-colors flex items-center gap-2">
+          <button className="px-6 py-3 bg-highlight text-black font-medium rounded-lg hover:bg-highlight-hover transition-colors flex items-center gap-2">
             <Download className="w-4 h-4" />
             Download Proposal
           </button>

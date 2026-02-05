@@ -7,8 +7,30 @@ interface WebsiteData {
   description?: string;
   content: string;
   technologies: string[];
-  metadata: any;
+  metadata: Record<string, unknown>;
   loadTime: number;
+}
+
+interface LeadGenAssessmentInput {
+  website_url: string;
+  company_name: string;
+  industry: string;
+  company_size: string;
+  has_crm?: string;
+  has_strategy?: string;
+  review_frequency?: string;
+}
+
+interface AIAnalysisResult {
+  websiteQualityScore: number;
+  techStackScore: number;
+  contentQualityScore: number;
+  seoScore: number;
+  detectedIndustry?: string;
+  companyDescription?: string;
+  recommendations: string[];
+  keyStrengths?: string[];
+  keyWeaknesses?: string[];
 }
 
 interface LeadScoreResult {
@@ -28,7 +50,7 @@ interface LeadScoreResult {
   };
 }
 
-export async function analyzeWebsiteWithFirecrawl(input: any): Promise<LeadScoreResult> {
+export async function analyzeWebsiteWithFirecrawl(input: LeadGenAssessmentInput): Promise<LeadScoreResult> {
   const { website_url, company_name, industry, company_size } = input;
 
   try {
@@ -36,7 +58,7 @@ export async function analyzeWebsiteWithFirecrawl(input: any): Promise<LeadScore
     const websiteData = await scrapeWithFirecrawl(website_url);
     
     // 2. Analyze with Gemini AI
-    const aiAnalysis = await analyzeWithGemini(websiteData, { company_name, industry, company_size });
+    const aiAnalysis = await analyzeWithGemini(websiteData, input);
     
     // 3. Calculate scores
     const factors = calculateFactors(websiteData, aiAnalysis);
@@ -104,7 +126,7 @@ async function scrapeWithFirecrawl(url: string): Promise<WebsiteData> {
     description: result?.metadata?.description || result?.data?.metadata?.description || '',
     content: result?.markdown || result?.data?.markdown || '',
     technologies,
-    metadata: result?.metadata || result?.data?.metadata || {},
+    metadata: (result?.metadata || result?.data?.metadata || {}) as Record<string, unknown>,
     loadTime,
   };
 }
@@ -135,7 +157,7 @@ function extractTechnologies(html: string): string[] {
   return technologies;
 }
 
-async function analyzeWithGemini(websiteData: WebsiteData, companyInfo: any) {
+async function analyzeWithGemini(websiteData: WebsiteData, companyInfo: LeadGenAssessmentInput): Promise<AIAnalysisResult> {
   const prompt = `Analyze this website for lead generation potential:
 
 URL: ${websiteData.url}
@@ -200,7 +222,7 @@ Focus on:
   }
 }
 
-function calculateFactors(websiteData: WebsiteData, aiAnalysis: any) {
+function calculateFactors(websiteData: WebsiteData, aiAnalysis: AIAnalysisResult) {
   return {
     website_quality: Math.min(100, aiAnalysis.websiteQualityScore || 50),
     tech_stack_maturity: Math.min(100, aiAnalysis.techStackScore || 50),

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ElementType } from 'react';
 import { motion } from 'framer-motion';
 import { 
   BarChart3, 
@@ -219,7 +219,7 @@ export default function AdminDashboard() {
 interface MetricCardProps {
   title: string;
   value: string | number;
-  icon: any;
+  icon: ElementType;
   color: 'cyan' | 'green' | 'blue' | 'purple';
 }
 

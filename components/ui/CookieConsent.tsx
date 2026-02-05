@@ -21,7 +21,7 @@ export default function CookieConsent() {
     <AnimatePresence>
       {showBanner && (
         <motion.div initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="fixed bottom-4 left-4 right-4 z-[999]">
-          <div className="max-w-7xl mx-auto bg-[#050505]/90 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-6 flex flex-col md:flex-row gap-6 items-center justify-between">
+          <div className="max-w-7xl mx-auto bg-[#09121A]/90 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-6 flex flex-col md:flex-row gap-6 items-center justify-between">
             <div className="flex gap-4">
               <Cookie className="w-6 h-6 text-[var(--color-cyan-primary)]" />
               <p className="text-zinc-400 text-sm">We optimize your experience using cookies. <Link href="/cookie-policy" className="text-[var(--color-cyan-primary)] underline">Read Policy</Link>.</p>

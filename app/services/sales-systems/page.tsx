@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Target, Zap, Users, TrendingUp, CheckCircle2, Database, Mail, MessageSquare, BarChart3, GitBranch, ArrowRight } from "lucide-react";
+import { Target, Zap, Users, TrendingUp, CheckCircle2, Database, ArrowRight } from "lucide-react";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { OtherServices } from "@/components/sections/OtherServices";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
@@ -93,10 +92,9 @@ const enterpriseFeatures = [
 ];
 
 export default function SalesSystemsPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <main className="bg-[#050505] min-h-screen text-white">
+    <main className="bg-[#09121A] min-h-screen text-white">
       {/* Hero Section */}
       <ServiceHero
         breadcrumbs={breadcrumbs}
@@ -115,8 +113,8 @@ export default function SalesSystemsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
-              <span className="font-extralight text-gray-400">What You'll</span> <span className="font-medium text-black">Discover</span>
+            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
+              What You'll <span className="font-thin text-gray-400">Discover</span>
             </motion.h2>
             <motion.p className="text-gray-600 text-lg mb-2" variants={fadeUpVariants}>
               Our Pipeline Leak Detector analyzes your sales process and reveals:
@@ -134,9 +132,9 @@ export default function SalesSystemsPage() {
               <motion.div
                 key={index}
                 variants={fadeUpVariants}
-                className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[var(--color-cyan-primary)] flex items-start gap-6 group hover:border-[var(--color-cyan-primary)] hover:shadow-lg transition-all"
+                className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-highlight flex items-start gap-6 group hover:border-highlight hover:shadow-lg transition-all"
               >
-                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[var(--color-cyan-primary)]/5 flex items-center justify-center text-[var(--color-cyan-primary)] border border-[var(--color-cyan-primary)]/30 group-hover:scale-110 group-hover:bg-[var(--color-cyan-primary)]/10 transition-all">
+                <div className="w-14 h-14 shrink-0 rounded-2xl bg-highlight/5 flex items-center justify-center text-highlight border border-highlight/30 group-hover:scale-110 group-hover:bg-highlight/10 transition-all">
                   <item.icon size={28} />
                 </div>
                 <div>
@@ -150,7 +148,7 @@ export default function SalesSystemsPage() {
       </section>
 
       {/* The Problem We Solve Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#09121A]">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div 
@@ -160,9 +158,8 @@ export default function SalesSystemsPage() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-8" variants={fadeUpVariants}>
-                <span className="font-extralight text-zinc-500">The Problem</span>{" "}
-                <span className="font-medium text-white">We Solve</span>
+              <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
+                The <span className="font-thin text-zinc-500">Problem</span> <span>We Solve</span>
               </motion.h2>
             </motion.div>
             <motion.div 
@@ -178,7 +175,7 @@ export default function SalesSystemsPage() {
               <motion.p className="text-xl font-semibold text-white" variants={fadeUpVariants}>
                 Your CRM is supposed to help, but it's just another admin burden.
               </motion.p>
-              <motion.p className="text-[var(--color-cyan-primary)] text-xl font-bold" variants={fadeUpVariants}>
+              <motion.p className="text-highlight text-xl font-bold" variants={fadeUpVariants}>
                 We automate the repetitive work so your team can sell.
               </motion.p>
             </motion.div>
@@ -196,9 +193,8 @@ export default function SalesSystemsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
-              <span className="font-extralight text-gray-400">How</span>{" "}
-              <span className="font-medium text-black">It Works</span>
+            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
+              How <span className="font-thin text-gray-400">It</span> <span>Works</span>
             </motion.h2>
             <motion.p className="text-gray-600 text-lg" variants={fadeUpVariants}>
               From audit to automation in 4 strategic steps
@@ -219,18 +215,18 @@ export default function SalesSystemsPage() {
                   variants={fadeUpVariants}
                   className="relative group"
                 >
-                  <div className="bg-gray-100 p-10 md:p-12 rounded-2xl border border-gray-300 border-l-4 border-l-[var(--color-cyan-primary)] h-full relative z-10 hover:border-[var(--color-cyan-primary)] hover:shadow-lg transition-all">
+                  <div className="bg-gray-100 p-10 md:p-12 rounded-2xl border border-gray-300 border-l-4 border-l-highlight h-full relative z-10 hover:border-highlight hover:shadow-lg transition-all">
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-16 h-16 rounded-full border-2 border-[var(--color-cyan-primary)] flex items-center justify-center mb-8 relative bg-white">
+                      <div className="w-16 h-16 rounded-full border-2 border-highlight flex items-center justify-center mb-8 relative bg-white">
                         <span className="text-lg font-bold text-black">{step.number}</span>
                         {index < workflowSteps.length - 1 && (
-                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-[var(--color-cyan-primary)]/30">
+                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-highlight/30">
                             <ArrowRight size={24} />
                           </div>
                         )}
                       </div>
                       
-                      <div className="w-12 h-12 rounded-xl border border-gray-300 flex items-center justify-center text-[var(--color-cyan-primary)] mb-6 bg-gray-50">
+                      <div className="w-12 h-12 rounded-xl border border-gray-300 flex items-center justify-center text-highlight mb-6 bg-gray-50">
                         <step.icon size={24} />
                       </div>
                       
@@ -255,18 +251,17 @@ export default function SalesSystemsPage() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-12 text-center" variants={fadeUpVariants}>
-                <span className="font-extralight text-zinc-500">What Gets</span>{" "}
-                <span className="font-medium text-white">Automated</span>
+              <motion.h2 className="text-h2 font-medium mb-14 text-white text-center leading-[1.2]" variants={fadeUpVariants}>
+                What Gets <span className="font-thin text-zinc-500">Automated</span>
               </motion.h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {automationItems.map((item, index) => (
                   <motion.div
                     key={index}
                     variants={fadeUpVariants}
-                    className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 hover:border-[var(--color-cyan-primary)]/50 transition-colors"
+                    className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-card-border hover:border-highlight/50 transition-colors"
                   >
-                    <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0" />
+                    <CheckCircle2 size={20} className="text-highlight shrink-0" />
                     <span className="text-zinc-300">{item}</span>
                   </motion.div>
                 ))}
@@ -286,9 +281,9 @@ export default function SalesSystemsPage() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-12" variants={fadeUpVariants}>
-                <span className="font-extralight text-gray-400">Why We Start</span>{" "}
-                <span className="font-medium text-black">With Diagnostics</span>
+              <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
+                Why We <span className="font-thin text-gray-400">Start With</span> <br className="hidden md:block" />
+                <span>Diagnostics</span>
               </motion.h2>
               
               <motion.p className="text-xl text-black mb-6" variants={fadeUpVariants}>
@@ -305,21 +300,21 @@ export default function SalesSystemsPage() {
 
               <motion.div className="space-y-4 mb-8" variants={fadeUpVariants}>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-1" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-1" />
                   <div>
                     <p className="text-black font-medium">Analyze your actual data, not assumptions</p>
                     <p className="text-gray-600 text-sm">We look at real pipeline behavior, not guesswork</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-1" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-1" />
                   <div>
                     <p className="text-black font-medium">Identify specific problems, not generic 'opportunities'</p>
                     <p className="text-gray-600 text-sm">Pinpoint exactly where you're losing deals</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-1" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-1" />
                   <div>
                     <p className="text-black font-medium">Prioritize fixes by revenue impact, not what's trendy</p>
                     <p className="text-gray-600 text-sm">Focus on changes that actually close more deals</p>
@@ -327,7 +322,7 @@ export default function SalesSystemsPage() {
                 </div>
               </motion.div>
 
-              <motion.p className="text-xl text-[var(--color-cyan-primary)] font-bold" variants={fadeUpVariants}>
+              <motion.p className="text-xl text-highlight font-bold" variants={fadeUpVariants}>
                 You get actionable insights whether you hire us or not. If the diagnostic reveals problems you can't fix yourself, we're here.
               </motion.p>
             </motion.div>
@@ -336,7 +331,7 @@ export default function SalesSystemsPage() {
       </section>
 
       {/* Package Options Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#09121A]">
         <div className="container mx-auto px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -345,9 +340,8 @@ export default function SalesSystemsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
-              <span className="font-extralight text-zinc-500">Choose Your</span>{" "}
-              <span className="font-medium text-white">Starting Point</span>
+            <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
+              Choose Your <span className="font-thin text-zinc-500">Starting Point</span>
             </motion.h2>
             <motion.p className="text-zinc-400 text-lg" variants={fadeUpVariants}>
               Every package is customized based on your CRM, team size, and sales complexity. Here's what most SMEs start with:
@@ -364,9 +358,9 @@ export default function SalesSystemsPage() {
             {/* Growth Package */}
             <motion.div
               variants={fadeUpVariants}
-              className="bg-white/5 p-8 rounded-3xl border-2 border-[var(--color-cyan-primary)] relative"
+              className="bg-white/5 p-8 rounded-3xl border-2 border-highlight relative"
             >
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--color-cyan-primary)] text-black px-4 py-1 rounded-full text-sm font-bold">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-highlight text-black px-4 py-1 rounded-full text-sm font-bold">
                 ⭐ BEST FOR MOST SMEs
               </div>
               <h3 className="text-2xl font-bold text-white mb-3 mt-2">Growth Package</h3>
@@ -376,7 +370,7 @@ export default function SalesSystemsPage() {
               <ul className="space-y-3 mb-8">
                 {growthFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                    <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
                     <span className="text-zinc-300 text-sm">{feature}</span>
                   </li>
                 ))}
@@ -389,7 +383,7 @@ export default function SalesSystemsPage() {
             {/* Enterprise Package */}
             <motion.div
               variants={fadeUpVariants}
-              className="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-[var(--color-cyan-primary)]/50 transition-colors"
+              className="bg-white/5 p-8 rounded-3xl border border-card-border hover:border-highlight/50 transition-colors"
             >
               <h3 className="text-2xl font-bold text-white mb-3">Enterprise Package</h3>
               <p className="text-zinc-400 mb-6">
@@ -398,7 +392,7 @@ export default function SalesSystemsPage() {
               <ul className="space-y-3 mb-8">
                 {enterpriseFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                    <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
                     <span className="text-zinc-300 text-sm">{feature}</span>
                   </li>
                 ))}
@@ -418,7 +412,7 @@ export default function SalesSystemsPage() {
           >
             <motion.p className="text-zinc-400" variants={fadeUpVariants}>
               Not sure what you need?{" "}
-              <a href="https://pipeline.maruonline.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-cyan-primary)] hover:text-[var(--color-cyan-primary)]/80 transition-colors font-medium">
+              <a href="https://pipeline.maruonline.com" target="_blank" rel="noopener noreferrer" className="text-highlight hover:text-highlight/80 transition-colors font-medium">
                 Take our 2-minute Pipeline Assessment →
               </a>
             </motion.p>

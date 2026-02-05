@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { LucideIcon, ArrowRight, ArrowDown } from "lucide-react";
+import { ArrowRight, ArrowDown, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface WorkflowStep {
@@ -19,7 +19,7 @@ interface ServiceWorkflowProps {
 
 const stepLabels = ["Step One", "Step Two", "Step Three", "Step Four", "Step Five", "Step Six"];
 
-export function ServiceWorkflow({ steps, title = "How It Works", className }: ServiceWorkflowProps) {
+export function ServiceWorkflow({ steps, title: _title = "How It Works", className }: ServiceWorkflowProps) {
   return (
     <div className={cn("w-full py-12", className)}>
       <div className="relative">

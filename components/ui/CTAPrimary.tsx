@@ -28,15 +28,15 @@ export const CTAPrimary: React.FC<CTAPrimaryProps> = ({
 }) => {
   const baseStyles = cn(
     "group relative inline-flex items-center justify-between",
-    "bg-[#3DD6D0] text-black",
-    "font-bold uppercase text-xs sm:text-sm md:text-base tracking-[0.5px]",
-    "pl-6 sm:pl-8 pr-2 py-2 rounded-full",
-    "min-h-[52px] sm:min-h-[56px]",
+    "bg-highlight text-dark",
+    "font-medium uppercase text-[12px] tracking-[2px]",
+    "pl-[50px] pr-[15px] rounded-pill",
+    "h-[70px]",
     "whitespace-nowrap cursor-pointer",
     "transition-all duration-300 ease-in-out",
-    "hover:bg-[#35C4BE] hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)]",
-    "active:translate-y-0 active:shadow-[0_2px_8px_rgba(61,214,208,0.3)]",
-    "focus-visible:outline focus-visible:outline-3 focus-visible:outline-[#3DD6D0] focus-visible:outline-offset-3",
+    "hover:bg-highlight-hover hover:scale-[1.015] hover:brightness-110",
+    "active:translate-y-0 active:brightness-90",
+    "focus-visible:outline focus-visible:outline-3 focus-visible:outline-highlight focus-visible:outline-offset-3",
     "disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0",
     "w-full sm:w-auto",
     className

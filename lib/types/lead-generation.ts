@@ -18,8 +18,8 @@ export interface Assessment {
   lead_id: string;
   app_type: 'lead_score' | 'pipeline_leak' | 'proposal' | 'tech_audit';
   status: 'in_progress' | 'completed' | 'failed';
-  input_data?: Record<string, any>;
-  analysis_data?: Record<string, any>;
+  input_data?: Record<string, unknown>;
+  analysis_data?: Record<string, unknown>;
   score?: number;
   recommendations?: string[];
   completed_at?: string;
@@ -65,7 +65,7 @@ export interface LeadActivity {
   activity_type: 'page_view' | 'assessment_start' | 'assessment_complete' | 'report_download';
   page_url?: string;
   assessment_type?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   created_at: string;
 }
 

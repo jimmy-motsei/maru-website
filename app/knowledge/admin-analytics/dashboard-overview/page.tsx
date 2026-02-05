@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import { Callout, CodeBlock, Step, TableOfContents } from '@/components/docs/ContentComponents';
 
@@ -345,14 +346,14 @@ Password: MaruAdmin2024!`}
 
       <h3>Next Steps</h3>
       <div className="grid md:grid-cols-2 gap-4 mt-6">
-        <a href="/knowledge/admin-analytics/lead-management" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
+        <Link href="/knowledge/admin-analytics/lead-management" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
           <h4 className="font-medium text-dark mb-2">Lead Management</h4>
           <p className="text-dark/60 text-base leading-relaxed">Learn to manage and organize your leads effectively</p>
-        </a>
-        <a href="/knowledge/admin-analytics/analytics-interpretation" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
+        </Link>
+        <Link href="/knowledge/admin-analytics/analytics-interpretation" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
           <h4 className="font-medium text-dark mb-2">Analytics Interpretation</h4>
           <p className="text-dark/60 text-base leading-relaxed">Understand what your metrics mean and how to act on them</p>
-        </a>
+        </Link>
       </div>
     </DocLayout>
   );

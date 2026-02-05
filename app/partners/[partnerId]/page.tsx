@@ -1,7 +1,3 @@
-import Link from 'next/link'
-import { CTAPrimary } from '@/components/ui/CTAPrimary'
-import { AtmosphericBackground } from '@/components/ui/AtmosphericBackground'
-
 interface Props {
   params: Promise<{ partnerId: string }>
 }

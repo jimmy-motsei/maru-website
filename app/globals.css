@@ -1,11 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-  --color-cyan-primary: #3DD6D0;
+  --font-sans: var(--font-outfit), system-ui, sans-serif;
+  --color-highlight: #E67F3E;
+  --color-highlight-hover: #f1955d;
+  --color-cyan-primary: #3DD6D0; /* Kept for legacy heading if needed, but will be removed from headings */
   --color-cyan-hover: #1cb8cc;
-  --color-accent: #3db8c6;
-  --color-dark: #050505;
+  --color-accent: #E67F3E;
+  --color-orange-accent: #E67F3E;
+  --color-dark: #09121A;
+  --color-card-border: #20A1A4;
+
+  /* Typography Scale from Ashley Kit */
+  --text-h1: 86px;
+  --text-h2: 68px;
+  --text-h3: 42px;
+  --text-h4: 28px;
+  --text-h5: 20px;
+  --text-h6: 18px;
+  
+  /* Layout & Components */
+  --spacing-section: 120px;
+  --spacing-section-tab: 90px;
+  --radius-pill: 70px;
+  --height-input: 70px;
 }
 
 @keyframes fadeUp {
@@ -23,18 +41,13 @@
   }
 
   body {
-    @apply bg-[#050505] text-white;
+    @apply bg-dark text-white font-sans font-light;
   }
   
-  h1 {
-    @apply font-medium tracking-tight;
-  }
-
-  h2 {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-outfit), sans-serif;
     @apply font-medium tracking-tight;
   }
 }
 
-.hero-h1 {
-  @apply tracking-tight leading-[0.95] text-[27px] md:text-[40px] lg:text-[54px] xl:text-[61px] 2xl:text-[67px];
-}
+

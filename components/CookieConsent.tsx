@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Cookie, ChevronRight, Check, Shield, BarChart3, Megaphone, Settings2 } from 'lucide-react';
+import { X, Cookie, Check, Shield, BarChart3, Megaphone, Settings2 } from 'lucide-react';
 import Link from 'next/link';
 import { useCookieConsent, saveConsent, DEFAULT_CONSENT, CookieConsentState } from '@/lib/cookie-consent';
 
@@ -88,17 +88,17 @@ export default function CookieConsent() {
           exit={{ y: 100, opacity: 0 }}
           className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
         >
-          <div className="max-w-7xl mx-auto bg-[#111] border border-white/10 rounded-xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)] p-4 md:p-5 flex flex-col md:flex-row gap-6 items-center justify-between">
+          <div className="max-w-7xl mx-auto bg-deep-navy border border-electric-cyan/20 rounded-xl shadow-[0_-10px_40px_rgba(0,217,255,0.1)] p-4 md:p-5 flex flex-col md:flex-row gap-6 items-center justify-between">
             <div className="flex items-start gap-4 max-w-2xl">
-              <div className="p-3 bg-cyan-500/10 rounded-lg hidden md:block">
-                <Cookie className="w-6 h-6 text-cyan-400" />
+              <div className="p-3 bg-electric-cyan/10 rounded-lg hidden md:block">
+                <Cookie className="w-6 h-6 text-electric-cyan" />
               </div>
               <div>
                 <h3 className="text-white font-medium mb-1">We value your privacy</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">
+                <p className="text-white/70 text-sm leading-relaxed">
                   We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. 
                   By clicking "Accept All", you consent to our use of cookies. 
-                  <Link href="/cookie-policy" className="text-cyan-400 hover:text-cyan-300 ml-1 underline underline-offset-2">
+                  <Link href="/cookie-policy" className="text-electric-cyan hover:text-warm-amber ml-1 underline underline-offset-2">
                     Read our Cookie Policy
                   </Link>.
                 </p>
@@ -120,7 +120,7 @@ export default function CookieConsent() {
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="px-6 py-2.5 rounded-lg text-sm font-bold text-black bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-[0_0_20px_rgba(34,211,238,0.2)]"
+                className="px-6 py-2.5 rounded-lg text-sm font-bold text-deep-navy bg-electric-cyan hover:bg-warm-amber transition-colors shadow-[0_0_20px_rgba(0,217,255,0.3)]"
               >
                 Accept All
               </button>
@@ -144,12 +144,12 @@ export default function CookieConsent() {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-2xl bg-[#111] border border-white/10 rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+            className="relative w-full max-w-2xl bg-deep-navy border border-electric-cyan/20 rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
           >
             {/* Header */}
             <div className="p-6 border-b border-white/10 flex items-center justify-between bg-[#161616]">
               <div className="flex items-center gap-3">
-                <Settings2 className="w-5 h-5 text-cyan-400" />
+                <Settings2 className="w-5 h-5 text-electric-cyan" />
                 <h2 className="text-lg font-semibold text-white">Cookie Preferences</h2>
               </div>
               <button
@@ -164,7 +164,7 @@ export default function CookieConsent() {
             <div className="p-6 overflow-y-auto space-y-6">
               <p className="text-zinc-400 text-sm">
                 Customize your cookie preferences below. Essential cookies are required for the website to function properly and cannot be disabled. 
-                For more details, please review our <Link href="/cookie-policy" className="text-cyan-400 hover:underline">Cookie Policy</Link>.
+                For more details, please review our <Link href="/cookie-policy" className="text-electric-cyan hover:text-warm-amber hover:underline">Cookie Policy</Link>.
               </p>
 
               <div className="space-y-4">
@@ -192,7 +192,7 @@ export default function CookieConsent() {
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <Megaphone className="w-4 h-4 text-cyan-400" />
+                        <Megaphone className="w-4 h-4 text-electric-cyan" />
                         <h4 className="font-medium text-white">Marketing & CRM</h4>
                       </div>
                       <p className="text-xs text-zinc-400 leading-relaxed">
@@ -207,7 +207,7 @@ export default function CookieConsent() {
                         checked={preferences?.marketing}
                         onChange={() => toggleCategory('marketing')}
                       />
-                      <div className="w-11 h-6 bg-zinc-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-500"></div>
+                      <div className="w-11 h-6 bg-zinc-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-electric-cyan"></div>
                     </label>
                   </div>
                 </div>
@@ -231,7 +231,7 @@ export default function CookieConsent() {
                         checked={preferences?.analytics}
                         onChange={() => toggleCategory('analytics')}
                       />
-                      <div className="w-11 h-6 bg-zinc-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-500"></div>
+                      <div className="w-11 h-6 bg-zinc-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-electric-cyan"></div>
                     </label>
                   </div>
                 </div>
@@ -248,7 +248,7 @@ export default function CookieConsent() {
               </button>
               <button
                 onClick={handleSavePreferences}
-                className="px-6 py-2.5 rounded-lg text-sm font-bold text-black bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-[0_0_20px_rgba(34,211,238,0.2)]"
+                className="px-6 py-2.5 rounded-lg text-sm font-bold text-deep-navy bg-electric-cyan hover:bg-warm-amber transition-colors shadow-[0_0_20px_rgba(0,217,255,0.3)]"
               >
                 Save Preferences
               </button>

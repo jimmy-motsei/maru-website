@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 // Transition Easing: cubic-bezier(0, 0, 0.3642, 1)
 // Neon Glow: 0 0 5px #00f0ff, 0 0 20px rgba(0, 240, 255, 0.4)
 // Glass White: rgba(255, 255, 255, 0.05)
-// Deep Black: #050505
+// Deep Black: #09121A
 // =============================================================================
 
 interface CardProps {
@@ -72,7 +72,7 @@ export function DiamondIcon({
       <motion.div
         className={cn(
           "relative flex items-center justify-center rounded-xl rotate-45",
-          "bg-[#0a0a0a] border border-white/10",
+          "bg-[#0a0a0a] border border-card-border",
           sizeClasses[size]
         )}
         style={{
@@ -80,7 +80,7 @@ export function DiamondIcon({
         }}
         variants={{
           rest: { 
-            borderColor: "rgba(255, 255, 255, 0.1)",
+            borderColor: "#20A1A4",
             boxShadow: `0 0 0 1px ${glowColor}20`,
           },
           hover: { 
@@ -114,9 +114,9 @@ export function ProcessCard({
         // Base styles
         "relative flex flex-col p-6 md:p-8 rounded-2xl",
         // Glassmorphism: Deep black with transparency
-        "bg-[#050505]/95 backdrop-blur-sm",
+        "bg-[#09121A]/95 backdrop-blur-sm",
         // Border
-        "border border-white/10",
+        "border border-card-border",
         // Transition
         "transition-all duration-[400ms]",
         // Hover border
@@ -162,7 +162,7 @@ export function FeatureCard({
         // Background
         "bg-[#111111]",
         // Border
-        "border border-white/10",
+        "border border-card-border",
         // Transition
         "transition-all duration-[400ms]",
         // Hover

@@ -53,24 +53,24 @@ export function ProblemEducation() {
               </div>
 
               {/* SME Column */}
-              <div className="bg-cyan-50 p-8 rounded-2xl border-2 border-[var(--color-cyan-primary)]">
+              <div className="bg-highlight/5 p-8 rounded-2xl border-2 border-highlight">
                 <div className="flex items-center gap-3 mb-4">
-                  <Users className="w-6 h-6 text-[var(--color-cyan-primary)]" />
+                  <Users className="w-6 h-6 text-highlight" />
                   <h4 className="text-xl font-semibold text-[#050505]">
                     You actually have:
                   </h4>
                 </div>
                 <ul className="space-y-3 text-zinc-700">
                   <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-cyan-primary)] mt-1">•</span>
+                    <span className="text-highlight mt-1">•</span>
                     <span>One person (or small team) wearing multiple hats</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-cyan-primary)] mt-1">•</span>
+                    <span className="text-highlight mt-1">•</span>
                     <span>Tools that need to "just work" without constant maintenance</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-cyan-primary)] mt-1">•</span>
+                    <span className="text-highlight mt-1">•</span>
                     <span>Budgets that require ROI in months, not years</span>
                   </li>
                   <li className="flex items-start gap-2">

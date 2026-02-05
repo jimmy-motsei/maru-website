@@ -7,6 +7,12 @@ import MultiStepForm from '@/components/lead-generation/MultiStepForm';
 import GatedResultContainer from '@/components/lead-generation/GatedResultContainer';
 import { FormStep } from '@/lib/types/lead-generation';
 
+interface ProposalResult {
+  score: number;
+  proposal_sections: Record<string, string>;
+  recommendations: string[];
+}
+
 const formSteps: FormStep[] = [
   {
     id: 'company',
@@ -60,10 +66,10 @@ const formSteps: FormStep[] = [
 ];
 
 export default function ProposalPage() {
-  const [results, setResults] = useState<any>(null);
+  const [results, setResults] = useState<ProposalResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (formData: Record<string, any>) => {
+  const handleSubmit = async (formData: Record<string, unknown>) => {
     setIsLoading(true);
     try {
       const response = await fetch('/api/assessments', {
@@ -77,16 +83,16 @@ export default function ProposalPage() {
               name: formData.company_name,
               industry: formData.industry,
               size: formData.company_size,
-              challenges: formData.challenges?.split(',').map((c: string) => c.trim()),
+              challenges: (formData.challenges as string)?.split(',').map((c: string) => c.trim()),
             },
             project_scope: {
-              services: formData.services?.split(',').map((s: string) => s.trim()),
+              services: (formData.services as string)?.split(',').map((s: string) => s.trim()),
               timeline: formData.timeline,
               budget_range: formData.budget_range,
             },
             decision_makers: {
               primary_contact: formData.primary_contact,
-              stakeholders: formData.stakeholders?.split(',').map((s: string) => s.trim()),
+              stakeholders: (formData.stakeholders as string)?.split(',').map((s: string) => s.trim()),
             },
           },
         }),
@@ -107,7 +113,7 @@ export default function ProposalPage() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-cyan-400/20 border-t-cyan-400 rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 border-4 border-highlight/20 border-t-highlight rounded-full animate-spin mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-white mb-2">Generating Your Proposal</h2>
           <p className="text-zinc-400">Creating a customized business proposal...</p>
         </div>
@@ -167,7 +173,7 @@ export default function ProposalPage() {
             <p className="text-sm text-zinc-400">Professional format suitable for decision makers</p>
           </div>
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
-            <Download className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
+            <Download className="w-8 h-8 text-highlight mx-auto mb-3" />
             <h3 className="font-semibold text-white mb-2">Instant Download</h3>
             <p className="text-sm text-zinc-400">Get your proposal as PDF or Word document</p>
           </div>
@@ -177,7 +183,7 @@ export default function ProposalPage() {
   );
 }
 
-function ProposalDisplay({ results }: { results: any }) {
+function ProposalDisplay({ results }: { results: ProposalResult }) {
   return (
     <div className="space-y-8">
       <div className="text-center">
@@ -201,8 +207,8 @@ function ProposalDisplay({ results }: { results: any }) {
         <div className="space-y-3">
           {results.recommendations.map((rec: string, index: number) => (
             <div key={index} className="flex items-start gap-3">
-              <div className="w-6 h-6 bg-cyan-400/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-xs font-medium text-cyan-400">{index + 1}</span>
+              <div className="w-6 h-6 bg-highlight/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-medium text-highlight">{index + 1}</span>
               </div>
               <p className="text-zinc-300">{rec}</p>
             </div>

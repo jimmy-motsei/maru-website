@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 export function Hero() {
     return (
-        <section className="relative w-full min-h-screen overflow-hidden bg-[#050505] text-white">
+        <section className="relative w-full min-h-screen overflow-hidden bg-[#09121A] text-white">
             <AtmosphericBackground variant="hero" />
 
             {/* Content Layer */}
@@ -42,7 +42,7 @@ export function Hero() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
                             >
-                                <p className="text-[20px] md:text-[24px] lg:text-[26px] font-medium text-cyan-primary leading-[1.3]">
+                                <p className="text-[20px] md:text-[24px] lg:text-[26px] font-medium text-highlight leading-[1.3]">
                                     Strategic AI & automation consulting for scaling businesses
                                 </p>
                                 <div className="flex items-center gap-6 mt-3 text-sm text-zinc-500">
@@ -74,7 +74,7 @@ export function Hero() {
                                 transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                             >
                                 At Maru, we improve business growth and lower costs through automation consulting, digital transformation, and custom AI development. 
-                                <span className="text-cyan-primary font-medium">Start with a free website audit</span> or take a 2-minute assessment to discover your growth opportunities.
+                                <span className="text-highlight font-medium">Start with a free website audit</span> or take a 2-minute assessment to discover your growth opportunities.
                             </motion.p>
 
                             {/* CTAs - Optimized Hierarchy */}
@@ -99,7 +99,7 @@ export function Hero() {
                                 {/* Tertiary CTA */}
                                 <Link
                                     href="/#process"
-                                    className="flex items-center gap-2 text-zinc-400 font-medium text-sm hover:text-cyan-primary transition-colors group"
+                                    className="flex items-center gap-2 text-zinc-400 font-medium text-sm hover:text-highlight transition-colors group"
                                 >
                                     How We Work
                                     <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

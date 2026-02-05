@@ -66,16 +66,16 @@ export function DiagnosticTools() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white border-2 border-zinc-200 rounded-2xl p-8 hover:border-[var(--color-cyan-primary)] hover:shadow-xl transition-all duration-300"
+                  className="bg-white border-2 border-zinc-200 rounded-2xl p-8 hover:border-highlight hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-cyan-primary)]/10 border-2 border-[var(--color-cyan-primary)] mb-4">
-                    <span className="text-lg font-bold text-[var(--color-cyan-primary)]">
+                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-highlight/10 border-2 border-highlight mb-4">
+                    <span className="text-lg font-bold text-highlight">
                       {tool.number}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-3 mb-6">
-                    <Icon className="w-6 h-6 text-[var(--color-cyan-primary)]" />
+                    <Icon className="w-6 h-6 text-highlight" />
                     <h3 className="text-xl font-semibold text-[#050505]">
                       {tool.title}
                     </h3>

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowLeft, Sparkles, Loader2, Globe } from 'lucide-react';
+import { Sparkles, Loader2, Globe } from 'lucide-react';
 import Link from 'next/link';
 import { CTAPrimary } from '@/components/ui/CTAPrimary';
 import { submitToHubSpot, HUBSPOT_FORMS } from '@/lib/hubspot';
@@ -55,7 +55,6 @@ export default function WebsiteAuditPage() {
   const [websiteUrl, setWebsiteUrl] = useState('');
   const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null);
   const [formData, setFormData] = useState({ name: '', email: '', company: '' });
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
 
@@ -72,7 +71,6 @@ export default function WebsiteAuditPage() {
 
     setError('');
     setCurrentStep(1);
-    setIsAnalyzing(true);
 
     try {
       const response = await fetch('/api/analyze-website', {
@@ -88,11 +86,9 @@ export default function WebsiteAuditPage() {
 
       const result = await response.json();
       setAnalysisResult(result);
-      setIsAnalyzing(false);
       setCurrentStep(2); // Move to form
-    } catch (err: any) {
-      setError(err.message || 'Failed to analyze website');
-      setIsAnalyzing(false);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to analyze website');
       setCurrentStep(0); // Back to intro
     }
   };
@@ -167,9 +163,9 @@ export default function WebsiteAuditPage() {
                   <span className="text-sm font-medium text-accent">Free Website Audit</span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
-                  <span className="font-normal">Is Your Website</span>{" "}
-                  <span className="font-bold">Optimized for Leads?</span>
+                <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
+                  Is Your Website <br className="hidden md:block" />
+                  <span className="font-thin">Optimized for</span> <span>Leads?</span>
                 </h1>
 
                 <p className="text-lg text-white/60 mb-12 max-w-xl mx-auto">
@@ -217,8 +213,9 @@ export default function WebsiteAuditPage() {
                   <Loader2 size={64} className="text-accent animate-spin mx-auto" />
                 </div>
 
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Analyzing Your Website
+                <h2 className="text-h2 font-medium text-white mb-14 leading-[1.2]">
+                  Analyzing <br className="hidden md:block" />
+                  <span className="font-thin">Your</span> <span>Website</span>
                 </h2>
 
                 <p className="text-white/60 mb-8">
@@ -252,8 +249,8 @@ export default function WebsiteAuditPage() {
                 transition={{ duration: 0.4 }}
               >
                 <div className="text-center mb-10">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                    Analysis Complete!
+                  <h2 className="text-h2 font-medium text-white mb-14 leading-[1.2]">
+                    Analysis <span className="font-thin text-zinc-500">Complete!</span>
                   </h2>
                   <p className="text-white/60">
                     Enter your details to see your personalized website audit report.
@@ -317,8 +314,8 @@ export default function WebsiteAuditPage() {
                 transition={{ duration: 0.5 }}
                 className="text-center"
               >
-                <h2 className="text-3xl md:text-4xl font-bold mb-8">
-                  Your Website Audit Report
+                <h2 className="text-h2 font-medium text-white mb-14 leading-[1.2]">
+                  Your <span className="font-thin">Website Audit</span> <span>Report</span>
                 </h2>
 
                 {/* Score Circle */}

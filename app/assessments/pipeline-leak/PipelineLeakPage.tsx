@@ -41,7 +41,7 @@ export default function PipelineLeakPage() {
   const [results, setResults] = useState<PipelineLeakResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (formData: Record<string, any>) => {
+  const handleSubmit = async (formData: Record<string, unknown>) => {
     setIsLoading(true);
     try {
       const response = await fetch('/api/assessments', {
@@ -69,7 +69,7 @@ export default function PipelineLeakPage() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-cyan-400/20 border-t-cyan-400 rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 border-4 border-highlight/20 border-t-highlight rounded-full animate-spin mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-white mb-2">Analyzing Your Pipeline</h2>
           <p className="text-zinc-400">Detecting leaks and calculating revenue at risk...</p>
         </div>
@@ -86,7 +86,9 @@ export default function PipelineLeakPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold text-white mb-4">Pipeline Leak Analysis</h1>
+            <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
+              Pipeline <span className="font-thin text-zinc-500">Leak Analysis</span>
+            </h1>
             <p className="text-xl text-zinc-400">Revenue leaks detected in your sales pipeline</p>
           </motion.div>
 
@@ -109,7 +111,9 @@ export default function PipelineLeakPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-red-400/10 rounded-full mb-6">
             <TrendingDown className="w-8 h-8 text-red-400" />
           </div>
-          <h1 className="text-4xl font-bold text-white mb-4">Pipeline Leak Detector</h1>
+          <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
+            Pipeline <span className="font-thin text-zinc-500">Leak Detector</span>
+          </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
             Identify revenue leaks in your sales pipeline and get actionable recovery recommendations
           </p>
@@ -119,7 +123,7 @@ export default function PipelineLeakPage() {
 
         <div className="grid md:grid-cols-3 gap-6 text-center">
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
-            <Upload className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
+            <Upload className="w-8 h-8 text-highlight mx-auto mb-3" />
             <h3 className="font-semibold text-white mb-2">CSV Upload</h3>
             <p className="text-sm text-zinc-400">Secure, privacy-first analysis of your pipeline data</p>
           </div>
@@ -165,7 +169,7 @@ function LeakDisplay({ results }: { results: PipelineLeakResult }) {
         
         <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
           <h3 className="text-lg font-semibold text-white mb-4">Total Deals Analyzed</h3>
-          <div className="text-3xl font-bold text-cyan-400 mb-2">
+          <div className="text-3xl font-bold text-highlight mb-2">
             {results.total_deals ?? results.totalDeals}
           </div>
           <p className="text-zinc-400">Deals in your pipeline</p>
@@ -205,8 +209,8 @@ function LeakDisplay({ results }: { results: PipelineLeakResult }) {
         <div className="space-y-3">
           {results.recommendations.map((rec, index) => (
             <div key={index} className="flex items-start gap-3">
-              <div className="w-6 h-6 bg-cyan-400/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-xs font-medium text-cyan-400">{index + 1}</span>
+              <div className="w-6 h-6 bg-highlight/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-medium text-highlight">{index + 1}</span>
               </div>
               <p className="text-zinc-300">{rec}</p>
             </div>

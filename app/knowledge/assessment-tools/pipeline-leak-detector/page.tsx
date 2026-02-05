@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import { Callout, CodeBlock, Step, TableOfContents } from '@/components/docs/ContentComponents';
 
@@ -430,8 +431,8 @@ Example:
 
       <Callout type="info" title="Need Help Implementing Changes?">
         <p>
-          Check out our <a href="/knowledge/best-practices/lead-generation-strategies" className="text-accent hover:underline">Lead Generation Strategies</a> guide 
-          for detailed implementation steps, or <a href="/contact" className="text-accent hover:underline">contact our team</a> for personalized assistance.
+          Check out our <Link href="/knowledge/best-practices/lead-generation-strategies" className="text-accent hover:underline">Lead Generation Strategies</Link> guide 
+          for detailed implementation steps, or <Link href="/contact" className="text-accent hover:underline">contact our team</Link> for personalized assistance.
         </p>
       </Callout>
     </DocLayout>

@@ -62,13 +62,15 @@ export default function PricingPage() {
   return (
     <div className="bg-dark py-12 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header */}
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-base font-semibold leading-7 text-accent">Pricing</h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Simple, flat-rate pricing.
-          </p>
-          <p className="mt-6 text-lg leading-8 text-zinc-300">
+        <div className="mx-auto max-w-4xl text-center mb-20">
+          <span className="uppercase tracking-[2px] text-zinc-500 text-[12px] font-medium mb-6 block">
+            Pricing
+          </span>
+          <h1 className="text-h1 font-medium text-white leading-[1.2] mb-8">
+            Simple, <span className="font-thin">flat-rate</span> <br className="hidden md:block" />
+            <span>pricing.</span>
+          </h1>
+          <p className="text-lg leading-8 text-zinc-300 mx-auto max-w-2xl">
             No hidden retainer fees. Choose the pace that suits your cash flow.
           </p>
         </div>

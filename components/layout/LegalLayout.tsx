@@ -33,7 +33,7 @@ export function LegalLayout({
             <span>/</span>
             <span className="text-white">{title}</span>
           </nav>
-          <h1 className="text-4xl lg:text-5xl font-light text-white mb-6">
+          <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
             {title}
           </h1>
           <p className="text-light-soft max-w-2xl">{description}</p>

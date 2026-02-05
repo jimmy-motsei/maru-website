@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import { Callout, CodeBlock, Step, TableOfContents } from '@/components/docs/ContentComponents';
 
@@ -196,22 +197,22 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000`}
         <p>
           Once you can successfully log into the admin dashboard and complete a test assessment, 
           your setup is complete. Continue with the 
-          <a href="/knowledge/getting-started/first-assessment" className="text-accent hover:underline ml-1">
+          <Link href="/knowledge/getting-started/first-assessment" className="text-accent hover:underline ml-1">
             First Assessment Walkthrough
-          </a> to learn how to use the system effectively.
+          </Link> to learn how to use the system effectively.
         </p>
       </Callout>
 
       <h3>Next Steps</h3>
       <div className="grid md:grid-cols-2 gap-4 mt-6">
-        <a href="/knowledge/getting-started/first-assessment" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
+        <Link href="/knowledge/getting-started/first-assessment" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
           <h4 className="font-medium text-dark mb-2">First Assessment Walkthrough</h4>
           <p className="text-dark/60 text-sm">Learn how to complete your first assessment</p>
-        </a>
-        <a href="/knowledge/admin-analytics/dashboard-overview" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
+        </Link>
+        <Link href="/knowledge/admin-analytics/dashboard-overview" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
           <h4 className="font-medium text-dark mb-2">Dashboard Overview</h4>
           <p className="text-dark/60 text-sm">Master the admin dashboard features</p>
-        </a>
+        </Link>
       </div>
     </DocLayout>
   );

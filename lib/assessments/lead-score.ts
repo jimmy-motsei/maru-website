@@ -29,7 +29,24 @@ interface LeadScoreResult {
   };
 }
 
-export async function analyzeWebsite(input: any): Promise<LeadScoreResult> {
+interface WebsiteAnalysisInput {
+  website_url: string;
+  company_name: string;
+  industry: string;
+  company_size: string;
+}
+
+interface AIAnalysisResult {
+  websiteQualityScore: number;
+  techStackScore: number;
+  contentQualityScore: number;
+  seoScore: number;
+  detectedIndustry?: string;
+  companyDescription?: string;
+  recommendations: string[];
+}
+
+export async function analyzeWebsite(input: WebsiteAnalysisInput): Promise<LeadScoreResult> {
   const { website_url, company_name, industry, company_size } = input;
 
   try {
@@ -37,7 +54,7 @@ export async function analyzeWebsite(input: any): Promise<LeadScoreResult> {
     const websiteData = await scrapeWithFirecrawl(website_url);
     
     // 2. Analyze with Gemini AI
-    const aiAnalysis = await analyzeWithGemini(websiteData, { company_name, industry, company_size });
+    const aiAnalysis = await analyzeWithGemini(websiteData, input);
     
     // 3. Calculate scores
     const factors = calculateFactors(websiteData, aiAnalysis);
@@ -165,11 +182,14 @@ function analyzeContentQuality(markdown: string): number {
   return Math.min(score, 100);
 }
 
-function calculateSEOScore(metadata: any): number {
+function calculateSEOScore(metadata: Record<string, unknown>): number {
   let score = 0;
   
-  if (metadata.title && metadata.title.length > 10 && metadata.title.length < 60) score += 25;
-  if (metadata.description && metadata.description.length > 50 && metadata.description.length < 160) score += 25;
+  const title = metadata.title as string | undefined;
+  const description = metadata.description as string | undefined;
+
+  if (title && title.length > 10 && title.length < 60) score += 25;
+  if (description && description.length > 50 && description.length < 160) score += 25;
   if (metadata.ogTitle) score += 15;
   if (metadata.ogDescription) score += 15;
   if (metadata.keywords) score += 10;
@@ -177,7 +197,7 @@ function calculateSEOScore(metadata: any): number {
   return Math.min(score, 100);
 }
 
-async function analyzeWithGemini(websiteData: WebsiteData, companyInfo: any) {
+async function analyzeWithGemini(websiteData: WebsiteData, companyInfo: WebsiteAnalysisInput): Promise<AIAnalysisResult> {
   const prompt = `Analyze this website for lead generation potential:
 
 URL: ${websiteData.url}
@@ -230,7 +250,7 @@ Focus on lead generation potential and actionable improvements.`;
   }
 }
 
-function calculateFactors(websiteData: WebsiteData, aiAnalysis: any) {
+function calculateFactors(websiteData: WebsiteData, aiAnalysis: AIAnalysisResult) {
   return {
     website_quality: Math.min(100, aiAnalysis.websiteQualityScore || 50),
     tech_stack_maturity: Math.min(100, aiAnalysis.techStackScore || 50),

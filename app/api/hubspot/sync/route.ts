@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createOrUpdateContact } from '@/lib/hubspot';
+import { createOrUpdateContact, HubSpotContact } from '@/lib/hubspot';
 import { supabaseAdmin } from '@/lib/supabase';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { leadId, email, assessmentType, assessmentData } = body;
+    const { email, assessmentType, assessmentData } = body;
 
     if (!email) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 });
@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Prepare HubSpot contact data
-    const contactData: any = {
+    const contactData: HubSpotContact = {
       email,
       firstname: lead?.first_name || '',
       lastname: lead?.last_name || '',

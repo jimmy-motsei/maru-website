@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Bot, AlertCircle, Users, Settings, CheckCircle2, HelpCircle, ChevronDown, Clock, ArrowRight, MessageSquare, Zap, Database, TrendingUp, Shield, RefreshCw } from "lucide-react";
+import { Bot, AlertCircle, Users, Settings, CheckCircle2, ChevronDown, Clock, ArrowRight, MessageSquare, Zap, Database, TrendingUp, Shield, RefreshCw } from "lucide-react";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { OtherServices } from "@/components/sections/OtherServices";
 import { EmailModalAssessment } from "@/components/modals/EmailModalAssessment";
@@ -177,7 +178,7 @@ export default function CustomerSupportChatbotsPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   return (
-    <main className="bg-[#050505] min-h-screen text-white">
+    <main className="bg-[#09121A] min-h-screen text-white">
       {/* Hero Section */}
       <ServiceHero
         breadcrumbs={breadcrumbs}
@@ -197,9 +198,9 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
-              <span className="font-extralight text-gray-400">Why Most Chatbots</span>{" "}
-              <span className="font-medium text-black">Create More Problems</span>
+            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
+              Why Most <span className="font-thin text-gray-400">Chatbots Create</span> <br className="hidden md:block" />
+              <span>More Problems</span>
             </motion.h2>
             <motion.p className="text-gray-600 text-lg max-w-3xl mx-auto" variants={fadeUpVariants}>
               Than they solve
@@ -246,7 +247,7 @@ export default function CustomerSupportChatbotsPage() {
       </section>
 
       {/* Solution Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#09121A]">
         <div className="container mx-auto px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -255,9 +256,9 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
-              <span className="font-extralight text-zinc-500">How We Build Chatbots</span>{" "}
-              <span className="font-medium text-white">That Actually Support Customers</span>
+            <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
+              How We <span className="font-thin text-zinc-500">Build Chatbots That</span> <br className="hidden md:block" />
+              <span>Actually Support Customers</span>
             </motion.h2>
           </motion.div>
 
@@ -272,22 +273,22 @@ export default function CustomerSupportChatbotsPage() {
               <motion.div
                 key={index}
                 variants={fadeUpVariants}
-                className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/[0.07] transition-all"
+                className="bg-white/5 border border-card-border rounded-3xl p-8 hover:bg-white/[0.07] transition-all"
               >
                 <div className="flex items-start gap-6">
-                  <div className="w-14 h-14 shrink-0 rounded-2xl bg-[var(--color-cyan-primary)]/10 flex items-center justify-center text-[var(--color-cyan-primary)] border border-[var(--color-cyan-primary)]/30">
+                  <div className="w-14 h-14 shrink-0 rounded-2xl bg-highlight/10 flex items-center justify-center text-highlight border border-highlight/30">
                     <item.icon size={28} />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
                     <p className="text-zinc-300 leading-relaxed mb-6">{item.description}</p>
                     
-                    <div className="bg-[var(--color-cyan-primary)]/5 border border-[var(--color-cyan-primary)]/20 rounded-2xl p-6">
-                      <p className="text-[var(--color-cyan-primary)] font-bold mb-3">What This Fixes:</p>
+                    <div className="bg-highlight/5 border border-highlight/20 rounded-2xl p-6">
+                      <p className="text-highlight font-bold mb-3">What This Fixes:</p>
                       <ul className="space-y-2">
                         {item.benefits.map((benefit, idx) => (
                           <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                            <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
                             <span className="text-zinc-300 text-sm">{benefit}</span>
                           </li>
                         ))}
@@ -311,9 +312,8 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
-              <span className="font-extralight text-gray-400">From Setup to Support</span>{" "}
-              <span className="font-medium text-black">in 4 Weeks</span>
+            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
+              From Setup <span className="font-thin text-gray-400">to Support in</span> <span>4 Weeks</span>
             </motion.h2>
           </motion.div>
 
@@ -331,18 +331,18 @@ export default function CustomerSupportChatbotsPage() {
                   variants={fadeUpVariants}
                   className="relative group"
                 >
-                  <div className="bg-gray-100 p-10 md:p-12 rounded-2xl border border-gray-300 border-l-4 border-l-[var(--color-cyan-primary)] h-full relative z-10 hover:border-[var(--color-cyan-primary)] hover:shadow-lg transition-all">
+                  <div className="bg-gray-100 p-10 md:p-12 rounded-2xl border border-gray-300 border-l-4 border-l-highlight h-full relative z-10 hover:border-highlight hover:shadow-lg transition-all">
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-16 h-16 rounded-full border-2 border-[var(--color-cyan-primary)] flex items-center justify-center mb-8 relative bg-white">
+                      <div className="w-16 h-16 rounded-full border-2 border-highlight flex items-center justify-center mb-8 relative bg-white">
                         <span className="text-lg font-bold text-black">{step.number}</span>
                         {index < processSteps.length - 1 && (
-                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-[var(--color-cyan-primary)]/30">
+                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-highlight/30">
                             <ArrowRight size={24} />
                           </div>
                         )}
                       </div>
                       
-                      <div className="w-12 h-12 rounded-xl border border-gray-300 flex items-center justify-center text-[var(--color-cyan-primary)] mb-6 bg-gray-50">
+                      <div className="w-12 h-12 rounded-xl border border-gray-300 flex items-center justify-center text-highlight mb-6 bg-gray-50">
                         <step.icon size={24} />
                       </div>
                       
@@ -351,7 +351,7 @@ export default function CustomerSupportChatbotsPage() {
                       
                       <div className="mt-auto pt-4 border-t border-gray-300 w-full">
                         <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-                          <Clock size={14} className="text-[var(--color-cyan-primary)]" />
+                          <Clock size={14} className="text-highlight" />
                           <span className="font-medium">{step.timeline}</span>
                         </div>
                       </div>
@@ -365,7 +365,7 @@ export default function CustomerSupportChatbotsPage() {
       </section>
 
       {/* Use Cases Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#09121A]">
         <div className="container mx-auto px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -374,9 +374,8 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
-              <span className="font-extralight text-zinc-500">What Your Chatbot</span>{" "}
-              <span className="font-medium text-white">Can Handle</span>
+            <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
+              What Your <span className="font-thin text-zinc-500">Chatbot Can Handle</span>
             </motion.h2>
           </motion.div>
 
@@ -391,13 +390,13 @@ export default function CustomerSupportChatbotsPage() {
               <motion.div
                 key={index}
                 variants={fadeUpVariants}
-                className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/[0.07] transition-all"
+                className="bg-white/5 border border-card-border rounded-3xl p-8 hover:bg-white/[0.07] transition-all"
               >
                 <h3 className="text-2xl font-bold text-white mb-6">{useCase.title}</h3>
                 <ul className="space-y-3">
                   {useCase.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 size={18} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                      <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
                       <span className="text-zinc-300">{item}</span>
                     </li>
                   ))}
@@ -418,9 +417,8 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
-              <span className="font-extralight text-gray-400">Straightforward Pricing</span>{" "}
-              <span className="font-medium text-black">for SMEs</span>
+            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
+              Straightforward <span className="font-thin text-gray-400">Pricing for</span> <span>SMEs</span>
             </motion.h2>
           </motion.div>
 
@@ -434,7 +432,7 @@ export default function CustomerSupportChatbotsPage() {
             {/* Setup & Training */}
             <motion.div
               variants={fadeUpVariants}
-              className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[var(--color-cyan-primary)] hover:border-[var(--color-cyan-primary)] hover:shadow-lg transition-all"
+              className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-highlight hover:border-highlight hover:shadow-lg transition-all"
             >
               <h3 className="text-2xl font-bold text-black mb-2">Setup & Training</h3>
               <div className="mb-2">
@@ -443,19 +441,19 @@ export default function CustomerSupportChatbotsPage() {
               <div className="text-gray-600 text-sm mb-6">(one-time)</div>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-0.5" />
                   <span className="text-gray-700">Knowledge base audit and bot training</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-0.5" />
                   <span className="text-gray-700">System integration (CRM, help desk, etc.)</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-0.5" />
                   <span className="text-gray-700">Testing and refinement</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-0.5" />
                   <span className="text-gray-700">Price depends on complexity and data volume</span>
                 </li>
               </ul>
@@ -464,7 +462,7 @@ export default function CustomerSupportChatbotsPage() {
             {/* Monthly Optimization */}
             <motion.div
               variants={fadeUpVariants}
-              className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-[var(--color-cyan-primary)] hover:border-[var(--color-cyan-primary)] hover:shadow-lg transition-all"
+              className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-highlight hover:border-highlight hover:shadow-lg transition-all"
             >
               <h3 className="text-2xl font-bold text-black mb-2">Monthly Optimization</h3>
               <div className="mb-2">
@@ -473,23 +471,23 @@ export default function CustomerSupportChatbotsPage() {
               <div className="text-gray-600 text-sm mb-6">(per month)</div>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-0.5" />
                   <span className="text-gray-700">Performance monitoring</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-0.5" />
                   <span className="text-gray-700">Conversation analysis</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-0.5" />
                   <span className="text-gray-700">Training data updates</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-0.5" />
                   <span className="text-gray-700">Monthly optimization calls</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-0.5" />
                   <span className="text-gray-700">Ongoing support and refinement</span>
                 </li>
               </ul>
@@ -498,27 +496,27 @@ export default function CustomerSupportChatbotsPage() {
 
           {/* Pricing Exclusions */}
           <motion.div
-            className="max-w-3xl mx-auto bg-[var(--color-cyan-primary)]/5 border border-[var(--color-cyan-primary)]/20 rounded-3xl p-8"
+            className="max-w-3xl mx-auto bg-highlight/5 border border-highlight/20 rounded-3xl p-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUpVariants}
           >
             <h3 className="text-2xl font-bold text-black mb-6 flex items-center gap-3">
-              <Shield size={28} className="text-[var(--color-cyan-primary)]" />
+              <Shield size={28} className="text-highlight" />
               What You Don't Pay For:
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                <CheckCircle2 size={20} className="text-highlight shrink-0 mt-0.5" />
                 <span className="text-gray-700">No per-conversation fees</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                <CheckCircle2 size={20} className="text-highlight shrink-0 mt-0.5" />
                 <span className="text-gray-700">No user licensing costs</span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle2 size={20} className="text-[var(--color-cyan-primary)] shrink-0 mt-0.5" />
+                <CheckCircle2 size={20} className="text-highlight shrink-0 mt-0.5" />
                 <span className="text-gray-700">No hidden platform charges</span>
               </li>
             </ul>
@@ -527,7 +525,7 @@ export default function CustomerSupportChatbotsPage() {
       </section>
 
       {/* FAQ Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#09121A]">
         <div className="container mx-auto px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -536,9 +534,8 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" variants={fadeUpVariants}>
-              <span className="font-extralight text-zinc-500">Common</span>{" "}
-              <span className="font-medium text-white">Questions</span>
+            <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
+              Common <span className="font-thin text-zinc-500">Questions</span>
             </motion.h2>
           </motion.div>
 
@@ -553,7 +550,7 @@ export default function CustomerSupportChatbotsPage() {
               <motion.div 
                 key={index}
                 variants={fadeUpVariants}
-                className="border border-white/10 rounded-xl overflow-hidden bg-white/5 hover:bg-white/[0.07] transition-colors"
+                className="border border-card-border rounded-xl overflow-hidden bg-white/5 hover:bg-white/[0.07] transition-colors"
               >
                 <button
                   onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
@@ -562,7 +559,7 @@ export default function CustomerSupportChatbotsPage() {
                   <span className="font-medium text-white pr-8">{faq.question}</span>
                   <ChevronDown
                     size={20}
-                    className={`text-[var(--color-cyan-primary)] shrink-0 transition-transform ${
+                    className={`text-highlight shrink-0 transition-transform ${
                       openFaqIndex === index ? "rotate-180" : ""
                     }`}
                   />
@@ -588,9 +585,9 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-4xl md:text-5xl mb-6" variants={fadeUpVariants}>
-              <span className="font-extralight text-gray-400">Ready to Fix</span>{" "}
-              <span className="font-medium text-black">Your Support Experience?</span>
+            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
+              Ready to <span className="font-thin text-gray-400">Fix Your</span> <br className="hidden md:block" />
+              <span>Support Experience?</span>
             </motion.h2>
             <motion.p className="text-gray-600 text-lg mb-12 max-w-2xl mx-auto" variants={fadeUpVariants}>
               Start with a free support diagnostic. We'll analyze your most common customer questions, identify what a chatbot could handle, and show you exactly where you're losing time to repetitive support requests.
@@ -599,12 +596,12 @@ export default function CustomerSupportChatbotsPage() {
               <CTAPrimary onClick={() => setIsModalOpen(true)} className="w-full sm:w-auto">
                 GET FREE SUPPORT DIAGNOSTIC
               </CTAPrimary>
-              <a 
+              <Link 
                 href="/contact" 
-                className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-gray-300 text-black font-bold hover:border-[var(--color-cyan-primary)] hover:text-[var(--color-cyan-primary)] transition-all"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-gray-300 text-black font-bold hover:border-highlight hover:text-highlight transition-all"
               >
                 See a Live Demo
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

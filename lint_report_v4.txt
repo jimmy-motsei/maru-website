@@ -1,0 +1,113 @@
+
+> maru-website@0.1.0 lint
+> eslint . --max-warnings 0
+
+
+/Users/ramoloimotsei/maru-website/app/api/admin/leads/export/route.ts
+  1:10  warning  'NextRequest' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/api/assessments/route.ts
+  184:42  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  191:40  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/assessments/proposal/ProposalPageNew.tsx
+  233:50  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  292:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  348:54  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  374:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/assessments/tech-audit/TechAuditPageNew.tsx
+  108:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/global-error.tsx
+  4:10  warning  '_error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/services/sales-systems/page.tsx
+  3:10  warning  'useState' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/services/whatsapp-solutions/page.tsx
+  3:10  warning  'useState' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/analytics/ConversionTracking.tsx
+  63:58  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/components/analytics/JourneyAnalytics.tsx
+   10:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   93:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  107:64  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/components/analytics/PerformanceMonitor.tsx
+  32:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  47:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/components/sections/AIReadinessTeaser.tsx
+  5:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/sections/About.tsx
+  5:52  warning  'scaleInVariants' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/sections/OtherServices.tsx
+  63:33  warning  'currentServiceId' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/sections/Process.tsx
+  2:10  warning  'motion' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/services/ServiceWorkflow.tsx
+  22:42  warning  'title' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/ui/AtmosphericBackground.tsx
+  12:70  warning  'theme' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/ui/IsometricWorkflow.tsx
+  87:30  warning  'index' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/lib/ai.ts
+  26:3   warning  '_schema' is defined but never used     @typescript-eslint/no-unused-vars
+  34:14  warning  'parseError' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/lib/assessments/lead-score-firecrawl.ts
+  116:9  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/assessments/lead-score.ts
+   32:45  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  168:38  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  180:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  233:65  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/assessments/pipeline-leak.ts
+  319:47  warning  'data' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/lib/assessments/proposal.ts
+   32:11  warning  'CompetitiveAdvantages' is defined but never used  @typescript-eslint/no-unused-vars
+  126:62  warning  'requirements' is defined but never used           @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/lib/assessments/tech-audit.ts
+  176:52  warning  'input' is defined but never used          @typescript-eslint/no-unused-vars
+  218:3   warning  'optimizations' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/lib/db/index.ts
+  27:3  warning  Unused eslint-disable directive (no problems were reported from 'no-var')
+  29:3  warning  Unused eslint-disable directive (no problems were reported from 'no-var')
+
+/Users/ramoloimotsei/maru-website/lib/env.ts
+  10:7  warning  'optionalEnvVars' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/lib/gemini.ts
+  5:12  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/integrations.ts
+  119:58  warning  'delayDays' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  136:46  warning  'filename' is defined but never used            @typescript-eslint/no-unused-vars
+  152:86  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/lead-utils.ts
+  3:14  warning  'desc' is defined but never used          @typescript-eslint/no-unused-vars
+  4:16  warning  'LeadActivity' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/lib/monitoring.ts
+  185:27  warning  'times' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+✖ 46 problems (0 errors, 46 warnings)
+  0 errors and 2 warnings potentially fixable with the `--fix` option.
+
+ESLint found too many warnings (maximum: 0).

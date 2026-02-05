@@ -16,6 +16,13 @@ interface StageTransition {
   daysInStage: number;
 }
 
+interface StageMetrics {
+  conversionRates: Record<string, number>;
+  avgTimeInStage: Record<string, number>;
+  stageCounts: Record<string, number>;
+  stageOrder: string[];
+}
+
 interface PipelineLeakResult {
   score: number;
   totalDeals: number;
@@ -106,7 +113,7 @@ function parseCSVData(csvData: string): PipelineData[] {
   
   for (let i = 1; i < lines.length; i++) {
     const values = lines[i].split(',').map(v => v.trim().replace(/"/g, ''));
-    const row: any = {};
+    const row: Record<string, string> = {};
     
     headers.forEach((header, index) => {
       const mappedKey = headerMap[header] || header;
@@ -200,7 +207,7 @@ function determineStageOrder(stages: string[]): string[] {
   return [...orderedStages, ...remainingStages];
 }
 
-function identifyLeaks(metrics: any, data: PipelineData[]): PipelineLeak[] {
+function identifyLeaks(metrics: StageMetrics, data: PipelineData[]): PipelineLeak[] {
   const leaks: PipelineLeak[] = [];
   const { conversionRates, avgTimeInStage, stageCounts } = metrics;
 
@@ -243,12 +250,14 @@ function identifyLeaks(metrics: any, data: PipelineData[]): PipelineLeak[] {
   return leaks.sort((a, b) => b.revenueImpact - a.revenueImpact);
 }
 
-function calculatePipelineScore(metrics: any, leaks: PipelineLeak[]): number {
+function calculatePipelineScore(metrics: StageMetrics, leaks: PipelineLeak[]): number {
   const { conversionRates } = metrics;
   
   // Base score from average conversion rates
-  const avgConversion = Object.values(conversionRates).reduce((sum: number, rate: any) => sum + rate, 0) / 
-    Math.max(1, Object.keys(conversionRates).length);
+  const conversionValues = Object.values(conversionRates);
+  const avgConversion = conversionValues.length > 0 
+    ? conversionValues.reduce((sum: number, rate: number) => sum + rate, 0) / conversionValues.length
+    : 0;
   
   let score = Math.min(100, avgConversion * 1.5);
   
@@ -261,7 +270,7 @@ function calculatePipelineScore(metrics: any, leaks: PipelineLeak[]): number {
   return Math.max(0, Math.round(score));
 }
 
-async function generateRecommendations(metrics: any, leaks: PipelineLeak[]): Promise<string[]> {
+async function generateRecommendations(metrics: StageMetrics, leaks: PipelineLeak[]): Promise<string[]> {
   try {
     const prompt = `Analyze this sales pipeline data and provide 4-5 specific, actionable recommendations for fixing pipeline leaks and improving conversion rates:
 
@@ -307,7 +316,7 @@ Format: ["recommendation 1", "recommendation 2", ...]`;
   }
 }
 
-function createSummary(leaks: PipelineLeak[], data: PipelineData[]) {
+function createSummary(leaks: PipelineLeak[], _data: PipelineData[]) {
   const biggestLeak = leaks.length > 0 ? leaks[0].stage : 'No major leaks identified';
   const potentialRevenue = leaks.reduce((sum, leak) => sum + leak.revenueImpact, 0);
   

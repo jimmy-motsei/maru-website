@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
-import { fadeUpVariants, staggerContainerVariants, scaleInVariants } from "@/lib/animations";
+import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
 
 export default function AboutContent() {
   return (
@@ -44,8 +44,9 @@ export default function AboutContent() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-12"
           >
-            <h1 className="hero-h1 font-bold text-muted mb-6">
-              <span className="font-medium">Built Different.</span> <span className="font-light text-gray-600">Built for SMEs.</span>
+            <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
+              Built <span className="font-thin text-white/60">Different.</span> <br className="hidden md:block" />
+              Built <span className="font-thin text-white/60">for SMEs.</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/60 max-w-3xl">
               A marketing consultancy founded on a decade of watching good businesses struggle with tools that weren't designed for their stage.

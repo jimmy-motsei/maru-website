@@ -26,7 +26,7 @@ export const DEFAULT_CONSENT: CookieConsentState = {
   updatedAt: new Date().toISOString(),
 };
 
-export const saveConsent = (categories: any) => {
+export const saveConsent = (categories: CookieConsentState['categories']) => {
   if (typeof window === 'undefined') return;
   const state = { version: COOKIE_CONSENT_VERSION, categories, updatedAt: new Date().toISOString() };
   localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(state));
@@ -34,7 +34,7 @@ export const saveConsent = (categories: any) => {
 };
 
 export const useCookieConsent = () => {
-  const [consent, setConsent] = useState<any>(null);
+  const [consent, setConsent] = useState<CookieConsentState | null>(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {

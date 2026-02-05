@@ -50,10 +50,10 @@ export function SocialProof() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white border-2 border-zinc-200 rounded-2xl p-8 md:p-10 hover:border-[var(--color-cyan-primary)] hover:shadow-xl transition-all duration-300"
+                className="bg-white border-2 border-zinc-200 rounded-2xl p-8 md:p-10 hover:border-highlight hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex items-start gap-4 mb-6">
-                  <Quote className="w-8 h-8 text-[var(--color-cyan-primary)] flex-shrink-0" />
+                  <Quote className="w-8 h-8 text-highlight flex-shrink-0" />
                   <div>
                     <h3 className="text-2xl font-semibold text-[#050505]">
                       {testimonial.name}

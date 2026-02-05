@@ -22,7 +22,7 @@ interface HubSpotContext {
   pageName?: string;
 }
 
-interface HubSpotContact {
+export interface HubSpotContact {
   email: string;
   firstname?: string;
   lastname?: string;

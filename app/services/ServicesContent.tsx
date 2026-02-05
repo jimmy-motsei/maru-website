@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, AlertCircle, DollarSign, Wrench, BarChart3, TrendingUp, MessageSquare, MessageCircle, Link2, Search, Hammer, Rocket, LineChart, CheckCircle2, AlertTriangle, CreditCard, Settings } from "lucide-react";
+import { ArrowRight, AlertCircle, DollarSign, Wrench, BarChart3, TrendingUp, MessageSquare, MessageCircle, Link2, Search, Hammer, Rocket, LineChart, CheckCircle2 } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
 import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
@@ -62,7 +62,7 @@ const serviceCards = [
     id: "03",
     title: "Automate Your Follow-Up",
     icon: MessageSquare,
-    iconColor: "#22d3ee",
+    iconColor: "#E67F3E",
     problem: "Leads go cold because follow-up is slow or inconsistent",
     fixes: [
       "Slow response times (industry avg: 42 hours)",
@@ -188,9 +188,9 @@ export default function ServicesPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-12"
           >
-            <h1 className="hero-h1 font-medium mb-6 text-white">
-              We Fix <span className="font-extralight text-zinc-500">Marketing Systems</span><br />
-              That Leak Revenue
+            <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
+              We Fix <span className="font-thin">Marketing Systems</span> <br className="hidden md:block" />
+              <span>That Leak Revenue</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/60 max-w-3xl mb-8">
               Stop losing leads to broken websites, stalled pipelines, and disconnected tools. We diagnose the problem, then fix it—no fluff, no enterprise price tag.
@@ -221,8 +221,9 @@ export default function ServicesPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-center mb-4 text-black" variants={fadeUpVariants}>
-              <span className="font-medium text-black">Why Marketing Technology Fails Most</span> <span className="font-extralight text-gray-500">SMEs</span>
+            <motion.h2 className="text-h2 font-medium text-center mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
+              Why <span className="font-thin">Marketing Technology</span> <br className="hidden md:block" />
+              Fails Most <span>SMEs</span>
             </motion.h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto mt-16">
@@ -232,8 +233,8 @@ export default function ServicesPage() {
                   variants={fadeUpVariants}
                   className="text-center"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-[#22d3ee]/10 flex items-center justify-center mx-auto mb-6 border border-[#22d3ee]/30">
-                    <problem.icon size={32} className="text-[#22d3ee]" />
+                  <div className="w-16 h-16 rounded-2xl bg-highlight/10 flex items-center justify-center mx-auto mb-6 border border-highlight/30">
+                    <problem.icon size={32} className="text-highlight" />
                   </div>
                   <h3 className="text-xl font-bold text-black mb-4">{problem.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{problem.description}</p>
@@ -249,7 +250,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Our Services Section - DARK BACKGROUND */}
-      <section id="services" className="py-24 bg-[#050505]">
+      <section id="services" className="py-24 bg-[#09121A]">
         <div className="container mx-auto px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -257,19 +258,20 @@ export default function ServicesPage() {
             viewport={{ once: true, amount: 0.2 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-center mb-4 text-white" variants={fadeUpVariants}>
-              Five Ways We Fix Your <span className="font-extralight text-zinc-500">Marketing Systems</span>
+            <motion.h2 className="text-h2 font-medium text-center mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
+              Five Ways We <span className="font-thin">Fix Your</span> <br className="hidden md:block" />
+              <span>Marketing Systems</span>
             </motion.h2>
             <motion.p className="text-center text-zinc-400 text-lg mb-16 max-w-3xl mx-auto" variants={fadeUpVariants}>
               Each service starts with a free diagnostic. No sales pitch, no obligation—just data-driven insights.
             </motion.p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-              {serviceCards.map((service, index) => (
+              {serviceCards.map((service) => (
                 <motion.div
                   key={service.id}
                   variants={fadeUpVariants}
-                  className="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-[#22d3ee]/50 transition-all group"
+                  className="bg-white/5 p-8 rounded-3xl border border-card-border hover:border-highlight/50 transition-all group"
                 >
                   {/* Icon */}
                   <div 
@@ -294,7 +296,7 @@ export default function ServicesPage() {
                   <ul className="space-y-2 mb-6">
                     {service.fixes.map((fix, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-zinc-400 text-sm">
-                        <CheckCircle2 size={16} className="text-[#22d3ee] shrink-0 mt-0.5" />
+                        <CheckCircle2 size={16} className="text-highlight shrink-0 mt-0.5" />
                         <span>{fix}</span>
                       </li>
                     ))}
@@ -304,7 +306,7 @@ export default function ServicesPage() {
                   <div className="flex flex-col gap-3">
                     <Link
                       href={service.ctaLink}
-                      className="inline-flex items-center justify-center gap-2 bg-[#22d3ee] hover:bg-[#22d3ee]/90 text-black font-medium rounded-full px-6 py-3 transition-colors"
+                      className="inline-flex items-center justify-center gap-2 bg-highlight hover:bg-highlight-hover text-black font-medium rounded-full px-6 py-3 transition-colors"
                     >
                       {service.ctaText}
                       <ArrowRight size={16} />
@@ -327,8 +329,8 @@ export default function ServicesPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-center mb-16" variants={fadeUpVariants}>
-              <span className="font-medium text-black">How We</span> <span className="font-extralight text-gray-500">Work</span>
+            <motion.h2 className="text-h2 font-medium text-center mb-20 text-black leading-[1.2]" variants={fadeUpVariants}>
+              How <span className="font-thin">We</span> <span>Work</span>
             </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
@@ -339,14 +341,14 @@ export default function ServicesPage() {
                   className="relative flex flex-col items-center text-center"
                 >
                   {/* Step Number */}
-                  <div className="text-[#22d3ee] text-xs font-bold mb-4 uppercase tracking-widest">
+                  <div className="text-highlight text-xs font-bold mb-4 uppercase tracking-widest">
                     Step {step.number}
                   </div>
 
                   {/* Icon Circle */}
                   <div className="w-20 h-20 rounded-full bg-black flex items-center justify-center mb-6 relative">
-                    <step.icon size={32} className="text-[#22d3ee]" />
-                    <div className="absolute inset-0 rounded-full bg-[#22d3ee]/20 blur-md -z-10" />
+                    <step.icon size={32} className="text-highlight" />
+                    <div className="absolute inset-0 rounded-full bg-highlight/20 blur-md -z-10" />
                   </div>
 
                   {/* Arrow - Hidden on last item and mobile */}
@@ -378,9 +380,9 @@ export default function ServicesPage() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl mb-8" variants={fadeUpVariants}>
-                <span className="font-extralight text-gray-400">Why We Start</span>{" "}
-                <span className="font-medium text-black">With Diagnostics</span>
+              <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
+                Why We <span className="font-thin">Start With</span> <br className="hidden md:block" />
+                <span>Diagnostics</span>
               </motion.h2>
               
               <motion.p className="text-xl text-black mb-6" variants={fadeUpVariants}>
@@ -397,15 +399,15 @@ export default function ServicesPage() {
 
               <motion.div className="space-y-4 mb-8" variants={fadeUpVariants}>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-1" />
                   <p className="text-gray-700"><span className="font-semibold text-black">Analyze your actual data,</span> not assumptions</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-1" />
                   <p className="text-gray-700"><span className="font-semibold text-black">Identify specific problems,</span> not generic 'opportunities'</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-[#22d3ee] shrink-0 mt-1" />
+                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-1" />
                   <p className="text-gray-700"><span className="font-semibold text-black">Prioritize fixes by revenue impact,</span> not what's trendy</p>
                 </div>
               </motion.div>
@@ -419,7 +421,7 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQ Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-[#09121A]">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -428,8 +430,8 @@ export default function ServicesPage() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium mb-12 text-white" variants={fadeUpVariants}>
-                <span className="font-extralight text-zinc-500">Frequently</span> Asked
+              <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
+                Frequently <span className="font-thin text-zinc-500">Asked</span>
               </motion.h2>
 
               <div className="divide-y divide-white/20">
@@ -440,7 +442,7 @@ export default function ServicesPage() {
                     className="group py-6"
                   >
                     <summary className="cursor-pointer list-none flex items-center justify-between">
-                      <span className="text-lg font-medium text-white group-open:text-[#22d3ee] transition-colors">
+                      <span className="text-lg font-medium text-white group-open:text-highlight transition-colors">
                         {faq.question}
                       </span>
                       <span className="text-2xl text-white/50 group-open:rotate-45 transition-transform duration-300">
@@ -468,8 +470,8 @@ export default function ServicesPage() {
             variants={staggerContainerVariants}
             className="text-center"
           >
-            <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-medium mb-4 text-black" variants={fadeUpVariants}>
-              Ready to Find Your <span className="font-extralight text-gray-500">Leaks?</span>
+            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
+              Ready to <span className="font-thin text-gray-500">Find Your</span> <span>Leaks?</span>
             </motion.h2>
             <motion.p className="text-gray-700 text-lg mb-12 max-w-2xl mx-auto" variants={fadeUpVariants}>
               No credit card required. No sales call. Just data-driven insights into where your marketing is breaking down.
@@ -480,7 +482,7 @@ export default function ServicesPage() {
                 href="https://leads.maruonline.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between bg-[#3DD6D0] hover:bg-[#3DD6D0]/90 text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)] group"
+                className="inline-flex items-center justify-between bg-highlight hover:bg-highlight-hover text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(230,127,62,0.5)] group"
               >
                 <span className="flex-1 text-center">Grade My Website</span>
                 <span className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
@@ -491,7 +493,7 @@ export default function ServicesPage() {
                 href="https://pipeline.maruonline.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between bg-[#3DD6D0] hover:bg-[#3DD6D0]/90 text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)] group"
+                className="inline-flex items-center justify-between bg-highlight hover:bg-highlight-hover text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(230,127,62,0.5)] group"
               >
                 <span className="flex-1 text-center">Analyze My Pipeline</span>
                 <span className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
@@ -502,7 +504,7 @@ export default function ServicesPage() {
                 href={siteConfig.calendly.discoveryCall}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between bg-[#3DD6D0] hover:bg-[#3DD6D0]/90 text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)] group"
+                className="inline-flex items-center justify-between bg-highlight hover:bg-highlight-hover text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(230,127,62,0.5)] group"
               >
                 <span className="flex-1 text-center">Get a Free Consultation</span>
                 <span className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
@@ -511,7 +513,7 @@ export default function ServicesPage() {
               </Link>
               <Link
                 href="/assessments/tech-audit"
-                className="inline-flex items-center justify-between bg-[#3DD6D0] hover:bg-[#3DD6D0]/90 text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)] group"
+                className="inline-flex items-center justify-between bg-highlight hover:bg-highlight-hover text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(230,127,62,0.5)] group"
               >
                 <span className="flex-1 text-center">Audit My Tech Stack</span>
                 <span className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
@@ -522,7 +524,7 @@ export default function ServicesPage() {
 
             <motion.p className="text-gray-600" variants={fadeUpVariants}>
               Not sure which diagnostic to take?{" "}
-              <Link href="/contact" className="text-[#22d3ee] hover:text-[#22d3ee]/80 transition-colors font-medium">
+              <Link href="/contact" className="text-highlight hover:text-highlight/80 transition-colors font-medium">
                 Talk to us →
               </Link>{" "}
               and we'll recommend where to start.

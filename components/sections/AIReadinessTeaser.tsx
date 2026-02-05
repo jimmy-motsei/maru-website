@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
-import Link from "next/link";
+import { Sparkles } from "lucide-react";
 import { fadeUpVariants } from "@/lib/animations";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
 

@@ -1,6 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import jsPDF from 'jspdf';
 
+interface ReportData {
+  company_data?: {
+    name?: string;
+    industry?: string;
+  };
+  score: number;
+  factors: Record<string, number>;
+  recommendations: string[];
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { type, data } = await request.json();
@@ -23,7 +33,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function generateLeadScorePDF(data: any): Buffer {
+function generateLeadScorePDF(data: ReportData): Buffer {
   const doc = new jsPDF();
   
   // Header
@@ -48,7 +58,7 @@ function generateLeadScorePDF(data: any): Buffer {
   
   doc.setFontSize(12);
   let yPos = 140;
-  Object.entries(data.factors).forEach(([key, value]: [string, any]) => {
+  Object.entries(data.factors).forEach(([key, value]) => {
     const label = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     doc.text(`${label}: ${value}/100`, 20, yPos);
     yPos += 10;

@@ -146,7 +146,7 @@ export default function TechAuditPage() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-cyan-400/20 border-t-cyan-400 rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 border-4 border-highlight/20 border-t-highlight rounded-full animate-spin mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-white mb-2">Analyzing Your Tech Stack</h2>
           <p className="text-zinc-400">Calculating ROI and identifying optimization opportunities...</p>
         </div>
@@ -199,7 +199,7 @@ export default function TechAuditPage() {
               <select
                 value={industry}
                 onChange={(e) => setIndustry(e.target.value)}
-                className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+                className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
               >
                 <option value="">Select Industry</option>
                 <option value="technology">Technology</option>
@@ -215,7 +215,7 @@ export default function TechAuditPage() {
               <select
                 value={companySize}
                 onChange={(e) => setCompanySize(e.target.value)}
-                className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+                className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
               >
                 <option value="">Select Size</option>
                 <option value="startup">Startup (1-10 employees)</option>
@@ -229,7 +229,7 @@ export default function TechAuditPage() {
                 type="number"
                 value={teamSize}
                 onChange={(e) => setTeamSize(parseInt(e.target.value) || 1)}
-                className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+                className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
                 min="1"
                 max="1000"
               />
@@ -250,13 +250,13 @@ export default function TechAuditPage() {
                 placeholder="Search tools..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+                className="w-full pl-10 pr-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
               />
             </div>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+              className="px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
             >
               {categories.map(category => (
                 <option key={category} value={category}>
@@ -274,7 +274,7 @@ export default function TechAuditPage() {
                   <h3 className="font-medium text-white">{tool.name}</h3>
                   <button
                     onClick={() => addTool(tool)}
-                    className="p-1 text-cyan-400 hover:bg-cyan-400/10 rounded"
+                    className="p-1 text-highlight hover:bg-highlight/10 rounded"
                   >
                     <Plus className="w-4 h-4" />
                   </button>
@@ -347,7 +347,7 @@ export default function TechAuditPage() {
             <div className="mt-4 p-4 bg-zinc-800/50 rounded-lg">
               <div className="flex justify-between items-center">
                 <span className="text-white font-medium">Total Monthly Cost:</span>
-                <span className="text-2xl font-bold text-cyan-400">
+                <span className="text-2xl font-bold text-highlight">
                   ${selectedTools.reduce((sum, tool) => sum + (tool.monthlyCost * tool.usersCount), 0).toLocaleString()}
                 </span>
               </div>
@@ -363,13 +363,13 @@ export default function TechAuditPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none mb-4"
+              className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none mb-4"
               placeholder="your@email.com"
             />
             <button
               onClick={handleSubmit}
               disabled={selectedTools.length === 0 || !email}
-              className="w-full px-6 py-3 bg-cyan-400 text-black font-medium rounded-lg hover:bg-cyan-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full px-6 py-3 bg-highlight text-black font-medium rounded-lg hover:bg-highlight-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Analyze Tech Stack
             </button>
@@ -497,13 +497,13 @@ function TechAuditResults({ results }: { results: TechAuditResult }) {
       </div>
 
       {/* Next Steps */}
-      <div className="p-6 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-cyan-800/30 rounded-xl">
+      <div className="p-6 bg-gradient-to-r from-highlight/20 to-highlight/5 border border-highlight/30 rounded-xl">
         <h3 className="text-lg font-semibold text-white mb-2">Ready to Optimize Your Tech Stack?</h3>
         <p className="text-zinc-400 mb-4">
           Get expert help implementing these recommendations and maximizing your tool ROI.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
-          <button className="px-6 py-3 bg-cyan-400 text-black font-medium rounded-lg hover:bg-cyan-300 transition-colors">
+          <button className="px-6 py-3 bg-highlight text-black font-medium rounded-lg hover:bg-highlight-hover transition-colors">
             Schedule Optimization Call
           </button>
           <button className="px-6 py-3 border border-zinc-600 text-white font-medium rounded-lg hover:border-zinc-500 transition-colors">

@@ -1,12 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 export function FinalCTA() {
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-b from-white to-cyan-50">
+    <section className="py-24 lg:py-32 bg-gradient-to-b from-white to-highlight/5">
       <div className="container mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,12 +33,12 @@ export function FinalCTA() {
               Start Free Diagnostic
             </CTAPrimary>
 
-            <a
+            <Link
               href="/services"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#050505] font-semibold uppercase text-sm rounded-full hover:bg-zinc-50 transition-all duration-300 border-2 border-zinc-200 hover:border-[var(--color-cyan-primary)]"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#050505] font-semibold uppercase text-sm rounded-full hover:bg-zinc-50 transition-all duration-300 border-2 border-zinc-200 hover:border-highlight"
             >
               See Our Methodology
-            </a>
+            </Link>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-zinc-500">

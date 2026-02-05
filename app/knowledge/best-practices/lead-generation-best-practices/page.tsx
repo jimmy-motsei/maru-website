@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import TableOfContents from '@/components/docs/TableOfContents';
 
@@ -333,15 +334,15 @@ export default function LeadGenerationBestPracticesPage() {
               Use our assessment tools to identify opportunities in your current lead generation process and get personalized recommendations.
             </p>
             <div className="space-y-2">
-              <a href="/knowledge/assessment-tools/lead-score-predictor" className="text-blue-600 hover:text-blue-800 underline block">
+              <Link href="/knowledge/assessment-tools/lead-score-predictor" className="text-blue-600 hover:text-blue-800 underline block">
                 → Lead Score Predictor Guide
-              </a>
-              <a href="/knowledge/assessment-tools/pipeline-leak-detector" className="text-blue-600 hover:text-blue-800 underline block">
+              </Link>
+              <Link href="/knowledge/assessment-tools/pipeline-leak-detector" className="text-blue-600 hover:text-blue-800 underline block">
                 → Pipeline Leak Detector Guide
-              </a>
-              <a href="/knowledge/best-practices/assessment-optimization" className="text-blue-600 hover:text-blue-800 underline block">
+              </Link>
+              <Link href="/knowledge/best-practices/assessment-optimization" className="text-blue-600 hover:text-blue-800 underline block">
                 → Assessment Optimization Tips
-              </a>
+              </Link>
             </div>
           </div>
         </div>

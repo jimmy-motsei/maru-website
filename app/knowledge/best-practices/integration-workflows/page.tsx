@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import TableOfContents from '@/components/docs/TableOfContents';
 
@@ -590,15 +591,15 @@ export default function IntegrationWorkflowsPage() {
               Start connecting our assessment tools with your existing business systems to create seamless, automated workflows.
             </p>
             <div className="space-y-2">
-              <a href="/knowledge/technical/api-reference" className="text-blue-600 hover:text-blue-800 underline block">
+              <Link href="/knowledge/technical/api-reference" className="text-blue-600 hover:text-blue-800 underline block">
                 → API Reference Documentation
-              </a>
-              <a href="/knowledge/admin-analytics/dashboard-overview" className="text-blue-600 hover:text-blue-800 underline block">
+              </Link>
+              <Link href="/knowledge/admin-analytics/dashboard-overview" className="text-blue-600 hover:text-blue-800 underline block">
                 → Admin Dashboard Guide
-              </a>
-              <a href="/contact" className="text-blue-600 hover:text-blue-800 underline block">
+              </Link>
+              <Link href="/contact" className="text-blue-600 hover:text-blue-800 underline block">
                 → Contact Integration Support
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -107,7 +107,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 z-[60] bg-[#050505] text-white overflow-y-auto overflow-x-hidden"
+            className="fixed inset-0 z-[60] bg-[#09121A] text-white overflow-y-auto overflow-x-hidden"
           >
             {/* Overlay Header (Logo + Close Button) */}
             <div className="container mx-auto px-6 lg:px-12 py-6 lg:py-8 relative z-50">

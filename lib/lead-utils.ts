@@ -1,7 +1,7 @@
 import { dbLeadEngine } from './db';
 import { leads, leadActivities, assessments } from './db/schema/lead-engine';
-import { eq, desc } from 'drizzle-orm';
-import { Lead, LeadActivity } from './types/lead-generation';
+import { eq } from 'drizzle-orm';
+import { Lead } from './types/lead-generation';
 
 export async function createOrUpdateLead(data: {
   email: string;
@@ -21,7 +21,7 @@ export async function createOrUpdateLead(data: {
     const existingLead = existingLeads[0];
     
     // Update missing fields
-    const updateData: any = {};
+    const updateData: Record<string, string | Date> = {};
     if (data.company_name && !existingLead.companyName) updateData.companyName = data.company_name;
     if (data.website_url && !existingLead.website) updateData.website = data.website_url;
     if (data.industry && !existingLead.industry) updateData.industry = data.industry;
@@ -71,7 +71,7 @@ export async function createOrUpdateLead(data: {
 export async function trackActivity(
   leadId: string,
   activityType: string,
-  metadata?: Record<string, any>
+  metadata?: Record<string, unknown>
 ) {
   try {
     await dbLeadEngine.insert(leadActivities).values({

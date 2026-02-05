@@ -41,7 +41,6 @@ type FormData = z.infer<typeof schema>;
 export default function SupportTicketPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [estimatedCost, setEstimatedCost] = useState<string | null>(null);
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -74,13 +73,6 @@ export default function SupportTicketPage() {
   };
 
   // Simple estimate logic based on priority (just illustrative)
-  const priority = watch("priority");
-  
-  const getDepositText = () => {
-    if (hasSla === "yes") return "No deposit required (SLA Active)";
-    if (hasSla === "no") return "R375.00 Deposit required (Covers 1st hour due to no SLA)";
-    return "";
-  };
 
   if (isSuccess) {
     return (
@@ -116,7 +108,9 @@ export default function SupportTicketPage() {
         
         <div className="max-w-4xl mx-auto">
           <header className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Support Ticket</h1>
+            <h1 className="text-h1 font-medium text-white mb-4 leading-[1.2]">
+              Support <span className="font-thin text-zinc-500">Ticket</span>
+            </h1>
             <p className="text-zinc-400 text-lg font-light leading-relaxed">
               Log an issue, request a change, or ask a question. Please be as descriptive as possible.
             </p>

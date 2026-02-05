@@ -32,7 +32,7 @@ const breakPoints = [
 
 export function ThreeBreakPoints() {
   return (
-    <section className="py-24 lg:py-32 bg-[#050505]">
+    <section className="py-24 lg:py-32 bg-[#09121A]">
       <div className="container mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,13 +58,13 @@ export function ThreeBreakPoints() {
                   className="pb-12 border-b border-white/10 last:border-0"
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-[var(--color-cyan-primary)]/10 border-2 border-[var(--color-cyan-primary)]">
-                      <span className="text-2xl font-bold text-[var(--color-cyan-primary)]">
+                    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-highlight/10 border-2 border-highlight">
+                      <span className="text-2xl font-bold text-highlight">
                         {breakPoint.number}
                       </span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Icon className="w-6 h-6 text-[var(--color-cyan-primary)]" />
+                      <Icon className="w-6 h-6 text-highlight" />
                       <h3 className="text-2xl md:text-3xl font-semibold text-white">
                         {breakPoint.title}
                       </h3>
@@ -93,9 +93,9 @@ export function ThreeBreakPoints() {
                     </div>
 
                     {/* The Result */}
-                    <div className="bg-[var(--color-cyan-primary)]/10 border-l-4 border-[var(--color-cyan-primary)] p-6 rounded-r-xl">
+                    <div className="bg-highlight/10 border-l-4 border-highlight p-6 rounded-r-xl">
                       <p className="text-white leading-relaxed">
-                        <strong className="text-[var(--color-cyan-primary)]">The Result:</strong>{" "}
+                        <strong className="text-highlight">The Result:</strong>{" "}
                         {breakPoint.result}
                       </p>
                     </div>
@@ -109,7 +109,7 @@ export function ThreeBreakPoints() {
           <div className="mt-16 max-w-4xl mx-auto text-center">
             <p className="text-xl text-white/70 leading-relaxed">
               The solution isn't "try harder" or "hire more people." It's using the right methodology 
-              for your stage: <strong className="text-[var(--color-cyan-primary)]">Diagnose what's broken, 
+              for your stage: <strong className="text-highlight">Diagnose what's broken, 
               prioritize by impact, fix surgically, optimize continuously.</strong>
             </p>
           </div>

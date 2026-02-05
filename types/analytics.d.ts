@@ -2,8 +2,8 @@ export {};
 
 declare global {
   interface Window {
-    dataLayer: any[];
-    gtag?: (...args: any[]) => void;
-    trackConversion?: (event: string, data?: Record<string, any>) => void;
+    dataLayer: unknown[];
+    gtag?: (...args: unknown[]) => void;
+    trackConversion?: (event: string, data?: Record<string, unknown>) => void;
   }
 }

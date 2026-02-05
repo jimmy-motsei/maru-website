@@ -1,6 +1,6 @@
 import { generateAIResponse } from '@/lib/ai';
 
-interface ProposalInput {
+export interface ProposalInput {
   companyName: string;
   industry: string;
   companySize: string;
@@ -29,13 +29,21 @@ interface ProposalResult {
   competitiveAdvantages: string[];
 }
 
+interface Requirements {
+  complexity: 'low' | 'medium' | 'high';
+  urgency: 'low' | 'medium' | 'high';
+  budgetFit: 'low' | 'medium' | 'high';
+  stakeholderCount: number;
+  challengeLevel: number;
+}
+
 export async function generateProposal(input: ProposalInput): Promise<ProposalResult> {
   try {
     // 1. Analyze proposal requirements
     const requirements = analyzeRequirements(input);
     
     // 2. Generate AI-powered proposal content
-    const proposalContent = await generateProposalContent(input, requirements);
+    const proposalContent = await generateProposalContent(input);
     
     // 3. Calculate win probability and score
     const winProbability = calculateWinProbability(input, requirements);
@@ -61,7 +69,7 @@ export async function generateProposal(input: ProposalInput): Promise<ProposalRe
   }
 }
 
-function analyzeRequirements(input: ProposalInput) {
+function analyzeRequirements(input: ProposalInput): Requirements {
   return {
     complexity: assessComplexity(input),
     urgency: assessUrgency(input.timeline),
@@ -111,7 +119,7 @@ function assessStakeholders(stakeholders: string): number {
   return Math.min(stakeholderCount, 10);
 }
 
-async function generateProposalContent(input: ProposalInput, requirements: any): Promise<ProposalResult['proposal']> {
+async function generateProposalContent(input: ProposalInput): Promise<ProposalResult['proposal']> {
   const prompt = `Generate a professional business proposal for the following client:
 
 Company: ${input.companyName}
@@ -157,7 +165,7 @@ Return as JSON with keys: executiveSummary, problemStatement, proposedSolution, 
   }
 }
 
-function calculateWinProbability(input: ProposalInput, requirements: any): number {
+function calculateWinProbability(input: ProposalInput, requirements: Requirements): number {
   let probability = 50; // Base probability
 
   // Budget fit factor

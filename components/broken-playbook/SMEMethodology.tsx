@@ -36,7 +36,7 @@ const principles = [
 
 export function SMEMethodology() {
   return (
-    <section className="py-24 lg:py-32 bg-[#050505]">
+    <section className="py-24 lg:py-32 bg-[#09121A]">
       <div className="container mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,16 +59,16 @@ export function SMEMethodology() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-[var(--color-cyan-primary)]/50 transition-all duration-300"
+                  className="bg-white/5 border border-card-border rounded-2xl p-8 hover:bg-white/10 hover:border-highlight/50 transition-all duration-300"
                 >
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="flex items-center justify-center w-14 h-14 rounded-full bg-[var(--color-cyan-primary)]/10 border-2 border-[var(--color-cyan-primary)]">
-                      <span className="text-xl font-bold text-[var(--color-cyan-primary)]">
+                    <div className="flex items-center justify-center w-14 h-14 rounded-full bg-highlight/10 border-2 border-highlight">
+                      <span className="text-xl font-bold text-highlight">
                         {principle.number}
                       </span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Icon className="w-6 h-6 text-[var(--color-cyan-primary)]" />
+                      <Icon className="w-6 h-6 text-highlight" />
                       <h3 className="text-2xl font-semibold text-white">
                         {principle.title}
                       </h3>
@@ -79,9 +79,9 @@ export function SMEMethodology() {
                     {principle.description}
                   </p>
 
-                  <div className="bg-[var(--color-cyan-primary)]/10 border-l-4 border-[var(--color-cyan-primary)] p-4 rounded-r-xl ml-[72px]">
+                  <div className="bg-highlight/10 border-l-4 border-highlight p-4 rounded-r-xl ml-[72px]">
                     <p className="text-white/80 text-sm">
-                      <strong className="text-[var(--color-cyan-primary)]">Why It's Different:</strong>{" "}
+                      <strong className="text-highlight">Why It's Different:</strong>{" "}
                       {principle.whyDifferent}
                     </p>
                   </div>

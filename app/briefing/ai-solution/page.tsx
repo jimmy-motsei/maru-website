@@ -4,14 +4,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { motion } from "framer-motion";
-import { ArrowLeft, Send } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { Select } from "@/components/ui/Select";
-import { Checkbox } from "@/components/ui/Checkbox";
 import { Label } from "@/components/ui/Label";
 import { Button } from "@/components/ui/Button";
 
@@ -132,7 +130,9 @@ export default function AISolutionBriefing() {
         
         <div className="max-w-4xl mx-auto">
           <header className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">AI Solution Briefing</h1>
+            <h1 className="text-h1 font-medium text-white mb-4 leading-[1.2]">
+              AI Solution <span className="font-thin text-zinc-500">Briefing</span>
+            </h1>
             <p className="text-zinc-400 text-lg font-light leading-relaxed">
               This form captures your business needs for AI-powered solutions and automation. 
               Leave any unknowns blank — our team and tools will fill in the gaps.

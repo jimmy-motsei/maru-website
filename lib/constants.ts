@@ -7,7 +7,7 @@ export const COLORS = {
   CYAN_PRIMARY: '#22d3ee',
   CYAN_HOVER: '#1cb8cc',
   ACCENT: '#3db8c6',
-  DARK: '#050505',
+  DARK: '#09121A',
 } as const;
 
 // Spacing

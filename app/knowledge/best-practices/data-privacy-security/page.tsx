@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import TableOfContents from '@/components/docs/TableOfContents';
 
@@ -393,15 +394,15 @@ export default function DataPrivacySecurityPage() {
               We believe in complete transparency about our data practices. If you have any questions or concerns about privacy and security, we're here to help.
             </p>
             <div className="space-y-2">
-              <a href="/privacy-policy" className="text-blue-600 hover:text-blue-800 underline block">
+              <Link href="/privacy-policy" className="text-blue-600 hover:text-blue-800 underline block">
                 → Full Privacy Policy
-              </a>
-              <a href="/knowledge/faq-support/faq" className="text-blue-600 hover:text-blue-800 underline block">
+              </Link>
+              <Link href="/knowledge/faq-support/faq" className="text-blue-600 hover:text-blue-800 underline block">
                 → Privacy FAQ
-              </a>
-              <a href="/contact" className="text-blue-600 hover:text-blue-800 underline block">
+              </Link>
+              <Link href="/contact" className="text-blue-600 hover:text-blue-800 underline block">
                 → Contact Privacy Team
-              </a>
+              </Link>
             </div>
           </div>
         </div>

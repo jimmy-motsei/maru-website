@@ -11,7 +11,7 @@ export function BrokenPlaybookHero() {
   };
 
   return (
-    <section className="relative bg-[#050505] py-24 lg:py-32 overflow-hidden">
+    <section className="relative bg-[#09121A] py-24 lg:py-32 overflow-hidden">
       <AtmosphericBackground variant="hero" />
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <motion.div

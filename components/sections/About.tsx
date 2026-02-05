@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { fadeUpVariants, staggerContainerVariants, scaleInVariants } from "@/lib/animations";
+import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
 
 export function About() {
   return (

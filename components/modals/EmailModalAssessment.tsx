@@ -138,7 +138,7 @@ const assessmentSteps: FormStep[] = [
 ];
 
 export function EmailModalAssessment({ isOpen, onClose }: EmailModalAssessmentProps) {
-  const handleSubmit = async (data: Record<string, any>) => {
+  const handleSubmit = async (data: Record<string, string | number>) => {
     try {
       // In a real scenario, this would call an API route that uses Firecrawl, Gemini, and Resend
       console.log("Form data submitted:", data);

@@ -57,7 +57,17 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function processFirecrawlData(firecrawlData: any, url: string) {
+interface FirecrawlData {
+  data: {
+    metadata?: {
+      title?: string;
+      description?: string;
+    };
+    html?: string;
+  };
+}
+
+function processFirecrawlData(firecrawlData: FirecrawlData, url: string) {
   const content = firecrawlData.data;
   
   return {

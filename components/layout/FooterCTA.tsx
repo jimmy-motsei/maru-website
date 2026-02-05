@@ -28,7 +28,7 @@ export function FooterCTA() {
   return (
     <footer className="bg-dark">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-6 lg:px-8 py-16 lg:py-20">
+      <div className="container mx-auto px-6 lg:px-8 py-section">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -42,13 +42,13 @@ export function FooterCTA() {
               <Link href="/" className="inline-block mb-6">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/brand/maru-logo-neutral.png"
+                  src="/images/brand/maru-logo-burnt.png"
                   alt="Maru Logo"
-                  className="h-[200px] w-auto"
+                  className="h-[80px] w-auto"
                 />
               </Link>
-              <p className="text-white/60 text-base leading-relaxed mb-6">
-                Solving marketing problems for African SMEs—one broken system at a time.
+              <p className="text-white/60 text-base leading-relaxed mb-6 font-light">
+                Building revenue infrastructure for African SMEs—one system at a time.
               </p>
               {/* Social Icons */}
               <div className="flex items-center gap-3">
@@ -58,7 +58,7 @@ export function FooterCTA() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-accent hover:border-accent/50 transition-all duration-300"
+                    className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-highlight hover:border-highlight/50 transition-all duration-300"
                     aria-label={item.name}
                   >
                     {item.icon}
@@ -69,13 +69,13 @@ export function FooterCTA() {
 
             {/* Navigation Column */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-white font-semibold mb-6 text-lg">Navigation</h4>
+              <h4 className="text-white font-medium mb-6 text-[18px] uppercase tracking-wide">Navigation</h4>
               <ul className="space-y-4">
                 {footerNavigation.main.map((item) => (
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
+                      className="text-white/50 hover:text-highlight transition-colors duration-300 text-base font-light"
                     >
                       {item.name}
                     </Link>
@@ -86,7 +86,7 @@ export function FooterCTA() {
 
             {/* Services Column */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-white font-semibold mb-6 text-lg">Services</h4>
+              <h4 className="text-white font-medium mb-6 text-[18px] uppercase tracking-wide">Services</h4>
               <ul className="space-y-4">
                 <li>
                   <Link
@@ -125,17 +125,17 @@ export function FooterCTA() {
 
             {/* Contact Column */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-white font-semibold mb-6 text-lg">Get in Touch</h4>
+              <h4 className="text-white font-medium mb-6 text-[18px] uppercase tracking-wide">Get in Touch</h4>
               <ul className="space-y-4">
                 <li>
                   <a
                     href="mailto:hello@maruonline.com"
-                    className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
+                    className="text-white/50 hover:text-highlight transition-colors duration-300 text-base font-light"
                   >
                     hello@maruonline.com
                   </a>
                 </li>
-                <li className="text-white/50 text-base">
+                <li className="text-white/50 text-base font-light">
                   Johannesburg, South Africa
                 </li>
               </ul>

@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import { FileText, Bot, CheckCircle, Database, Server, LucideIcon } from "lucide-react";
+import { Bot, CheckCircle, Database, Server } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 

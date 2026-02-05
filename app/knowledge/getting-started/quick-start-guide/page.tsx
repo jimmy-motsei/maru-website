@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import { Callout, CodeBlock, Step } from '@/components/docs/ContentComponents';
 
@@ -46,18 +47,18 @@ export default function QuickStartGuidePage() {
             <p className="text-sm text-slate-600 mb-3">
               Best for: Understanding your website's lead generation potential
             </p>
-            <a href="/assessments/lead-score" className="text-accent hover:underline text-sm">
+            <Link href="/assessments/lead-score" className="text-accent hover:underline text-sm">
               Start Assessment →
-            </a>
+            </Link>
           </div>
           <div className="border border-slate-200 rounded-lg p-4">
             <h4 className="font-semibold mb-2">🔍 Pipeline Leak Detector</h4>
             <p className="text-sm text-slate-600 mb-3">
               Best for: Analyzing existing sales pipeline data
             </p>
-            <a href="/assessments/pipeline-leak" className="text-accent hover:underline text-sm">
+            <Link href="/assessments/pipeline-leak" className="text-accent hover:underline text-sm">
               Start Assessment →
-            </a>
+            </Link>
           </div>
         </div>
       </Step>
@@ -141,14 +142,14 @@ Password: MaruAdmin2024!`}
 
       <h3>Recommended Reading</h3>
       <div className="grid md:grid-cols-2 gap-4 mt-6">
-        <a href="/knowledge/assessment-tools/lead-score-predictor" className="border border-slate-200 rounded-lg p-4 hover:border-accent transition-colors">
+        <Link href="/knowledge/assessment-tools/lead-score-predictor" className="border border-slate-200 rounded-lg p-4 hover:border-accent transition-colors">
           <h4 className="font-semibold text-slate-900 mb-2">Lead Score Predictor Deep Dive</h4>
           <p className="text-slate-600 text-sm">Master the lead scoring system</p>
-        </a>
-        <a href="/knowledge/admin-analytics/dashboard-overview" className="border border-slate-200 rounded-lg p-4 hover:border-accent transition-colors">
+        </Link>
+        <Link href="/knowledge/admin-analytics/dashboard-overview" className="border border-slate-200 rounded-lg p-4 hover:border-accent transition-colors">
           <h4 className="font-semibold text-slate-900 mb-2">Dashboard Overview</h4>
           <p className="text-slate-600 text-sm">Navigate the admin interface</p>
-        </a>
+        </Link>
       </div>
 
       <h2>Common Questions</h2>
@@ -172,8 +173,8 @@ Password: MaruAdmin2024!`}
 
       <Callout type="info" title="Need Help?">
         <p>
-          If you encounter any issues or have questions, check our <a href="/knowledge/faq-support/faq" className="text-accent hover:underline">FAQ section</a> or 
-          <a href="/contact" className="text-accent hover:underline ml-1">contact our support team</a>.
+          If you encounter any issues or have questions, check our <Link href="/knowledge/faq-support/faq" className="text-accent hover:underline">FAQ section</Link> or 
+          <Link href="/contact" className="text-accent hover:underline ml-1">contact our support team</Link>.
         </p>
       </Callout>
     </DocLayout>

@@ -17,7 +17,14 @@ interface LeadScoreResult {
   };
 }
 
-export async function analyzeWebsite(input: any): Promise<LeadScoreResult> {
+export interface WebsiteAnalysisInput {
+  website_url: string;
+  company_name: string;
+  industry: string;
+  company_size: string;
+}
+
+export async function analyzeWebsite(input: WebsiteAnalysisInput): Promise<LeadScoreResult> {
   const { website_url, company_name, industry, company_size } = input;
 
   try {
@@ -110,8 +117,7 @@ Provide specific, actionable recommendations tailored to their industry and size
   try {
     return await generateStructuredResponse<LeadScoreResult>(
       prompt,
-      systemPrompt,
-      null
+      systemPrompt
     );
   } catch (error) {
     console.error('AI analysis error:', error);

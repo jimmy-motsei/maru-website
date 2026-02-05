@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import { Play, Clock, Users, Settings, Code } from 'lucide-react';
 
@@ -115,9 +116,9 @@ export default function VideoTutorialsPage() {
           <p className="text-dark/60 mb-4">
             Explore our comprehensive written documentation while you wait.
           </p>
-          <a href="/knowledge/getting-started/quick-start-guide" className="text-accent hover:underline">
+          <Link href="/knowledge/getting-started/quick-start-guide" className="text-accent hover:underline">
             Read the Quick Start Guide →
-          </a>
+          </Link>
         </div>
         
         <div className="border border-gray-200 rounded-lg p-6">
@@ -125,9 +126,9 @@ export default function VideoTutorialsPage() {
           <p className="text-dark/60 mb-4">
             Start using the assessment tools right away with our written guides.
           </p>
-          <a href="/assessments/lead-score" className="text-accent hover:underline">
+          <Link href="/assessments/lead-score" className="text-accent hover:underline">
             Try Lead Score Predictor →
-          </a>
+          </Link>
         </div>
       </div>
 

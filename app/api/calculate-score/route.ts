@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from 'next/server';
 interface ScrapeData {
   loadTime?: number;
   mobileResponsive?: boolean;
-  ctaButtons?: any[];
-  forms?: any[];
-  leadMagnets?: any[];
+  ctaButtons?: unknown[];
+  forms?: unknown[];
+  leadMagnets?: unknown[];
   liveChatPresent?: boolean;
   exitPopupPresent?: boolean;
   emailCapturePoints?: number;

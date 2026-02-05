@@ -139,12 +139,12 @@ export default function AIReadinessPage() {
       {/* Minimal Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm">
         <div className="container mx-auto px-6 lg:px-8 py-6">
-          <Link href="/" className="text-white font-bold text-3xl tracking-tight hover:text-[var(--color-cyan-primary)] transition-colors">M.</Link>
+          <Link href="/" className="text-white font-bold text-3xl tracking-tight hover:text-highlight transition-colors">M.</Link>
         </div>
         {/* Progress Bar */}
         <div className="h-1 bg-white/5 w-full">
            <motion.div
-             className="h-full bg-[var(--color-cyan-primary)] shadow-[0_0_10px_rgba(34,211,238,0.5)]"
+             className="h-full bg-highlight shadow-[0_0_10px_rgba(230,127,62,0.5)]"
              initial={{ width: 0 }}
              animate={{ width: `${progress}%` }}
              transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -166,14 +166,14 @@ export default function AIReadinessPage() {
                 transition={{ duration: 0.4 }}
                 className="text-center"
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-cyan-primary)]/10 border border-[var(--color-cyan-primary)]/30 mb-8">
-                  <Sparkles size={16} className="text-[var(--color-cyan-primary)]" />
-                  <span className="text-sm font-medium text-[var(--color-cyan-primary)] uppercase tracking-wider">Free AI-Powered Assessment Tool</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-highlight/10 border border-highlight/30 mb-8">
+                  <Sparkles size={16} className="text-highlight" />
+                  <span className="text-sm font-medium text-highlight uppercase tracking-wider">Free AI-Powered Assessment Tool</span>
                 </div>
 
-                <h1 className="hero-h1 mb-6">
-                  <span className="font-extralight text-zinc-500">Is your Marketing</span>{" "}
-                  <span className="font-bold text-white">Ai-Optimized?</span>
+                <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
+                  Is your Marketing <br className="hidden md:block" />
+                  <span className="font-thin text-zinc-500">Ai-Optimized?</span>
                 </h1>
 
                 <p className="text-[18px] md:text-[22px] lg:text-[24px] font-light text-zinc-400 leading-[1.5] mb-12 max-w-3xl mx-auto">
@@ -205,7 +205,7 @@ export default function AIReadinessPage() {
                 </div>
 
                 {/* Pillar Badge */}
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--color-cyan-primary)]/10 text-[var(--color-cyan-primary)] text-xs font-bold tracking-wider uppercase mb-6">
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-highlight/10 text-highlight text-xs font-bold tracking-wider uppercase mb-6">
                   {currentQuestion.pillar}
                 </div>
 
@@ -224,13 +224,13 @@ export default function AIReadinessPage() {
                         onClick={() => handleAnswer(currentQuestion.id, option.score)}
                         className={`w-full text-left p-6 rounded-xl border transition-all duration-300 group ${
                           isSelected
-                            ? "border-[var(--color-cyan-primary)] bg-[var(--color-cyan-primary)]/10 text-white"
-                            : "border-white/10 bg-white/5 text-white/60 hover:border-[var(--color-cyan-primary)]/50 hover:bg-white/10 hover:text-white"
+                            ? "border-highlight bg-highlight/10 text-white"
+                            : "border-white/10 bg-white/5 text-white/60 hover:border-highlight/50 hover:bg-white/10 hover:text-white"
                         }`}
                       >
                         <div className="flex items-center justify-between">
                           <span className="text-lg font-medium">{option.label}</span>
-                          {isSelected && <CheckCircle size={24} className="text-[var(--color-cyan-primary)]" />}
+                          {isSelected && <CheckCircle size={24} className="text-highlight" />}
                         </div>
                       </button>
                     );
@@ -250,7 +250,7 @@ export default function AIReadinessPage() {
                   {answers[currentQuestion.id] !== undefined && (
                     <button
                       onClick={handleNext}
-                      className="flex items-center gap-2 text-[var(--color-cyan-primary)] hover:text-[var(--color-cyan-primary)]/80 transition-colors font-medium border-b border-[var(--color-cyan-primary)] pb-0.5"
+                      className="flex items-center gap-2 text-highlight hover:text-highlight-hover transition-colors font-medium border-b border-highlight pb-0.5"
                     >
                       <span>Next</span>
                       <ArrowRight size={18} />
@@ -366,7 +366,7 @@ export default function AIReadinessPage() {
                       stroke="currentColor"
                       strokeWidth="12"
                       strokeLinecap="round"
-                      className="text-[var(--color-cyan-primary)]"
+                      className="text-highlight"
                       strokeDasharray={553}
                       initial={{ strokeDashoffset: 553 }}
                       animate={{ strokeDashoffset: 553 - (553 * score) / 100 }}

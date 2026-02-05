@@ -1,8 +1,8 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenerativeAI, GenerativeModel } from '@google/generative-ai';
 
 // Only initialize if API key is present
 let genAI: GoogleGenerativeAI | null = null;
-let model: any = null;
+let model: GenerativeModel | null = null;
 
 if (process.env.GEMINI_API_KEY) {
   genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);

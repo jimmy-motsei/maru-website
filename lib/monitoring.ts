@@ -4,7 +4,7 @@ interface LogEntry {
   timestamp: string;
   level: 'info' | 'warn' | 'error';
   message: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   ip?: string;
   userAgent?: string;
   endpoint?: string;
@@ -17,7 +17,7 @@ class Logger {
   private createLogEntry(
     level: LogEntry['level'],
     message: string,
-    metadata?: Record<string, any>,
+    metadata?: Record<string, unknown>,
     request?: NextRequest
   ): LogEntry {
     return {
@@ -46,19 +46,19 @@ class Logger {
     return 'unknown';
   }
 
-  info(message: string, metadata?: Record<string, any>, request?: NextRequest) {
+  info(message: string, metadata?: Record<string, unknown>, request?: NextRequest) {
     const entry = this.createLogEntry('info', message, metadata, request);
     this.addLog(entry);
     console.log(`[INFO] ${message}`, metadata);
   }
 
-  warn(message: string, metadata?: Record<string, any>, request?: NextRequest) {
+  warn(message: string, metadata?: Record<string, unknown>, request?: NextRequest) {
     const entry = this.createLogEntry('warn', message, metadata, request);
     this.addLog(entry);
     console.warn(`[WARN] ${message}`, metadata);
   }
 
-  error(message: string, metadata?: Record<string, any>, request?: NextRequest) {
+  error(message: string, metadata?: Record<string, unknown>, request?: NextRequest) {
     const entry = this.createLogEntry('error', message, metadata, request);
     this.addLog(entry);
     console.error(`[ERROR] ${message}`, metadata);
@@ -182,7 +182,7 @@ export class PerformanceMonitor {
   getSlowEndpoints(threshold = 1000): Array<{ endpoint: string; avgTime: number }> {
     const slowEndpoints: Array<{ endpoint: string; avgTime: number }> = [];
     
-    for (const [endpoint, times] of this.metrics.entries()) {
+    for (const [endpoint, _times] of this.metrics.entries()) {
       const avgTime = this.getAverageResponseTime(endpoint);
       if (avgTime > threshold) {
         slowEndpoints.push({ endpoint, avgTime });

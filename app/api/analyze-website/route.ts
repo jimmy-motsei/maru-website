@@ -73,16 +73,17 @@ export async function POST(request: NextRequest) {
       }
 
       html = await response.text();
-    } catch (error: any) {
+    } catch (error) {
       clearTimeout(timeout);
-      if (error.name === 'AbortError') {
+      const err = error as Error;
+      if (err.name === 'AbortError') {
         return NextResponse.json(
           { error: 'Request timeout - website took too long to respond' },
           { status: 408 }
         );
       }
       return NextResponse.json(
-        { error: `Failed to fetch website: ${error.message}` },
+        { error: `Failed to fetch website: ${err.message}` },
         { status: 500 }
       );
     }
@@ -96,7 +97,7 @@ export async function POST(request: NextRequest) {
     const analysis = analyzeWebsite($, html, targetUrl, fetchTime);
 
     return NextResponse.json(analysis);
-  } catch (error: any) {
+  } catch (error) {
     console.error('Analysis error:', error);
     return NextResponse.json(
       { error: 'Internal server error during analysis' },

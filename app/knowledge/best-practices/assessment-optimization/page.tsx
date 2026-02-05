@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import TableOfContents from '@/components/docs/TableOfContents';
 
@@ -409,15 +410,15 @@ export default function AssessmentOptimizationPage() {
               Apply these optimization techniques to get more accurate and actionable insights from our assessment tools.
             </p>
             <div className="space-y-2">
-              <a href="/knowledge/assessment-tools/lead-score-predictor" className="text-blue-600 hover:text-blue-800 underline block">
+              <Link href="/knowledge/assessment-tools/lead-score-predictor" className="text-blue-600 hover:text-blue-800 underline block">
                 → Start with Lead Score Predictor
-              </a>
-              <a href="/knowledge/best-practices/lead-generation-best-practices" className="text-blue-600 hover:text-blue-800 underline block">
+              </Link>
+              <Link href="/knowledge/best-practices/lead-generation-best-practices" className="text-blue-600 hover:text-blue-800 underline block">
                 → Review Lead Generation Best Practices
-              </a>
-              <a href="/knowledge/faq-support/faq" className="text-blue-600 hover:text-blue-800 underline block">
+              </Link>
+              <Link href="/knowledge/faq-support/faq" className="text-blue-600 hover:text-blue-800 underline block">
                 → Check FAQ for Common Questions
-              </a>
+              </Link>
             </div>
           </div>
         </div>

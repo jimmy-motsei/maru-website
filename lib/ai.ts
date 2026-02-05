@@ -22,8 +22,7 @@ export async function generateAIResponse(prompt: string, systemPrompt?: string):
 
 export async function generateStructuredResponse<T>(
   prompt: string,
-  systemPrompt: string,
-  schema: any
+  systemPrompt: string
 ): Promise<T> {
   try {
     const response = await generateAIResponse(prompt, systemPrompt);
@@ -31,7 +30,7 @@ export async function generateStructuredResponse<T>(
     // Try to parse JSON response
     try {
       return JSON.parse(response) as T;
-    } catch (parseError) {
+    } catch {
       // If JSON parsing fails, extract JSON from response
       const jsonMatch = response.match(/\{[\s\S]*\}/);
       if (jsonMatch) {

@@ -40,7 +40,7 @@ const services = [
 
 export function ServicesOverview() {
   return (
-    <section className="py-24 lg:py-32 bg-[#050505]">
+    <section className="py-24 lg:py-32 bg-[#09121A]">
       <div className="container mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,11 +63,11 @@ export function ServicesOverview() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-[var(--color-cyan-primary)]/50 transition-all duration-300"
+                  className="bg-white/5 border border-card-border rounded-2xl p-8 hover:bg-white/10 hover:border-highlight/50 transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-cyan-primary)]/10 border-2 border-[var(--color-cyan-primary)]">
-                      <Icon className="w-6 h-6 text-[var(--color-cyan-primary)]" />
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-highlight/10 border-2 border-highlight">
+                      <Icon className="w-6 h-6 text-highlight" />
                     </div>
                     <h3 className="text-xl font-semibold text-white">
                       {service.title}
@@ -105,7 +105,7 @@ export function ServicesOverview() {
 
                   <a
                     href={service.href}
-                    className="inline-flex items-center gap-2 text-[var(--color-cyan-primary)] hover:text-[var(--color-cyan-hover)] font-medium transition-colors group"
+                    className="inline-flex items-center gap-2 text-highlight hover:text-highlight-hover font-medium transition-colors group"
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

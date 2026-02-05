@@ -7,8 +7,8 @@ import { FormStep } from '@/lib/types/lead-generation';
 
 interface MultiStepFormProps {
   steps: FormStep[];
-  onSubmit: (data: Record<string, any>) => Promise<void>;
-  onStepChange?: (step: number, data: Record<string, any>) => void;
+  onSubmit: (data: Record<string, string | number>) => Promise<void>;
+  onStepChange?: (step: number, data: Record<string, string | number>) => void;
   className?: string;
 }
 
@@ -19,10 +19,10 @@ export default function MultiStepForm({
   className = '' 
 }: MultiStepFormProps) {
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<Record<string, any>>({});
+  const [formData, setFormData] = useState<Record<string, string | number>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const updateFormData = (stepData: Record<string, any>) => {
+  const updateFormData = (stepData: Record<string, string | number>) => {
     const newData = { ...formData, ...stepData };
     setFormData(newData);
     onStepChange?.(currentStep, newData);
@@ -170,10 +170,10 @@ function StepForm({
   onChange 
 }: { 
   step: FormStep; 
-  data: Record<string, any>; 
-  onChange: (data: Record<string, any>) => void;
+  data: Record<string, string | number>; 
+  onChange: (data: Record<string, string | number>) => void;
 }) {
-  const handleFieldChange = (name: string, value: any) => {
+  const handleFieldChange = (name: string, value: string | number) => {
     onChange({ [name]: value });
   };
 
@@ -190,7 +190,7 @@ function StepForm({
             <input
               type={field.type}
               placeholder={field.placeholder}
-              value={data[field.name] || ''}
+              value={data[field.name] ?? ''}
               onChange={(e) => handleFieldChange(field.name, e.target.value)}
               className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-cyan-400"
               required={field.required}
@@ -215,7 +215,7 @@ function StepForm({
           ) : field.type === 'textarea' ? (
             <textarea
               placeholder={field.placeholder}
-              value={data[field.name] || ''}
+              value={data[field.name] ?? ''}
               onChange={(e) => handleFieldChange(field.name, e.target.value)}
               rows={4}
               className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-cyan-400"
@@ -223,7 +223,7 @@ function StepForm({
             />
           ) : field.type === 'select' ? (
             <select
-              value={data[field.name] || ''}
+              value={data[field.name] ?? ''}
               onChange={(e) => handleFieldChange(field.name, e.target.value)}
               className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-cyan-400"
               required={field.required}
@@ -239,7 +239,7 @@ function StepForm({
             <input
               type="number"
               placeholder={field.placeholder}
-              value={data[field.name] || ''}
+              value={data[field.name] ?? ''}
               onChange={(e) => handleFieldChange(field.name, Number(e.target.value))}
               min={field.validation?.min}
               max={field.validation?.max}

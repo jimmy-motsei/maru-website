@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import { Callout, CodeBlock, TableOfContents } from '@/components/docs/ContentComponents';
 
@@ -384,7 +385,7 @@ leads = fetch_leads({
       <Callout type="info" title="Need Help?">
         <p>
           For technical support or questions about API integration, 
-          <a href="/contact" className="text-accent hover:underline">contact our development team</a>.
+          <Link href="/contact" className="text-accent hover:underline">contact our development team</Link>.
         </p>
       </Callout>
     </DocLayout>

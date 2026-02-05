@@ -1,7 +1,7 @@
 import { generateAIResponse } from '@/lib/ai';
 import { supabaseAdmin } from '@/lib/supabase';
 
-interface ToolSelection {
+export interface ToolSelection {
   toolId: string;
   name: string;
   category: string;
@@ -10,7 +10,7 @@ interface ToolSelection {
   usageFrequency: 'daily' | 'weekly' | 'monthly' | 'rarely';
 }
 
-interface TechAuditInput {
+export interface TechAuditInput {
   selectedTools: ToolSelection[];
   companySize: string;
   industry: string;
@@ -57,10 +57,10 @@ export async function auditTechStack(input: TechAuditInput): Promise<TechAuditRe
     const redundancies = identifyRedundancies(input.selectedTools);
 
     // 3. Find optimization opportunities
-    const optimizations = findOptimizations(input.selectedTools, input);
+    const optimizations = findOptimizations(input.selectedTools);
 
     // 4. Calculate efficiency score
-    const score = calculateEfficiencyScore(input, redundancies, optimizations);
+    const score = calculateEfficiencyScore(input, redundancies);
 
     // 5. Generate AI recommendations
     const recommendations = await generateRecommendations(input, redundancies, optimizations);
@@ -173,7 +173,7 @@ function findRedundantPairs(tools: ToolSelection[], category: string): Redundanc
   return redundancies;
 }
 
-function findOptimizations(tools: ToolSelection[], input: TechAuditInput): Optimization[] {
+function findOptimizations(tools: ToolSelection[]): Optimization[] {
   const optimizations: Optimization[] = [];
 
   // Cost optimizations
@@ -214,8 +214,7 @@ function findOptimizations(tools: ToolSelection[], input: TechAuditInput): Optim
 
 function calculateEfficiencyScore(
   input: TechAuditInput, 
-  redundancies: Redundancy[], 
-  optimizations: Optimization[]
+  redundancies: Redundancy[]
 ): number {
   let score = 100;
 
@@ -310,8 +309,10 @@ function createSummary(redundancies: Redundancy[], optimizations: Optimization[]
   };
 }
 
+import { Tool } from '@/lib/types/lead-generation';
+
 // Helper function to get available tools from database
-export async function getAvailableTools(): Promise<any[]> {
+export async function getAvailableTools(): Promise<Tool[]> {
   try {
     const { data: tools, error } = await supabaseAdmin
       .from('tools')

@@ -7,7 +7,7 @@ const requiredEnvVars = [
   'NEXT_PUBLIC_SITE_URL',
 ] as const;
 
-const optionalEnvVars = [
+const _optionalEnvVars = [
   'SUPABASE_URL',
   'SUPABASE_ANON_KEY',
   'GOOGLE_AI_API_KEY',

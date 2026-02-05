@@ -1,13 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+interface EmailData {
+  assessmentType: string;
+  contactInfo?: {
+    first_name?: string;
+    company_name?: string;
+  };
+  assessmentData?: {
+    score?: number;
+    recommendations?: string[];
+    revenueAtRisk?: number;
+    stalledDeals?: number;
+  };
+}
+
 // Email templates
 const emailTemplates = {
   assessment_complete: {
     subject: (assessmentType: string, companyName: string) => 
       `Your ${getAssessmentDisplayName(assessmentType)} Results - ${companyName}`,
     
-    html: (data: any) => `
+    html: (data: EmailData) => `
       <!DOCTYPE html>
       <html>
       <head>
@@ -58,7 +72,7 @@ const emailTemplates = {
   follow_up: {
     subject: (companyName: string) => `Ready to implement your recommendations? - ${companyName}`,
     
-    html: (data: any) => `
+    html: (data: EmailData) => `
       <!DOCTYPE html>
       <html>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -104,7 +118,7 @@ function getAssessmentDisplayName(type: string): string {
   return names[type as keyof typeof names] || 'Assessment';
 }
 
-function getAssessmentHighlights(data: any): string {
+function getAssessmentHighlights(data: EmailData): string {
   switch (data.assessmentType) {
     case 'lead_score':
       return `

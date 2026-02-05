@@ -76,7 +76,7 @@ export default function PipelineLeakPage() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-cyan-400/20 border-t-cyan-400 rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 border-4 border-highlight/20 border-t-highlight rounded-full animate-spin mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-white mb-2">Analyzing Your Pipeline</h2>
           <p className="text-zinc-400">Detecting leaks and bottlenecks...</p>
         </div>
@@ -142,7 +142,7 @@ export default function PipelineLeakPage() {
                   </p>
                 </label>
                 {file && (
-                  <p className="text-cyan-400 mt-2">✓ {file.name}</p>
+                  <p className="text-highlight mt-2">✓ {file.name}</p>
                 )}
               </div>
             </div>
@@ -155,7 +155,7 @@ export default function PipelineLeakPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+                className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:border-highlight focus:outline-none"
                 placeholder="your@email.com"
                 required
               />
@@ -164,7 +164,7 @@ export default function PipelineLeakPage() {
             <button
               type="submit"
               disabled={!file || !email}
-              className="w-full px-6 py-3 bg-cyan-400 text-black font-medium rounded-lg hover:bg-cyan-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full px-6 py-3 bg-highlight text-black font-medium rounded-lg hover:bg-highlight-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Analyze Pipeline
             </button>
@@ -173,7 +173,7 @@ export default function PipelineLeakPage() {
 
         <div className="grid md:grid-cols-3 gap-6 text-center">
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
-            <FileText className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
+            <FileText className="w-8 h-8 text-highlight mx-auto mb-3" />
             <h3 className="font-semibold text-white mb-2">CSV Analysis</h3>
             <p className="text-sm text-zinc-400">Upload your CRM data for automated pipeline analysis</p>
           </div>
@@ -252,7 +252,7 @@ function PipelineResults({ results }: { results: PipelineLeakResult }) {
           <div className="text-sm text-zinc-400">Revenue at Risk</div>
         </div>
         <div className="p-4 bg-zinc-900 border border-zinc-800 rounded-lg text-center">
-          <div className="text-2xl font-bold text-cyan-400">{results.summary.quickWins.length}</div>
+          <div className="text-2xl font-bold text-highlight">{results.summary.quickWins.length}</div>
           <div className="text-sm text-zinc-400">Quick Wins</div>
         </div>
       </div>
@@ -338,13 +338,13 @@ function PipelineResults({ results }: { results: PipelineLeakResult }) {
       </div>
 
       {/* Next Steps */}
-      <div className="p-6 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-cyan-800/30 rounded-xl">
+      <div className="p-6 bg-gradient-to-r from-highlight/20 to-highlight/5 border border-highlight/30 rounded-xl">
         <h3 className="text-lg font-semibold text-white mb-2">Ready to Fix Your Pipeline?</h3>
         <p className="text-zinc-400 mb-4">
           Get expert help implementing these recommendations and optimizing your sales process.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
-          <button className="px-6 py-3 bg-cyan-400 text-black font-medium rounded-lg hover:bg-cyan-300 transition-colors">
+          <button className="px-6 py-3 bg-highlight text-black font-medium rounded-lg hover:bg-highlight-hover transition-colors">
             Schedule Pipeline Review
           </button>
           <button className="px-6 py-3 border border-zinc-600 text-white font-medium rounded-lg hover:border-zinc-500 transition-colors flex items-center gap-2">

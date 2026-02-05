@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import { Callout, CodeBlock, Step, TableOfContents } from '@/components/docs/ContentComponents';
 
@@ -244,14 +245,14 @@ export default function FirstAssessmentPage() {
 
       <h3>Recommended Next Articles</h3>
       <div className="grid md:grid-cols-2 gap-4 mt-6">
-        <a href="/knowledge/assessment-tools/lead-score-predictor" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
+        <Link href="/knowledge/assessment-tools/lead-score-predictor" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
           <h4 className="font-medium text-dark mb-2">Lead Score Predictor Deep Dive</h4>
           <p className="text-dark/60 text-sm">Master all features of the lead scoring system</p>
-        </a>
-        <a href="/knowledge/admin-analytics/dashboard-overview" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
+        </Link>
+        <Link href="/knowledge/admin-analytics/dashboard-overview" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
           <h4 className="font-medium text-dark mb-2">Admin Dashboard Overview</h4>
           <p className="text-dark/60 text-sm">Learn to navigate and use the dashboard effectively</p>
-        </a>
+        </Link>
       </div>
     </DocLayout>
   );

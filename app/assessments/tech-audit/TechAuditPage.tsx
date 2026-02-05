@@ -2,16 +2,23 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Settings, DollarSign, TrendingUp, Search } from 'lucide-react';
-import MultiStepForm from '@/components/lead-generation/MultiStepForm';
+import { Settings, Search } from 'lucide-react';
 import GatedResultContainer from '@/components/lead-generation/GatedResultContainer';
-import { FormStep, TechAuditResult, Tool } from '@/lib/types/lead-generation';
+import { TechAuditResult, Tool } from '@/lib/types/lead-generation';
+
+interface SelectedTool {
+  tool_id: string;
+  name: string;
+  category: string;
+  monthly_cost: number;
+  users_count: number;
+}
 
 export default function TechAuditPage() {
   const [results, setResults] = useState<TechAuditResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [tools, setTools] = useState<Tool[]>([]);
-  const [selectedTools, setSelectedTools] = useState<any[]>([]);
+  const [selectedTools, setSelectedTools] = useState<SelectedTool[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -57,7 +64,7 @@ export default function TechAuditPage() {
     ));
   };
 
-  const handleSubmit = async (formData: Record<string, any>) => {
+  const handleSubmit = async (formData: Record<string, unknown>) => {
     if (selectedTools.length === 0) {
       alert('Please select at least one tool to audit');
       return;
@@ -94,7 +101,7 @@ export default function TechAuditPage() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-cyan-400/20 border-t-cyan-400 rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 border-4 border-highlight/20 border-t-highlight rounded-full animate-spin mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-white mb-2">Auditing Your Tech Stack</h2>
           <p className="text-zinc-400">Analyzing costs and detecting redundancies...</p>
         </div>
@@ -111,7 +118,9 @@ export default function TechAuditPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold text-white mb-4">Tech Stack Audit Results</h1>
+            <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
+              Tech Stack <span className="font-thin text-zinc-500">Audit Results</span>
+            </h1>
             <p className="text-xl text-zinc-400">ROI analysis and optimization recommendations</p>
           </motion.div>
 
@@ -134,7 +143,9 @@ export default function TechAuditPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-400/10 rounded-full mb-6">
             <Settings className="w-8 h-8 text-purple-400" />
           </div>
-          <h1 className="text-4xl font-bold text-white mb-4">Tech Stack ROI Auditor</h1>
+          <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
+            Tech Stack <span className="font-thin text-zinc-500">ROI Auditor</span>
+          </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
             Analyze your software stack for redundancies and cost optimization opportunities
           </p>
@@ -152,7 +163,7 @@ export default function TechAuditPage() {
                 placeholder="Search tools..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-cyan-400"
+                className="w-full pl-10 pr-4 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-highlight"
               />
             </div>
 
@@ -165,7 +176,7 @@ export default function TechAuditPage() {
                   </div>
                   <button
                     onClick={() => addTool(tool)}
-                    className="px-3 py-1 bg-cyan-400 text-black text-sm rounded hover:bg-cyan-300"
+                    className="px-3 py-1 bg-highlight text-black text-sm rounded hover:bg-highlight-hover"
                   >
                     Add
                   </button>
@@ -217,7 +228,7 @@ export default function TechAuditPage() {
             {selectedTools.length > 0 && (
               <div className="p-4 bg-zinc-900 border border-zinc-800 rounded-lg">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-cyan-400">
+                  <div className="text-2xl font-bold text-highlight">
                     ${selectedTools.reduce((sum, tool) => sum + (tool.monthly_cost * tool.users_count), 0).toLocaleString()}
                   </div>
                   <p className="text-zinc-400">Total Monthly Cost</p>
@@ -237,7 +248,7 @@ export default function TechAuditPage() {
   );
 }
 
-function ContactForm({ onSubmit }: { onSubmit: (data: any) => void }) {
+function ContactForm({ onSubmit }: { onSubmit: (data: Record<string, string>) => void }) {
   const [formData, setFormData] = useState({
     email: '',
     company_size: '',
@@ -258,14 +269,14 @@ function ContactForm({ onSubmit }: { onSubmit: (data: any) => void }) {
         placeholder="Email Address"
         value={formData.email}
         onChange={(e) => setFormData({...formData, email: e.target.value})}
-        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-cyan-400"
+        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-highlight"
         required
       />
       
       <select
         value={formData.company_size}
         onChange={(e) => setFormData({...formData, company_size: e.target.value})}
-        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-cyan-400"
+        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-highlight"
         required
       >
         <option value="">Company Size</option>
@@ -277,7 +288,7 @@ function ContactForm({ onSubmit }: { onSubmit: (data: any) => void }) {
       <select
         value={formData.industry}
         onChange={(e) => setFormData({...formData, industry: e.target.value})}
-        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-cyan-400"
+        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-highlight"
         required
       >
         <option value="">Industry</option>
@@ -291,7 +302,7 @@ function ContactForm({ onSubmit }: { onSubmit: (data: any) => void }) {
       
       <button
         type="submit"
-        className="w-full py-3 bg-cyan-400 hover:bg-cyan-300 text-black font-medium rounded-lg transition-colors"
+        className="w-full py-3 bg-highlight hover:bg-highlight-hover text-black font-medium rounded-lg transition-colors"
       >
         Analyze My Tech Stack
       </button>
@@ -312,7 +323,7 @@ function AuditDisplay({ results }: { results: TechAuditResult }) {
       <div className="grid md:grid-cols-2 gap-6">
         <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
           <h3 className="text-lg font-semibold text-white mb-4">Monthly Spend</h3>
-          <div className="text-3xl font-bold text-cyan-400 mb-2">
+          <div className="text-3xl font-bold text-highlight mb-2">
             ${results.totalMonthlyCost.toLocaleString()}
           </div>
           <p className="text-zinc-400">Total software costs</p>
@@ -353,8 +364,8 @@ function AuditDisplay({ results }: { results: TechAuditResult }) {
         <div className="space-y-3">
           {results.recommendations.map((rec, index) => (
             <div key={index} className="flex items-start gap-3">
-              <div className="w-6 h-6 bg-cyan-400/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-xs font-medium text-cyan-400">{index + 1}</span>
+              <div className="w-6 h-6 bg-highlight/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-medium text-highlight">{index + 1}</span>
               </div>
               <p className="text-zinc-300">{rec}</p>
             </div>

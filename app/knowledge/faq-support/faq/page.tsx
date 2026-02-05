@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import { Callout } from '@/components/docs/ContentComponents';
 
@@ -130,8 +131,8 @@ export default function FAQPage() {
     >
       <Callout type="info" title="Quick Help">
         <p>
-          Can't find what you're looking for? Try our <a href="/knowledge" className="text-accent hover:underline">knowledge base search</a> or 
-          <a href="/contact" className="text-accent hover:underline ml-1">contact our support team</a> directly.
+          Can't find what you're looking for? Try our <Link href="/knowledge" className="text-accent hover:underline">knowledge base search</Link> or 
+          <Link href="/contact" className="text-accent hover:underline ml-1">contact our support team</Link> directly.
         </p>
       </Callout>
 
@@ -162,18 +163,18 @@ export default function FAQPage() {
           Our support team is here to help you get the most out of your lead generation engine.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <a
+          <Link
             href="/contact"
             className="bg-white text-accent px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center"
           >
             Contact Support
-          </a>
-          <a
+          </Link>
+          <Link
             href="/knowledge"
             className="border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors text-center"
           >
             Browse Documentation
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -195,9 +196,9 @@ export default function FAQPage() {
           <p className="text-slate-600 text-sm">
             Comprehensive guides and tutorials
           </p>
-          <a href="/knowledge" className="text-accent hover:underline text-sm">
+          <Link href="/knowledge" className="text-accent hover:underline text-sm">
             Browse Knowledge Base
-          </a>
+          </Link>
         </div>
         
         <div className="text-center p-6 border border-slate-200 rounded-lg">
@@ -206,9 +207,9 @@ export default function FAQPage() {
           <p className="text-slate-600 text-sm">
             Step-by-step video guides
           </p>
-          <a href="/knowledge/faq-support/video-tutorials" className="text-accent hover:underline text-sm">
+          <Link href="/knowledge/faq-support/video-tutorials" className="text-accent hover:underline text-sm">
             Watch Tutorials
-          </a>
+          </Link>
         </div>
       </div>
     </DocLayout>

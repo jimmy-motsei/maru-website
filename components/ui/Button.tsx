@@ -9,12 +9,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ className, variant = "primary", href, children, ...props }: ButtonProps) {
-  const baseStyles = "group inline-flex items-center justify-center rounded-full text-xs sm:text-sm font-bold uppercase tracking-[1px] transition-all duration-300 ease-in-out whitespace-nowrap";
+  const baseStyles = "group inline-flex items-center justify-center rounded-pill text-[12px] font-medium uppercase tracking-[2px] transition-all duration-300 ease-in-out whitespace-nowrap";
   
   const variants = {
-    primary: "bg-[#3DD6D0] text-black h-[52px] sm:h-[56px] px-8 hover:bg-[#35C4BE] hover:shadow-[0_6px_20px_rgba(61,214,208,0.5)] hover:-translate-y-0.5",
-    outline: "border border-white/20 text-white h-[52px] sm:h-[56px] px-8 hover:bg-white/10",
-    icon: "p-0 h-10 w-10 lg:h-[70px] lg:w-[70px] justify-center",
+    primary: "bg-highlight text-dark h-[70px] px-[50px] hover:bg-highlight-hover hover:scale-[1.015] hover:brightness-110",
+    outline: "border border-white/20 text-white h-[70px] px-[50px] hover:bg-white/10 hover:scale-[1.015]",
+    icon: "p-0 h-[70px] w-[70px] justify-center",
   };
 
   const content = (
@@ -22,9 +22,19 @@ export function Button({ className, variant = "primary", href, children, ...prop
       {children}
       {variant === "icon" && (
         <div className={cn(
-          "flex h-full w-full items-center justify-center rounded-full bg-accent text-black transition-transform duration-400 group-hover:scale-110"
+          "flex h-full w-full items-center justify-center rounded-full bg-transparent text-dark transition-transform duration-400 group-hover:scale-110",
+           // Ashley uses a specific icon style, but for now we keep the existing arrow logic unless specific SVG requested.
+           // However, if it's a primary button, Ashley usually has the icon on the right inside a circle.
+           // The current 'icon' variant logic above is for a standalone icon button.
+           // Standard buttons in Ashley have text + icon.
         )}>
           <ArrowRight className="h-4 w-4" />
+        </div>
+      )}
+      {/* Ashley Standard Button has Icon on Right */}
+      {variant !== "icon" && (
+        <div className="ml-[30px] flex h-[40px] w-[40px] items-center justify-center rounded-full bg-dark p-[10px] transition-transform duration-400 group-hover:scale-110">
+           <ArrowRight className="h-full w-full text-highlight" />
         </div>
       )}
     </>

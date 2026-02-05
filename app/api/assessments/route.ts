@@ -19,6 +19,15 @@ const assessmentRequestSchema = z.object({
   }).passthrough(), // Allow additional fields for different assessment types
 });
 
+interface AssessmentInput {
+  company_name?: string;
+  website_url?: string;
+  industry?: string;
+  company_size?: string;
+  csvData?: string;
+  [key: string]: unknown;
+}
+
 export async function POST(request: NextRequest) {
   try {
     // 1. Rate limiting
@@ -160,22 +169,22 @@ export async function POST(request: NextRequest) {
 }
 
 // Assessment processing functions
-async function processLeadScore(input: any) {
+async function processLeadScore(input: AssessmentInput) {
   const { analyzeWebsite } = await import('@/lib/assessments/lead-score-simple');
-  return await analyzeWebsite(input);
+  return await analyzeWebsite(input as unknown as import('@/lib/assessments/lead-score-simple').WebsiteAnalysisInput);
 }
 
-async function processPipelineLeak(input: any) {
+async function processPipelineLeak(input: AssessmentInput) {
   const { analyzePipelineLeaks } = await import('@/lib/assessments/pipeline-leak');
-  return await analyzePipelineLeaks(input.csvData);
+  return await analyzePipelineLeaks(input.csvData as string);
 }
 
-async function processProposal(input: any) {
+async function processProposal(input: AssessmentInput) {
   const { generateProposal } = await import('@/lib/assessments/proposal');
-  return await generateProposal(input);
+  return await generateProposal(input as unknown as import('@/lib/assessments/proposal').ProposalInput);
 }
 
-async function processTechAudit(input: any) {
+async function processTechAudit(input: AssessmentInput) {
   const { auditTechStack } = await import('@/lib/assessments/tech-audit');
-  return await auditTechStack(input);
+  return await auditTechStack(input as unknown as import('@/lib/assessments/tech-audit').TechAuditInput);
 }

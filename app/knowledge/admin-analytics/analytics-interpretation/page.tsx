@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import TableOfContents from '@/components/docs/TableOfContents';
 
@@ -478,15 +479,15 @@ export default function AnalyticsInterpretationPage() {
               Regular analytics review and interpretation is key to optimizing your lead generation performance. Use these insights to make data-driven decisions.
             </p>
             <div className="space-y-2">
-              <a href="/knowledge/admin-analytics/dashboard-overview" className="text-blue-600 hover:text-blue-800 underline block">
+              <Link href="/knowledge/admin-analytics/dashboard-overview" className="text-blue-600 hover:text-blue-800 underline block">
                 → Dashboard Overview Guide
-              </a>
-              <a href="/knowledge/admin-analytics/export-reporting" className="text-blue-600 hover:text-blue-800 underline block">
+              </Link>
+              <Link href="/knowledge/admin-analytics/export-reporting" className="text-blue-600 hover:text-blue-800 underline block">
                 → Export & Reporting Guide
-              </a>
-              <a href="/knowledge/best-practices/lead-generation-best-practices" className="text-blue-600 hover:text-blue-800 underline block">
+              </Link>
+              <Link href="/knowledge/best-practices/lead-generation-best-practices" className="text-blue-600 hover:text-blue-800 underline block">
                 → Lead Generation Best Practices
-              </a>
+              </Link>
             </div>
           </div>
         </div>

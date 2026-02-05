@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calculator, X, ArrowRight } from 'lucide-react';
+import { Calculator, X } from 'lucide-react';
 import Link from 'next/link';
 
 export default function StickyROICalculator() {

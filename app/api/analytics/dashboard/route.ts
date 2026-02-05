@@ -59,17 +59,6 @@ export async function GET(request: NextRequest) {
       throw leadError;
     }
 
-    // Get analytics events
-    const { data: events, error: eventError } = await supabaseAdmin
-      .from('analytics_events')
-      .select('*')
-      .gte('timestamp', startDate.toISOString())
-      .lte('timestamp', endDate.toISOString());
-
-    if (eventError) {
-      throw eventError;
-    }
-
     // Calculate metrics
     const metrics = {
       overview: {
@@ -114,7 +103,20 @@ export async function GET(request: NextRequest) {
   }
 }
 
-function generateDailyStats(assessments: any[], leads: any[], startDate: Date, endDate: Date) {
+interface Assessment {
+  id: string;
+  app_type: string;
+  score?: number;
+  created_at: string;
+}
+
+interface Lead {
+  id: string;
+  lead_score?: number;
+  created_at: string;
+}
+
+function generateDailyStats(assessments: Assessment[], leads: Lead[], startDate: Date, endDate: Date) {
   const stats = [];
   const currentDate = new Date(startDate);
 

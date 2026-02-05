@@ -83,7 +83,7 @@ export default function LeadScorePage() {
   const [results, setResults] = useState<LeadScoreResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (formData: Record<string, any>) => {
+  const handleSubmit = async (formData: Record<string, unknown>) => {
     setIsLoading(true);
     try {
       const response = await fetch('/api/assessments', {
@@ -111,7 +111,7 @@ export default function LeadScorePage() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-cyan-400/20 border-t-cyan-400 rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 border-4 border-highlight/20 border-t-highlight rounded-full animate-spin mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-white mb-2">Analyzing Your Website</h2>
           <p className="text-zinc-400">This may take up to 30 seconds...</p>
         </div>
@@ -128,7 +128,9 @@ export default function LeadScorePage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold text-white mb-4">Your Lead Generation Score</h1>
+            <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
+              Your Lead <span className="font-thin text-zinc-500">Generation Score</span>
+            </h1>
             <p className="text-xl text-zinc-400">Based on our analysis of your website and business</p>
           </motion.div>
 
@@ -151,10 +153,13 @@ export default function LeadScorePage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-400/10 rounded-full mb-6">
-            <Target className="w-8 h-8 text-cyan-400" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-highlight/10 rounded-full mb-6">
+            <Target className="w-8 h-8 text-highlight" />
           </div>
-          <h1 className="text-4xl font-bold text-white mb-4">Lead Generation Score Predictor</h1>
+          <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
+            Lead Generation <br className="hidden md:block" />
+            <span className="font-thin text-zinc-500">Score Predictor</span>
+          </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
             Discover how ready your website is to generate high-quality leads with our AI-powered analysis
           </p>
@@ -166,10 +171,12 @@ export default function LeadScorePage() {
           className="mb-12"
         />
 
-        <h3 className="text-3xl font-bold text-white text-center mb-10">What you will get</h3>
+        <h3 className="text-h3 font-medium text-white text-center mb-10">
+          What you <span className="font-thin text-zinc-500">will get</span>
+        </h3>
         <div className="grid md:grid-cols-3 gap-6 text-center">
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
-            <Globe className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
+            <Globe className="w-8 h-8 text-highlight mx-auto mb-3" />
             <h3 className="font-semibold text-white mb-2">Website Analysis</h3>
             <p className="text-sm text-zinc-400">Deep scan of your site's technical and content quality</p>
           </div>
@@ -268,7 +275,7 @@ function ScoreDisplay({ results }: { results: LeadScoreResult }) {
                 <h3 className="font-medium text-white">
                   {factorNames[key as keyof typeof factorNames] || key.replace('_', ' ')}
                 </h3>
-                <span className="text-cyan-400 font-semibold">{value}/100</span>
+                <span className="text-highlight font-semibold">{value}/100</span>
               </div>
               <div className="w-full bg-zinc-700 rounded-full h-2">
                 <div
@@ -295,8 +302,8 @@ function ScoreDisplay({ results }: { results: LeadScoreResult }) {
         <div className="space-y-4">
           {results.recommendations.map((rec, index) => (
             <div key={index} className="flex items-start gap-3 p-3 bg-zinc-800/50 rounded-lg hover:bg-zinc-800 transition-colors">
-              <div className="w-6 h-6 bg-cyan-400/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-xs font-medium text-cyan-400">{index + 1}</span>
+              <div className="w-6 h-6 bg-highlight/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-medium text-highlight">{index + 1}</span>
               </div>
               <p className="text-zinc-300 leading-relaxed">{rec}</p>
             </div>
@@ -305,7 +312,7 @@ function ScoreDisplay({ results }: { results: LeadScoreResult }) {
       </div>
 
       {/* Next Steps CTA */}
-      <div className="p-6 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-cyan-800/30 rounded-xl">
+      <div className="p-6 bg-gradient-to-r from-highlight/10 to-transparent border border-highlight/20 rounded-xl">
         <h3 className="text-lg font-semibold text-white mb-2">Ready to Improve Your Score?</h3>
         <p className="text-zinc-400 mb-4">
           Get personalized guidance on implementing these recommendations and optimizing your lead generation.
@@ -313,7 +320,7 @@ function ScoreDisplay({ results }: { results: LeadScoreResult }) {
         <div className="flex flex-col sm:flex-row gap-3">
           <Link 
             href="/contact"
-            className="px-6 py-3 bg-cyan-400 text-black font-medium rounded-lg hover:bg-cyan-300 transition-colors inline-flex items-center justify-center"
+            className="px-6 py-3 bg-highlight text-black font-medium rounded-lg hover:bg-highlight-hover transition-colors inline-flex items-center justify-center"
           >
             Schedule Free Consultation
           </Link>

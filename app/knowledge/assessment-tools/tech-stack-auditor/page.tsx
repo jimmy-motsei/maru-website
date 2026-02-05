@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import { Callout, CodeBlock, Step, TableOfContents } from '@/components/docs/ContentComponents';
 
@@ -395,14 +396,14 @@ export default function TechStackAuditorPage() {
 
       <h3>Next Steps</h3>
       <div className="grid md:grid-cols-2 gap-4 mt-6">
-        <a href="/knowledge/best-practices/assessment-optimization" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
+        <Link href="/knowledge/best-practices/assessment-optimization" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
           <h4 className="font-medium text-dark mb-2">Assessment Optimization</h4>
           <p className="text-dark/60 text-base leading-relaxed">Learn how to optimize all your assessment processes</p>
-        </a>
-        <a href="/knowledge/admin-analytics/dashboard-overview" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
+        </Link>
+        <Link href="/knowledge/admin-analytics/dashboard-overview" className="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
           <h4 className="font-medium text-dark mb-2">Dashboard Overview</h4>
           <p className="text-dark/60 text-base leading-relaxed">Monitor your tech stack optimization progress</p>
-        </a>
+        </Link>
       </div>
     </DocLayout>
   );

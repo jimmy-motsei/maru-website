@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowRight, LucideIcon } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
@@ -69,10 +69,9 @@ export function ServiceHero({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="hero-h1 text-white mb-10 max-w-4xl"
+          className="text-h1 font-medium text-white mb-14 leading-[1.2] max-w-4xl"
         >
-          <span className="font-medium">{titleBold}</span>{" "}
-          <span className="font-extralight text-zinc-500">{titleLight}</span>
+          {titleBold} <span className="font-thin text-zinc-500">{titleLight}</span>
         </motion.h1>
 
         {/* Subtitle */}

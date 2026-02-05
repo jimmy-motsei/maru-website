@@ -103,25 +103,25 @@ export function Services() {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 {/* Card - OtherServices Style */}
-                <div className="bg-gray-50 rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl border-l-4 border-l-cyan-primary transition-all duration-300 group flex flex-col">
+                <div className="bg-gray-50 rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl border-l-4 border-l-highlight transition-all duration-300 group flex flex-col">
                   {/* Step Icon */}
                   <motion.div
-                    className="w-14 h-14 rounded-full bg-cyan-primary/10 flex items-center justify-center mb-6"
+                    className="w-14 h-14 rounded-full bg-highlight/10 flex items-center justify-center mb-6"
                     whileHover={{ scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    <span className="text-xl font-bold text-cyan-primary">
+                    <span className="text-xl font-bold text-highlight">
                       {tool.step}
                     </span>
                   </motion.div>
 
                   {/* Label */}
-                  <div className="text-xs font-bold tracking-[0.15em] text-cyan-primary mb-2">
+                  <div className="text-xs font-bold tracking-[0.15em] text-highlight mb-2">
                     {tool.label}
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-dark mb-3 group-hover:text-cyan-primary transition-colors">
+                  <h3 className="text-xl font-bold text-dark mb-3 group-hover:text-highlight transition-colors">
                     {tool.title}
                   </h3>
 
@@ -136,7 +136,7 @@ export function Services() {
                       href={tool.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-dark/70 hover:text-cyan-primary group-hover:gap-4 transition-all duration-300"
+                      className="flex items-center gap-2 text-dark/70 hover:text-highlight group-hover:gap-4 transition-all duration-300"
                       whileTap={{ scale: 0.98 }}
                     >
                       <span className="text-sm font-medium">{tool.cta}</span>
@@ -145,7 +145,7 @@ export function Services() {
                   ) : (
                     <Link
                       href={tool.href}
-                      className="flex items-center gap-2 text-dark/70 hover:text-cyan-primary group-hover:gap-4 transition-all duration-300"
+                      className="flex items-center gap-2 text-dark/70 hover:text-highlight group-hover:gap-4 transition-all duration-300"
                     >
                       <span className="text-sm font-medium">{tool.cta}</span>
                       <ArrowRight size={16} />

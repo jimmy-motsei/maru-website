@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import DocLayout from '@/components/docs/DocLayout';
 import { Callout, CodeBlock, Step, TableOfContents } from '@/components/docs/ContentComponents';
 
@@ -159,7 +160,7 @@ Analytics: Custom analytics system`}
 
       <Callout type="success" title="Next Steps">
         <p>
-          Continue with the <a href="/knowledge/getting-started/quick-start-guide" className="text-accent hover:underline">Quick Start Guide</a> 
+          Continue with the <Link href="/knowledge/getting-started/quick-start-guide" className="text-accent hover:underline">Quick Start Guide</Link> 
           to learn how to set up and configure your first assessment tool.
         </p>
       </Callout>

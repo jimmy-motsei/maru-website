@@ -1,0 +1,399 @@
+
+/Users/ramoloimotsei/maru-website/app/about/AboutContent.tsx
+  8:52  warning  'scaleInVariants' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/admin/layout.tsx
+  5:28  warning  'Settings' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/admin/login/page.tsx
+  35:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/admin/page.tsx
+  222:9  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/api/admin/leads/export/route.ts
+  4:27  warning  'request' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/api/analytics/dashboard/route.ts
+   63:19  warning  'events' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  117:42  warning  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  117:56  warning  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/api/analyze-website/route.ts
+  76:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  99:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/api/assessments/route.ts
+  163:40  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  168:43  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  173:39  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  178:40  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/api/calculate-score/route.ts
+  6:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  7:11  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  8:17  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/api/email/send/route.ts
+   10:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   61:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  107:40  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/api/hubspot/sync/route.ts
+   8:13  warning  'leadId' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  27:24  warning  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/api/reports/generate/route.ts
+  26:37  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  51:64  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/api/scrape-website/route.ts
+  60:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/api/send-results/route.ts
+  42:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/api/test-apis/route.ts
+  1:10  warning  'NextRequest' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/assessments/lead-score/LeadScorePage.tsx
+  86:56  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/assessments/pipeline-leak/PipelineLeakPage.tsx
+  44:56  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/assessments/proposal/ProposalPage.tsx
+   63:42  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   66:56  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  180:50  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/assessments/proposal/ProposalPageNew.tsx
+  233:50  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  292:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  348:54  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  374:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/assessments/tech-audit/TechAuditPage.tsx
+    5:20  warning  'DollarSign' is defined but never used     @typescript-eslint/no-unused-vars
+    5:32  warning  'TrendingUp' is defined but never used     @typescript-eslint/no-unused-vars
+    6:8   warning  'MultiStepForm' is defined but never used  @typescript-eslint/no-unused-vars
+    8:10  warning  'FormStep' is defined but never used       @typescript-eslint/no-unused-vars
+   14:54  warning  Unexpected any. Specify a different type   @typescript-eslint/no-explicit-any
+   60:56  warning  Unexpected any. Specify a different type   @typescript-eslint/no-explicit-any
+  240:55  warning  Unexpected any. Specify a different type   @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/assessments/tech-audit/TechAuditPageNew.tsx
+  108:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/app/briefing/ai-solution/page.tsx
+   7:10  warning  'motion' is defined but never used    @typescript-eslint/no-unused-vars
+   8:21  warning  'Send' is defined but never used      @typescript-eslint/no-unused-vars
+  14:10  warning  'Checkbox' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/briefing/support/page.tsx
+  44:10  warning  'estimatedCost' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  44:25  warning  'setEstimatedCost' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  77:9   warning  'priority' is assigned a value but never used          @typescript-eslint/no-unused-vars
+  79:9   warning  'getDepositText' is assigned a value but never used    @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/contact/page.tsx
+  6:30  warning  'Phone' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/global-error.tsx
+  4:3  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/knowledge/admin-analytics/analytics-interpretation/page.tsx
+  481:15  error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/dashboard-overview/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages             @next/next/no-html-link-for-pages
+  484:15  error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/export-reporting/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages               @next/next/no-html-link-for-pages
+  487:15  error  Do not use an `<a>` element to navigate to `/knowledge/best-practices/lead-generation-best-practices/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/admin-analytics/dashboard-overview/page.tsx
+  348:9  error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/lead-management/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages           @next/next/no-html-link-for-pages
+  352:9  error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/analytics-interpretation/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/admin-analytics/export-reporting/page.tsx
+  589:15  error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/analytics-interpretation/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  592:15  error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/dashboard-overview/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages        @next/next/no-html-link-for-pages
+  595:15  error  Do not use an `<a>` element to navigate to `/knowledge/best-practices/integration-workflows/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages      @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/admin-analytics/lead-management/page.tsx
+  391:9  error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/analytics-interpretation/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  395:9  error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/export-reporting/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages          @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/assessment-tools/pipeline-leak-detector/page.tsx
+  433:25  error  Do not use an `<a>` element to navigate to `/knowledge/best-practices/lead-generation-strategies/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  434:49  error  Do not use an `<a>` element to navigate to `/contact/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                              @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/assessment-tools/proposal-accelerator/page.tsx
+  341:9  error  Do not use an `<a>` element to navigate to `/knowledge/best-practices/conversion-optimization/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  345:9  error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/lead-management/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages         @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/assessment-tools/tech-stack-auditor/page.tsx
+  398:9  error  Do not use an `<a>` element to navigate to `/knowledge/best-practices/assessment-optimization/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  402:9  error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/dashboard-overview/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages      @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/best-practices/assessment-optimization/page.tsx
+  412:15  error  Do not use an `<a>` element to navigate to `/knowledge/assessment-tools/lead-score-predictor/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages          @next/next/no-html-link-for-pages
+  415:15  error  Do not use an `<a>` element to navigate to `/knowledge/best-practices/lead-generation-best-practices/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  418:15  error  Do not use an `<a>` element to navigate to `/knowledge/faq-support/faq/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/best-practices/data-privacy-security/page.tsx
+  396:15  error  Do not use an `<a>` element to navigate to `/privacy-policy/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages             @next/next/no-html-link-for-pages
+  399:15  error  Do not use an `<a>` element to navigate to `/knowledge/faq-support/faq/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  402:15  error  Do not use an `<a>` element to navigate to `/contact/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                    @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/best-practices/integration-workflows/page.tsx
+  593:15  error  Do not use an `<a>` element to navigate to `/knowledge/technical/api-reference/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages             @next/next/no-html-link-for-pages
+  596:15  error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/dashboard-overview/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  599:15  error  Do not use an `<a>` element to navigate to `/contact/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                       @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/best-practices/lead-generation-best-practices/page.tsx
+  336:15  error  Do not use an `<a>` element to navigate to `/knowledge/assessment-tools/lead-score-predictor/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages    @next/next/no-html-link-for-pages
+  339:15  error  Do not use an `<a>` element to navigate to `/knowledge/assessment-tools/pipeline-leak-detector/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  342:15  error  Do not use an `<a>` element to navigate to `/knowledge/best-practices/assessment-optimization/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages   @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/faq-support/faq/page.tsx
+  133:55  error  Do not use an `<a>` element to navigate to `/knowledge/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                              @next/next/no-html-link-for-pages
+  134:11  error  Do not use an `<a>` element to navigate to `/contact/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                @next/next/no-html-link-for-pages
+  165:11  error  Do not use an `<a>` element to navigate to `/contact/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                @next/next/no-html-link-for-pages
+  171:11  error  Do not use an `<a>` element to navigate to `/knowledge/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                              @next/next/no-html-link-for-pages
+  198:11  error  Do not use an `<a>` element to navigate to `/knowledge/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                              @next/next/no-html-link-for-pages
+  209:11  error  Do not use an `<a>` element to navigate to `/knowledge/faq-support/video-tutorials/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/faq-support/video-tutorials/page.tsx
+  118:11  error  Do not use an `<a>` element to navigate to `/knowledge/getting-started/quick-start-guide/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  128:11  error  Do not use an `<a>` element to navigate to `/assessments/lead-score/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                       @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/getting-started/account-setup/page.tsx
+  199:11  error  Do not use an `<a>` element to navigate to `/knowledge/getting-started/first-assessment/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages    @next/next/no-html-link-for-pages
+  207:9   error  Do not use an `<a>` element to navigate to `/knowledge/getting-started/first-assessment/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages    @next/next/no-html-link-for-pages
+  211:9   error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/dashboard-overview/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/getting-started/first-assessment/page.tsx
+  247:9  error  Do not use an `<a>` element to navigate to `/knowledge/assessment-tools/lead-score-predictor/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  251:9  error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/dashboard-overview/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages     @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/getting-started/quick-start-guide/page.tsx
+   49:13  error  Do not use an `<a>` element to navigate to `/assessments/lead-score/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                           @next/next/no-html-link-for-pages
+   58:13  error  Do not use an `<a>` element to navigate to `/assessments/pipeline-leak/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                        @next/next/no-html-link-for-pages
+  144:9   error  Do not use an `<a>` element to navigate to `/knowledge/assessment-tools/lead-score-predictor/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  148:9   error  Do not use an `<a>` element to navigate to `/knowledge/admin-analytics/dashboard-overview/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages     @next/next/no-html-link-for-pages
+  175:68  error  Do not use an `<a>` element to navigate to `/knowledge/faq-support/faq/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                        @next/next/no-html-link-for-pages
+  176:11  error  Do not use an `<a>` element to navigate to `/contact/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                          @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/getting-started/system-overview/page.tsx
+  162:29  error  Do not use an `<a>` element to navigate to `/knowledge/getting-started/quick-start-guide/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/knowledge/technical/api-reference/page.tsx
+  387:11  error  Do not use an `<a>` element to navigate to `/contact/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/partners/[partnerId]/page.tsx
+  1:8   warning  'Link' is defined but never used                   @typescript-eslint/no-unused-vars
+  2:10  warning  'CTAPrimary' is defined but never used             @typescript-eslint/no-unused-vars
+  3:10  warning  'AtmosphericBackground' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/services/ServicesContent.tsx
+    5:164  warning  'AlertTriangle' is defined but never used  @typescript-eslint/no-unused-vars
+    5:179  warning  'CreditCard' is defined but never used     @typescript-eslint/no-unused-vars
+    5:191  warning  'Settings' is defined but never used       @typescript-eslint/no-unused-vars
+  268:43   warning  'index' is defined but never used          @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/services/customer-support-chatbots/page.tsx
+    5:59  warning  'HelpCircle' is defined but never used                                                                                                                         @typescript-eslint/no-unused-vars
+  602:15  error    Do not use an `<a>` element to navigate to `/contact/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/services/lead-generation/page.tsx
+  5:103  warning  'HelpCircle' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/services/office-automation/OfficeAutomationContent.tsx
+    3:10   warning  'useState' is defined but never used                                                                                                                                          @typescript-eslint/no-unused-vars
+    5:117  warning  'Database' is defined but never used                                                                                                                                          @typescript-eslint/no-unused-vars
+  585:15   error    Do not use an `<a>` element to navigate to `/assessments/tech-audit/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/app/services/sales-systems/page.tsx
+   5:66  warning  'Mail' is defined but never used                     @typescript-eslint/no-unused-vars
+   5:72  warning  'MessageSquare' is defined but never used            @typescript-eslint/no-unused-vars
+   5:87  warning  'BarChart3' is defined but never used                @typescript-eslint/no-unused-vars
+   5:98  warning  'GitBranch' is defined but never used                @typescript-eslint/no-unused-vars
+  96:10  warning  'isModalOpen' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  96:23  warning  'setIsModalOpen' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/services/whatsapp-solutions/page.tsx
+  10:8   warning  'Link' is defined but never used                     @typescript-eslint/no-unused-vars
+  87:10  warning  'isModalOpen' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  87:23  warning  'setIsModalOpen' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/app/website-audit/page.tsx
+   5:10  warning  'ArrowRight' is defined but never used            @typescript-eslint/no-unused-vars
+   5:22  warning  'ArrowLeft' is defined but never used             @typescript-eslint/no-unused-vars
+  58:10  warning  'isAnalyzing' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  93:19  warning  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/components/AnalyticsTracker.tsx
+  3:8  warning  'React' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/CookieConsent.tsx
+  5:21  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/StickyROICalculator.tsx
+  5:25  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/analytics/ConversionTracking.tsx
+  63:58  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/components/analytics/JourneyAnalytics.tsx
+   10:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   93:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  107:64  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/components/analytics/PerformanceMonitor.tsx
+  32:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  47:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/components/assessments/AssessmentProgression.tsx
+  4:64  warning  'CheckCircle' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/broken-playbook/FinalCTA.tsx
+   4:10  warning  'ArrowRight' is defined but never used                                                                                                                          @typescript-eslint/no-unused-vars
+  35:13  error    Do not use an `<a>` element to navigate to `/services/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+/Users/ramoloimotsei/maru-website/components/layout/Footer.tsx
+  6:10  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/lead-generation/MultiStepForm.tsx
+   10:35  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   11:54  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   22:59  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   25:52  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  173:24  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  174:35  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  176:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/components/modals/EmailModalAssessment.tsx
+  141:52  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/components/sections/AIReadinessTeaser.tsx
+  4:10  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+  5:8   warning  'Link' is defined but never used        @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/sections/About.tsx
+  5:52  warning  'scaleInVariants' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/sections/AssessmentShowcase.tsx
+  5:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/sections/Hero.tsx
+  4:10  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/sections/OtherServices.tsx
+   4:22  warning  'Code2' is defined but never used             @typescript-eslint/no-unused-vars
+  63:33  warning  'currentServiceId' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/sections/PricingSection.tsx
+  5:10  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/sections/Process.tsx
+  2:10  warning  'motion' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/sections/ServiceHero.tsx
+  5:21  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+  5:33  warning  'LucideIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/services/ServiceWorkflow.tsx
+  22:42  warning  'title' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/ui/AtmosphericBackground.tsx
+  12:70  warning  'theme' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/components/ui/IsometricWorkflow.tsx
+   5:10  warning  'FileText' is defined but never used    @typescript-eslint/no-unused-vars
+   5:56  warning  'LucideIcon' is defined but never used  @typescript-eslint/no-unused-vars
+  88:30  warning  'index' is defined but never used       @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/lib/ai.ts
+  26:3   warning  'schema' is defined but never used        @typescript-eslint/no-unused-vars
+  26:11  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  34:14  warning  'parseError' is defined but never used    @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/lib/assessments/lead-score-firecrawl.ts
+   10:13  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   31:58  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   94:9   warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  138:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  203:65  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/assessments/lead-score-simple.ts
+  20:45  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/assessments/lead-score.ts
+   32:45  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  168:38  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  180:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  233:65  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/assessments/pipeline-leak.ts
+  109:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  203:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  246:42  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  250:83  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  264:49  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  310:47  warning  'data' is defined but never used          @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/lib/assessments/proposal.ts
+  114:62  warning  'requirements' is defined but never used  @typescript-eslint/no-unused-vars
+  114:76  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  160:70  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/assessments/tech-audit.ts
+  176:52  warning  'input' is defined but never used          @typescript-eslint/no-unused-vars
+  218:3   warning  'optimizations' is defined but never used  @typescript-eslint/no-unused-vars
+  314:52  warning  Unexpected any. Specify a different type   @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/cookie-consent.ts
+  29:41  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  37:42  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/db/index.ts
+  27:3  warning  Unused eslint-disable directive (no problems were reported from 'no-var')
+  29:3  warning  Unused eslint-disable directive (no problems were reported from 'no-var')
+
+/Users/ramoloimotsei/maru-website/lib/env.ts
+  10:7  warning  'optionalEnvVars' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/lib/gemini.ts
+  5:12  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/integrations.ts
+    7:17  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+    9:19  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  119:58  warning  'delayDays' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  136:46  warning  'filename' is defined but never used            @typescript-eslint/no-unused-vars
+  152:71  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/lead-utils.ts
+   3:14  warning  'desc' is defined but never used          @typescript-eslint/no-unused-vars
+   4:16  warning  'LeadActivity' is defined but never used  @typescript-eslint/no-unused-vars
+  24:23  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  74:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/lib/monitoring.ts
+    7:29  warning  Unexpected any. Specify a different type    @typescript-eslint/no-explicit-any
+   20:31  warning  Unexpected any. Specify a different type    @typescript-eslint/no-explicit-any
+   49:51  warning  Unexpected any. Specify a different type    @typescript-eslint/no-explicit-any
+   55:51  warning  Unexpected any. Specify a different type    @typescript-eslint/no-explicit-any
+   61:52  warning  Unexpected any. Specify a different type    @typescript-eslint/no-explicit-any
+  185:27  warning  'times' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/ramoloimotsei/maru-website/lib/types/lead-generation.ts
+  21:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  22:34  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  68:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/ramoloimotsei/maru-website/types/analytics.d.ts
+  5:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  6:22  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  7:61  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 217 problems (52 errors, 165 warnings)
+  0 errors and 2 warnings potentially fixable with the `--fix` option.
+

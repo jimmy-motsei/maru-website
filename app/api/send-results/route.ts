@@ -1,5 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+interface LeadScoreResults {
+  score: number;
+  potentialImprovement: number;
+  expectedIncrease: string;
+  strengths: string[];
+  gaps: string[];
+  recommendations: {
+    phase1: string[];
+    phase2: string[];
+    phase3: string[];
+  };
+  analysisId: string;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { email, name, results } = await request.json();
@@ -39,7 +53,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function generateEmailHTML(name: string, results: any): string {
+function generateEmailHTML(name: string, results: LeadScoreResults): string {
   const firstName = name.split(' ')[0];
   
   return `
