@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowRight, Workflow, Wrench, Bot } from "lucide-react";
+import { ArrowDown, ArrowRight, Search, Wrench, GraduationCap } from "lucide-react";
 import { SplitHeadline } from "@/components/ui/SplitHeadline";
 import { ServiceAccordion } from "@/components/ui/ServiceAccordion";
 import { ServiceNeedHelpCTA } from "@/components/sections/ServiceNeedHelpCTA";
@@ -10,60 +10,70 @@ import { ServiceNeedHelpCTA } from "@/components/sections/ServiceNeedHelpCTA";
 const breadcrumbs = [
   { label: "Homepage", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Service", href: "/services/lead-generation" },
+  { label: "Service", href: "/services/ongoing-ai-support-optimization" },
 ];
 
 const accordionItems = [
   {
-    title: "Deep-Dive Analysis",
+    title: "Monthly Performance Reviews",
     content:
-      "We analyze real visitor behavior to uncover the hidden reasons qualified traffic does not convert on your website.",
+      "Structured reviews of AI system performance against your business KPIs, with prioritized optimization actions.",
     features: [
-      "User-behavior and session analysis",
-      "Heatmap and interaction diagnostics",
-      "Traffic quality and intent review",
+      "KPI-driven review cadence",
+      "Opportunity and risk tracking",
+      "Actionable improvement backlog",
     ],
   },
   {
-    title: "Conversion Gap Identification",
+    title: "Proactive Updates",
     content:
-      "We isolate the exact friction points that cause drop-off across forms, CTAs, messaging, and page flow.",
+      "We continuously evaluate and implement relevant AI improvements so your systems stay current and competitive.",
     features: [
-      "Form abandonment analysis",
-      "CTA visibility and click-through audit",
-      "On-page friction and clarity checks",
+      "Feature and capability updates",
+      "Workflow refinement opportunities",
+      "Performance and reliability tuning",
     ],
   },
   {
-    title: "Revenue-First Prioritization",
+    title: "Priority Support",
     content:
-      "Every recommendation is ranked by revenue impact and effort so your team can execute what moves results fastest.",
+      "Rapid-response support model for operational issues, with clear escalation paths and accountability.",
     features: [
-      "Impact versus effort ranking",
-      "Quick-win opportunity list",
-      "Revenue impact projections",
+      "Priority issue handling",
+      "Dedicated support channel",
+      "Service-level response expectations",
     ],
   },
   {
-    title: "Strategic Implementation",
+    title: "Quarterly Strategy Sessions",
     content:
-      "You get a practical roadmap for execution, testing, and optimization so conversion gains are sustained over time.",
+      "Leadership-level planning sessions to align optimization priorities with growth targets and operational reality.",
     features: [
-      "Step-by-step implementation plan",
-      "A/B testing hypotheses",
-      "Post-implementation tracking guidance",
+      "Quarterly strategic planning",
+      "Roadmap reprioritization",
+      "Next-phase initiative design",
+    ],
+  },
+  {
+    title: "POPIA Compliance Monitoring",
+    content:
+      "Ongoing compliance checks to ensure your AI operations remain aligned with evolving policy and data requirements.",
+    features: [
+      "Compliance posture checks",
+      "Control validation and updates",
+      "Risk mitigation recommendations",
     ],
   },
 ];
 
 const otherServices = [
   {
-    title: "Sales Process Optimization",
+    title: "AI Revenue Diagnostic",
     description:
-      "Fix stalled pipelines by removing manual bottlenecks and implementing conversion-focused sales workflows.",
-    points: ["Pipeline leak detection", "Workflow automation", "CRM integration", "Sales enablement"],
-    href: "/services/sales-systems",
-    icon: Workflow,
+      "A 360° audit of your current systems to identify the highest-impact AI and revenue opportunities.",
+    points: ["Opportunity assessment", "POPIA scorecard", "90-day roadmap", "Executive strategy session"],
+    href: "/services/ai-revenue-diagnostic",
+    icon: Search,
     iconClassName: "text-cyan-500 bg-cyan-500/10 border-cyan-500/30",
   },
   {
@@ -76,17 +86,17 @@ const otherServices = [
     iconClassName: "text-amber-500 bg-amber-500/10 border-amber-500/30",
   },
   {
-    title: "Customer Support Chatbots",
+    title: "AI Training & Capability Building",
     description:
-      "AI support systems trained on your business context to resolve customer requests and escalate intelligently.",
-    points: ["Knowledge-grounded responses", "Smart human handoff", "System integration", "Ongoing optimization"],
-    href: "/services/customer-support-chatbots",
-    icon: Bot,
+      "Hands-on team enablement to improve AI output quality, adoption, and execution consistency.",
+    points: ["Prompt engineering mastery", "Workflow automation training", "Custom training playbooks", "30-day post-training support"],
+    href: "/services/ai-training-capability-building",
+    icon: GraduationCap,
     iconClassName: "text-emerald-500 bg-emerald-500/10 border-emerald-500/30",
   },
 ];
 
-export default function LeadGenerationPage() {
+export default function OngoingAISupportOptimizationPage() {
   return (
     <main className="bg-surface-muted min-h-screen">
       <section className="relative overflow-hidden">
@@ -107,7 +117,7 @@ export default function LeadGenerationPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.05 }} className="max-w-4xl">
             <SplitHeadline
               as="h1"
-              leadingText="Website Conversion"
+              leadingText="Ongoing AI Support &"
               emphasisText="Optimization"
               className="text-[36px] sm:text-[44px] md:text-[72px] lg:text-[86px] text-text-primary mb-10"
               breakBeforeEmphasis={false}
@@ -147,14 +157,14 @@ export default function LeadGenerationPage() {
                 />
 
                 <p className="text-text-secondary leading-relaxed mb-6">
-                  We use data-driven diagnostics to identify why high-intent website visitors are not converting into qualified leads.
+                  We provide ongoing strategic and operational support to keep your AI systems performing as your business and tools evolve.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-8">
-                  From conversion gap analysis to revenue-prioritized fixes, you get a clear execution path that improves conversion performance quickly.
+                  You get continuous optimization, proactive recommendations, and expert guidance that protects ROI and compliance over time.
                 </p>
 
-                <Link href="/ai-implementation-assessment" className="btn-primary-hero-cta group">
-                  Get Your Free AI Implementation Audit
+                <Link href="/contact" className="btn-primary-hero-cta group">
+                  Start Your Support Plan
                   <span className="ml-2">→</span>
                 </Link>
               </motion.div>

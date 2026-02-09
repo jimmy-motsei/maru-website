@@ -6,7 +6,7 @@ import { Check, Info } from "lucide-react";
 
 export function DiagnosticSection() {
   return (
-    <section id="diagnostics" className="bg-[#09121A] py-24 lg:py-32">
+    <section id="diagnostics" className="bg-[#161616] py-24 lg:py-32">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">

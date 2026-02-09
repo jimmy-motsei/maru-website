@@ -60,12 +60,13 @@ const itemVariants = {
 };
 
 export function OtherServices({ currentServiceId: _currentServiceId }: OtherServicesProps) {
+  void _currentServiceId;
   // Always show all 3 services regardless of current page
   const displayServices = fixedServices;
 
   return (
-    <section className="bg-[#f5f5f5] py-24 lg:py-32">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section className="bg-[#f5f5f5] py-20 lg:py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
           <motion.h2
@@ -73,7 +74,7 @@ export function OtherServices({ currentServiceId: _currentServiceId }: OtherServ
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-h2 font-medium text-black leading-[1.2] mb-4 md:mb-0"
+            className="text-4xl md:text-h2 font-medium text-black leading-[1.2] mb-4 md:mb-0"
           >
             Other <span className="font-thin text-gray-400">Services</span>
           </motion.h2>
@@ -99,25 +100,28 @@ export function OtherServices({ currentServiceId: _currentServiceId }: OtherServ
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto"
         >
           {displayServices.map((service) => {
             const IconComponent = service.icon;
             return (
               <motion.div key={service.id} variants={itemVariants}>
-                <div className="group bg-white rounded-2xl p-8 h-full shadow-sm border border-action-primary hover:border-action-primary transition-colors duration-300 flex flex-col">
-                  {/* Icon */}
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
-                    style={{ backgroundColor: `${service.iconColor}20` }}
-                  >
-                    <IconComponent size={28} style={{ color: service.iconColor }} />
+                <div className="group bg-white rounded-2xl p-6 sm:p-8 h-full shadow-sm border border-action-primary hover:border-action-primary transition-colors duration-300 flex flex-col">
+                  {/* Title + Inline Icon */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <div
+                      className="w-10 h-10 rounded-xl border flex items-center justify-center shrink-0"
+                      style={{
+                        backgroundColor: `${service.iconColor}20`,
+                        borderColor: `${service.iconColor}55`,
+                      }}
+                    >
+                      <IconComponent size={20} style={{ color: service.iconColor }} />
+                    </div>
+                    <h3 className="text-xl font-bold text-dark">
+                      {service.title}
+                    </h3>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-dark mb-3">
-                    {service.title}
-                  </h3>
 
                   {/* Description */}
                   <p className="text-dark/70 mb-6 text-base leading-relaxed">

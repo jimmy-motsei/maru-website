@@ -15,7 +15,7 @@ const staggerContainer = {
 
 export function Hero() {
     return (
-        <section className="relative w-full min-h-screen overflow-hidden bg-[#09121A] text-white">
+        <section className="relative w-full min-h-screen overflow-hidden bg-black text-white">
             <AtmosphericBackground variant="hero" />
             <div className="container relative z-30 mx-auto h-screen px-6 md:px-12 lg:px-20 flex flex-col justify-center">
                 <div className="max-w-5xl">

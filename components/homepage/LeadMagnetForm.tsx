@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { SplitHeadline } from "@/components/ui/SplitHeadline";
 
 export function LeadMagnetForm() {
   return (
@@ -10,7 +11,7 @@ export function LeadMagnetForm() {
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-action-primary/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* LEFT: Copy */}
@@ -23,10 +24,15 @@ export function LeadMagnetForm() {
             <span className="uppercase tracking-[2px] text-action-primary text-[12px] font-bold mb-6 block">
                Free Resource
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-[68px] font-bold font-sans text-text-inverse mb-6 leading-[1.1]">
-              Ready to Operationalize Your <br/>
-              <span className="text-action-primary">AI Investment?</span>
-            </h2>
+            <SplitHeadline
+              as="h2"
+              leadingText="Ready To Operationalize"
+              emphasisText="Your Ai Investment?"
+              className="text-[32px] sm:text-4xl md:text-5xl lg:text-[62px] font-sans text-text-inverse mb-6 leading-[1.1]"
+              breakClassName="block"
+              leadingWeight="light"
+              emphasisWeight="strong"
+            />
             <p className="text-lg text-text-inverse-muted mb-8 leading-relaxed">
               Get your free <strong>AI Implementation Scorecard</strong> to see exactly where your revenue leaks are—and how to fix them.
             </p>

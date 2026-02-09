@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { TrendingUp, Users, ClipboardCheck, Map } from "lucide-react";
-import { SplitHeadline } from "@/components/ui/SplitHeadline";
 
 const BENEFITS = [
   {
@@ -47,22 +46,12 @@ export function Benefits() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <SplitHeadline
-              as="h2"
-              leadingText="What Changes When You Work"
-              emphasisText="With Maruonline"
-              className="text-4xl md:text-5xl lg:text-[68px] font-sans text-text-primary mb-6 leading-[1.1]"
-              leadingWeight="light"
-              emphasisWeight="strong"
-            />
+            <h2 className="maru-headline-split text-4xl md:text-5xl lg:text-[68px] font-sans text-text-primary mb-6 leading-[1.1]">
+              <span className="maru-headline-split-light">What Changes When You</span>
+              <br />
+              <span className="maru-headline-split-strong">Partner with Us</span>
+            </h2>
           </motion.div>
-          <motion.div
-             initial={{ opacity: 0, scaleX: 0 }}
-             whileInView={{ opacity: 1, scaleX: 1 }}
-             viewport={{ once: true }}
-             transition={{ duration: 0.8 }}
-             className="h-1 w-24 bg-action-primary mx-auto mb-6"
-          />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

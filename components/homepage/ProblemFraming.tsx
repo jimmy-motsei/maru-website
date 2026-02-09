@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function ProblemFraming() {
   return (
-    <section id="problem-framing" className="bg-[#09121A] py-24 lg:py-40">
+    <section id="problem-framing" className="bg-[#161616] py-24 lg:py-40">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div

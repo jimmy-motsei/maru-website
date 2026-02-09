@@ -2,647 +2,231 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Map, DollarSign, Zap, TrendingUp, BarChart3, CheckCircle2, Mail, Users, FileText, Calendar, MessageSquare, FolderOpen, Trello, CreditCard, Headphones, Search, Palette, Wrench, GraduationCap, LineChart, ArrowRight } from "lucide-react";
-import { ServiceHero } from "@/components/sections/ServiceHero";
-import { OtherServices } from "@/components/sections/OtherServices";
-import { CTAPrimary } from "@/components/ui/CTAPrimary";
+import { ArrowDown, ArrowRight, Search, Workflow, Wrench } from "lucide-react";
 import { SplitHeadline } from "@/components/ui/SplitHeadline";
-import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
+import { ServiceAccordion } from "@/components/ui/ServiceAccordion";
+import { ServiceNeedHelpCTA } from "@/components/sections/ServiceNeedHelpCTA";
 
 const breadcrumbs = [
-  { label: "Home", href: "/" },
+  { label: "Homepage", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Marketing Integration", href: "/services/office-automation" },
+  { label: "Service", href: "/services/office-automation" },
 ];
 
-const discoveryItems = [
+const accordionItems = [
   {
-    title: "Complete Map of Your Current Tools and Data Flows",
-    description: "Visual diagram of how information moves (or doesn't)",
-    icon: Map,
-  },
-  {
-    title: "Redundant Software You Can Eliminate",
-    description: "Immediate cost savings from tool consolidation",
-    icon: DollarSign,
-  },
-  {
-    title: "Integration Opportunities to Eliminate Manual Work",
-    description: "Where automation will save the most time",
-    icon: Zap,
-  },
-  {
-    title: "ROI Analysis of Your Marketing Technology Spend",
-    description: "Are you getting value from what you're paying for?",
-    icon: TrendingUp,
-  },
-  {
-    title: "Custom Integration Roadmap Prioritized by Impact",
-    description: "What to connect first for maximum results",
-    icon: BarChart3,
-  },
-];
-
-const marketingTools = [
-  { name: "Website analytics", description: "GA4, Hotjar", icon: BarChart3 },
-  { name: "Lead capture forms", description: "Landing pages", icon: FileText },
-  { name: "Email marketing platforms", description: "Mailchimp, HubSpot", icon: Mail },
-  { name: "Social media management", description: "Buffer, Hootsuite", icon: MessageSquare },
-  { name: "Content management", description: "WordPress, Webflow", icon: FolderOpen },
-];
-
-const salesTools = [
-  { name: "CRM systems", description: "HubSpot, Pipedrive, Salesforce", icon: Users },
-  { name: "Proposal software", description: "Quote generators", icon: FileText },
-  { name: "Meeting schedulers", description: "Calendly, Google Calendar", icon: Calendar },
-  { name: "E-signature platforms", description: "DocuSign, HelloSign", icon: FileText },
-];
-
-const operationsTools = [
-  { name: "Document management", description: "Google Drive, Dropbox", icon: FolderOpen },
-  { name: "Project management", description: "Trello, Asana, Monday", icon: Trello },
-  { name: "Billing and invoicing", description: "Xero, QuickBooks", icon: CreditCard },
-  { name: "Customer support", description: "Zendesk, Intercom", icon: Headphones },
-];
-
-const workflowSteps = [
-  {
-    number: "01",
     title: "Tech Stack Audit",
-    description: "Document all your current tools and workflows",
-    icon: Search,
+    content:
+      "We map your full marketing, sales, and operations stack to identify data silos, duplicated tools, and manual handoffs slowing your team down.",
+    features: [
+      "Current tool and data flow mapping",
+      "Redundant platform identification",
+      "Manual-process bottleneck analysis",
+    ],
   },
   {
-    number: "02",
-    title: "Integration Design",
-    description: "Map optimal data flows and automations",
-    icon: Palette,
+    title: "Integration Architecture",
+    content:
+      "We design the right system connections so data moves cleanly between platforms and every team sees one reliable source of truth.",
+    features: [
+      "Cross-platform integration blueprint",
+      "Lead and customer data sync rules",
+      "Automation trigger and handoff logic",
+    ],
   },
   {
-    number: "03",
-    title: "Build & Test",
-    description: "Connect systems and ensure data integrity",
-    icon: Wrench,
+    title: "Workflow Automation Build",
+    content:
+      "We implement high-impact automations that remove repetitive admin work, reduce errors, and speed up execution across your teams.",
+    features: [
+      "Lead routing and lifecycle automation",
+      "Reporting and dashboard automation",
+      "Task and notification workflows",
+    ],
   },
   {
-    number: "04",
-    title: "Training & Handoff",
-    description: "Your team learns the new automated workflows",
-    icon: GraduationCap,
+    title: "Testing and Team Enablement",
+    content:
+      "Every integration is tested end-to-end and handed over with practical playbooks so your team can run the system confidently.",
+    features: [
+      "Validation and quality checks",
+      "Role-based process documentation",
+      "Team onboarding and workflow training",
+    ],
   },
   {
-    number: "05",
-    title: "Ongoing Support",
-    description: "Monitor, optimize, and maintain integrations",
-    icon: LineChart,
+    title: "Ongoing Optimization",
+    content:
+      "As your systems and goals evolve, we monitor performance and optimize your integrations to keep efficiency and ROI improving.",
+    features: [
+      "Monthly performance reviews",
+      "Optimization recommendations",
+      "Continuous integration maintenance",
+    ],
   },
 ];
 
-const automationItems = [
-  "Lead data flowing from website to CRM",
-  "Contact synchronization across platforms",
-  "Marketing campaign triggers based on sales activity",
-  "Automated reporting and dashboards",
-  "Document processing and filing",
-  "Task creation and assignment",
-  "Customer data updates across all systems",
+const otherServices = [
+  {
+    title: "Website Conversion Optimization",
+    description:
+      "Identify why visitors drop off and implement high-impact fixes that convert more traffic into qualified leads.",
+    points: ["Behavior diagnostics", "Conversion gap analysis", "Revenue-prioritized roadmap", "Implementation guidance"],
+    href: "/services/lead-generation",
+    icon: Search,
+    iconClassName: "text-cyan-500 bg-cyan-500/10 border-cyan-500/30",
+  },
+  {
+    title: "Sales Process Optimization",
+    description:
+      "Fix stalled deals by streamlining handoffs, reducing manual admin, and improving sales execution consistency.",
+    points: ["Pipeline leak detection", "Workflow automation", "CRM integration", "Sales enablement"],
+    href: "/services/sales-systems",
+    icon: Workflow,
+    iconClassName: "text-emerald-500 bg-emerald-500/10 border-emerald-500/30",
+  },
+  {
+    title: "Custom AI Solution Build",
+    description:
+      "Bespoke AI systems built around your existing platforms, workflows, and business model.",
+    points: ["Custom development", "Platform integration", "POPIA-compliant architecture", "Optimization support"],
+    href: "/services/custom-ai-solution-build",
+    icon: Wrench,
+    iconClassName: "text-amber-500 bg-amber-500/10 border-amber-500/30",
+  },
 ];
 
 export default function OfficeAutomationContent() {
   return (
-    <main className="bg-[#09121A] min-h-screen text-white">
-      {/* Hero Section */}
-      <ServiceHero
-        breadcrumbs={breadcrumbs}
-        titleBold="Your Marketing Tools Should"
-        titleLight="Work Together"
-        subtitle="You're paying for 10+ software tools that don't share data. We connect your stack so information flows automatically—no more manual exports, imports, or duplicate data entry."
-      />
+    <main className="bg-surface-muted min-h-screen">
+      <section className="relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-[120px] md:pt-[140px] pb-20 md:pb-24">
+          <motion.nav initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} className="mb-10">
+            <ol className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[2px] text-text-secondary">
+              {breadcrumbs.map((crumb, index) => (
+                <li key={crumb.href} className="flex items-center gap-2">
+                  <Link href={crumb.href} className={index === breadcrumbs.length - 1 ? "text-text-primary" : "hover:text-text-primary transition-colors"}>
+                    {crumb.label}
+                  </Link>
+                  {index < breadcrumbs.length - 1 ? <span>/</span> : null}
+                </li>
+              ))}
+            </ol>
+          </motion.nav>
 
-      {/* Discovery Section - WHITE BACKGROUND */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={staggerContainerVariants}
-          >
-            <motion.div variants={fadeUpVariants}>
-              <SplitHeadline
-                as="h2"
-                leadingText="What You'll"
-                emphasisText="Discover"
-                className="text-h2 mb-14 text-black leading-[1.2]"
-                breakBeforeEmphasis={false}
-                leadingWeight="light"
-                emphasisWeight="strong"
-              />
-            </motion.div>
-            <motion.p className="text-gray-600 text-lg mb-2" variants={fadeUpVariants}>
-              Our Tech Stack Audit reveals:
-            </motion.p>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.05 }} className="max-w-4xl">
+            <SplitHeadline
+              as="h1"
+              leadingText="Marketing"
+              emphasisText="Integration"
+              className="text-[36px] sm:text-[44px] md:text-[72px] lg:text-[86px] text-text-primary mb-10"
+              breakBeforeEmphasis={false}
+              leadingWeight="strong"
+              emphasisWeight="light"
+            />
           </motion.div>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={staggerContainerVariants}
+          <motion.a
+            href="#about-service"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.1 }}
+            className="inline-flex items-center gap-3 text-xs uppercase tracking-[2px] font-semibold text-text-primary"
           >
-            {discoveryItems.map((item, index) => (
-              <motion.div
-                key={index}
-                variants={fadeUpVariants}
-                className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-highlight flex items-start gap-6 group hover:border-highlight hover:shadow-lg transition-all"
-              >
-                <div className="w-14 h-14 shrink-0 rounded-2xl bg-highlight/5 flex items-center justify-center text-highlight border border-highlight/30 group-hover:scale-110 group-hover:bg-highlight/10 transition-all">
-                  <item.icon size={28} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-black mb-2">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+            About Service
+            <span className="w-9 h-9 rounded-full bg-surface-inverse border border-border-subtle flex items-center justify-center">
+              <ArrowDown size={16} />
+            </span>
+          </motion.a>
         </div>
       </section>
 
-      {/* The Problem We Solve Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#09121A]">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <motion.div 
-              className="mb-12"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={staggerContainerVariants}
-            >
-              <motion.div variants={fadeUpVariants}>
+      <section id="about-service" className="pb-24 md:pb-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16">
+            <div className="lg:col-span-4">
+              <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.45 }}>
                 <SplitHeadline
                   as="h2"
-                  leadingText="The"
-                  emphasisText="Problem We Solve"
-                  className="text-h2 mb-14 text-white leading-[1.2]"
-                  breakBeforeEmphasis={false}
-                  leadingWeight="light"
-                  emphasisWeight="strong"
+                  leadingText="Our Approach"
+                  emphasisText="and Work Specifics"
+                  className="text-[30px] sm:text-[34px] md:text-[44px] lg:text-[52px] text-text-primary mb-8 leading-[1.15]"
+                  breakClassName="block"
+                  leadingWeight="strong"
+                  emphasisWeight="light"
                 />
-              </motion.div>
-            </motion.div>
-            <motion.div 
-              className="space-y-6 text-lg text-zinc-300 leading-relaxed"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={staggerContainerVariants}
-            >
-              <motion.p variants={fadeUpVariants}>
-                Your website visitor data lives in one system. Your CRM has different information. Your email platform doesn't know who's a customer. Your analytics can't track the full journey.
-              </motion.p>
-              <motion.p className="text-xl font-semibold text-white" variants={fadeUpVariants}>
-                And your team wastes hours each week copying data between systems.
-              </motion.p>
-              <motion.p className="text-highlight text-xl font-bold" variants={fadeUpVariants}>
-                We make your tools talk to each other so your data tells one story.
-              </motion.p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
-      {/* What We Connect Section - WHITE BACKGROUND */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={staggerContainerVariants}
-          >
-            <motion.div variants={fadeUpVariants}>
-              <SplitHeadline
-                as="h2"
-                leadingText="What We"
-                emphasisText="Connect"
-                className="text-h2 mb-14 text-black text-center leading-[1.2]"
-                breakBeforeEmphasis={false}
-                leadingWeight="light"
-                emphasisWeight="strong"
-              />
-            </motion.div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-              {/* Marketing Tools Column */}
-              <motion.div variants={fadeUpVariants}>
-                <h3 className="text-2xl font-bold text-black mb-6">Marketing Tools</h3>
-                <div className="space-y-4">
-                  {marketingTools.map((tool, index) => (
-                    <div key={index} className="bg-gray-100 p-4 rounded-2xl border border-gray-300 hover:border-highlight transition-colors">
-                      <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-highlight/5 flex items-center justify-center text-highlight shrink-0 border border-highlight/30">
-                          <tool.icon size={20} />
-                        </div>
-                        <div>
-                          <p className="font-semibold text-black text-sm">{tool.name}</p>
-                          <p className="text-gray-600 text-xs">{tool.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
+                <p className="text-text-secondary leading-relaxed mb-6">
+                  We connect disconnected tools so your customer and revenue data moves through one unified system instead of fragmented silos.
+                </p>
+                <p className="text-text-secondary leading-relaxed mb-8">
+                  The result is fewer manual tasks, cleaner reporting, and faster execution across marketing, sales, and operations.
+                </p>
 
-              {/* Sales Tools Column */}
-              <motion.div variants={fadeUpVariants}>
-                <h3 className="text-2xl font-bold text-black mb-6">Sales Tools</h3>
-                <div className="space-y-4">
-                  {salesTools.map((tool, index) => (
-                    <div key={index} className="bg-gray-100 p-4 rounded-2xl border border-gray-300 hover:border-highlight transition-colors">
-                      <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-highlight/5 flex items-center justify-center text-highlight shrink-0 border border-highlight/30">
-                          <tool.icon size={20} />
-                        </div>
-                        <div>
-                          <p className="font-semibold text-black text-sm">{tool.name}</p>
-                          <p className="text-gray-600 text-xs">{tool.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Operations Tools Column */}
-              <motion.div variants={fadeUpVariants}>
-                <h3 className="text-2xl font-bold text-black mb-6">Operations Tools</h3>
-                <div className="space-y-4">
-                  {operationsTools.map((tool, index) => (
-                    <div key={index} className="bg-gray-100 p-4 rounded-2xl border border-gray-300 hover:border-highlight transition-colors">
-                      <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-highlight/5 flex items-center justify-center text-highlight shrink-0 border border-highlight/30">
-                          <tool.icon size={20} />
-                        </div>
-                        <div>
-                          <p className="font-semibold text-black text-sm">{tool.name}</p>
-                          <p className="text-gray-600 text-xs">{tool.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <Link href="/assessments/tech-audit" className="btn-primary-hero-cta group">
+                  Start with a Tech Stack Audit
+                  <span className="ml-2">→</span>
+                </Link>
               </motion.div>
             </div>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* How It Works Section - DARK BACKGROUND */}
-      <section className="py-24 bg-card-dark">
-        <div className="container mx-auto px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-20"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={staggerContainerVariants}
-          >
-            <motion.div variants={fadeUpVariants}>
-              <SplitHeadline
-                as="h2"
-                leadingText="How"
-                emphasisText="It Works"
-                className="text-h2 mb-14 text-white leading-[1.2]"
-                breakBeforeEmphasis={false}
-                leadingWeight="light"
-                emphasisWeight="strong"
-              />
-            </motion.div>
-            <motion.p className="text-zinc-400 text-lg" variants={fadeUpVariants}>
-              From audit to automation in 5 steps
-            </motion.p>
-          </motion.div>
-
-          <div className="relative max-w-7xl mx-auto">
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              variants={staggerContainerVariants}
-            >
-              {workflowSteps.map((step, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeUpVariants}
-                  className="relative group"
-                >
-                  <div className="bg-card-dark p-8 rounded-2xl border border-card-border h-full relative z-10 hover:border-highlight/50 transition-colors">
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-16 h-16 rounded-full border-2 border-highlight flex items-center justify-center mb-8 relative bg-card-dark">
-                        <span className="text-lg font-bold text-white">{step.number}</span>
-                        {index < workflowSteps.length - 1 && (
-                          <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-highlight/30">
-                            <ArrowRight size={24} />
-                          </div>
-                        )}
-                      </div>
-                      
-                      <div className="w-12 h-12 rounded-xl border border-card-border flex items-center justify-center text-highlight mb-6 bg-card-dark">
-                        <step.icon size={24} />
-                      </div>
-                      
-                      <h3 className="text-lg font-bold mb-3 text-white">{step.title}</h3>
-                      <p className="text-zinc-400 text-xs leading-relaxed">{step.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+            <div className="lg:col-span-8">
+              <ServiceAccordion items={accordionItems} />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* What Gets Automated Section - WHITE BACKGROUND */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={staggerContainerVariants}
-            >
-                <motion.div variants={fadeUpVariants}>
-                  <SplitHeadline
-                    as="h2"
-                    leadingText="What Gets"
-                    emphasisText="Automated"
-                    className="text-h2 mb-14 text-black text-center leading-[1.2]"
-                    breakBeforeEmphasis={false}
-                    leadingWeight="light"
-                    emphasisWeight="strong"
-                  />
-                </motion.div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {automationItems.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    variants={fadeUpVariants}
-                    className="flex items-center gap-3 bg-gray-100 p-4 rounded-xl border border-gray-300 hover:border-highlight transition-colors"
-                  >
-                    <CheckCircle2 size={20} className="text-highlight shrink-0" />
-                    <span className="text-gray-700">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
+      <section className="py-20 md:py-24 bg-surface-inverse border-t border-border-subtle">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
+            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} className="text-[34px] sm:text-[42px] md:text-[56px] leading-[1.1] text-text-primary">
+              <SplitHeadline as="h2" leadingText="Other" emphasisText="Services" breakBeforeEmphasis={false} leadingWeight="light" emphasisWeight="strong" />
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why We Start With Diagnostics Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#09121A]">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={staggerContainerVariants}
-            >
-              <motion.div variants={fadeUpVariants}>
-                <SplitHeadline
-                  as="h2"
-                  leadingText="Why We"
-                  emphasisText="Start With Diagnostics"
-                  className="text-h2 mb-14 text-white leading-[1.2]"
-                  breakClassName="hidden md:block"
-                  leadingWeight="light"
-                  emphasisWeight="strong"
-                />
-              </motion.div>
-              
-              <motion.p className="text-xl text-white mb-6" variants={fadeUpVariants}>
-                Unlike agencies that pitch before understanding your business, we start with diagnostics.
-              </motion.p>
-              
-              <motion.p className="text-lg text-zinc-300 mb-8 leading-relaxed" variants={fadeUpVariants}>
-                Most agencies will give you a quote based on 30 minutes of discovery. We think that's backwards.
-              </motion.p>
-              
-              <motion.p className="text-lg text-zinc-300 mb-8 leading-relaxed" variants={fadeUpVariants}>
-                Our free diagnostic does what a traditional agency discovery process costs <span className="text-white font-semibold">R15,000+ for:</span>
-              </motion.p>
-
-              <motion.div className="space-y-4 mb-8" variants={fadeUpVariants}>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-1" />
-                  <div>
-                    <p className="text-white font-medium">Analyze your actual data, not assumptions</p>
-                    <p className="text-zinc-400 text-sm">We map your real tech stack and workflows, not templates</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-1" />
-                  <div>
-                    <p className="text-white font-medium">Identify specific problems, not generic 'opportunities'</p>
-                    <p className="text-zinc-400 text-sm">Pinpoint exactly where data silos are costing you time</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-highlight shrink-0 mt-1" />
-                  <div>
-                    <p className="text-white font-medium">Prioritize fixes by revenue impact, not what's trendy</p>
-                    <p className="text-zinc-400 text-sm">Focus on integrations that save the most time and money</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.p className="text-xl text-highlight font-bold" variants={fadeUpVariants}>
-                You get actionable insights whether you hire us or not. If the diagnostic reveals problems you can't fix yourself, we're here.
-              </motion.p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Integration Packages Section - WHITE BACKGROUND */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={staggerContainerVariants}
-          >
-            <motion.div variants={fadeUpVariants}>
-              <SplitHeadline
-                as="h2"
-                leadingText="Integration"
-                emphasisText="Packages"
-                className="text-h2 mb-14 text-black leading-[1.2]"
-                breakBeforeEmphasis={false}
-                leadingWeight="light"
-                emphasisWeight="strong"
-              />
-            </motion.div>
-            <motion.p className="text-gray-600 text-lg" variants={fadeUpVariants}>
-              Pricing varies based on complexity—here's what most clients start with
-            </motion.p>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={staggerContainerVariants}
-          >
-            {/* Starter Package */}
-            <motion.div
-              variants={fadeUpVariants}
-              className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-highlight hover:border-highlight hover:shadow-lg transition-all"
-            >
-              <h3 className="text-2xl font-bold text-black mb-2">Starter Package</h3>
-              <p className="text-sm text-gray-600 mb-4">Best for: Small teams with 3-5 core tools</p>
-              <div className="mb-6">
-                <div className="text-sm text-gray-600 mb-1">Starting from</div>
-                <div className="text-2xl font-bold text-black">R3,999 <span className="text-base font-normal text-gray-600">one-time</span></div>
-                <div className="text-lg font-semibold text-black">+ R999<span className="text-sm font-normal text-gray-600">/month</span></div>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">Up to 3 tool integrations</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">Basic automation workflows</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">Setup, testing, and training</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">1 month post-launch support</span>
-                </li>
-              </ul>
-              <CTAPrimary className="w-full">
-                Get Custom Quote for Starter
-              </CTAPrimary>
-            </motion.div>
-
-            {/* Growth Package - Featured */}
-            <motion.div
-              variants={fadeUpVariants}
-              className="bg-gray-100 p-8 rounded-3xl border-2 border-highlight relative shadow-lg"
-            >
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-highlight text-black px-4 py-1 rounded-full text-sm font-bold">
-                ⭐ MOST POPULAR
-              </div>
-              <h3 className="text-2xl font-bold text-black mb-2">Growth Package</h3>
-              <p className="text-sm text-gray-600 mb-4">Best for: Growing teams with 5-10 marketing & sales tools</p>
-              <div className="mb-6">
-                <div className="text-sm text-gray-600 mb-1">Starting from</div>
-                <div className="text-2xl font-bold text-black">R8,999 <span className="text-base font-normal text-gray-600">one-time</span></div>
-                <div className="text-lg font-semibold text-black">+ R2,999<span className="text-sm font-normal text-gray-600">/month</span></div>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">Up to 8 tool integrations</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">Advanced automation workflows</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">Custom dashboard setup</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">3 months post-launch support</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">Monthly optimization reviews</span>
-                </li>
-              </ul>
-              <CTAPrimary className="w-full">
-                Get Custom Quote for Growth
-              </CTAPrimary>
-            </motion.div>
-
-            {/* Enterprise Package */}
-            <motion.div
-              variants={fadeUpVariants}
-              className="bg-gray-100 p-8 rounded-3xl border border-gray-300 border-l-4 border-l-highlight hover:border-highlight hover:shadow-lg transition-all"
-            >
-              <h3 className="text-2xl font-bold text-black mb-2">Enterprise Package</h3>
-              <p className="text-sm text-gray-600 mb-4">Best for: Complex tech stacks with custom requirements</p>
-              <div className="mb-6">
-                <div className="text-3xl font-bold text-black">Custom Pricing</div>
-                <div className="text-sm text-gray-600">Based on requirements</div>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">Unlimited integrations</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">Complex workflow automation</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">Custom API development</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">Dedicated integration manager</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">Ongoing unlimited support</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                  <span className="text-gray-700 text-sm">SLA guarantees</span>
-                </li>
-              </ul>
-              <CTAPrimary className="w-full">
-                Schedule Enterprise Consultation
-              </CTAPrimary>
-            </motion.div>
-          </motion.div>
-
-          <motion.div 
-            className="text-center mt-12"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={staggerContainerVariants}
-          >
-            <motion.p className="text-gray-600" variants={fadeUpVariants}>
-              Not sure which package fits?{" "}
-              <Link href="/assessments/tech-audit" className="text-highlight hover:text-highlight-hover transition-colors font-medium">
-                Take our Tech Stack Audit →
+            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }}>
+              <Link href="/services" className="inline-flex items-center gap-3 text-xs uppercase tracking-[2px] font-semibold text-text-primary">
+                View all
+                <span className="w-9 h-9 rounded-full bg-surface-muted border border-border-subtle flex items-center justify-center">
+                  <ArrowRight size={16} />
+                </span>
               </Link>
-            </motion.p>
-          </motion.div>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {otherServices.map((service) => (
+              <motion.article
+                key={service.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                className="border border-border-strong rounded-2xl p-6 sm:p-8 bg-surface-inverse"
+              >
+                <span className={`inline-flex w-10 h-10 rounded-xl border items-center justify-center mb-4 ${service.iconClassName}`}>
+                  <service.icon size={20} />
+                </span>
+                <h3 className="text-3xl leading-tight text-text-primary maru-headline-split-strong mb-4">{service.title}</h3>
+                <p className="text-text-secondary leading-relaxed mb-6">{service.description}</p>
+                <ul className="space-y-3 border-y border-border-subtle py-6 mb-7">
+                  {service.points.map((point) => (
+                    <li key={point} className="text-xs uppercase tracking-[2px] text-text-primary">
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+                <Link href={service.href} className="inline-flex items-center gap-3 text-xs uppercase tracking-[2px] font-semibold text-text-primary">
+                  Learn More
+                  <span className="w-9 h-9 rounded-full bg-[var(--color-brand-accent)] text-white border border-[var(--color-brand-accent)] flex items-center justify-center">
+                    <ArrowRight size={16} />
+                  </span>
+                </Link>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Other Services */}
-      <OtherServices currentServiceId="office-automation" />
+      <ServiceNeedHelpCTA />
     </main>
   );
 }

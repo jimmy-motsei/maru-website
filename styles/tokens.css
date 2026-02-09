@@ -16,13 +16,13 @@
   --tracking-label: 2px;
 
   /* Ashley primitives: brand + grayscale */
-  --color-base-black: rgba(0, 0, 0, 1);
+  --color-base-black: rgba(22, 22, 22, 1);
   --color-base-white: rgba(255, 255, 255, 1);
   --color-brand-accent: rgba(0, 161, 165, 1);
   --color-brand-cta: rgba(4, 179, 204, 1);
-  --color-card-dark: rgba(10, 18, 25, 1);
-  --color-card-dark-soft: rgba(10, 18, 25, 0.72);
-  --color-card-dark-hover: rgba(15, 28, 37, 1);
+  --color-card-dark: rgba(50, 50, 50, 1);
+  --color-card-dark-soft: rgba(50, 50, 50, 0.72);
+  --color-card-dark-hover: rgba(60, 60, 60, 1);
 
   --color-alpha-black-2: rgba(0, 0, 0, 0.02);
   --color-alpha-black-5: rgba(0, 0, 0, 0.05);
@@ -106,4 +106,19 @@
   --space-section-y: var(--space-section);
   --space-section-y-mobile: var(--space-section-mobile);
   --space-card-padding: var(--space-block-md);
+
+  /* CTA tokens (homepage hero standard) */
+  --cta-primary-bg: var(--color-action-primary);
+  --cta-primary-text: var(--color-text-primary);
+  --cta-primary-hover-opacity: 0.9;
+  --cta-outline-border: var(--color-action-primary);
+  --cta-outline-text: var(--color-action-primary);
+  --cta-outline-hover-bg: rgba(4, 179, 204, 0.1);
+  --cta-radius: 8px;
+  --cta-padding-x: 32px;
+  --cta-padding-y: 16px;
+  --cta-font-size: 16px;
+  --cta-shadow: 0 10px 24px rgba(4, 179, 204, 0.2);
+  --cta-shadow-hover: 0 14px 30px rgba(4, 179, 204, 0.35);
+  --cta-outline-shadow-hover: 0 12px 26px rgba(4, 179, 204, 0.25);
 }

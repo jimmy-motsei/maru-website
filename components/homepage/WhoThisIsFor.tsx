@@ -19,7 +19,7 @@ export function WhoThisIsFor() {
   ];
 
   return (
-    <section className="bg-[#09121A] py-24 lg:py-40">
+    <section className="bg-[#161616] py-24 lg:py-40">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <motion.div

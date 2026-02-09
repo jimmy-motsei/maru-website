@@ -135,7 +135,6 @@ export default function LeadScorePage() {
               emphasisText="Generation Score"
               leadingWeight="light"
               emphasisWeight="strong"
-              breakBeforeEmphasis={false}
               className="text-h1 text-white mb-14"
             />
             <p className="text-xl text-zinc-400">Based on our analysis of your website and business</p>
@@ -189,7 +188,6 @@ export default function LeadScorePage() {
           emphasisText="will get"
           leadingWeight="light"
           emphasisWeight="strong"
-          breakBeforeEmphasis={false}
           className="text-h3 text-white text-center mb-10"
         />
         <div className="grid md:grid-cols-3 gap-6 text-center">

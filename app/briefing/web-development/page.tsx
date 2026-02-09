@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { Select } from "@/components/ui/Select";
@@ -99,7 +98,6 @@ export default function WebDevBriefing() {
   if (isSuccess) {
     return (
       <main className="relative min-h-screen bg-[#0a192f] text-white flex items-center justify-center">
-        <AtmosphericBackground variant="subtle" />
         <div className="relative z-10 max-w-lg w-full text-center p-8 bg-card-dark backdrop-blur-xl rounded-2xl border border-white/10">
           <h2 className="text-3xl font-bold mb-4 text-[#ff9900]">Brief Submitted</h2>
           <p className="text-zinc-400 mb-8">
@@ -113,8 +111,6 @@ export default function WebDevBriefing() {
 
   return (
     <main className="relative min-h-screen bg-[#0a192f] text-white pb-12 md:pb-24">
-      <AtmosphericBackground variant="default" />
-      
       <div className="container relative z-10 mx-auto px-6 pt-12 md:pt-20">
         <Link 
           href="/briefing" 

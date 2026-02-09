@@ -93,7 +93,6 @@ export default function PipelineLeakPage() {
               emphasisText="Leak Analysis"
               leadingWeight="light"
               emphasisWeight="strong"
-              breakBeforeEmphasis={false}
               className="text-h1 text-white mb-14"
             />
             <p className="text-xl text-zinc-400">Revenue leaks detected in your sales pipeline</p>
@@ -124,7 +123,6 @@ export default function PipelineLeakPage() {
             emphasisText="Leak Detector"
             leadingWeight="light"
             emphasisWeight="strong"
-            breakBeforeEmphasis={false}
             className="text-h1 text-white mb-14"
           />
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">

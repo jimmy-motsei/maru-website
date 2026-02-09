@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, Bot, Globe, LifeBuoy } from "lucide-react";
 import { FeatureCard, DiamondIcon } from "@/components/ui/Card";
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 
 export const metadata: Metadata = {
   title: "Briefing Forms | Maru Online",
@@ -37,8 +36,6 @@ const forms = [
 export default function BriefingPage() {
   return (
     <main className="relative min-h-screen bg-[#0a192f] text-white">
-      <AtmosphericBackground variant="default" />
-      
       <div className="container relative z-10 mx-auto px-6 py-12 md:py-32">
         <div className="mb-16 text-center">
           <p className="text-sm font-bold tracking-widest text-accent uppercase mb-4">

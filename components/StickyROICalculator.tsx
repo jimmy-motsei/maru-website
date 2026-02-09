@@ -101,10 +101,10 @@ export default function StickyROICalculator() {
               )}
 
               <Link
-                href="/assessments/lead-score"
+                href="/ai-implementation-assessment"
                 className="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-bold uppercase text-sm py-3 px-4 rounded-lg transition-colors flex items-center justify-center"
               >
-                Get Detailed Analysis
+                Get AI Implementation Audit
               </Link>
 
               <p className="text-xs text-zinc-400 text-center">

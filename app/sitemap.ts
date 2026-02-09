@@ -59,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/ai-readiness`,
+      url: `${baseUrl}/ai-implementation-assessment`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,

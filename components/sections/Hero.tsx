@@ -8,7 +8,7 @@ import { CTAPrimary } from "@/components/ui/CTAPrimary";
 
 export function Hero() {
     return (
-        <section className="relative w-full min-h-screen overflow-hidden bg-[#09121A] text-white">
+        <section className="relative w-full min-h-screen overflow-hidden bg-black text-white">
             <AtmosphericBackground variant="hero" />
 
             {/* Content Layer */}

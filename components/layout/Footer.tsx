@@ -45,7 +45,7 @@ export function Footer() {
             <motion.div variants={itemVariants} className="lg:col-span-1">
               <Link href="/" className="inline-block mb-6">
                 <Image
-                  src="/images/brand/maru-logo-neutral.png"
+                  src="/images/brand/maru_logo_cropped_5px.png"
                   alt="Maru Logo"
                   width={160}
                   height={160}

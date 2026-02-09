@@ -47,186 +47,147 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="bg-deep-navy">
-      {/* Hero Section with Atmospheric Background */}
-      <section className="relative bg-deep-navy min-h-screen flex items-center py-section overflow-hidden">
+    <main className="bg-surface-muted text-text-primary min-h-screen">
+      <section className="relative bg-black py-[120px] md:py-[140px] border-b border-white/10 overflow-hidden">
         <AtmosphericBackground variant="hero" />
-        
-        <div className="container mx-auto px-6 lg:px-8 relative z-10 text-center">
-          {/* Breadcrumbs */}
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
           <motion.nav
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-[60px]"
+            transition={{ duration: 0.45 }}
+            className="mb-12"
           >
-            <ol className="flex items-center justify-center gap-2 text-sm font-sans tracking-widest uppercase">
+            <ol className="flex items-center justify-center gap-2 text-xs uppercase tracking-[2px] text-white/60">
               {breadcrumbs.map((crumb, index) => (
                 <li key={crumb.href} className="flex items-center gap-2">
                   <Link
                     href={crumb.href}
-                    className={`transition-colors ${
-                      index === breadcrumbs.length - 1
-                        ? "text-electric-cyan font-bold"
-                        : "text-white/40 hover:text-white"
-                    }`}
+                    className={index === breadcrumbs.length - 1 ? "text-white" : "hover:text-white transition-colors"}
                   >
                     {crumb.label}
                   </Link>
-                  {index < breadcrumbs.length - 1 && (
-                    <span className="text-white/20">/</span>
-                  )}
+                  {index < breadcrumbs.length - 1 ? <span>/</span> : null}
                 </li>
               ))}
             </ol>
           </motion.nav>
 
-          {/* Headline - New Maru Styling (Thin/Bold) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0, 0, 0.3642, 1] }}
+            transition={{ duration: 0.6 }}
+            className="text-center text-[54px] md:text-[86px] leading-[1.05] maru-headline-split-strong text-white mb-10"
           >
-            <SplitHeadline
-              as="h1"
-              leadingText="Let's Start"
-              emphasisText="The Conversation."
-              breakClassName="hidden md:block"
-              className="text-[34px] md:text-[58px] lg:text-[86px] text-white mb-[60px]"
-            />
-          </motion.div>
+            Get in touch!
+          </motion.h1>
 
-          {/* Scroll Indicator */}
           <motion.a
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             href="#contact"
-            className="inline-flex items-center gap-3 text-white/60 hover:text-electric-cyan transition-colors group"
+            className="inline-flex items-center justify-center w-full gap-3 text-xs uppercase tracking-[2px] font-semibold text-white"
           >
-            <span className="text-sm font-medium tracking-wider uppercase">Send message</span>
-            <ArrowRight size={16} className="group-hover:translate-y-1 transition-transform rotate-90" />
+            Send message
+            <span className="w-9 h-9 rounded-full bg-white/10 border border-white/25 flex items-center justify-center">
+              <ArrowRight size={16} className="rotate-90" />
+            </span>
           </motion.a>
         </div>
       </section>
 
-      {/* Contact Form Section - Dark Background */}
-      <section id="contact" className="relative bg-deep-navy py-section">
+      <section id="contact" className="py-[90px] md:py-[120px]">
         <div className="container mx-auto px-6 lg:px-8">
-          {/* Section Heading - Ashley Style */}
-          <motion.h3
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="maru-headline-split text-[34px] md:text-[58px] lg:text-[68px] maru-headline-split-strong text-center text-white mb-[120px]"
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
           >
-            Ready to <span className="maru-headline-split-light">Operationalize</span> Your AI?
-          </motion.h3>
+            <SplitHeadline
+              as="h2"
+              leadingText="Let's"
+              emphasisText="Talk"
+              breakBeforeEmphasis={false}
+              leadingWeight="strong"
+              emphasisWeight="light"
+              className="text-[42px] md:text-[68px] text-text-primary"
+            />
+          </motion.div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="max-w-5xl mx-auto">
-            {/* Name and Email Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-              {/* Name Input */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
+          <form onSubmit={handleSubmit(onSubmit)} className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <label className="block text-[11px] uppercase tracking-[2px] text-text-secondary mb-3">
+                  What's your name
+                </label>
                 <input
-                  {...register('firstname')}
+                  {...register("firstname")}
                   type="text"
-                  placeholder="What's your name"
+                  placeholder="Your name"
                   disabled={isSubmitting}
-                  className="w-full h-[70px] px-8 bg-transparent border-b-2 border-white/20 focus:border-electric-cyan text-white placeholder:text-white/40 outline-none transition-colors font-light text-lg"
+                  className="w-full h-[56px] bg-transparent border-b border-border-strong focus:border-action-primary text-text-primary placeholder:text-text-muted outline-none transition-colors text-lg"
                 />
-                {errors.firstname && (
-                  <p className="text-warm-amber text-sm mt-2 pl-2">{errors.firstname.message}</p>
-                )}
+                {errors.firstname && <p className="text-warm-amber text-sm mt-2">{errors.firstname.message}</p>}
               </motion.div>
 
-              {/* Email Input */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
+              <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <label className="block text-[11px] uppercase tracking-[2px] text-text-secondary mb-3">
+                  Your email
+                </label>
                 <input
-                  {...register('email')}
+                  {...register("email")}
                   type="email"
-                  placeholder="Your Email"
+                  placeholder="name@company.com"
                   disabled={isSubmitting}
-                  className="w-full h-[70px] px-8 bg-transparent border-b-2 border-white/20 focus:border-electric-cyan text-white placeholder:text-white/40 outline-none transition-colors font-light text-lg"
+                  className="w-full h-[56px] bg-transparent border-b border-border-strong focus:border-action-primary text-text-primary placeholder:text-text-muted outline-none transition-colors text-lg"
                 />
-                {errors.email && (
-                  <p className="text-warm-amber text-sm mt-2 pl-2">{errors.email.message}</p>
-                )}
+                {errors.email && <p className="text-warm-amber text-sm mt-2">{errors.email.message}</p>}
               </motion.div>
             </div>
 
-            {/* Message Textarea - Full Width */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-6"
-            >
+            <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8">
+              <label className="block text-[11px] uppercase tracking-[2px] text-text-secondary mb-3">
+                Tell us about your project
+              </label>
               <textarea
-                {...register('message')}
-                rows={4}
-                placeholder="Tell us about your AI implementation goals"
+                {...register("message")}
+                rows={7}
+                placeholder=""
                 disabled={isSubmitting}
-                className="w-full p-8 bg-transparent border-b-2 border-white/20 focus:border-electric-cyan text-white placeholder:text-white/40 outline-none transition-colors font-light text-lg resize-none"
+                className="w-full bg-transparent border-b border-border-strong focus:border-action-primary text-text-primary placeholder:text-text-muted outline-none transition-colors text-lg resize-none"
               />
-              {errors.message && (
-                <p className="text-warm-amber text-sm mt-2 pl-2">{errors.message.message}</p>
-              )}
+              {errors.message && <p className="text-warm-amber text-sm mt-2">{errors.message.message}</p>}
             </motion.div>
 
-            {/* Privacy Text and Submit Button Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-end">
-              {/* Privacy Text */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <p className="text-white/60 text-sm leading-relaxed">
-                  <span className="text-warm-amber">*</span> We respect your privacy. Your information is protected in accordance with POPIA.
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <p className="text-text-secondary text-sm">
+                  <span className="text-action-primary">*</span> We promise not to disclose your personal information to third parties.
                 </p>
               </motion.div>
 
-              {/* Submit Button */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex justify-start lg:justify-end"
+                className="flex justify-start md:justify-end"
               >
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="inline-flex items-center justify-center gap-3 bg-warm-amber hover:opacity-90 text-deep-navy px-10 py-5 rounded-lg transition-all duration-300 font-bold text-lg group disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:-translate-y-1"
-                >
-                  <span>{isSubmitting ? "Sending..." : "Send message"}</span>
-                  {!isSubmitting && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
+                <button type="submit" disabled={isSubmitting} className="btn-primary-hero-cta group disabled:opacity-50 disabled:cursor-not-allowed">
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />}
                 </button>
               </motion.div>
             </div>
 
-            {/* Form Status */}
             {formStatus && (
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 className={`mt-8 p-4 rounded-lg text-sm font-medium text-center ${
                   formStatus.success
-                    ? "bg-electric-cyan/10 text-electric-cyan border border-electric-cyan/30"
+                    ? "bg-action-primary/10 text-action-primary border border-action-primary/30"
                     : "bg-warm-amber/10 text-warm-amber border border-warm-amber/30"
                 }`}
               >

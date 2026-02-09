@@ -34,7 +34,7 @@ const DesktopDetailCard = ({ step, index }: { step: typeof steps[0], index: numb
 
 export function IsometricProcess() {
   return (
-    <section className="w-full bg-[#09121A] py-24 relative overflow-hidden flex items-center justify-center">
+    <section className="w-full bg-[#161616] py-24 relative overflow-hidden flex items-center justify-center">
       <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "linear-gradient(#222 1px, transparent 1px), linear-gradient(90deg, #222 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
       <div className="relative flex flex-col items-center max-w-7xl mx-auto w-full px-4">
          {steps.map((step, index) => (
@@ -46,7 +46,7 @@ export function IsometricProcess() {
                      </div>
                   </div>
                   <div className="relative z-10 flex flex-col items-center">
-                       <div className="relative w-28 h-28 sm:w-40 sm:h-40 flex items-center justify-center border-2 rounded-3xl rotate-45 bg-[#09121A] border-highlight/50 shadow-[0_0_30px_rgba(4,179,204,0.3)]">
+                       <div className="relative w-28 h-28 sm:w-40 sm:h-40 flex items-center justify-center border-2 rounded-3xl rotate-45 bg-[#161616] border-highlight/50 shadow-[0_0_30px_rgba(4,179,204,0.3)]">
                          <step.icon className="w-12 h-12 -rotate-45 text-white" />
                        </div>
                        <MobileDetailContent step={step} />

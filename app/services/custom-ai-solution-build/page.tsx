@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowRight, Workflow, Wrench, Bot } from "lucide-react";
+import { ArrowDown, ArrowRight, Search, GraduationCap, LineChart } from "lucide-react";
 import { SplitHeadline } from "@/components/ui/SplitHeadline";
 import { ServiceAccordion } from "@/components/ui/ServiceAccordion";
 import { ServiceNeedHelpCTA } from "@/components/sections/ServiceNeedHelpCTA";
@@ -10,92 +10,110 @@ import { ServiceNeedHelpCTA } from "@/components/sections/ServiceNeedHelpCTA";
 const breadcrumbs = [
   { label: "Homepage", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Service", href: "/services/lead-generation" },
+  { label: "Service", href: "/services/custom-ai-solution-build" },
 ];
 
 const accordionItems = [
   {
-    title: "Deep-Dive Analysis",
+    title: "Custom AI Development",
     content:
-      "We analyze real visitor behavior to uncover the hidden reasons qualified traffic does not convert on your website.",
+      "We design and deploy bespoke AI solutions tailored to your revenue priorities, workflows, and customer experience goals.",
     features: [
-      "User-behavior and session analysis",
-      "Heatmap and interaction diagnostics",
-      "Traffic quality and intent review",
+      "Lead scoring and qualification models",
+      "Revenue-focused automation workflows",
+      "Custom chatbot and assistant logic",
     ],
   },
   {
-    title: "Conversion Gap Identification",
+    title: "Platform Integration",
     content:
-      "We isolate the exact friction points that cause drop-off across forms, CTAs, messaging, and page flow.",
+      "Your AI solution is integrated into your current stack so data flows cleanly across CRM, marketing, and reporting tools.",
     features: [
-      "Form abandonment analysis",
-      "CTA visibility and click-through audit",
-      "On-page friction and clarity checks",
+      "HubSpot, Salesforce, and WordPress integration",
+      "API and webhook implementation",
+      "Cross-system data consistency checks",
     ],
   },
   {
-    title: "Revenue-First Prioritization",
+    title: "Brand Voice Training",
     content:
-      "Every recommendation is ranked by revenue impact and effort so your team can execute what moves results fastest.",
+      "We train your models and prompts around your tone, positioning, and messaging so outputs stay on-brand.",
     features: [
-      "Impact versus effort ranking",
-      "Quick-win opportunity list",
-      "Revenue impact projections",
+      "Brand-guided prompt architecture",
+      "Voice and tone guardrails",
+      "Output quality governance",
     ],
   },
   {
-    title: "Strategic Implementation",
+    title: "POPIA Compliance Engineering",
     content:
-      "You get a practical roadmap for execution, testing, and optimization so conversion gains are sustained over time.",
+      "Compliance is built into the architecture from day one, including consent controls, minimization, and data handling standards.",
     features: [
-      "Step-by-step implementation plan",
-      "A/B testing hypotheses",
-      "Post-implementation tracking guidance",
+      "Consent-aware workflow design",
+      "Data minimization controls",
+      "Policy-aligned handling patterns",
+    ],
+  },
+  {
+    title: "Pilot, Testing, and Optimization",
+    content:
+      "We run a controlled pilot period, test performance against business KPIs, and refine before full operational rollout.",
+    features: [
+      "30-day pilot and validation cycle",
+      "Performance tuning by KPI",
+      "Handover and scaling guidance",
     ],
   },
 ];
 
 const otherServices = [
   {
-    title: "Sales Process Optimization",
+    title: "AI Revenue Diagnostic",
     description:
-      "Fix stalled pipelines by removing manual bottlenecks and implementing conversion-focused sales workflows.",
-    points: ["Pipeline leak detection", "Workflow automation", "CRM integration", "Sales enablement"],
-    href: "/services/sales-systems",
-    icon: Workflow,
+      "A 360° audit of your current systems to identify the highest-impact AI and revenue opportunities.",
+    points: ["Opportunity assessment", "POPIA scorecard", "90-day roadmap", "Executive strategy session"],
+    href: "/services/ai-revenue-diagnostic",
+    icon: Search,
     iconClassName: "text-cyan-500 bg-cyan-500/10 border-cyan-500/30",
   },
   {
-    title: "Custom AI Solution Build",
+    title: "AI Training & Capability Building",
     description:
-      "Bespoke AI systems built around your existing platforms, workflows, and brand voice.",
-    points: ["Platform integration", "Brand voice training", "POPIA-compliant architecture", "60-day optimization support"],
-    href: "/services/custom-ai-solution-build",
-    icon: Wrench,
-    iconClassName: "text-amber-500 bg-amber-500/10 border-amber-500/30",
+      "Hands-on team enablement to improve AI output quality, adoption, and execution consistency.",
+    points: ["Prompt engineering mastery", "Workflow automation training", "Custom training playbooks", "30-day post-training support"],
+    href: "/services/ai-training-capability-building",
+    icon: GraduationCap,
+    iconClassName: "text-emerald-500 bg-emerald-500/10 border-emerald-500/30",
   },
   {
-    title: "Customer Support Chatbots",
+    title: "Ongoing AI Support & Optimization",
     description:
-      "AI support systems trained on your business context to resolve customer requests and escalate intelligently.",
-    points: ["Knowledge-grounded responses", "Smart human handoff", "System integration", "Ongoing optimization"],
-    href: "/services/customer-support-chatbots",
-    icon: Bot,
-    iconClassName: "text-emerald-500 bg-emerald-500/10 border-emerald-500/30",
+      "Continuous performance tuning, strategic guidance, and proactive updates as AI evolves.",
+    points: ["Monthly performance reviews", "Priority support", "Quarterly strategy sessions", "Ongoing POPIA monitoring"],
+    href: "/services/ongoing-ai-support-optimization",
+    icon: LineChart,
+    iconClassName: "text-amber-500 bg-amber-500/10 border-amber-500/30",
   },
 ];
 
-export default function LeadGenerationPage() {
+export default function CustomAISolutionBuildPage() {
   return (
     <main className="bg-surface-muted min-h-screen">
       <section className="relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-[120px] md:pt-[140px] pb-20 md:pb-24">
-          <motion.nav initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} className="mb-10">
+          <motion.nav
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="mb-10"
+          >
             <ol className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[2px] text-text-secondary">
               {breadcrumbs.map((crumb, index) => (
                 <li key={crumb.href} className="flex items-center gap-2">
-                  <Link href={crumb.href} className={index === breadcrumbs.length - 1 ? "text-text-primary" : "hover:text-text-primary transition-colors"}>
+                  <Link
+                    href={crumb.href}
+                    className={index === breadcrumbs.length - 1 ? "text-text-primary" : "hover:text-text-primary transition-colors"}
+                  >
                     {crumb.label}
                   </Link>
                   {index < breadcrumbs.length - 1 ? <span>/</span> : null}
@@ -104,11 +122,16 @@ export default function LeadGenerationPage() {
             </ol>
           </motion.nav>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.05 }} className="max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.05 }}
+            className="max-w-4xl"
+          >
             <SplitHeadline
               as="h1"
-              leadingText="Website Conversion"
-              emphasisText="Optimization"
+              leadingText="Custom AI Solution"
+              emphasisText="Build"
               className="text-[36px] sm:text-[44px] md:text-[72px] lg:text-[86px] text-text-primary mb-10"
               breakBeforeEmphasis={false}
               leadingWeight="strong"
@@ -135,7 +158,12 @@ export default function LeadGenerationPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16">
             <div className="lg:col-span-4">
-              <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.45 }}>
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.45 }}
+              >
                 <SplitHeadline
                   as="h2"
                   leadingText="Our Approach"
@@ -147,14 +175,14 @@ export default function LeadGenerationPage() {
                 />
 
                 <p className="text-text-secondary leading-relaxed mb-6">
-                  We use data-driven diagnostics to identify why high-intent website visitors are not converting into qualified leads.
+                  We design, build, and deploy custom AI systems around your specific revenue goals, team context, and existing platforms.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-8">
-                  From conversion gap analysis to revenue-prioritized fixes, you get a clear execution path that improves conversion performance quickly.
+                  Instead of forcing generic tools, we create integrated solutions with brand alignment and POPIA-compliant data architecture from day one.
                 </p>
 
-                <Link href="/ai-implementation-assessment" className="btn-primary-hero-cta group">
-                  Get Your Free AI Implementation Audit
+                <Link href="/contact" className="btn-primary-hero-cta group">
+                  Book a Scoping Call
                   <span className="ml-2">→</span>
                 </Link>
               </motion.div>
@@ -170,10 +198,26 @@ export default function LeadGenerationPage() {
       <section className="py-20 md:py-24 bg-surface-inverse border-t border-border-subtle">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
-            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} className="text-[34px] sm:text-[42px] md:text-[56px] leading-[1.1] text-text-primary">
-              <SplitHeadline as="h2" leadingText="Other" emphasisText="Services" breakBeforeEmphasis={false} leadingWeight="light" emphasisWeight="strong" />
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="text-[34px] sm:text-[42px] md:text-[56px] leading-[1.1] text-text-primary"
+            >
+              <SplitHeadline
+                as="h2"
+                leadingText="Other"
+                emphasisText="Services"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
             </motion.div>
-            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }}>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <Link href="/services" className="inline-flex items-center gap-3 text-xs uppercase tracking-[2px] font-semibold text-text-primary">
                 View all
                 <span className="w-9 h-9 rounded-full bg-surface-muted border border-border-subtle flex items-center justify-center">
@@ -197,6 +241,7 @@ export default function LeadGenerationPage() {
                 </span>
                 <h3 className="text-3xl leading-tight text-text-primary maru-headline-split-strong mb-4">{service.title}</h3>
                 <p className="text-text-secondary leading-relaxed mb-6">{service.description}</p>
+
                 <ul className="space-y-3 border-y border-border-subtle py-6 mb-7">
                   {service.points.map((point) => (
                     <li key={point} className="text-xs uppercase tracking-[2px] text-text-primary">
@@ -204,6 +249,7 @@ export default function LeadGenerationPage() {
                     </li>
                   ))}
                 </ul>
+
                 <Link href={service.href} className="inline-flex items-center gap-3 text-xs uppercase tracking-[2px] font-semibold text-text-primary">
                   Learn More
                   <span className="w-9 h-9 rounded-full bg-[var(--color-brand-accent)] text-white border border-[var(--color-brand-accent)] flex items-center justify-center">

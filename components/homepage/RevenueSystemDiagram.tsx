@@ -29,7 +29,7 @@ const stages = [
 
 export function RevenueSystemDiagram() {
   return (
-    <section className="bg-[#09121A] py-24 lg:py-32 relative overflow-hidden">
+    <section className="bg-[#161616] py-24 lg:py-32 relative overflow-hidden">
       {/* Background Schema Lines */}
       <div className="absolute inset-x-0 top-1/2 h-px bg-zinc-800 hidden lg:block" />
       
@@ -61,7 +61,7 @@ export function RevenueSystemDiagram() {
             >
               {/* Node Indicator */}
               <div className="mb-6 flex flex-col items-center lg:items-start">
-                <div className="w-12 h-12 flex items-center justify-center border border-zinc-800 bg-[#09121A] rounded-full text-zinc-500 font-mono text-xs mb-4 z-10">
+                <div className="w-12 h-12 flex items-center justify-center border border-zinc-800 bg-[#161616] rounded-full text-zinc-500 font-mono text-xs mb-4 z-10">
                   0{index + 1}
                 </div>
                 {index < stages.length - 1 && (

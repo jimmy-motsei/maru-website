@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Quote, Briefcase, Factory, ShoppingBag } from "lucide-react";
+import { SplitHeadline } from "@/components/ui/SplitHeadline";
 
 const TESTIMONIALS = [
   {
@@ -58,14 +59,20 @@ export function Testimonials() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-[68px] font-bold font-sans text-text-primary mb-6 leading-[1.1]"
           >
-            Real Results From <br/><span className="text-action-primary">South African Businesses</span>
-          </motion.h2>
+            <SplitHeadline
+              as="h2"
+              leadingText="Real Results From"
+              emphasisText="South African Businesses"
+              className="text-4xl md:text-5xl lg:text-[68px] font-sans text-text-primary mb-6 leading-[1.1]"
+              leadingWeight="light"
+              emphasisWeight="strong"
+            />
+          </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -31,7 +31,7 @@ export function ServiceHero({
   onCtaClick,
 }: ServiceHeroProps) {
   return (
-    <section className="bg-dark relative min-h-[70vh] flex items-center overflow-hidden">
+    <section className="bg-black relative min-h-[70vh] flex items-center overflow-hidden">
       {/* Animated Background Element */}
       <AtmosphericBackground variant="hero" />
 

@@ -7,16 +7,12 @@ import { ArrowRight } from "lucide-react";
 import { SafeLink } from "@/components/ui/SafeLink";
 import { SplitHeadline } from "@/components/ui/SplitHeadline";
 
-interface HeroProps {
-  onLearnMore?: () => void;
-}
-
-export function Hero({ onLearnMore }: HeroProps) {
+export function Hero() {
   return (
-    <section className="relative bg-surface min-h-screen flex items-center py-section overflow-hidden">
+    <section className="relative bg-black min-h-screen flex items-center py-section overflow-hidden">
       <AtmosphericBackground variant="hero" />
       
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* LEFT COLUMN: Text Content */}
@@ -27,13 +23,13 @@ export function Hero({ onLearnMore }: HeroProps) {
               transition={{ duration: 1, ease: [0, 0, 0.3642, 1] }}
             >
               <span className="uppercase tracking-[2px] text-action-primary text-[12px] font-bold mb-6 block">
-                AI Implementation Partner for South African Mid-Market
+                Trusted AI Implementation Partner for SMEs
               </span>
               <SplitHeadline
                 as="h1"
                 leadingText="You've Invested in AI."
                 emphasisText="Now Get the ROI."
-                className="text-[34px] md:text-[58px] lg:text-[86px] text-text-inverse mb-8"
+                className="text-[32px] md:text-[58px] lg:text-[86px] text-text-inverse mb-8"
               />
             </motion.div>
 
@@ -50,24 +46,15 @@ export function Hero({ onLearnMore }: HeroProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4, ease: [0, 0, 0.3642, 1] }}
-              className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start"
+              className="flex items-center justify-center lg:justify-start"
             >
-              {/* Primary CTA (Amber) */}
               <SafeLink
-                href="/assessments/lead-score"
-                className="w-full sm:w-auto inline-flex items-center justify-center bg-action-primary hover:opacity-90 text-text-primary font-bold text-base px-8 py-4 rounded-lg shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+                href="/ai-implementation-assessment"
+                className="btn-primary-hero-cta group"
               >
-                Get Your Free AI Audit
+                Get Your Free AI Implementation Audit
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </SafeLink>
-
-              {/* Secondary CTA (Cyan Border) */}
-              <button
-                onClick={onLearnMore}
-                className="w-full sm:w-auto inline-flex items-center justify-center bg-transparent border border-action-primary text-action-primary hover:bg-action-primary/10 font-medium text-base px-8 py-4 rounded-lg transition-all duration-300"
-              >
-                See Implementation Playbook
-              </button>
             </motion.div>
           </div>
 

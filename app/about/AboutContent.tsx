@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
 
@@ -11,59 +11,60 @@ export default function AboutContent() {
   return (
     <main className="bg-dark">
       {/* Hero Banner - Dark with Atmospheric Background */}
-      <section className="relative min-h-[80vh] flex items-end pb-24 overflow-hidden">
-        {/* Background Atmosphere */}
+      <section className="relative min-h-[80vh] flex items-end pb-24 overflow-hidden bg-black">
         <AtmosphericBackground variant="hero" />
 
-        <div className="container mx-auto px-6 lg:px-8 relative z-10 pt-[clamp(150px,20vh,200px)] pb-[clamp(80px,12vh,140px)]">
-          {/* Breadcrumbs */}
+        <div className="container mx-auto px-6 lg:px-8 relative z-10 pt-[112px] sm:pt-[128px] md:pt-[152px] lg:pt-[168px] pb-[clamp(80px,12vh,140px)]">
           <motion.nav
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
+            transition={{ duration: 0.4 }}
+            className="mb-12 md:mb-16"
           >
-            <ul className="flex items-center gap-2 text-sm">
-              <li>
-                <Link
-                  href="/"
-                  className="text-accent hover:text-accent-light transition-colors"
-                >
+            <ol className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[2px] text-white/60">
+              <li className="flex items-center gap-2">
+                <Link href="/" className="hover:text-white transition-colors">
                   Homepage
                 </Link>
+                <span>/</span>
               </li>
-              <li className="text-white/40">/</li>
-              <li className="text-white/60">About</li>
-            </ul>
+              <li className="text-white">About</li>
+            </ol>
           </motion.nav>
 
-          {/* Title */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.55, delay: 0.05 }}
             className="mb-12"
           >
-            <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
-              Built <span className="font-thin text-white/60">Different.</span> <br className="hidden md:block" />
-              Built <span className="font-thin text-white/60">for SMEs.</span>
+            <h1 className="maru-headline-split text-[44px] sm:text-[52px] md:text-[78px] lg:text-[92px] xl:text-[106px] leading-[0.95] text-white mb-10 tracking-[-0.02em]">
+              <span className="maru-headline-split-strong">Built </span>
+              <span className="maru-headline-split-light">Different.</span>
+              <br />
+              <span className="maru-headline-split-strong">Built </span>
+              <span className="maru-headline-split-light">for SMEs.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/60 max-w-3xl">
-              A marketing consultancy founded on a decade of watching good businesses struggle with tools that weren't designed for their stage.
+            <p className="text-lg md:text-2xl text-white/70 max-w-3xl leading-relaxed">
+              We help growth-stage businesses turn fragmented marketing systems into clear, revenue-driving operations.
             </p>
           </motion.div>
 
-          {/* Scroll indicator */}
-          <motion.a
-            href="#about-content"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="inline-flex items-center gap-3 text-accent hover:text-accent-light transition-colors group mt-4"
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.1 }}
+            className="flex flex-col sm:flex-row gap-4 mt-4"
           >
-            <span className="text-sm font-medium">Our story</span>
-            <ArrowDown size={16} className="animate-bounce" />
-          </motion.a>
+            <Link href="/contact" className="btn-primary-hero-cta group">
+              Speak to the Team
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <a href="#about-content" className="btn-secondary-hero-cta group">
+              Our Story
+              <ArrowDown className="ml-2 w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
+            </a>
+          </motion.div>
         </div>
       </section>
 
@@ -130,10 +131,10 @@ export default function AboutContent() {
 
               {/* Quote Block - Relocated to end */}
               <motion.div 
-                className="mt-16 flex items-center gap-6 rounded-2xl bg-gray-50 p-8 border-l-4 border-accent"
+                className="mt-16 flex flex-col sm:flex-row sm:items-center gap-6 rounded-3xl bg-card-dark border border-white/10 p-8 md:p-10"
                 variants={fadeUpVariants}
               >
-                <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full">
+                <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full ring-2 ring-[var(--color-brand-accent)]/50">
                   <Image 
                     src="/images/brand/founder.jpg" 
                     alt="Founder" 
@@ -142,12 +143,12 @@ export default function AboutContent() {
                   />
                 </div>
                 <div>
-                  <h6 className="text-lg leading-snug mb-2">
-                    "<span className="font-bold">We solve</span> <span className="font-light">marketing problems with</span> <span className="font-bold">AI precision</span><span className="font-light">—not AI hype.</span>"
-                  </h6>
-                  <p className="text-sm text-black/60 font-medium">
-                    Founder - Jimmy Motsei
+                  <p className="text-xl md:text-2xl leading-snug text-white mb-3 maru-headline-split">
+                    "<span className="maru-headline-split-strong">We solve</span> <span className="maru-headline-split-light">marketing problems with</span> <span className="maru-headline-split-strong">AI precision</span><span className="maru-headline-split-light">, not AI hype.</span>"
                   </p>
+                  <p className="text-sm text-white/70 font-medium">
+                    Founder - Jimmy Motsei
+                  </p>                  
                 </div>
               </motion.div>
             </div>

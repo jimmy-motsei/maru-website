@@ -36,7 +36,7 @@ const principles = [
 
 export function SMEMethodology() {
   return (
-    <section className="py-24 lg:py-32 bg-[#09121A]">
+    <section className="py-24 lg:py-32 bg-[#161616]">
       <div className="container mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

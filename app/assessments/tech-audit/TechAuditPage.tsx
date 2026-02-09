@@ -125,7 +125,6 @@ export default function TechAuditPage() {
               emphasisText="Audit Results"
               leadingWeight="light"
               emphasisWeight="strong"
-              breakBeforeEmphasis={false}
               className="text-h1 text-white mb-14"
             />
             <p className="text-xl text-zinc-400">ROI analysis and optimization recommendations</p>
@@ -156,7 +155,6 @@ export default function TechAuditPage() {
             emphasisText="ROI Auditor"
             leadingWeight="light"
             emphasisWeight="strong"
-            breakBeforeEmphasis={false}
             className="text-h1 text-white mb-14"
           />
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">

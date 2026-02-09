@@ -42,7 +42,7 @@ export function FooterCTA() {
               <Link href="/" className="inline-block mb-6">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/brand/maru-logo-burnt.png"
+                  src="/images/brand/maru_logo_cropped_5px.png"
                   alt="Maru Logo"
                   className="h-[80px] w-auto"
                 />
