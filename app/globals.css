@@ -69,6 +69,7 @@
     @apply bg-surface text-text-inverse font-sans font-light;
     font-size: var(--text-body);
     line-height: var(--line-height-base);
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -92,6 +93,484 @@
 
   .maru-headline-split-strong {
     font-weight: var(--font-weight-headline-strong);
+  }
+
+  .btn-primary-hero-cta {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--cta-radius);
+    background-color: var(--cta-primary-bg);
+    color: var(--cta-primary-text);
+    padding: var(--cta-padding-y) var(--cta-padding-x);
+    font-size: var(--cta-font-size);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    box-shadow: var(--cta-shadow);
+    transition: transform var(--motion-sm), box-shadow var(--motion-sm), opacity var(--motion-sm), background-color var(--motion-sm);
+  }
+
+  .btn-primary-hero-cta:hover {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: var(--cta-shadow-hover);
+    opacity: var(--cta-primary-hover-opacity);
+  }
+
+  .btn-secondary-hero-cta {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--cta-radius);
+    border: 1px solid var(--cta-outline-border);
+    background-color: transparent;
+    color: var(--cta-outline-text);
+    padding: var(--cta-padding-y) var(--cta-padding-x);
+    font-size: var(--cta-font-size);
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    transition: transform var(--motion-sm), box-shadow var(--motion-sm), background-color var(--motion-sm);
+  }
+
+  .btn-secondary-hero-cta:hover {
+    transform: translateY(-1px) scale(1.01);
+    background-color: var(--cta-outline-hover-bg);
+    box-shadow: var(--cta-outline-shadow-hover);
+  }
+
+  .maru-frame-top {
+    --maru-header-fg: var(--color-base-white);
+    position: fixed;
+    z-index: 90;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 50px 60px;
+    pointer-events: none;
+  }
+
+  .maru-frame-top.maru-light-surface {
+    --maru-header-fg: var(--color-base-black);
+  }
+
+  .maru-frame-inner {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: all;
+  }
+
+  .maru-logo {
+    color: var(--maru-header-fg);
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    transition: color 0.3s cubic-bezier(0, 0, 0.3642, 1);
+  }
+
+  .maru-logo:hover {
+    color: var(--color-action-primary);
+  }
+
+  .maru-menu-btn {
+    pointer-events: all;
+    height: 28px;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  }
+
+  .maru-menu-btn span,
+  .maru-menu-btn span::before,
+  .maru-menu-btn span::after {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 2.5px;
+    background: var(--maru-header-fg);
+    transition: inherit;
+    backface-visibility: hidden;
+  }
+
+  .maru-menu-btn span {
+    position: relative;
+  }
+
+  .maru-menu-btn span::before,
+  .maru-menu-btn span::after {
+    position: absolute;
+  }
+
+  .maru-menu-btn span::before {
+    top: -9px;
+  }
+
+  .maru-menu-btn span::after {
+    width: 18px;
+    top: 9px;
+  }
+
+  .maru-menu-btn.maru-active span {
+    transform: rotate(45deg);
+  }
+
+  .maru-menu-btn.maru-active span::before {
+    transform: translate(0, 9px) rotate(-90deg);
+  }
+
+  .maru-menu-btn.maru-active span::after {
+    opacity: 0;
+    width: 24px;
+    transform: translate(0, -9px) rotate(-90deg);
+  }
+
+  .maru-menu-frame {
+    position: fixed;
+    z-index: 80;
+    inset: 0;
+    background-color: var(--color-base-black);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  }
+
+  .maru-menu-frame.maru-active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .maru-menu-shell {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 132px 60px 56px;
+  }
+
+  .maru-menu-content {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    min-height: calc(100vh - 160px);
+  }
+
+  .maru-main-menu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  }
+
+  .maru-menu-frame.maru-active .maru-main-menu {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.4s;
+  }
+
+  .maru-main-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .maru-main-menu > ul > li {
+    margin-bottom: 40px;
+  }
+
+  .maru-main-menu > ul > li:last-child {
+    margin-bottom: 0;
+  }
+
+  .maru-main-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 34px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: -0.01em;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  }
+
+  .maru-main-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  }
+
+  .maru-main-link:hover {
+    color: var(--color-base-white);
+    padding-left: 25px;
+  }
+
+  .maru-main-link:hover::before {
+    transform: scale(1);
+  }
+
+  .maru-main-link.maru-current,
+  .maru-group-current > .maru-main-link {
+    color: var(--color-action-primary);
+  }
+
+  .maru-main-link.maru-active {
+    color: var(--color-action-primary);
+    padding-left: 25px;
+  }
+
+  .maru-main-link.maru-active::before {
+    transform: scale(1);
+    background-color: var(--color-action-primary);
+  }
+
+  .maru-submenu {
+    padding-left: 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s cubic-bezier(0, 0, 0.3642, 1);
+  }
+
+  .maru-submenu.maru-active {
+    max-height: 360px;
+  }
+
+  .maru-submenu li {
+    margin-bottom: 5px;
+  }
+
+  .maru-submenu li:first-child {
+    margin-top: 40px;
+  }
+
+  .maru-submenu-link {
+    display: block;
+    font-size: 12px;
+    line-height: 1.7;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.45);
+    transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
+  }
+
+  .maru-submenu-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+    transform: translateX(5px);
+  }
+
+  .maru-submenu-link.maru-active {
+    color: var(--color-action-primary);
+  }
+
+  .maru-menu-right-frame {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 60px;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  }
+
+  .maru-menu-frame.maru-active .maru-menu-right-frame {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+  }
+
+  .maru-menu-right {
+    width: 100%;
+    padding-bottom: 60px;
+  }
+
+  .maru-menu-right-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 42px;
+  }
+
+  .maru-menu-section-title {
+    margin: 0 0 28px;
+    color: var(--color-text-inverse-muted);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .maru-menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .maru-menu-list li {
+    margin-bottom: 15px;
+  }
+
+  .maru-menu-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .maru-menu-list li a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    line-height: 1.45;
+    transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
+    display: block;
+  }
+
+  .maru-menu-list li a:hover {
+    transform: translateX(5px);
+    color: var(--color-base-white);
+  }
+
+  .maru-menu-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 60px 0;
+  }
+
+  .maru-menu-location-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+  }
+
+  .maru-menu-meta {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .maru-menu-meta-link {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    line-height: 1.5;
+    transition: color 0.2s cubic-bezier(0, 0, 0.3642, 1);
+  }
+
+  .maru-menu-meta-link:hover {
+    color: var(--color-base-white);
+  }
+
+  @media (max-width: 1200px) {
+    .maru-frame-top {
+      padding: 30px;
+    }
+
+    .maru-menu-shell {
+      padding: 96px 30px 36px;
+    }
+
+    .maru-menu-content {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .maru-main-menu {
+      justify-content: center;
+      transform: translateY(30px);
+      text-align: center;
+      padding-bottom: 24px;
+    }
+
+    .maru-menu-frame.maru-active .maru-main-menu {
+      transform: translateY(0);
+    }
+
+    .maru-main-menu > ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .maru-main-menu > ul > li {
+      margin-bottom: 30px;
+    }
+
+    .maru-main-link {
+      justify-content: center;
+    }
+
+    .maru-main-link::before {
+      display: none;
+    }
+
+    .maru-main-link:hover,
+    .maru-main-link.maru-active {
+      padding-left: 0;
+    }
+
+    .maru-submenu {
+      padding-left: 0;
+      text-align: center;
+    }
+
+    .maru-submenu li:first-child {
+      margin-top: 24px;
+    }
+
+    .maru-menu-right-frame {
+      display: none;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .maru-menu-btn {
+      transform: scale(0.85);
+      transform-origin: right center;
+    }
+
+    .maru-main-link {
+      font-size: 26px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .maru-frame-top {
+      padding: 24px 20px;
+    }
+
+    .maru-menu-shell {
+      padding: 88px 20px 28px;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .btn-primary-hero-cta,
+    .btn-secondary-hero-cta {
+      width: auto;
+    }
   }
 }
 

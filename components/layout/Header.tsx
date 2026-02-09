@@ -1,265 +1,379 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
-
-import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
-import { X } from "lucide-react";
-import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 
-// Menu items structure
-const menuItems = {
-  primary: [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "AI Audits", href: "/assessments/lead-score" },
-    { name: "Resources", href: "/knowledge" },
-    { name: "Contact", href: "/contact" },
-  ],
-  projects: [
-    { name: "Website Lead Grader", href: "/assessments/lead-score" },
-    { name: "Pipeline Leak Detector", href: "/assessments/pipeline-leak" },
-
-    { name: "Tech Stack Auditor", href: "/assessments/tech-audit" },
-  ],
-  services: [
-    { name: "Website Conversion", href: "/services/lead-generation" },
-    { name: "Sales Process", href: "/services/sales-systems" },
-    { name: "Follow-Up Automation", href: "/services/whatsapp-solutions" },
-    { name: "Marketing Integration", href: "/services/office-automation" },
-    { name: "Support Chatbots", href: "/services/customer-support-chatbots" },
-  ],
-  usefulLinks: [
-    { name: "Privacy Policy", href: "/privacy-policy" },
-    { name: "Terms and conditions", href: "/terms-conditions" },
-    { name: "Cookie Policy", href: "/cookie-policy" },
-    { name: "Careers", href: "/careers" },
-  ],
+type MenuItem = {
+  name: string;
+  href: string;
 };
 
+type MenuGroup = {
+  id: string;
+  label: string;
+  items: MenuItem[];
+};
+
+const menuGroups: MenuGroup[] = [
+  {
+    id: "homepage",
+    label: "Homepage",
+    items: [
+      { name: "Landing Page", href: "/" },
+      { name: "About", href: "/about" },
+      { name: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    id: "services",
+    label: "Services",
+    items: [
+      { name: "Services List", href: "/services" },
+      { name: "AI Revenue Diagnostic", href: "/services/ai-revenue-diagnostic" },
+      { name: "Custom AI Solution Build", href: "/services/custom-ai-solution-build" },
+      {
+        name: "AI Training & Capability Building",
+        href: "/services/ai-training-capability-building",
+      },
+      {
+        name: "Ongoing AI Support & Optimization",
+        href: "/services/ongoing-ai-support-optimization",
+      },
+    ],
+  },
+  {
+    id: "assessments",
+    label: "AI Assessments",
+    items: [
+      { name: "AI Implementation Assessment", href: "/ai-implementation-assessment" },
+      { name: "Website Lead Grader", href: "/assessments/lead-score" },
+      { name: "Pipeline Leak Detector", href: "/assessments/pipeline-leak" },
+      { name: "Tech Stack Auditor", href: "/assessments/tech-audit" },
+    ],
+  },
+  {
+    id: "resources",
+    label: "Resources",
+    items: [
+      { name: "Knowledge Hub", href: "/knowledge" },
+      { name: "POPIA AI Checklist", href: "/resources/popia-ai-checklist" },
+      { name: "Pricing", href: "/pricing" },
+    ],
+  },
+  {
+    id: "other-pages",
+    label: "Other Pages",
+    items: [
+      { name: "Book a Consultation", href: "/booking" },
+      { name: "Careers", href: "/careers" },
+      { name: "Privacy Policy", href: "/privacy-policy" },
+      { name: "Terms and Conditions", href: "/terms-conditions" },
+    ],
+  },
+];
+
+const toolLinks: MenuItem[] = [
+  { name: "AI Implementation Assessment", href: "/ai-implementation-assessment" },
+  { name: "Website Lead Grader", href: "/assessments/lead-score" },
+  { name: "Pipeline Leak Detector", href: "/assessments/pipeline-leak" },
+  { name: "Tech Stack Auditor", href: "/assessments/tech-audit" },
+];
+
+const serviceLinks: MenuItem[] = [
+  { name: "AI Revenue Diagnostic", href: "/services/ai-revenue-diagnostic" },
+  { name: "Custom AI Solution Build", href: "/services/custom-ai-solution-build" },
+  {
+    name: "AI Training & Capability Building",
+    href: "/services/ai-training-capability-building",
+  },
+  {
+    name: "Ongoing AI Support & Optimization",
+    href: "/services/ongoing-ai-support-optimization",
+  },
+];
+
+function pathMatches(pathname: string, href: string) {
+  if (href === "/") {
+    return pathname === "/";
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+function getDefaultGroup(pathname: string) {
+  const matchingGroup = menuGroups.find((group) =>
+    group.items.some((item) => pathMatches(pathname, item.href)),
+  );
+
+  return matchingGroup?.id ?? "homepage";
+}
+
 export function Header() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isLightSurface, setIsLightSurface] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const defaultGroup = useMemo(() => getDefaultGroup(pathname), [pathname]);
+  const [openGroupId, setOpenGroupId] = useState(defaultGroup);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    setOpenGroupId(defaultGroup);
+  }, [defaultGroup]);
 
-  // Prevent scrolling when menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     }
+
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     };
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      return;
+    }
+
+    const parseBackgroundColor = (value: string) => {
+      const match = value
+        .replace(/\s+/g, "")
+        .match(/^rgba?\((\d+),(\d+),(\d+)(?:,([\d.]+))?\)$/i);
+      if (!match) return null;
+
+      const alpha = match[4] !== undefined ? Number.parseFloat(match[4]) : 1;
+      if (Number.isNaN(alpha) || alpha <= 0.02) return null;
+
+      return {
+        r: Number.parseInt(match[1], 10),
+        g: Number.parseInt(match[2], 10),
+        b: Number.parseInt(match[3], 10),
+      };
+    };
+
+    const getEffectiveColor = (x: number, y: number) => {
+      let current = document.elementFromPoint(x, y) as HTMLElement | null;
+
+      while (current && current !== document.body) {
+        const backgroundColor = parseBackgroundColor(
+          window.getComputedStyle(current).backgroundColor,
+        );
+        if (backgroundColor) return backgroundColor;
+        current = current.parentElement;
+      }
+
+      const bodyColor = parseBackgroundColor(window.getComputedStyle(document.body).backgroundColor);
+      return bodyColor ?? { r: 0, g: 0, b: 0 };
+    };
+
+    const getLuminance = ({ r, g, b }: { r: number; g: number; b: number }) => {
+      const channel = (value: number) => {
+        const normalized = value / 255;
+        return normalized <= 0.03928
+          ? normalized / 12.92
+          : ((normalized + 0.055) / 1.055) ** 2.4;
+      };
+      return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
+    };
+
+    let rafId = 0;
+    const updateSurfaceContrast = () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      rafId = requestAnimationFrame(() => {
+        const y = Math.min(36, window.innerHeight - 1);
+        const leftColor = getEffectiveColor(40, y);
+        const rightColor = getEffectiveColor(Math.max(window.innerWidth - 40, 1), y);
+        const avgColor = {
+          r: Math.round((leftColor.r + rightColor.r) / 2),
+          g: Math.round((leftColor.g + rightColor.g) / 2),
+          b: Math.round((leftColor.b + rightColor.b) / 2),
+        };
+        setIsLightSurface(getLuminance(avgColor) > 0.45);
+      });
+    };
+
+    updateSurfaceContrast();
+    window.addEventListener("scroll", updateSurfaceContrast, { passive: true });
+    window.addEventListener("resize", updateSurfaceContrast);
+
+    return () => {
+      window.removeEventListener("scroll", updateSurfaceContrast);
+      window.removeEventListener("resize", updateSurfaceContrast);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [isMenuOpen, pathname]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((previousValue) => {
+      const nextValue = !previousValue;
+      if (nextValue) {
+        setOpenGroupId(defaultGroup);
+      }
+      return nextValue;
+    });
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleGroupToggle = (groupId: string) => {
+    setOpenGroupId((previousValue) => (previousValue === groupId ? "" : groupId));
+  };
+
+  const menuButtonLabel = isMenuOpen ? "Close menu" : "Open menu";
 
   return (
     <>
       <header
-        className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
-          isScrolled && !isMenuOpen ? "bg-dark/90 backdrop-blur-md py-4" : "py-6 lg:py-8"
-        }`}
+        className={`maru-frame-top ${isLightSurface && !isMenuOpen ? "maru-light-surface" : ""}`}
       >
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link
-              href="/"
-              className={`text-3xl font-bold transition-colors ${
-                isMenuOpen ? "text-white" : "text-white hover:text-accent"
-              }`}
-            >
-              M.
-            </Link>
-
-            {/* Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(true)}
-              className={`group relative flex items-center justify-center p-2 rounded-full transition-colors hover:bg-card-dark-soft ${
-                 isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
-              }`}
-              aria-label="Open menu"
-            >
-              <div className="flex flex-col gap-1.5 items-end">
-                <span className="h-0.5 w-8 bg-white group-hover:w-10 transition-all duration-300" />
-                <span className="h-0.5 w-6 bg-white group-hover:w-10 transition-all duration-300" />
-              </div>
-            </button>
-          </div>
+        <div className="maru-frame-inner">
+          <Link href="/" onClick={closeMenu} className="maru-logo" aria-label="Maru homepage">
+            M.
+          </Link>
+          <button
+            ref={menuButtonRef}
+            type="button"
+            onClick={toggleMenu}
+            className={`maru-menu-btn ${isMenuOpen ? "maru-active" : ""}`}
+            aria-label={menuButtonLabel}
+            aria-expanded={isMenuOpen}
+            aria-controls="site-navigation-overlay"
+          >
+            <span />
+          </button>
         </div>
       </header>
 
-      {/* Full-Screen Overlay Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 z-[60] bg-surface text-text-inverse overflow-y-auto overflow-x-hidden"
-          >
-            {/* Overlay Header (Logo + Close Button) */}
-            <div className="container mx-auto px-6 lg:px-12 py-6 lg:py-8 relative z-50">
-              <div className="flex items-center justify-between">
-                <Link
-                  href="/"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-3xl font-bold text-white hover:text-accent transition-colors"
-                >
-                  M.
-                </Link>
+      <div
+        className={`maru-menu-frame ${isMenuOpen ? "maru-active" : ""}`}
+        id="site-navigation-overlay"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
+      >
+        <div className="maru-menu-shell">
+          <div className="maru-menu-content">
+            <nav className="maru-main-menu" id="swupMenu">
+              <ul>
+                {menuGroups.map((group) => {
+                  const isCurrentGroup = group.items.some((item) =>
+                    pathMatches(pathname, item.href),
+                  );
+                  const isOpen = openGroupId === group.id;
 
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="p-2 rounded-full hover:bg-card-dark-soft transition-colors"
-                  aria-label="Close menu"
-                >
-                  <X className="w-8 h-8 text-white" />
-                </button>
-              </div>
-            </div>
-
-            {/* Overlay Content */}
-            <div className="container mx-auto px-6 lg:px-12 min-h-[calc(100vh-100px)] flex flex-col justify-center pb-12 relative">
-              
-              {/* Cloud Network Background - New Maru Aesthetic */}
-              <AtmosphericBackground variant="overlay" className="z-0" />
-
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 relative z-10">
-                
-                {/* Left Column: Primary Navigation */}
-                <div className="lg:col-span-5 flex flex-col justify-center space-y-4 lg:space-y-6">
-                  {menuItems.primary.map((item, index) => (
-                    <motion.div
-                      key={item.name}
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
+                  return (
+                    <li
+                      key={group.id}
+                      className={`maru-has-children ${isCurrentGroup ? "maru-group-current" : ""}`}
                     >
-                      <Link
-                        href={item.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className={`block text-2xl md:text-3xl lg:text-4xl font-light tracking-tight transition-colors duration-300 text-white hover:text-accent`}
+                      <button
+                        type="button"
+                        className={`maru-main-link ${
+                          isOpen ? "maru-active" : ""
+                        } ${isCurrentGroup ? "maru-current" : ""}`}
+                        onClick={() => handleGroupToggle(group.id)}
+                        aria-expanded={isOpen}
+                        aria-controls={`submenu-${group.id}`}
                       >
-                        {item.name}
-                      </Link>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Vertical Divider Line */}
-                <div className="lg:col-span-1 hidden lg:flex justify-center h-full">
-                     <motion.div 
-                        initial={{ scaleY: 0 }}
-                        animate={{ scaleY: 1 }}
-                        transition={{ delay: 0.3, duration: 0.8 }}
-                        className="w-px h-full bg-white/10 origin-top min-h-[400px]"
-                     />
-                </div>
-
-                {/* Right Column: Secondary Links & Details */}
-                <div className="lg:col-span-6 flex flex-col justify-between pt-8 lg:pt-0 pl-0 lg:pl-12">
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 lg:mt-20">
-                    {/* AI Audits / Assessments */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5 }}
-                    >
-                      <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-6">
-                        AI Audits
-                      </h3>
-                      <ul className="space-y-4">
-                        {menuItems.projects.map((project) => (
-                          <li key={project.name}>
+                        {group.label}
+                      </button>
+                      <ul
+                        id={`submenu-${group.id}`}
+                        className={`maru-submenu ${isOpen ? "maru-active" : ""}`}
+                      >
+                        {group.items.map((item) => (
+                          <li key={item.href}>
                             <Link
-                              href={project.href}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="text-text-inverse-muted hover:text-white transition-colors text-base"
+                              href={item.href}
+                              onClick={closeMenu}
+                              className={`maru-submenu-link ${
+                                pathMatches(pathname, item.href) ? "maru-active" : ""
+                              }`}
                             >
-                              {project.name}
+                              {item.name}
                             </Link>
                           </li>
                         ))}
                       </ul>
-                    </motion.div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
 
-                    {/* Services */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.6 }}
-                    >
-                      <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-6">
-                        Services
-                      </h3>
-                      <ul className="space-y-4">
-                        {menuItems.services.map((service) => (
-                          <li key={service.name}>
-                            <Link
-                              href={service.href}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="text-text-inverse-muted hover:text-white transition-colors text-base"
-                            >
-                              {service.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
+            <div className="maru-menu-right-frame">
+              <div className="maru-menu-right">
+                <div className="maru-menu-right-grid">
+                  <section>
+                    <h6 className="maru-menu-section-title">AI Tools</h6>
+                    <ul className="maru-menu-list">
+                      {toolLinks.map((item) => (
+                        <li key={item.href}>
+                          <Link href={item.href} onClick={closeMenu}>
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+
+                  <section>
+                    <h6 className="maru-menu-section-title">Featured Services</h6>
+                    <ul className="maru-menu-list">
+                      {serviceLinks.map((item) => (
+                        <li key={item.href}>
+                          <Link href={item.href} onClick={closeMenu}>
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                </div>
+
+                <div className="maru-menu-divider" />
+
+                <div className="maru-menu-location-grid">
+                  <div>
+                    <h6 className="maru-menu-section-title">South Africa</h6>
+                    <p className="maru-menu-meta">Johannesburg</p>
                   </div>
-
-                  {/* Horizontal Line */}
-                  <motion.div
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 0.7, duration: 0.8 }}
-                    className="w-full h-px bg-white/10 my-12 origin-left"
-                  />
-
-                  {/* Contact Locations */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 }}
-                    className="grid grid-cols-1 sm:grid-cols-2 gap-8"
-                  >
-                    <div>
-                      <h3 className="text-white font-bold mb-2">Johannesburg</h3>
-                      <p className="text-text-inverse-muted text-sm leading-relaxed">
-                        South Africa
-                      </p>
-                    </div>
-
-                    <div>
-                      <h3 className="text-white font-bold mb-2">Get in touch</h3>
-                      <a
-                        href={`mailto:${siteConfig.contact.email}`}
-                        className="text-text-inverse-muted text-sm hover:text-white transition-colors"
-                      >
-                         {siteConfig.contact.email}
-                      </a>
-                    </div>
-                  </motion.div>
-
+                  <div>
+                    <h6 className="maru-menu-section-title">Get in touch</h6>
+                    <a href={`mailto:${siteConfig.contact.email}`} className="maru-menu-meta-link">
+                      {siteConfig.contact.email}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
