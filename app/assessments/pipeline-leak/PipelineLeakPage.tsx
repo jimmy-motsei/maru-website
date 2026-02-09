@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Upload, TrendingDown, AlertTriangle, DollarSign } from 'lucide-react';
 import MultiStepForm from '@/components/lead-generation/MultiStepForm';
 import GatedResultContainer from '@/components/lead-generation/GatedResultContainer';
+import { SplitHeadline } from '@/components/ui/SplitHeadline';
 import { FormStep, PipelineLeakResult } from '@/lib/types/lead-generation';
 
 const formSteps: FormStep[] = [
@@ -86,9 +87,15 @@ export default function PipelineLeakPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
-              Pipeline <span className="font-thin text-zinc-500">Leak Analysis</span>
-            </h1>
+            <SplitHeadline
+              as="h1"
+              leadingText="Pipeline"
+              emphasisText="Leak Analysis"
+              leadingWeight="light"
+              emphasisWeight="strong"
+              breakBeforeEmphasis={false}
+              className="text-h1 text-white mb-14"
+            />
             <p className="text-xl text-zinc-400">Revenue leaks detected in your sales pipeline</p>
           </motion.div>
 
@@ -111,9 +118,15 @@ export default function PipelineLeakPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-red-400/10 rounded-full mb-6">
             <TrendingDown className="w-8 h-8 text-red-400" />
           </div>
-          <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
-            Pipeline <span className="font-thin text-zinc-500">Leak Detector</span>
-          </h1>
+          <SplitHeadline
+            as="h1"
+            leadingText="Pipeline"
+            emphasisText="Leak Detector"
+            leadingWeight="light"
+            emphasisWeight="strong"
+            breakBeforeEmphasis={false}
+            className="text-h1 text-white mb-14"
+          />
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
             Identify revenue leaks in your sales pipeline and get actionable recovery recommendations
           </p>

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Settings, Search } from 'lucide-react';
 import GatedResultContainer from '@/components/lead-generation/GatedResultContainer';
+import { SplitHeadline } from '@/components/ui/SplitHeadline';
 import { TechAuditResult, Tool } from '@/lib/types/lead-generation';
 
 interface SelectedTool {
@@ -118,9 +119,15 @@ export default function TechAuditPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
-              Tech Stack <span className="font-thin text-zinc-500">Audit Results</span>
-            </h1>
+            <SplitHeadline
+              as="h1"
+              leadingText="Tech Stack"
+              emphasisText="Audit Results"
+              leadingWeight="light"
+              emphasisWeight="strong"
+              breakBeforeEmphasis={false}
+              className="text-h1 text-white mb-14"
+            />
             <p className="text-xl text-zinc-400">ROI analysis and optimization recommendations</p>
           </motion.div>
 
@@ -143,9 +150,15 @@ export default function TechAuditPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-400/10 rounded-full mb-6">
             <Settings className="w-8 h-8 text-purple-400" />
           </div>
-          <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
-            Tech Stack <span className="font-thin text-zinc-500">ROI Auditor</span>
-          </h1>
+          <SplitHeadline
+            as="h1"
+            leadingText="Tech Stack"
+            emphasisText="ROI Auditor"
+            leadingWeight="light"
+            emphasisWeight="strong"
+            breakBeforeEmphasis={false}
+            className="text-h1 text-white mb-14"
+          />
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
             Analyze your software stack for redundancies and cost optimization opportunities
           </p>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { TrendingUp, Users, ClipboardCheck, Map } from "lucide-react";
+import { SplitHeadline } from "@/components/ui/SplitHeadline";
 
 const BENEFITS = [
   {
@@ -36,32 +37,38 @@ const BENEFITS = [
 
 export function Benefits() {
   return (
-    <section className="bg-[#f8fafc] py-section text-deep-navy">
+    <section className="bg-surface-muted py-section text-text-primary">
       <div className="container mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-[68px] font-bold font-sans text-deep-navy mb-6 leading-[1.1]"
           >
-            What Changes When You Work With Maruonline
-          </motion.h2>
+            <SplitHeadline
+              as="h2"
+              leadingText="What Changes When You Work"
+              emphasisText="With Maruonline"
+              className="text-4xl md:text-5xl lg:text-[68px] font-sans text-text-primary mb-6 leading-[1.1]"
+              leadingWeight="light"
+              emphasisWeight="strong"
+            />
+          </motion.div>
           <motion.div
              initial={{ opacity: 0, scaleX: 0 }}
              whileInView={{ opacity: 1, scaleX: 1 }}
              viewport={{ once: true }}
              transition={{ duration: 0.8 }}
-             className="h-1 w-24 bg-electric-cyan mx-auto mb-6"
+             className="h-1 w-24 bg-action-primary mx-auto mb-6"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-gray-600 leading-relaxed"
+            className="text-lg text-text-secondary leading-relaxed"
           >
             We bridge the gap between AI investment and revenue impact—while preserving the authentic relationships that built your business.
           </motion.p>
@@ -78,23 +85,23 @@ export function Benefits() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="group bg-white rounded-xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-electric-cyan h-full flex flex-col items-center text-center"
+                className="group bg-surface-inverse rounded-xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-action-primary h-full flex flex-col items-center text-center"
               >
                 {/* Icon Circle */}
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-deep-navy/5 group-hover:bg-deep-navy transition-colors duration-300`}>
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-black/5 group-hover:bg-surface transition-colors duration-300`}>
                   <Icon className={`w-8 h-8 ${item.color} group-hover:scale-110 transition-transform duration-300`} />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-deep-navy mb-4 font-sans leading-tight">
+                <h3 className="text-xl font-bold text-text-primary mb-4 font-sans leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+                <p className="text-text-secondary text-sm leading-relaxed mb-6 flex-grow">
                   {item.body}
                 </p>
 
                 {/* Metric */}
-                <div className="w-full pt-4 border-t border-gray-100">
+                <div className="w-full pt-4 border-t border-border-subtle">
                   <p className={`font-mono text-xs font-bold uppercase tracking-wider ${item.color}`}>
                     {item.metric}
                   </p>

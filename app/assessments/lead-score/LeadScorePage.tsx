@@ -6,6 +6,7 @@ import { Globe, TrendingUp, Zap, Target } from 'lucide-react';
 import Link from 'next/link';
 import MultiStepForm from '@/components/lead-generation/MultiStepForm';
 import GatedResultContainer from '@/components/lead-generation/GatedResultContainer';
+import { SplitHeadline } from '@/components/ui/SplitHeadline';
 import { FormStep, LeadScoreResult } from '@/lib/types/lead-generation';
 
 const formSteps: FormStep[] = [
@@ -128,9 +129,15 @@ export default function LeadScorePage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
-              Your Lead <span className="font-thin text-zinc-500">Generation Score</span>
-            </h1>
+            <SplitHeadline
+              as="h1"
+              leadingText="Your Lead"
+              emphasisText="Generation Score"
+              leadingWeight="light"
+              emphasisWeight="strong"
+              breakBeforeEmphasis={false}
+              className="text-h1 text-white mb-14"
+            />
             <p className="text-xl text-zinc-400">Based on our analysis of your website and business</p>
           </motion.div>
 
@@ -156,10 +163,15 @@ export default function LeadScorePage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-highlight/10 rounded-full mb-6">
             <Target className="w-8 h-8 text-highlight" />
           </div>
-          <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
-            Lead Generation <br className="hidden md:block" />
-            <span className="font-thin text-zinc-500">Score Predictor</span>
-          </h1>
+          <SplitHeadline
+            as="h1"
+            leadingText="Lead Generation"
+            emphasisText="Score Predictor"
+            leadingWeight="light"
+            emphasisWeight="strong"
+            breakClassName="hidden md:block"
+            className="text-h1 text-white mb-14"
+          />
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
             Discover how ready your website is to generate high-quality leads with our AI-powered analysis
           </p>
@@ -171,9 +183,15 @@ export default function LeadScorePage() {
           className="mb-12"
         />
 
-        <h3 className="text-h3 font-medium text-white text-center mb-10">
-          What you <span className="font-thin text-zinc-500">will get</span>
-        </h3>
+        <SplitHeadline
+          as="h3"
+          leadingText="What you"
+          emphasisText="will get"
+          leadingWeight="light"
+          emphasisWeight="strong"
+          breakBeforeEmphasis={false}
+          className="text-h3 text-white text-center mb-10"
+        />
         <div className="grid md:grid-cols-3 gap-6 text-center">
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
             <Globe className="w-8 h-8 text-highlight mx-auto mb-3" />

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
+import { SplitHeadline } from "@/components/ui/SplitHeadline";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { submitToHubSpot, HUBSPOT_FORMS } from "@/lib/hubspot";
@@ -81,15 +82,19 @@ export default function ContactPage() {
           </motion.nav>
 
           {/* Headline - New Maru Styling (Thin/Bold) */}
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0, 0, 0.3642, 1] }}
-            className="text-[34px] md:text-[58px] lg:text-[86px] leading-[1.2] font-thin text-white mb-[60px] font-sans"
           >
-            Let's Start <br className="hidden md:block" />
-            <span className="font-bold text-electric-cyan">The Conversation.</span>
-          </motion.h1>
+            <SplitHeadline
+              as="h1"
+              leadingText="Let's Start"
+              emphasisText="The Conversation."
+              breakClassName="hidden md:block"
+              className="text-[34px] md:text-[58px] lg:text-[86px] text-white mb-[60px]"
+            />
+          </motion.div>
 
           {/* Scroll Indicator */}
           <motion.a
@@ -114,9 +119,9 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-[34px] md:text-[58px] lg:text-[68px] leading-[1.2] font-medium text-center text-white mb-[120px] font-sans"
+            className="maru-headline-split text-[34px] md:text-[58px] lg:text-[68px] maru-headline-split-strong text-center text-white mb-[120px]"
           >
-            Ready to <span className="font-thin">Operationalize</span> Your AI?
+            Ready to <span className="maru-headline-split-light">Operationalize</span> Your AI?
           </motion.h3>
 
           <form onSubmit={handleSubmit(onSubmit)} className="max-w-5xl mx-auto">
@@ -206,7 +211,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex items-center justify-center gap-3 bg-warm-amber hover:bg-orange-600 text-deep-navy px-10 py-5 rounded-lg transition-all duration-300 font-bold text-lg group disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:-translate-y-1"
+                  className="inline-flex items-center justify-center gap-3 bg-warm-amber hover:opacity-90 text-deep-navy px-10 py-5 rounded-lg transition-all duration-300 font-bold text-lg group disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:-translate-y-1"
                 >
                   <span>{isSubmitting ? "Sending..." : "Send message"}</span>
                   {!isSubmitting && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
