@@ -54,7 +54,7 @@ AI Implementation Partner for South African Mid-Market Businesses
 Most South African businesses have adopted AI marketing tools, but less than half are seeing real revenue impact. We help mid-market companies operationalize their AI investments with proven implementation playbooks—without losing the human touch that makes your brand unique.
 
 ### Primary CTA
-**Get Your Free AI Implementation Audit** (Warm Amber #FF9F1C background, Deep Navy text)
+**Get Your Free AI Implementation Audit** (Secondary Teal #00A1A5 background, Deep Navy text)
 
 ### Secondary CTA
 **See Our Implementation Playbook** (Transparent background, Electric Cyan border and text)
@@ -450,7 +450,7 @@ Complete our comprehensive AI Implementation Scorecard in 10 minutes and receive
    - POPIA compliance concerns
    - Don't know where to start with AI
 
-**Submit Button:** Get My Free Scorecard (Warm Amber #FF9F1C background, Deep Navy text)
+**Submit Button:** Get My Free Scorecard (Secondary Teal #00A1A5 background, Deep Navy text)
 
 **Privacy Note (small text below form):**  
 We respect your privacy. Your information will only be used to send you the scorecard and relevant AI implementation resources. We're POPIA-compliant and will never share your data. Unsubscribe anytime.
@@ -553,7 +553,7 @@ Dark footer (Deep Navy #0A1628) with white text. Column headings in Electric Cya
 
 **Primary Colors:**
 - **Electric Cyan:** #00D9FF (Technology, data, innovation, primary CTAs)
-- **Warm Amber:** #FF9F1C (Humanity, authenticity, warmth, secondary CTAs)
+- **Secondary Teal:** #00A1A5 (Clarity, trust, operational confidence, secondary CTAs)
 - **Deep Navy:** #0A1628 (Background, professionalism, trust)
 
 **Supporting Colors:**
