@@ -1,29 +1,54 @@
 @import "tailwindcss";
+@import "../styles/tokens.css";
 
 @theme {
-  --font-sans: var(--font-outfit), system-ui, sans-serif;
-  --color-highlight: #E67F3E;
-  --color-highlight-hover: #f1955d;
-  --color-cyan-primary: #3DD6D0; /* Kept for legacy heading if needed, but will be removed from headings */
-  --color-cyan-hover: #1cb8cc;
-  --color-accent: #E67F3E;
-  --color-orange-accent: #E67F3E;
-  --color-dark: #09121A;
-  --color-card-border: #20A1A4;
+  --font-sans: var(--font-family-sans);
 
-  /* Typography Scale from Ashley Kit */
+  /* Core token utilities */
+  --color-dark: var(--color-surface);
+  --color-highlight: var(--color-action-primary);
+  --color-highlight-hover: var(--color-action-primary-hover);
+  --color-accent: var(--color-action-primary);
+  --color-cyan-primary: var(--color-action-primary);
+  --color-cyan-hover: var(--color-action-primary-hover);
+  --color-card-border: var(--color-border-inverse-subtle);
+
+  /* Legacy aliases used in existing JSX */
+  --color-deep-navy: var(--color-surface);
+  --color-electric-cyan: var(--color-action-primary);
+  --color-warm-amber: var(--color-action-primary);
+
+  /* Semantic color utilities */
+  --color-surface: var(--color-base-black);
+  --color-surface-elevated: var(--color-alpha-black-95);
+  --color-surface-muted: var(--color-gray-5);
+  --color-surface-inverse: var(--color-base-white);
+  --color-text-primary: var(--color-base-black);
+  --color-text-secondary: var(--color-alpha-black-60);
+  --color-text-muted: var(--color-alpha-black-50);
+  --color-text-inverse: var(--color-base-white);
+  --color-text-inverse-muted: var(--color-alpha-white-70);
+  --color-border-subtle: var(--color-alpha-black-10);
+  --color-border-strong: var(--color-alpha-black-20);
+  --color-border-inverse-subtle: var(--color-alpha-white-10);
+  --color-action-primary: var(--color-brand-cta);
+  --color-action-primary-hover: rgba(4, 179, 204, 0.85);
+
+  /* Ashley typography scale */
   --text-h1: 86px;
   --text-h2: 68px;
   --text-h3: 42px;
   --text-h4: 28px;
   --text-h5: 20px;
   --text-h6: 18px;
-  
-  /* Layout & Components */
-  --spacing-section: 120px;
-  --spacing-section-tab: 90px;
-  --radius-pill: 70px;
-  --height-input: 70px;
+  --font-weight-headline-light: 100;
+  --font-weight-headline-strong: 500;
+
+  /* Ashley layout scale */
+  --spacing-section: var(--space-section-y);
+  --spacing-section-tab: var(--space-section-y-mobile);
+  --spacing-input: var(--size-control-lg);
+  --radius-pill: var(--radius-pill);
 }
 
 @keyframes fadeUp {
@@ -32,7 +57,7 @@
 }
 
 .animate-fade-up {
-  animation: fadeUp 0.8s ease-out forwards;
+  animation: fadeUp 0.8s var(--ease-ashley) forwards;
 }
 
 @layer base {
@@ -41,13 +66,60 @@
   }
 
   body {
-    @apply bg-dark text-white font-sans font-light;
+    @apply bg-surface text-text-inverse font-sans font-light;
+    font-size: var(--text-body);
+    line-height: var(--line-height-base);
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-outfit), sans-serif;
+    font-family: var(--font-family-sans), sans-serif;
+    color: var(--color-text-primary);
     @apply font-medium tracking-tight;
   }
 }
 
+@layer components {
+  /* Ashley-style split headline pattern for repo-wide reuse */
+  .maru-headline-split {
+    font-family: var(--font-family-sans), sans-serif;
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.02em;
+  }
 
+  .maru-headline-split-light {
+    font-weight: var(--font-weight-headline-light);
+  }
+
+  .maru-headline-split-strong {
+    font-weight: var(--font-weight-headline-strong);
+  }
+}
+
+@layer utilities {
+  /* Semantic surfaces */
+  .bg-surface { background-color: var(--color-surface); }
+  .bg-surface-elevated { background-color: var(--color-surface-elevated); }
+  .bg-surface-muted { background-color: var(--color-surface-muted); }
+  .bg-surface-inverse { background-color: var(--color-surface-inverse); }
+  .bg-card-dark { background-color: var(--color-card-dark); }
+  .bg-card-dark-soft { background-color: var(--color-card-dark-soft); }
+  .bg-card-dark-hover { background-color: var(--color-card-dark-hover); }
+  .bg-card-dark p { font-weight: 400; }
+
+  /* Semantic text */
+  .text-text-primary { color: var(--color-text-primary); }
+  .text-text-secondary { color: var(--color-text-secondary); }
+  .text-text-muted { color: var(--color-text-muted); }
+  .text-text-inverse { color: var(--color-text-inverse); }
+  .text-text-inverse-muted { color: var(--color-text-inverse-muted); }
+
+  /* Semantic borders */
+  .border-border-subtle { border-color: var(--color-border-subtle); }
+  .border-border-strong { border-color: var(--color-border-strong); }
+  .border-border-inverse-subtle { border-color: var(--color-border-inverse-subtle); }
+
+  /* Semantic accents */
+  .bg-action-primary { background-color: var(--color-action-primary); }
+  .text-action-primary { color: var(--color-action-primary); }
+  .border-action-primary { border-color: var(--color-action-primary); }
+}

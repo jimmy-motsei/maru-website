@@ -18,7 +18,7 @@ const config: Config = {
         'dark': 'var(--color-dark)',
         'card-border': 'var(--color-card-border)',
         'electric-cyan': '#00D9FF',
-        'warm-amber': '#FF9F1C',
+        'warm-amber': '#00A1A5',
         'deep-navy': '#0A1219',
       },
       fontSize: {
