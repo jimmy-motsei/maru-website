@@ -105,7 +105,7 @@ export default function AISolutionBriefing() {
     return (
       <main className="relative min-h-screen bg-[#0a192f] text-white flex items-center justify-center">
         <AtmosphericBackground variant="subtle" />
-        <div className="relative z-10 max-w-lg w-full text-center p-8 bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10">
+        <div className="relative z-10 max-w-lg w-full text-center p-8 bg-card-dark backdrop-blur-xl rounded-2xl border border-white/10">
           <h2 className="text-3xl font-bold mb-4 text-[#00f0ff]">Brief Received</h2>
           <p className="text-zinc-400 mb-8">
             Thank you for submitting your AI Solution brief. Our team will review your requirements and get back to you shortly.
@@ -142,7 +142,7 @@ export default function AISolutionBriefing() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-16">
             
             {/* 0) Current Systems */}
-            <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+            <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
               <h2 className="text-2xl font-bold mb-8 text-[#00f0ff]">0. Current Systems & Pain Points</h2>
               
               <div className="space-y-8">
@@ -175,7 +175,7 @@ export default function AISolutionBriefing() {
             </section>
 
             {/* Client Info */}
-            <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+            <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
                <h2 className="text-xl font-bold mb-6 text-white">Client & Project Info</h2>
                <div className="grid md:grid-cols-2 gap-8">
                   <div>
@@ -200,7 +200,7 @@ export default function AISolutionBriefing() {
             </section>
 
             {/* 1) Business Context */}
-            <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+            <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
               <h2 className="text-2xl font-bold mb-8 text-[#00f0ff]">1. Business Context</h2>
               <div className="space-y-8">
                 <div>
@@ -232,7 +232,7 @@ export default function AISolutionBriefing() {
             </section>
 
             {/* 2 & 3 Combined Block */}
-            <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+            <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
               <div className="grid md:grid-cols-2 gap-12">
                 
                 {/* 2) Data */}
@@ -279,7 +279,7 @@ export default function AISolutionBriefing() {
             </section>
 
             {/* 6) Budget */}
-            <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+            <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
                <h2 className="text-xl font-bold mb-6 text-[#00f0ff]">Logistics</h2>
                <div className="grid md:grid-cols-3 gap-8">
                   <div>

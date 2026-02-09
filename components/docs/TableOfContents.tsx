@@ -58,7 +58,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
   if (tocItems.length === 0) return null;
 
   return (
-    <nav className="sticky top-24 p-4 bg-white/5 border border-white/10 rounded-xl">
+    <nav className="sticky top-24 p-4 bg-card-dark border border-white/10 rounded-xl">
       <h4 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">On this page</h4>
       <ul className="space-y-2">
         {tocItems.map((item) => (

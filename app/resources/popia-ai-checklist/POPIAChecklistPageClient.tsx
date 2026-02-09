@@ -108,7 +108,7 @@ export default function POPIAChecklistPageClient() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 p-6 bg-white/5 rounded-xl border border-white/10">
+              <div className="grid grid-cols-3 gap-6 p-6 bg-card-dark rounded-xl border border-white/10">
                 {STATS.map((stat, i) => (
                   <div key={i} className="text-center">
                     <div className="text-2xl md:text-3xl font-bold text-electric-cyan">{stat.value}</div>
@@ -201,7 +201,7 @@ export default function POPIAChecklistPageClient() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full h-[60px] flex items-center justify-center gap-3 bg-warm-amber hover:bg-orange-600 text-deep-navy font-bold text-lg rounded-lg shadow-lg hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
+                  className="w-full h-[60px] flex items-center justify-center gap-3 bg-warm-amber hover:opacity-90 text-deep-navy font-bold text-lg rounded-lg shadow-lg hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
                 >
                   <Download className="w-5 h-5" />
                   <span>{isSubmitting ? "Sending..." : "Download Free Checklist"}</span>

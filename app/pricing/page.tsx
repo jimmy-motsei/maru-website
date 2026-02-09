@@ -83,7 +83,7 @@ export default function PricingPage() {
               className={`flex flex-col justify-between rounded-3xl p-8 ring-1 transition-transform hover:scale-[1.02] duration-300 ${
                 tier.featured
                   ? 'bg-dark ring-accent shadow-[0_0_30px_rgba(61,184,198,0.15)] relative border-l-4 border-accent'
-                  : 'bg-white/5 ring-white/10 hover:ring-accent/50 border-l-4 border-transparent hover:border-accent/30'
+                  : 'bg-card-dark ring-white/10 hover:ring-accent/50 border-l-4 border-transparent hover:border-accent/30'
               }`}
             >
               {tier.featured && (

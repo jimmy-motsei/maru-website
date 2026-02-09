@@ -89,7 +89,7 @@ export function PricingSection({
               variants={itemVariants}
               className={`border ${
                 tier.featured
-                  ? "border-accent bg-white/5"
+                  ? "border-accent bg-card-dark"
                   : "border-white/10 bg-white/[0.02]"
               } rounded-2xl p-8 hover:border-accent/50 transition-all duration-300 flex flex-col ${
                 tiers.length % 2 !== 0 && index === tiers.length - 1

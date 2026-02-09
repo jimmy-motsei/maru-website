@@ -13,7 +13,7 @@ export function Button({ className, variant = "primary", href, children, ...prop
   
   const variants = {
     primary: "bg-highlight text-dark h-[70px] px-[50px] hover:bg-highlight-hover hover:scale-[1.015] hover:brightness-110",
-    outline: "border border-white/20 text-white h-[70px] px-[50px] hover:bg-white/10 hover:scale-[1.015]",
+    outline: "border border-white/20 text-white h-[70px] px-[50px] hover:bg-card-dark-hover hover:scale-[1.015]",
     icon: "p-0 h-[70px] w-[70px] justify-center",
   };
 

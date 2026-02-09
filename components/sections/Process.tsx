@@ -20,7 +20,7 @@ export function Process() {
             { icon: Zap, title: "Data-Driven", text: "No guesswork, just results based on data." },
             { icon: RefreshCw, title: "Ongoing Optimization", text: "Continuous refinement to keep you ahead." }
           ].map((item, i) => (
-             <div key={i} className="flex flex-col gap-6 bg-white/5 p-8 rounded-3xl border border-card-border hover:border-highlight/50 transition-all duration-300">
+             <div key={i} className="flex flex-col gap-6 bg-card-dark p-8 rounded-3xl border border-card-border hover:border-highlight/50 transition-all duration-300">
                 <item.icon className="text-highlight" size={28} />
                 <h4 className="font-bold text-xl text-white">{item.title}</h4>
                 <p className="text-sm text-zinc-400">{item.text}</p>

@@ -72,7 +72,7 @@ export function DiamondIcon({
       <motion.div
         className={cn(
           "relative flex items-center justify-center rounded-xl rotate-45",
-          "bg-[#0a0a0a] border border-card-border",
+          "bg-card-dark border border-card-border",
           sizeClasses[size]
         )}
         style={{
@@ -80,7 +80,7 @@ export function DiamondIcon({
         }}
         variants={{
           rest: { 
-            borderColor: "#20A1A4",
+            borderColor: "#04B3CC",
             boxShadow: `0 0 0 1px ${glowColor}20`,
           },
           hover: { 
@@ -114,7 +114,7 @@ export function ProcessCard({
         // Base styles
         "relative flex flex-col p-6 md:p-8 rounded-2xl",
         // Glassmorphism: Deep black with transparency
-        "bg-[#09121A]/95 backdrop-blur-sm",
+        "bg-card-dark backdrop-blur-sm",
         // Border
         "border border-card-border",
         // Transition
@@ -160,7 +160,7 @@ export function FeatureCard({
         // Base styles
         "relative flex flex-col gap-5 p-7 rounded-2xl h-full",
         // Background
-        "bg-[#111111]",
+        "bg-card-dark",
         // Border
         "border border-card-border",
         // Transition

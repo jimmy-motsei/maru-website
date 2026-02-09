@@ -4,6 +4,7 @@ import { ServiceHero } from "@/components/sections/ServiceHero";
 import { OtherServices } from "@/components/sections/OtherServices";
 import { ServiceAccordion } from "@/components/ui/ServiceAccordion";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
+import { SplitHeadline } from "@/components/ui/SplitHeadline";
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
 
@@ -99,13 +100,16 @@ export default function WhatsAppSolutionsPage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={staggerContainerVariants}
               >
-                <motion.h2 
-                  className="text-h3 font-medium mb-8 text-black leading-[1.2]"
-                  variants={fadeUpVariants}
-                >
-                  Your <span className="font-thin text-gray-400">Approach</span> <br />
-                  and <span className="font-thin text-gray-400">Work Specifics</span>
-                </motion.h2>
+                <motion.div variants={fadeUpVariants}>
+                  <SplitHeadline
+                    as="h2"
+                    leadingText="Your"
+                    emphasisText="Approach and Work Specifics"
+                    className="text-h3 mb-8 text-black leading-[1.2]"
+                    leadingWeight="light"
+                    emphasisWeight="strong"
+                  />
+                </motion.div>
                 
                 <motion.p 
                   className="text-gray-600 leading-relaxed mb-8"
@@ -147,10 +151,17 @@ export default function WhatsAppSolutionsPage() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
-                We start with <span className="font-thin text-zinc-500">Diagnostics</span> <br className="hidden md:block" />
-                <span className="font-thin text-zinc-500">of your current</span> <span>Processes</span>
-              </motion.h2>
+              <motion.div variants={fadeUpVariants}>
+                <SplitHeadline
+                  as="h2"
+                  leadingText="We start with"
+                  emphasisText="Diagnostics of your current processes"
+                  className="text-h2 mb-14 text-white leading-[1.2]"
+                  breakClassName="hidden md:block"
+                  leadingWeight="light"
+                  emphasisWeight="strong"
+                />
+              </motion.div>
               
               <motion.p className="text-xl text-white mb-6" variants={fadeUpVariants}>
                 We aim to understand your current systems and operations before recommending the right solutions. Our free Diagnostics allow us to be best placed to recommend the most appropriate solutions.
@@ -158,10 +169,10 @@ export default function WhatsAppSolutionsPage() {
               
               <motion.div className="space-y-6 mb-8" variants={fadeUpVariants}>
                 <motion.div 
-                  className="bg-white/5 p-6 rounded-2xl border border-card-border transition-all duration-300"
+                  className="bg-card-dark p-6 rounded-2xl border border-card-border transition-all duration-300"
                   whileHover={{ 
                     scale: 1.02, 
-                    borderColor: "#E67F3E",
+                    borderColor: "#04B3CC",
                     boxShadow: "0 0 30px rgba(32, 161, 164, 0.3)"
                   }}
                   transition={{ duration: 0.3 }}
@@ -171,10 +182,10 @@ export default function WhatsAppSolutionsPage() {
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-white/5 p-6 rounded-2xl border border-card-border transition-all duration-300"
+                  className="bg-card-dark p-6 rounded-2xl border border-card-border transition-all duration-300"
                   whileHover={{ 
                     scale: 1.02, 
-                    borderColor: "#E67F3E",
+                    borderColor: "#04B3CC",
                     boxShadow: "0 0 30px rgba(32, 161, 164, 0.3)"
                   }}
                   transition={{ duration: 0.3 }}
@@ -184,10 +195,10 @@ export default function WhatsAppSolutionsPage() {
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-white/5 p-6 rounded-2xl border border-card-border transition-all duration-300"
+                  className="bg-card-dark p-6 rounded-2xl border border-card-border transition-all duration-300"
                   whileHover={{ 
                     scale: 1.02, 
-                    borderColor: "#E67F3E",
+                    borderColor: "#04B3CC",
                     boxShadow: "0 0 30px rgba(32, 161, 164, 0.3)"
                   }}
                   transition={{ duration: 0.3 }}

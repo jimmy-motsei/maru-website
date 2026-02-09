@@ -5,10 +5,10 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export function LeadMagnetForm() {
   return (
-    <section className="bg-deep-navy py-section border-t border-white/10 relative overflow-hidden">
+    <section className="bg-surface py-section border-t border-border-inverse-subtle relative overflow-hidden">
       
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-electric-cyan/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-action-primary/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -20,14 +20,14 @@ export function LeadMagnetForm() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="uppercase tracking-[2px] text-electric-cyan text-[12px] font-bold mb-6 block">
+            <span className="uppercase tracking-[2px] text-action-primary text-[12px] font-bold mb-6 block">
                Free Resource
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-[68px] font-bold font-sans text-white mb-6 leading-[1.1]">
+            <h2 className="text-4xl md:text-5xl lg:text-[68px] font-bold font-sans text-text-inverse mb-6 leading-[1.1]">
               Ready to Operationalize Your <br/>
-              <span className="text-electric-cyan">AI Investment?</span>
+              <span className="text-action-primary">AI Investment?</span>
             </h2>
-            <p className="text-lg text-white/70 mb-8 leading-relaxed">
+            <p className="text-lg text-text-inverse-muted mb-8 leading-relaxed">
               Get your free <strong>AI Implementation Scorecard</strong> to see exactly where your revenue leaks are—and how to fix them.
             </p>
 
@@ -39,15 +39,15 @@ export function LeadMagnetForm() {
                     "Gap analysis template"
                 ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-white/80">
-                        <CheckCircle2 className="w-5 h-5 text-warm-amber" />
+                        <CheckCircle2 className="w-5 h-5 text-action-primary" />
                         <span>{item}</span>
                     </li>
                 ))}
             </ul>
 
-            <div className="p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
+            <div className="p-6 bg-card-dark rounded-2xl border border-white/10 backdrop-blur-sm">
                 <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-electric-cyan/20 flex items-center justify-center text-electric-cyan font-bold text-lg shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-action-primary/20 flex items-center justify-center text-action-primary font-bold text-lg shrink-0">
                         !
                     </div>
                     <div>
@@ -67,41 +67,41 @@ export function LeadMagnetForm() {
              transition={{ duration: 0.8 }}
              className="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl"
           >
-             <h3 className="text-2xl font-bold text-deep-navy mb-6">Get Your Scorecard</h3>
+             <h3 className="text-2xl font-bold text-text-primary mb-6">Get Your Scorecard</h3>
              
              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="space-y-2">
-                        <label className="text-sm font-bold text-deep-navy pl-1">Full Name</label>
+                        <label className="text-sm font-bold text-text-primary pl-1">Full Name</label>
                         <input 
                             type="text" 
                             placeholder="John Doe" 
-                            className="w-full h-[50px] px-6 rounded-lg bg-gray-50 border border-gray-200 focus:border-electric-cyan focus:ring-0 outline-none transition-colors text-deep-navy"
+                            className="w-full h-[50px] px-6 rounded-lg bg-surface-muted border border-border-strong focus:border-action-primary focus:ring-0 outline-none transition-colors text-text-primary"
                         />
                     </div>
                     <div className="space-y-2">
-                        <label className="text-sm font-bold text-deep-navy pl-1">Work Email</label>
+                        <label className="text-sm font-bold text-text-primary pl-1">Work Email</label>
                         <input 
                             type="email" 
                             placeholder="john@company.com" 
-                            className="w-full h-[50px] px-6 rounded-lg bg-gray-50 border border-gray-200 focus:border-electric-cyan focus:ring-0 outline-none transition-colors text-deep-navy"
+                            className="w-full h-[50px] px-6 rounded-lg bg-surface-muted border border-border-strong focus:border-action-primary focus:ring-0 outline-none transition-colors text-text-primary"
                         />
                     </div>
                 </div>
 
                 <div className="space-y-2">
-                    <label className="text-sm font-bold text-deep-navy pl-1">Company Website</label>
+                    <label className="text-sm font-bold text-text-primary pl-1">Company Website</label>
                     <input 
                         type="text" 
                         placeholder="company.com" 
-                        className="w-full h-[50px] px-6 rounded-lg bg-gray-50 border border-gray-200 focus:border-electric-cyan focus:ring-0 outline-none transition-colors text-deep-navy"
+                        className="w-full h-[50px] px-6 rounded-lg bg-surface-muted border border-border-strong focus:border-action-primary focus:ring-0 outline-none transition-colors text-text-primary"
                     />
                 </div>
 
                 <div className="space-y-2">
-                    <label className="text-sm font-bold text-deep-navy pl-1">Biggest Challenge</label>
-                    <select className="w-full h-[50px] px-6 rounded-lg bg-gray-50 border border-gray-200 focus:border-electric-cyan focus:ring-0 outline-none transition-colors text-deep-navy appearance-none">
+                    <label className="text-sm font-bold text-text-primary pl-1">Biggest Challenge</label>
+                    <select className="w-full h-[50px] px-6 rounded-lg bg-surface-muted border border-border-strong focus:border-action-primary focus:ring-0 outline-none transition-colors text-text-primary appearance-none">
                         <option>Converting leads to sales</option>
                         <option>Team adoption of tools</option>
                         <option>Measuring ROI</option>
@@ -112,13 +112,13 @@ export function LeadMagnetForm() {
 
                 <button 
                     type="submit"
-                    className="w-full h-[60px] flex items-center justify-center gap-2 bg-warm-amber hover:bg-orange-600 text-deep-navy font-bold text-lg rounded-lg shadow-lg hover:-translate-y-1 transition-all duration-300 mt-4 group"
+                    className="w-full h-[60px] flex items-center justify-center gap-2 bg-action-primary hover:opacity-90 text-text-primary font-bold text-lg rounded-lg shadow-lg hover:-translate-y-1 transition-all duration-300 mt-4 group"
                 >
                     Get Instant Access
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
 
-                <p className="text-center text-xs text-gray-400 mt-4">
+                <p className="text-center text-xs text-text-muted mt-4">
                     We respect your privacy. Unsubscribe at any time.
                 </p>
 

@@ -181,7 +181,7 @@ export default function WebsiteAuditPage() {
                     onChange={(e) => setWebsiteUrl(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && handleAnalyze()}
                     placeholder="Enter your website URL (e.g., example.com)"
-                    className="w-full px-6 py-4 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors text-center"
+                    className="w-full px-6 py-4 rounded-full bg-card-dark border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors text-center"
                   />
                   {error && (
                     <p className="mt-2 text-sm text-red-400">{error}</p>
@@ -265,7 +265,7 @@ export default function WebsiteAuditPage() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors"
+                      className="w-full px-4 py-3 rounded-lg bg-card-dark border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors"
                       placeholder="John Doe"
                     />
                   </div>
@@ -277,7 +277,7 @@ export default function WebsiteAuditPage() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors"
+                      className="w-full px-4 py-3 rounded-lg bg-card-dark border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors"
                       placeholder="john@company.com"
                     />
                   </div>
@@ -289,7 +289,7 @@ export default function WebsiteAuditPage() {
                       required
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors"
+                      className="w-full px-4 py-3 rounded-lg bg-card-dark border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors"
                       placeholder="Acme Inc."
                     />
                   </div>
@@ -358,7 +358,7 @@ export default function WebsiteAuditPage() {
                 </div>
 
                 {/* Tier Badge */}
-                <div className={`inline-flex items-center px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 ${tier.color}`}>
+                <div className={`inline-flex items-center px-4 py-2 rounded-full bg-card-dark border border-white/10 mb-6 ${tier.color}`}>
                   <span className="font-bold">{tier.name}</span>
                 </div>
 
@@ -377,7 +377,7 @@ export default function WebsiteAuditPage() {
                   ].map((category) => {
                     const categoryScore = analysisResult.scores[category.key as keyof typeof analysisResult.scores];
                     return (
-                      <div key={category.key} className="p-4 rounded-xl bg-white/5 border border-white/10">
+                      <div key={category.key} className="p-4 rounded-xl bg-card-dark border border-white/10">
                         <div className="text-xs text-white/40 uppercase tracking-wider mb-2">{category.label}</div>
                         <div className="text-2xl font-bold">{categoryScore}/{category.max}</div>
                       </div>
@@ -388,7 +388,7 @@ export default function WebsiteAuditPage() {
                 {/* Detailed Breakdown */}
                 <div className="text-left max-w-2xl mx-auto mb-12 space-y-6">
                   {Object.entries(analysisResult.details).map(([category, details]) => (
-                    <div key={category} className="p-6 rounded-xl bg-white/5 border border-white/10">
+                    <div key={category} className="p-6 rounded-xl bg-card-dark border border-white/10">
                       <h3 className="text-lg font-bold mb-4 capitalize">{category}</h3>
                       <ul className="space-y-2">
                         {details.map((detail, index) => (

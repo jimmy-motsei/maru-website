@@ -85,7 +85,7 @@ export function Header() {
             {/* Menu Button */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className={`group relative flex items-center justify-center p-2 rounded-full transition-colors hover:bg-white/10 ${
+              className={`group relative flex items-center justify-center p-2 rounded-full transition-colors hover:bg-card-dark-soft ${
                  isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
               }`}
               aria-label="Open menu"
@@ -107,7 +107,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 z-[60] bg-[#09121A] text-white overflow-y-auto overflow-x-hidden"
+            className="fixed inset-0 z-[60] bg-surface text-text-inverse overflow-y-auto overflow-x-hidden"
           >
             {/* Overlay Header (Logo + Close Button) */}
             <div className="container mx-auto px-6 lg:px-12 py-6 lg:py-8 relative z-50">
@@ -122,7 +122,7 @@ export function Header() {
 
                 <button
                   onClick={() => setIsMenuOpen(false)}
-                  className="p-2 rounded-full hover:bg-white/10 transition-colors"
+                  className="p-2 rounded-full hover:bg-card-dark-soft transition-colors"
                   aria-label="Close menu"
                 >
                   <X className="w-8 h-8 text-white" />
@@ -187,7 +187,7 @@ export function Header() {
                             <Link
                               href={project.href}
                               onClick={() => setIsMenuOpen(false)}
-                              className="text-gray-400 hover:text-white transition-colors text-base"
+                              className="text-text-inverse-muted hover:text-white transition-colors text-base"
                             >
                               {project.name}
                             </Link>
@@ -211,7 +211,7 @@ export function Header() {
                             <Link
                               href={service.href}
                               onClick={() => setIsMenuOpen(false)}
-                              className="text-gray-400 hover:text-white transition-colors text-base"
+                              className="text-text-inverse-muted hover:text-white transition-colors text-base"
                             >
                               {service.name}
                             </Link>
@@ -238,7 +238,7 @@ export function Header() {
                   >
                     <div>
                       <h3 className="text-white font-bold mb-2">Johannesburg</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">
+                      <p className="text-text-inverse-muted text-sm leading-relaxed">
                         South Africa
                       </p>
                     </div>
@@ -247,7 +247,7 @@ export function Header() {
                       <h3 className="text-white font-bold mb-2">Get in touch</h3>
                       <a
                         href={`mailto:${siteConfig.contact.email}`}
-                        className="text-gray-400 text-sm hover:text-white transition-colors"
+                        className="text-text-inverse-muted text-sm hover:text-white transition-colors"
                       >
                          {siteConfig.contact.email}
                       </a>

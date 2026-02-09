@@ -47,7 +47,7 @@ export function FooterCTA() {
                   className="h-[80px] w-auto"
                 />
               </Link>
-              <p className="text-white/60 text-base leading-relaxed mb-6 font-light">
+              <p className="text-text-inverse-muted text-base leading-relaxed mb-6 font-light">
                 Building revenue infrastructure for African SMEs—one system at a time.
               </p>
               {/* Social Icons */}
@@ -58,7 +58,7 @@ export function FooterCTA() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-highlight hover:border-highlight/50 transition-all duration-300"
+                    className="h-10 w-10 rounded-full border border-border-inverse-subtle flex items-center justify-center text-white/40 hover:text-highlight hover:border-highlight/50 transition-all duration-300"
                     aria-label={item.name}
                   >
                     {item.icon}
@@ -75,7 +75,7 @@ export function FooterCTA() {
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-white/50 hover:text-highlight transition-colors duration-300 text-base font-light"
+                      className="text-text-inverse-muted hover:text-highlight transition-colors duration-300 text-base font-light"
                     >
                       {item.name}
                     </Link>
@@ -91,7 +91,7 @@ export function FooterCTA() {
                 <li>
                   <Link
                     href="/services/lead-generation"
-                    className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
+                    className="text-text-inverse-muted hover:text-accent transition-colors duration-300 text-base"
                   >
                     Website Conversion
                   </Link>
@@ -99,7 +99,7 @@ export function FooterCTA() {
                 <li>
                   <Link
                     href="/services/sales-systems"
-                    className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
+                    className="text-text-inverse-muted hover:text-accent transition-colors duration-300 text-base"
                   >
                     Sales Process
                   </Link>
@@ -107,7 +107,7 @@ export function FooterCTA() {
                 <li>
                   <Link
                     href="/services/office-automation"
-                    className="text-white/50 hover:text-accent transition-colors duration-300 text-base"
+                    className="text-text-inverse-muted hover:text-accent transition-colors duration-300 text-base"
                   >
                     Marketing Integration
                   </Link>
@@ -115,7 +115,7 @@ export function FooterCTA() {
                 <li>
                   <Link
                     href="/services/whatsapp-solutions"
-                    className="text-white/60 hover:text-accent transition-colors duration-300"
+                    className="text-text-inverse-muted hover:text-accent transition-colors duration-300"
                   >
                     Follow-Up Automation
                   </Link>
@@ -130,12 +130,12 @@ export function FooterCTA() {
                 <li>
                   <a
                     href="mailto:hello@maruonline.com"
-                    className="text-white/50 hover:text-highlight transition-colors duration-300 text-base font-light"
+                    className="text-text-inverse-muted hover:text-highlight transition-colors duration-300 text-base font-light"
                   >
                     hello@maruonline.com
                   </a>
                 </li>
-                <li className="text-white/50 text-base font-light">
+                <li className="text-text-inverse-muted text-base font-light">
                   Johannesburg, South Africa
                 </li>
               </ul>

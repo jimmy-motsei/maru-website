@@ -73,7 +73,7 @@ export function ThreeBreakPoints() {
 
                   <div className="space-y-6">
                     {/* Enterprise Approach */}
-                    <div className="bg-white/5 p-6 rounded-xl">
+                    <div className="bg-card-dark p-6 rounded-xl">
                       <h4 className="text-lg font-semibold text-white/80 mb-3">
                         Enterprise Approach:
                       </h4>

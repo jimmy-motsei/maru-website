@@ -34,7 +34,7 @@ export function HeroDashboard() {
           {/* Metrics Grid */}
           <div className="grid grid-cols-1 gap-4">
             {/* Metric 1 */}
-            <div className="bg-white/5 p-3 rounded-lg border border-white/5">
+            <div className="bg-card-dark p-3 rounded-lg border border-white/5">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-white/40 text-xs">Conversion Rate</span>
                 <Activity className="w-4 h-4 text-red-500" />
@@ -47,7 +47,7 @@ export function HeroDashboard() {
             </div>
 
             {/* Metric 2 */}
-            <div className="bg-white/5 p-3 rounded-lg border border-white/5">
+            <div className="bg-card-dark p-3 rounded-lg border border-white/5">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-white/40 text-xs">Lead Quality</span>
                 <Users className="w-4 h-4 text-orange-500" />
@@ -59,7 +59,7 @@ export function HeroDashboard() {
             </div>
             
             {/* Metric 3 */}
-             <div className="bg-white/5 p-3 rounded-lg border border-white/5 opacity-50">
+             <div className="bg-card-dark p-3 rounded-lg border border-white/5 opacity-50">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-white/40 text-xs">Ad Spend Wasted</span>
                 <DollarSign className="w-4 h-4 text-red-500" />

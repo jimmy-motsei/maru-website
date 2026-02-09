@@ -68,7 +68,7 @@ export default function TermsConditionsPage() {
             Late payments may incur a 2% monthly interest charge. Projects may be paused if payment is overdue by more than 14 days.
           </p>
 
-          <div className="bg-white/5 p-6 rounded-lg">
+          <div className="bg-card-dark p-6 rounded-lg">
             <h3 className="text-white font-bold mb-3">Refunds for Digital Courses (Maru AI Academy):</h3>
             <p className="text-light-soft text-sm">
               We offer a 7-day money-back guarantee on all digital courses, provided you have not completed more than 20% of the course content and have not generated a certificate. Once more than 20% of the content is accessed or a certificate is claimed, the product is considered &quot;consumed&quot; and is non-refundable.
@@ -208,7 +208,7 @@ export default function TermsConditionsPage() {
 
       <section className="mb-12">
         <h2 className="text-2xl font-medium text-white mb-6">14. Contact</h2>
-        <div className="bg-white/5 rounded-lg p-6 text-light-soft">
+        <div className="bg-card-dark rounded-lg p-6 text-light-soft">
           <p className="mb-2">Questions about these terms? Reach out:</p>
           <p><strong className="text-white">Email:</strong> <a href="mailto:hello@maruonline.com" className="text-accent hover:underline">hello@maruonline.com</a></p>
           <p><strong className="text-white">Location:</strong> Johannesburg, South Africa</p>

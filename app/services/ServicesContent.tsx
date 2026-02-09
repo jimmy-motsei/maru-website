@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, AlertCircle, DollarSign, Wrench, BarChart3, TrendingUp, MessageSquare, MessageCircle, Link2, Search, Hammer, Rocket, LineChart, CheckCircle2 } from "lucide-react";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
+import { SplitHeadline } from "@/components/ui/SplitHeadline";
 import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
 
 import { siteConfig } from "@/config/site";
@@ -188,10 +189,15 @@ export default function ServicesPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-12"
           >
-            <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
-              We Fix <span className="font-thin">Marketing Systems</span> <br className="hidden md:block" />
-              <span>That Leak Revenue</span>
-            </h1>
+            <SplitHeadline
+              as="h1"
+              leadingText="We Fix"
+              emphasisText="Marketing Systems That Leak Revenue"
+              className="text-h1 mb-14 text-white leading-[1.2]"
+              breakClassName="hidden md:block"
+              leadingWeight="light"
+              emphasisWeight="strong"
+            />
             <p className="text-xl md:text-2xl text-white/60 max-w-3xl mb-8">
               Stop losing leads to broken websites, stalled pipelines, and disconnected tools. We diagnose the problem, then fix it—no fluff, no enterprise price tag.
             </p>
@@ -221,10 +227,17 @@ export default function ServicesPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium text-center mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
-              Why <span className="font-thin">Marketing Technology</span> <br className="hidden md:block" />
-              Fails Most <span>SMEs</span>
-            </motion.h2>
+            <motion.div className="text-center mb-14" variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="Why"
+                emphasisText="Marketing Technology Fails Most SMEs"
+                className="text-h2 text-black leading-[1.2]"
+                breakClassName="hidden md:block"
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto mt-16">
               {problemsWithAgencies.map((problem, index) => (
@@ -258,10 +271,17 @@ export default function ServicesPage() {
             viewport={{ once: true, amount: 0.2 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium text-center mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
-              Five Ways We <span className="font-thin">Fix Your</span> <br className="hidden md:block" />
-              <span>Marketing Systems</span>
-            </motion.h2>
+            <motion.div className="text-center mb-14" variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="Five Ways We"
+                emphasisText="Fix Your Marketing Systems"
+                className="text-h2 text-white leading-[1.2]"
+                breakClassName="hidden md:block"
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             <motion.p className="text-center text-zinc-400 text-lg mb-16 max-w-3xl mx-auto" variants={fadeUpVariants}>
               Each service starts with a free diagnostic. No sales pitch, no obligation—just data-driven insights.
             </motion.p>
@@ -271,7 +291,7 @@ export default function ServicesPage() {
                 <motion.div
                   key={service.id}
                   variants={fadeUpVariants}
-                  className="bg-white/5 p-8 rounded-3xl border border-card-border hover:border-highlight/50 transition-all group"
+                  className="bg-card-dark p-8 rounded-3xl border border-card-border hover:border-highlight/50 transition-all group"
                 >
                   {/* Icon */}
                   <div 
@@ -329,9 +349,17 @@ export default function ServicesPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium text-center mb-20 text-black leading-[1.2]" variants={fadeUpVariants}>
-              How <span className="font-thin">We</span> <span>Work</span>
-            </motion.h2>
+            <motion.div className="text-center mb-20" variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="How"
+                emphasisText="We Work"
+                className="text-h2 text-black leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
               {howWeWorkSteps.map((step, index) => (
@@ -380,10 +408,17 @@ export default function ServicesPage() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
-                Why We <span className="font-thin">Start With</span> <br className="hidden md:block" />
-                <span>Diagnostics</span>
-              </motion.h2>
+              <motion.div variants={fadeUpVariants}>
+                <SplitHeadline
+                  as="h2"
+                  leadingText="Why We"
+                  emphasisText="Start With Diagnostics"
+                  className="text-h2 mb-14 text-black leading-[1.2]"
+                  breakClassName="hidden md:block"
+                  leadingWeight="light"
+                  emphasisWeight="strong"
+                />
+              </motion.div>
               
               <motion.p className="text-xl text-black mb-6" variants={fadeUpVariants}>
                 Unlike agencies that pitch before understanding your business, we start with diagnostics.
@@ -430,9 +465,17 @@ export default function ServicesPage() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
-                Frequently <span className="font-thin text-zinc-500">Asked</span>
-              </motion.h2>
+              <motion.div variants={fadeUpVariants}>
+                <SplitHeadline
+                  as="h2"
+                  leadingText="Frequently"
+                  emphasisText="Asked"
+                  className="text-h2 mb-14 text-white leading-[1.2]"
+                  breakBeforeEmphasis={false}
+                  leadingWeight="light"
+                  emphasisWeight="strong"
+                />
+              </motion.div>
 
               <div className="divide-y divide-white/20">
                 {faqs.map((faq, index) => (
@@ -470,9 +513,17 @@ export default function ServicesPage() {
             variants={staggerContainerVariants}
             className="text-center"
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
-              Ready to <span className="font-thin text-gray-500">Find Your</span> <span>Leaks?</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="Ready to"
+                emphasisText="Find Your Leaks?"
+                className="text-h2 mb-14 text-black leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             <motion.p className="text-gray-700 text-lg mb-12 max-w-2xl mx-auto" variants={fadeUpVariants}>
               No credit card required. No sales call. Just data-driven insights into where your marketing is breaking down.
             </motion.p>
@@ -482,7 +533,7 @@ export default function ServicesPage() {
                 href="https://leads.maruonline.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between bg-highlight hover:bg-highlight-hover text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(230,127,62,0.5)] group"
+                className="inline-flex items-center justify-between bg-highlight hover:bg-highlight-hover text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(4,179,204,0.45)] group"
               >
                 <span className="flex-1 text-center">Grade My Website</span>
                 <span className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
@@ -493,7 +544,7 @@ export default function ServicesPage() {
                 href="https://pipeline.maruonline.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between bg-highlight hover:bg-highlight-hover text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(230,127,62,0.5)] group"
+                className="inline-flex items-center justify-between bg-highlight hover:bg-highlight-hover text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(4,179,204,0.45)] group"
               >
                 <span className="flex-1 text-center">Analyze My Pipeline</span>
                 <span className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
@@ -504,7 +555,7 @@ export default function ServicesPage() {
                 href={siteConfig.calendly.discoveryCall}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between bg-highlight hover:bg-highlight-hover text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(230,127,62,0.5)] group"
+                className="inline-flex items-center justify-between bg-highlight hover:bg-highlight-hover text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(4,179,204,0.45)] group"
               >
                 <span className="flex-1 text-center">Get a Free Consultation</span>
                 <span className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">
@@ -513,7 +564,7 @@ export default function ServicesPage() {
               </Link>
               <Link
                 href="/assessments/tech-audit"
-                className="inline-flex items-center justify-between bg-highlight hover:bg-highlight-hover text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(230,127,62,0.5)] group"
+                className="inline-flex items-center justify-between bg-highlight hover:bg-highlight-hover text-black font-bold uppercase text-xs md:text-sm tracking-[0.5px] rounded-full px-5 md:px-8 py-4 min-h-[56px] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_6px_20px_rgba(4,179,204,0.45)] group"
               >
                 <span className="flex-1 text-center">Audit My Tech Stack</span>
                 <span className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">

@@ -63,7 +63,7 @@ export function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-electric-cyan hover:bg-white/10 transition-all duration-300"
+                    className="h-8 w-8 rounded-full bg-card-dark-soft flex items-center justify-center text-white/60 hover:text-electric-cyan hover:bg-card-dark-hover transition-all duration-300"
                     aria-label={item.name}
                   >
                     {item.icon}

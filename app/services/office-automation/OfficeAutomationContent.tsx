@@ -6,6 +6,7 @@ import { Map, DollarSign, Zap, TrendingUp, BarChart3, CheckCircle2, Mail, Users,
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { OtherServices } from "@/components/sections/OtherServices";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
+import { SplitHeadline } from "@/components/ui/SplitHeadline";
 import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
 
 const breadcrumbs = [
@@ -128,9 +129,17 @@ export default function OfficeAutomationContent() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
-              What You'll <span className="font-thin text-gray-400">Discover</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="What You'll"
+                emphasisText="Discover"
+                className="text-h2 mb-14 text-black leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             <motion.p className="text-gray-600 text-lg mb-2" variants={fadeUpVariants}>
               Our Tech Stack Audit reveals:
             </motion.p>
@@ -173,9 +182,17 @@ export default function OfficeAutomationContent() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
-                The <span className="font-thin text-zinc-500">Problem</span> <span className="text-white">We Solve</span>
-              </motion.h2>
+              <motion.div variants={fadeUpVariants}>
+                <SplitHeadline
+                  as="h2"
+                  leadingText="The"
+                  emphasisText="Problem We Solve"
+                  className="text-h2 mb-14 text-white leading-[1.2]"
+                  breakBeforeEmphasis={false}
+                  leadingWeight="light"
+                  emphasisWeight="strong"
+                />
+              </motion.div>
             </motion.div>
             <motion.div 
               className="space-y-6 text-lg text-zinc-300 leading-relaxed"
@@ -207,9 +224,17 @@ export default function OfficeAutomationContent() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-black text-center leading-[1.2]" variants={fadeUpVariants}>
-              What We <span className="font-thin text-gray-400">Connect</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="What We"
+                emphasisText="Connect"
+                className="text-h2 mb-14 text-black text-center leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {/* Marketing Tools Column */}
@@ -277,7 +302,7 @@ export default function OfficeAutomationContent() {
       </section>
 
       {/* How It Works Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#0A0A0A]">
+      <section className="py-24 bg-card-dark">
         <div className="container mx-auto px-6 lg:px-8">
           <motion.div 
             className="text-center mb-20"
@@ -286,9 +311,17 @@ export default function OfficeAutomationContent() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
-              How <span className="font-thin text-zinc-500">It</span> <span className="text-white">Works</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="How"
+                emphasisText="It Works"
+                className="text-h2 mb-14 text-white leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             <motion.p className="text-zinc-400 text-lg" variants={fadeUpVariants}>
               From audit to automation in 5 steps
             </motion.p>
@@ -308,9 +341,9 @@ export default function OfficeAutomationContent() {
                   variants={fadeUpVariants}
                   className="relative group"
                 >
-                  <div className="bg-white/5 p-8 rounded-2xl border border-card-border h-full relative z-10 hover:border-highlight/50 transition-colors">
+                  <div className="bg-card-dark p-8 rounded-2xl border border-card-border h-full relative z-10 hover:border-highlight/50 transition-colors">
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-16 h-16 rounded-full border-2 border-highlight flex items-center justify-center mb-8 relative bg-[#0A0A0A]">
+                      <div className="w-16 h-16 rounded-full border-2 border-highlight flex items-center justify-center mb-8 relative bg-card-dark">
                         <span className="text-lg font-bold text-white">{step.number}</span>
                         {index < workflowSteps.length - 1 && (
                           <div className="hidden lg:block absolute -right-12 top-1/2 -translate-y-1/2 text-highlight/30">
@@ -319,7 +352,7 @@ export default function OfficeAutomationContent() {
                         )}
                       </div>
                       
-                      <div className="w-12 h-12 rounded-xl border border-card-border flex items-center justify-center text-highlight mb-6 bg-white/5">
+                      <div className="w-12 h-12 rounded-xl border border-card-border flex items-center justify-center text-highlight mb-6 bg-card-dark">
                         <step.icon size={24} />
                       </div>
                       
@@ -344,9 +377,17 @@ export default function OfficeAutomationContent() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-                <motion.h2 className="text-h2 font-medium mb-14 text-black text-center leading-[1.2]" variants={fadeUpVariants}>
-                  What Gets <span className="font-thin text-gray-400">Automated</span>
-                </motion.h2>
+                <motion.div variants={fadeUpVariants}>
+                  <SplitHeadline
+                    as="h2"
+                    leadingText="What Gets"
+                    emphasisText="Automated"
+                    className="text-h2 mb-14 text-black text-center leading-[1.2]"
+                    breakBeforeEmphasis={false}
+                    leadingWeight="light"
+                    emphasisWeight="strong"
+                  />
+                </motion.div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {automationItems.map((item, index) => (
                   <motion.div
@@ -374,10 +415,17 @@ export default function OfficeAutomationContent() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
-                Why We <span className="font-thin text-zinc-500">Start With</span> <br className="hidden md:block" />
-                <span className="text-white">Diagnostics</span>
-              </motion.h2>
+              <motion.div variants={fadeUpVariants}>
+                <SplitHeadline
+                  as="h2"
+                  leadingText="Why We"
+                  emphasisText="Start With Diagnostics"
+                  className="text-h2 mb-14 text-white leading-[1.2]"
+                  breakClassName="hidden md:block"
+                  leadingWeight="light"
+                  emphasisWeight="strong"
+                />
+              </motion.div>
               
               <motion.p className="text-xl text-white mb-6" variants={fadeUpVariants}>
                 Unlike agencies that pitch before understanding your business, we start with diagnostics.
@@ -433,9 +481,17 @@ export default function OfficeAutomationContent() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
-              Integration <span className="font-thin text-gray-400">Packages</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="Integration"
+                emphasisText="Packages"
+                className="text-h2 mb-14 text-black leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             <motion.p className="text-gray-600 text-lg" variants={fadeUpVariants}>
               Pricing varies based on complexity—here's what most clients start with
             </motion.p>

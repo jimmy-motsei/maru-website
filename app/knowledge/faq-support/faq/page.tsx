@@ -171,7 +171,7 @@ export default function FAQPage() {
           </Link>
           <Link
             href="/knowledge"
-            className="border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors text-center"
+            className="border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-card-dark-hover transition-colors text-center"
           >
             Browse Documentation
           </Link>

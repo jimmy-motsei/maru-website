@@ -5,6 +5,7 @@ import { Target, Zap, Users, TrendingUp, CheckCircle2, Database, ArrowRight } fr
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { OtherServices } from "@/components/sections/OtherServices";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
+import { SplitHeadline } from "@/components/ui/SplitHeadline";
 import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
 
 const breadcrumbs = [
@@ -113,9 +114,17 @@ export default function SalesSystemsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
-              What You'll <span className="font-thin text-gray-400">Discover</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="What You'll"
+                emphasisText="Discover"
+                className="text-h2 mb-14 text-black leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             <motion.p className="text-gray-600 text-lg mb-2" variants={fadeUpVariants}>
               Our Pipeline Leak Detector analyzes your sales process and reveals:
             </motion.p>
@@ -158,9 +167,17 @@ export default function SalesSystemsPage() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
-                The <span className="font-thin text-zinc-500">Problem</span> <span>We Solve</span>
-              </motion.h2>
+              <motion.div variants={fadeUpVariants}>
+                <SplitHeadline
+                  as="h2"
+                  leadingText="The"
+                  emphasisText="Problem We Solve"
+                  className="text-h2 mb-14 text-white leading-[1.2]"
+                  breakBeforeEmphasis={false}
+                  leadingWeight="light"
+                  emphasisWeight="strong"
+                />
+              </motion.div>
             </motion.div>
             <motion.div 
               className="space-y-6 text-lg text-zinc-300 leading-relaxed"
@@ -193,9 +210,17 @@ export default function SalesSystemsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
-              How <span className="font-thin text-gray-400">It</span> <span>Works</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="How"
+                emphasisText="It Works"
+                className="text-h2 mb-14 text-black leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             <motion.p className="text-gray-600 text-lg" variants={fadeUpVariants}>
               From audit to automation in 4 strategic steps
             </motion.p>
@@ -242,7 +267,7 @@ export default function SalesSystemsPage() {
       </section>
 
       {/* What Gets Automated Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#0A0A0A]">
+      <section className="py-24 bg-card-dark">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -251,15 +276,23 @@ export default function SalesSystemsPage() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-h2 font-medium mb-14 text-white text-center leading-[1.2]" variants={fadeUpVariants}>
-                What Gets <span className="font-thin text-zinc-500">Automated</span>
-              </motion.h2>
+              <motion.div variants={fadeUpVariants}>
+                <SplitHeadline
+                  as="h2"
+                  leadingText="What Gets"
+                  emphasisText="Automated"
+                  className="text-h2 mb-14 text-white text-center leading-[1.2]"
+                  breakBeforeEmphasis={false}
+                  leadingWeight="light"
+                  emphasisWeight="strong"
+                />
+              </motion.div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {automationItems.map((item, index) => (
                   <motion.div
                     key={index}
                     variants={fadeUpVariants}
-                    className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-card-border hover:border-highlight/50 transition-colors"
+                    className="flex items-center gap-3 bg-card-dark p-4 rounded-xl border border-card-border hover:border-highlight/50 transition-colors"
                   >
                     <CheckCircle2 size={20} className="text-highlight shrink-0" />
                     <span className="text-zinc-300">{item}</span>
@@ -281,10 +314,17 @@ export default function SalesSystemsPage() {
               viewport={{ once: true, amount: 0.3 }}
               variants={staggerContainerVariants}
             >
-              <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
-                Why We <span className="font-thin text-gray-400">Start With</span> <br className="hidden md:block" />
-                <span>Diagnostics</span>
-              </motion.h2>
+              <motion.div variants={fadeUpVariants}>
+                <SplitHeadline
+                  as="h2"
+                  leadingText="Why We"
+                  emphasisText="Start With Diagnostics"
+                  className="text-h2 mb-14 text-black leading-[1.2]"
+                  breakClassName="hidden md:block"
+                  leadingWeight="light"
+                  emphasisWeight="strong"
+                />
+              </motion.div>
               
               <motion.p className="text-xl text-black mb-6" variants={fadeUpVariants}>
                 Unlike agencies that pitch before understanding your business, we start with diagnostics.
@@ -340,9 +380,17 @@ export default function SalesSystemsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
-              Choose Your <span className="font-thin text-zinc-500">Starting Point</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="Choose Your"
+                emphasisText="Starting Point"
+                className="text-h2 mb-14 text-white leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             <motion.p className="text-zinc-400 text-lg" variants={fadeUpVariants}>
               Every package is customized based on your CRM, team size, and sales complexity. Here's what most SMEs start with:
             </motion.p>
@@ -358,7 +406,7 @@ export default function SalesSystemsPage() {
             {/* Growth Package */}
             <motion.div
               variants={fadeUpVariants}
-              className="bg-white/5 p-8 rounded-3xl border-2 border-highlight relative"
+              className="bg-card-dark p-8 rounded-3xl border-2 border-highlight relative"
             >
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-highlight text-black px-4 py-1 rounded-full text-sm font-bold">
                 ⭐ BEST FOR MOST SMEs
@@ -383,7 +431,7 @@ export default function SalesSystemsPage() {
             {/* Enterprise Package */}
             <motion.div
               variants={fadeUpVariants}
-              className="bg-white/5 p-8 rounded-3xl border border-card-border hover:border-highlight/50 transition-colors"
+              className="bg-card-dark p-8 rounded-3xl border border-card-border hover:border-highlight/50 transition-colors"
             >
               <h3 className="text-2xl font-bold text-white mb-3">Enterprise Package</h3>
               <p className="text-zinc-400 mb-6">

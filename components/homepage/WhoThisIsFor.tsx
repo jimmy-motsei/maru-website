@@ -42,7 +42,7 @@ export function WhoThisIsFor() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="bg-[#09121A] p-10 lg:p-14"
+              className="bg-card-dark p-10 lg:p-14"
             >
               <div className="flex items-center gap-3 mb-10">
                 <div className="w-8 h-8 rounded-full bg-highlight/10 flex items-center justify-center">

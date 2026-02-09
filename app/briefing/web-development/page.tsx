@@ -100,7 +100,7 @@ export default function WebDevBriefing() {
     return (
       <main className="relative min-h-screen bg-[#0a192f] text-white flex items-center justify-center">
         <AtmosphericBackground variant="subtle" />
-        <div className="relative z-10 max-w-lg w-full text-center p-8 bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10">
+        <div className="relative z-10 max-w-lg w-full text-center p-8 bg-card-dark backdrop-blur-xl rounded-2xl border border-white/10">
           <h2 className="text-3xl font-bold mb-4 text-[#ff9900]">Brief Submitted</h2>
           <p className="text-zinc-400 mb-8">
             Thanks for the details! We'll review your web project requirements and be in touch soon.
@@ -137,7 +137,7 @@ export default function WebDevBriefing() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-16">
             
             {/* 0. Current Status */}
-            <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+            <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
               <h2 className="text-2xl font-bold mb-8 text-[#ff9900]">0. Current Systems</h2>
               <div className="space-y-8">
                  <div>
@@ -160,7 +160,7 @@ export default function WebDevBriefing() {
             </section>
 
              {/* Client Info */}
-             <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+             <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
                <h2 className="text-xl font-bold mb-6 text-white">Client & Project Info</h2>
                <div className="grid md:grid-cols-2 gap-8">
                   <div>
@@ -184,7 +184,7 @@ export default function WebDevBriefing() {
             </section>
 
             {/* 1. Overview */}
-            <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+            <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
               <h2 className="text-2xl font-bold mb-8 text-[#ff9900]">1. Project Overview</h2>
               <div className="space-y-8">
                  <div>
@@ -210,7 +210,7 @@ export default function WebDevBriefing() {
             </section>
 
             {/* 2. Functionality */}
-            <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+            <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
               <h2 className="text-xl font-bold mb-6 text-[#ff9900]">2. Functionality</h2>
               <div className="space-y-8">
                  <div>
@@ -242,7 +242,7 @@ export default function WebDevBriefing() {
             </section>
 
              {/* 6. Budget */}
-             <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+             <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
                <h2 className="text-xl font-bold mb-6 text-[#ff9900]">Budget & Timeline</h2>
                <div className="grid md:grid-cols-2 gap-8">
                   <div>

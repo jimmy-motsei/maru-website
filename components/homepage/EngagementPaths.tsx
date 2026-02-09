@@ -49,7 +49,7 @@ export function EngagementPaths() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-white/5 border border-card-border p-10 lg:p-14 rounded-[2rem] flex flex-col justify-between"
+              className="bg-card-dark border border-card-border p-10 lg:p-14 rounded-[2rem] flex flex-col justify-between"
             >
               <div>
                 <MessageSquare className="w-10 h-10 text-white mb-8" />

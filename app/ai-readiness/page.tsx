@@ -142,7 +142,7 @@ export default function AIReadinessPage() {
           <Link href="/" className="text-white font-bold text-3xl tracking-tight hover:text-highlight transition-colors">M.</Link>
         </div>
         {/* Progress Bar */}
-        <div className="h-1 bg-white/5 w-full">
+        <div className="h-1 bg-card-dark w-full">
            <motion.div
              className="h-full bg-highlight shadow-[0_0_10px_rgba(230,127,62,0.5)]"
              initial={{ width: 0 }}
@@ -225,7 +225,7 @@ export default function AIReadinessPage() {
                         className={`w-full text-left p-6 rounded-xl border transition-all duration-300 group ${
                           isSelected
                             ? "border-highlight bg-highlight/10 text-white"
-                            : "border-white/10 bg-white/5 text-white/60 hover:border-highlight/50 hover:bg-white/10 hover:text-white"
+                            : "border-white/10 bg-card-dark text-white/70 hover:border-highlight/50 hover:bg-card-dark-hover hover:text-white"
                         }`}
                       >
                         <div className="flex items-center justify-between">
@@ -286,7 +286,7 @@ export default function AIReadinessPage() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors"
+                      className="w-full px-4 py-3 rounded-lg bg-card-dark border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors"
                       placeholder="John Doe"
                     />
                   </div>
@@ -298,7 +298,7 @@ export default function AIReadinessPage() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors"
+                      className="w-full px-4 py-3 rounded-lg bg-card-dark border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors"
                       placeholder="john@company.com"
                     />
                   </div>
@@ -310,7 +310,7 @@ export default function AIReadinessPage() {
                       required
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors"
+                      className="w-full px-4 py-3 rounded-lg bg-card-dark border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-accent transition-colors"
                       placeholder="Acme Inc."
                     />
                   </div>
@@ -387,7 +387,7 @@ export default function AIReadinessPage() {
                 </div>
 
                 {/* Tier Badge */}
-                <div className={`inline-flex items-center px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 ${tier.color}`}>
+                <div className={`inline-flex items-center px-4 py-2 rounded-full bg-card-dark border border-white/10 mb-6 ${tier.color}`}>
                   <span className="font-bold">{tier.name}</span>
                 </div>
 
@@ -400,7 +400,7 @@ export default function AIReadinessPage() {
                   {questions.map((q) => {
                     const pillarScore = answers[q.id] || 0;
                     return (
-                      <div key={q.id} className="p-4 rounded-xl bg-white/5 border border-white/10">
+                      <div key={q.id} className="p-4 rounded-xl bg-card-dark border border-white/10">
                         <div className="text-xs text-white/40 uppercase tracking-wider mb-2">{q.pillar}</div>
                         <div className="text-2xl font-bold">{pillarScore}</div>
                       </div>

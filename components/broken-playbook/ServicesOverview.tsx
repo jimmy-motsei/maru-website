@@ -63,7 +63,7 @@ export function ServicesOverview() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white/5 border border-card-border rounded-2xl p-8 hover:bg-white/10 hover:border-highlight/50 transition-all duration-300"
+                  className="bg-card-dark border border-card-border rounded-2xl p-8 hover:bg-card-dark-hover hover:border-highlight/50 transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-6">
                     <div className="flex items-center justify-center w-12 h-12 rounded-full bg-highlight/10 border-2 border-highlight">

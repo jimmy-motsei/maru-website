@@ -25,7 +25,7 @@ const MobileDetailContent = ({ step }: { step: typeof steps[0] }) => (
 const DesktopDetailCard = ({ step, index }: { step: typeof steps[0], index: number }) => {
   const isRight = index % 2 === 0;
   return (
-    <motion.div initial={{ opacity: 0, x: isRight ? 20 : -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className={cn("absolute top-1/2 -translate-y-1/2 hidden md:flex flex-col p-6 rounded-2xl w-80 md:w-96 bg-zinc-900/80 backdrop-blur-md border border-card-border", isRight ? "left-[calc(50%+8rem)] text-left" : "right-[calc(50%+8rem)] text-right items-end")}>
+    <motion.div initial={{ opacity: 0, x: isRight ? 20 : -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className={cn("absolute top-1/2 -translate-y-1/2 hidden md:flex flex-col p-6 rounded-2xl w-80 md:w-96 bg-card-dark backdrop-blur-md border border-card-border", isRight ? "left-[calc(50%+8rem)] text-left" : "right-[calc(50%+8rem)] text-right items-end")}>
         <h3 className="font-bold text-white text-xl mb-3">{step.title}</h3>
         <p className="text-zinc-400 font-light">{step.description}</p>
     </motion.div>
@@ -46,7 +46,7 @@ export function IsometricProcess() {
                      </div>
                   </div>
                   <div className="relative z-10 flex flex-col items-center">
-                       <div className="relative w-28 h-28 sm:w-40 sm:h-40 flex items-center justify-center border-2 rounded-3xl rotate-45 bg-[#09121A] border-highlight/50 shadow-[0_0_30px_rgba(230,127,62,0.3)]">
+                       <div className="relative w-28 h-28 sm:w-40 sm:h-40 flex items-center justify-center border-2 rounded-3xl rotate-45 bg-[#09121A] border-highlight/50 shadow-[0_0_30px_rgba(4,179,204,0.3)]">
                          <step.icon className="w-12 h-12 -rotate-45 text-white" />
                        </div>
                        <MobileDetailContent step={step} />

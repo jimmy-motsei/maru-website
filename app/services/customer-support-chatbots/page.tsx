@@ -8,6 +8,7 @@ import { ServiceHero } from "@/components/sections/ServiceHero";
 import { OtherServices } from "@/components/sections/OtherServices";
 import { EmailModalAssessment } from "@/components/modals/EmailModalAssessment";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
+import { SplitHeadline } from "@/components/ui/SplitHeadline";
 import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
 
 const breadcrumbs = [
@@ -198,10 +199,17 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
-              Why Most <span className="font-thin text-gray-400">Chatbots Create</span> <br className="hidden md:block" />
-              <span>More Problems</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="Why Most"
+                emphasisText="Chatbots Create More Problems"
+                className="text-h2 mb-14 text-black leading-[1.2]"
+                breakClassName="hidden md:block"
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             <motion.p className="text-gray-600 text-lg max-w-3xl mx-auto" variants={fadeUpVariants}>
               Than they solve
             </motion.p>
@@ -256,10 +264,17 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
-              How We <span className="font-thin text-zinc-500">Build Chatbots That</span> <br className="hidden md:block" />
-              <span>Actually Support Customers</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="How We"
+                emphasisText="Build Chatbots That Actually Support Customers"
+                className="text-h2 mb-14 text-white leading-[1.2]"
+                breakClassName="hidden md:block"
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
           </motion.div>
 
           <motion.div 
@@ -273,7 +288,7 @@ export default function CustomerSupportChatbotsPage() {
               <motion.div
                 key={index}
                 variants={fadeUpVariants}
-                className="bg-white/5 border border-card-border rounded-3xl p-8 hover:bg-white/[0.07] transition-all"
+                className="bg-card-dark border border-card-border rounded-3xl p-8 hover:bg-card-dark-hover transition-all"
               >
                 <div className="flex items-start gap-6">
                   <div className="w-14 h-14 shrink-0 rounded-2xl bg-highlight/10 flex items-center justify-center text-highlight border border-highlight/30">
@@ -312,9 +327,17 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
-              From Setup <span className="font-thin text-gray-400">to Support in</span> <span>4 Weeks</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="From Setup"
+                emphasisText="to Support in 4 Weeks"
+                className="text-h2 mb-14 text-black leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
           </motion.div>
 
           <div className="relative max-w-7xl mx-auto">
@@ -374,9 +397,17 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
-              What Your <span className="font-thin text-zinc-500">Chatbot Can Handle</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="What Your"
+                emphasisText="Chatbot Can Handle"
+                className="text-h2 mb-14 text-white leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
           </motion.div>
 
           <motion.div 
@@ -390,7 +421,7 @@ export default function CustomerSupportChatbotsPage() {
               <motion.div
                 key={index}
                 variants={fadeUpVariants}
-                className="bg-white/5 border border-card-border rounded-3xl p-8 hover:bg-white/[0.07] transition-all"
+                className="bg-card-dark border border-card-border rounded-3xl p-8 hover:bg-card-dark-hover transition-all"
               >
                 <h3 className="text-2xl font-bold text-white mb-6">{useCase.title}</h3>
                 <ul className="space-y-3">
@@ -417,9 +448,17 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
-              Straightforward <span className="font-thin text-gray-400">Pricing for</span> <span>SMEs</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="Straightforward"
+                emphasisText="Pricing for SMEs"
+                className="text-h2 mb-14 text-black leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
           </motion.div>
 
           <motion.div 
@@ -534,9 +573,17 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-white leading-[1.2]" variants={fadeUpVariants}>
-              Common <span className="font-thin text-zinc-500">Questions</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="Common"
+                emphasisText="Questions"
+                className="text-h2 mb-14 text-white leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
           </motion.div>
 
           <motion.div 
@@ -550,7 +597,7 @@ export default function CustomerSupportChatbotsPage() {
               <motion.div 
                 key={index}
                 variants={fadeUpVariants}
-                className="border border-card-border rounded-xl overflow-hidden bg-white/5 hover:bg-white/[0.07] transition-colors"
+                className="border border-card-border rounded-xl overflow-hidden bg-card-dark hover:bg-card-dark-hover transition-colors"
               >
                 <button
                   onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
@@ -585,10 +632,17 @@ export default function CustomerSupportChatbotsPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-14 text-black leading-[1.2]" variants={fadeUpVariants}>
-              Ready to <span className="font-thin text-gray-400">Fix Your</span> <br className="hidden md:block" />
-              <span>Support Experience?</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="Ready to"
+                emphasisText="Fix Your Support Experience?"
+                className="text-h2 mb-14 text-black leading-[1.2]"
+                breakClassName="hidden md:block"
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             <motion.p className="text-gray-600 text-lg mb-12 max-w-2xl mx-auto" variants={fadeUpVariants}>
               Start with a free support diagnostic. We'll analyze your most common customer questions, identify what a chatbot could handle, and show you exactly where you're losing time to repetitive support requests.
             </motion.p>

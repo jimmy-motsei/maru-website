@@ -105,7 +105,7 @@ export function OtherServices({ currentServiceId: _currentServiceId }: OtherServ
             const IconComponent = service.icon;
             return (
               <motion.div key={service.id} variants={itemVariants}>
-                <div className="group bg-white rounded-2xl p-8 h-full shadow-sm border border-[#20A1A4] hover:border-[#E67F3E] transition-colors duration-300 flex flex-col">
+                <div className="group bg-white rounded-2xl p-8 h-full shadow-sm border border-action-primary hover:border-action-primary transition-colors duration-300 flex flex-col">
                   {/* Icon */}
                   <div
                     className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
@@ -138,7 +138,7 @@ export function OtherServices({ currentServiceId: _currentServiceId }: OtherServ
                   <div className="mt-auto">
                     <SafeLink
                       href={service.href}
-                      className="inline-flex items-center justify-center bg-[#20A1A4] group-hover:bg-[#E67F3E] text-white font-bold uppercase text-sm rounded-full px-6 py-3 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg w-full"
+                      className="inline-flex items-center justify-center bg-action-primary group-hover:bg-highlight-hover text-white font-bold uppercase text-sm rounded-full px-6 py-3 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg w-full"
                     >
                       See more
                     </SafeLink>

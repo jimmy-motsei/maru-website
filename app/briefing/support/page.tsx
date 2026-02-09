@@ -78,7 +78,7 @@ export default function SupportTicketPage() {
     return (
       <main className="relative min-h-screen bg-[#0a192f] text-white flex items-center justify-center">
         <AtmosphericBackground variant="subtle" />
-        <div className="relative z-10 max-w-lg w-full text-center p-8 bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10">
+        <div className="relative z-10 max-w-lg w-full text-center p-8 bg-card-dark backdrop-blur-xl rounded-2xl border border-white/10">
           <h2 className="text-3xl font-bold mb-4 text-[#a1a1aa]">Ticket Logged</h2>
           <p className="text-zinc-400 mb-8">
             Your support request has been received. Ticket ID: TKT-{Math.floor(Math.random() * 10000)}
@@ -119,7 +119,7 @@ export default function SupportTicketPage() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-12">
             
             {/* Contact */}
-            <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+            <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
                <h2 className="text-xl font-bold mb-6 text-white">Contact Info</h2>
                <div className="grid md:grid-cols-2 gap-8">
                   <div>
@@ -144,7 +144,7 @@ export default function SupportTicketPage() {
             </section>
 
             {/* Ticket Details */}
-            <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+            <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
               <h2 className="text-xl font-bold mb-6 text-white">Issue Details</h2>
               <div className="space-y-8">
                  <div className="grid md:grid-cols-2 gap-8">
@@ -206,7 +206,7 @@ export default function SupportTicketPage() {
             </section>
 
              {/* SLA & Terms */}
-             <section className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/5">
+             <section className="bg-card-dark backdrop-blur-sm p-8 rounded-3xl border border-white/5">
                 <h2 className="text-xl font-bold mb-6 text-white">SLA & Rates</h2>
                 
                 <div className="mb-8">

@@ -247,7 +247,7 @@ export default function PrivacyPolicyPage() {
           For questions about this Privacy Policy or to exercise your rights,
           please contact us:
         </p>
-        <div className="bg-white/5 rounded-lg p-6 text-light-soft">
+        <div className="bg-card-dark rounded-lg p-6 text-light-soft">
           <p>
             <strong className="text-white">Information Officer:</strong> Jimmy
             Maru
@@ -280,7 +280,7 @@ export default function PrivacyPolicyPage() {
           </li>
           <li>Seek legal recourse through the courts</li>
         </ul>
-        <div className="bg-white/5 rounded-lg p-6 text-light-soft">
+        <div className="bg-card-dark rounded-lg p-6 text-light-soft">
           <p className="font-medium text-white mb-2">
             Information Regulator Contact Details:
           </p>

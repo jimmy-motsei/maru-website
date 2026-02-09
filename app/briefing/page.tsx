@@ -55,7 +55,7 @@ export default function BriefingPage() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {forms.map((form) => (
             <Link key={form.href} href={form.href} className="group h-full">
-              <FeatureCard className="h-full bg-black/40 backdrop-blur-md" glowOnHover>
+              <FeatureCard className="h-full bg-card-dark backdrop-blur-md" glowOnHover>
                 <div className="flex flex-col h-full">
                   <div className="mb-6">
                     <DiamondIcon 

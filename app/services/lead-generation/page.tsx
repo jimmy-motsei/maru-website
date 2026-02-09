@@ -4,6 +4,7 @@ import { ServiceHero } from "@/components/sections/ServiceHero";
 import { OtherServices } from "@/components/sections/OtherServices";
 import { ServiceAccordion } from "@/components/ui/ServiceAccordion";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
+import { SplitHeadline } from "@/components/ui/SplitHeadline";
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
 import { BarChart3, AlertCircle, Map, FileText } from "lucide-react";
@@ -120,13 +121,16 @@ export default function LeadGenerationPage() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={staggerContainerVariants}
               >
-                <motion.h2 
-                  className="text-h3 font-medium mb-8 text-black leading-[1.2]"
-                  variants={fadeUpVariants}
-                >
-                  Your <span className="font-thin text-gray-400">Approach</span> <br />
-                  and <span className="font-thin text-gray-400">Work Specifics</span>
-                </motion.h2>
+                <motion.div variants={fadeUpVariants}>
+                  <SplitHeadline
+                    as="h2"
+                    leadingText="Your"
+                    emphasisText="Approach and Work Specifics"
+                    className="text-h3 mb-8 text-black leading-[1.2]"
+                    leadingWeight="light"
+                    emphasisWeight="strong"
+                  />
+                </motion.div>
                 
                 <motion.p 
                   className="text-gray-600 leading-relaxed mb-8"
@@ -168,9 +172,17 @@ export default function LeadGenerationPage() {
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainerVariants}
           >
-            <motion.h2 className="text-h2 font-medium mb-6 text-white leading-[1.2]" variants={fadeUpVariants}>
-              What You'll <span className="font-thin text-zinc-400">Discover</span>
-            </motion.h2>
+            <motion.div variants={fadeUpVariants}>
+              <SplitHeadline
+                as="h2"
+                leadingText="What You'll"
+                emphasisText="Discover"
+                className="text-h2 mb-6 text-white leading-[1.2]"
+                breakBeforeEmphasis={false}
+                leadingWeight="light"
+                emphasisWeight="strong"
+              />
+            </motion.div>
             <motion.p className="text-zinc-400 text-lg" variants={fadeUpVariants}>
               Our AI-powered Website Lead Grader analyzes your site in 2 minutes and reveals:
             </motion.p>
@@ -187,7 +199,7 @@ export default function LeadGenerationPage() {
               <motion.div
                 key={index}
                 variants={fadeUpVariants}
-                className="bg-[#09121A] border border-card-border p-8 rounded-2xl min-h-[280px] flex flex-col items-start hover:border-[#E67F3E] transition-colors duration-300 group"
+                className="bg-card-dark border border-card-border p-8 rounded-2xl min-h-[280px] flex flex-col items-start hover:border-highlight transition-colors duration-300 group"
               >
                 {/* Icon Container */}
                 <div 
@@ -195,7 +207,7 @@ export default function LeadGenerationPage() {
                     "w-12 h-12 rounded-lg flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110",
                     card.color === "teal" 
                       ? "bg-[#20A1A4]/10 text-[#20A1A4]" 
-                      : "bg-[#E67F3E]/10 text-[#E67F3E]"
+                      : "bg-highlight/10 text-highlight"
                   )}
                 >
                   <card.icon size={26} strokeWidth={1.5} />

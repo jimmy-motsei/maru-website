@@ -74,7 +74,7 @@ export default function CookiePolicyPage() {
           We work with the following third-party services that may set cookies on your device:
         </p>
         
-        <div className="bg-white/5 rounded-lg p-6 mb-4">
+        <div className="bg-card-dark rounded-lg p-6 mb-4">
           <h4 className="text-white font-medium mb-2">Google Analytics</h4>
           <p className="text-light-soft text-sm">
             We use Google Analytics to analyze website traffic and usage patterns. Google Analytics sets 
@@ -85,7 +85,7 @@ export default function CookiePolicyPage() {
           </p>
         </div>
 
-        <div className="bg-white/5 rounded-lg p-6 mb-4">
+        <div className="bg-card-dark rounded-lg p-6 mb-4">
           <h4 className="text-white font-medium mb-2">HubSpot</h4>
           <p className="text-light-soft text-sm">
             Our CRM and marketing automation platform uses cookies to track user interactions with our forms 
@@ -99,7 +99,7 @@ export default function CookiePolicyPage() {
           </div>
         </div>
 
-        <div className="bg-white/5 rounded-lg p-6">
+        <div className="bg-card-dark rounded-lg p-6">
           <h4 className="text-white font-medium mb-2">Meta Pixel (Facebook)</h4>
           <p className="text-light-soft text-sm">
             We use Meta Pixel to measure the effectiveness of our advertising campaigns and deliver targeted 
@@ -226,7 +226,7 @@ export default function CookiePolicyPage() {
         <p className="text-light-soft mb-4">
           If you have questions about our use of cookies, please contact us:
         </p>
-        <div className="bg-white/5 rounded-lg p-6 text-light-soft">
+        <div className="bg-card-dark rounded-lg p-6 text-light-soft">
           <p>
             <strong className="text-white">Email:</strong> privacy@maruonline.com
           </p>

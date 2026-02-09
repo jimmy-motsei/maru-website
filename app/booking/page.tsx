@@ -51,7 +51,7 @@ function BookingForm() {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white/5 border border-white/10 px-4 py-8 shadow-2xl sm:rounded-lg sm:px-10 backdrop-blur-md">
+        <div className="bg-card-dark border border-white/10 px-4 py-8 shadow-2xl sm:rounded-lg sm:px-10 backdrop-blur-md">
           {/* Progress Bar */}
           {step < 3 && (
             <div className="mb-8">
@@ -95,7 +95,7 @@ function BookingForm() {
                         required={field !== 'website'}
                         value={formData[field as keyof typeof formData]}
                         onChange={handleChange}
-                        className="block w-full rounded-md border-0 bg-white/5 py-2 px-3 text-white shadow-sm ring-1 ring-inset ring-white/10 placeholder:text-zinc-500 focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6"
+                        className="block w-full rounded-md border-0 bg-card-dark py-2 px-3 text-white shadow-sm ring-1 ring-inset ring-white/10 placeholder:text-zinc-500 focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -134,7 +134,7 @@ function BookingForm() {
                     required 
                     value={formData.budget} 
                     onChange={handleChange} 
-                    className="mt-2 block w-full rounded-md border-0 bg-white/5 py-2 pl-3 pr-10 text-white ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-accent sm:text-sm sm:leading-6 [&>option]:bg-dark"
+                    className="mt-2 block w-full rounded-md border-0 bg-card-dark py-2 pl-3 pr-10 text-white ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-accent sm:text-sm sm:leading-6 [&>option]:bg-dark"
                   >
                     <option value="">Select a range...</option>
                     <option value="<R5k">Less than R5,000</option>
@@ -147,7 +147,7 @@ function BookingForm() {
                   <button 
                     type="button" 
                     onClick={prevStep} 
-                    className="flex-1 rounded-md bg-white/5 px-3 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/10 hover:bg-white/10"
+                    className="flex-1 rounded-md bg-card-dark px-3 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/10 hover:bg-card-dark-hover"
                   >
                     Back
                   </button>
@@ -177,7 +177,7 @@ function BookingForm() {
                 <p className="mt-2 text-sm text-zinc-400">
                   Please pick a time below to schedule your free consultation.
                 </p>
-                <div className="mt-6 w-full rounded-lg bg-white/5 border border-white/10 overflow-hidden">
+                <div className="mt-6 w-full rounded-lg bg-card-dark border border-white/10 overflow-hidden">
                     <div 
                         className="calendly-inline-widget w-full h-[700px]" 
                         data-url={siteConfig.calendly.discoveryCall} 

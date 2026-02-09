@@ -108,13 +108,13 @@ export default function CookieConsent() {
             <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto min-w-[340px]">
               <button
                 onClick={() => setShowPreferences(true)}
-                className="px-4 py-2.5 rounded-lg text-sm font-medium text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
+                className="px-4 py-2.5 rounded-lg text-sm font-medium text-white bg-card-dark hover:bg-card-dark-hover border border-white/10 transition-colors"
               >
                 Manage Preferences
               </button>
               <button
                 onClick={handleRejectNonEssential}
-                className="px-4 py-2.5 rounded-lg text-sm font-medium text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
+                className="px-4 py-2.5 rounded-lg text-sm font-medium text-white bg-card-dark hover:bg-card-dark-hover border border-white/10 transition-colors"
               >
                 Reject All
               </button>
@@ -154,7 +154,7 @@ export default function CookieConsent() {
               </div>
               <button
                 onClick={() => setShowPreferences(false)}
-                className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                className="p-2 text-zinc-400 hover:text-white hover:bg-card-dark-hover rounded-lg transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -169,7 +169,7 @@ export default function CookieConsent() {
 
               <div className="space-y-4">
                 {/* Category: Necessary */}
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+                <div className="p-4 rounded-xl bg-card-dark border border-white/5">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
@@ -188,7 +188,7 @@ export default function CookieConsent() {
                 </div>
 
                 {/* Category: Marketing */}
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+                <div className="p-4 rounded-xl bg-card-dark border border-white/5">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
@@ -213,7 +213,7 @@ export default function CookieConsent() {
                 </div>
 
                 {/* Category: Analytics */}
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+                <div className="p-4 rounded-xl bg-card-dark border border-white/5">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
@@ -242,7 +242,7 @@ export default function CookieConsent() {
             <div className="p-6 border-t border-white/10 bg-[#161616] flex justify-end gap-3">
               <button
                 onClick={() => setShowPreferences(false)}
-                className="px-5 py-2.5 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition-colors"
+                className="px-5 py-2.5 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-card-dark-hover transition-colors"
               >
                 Cancel
               </button>
