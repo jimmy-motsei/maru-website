@@ -2,7 +2,7 @@
 @import "../styles/tokens.css";
 
 @theme {
-  --font-sans: var(--font-family-sans);
+  --font-sans: var(--font-family-body);
 
   /* Core token utilities */
   --color-dark: var(--color-surface);
@@ -73,7 +73,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-family-sans), sans-serif;
+    font-family: var(--font-family-heading), sans-serif;
     color: var(--color-text-primary);
     @apply font-medium tracking-tight;
   }
@@ -82,7 +82,7 @@
 @layer components {
   /* Ashley-style split headline pattern for repo-wide reuse */
   .maru-headline-split {
-    font-family: var(--font-family-sans), sans-serif;
+    font-family: var(--font-family-heading), sans-serif;
     line-height: var(--line-height-tight);
     letter-spacing: -0.02em;
   }
