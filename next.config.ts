@@ -49,6 +49,20 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/knowledge',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/knowledge/:path*',
+        destination: '/services',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
