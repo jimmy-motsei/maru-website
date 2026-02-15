@@ -108,7 +108,7 @@ export default function SupportTicketPage() {
               Support <span className="font-thin text-zinc-500">Ticket</span>
             </h1>
             <p className="text-zinc-400 text-lg font-light leading-relaxed">
-              Log an issue, request a change, or ask a question. Please be as descriptive as possible.
+              Log an issue, change request, or question with clear context.
             </p>
           </header>
 

@@ -45,7 +45,7 @@ export default function BriefingPage() {
             Let's Build Something Remarkable.
           </SectionTitle>
           <p className="mt-6 text-lg text-white/60 max-w-3xl mx-auto">
-            Whether you're looking to automate your workflow with AI, launch a new digital platform, or need support for an existing service, you're in the right place. Select a path below to give us the details we need to hit the ground running.
+            Choose a path, share key details, and we will start with a clear execution plan.
           </p>
         </div>
 

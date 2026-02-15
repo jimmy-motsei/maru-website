@@ -106,7 +106,7 @@ export default function AISolutionBriefing() {
         <div className="relative z-10 max-w-lg w-full text-center p-8 bg-card-dark backdrop-blur-xl rounded-2xl border border-white/10">
           <h2 className="text-3xl font-bold mb-4 text-[#00f0ff]">Brief Received</h2>
           <p className="text-zinc-400 mb-8">
-            Thank you for submitting your AI Solution brief. Our team will review your requirements and get back to you shortly.
+            Thanks. We will review your AI brief and follow up with next steps.
           </p>
           <Button href="/briefing" variant="outline">Back to Briefing Center</Button>
         </div>
@@ -130,8 +130,7 @@ export default function AISolutionBriefing() {
               AI Solution <span className="font-thin text-zinc-500">Briefing</span>
             </h1>
             <p className="text-zinc-400 text-lg font-light leading-relaxed">
-              This form captures your business needs for AI-powered solutions and automation. 
-              Leave any unknowns blank — our team and tools will fill in the gaps.
+              Share your goals, constraints, and must-haves. Leave unknowns blank.
             </p>
           </header>
 

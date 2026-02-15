@@ -46,7 +46,7 @@ function BookingForm() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Tell us about your business so we can prepare for our call.
+          Share key context so we can make the call productive.
         </motion.p>
       </div>
 
@@ -175,7 +175,7 @@ function BookingForm() {
                 </div>
                 <h3 className="mt-4 text-lg font-medium text-white">Success!</h3>
                 <p className="mt-2 text-sm text-zinc-400">
-                  Please pick a time below to schedule your free consultation.
+                  Pick a time for your free consultation.
                 </p>
                 <div className="mt-6 w-full rounded-lg bg-card-dark border border-white/10 overflow-hidden">
                     <div 

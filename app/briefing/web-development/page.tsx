@@ -101,7 +101,7 @@ export default function WebDevBriefing() {
         <div className="relative z-10 max-w-lg w-full text-center p-8 bg-card-dark backdrop-blur-xl rounded-2xl border border-white/10">
           <h2 className="text-3xl font-bold mb-4 text-[#ff9900]">Brief Submitted</h2>
           <p className="text-zinc-400 mb-8">
-            Thanks for the details! We'll review your web project requirements and be in touch soon.
+            Thanks. We will review your web project brief and respond with next steps.
           </p>
           <Button href="/briefing" variant="outline">Back to Briefing Center</Button>
         </div>
@@ -125,8 +125,7 @@ export default function WebDevBriefing() {
               Web Development <span className="font-thin text-zinc-500">Briefing</span>
             </h1>
             <p className="text-zinc-400 text-lg font-light leading-relaxed">
-              Tell us about your next website project. Focus on your goals, pain points, and must-haves. 
-              We'll guide you through the rest.
+              Tell us your goals, pain points, and must-haves for this build.
             </p>
           </header>
 
