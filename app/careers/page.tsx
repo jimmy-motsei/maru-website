@@ -12,22 +12,17 @@ export default function CareersPage() {
   return (
     <LegalLayout
       title="Careers at Maru"
-      description="We're building the future of AI-powered business automation in Africa. Join us in democratizing enterprise-grade AI for SMBs across South Africa and beyond."
+      description="Help us build practical AI systems for South African SMEs."
       lastUpdated="January 2025"
       effectiveDate="January 1, 2025"
     >
       <section className="mb-12">
         <h2 className="text-2xl font-medium text-white mb-6">Why Join Maru?</h2>
         <p className="text-light-soft mb-4">
-          At Maru, we're on a mission to level the playing field for small and medium-sized businesses in 
-          Africa by making cutting-edge AI and automation technology accessible and affordable. We believe 
-          that every business—regardless of size—deserves access to the same tools that enterprise companies 
-          use to scale and compete.
+          We make AI and automation accessible for small and medium-sized businesses across Africa.
         </p>
         <p className="text-light-soft mb-4">
-          We're a remote-first, fast-growing team of innovators, problem-solvers, and builders who are 
-          passionate about technology's potential to transform businesses and lives. If you're excited about 
-          AI, automation, and making a real impact on the African business landscape, we'd love to hear from you.
+          We are a remote-first team focused on measurable business outcomes, not hype.
         </p>
       </section>
 
@@ -87,9 +82,7 @@ export default function CareersPage() {
       <section className="mb-12">
         <h2 className="text-2xl font-medium text-white mb-6">Current Opportunities</h2>
         <p className="text-light-soft mb-6">
-          We're currently building our team across multiple disciplines. While we may not have formal job 
-          postings at the moment, we're always interested in connecting with talented individuals who share 
-          our vision.
+          We hire across disciplines and welcome strong candidates even when no formal role is listed.
         </p>
 
         <h3 className="text-xl font-medium text-white mb-4">Areas We're Hiring In:</h3>

@@ -13,7 +13,7 @@ const tiers = [
     id: 'tier-starter',
     href: '/contact',
     price: 'R4,950',
-    description: 'Perfect for local businesses just starting their digital journey.',
+    description: 'For local businesses starting structured digital growth.',
     features: [
       'Google Business Profile Optimization',
       'Basic SEO Setup (5 Pages)',
@@ -28,7 +28,7 @@ const tiers = [
     id: 'tier-growth',
     href: '/contact',
     price: 'R12,500',
-    description: 'The complete engine for businesses ready to scale aggressively.',
+    description: 'For businesses ready to scale with stronger systems.',
     features: [
       'Everything in Starter',
       'Advanced SEO Strategy',
@@ -44,7 +44,7 @@ const tiers = [
     id: 'tier-enterprise',
     href: '/contact',
     price: 'R28,000+',
-    description: 'Custom AI integration and full-service marketing department.',
+    description: 'For complex teams needing custom AI and full execution.',
     features: [
       'Everything in Growth',
       'Custom AI Solutions Development',
@@ -71,7 +71,7 @@ export default function PricingPage() {
             <span>pricing.</span>
           </h1>
           <p className="text-lg leading-8 text-zinc-300 mx-auto max-w-2xl">
-            No hidden retainer fees. Choose the pace that suits your cash flow.
+            Flat monthly pricing. Choose the plan that matches your growth stage.
           </p>
         </div>
 
@@ -115,7 +115,7 @@ export default function PricingPage() {
                     : 'bg-white/10 text-white hover:bg-white/20'
                 }`}
               >
-                Choose {tier.name}
+                Select {tier.name}
               </Link>
             </div>
           ))}

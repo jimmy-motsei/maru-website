@@ -90,8 +90,8 @@ export default function POPIAChecklistPageClient() {
               </h1>
 
               <p className="text-lg text-white/70 mb-8 leading-relaxed max-w-xl">
-                83% of South African businesses are unknowingly non-compliant with POPIA when using AI tools. 
-                Don't risk <strong className="text-warm-amber">R10 million in penalties</strong>—download our free checklist to audit your AI implementations today.
+                83% of South African businesses using AI risk POPIA non-compliance. 
+                Avoid <strong className="text-warm-amber">R10 million penalties</strong> with this practical checklist.
               </p>
 
               {/* What's Included */}
@@ -259,8 +259,8 @@ export default function POPIAChecklistPageClient() {
               Need Help <span className="font-bold text-electric-cyan">Implementing</span> Changes?
             </h2>
             <p className="text-white/70 mb-8 leading-relaxed">
-              Our team specializes in helping South African SMEs operationalize AI while staying fully POPIA-compliant. 
-              Book a free 30-minute consultation to discuss your specific situation.
+              We help South African SMEs operationalize AI while staying POPIA-compliant.
+              Book a free 30-minute consultation for your situation.
             </p>
             <Link
               href="/contact"
