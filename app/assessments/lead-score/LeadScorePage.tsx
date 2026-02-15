@@ -172,7 +172,7 @@ export default function LeadScorePage() {
             className="text-h1 text-white mb-14"
           />
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            Discover how ready your website is to generate high-quality leads with our AI-powered analysis
+            See how ready your website is to generate qualified leads.
           </p>
         </motion.div>
 
@@ -194,17 +194,17 @@ export default function LeadScorePage() {
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
             <Globe className="w-8 h-8 text-highlight mx-auto mb-3" />
             <h3 className="font-semibold text-white mb-2">Website Analysis</h3>
-            <p className="text-sm text-zinc-400">Deep scan of your site's technical and content quality</p>
+            <p className="text-sm text-zinc-400">Scan technical and content quality quickly.</p>
           </div>
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
             <TrendingUp className="w-8 h-8 text-green-400 mx-auto mb-3" />
             <h3 className="font-semibold text-white mb-2">Lead Scoring</h3>
-            <p className="text-sm text-zinc-400">AI-powered assessment of your lead generation potential</p>
+            <p className="text-sm text-zinc-400">Score your lead-generation potential.</p>
           </div>
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
             <Zap className="w-8 h-8 text-yellow-400 mx-auto mb-3" />
             <h3 className="font-semibold text-white mb-2">Quick Wins</h3>
-            <p className="text-sm text-zinc-400">Actionable recommendations for immediate improvements</p>
+            <p className="text-sm text-zinc-400">Get actions you can apply immediately.</p>
           </div>
         </div>
       </div>

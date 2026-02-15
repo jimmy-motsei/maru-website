@@ -169,8 +169,7 @@ export default function WebsiteAuditPage() {
                 </h1>
 
                 <p className="text-lg text-white/60 mb-12 max-w-xl mx-auto">
-                  Get an instant analysis of your website's readiness for AI integration. 
-                  Discover optimization opportunities in seconds.
+                  Get a fast AI-readiness snapshot and clear optimization priorities.
                 </p>
 
                 {/* URL Input */}
@@ -195,7 +194,7 @@ export default function WebsiteAuditPage() {
                   Analyze My Website
                 </CTAPrimary>
 
-                <p className="mt-8 text-sm text-white/40">Takes less than 10 seconds • No credit card required</p>
+                <p className="mt-8 text-sm text-white/40">Takes under 10 seconds. No card required.</p>
               </motion.div>
             )}
 
@@ -253,7 +252,7 @@ export default function WebsiteAuditPage() {
                     Analysis <span className="font-thin text-zinc-500">Complete!</span>
                   </h2>
                   <p className="text-white/60">
-                    Enter your details to see your personalized website audit report.
+                    Enter details to view your personalized report.
                   </p>
                 </div>
 

@@ -116,7 +116,7 @@ export default function PipelineLeakPage() {
           </div>
           <h1 className="text-4xl font-bold text-white mb-4">Pipeline Leak Detector</h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            Upload your CRM data to identify where deals are getting stuck and revenue is leaking from your sales pipeline
+            Upload CRM data to find where deals stall and revenue leaks.
           </p>
         </motion.div>
 
@@ -175,17 +175,17 @@ export default function PipelineLeakPage() {
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
             <FileText className="w-8 h-8 text-highlight mx-auto mb-3" />
             <h3 className="font-semibold text-white mb-2">CSV Analysis</h3>
-            <p className="text-sm text-zinc-400">Upload your CRM data for automated pipeline analysis</p>
+            <p className="text-sm text-zinc-400">Upload CRM exports for fast pipeline analysis.</p>
           </div>
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
             <AlertTriangle className="w-8 h-8 text-yellow-400 mx-auto mb-3" />
             <h3 className="font-semibold text-white mb-2">Leak Detection</h3>
-            <p className="text-sm text-zinc-400">Identify bottlenecks and conversion rate issues</p>
+            <p className="text-sm text-zinc-400">Identify bottlenecks and weak conversion stages.</p>
           </div>
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
             <Target className="w-8 h-8 text-green-400 mx-auto mb-3" />
             <h3 className="font-semibold text-white mb-2">Action Plan</h3>
-            <p className="text-sm text-zinc-400">Get specific recommendations to fix pipeline leaks</p>
+            <p className="text-sm text-zinc-400">Get focused recommendations to fix leaks.</p>
           </div>
         </div>
 

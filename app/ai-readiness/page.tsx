@@ -198,8 +198,7 @@ export default function AIImplementationAssessmentPage() {
                 />
 
                 <p className="text-[18px] md:text-[22px] text-text-inverse-muted leading-relaxed mb-10 max-w-3xl mx-auto">
-                  This assessment audits how well your current AI tools are implemented inside real workflows so you can
-                  increase measurable ROI, reduce execution friction, and improve performance without buying more tools.
+                  Assess how well your AI tools run in real workflows, then improve ROI without adding more software.
                 </p>
 
                 <button onClick={handleNext} className="btn-primary-hero-cta">

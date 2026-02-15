@@ -41,22 +41,22 @@ export default function ProposalPage() {
   const steps = [
     {
       title: 'Company Information',
-      description: 'Tell us about your company and project',
+      description: 'Share core company and project context',
       fields: ['companyName', 'industry', 'companySize', 'projectType']
     },
     {
       title: 'Project Details',
-      description: 'Define your budget, timeline, and requirements',
+      description: 'Outline budget, timeline, and requirements',
       fields: ['budget', 'timeline', 'challenges', 'goals']
     },
     {
       title: 'Decision Process',
-      description: 'Help us understand your stakeholders and process',
+      description: 'Map stakeholders and decision flow',
       fields: ['stakeholders', 'decisionProcess']
     },
     {
       title: 'Contact Information',
-      description: 'Get your personalized proposal',
+      description: 'Receive your personalized proposal',
       fields: ['email']
     }
   ];
@@ -145,7 +145,7 @@ export default function ProposalPage() {
           </div>
           <h1 className="text-4xl font-bold text-white mb-4">Proposal Accelerator</h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            Generate winning proposals in minutes with AI-powered content tailored to your client's needs
+            Generate tailored proposals quickly with AI-assisted structure and messaging.
           </p>
         </motion.div>
 

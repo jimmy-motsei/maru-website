@@ -186,7 +186,7 @@ export default function TechAuditPage() {
           </div>
           <h1 className="text-4xl font-bold text-white mb-4">Tech Stack ROI Auditor</h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            Analyze your current tech stack to identify redundancies, optimize costs, and improve efficiency
+            Analyze your stack to cut overlap, reduce cost, and improve efficiency.
           </p>
         </motion.div>
 
