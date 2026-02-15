@@ -46,7 +46,7 @@ export default function AboutContent() {
               <span className="maru-headline-split-light">for SMEs.</span>
             </h1>
             <p className="text-lg md:text-2xl text-white/70 max-w-3xl leading-relaxed">
-              We help growth-stage businesses turn fragmented marketing systems into clear, revenue-driving operations.
+              We turn disconnected marketing into one revenue system built for SMEs.
             </p>
           </motion.div>
 
@@ -80,53 +80,23 @@ export default function AboutContent() {
           >
             {/* Single Column: Text Content */}
             <div className="space-y-8">
-              <motion.p 
-                className="text-xl leading-relaxed text-black font-semibold"
-                variants={fadeUpVariants}
-              >
-                Our founder's marketing career revealed a pattern: SMEs investing in technology that made their problems worse, not better.
+              <motion.p className="text-xl leading-relaxed text-black font-semibold" variants={fadeUpVariants}>
+                We saw the same pattern: SMEs buying tools, but not getting outcomes.
               </motion.p>
 
-              <motion.p 
-                className="text-lg leading-relaxed text-black/80"
-                variants={fadeUpVariants}
-              >
-                Empty CRMs. Generic automation. Websites with traffic but no conversions.
+              <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
+                The core issue was never effort. It was systems design built for enterprise teams, not SME reality.
               </motion.p>
 
-              <motion.p 
-                className="text-lg leading-relaxed text-black/80"
-                variants={fadeUpVariants}
-              >
-                It wasn't a skills problem or a budget problem. It was a methodology gap. The marketing playbooks being sold to SMEs were designed for enterprises—different scale, different resources, different constraints.
-              </motion.p>
+              <motion.ul className="space-y-3 text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
+                <li>We map where revenue leaks first.</li>
+                <li>We simplify workflows before adding tools.</li>
+                <li>We implement AI with POPIA-aware guardrails.</li>
+                <li>We focus on measurable gains, not AI hype.</li>
+              </motion.ul>
 
-              <motion.p 
-                className="text-lg leading-relaxed text-black/80"
-                variants={fadeUpVariants}
-              >
-                The solution wasn't more tools. It was understanding how these systems actually function for businesses at this stage.
-              </motion.p>
-
-              <motion.p 
-                className="text-lg leading-relaxed text-black/80"
-                variants={fadeUpVariants}
-              >
-                So we rebuilt from the ground up. Learned web development and systems architecture. Mastered the technical layer most agencies outsource. Studied where marketing technology breaks down—and how to fix it without enterprise complexity or enterprise pricing.
-              </motion.p>
-
-              <motion.p 
-                className="text-lg leading-relaxed text-black/80"
-                variants={fadeUpVariants}
-              >
-                Today, we use AI to diagnose faster and implement more precisely. But the differentiation comes from understanding SME marketing at a systems level—what actually works, what creates friction, and how to bridge the gap.
-              </motion.p>
-
-              <motion.p 
-                className="text-lg leading-relaxed text-black/80"
-                variants={fadeUpVariants}
-              >
-                We started with lead generation because that's where revenue bleeds first. But the mission is broader: solving marketing problems that keep good businesses stuck.
+              <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
+                Today, Maru helps South African SMEs run clearer, faster, revenue-focused systems.
               </motion.p>
 
               {/* Quote Block - Relocated to end */}

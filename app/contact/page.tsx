@@ -81,6 +81,15 @@ export default function ContactPage() {
             Get in touch!
           </motion.h1>
 
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="text-center text-white/70 max-w-2xl mx-auto mb-10"
+          >
+            Share your goals. We will recommend the fastest path to measurable revenue impact.
+          </motion.p>
+
           <motion.a
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -154,7 +163,7 @@ export default function ContactPage() {
               <textarea
                 {...register("message")}
                 rows={7}
-                placeholder=""
+                  placeholder="Current challenge, goals, and timeline."
                 disabled={isSubmitting}
                 className="w-full bg-transparent border-b border-border-strong focus:border-action-primary text-text-primary placeholder:text-text-muted outline-none transition-colors text-lg resize-none"
               />
@@ -164,7 +173,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
               <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <p className="text-text-secondary text-sm">
-                  <span className="text-action-primary">*</span> We promise not to disclose your personal information to third parties.
+                  <span className="text-action-primary">*</span> Your details stay private and are never sold.
                 </p>
               </motion.div>
 

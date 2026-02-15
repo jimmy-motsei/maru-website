@@ -16,7 +16,7 @@ const services = [
   {
     title: "AI Revenue\nDiagnostic",
     description:
-      "A comprehensive 360-degree audit to uncover where AI can drive immediate ROI while reducing operational and compliance friction.",
+      "A focused audit to find fast AI wins, reduce friction, and protect compliance.",
     bullets: ["Opportunity assessment", "POPIA scorecard", "90-day roadmap", "Executive strategy session"],
     href: "/services/ai-revenue-diagnostic",
     offset: true,
@@ -24,7 +24,7 @@ const services = [
   {
     title: "Custom AI\nSolution Build",
     description:
-      "Bespoke AI systems designed around your existing stack and business model, with deployment that fits how your team actually works.",
+      "Custom AI systems built for your stack, workflows, and revenue priorities.",
     bullets: ["Custom development", "Platform integration", "Brand voice training", "Compliance architecture"],
     href: "/services/custom-ai-solution-build",
     offset: false,
@@ -32,7 +32,7 @@ const services = [
   {
     title: "AI Training &\nCapability Building",
     description:
-      "Practical training for teams to improve AI output quality, adoption, and internal capability with real-world workflows.",
+      "Hands-on training that improves AI output quality, adoption, and team execution.",
     bullets: ["Hands-on workshops", "Prompt engineering", "Workflow automation", "30-day support"],
     href: "/services/ai-training-capability-building",
     offset: true,
@@ -40,7 +40,7 @@ const services = [
   {
     title: "Ongoing AI Support &\nOptimization",
     description:
-      "Continuous performance monitoring and strategic optimization to keep your AI systems current, compliant, and revenue-focused.",
+      "Ongoing optimization to keep AI performance, compliance, and results on track.",
     bullets: ["Monthly reviews", "Priority support", "Quarterly strategy", "Compliance monitoring"],
     href: "/services/ongoing-ai-support-optimization",
     offset: false,
@@ -133,7 +133,7 @@ export default function ServicesPage() {
                       ))}
                     </ul>
                     <div className="inline-flex items-center gap-3 text-xs uppercase tracking-[2px] font-semibold text-action-primary">
-                      Learn More
+                      Explore Service
                       <span className="w-9 h-9 rounded-full bg-[var(--color-brand-accent)] text-white border border-[var(--color-brand-accent)] flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
                         <ArrowRight size={16} />
                       </span>
