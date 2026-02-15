@@ -20,19 +20,19 @@ const breadcrumbs = [
 const problemItems = [
   {
     title: "Generic Responses That Don't Help",
-    description: "Most chatbots are deployed with template answers that don't understand your specific products, services, or customer scenarios. A customer asks about your pricing structure, and the bot responds with \"I can help you with that!\"—then doesn't.",
-    impact: "The result: frustrated customers who feel like they're talking to a wall, not getting support.",
+    description: "Template bots miss product context and fail on real customer questions.",
+    impact: "Result: frustrated customers and lower trust in support.",
     icon: AlertCircle,
   },
   {
     title: "No Path to Human Support",
-    description: "Chatbots that trap customers in endless loops with no clear escalation to a real person don't reduce support tickets—they multiply them. Customers get angry, demand to speak to someone, and your team spends more time dealing with chatbot frustration than actual problems.",
+    description: "Without clear escalation, customers get stuck in loops and abandon support.",
     impact: "",
     icon: Users,
   },
   {
     title: "Disconnected From Your Systems",
-    description: "A chatbot that can't check order status, pull account information, or access your knowledge base is just a fancy FAQ. It can't actually help customers, so they bypass it entirely and go straight to your already-overwhelmed support team.",
+    description: "If bots cannot access CRM, orders, or knowledge base, they cannot resolve issues.",
     impact: "",
     icon: Database,
   },
@@ -41,7 +41,7 @@ const problemItems = [
 const solutionItems = [
   {
     title: "Trained on Your Knowledge, Not Generic Data",
-    description: "We don't deploy template chatbots. We train your bot on your product documentation, support history, FAQs, and policies—so it understands your business context and gives accurate answers to your specific customer questions.",
+    description: "We train your bot on your docs, policies, and support history.",
     benefits: [
       "Customers get relevant answers, not generic scripts",
       "Reduces \"I don't understand\" loops",
@@ -51,7 +51,7 @@ const solutionItems = [
   },
   {
     title: "Smart Escalation to Humans",
-    description: "Your chatbot should know when it can't help. We build in intelligent handoff triggers—when a question is complex, when sentiment turns negative, or when a customer explicitly asks for a person. No endless loops. No trapped customers.",
+    description: "We configure handoffs for complex, sensitive, or failed conversations.",
     benefits: [
       "Customers who need humans get to them quickly",
       "Your team handles actual problems, not chatbot failures",
@@ -61,7 +61,7 @@ const solutionItems = [
   },
   {
     title: "Connected to Your Business Systems",
-    description: "We integrate your chatbot with your CRM, order management, knowledge base, and support tools—so it can actually help customers check order status, update account details, or pull relevant information without requiring manual lookups.",
+    description: "We connect CRM, order, and support systems for real-time answers.",
     benefits: [
       "Bot handles real tasks, not just conversation",
       "Reduces support ticket volume for routine queries",
@@ -71,7 +71,7 @@ const solutionItems = [
   },
   {
     title: "Continuous Improvement, Not Set-and-Forget",
-    description: "We monitor chatbot performance, analyze failed conversations, and update training data monthly. When customers ask questions the bot can't answer, we teach it—so your chatbot gets smarter over time, not stale.",
+    description: "We review failures monthly and retrain to improve resolution quality.",
     benefits: [
       "Bot accuracy improves as your business evolves",
       "New products/policies get incorporated into responses",
@@ -85,28 +85,28 @@ const processSteps = [
   {
     number: "01",
     title: "Diagnostic & Knowledge Audit",
-    description: "We analyze your current support data—what questions customers ask, where they get stuck, what information they need. Then we audit your knowledge base, documentation, and support resources to identify gaps.",
+    description: "Audit support conversations and knowledge assets to find coverage gaps.",
     timeline: "Week 1",
     icon: MessageSquare,
   },
   {
     number: "02",
     title: "Bot Training & Integration",
-    description: "We train your chatbot on your business data, set up system integrations (CRM, order management, help desk), and configure escalation rules for when human support is needed.",
+    description: "Train bot responses, connect systems, and configure escalation rules.",
     timeline: "Weeks 2-3",
     icon: Settings,
   },
   {
     number: "03",
     title: "Testing & Refinement",
-    description: "We test the bot with real customer scenarios, refine responses, fix edge cases, and ensure handoffs to human agents work smoothly. You approve before we go live.",
+    description: "Test real scenarios, refine responses, and validate human handoffs.",
     timeline: "Week 3-4",
     icon: CheckCircle2,
   },
   {
     number: "04",
     title: "Launch & Ongoing Optimization",
-    description: "We deploy your chatbot, monitor performance, and schedule monthly optimization calls to review failed conversations, update training data, and improve accuracy.",
+    description: "Launch, monitor performance, and optimize monthly using live data.",
     timeline: "Week 4+",
     icon: TrendingUp,
   },
@@ -154,23 +154,23 @@ const useCases = [
 const faqs = [
   {
     question: "How is this different from using a chatbot platform like Intercom or Drift?",
-    answer: "Platform chatbots give you the technology—we give you a trained, integrated solution. We handle the knowledge base setup, system integration, and ongoing optimization. You get a chatbot that actually works for your business, not a tool you have to figure out yourself.",
+    answer: "Platforms provide tools. We deliver a trained, integrated, and optimized support system.",
   },
   {
     question: "Can the chatbot handle questions in multiple languages?",
-    answer: "Yes, but we recommend starting with your primary language first. Once the bot is performing well, we can add language support. Trying to go multilingual from day one usually means worse performance in all languages.",
+    answer: "Yes. We start with your primary language, then expand once accuracy is stable.",
   },
   {
     question: "What happens when the bot can't answer a question?",
-    answer: "It escalates to your human support team with full conversation context. Your agents see what the customer asked, what the bot tried, and why it couldn't help—so they can pick up the conversation without making the customer repeat themselves.",
+    answer: "It escalates with full context so agents can continue without repetition.",
   },
   {
     question: "How do you measure if the chatbot is working?",
-    answer: "We track resolution rate (percentage of conversations resolved without human help), escalation rate, customer satisfaction scores, and average resolution time. You get monthly reports showing what's working and where we need to improve.",
+    answer: "We track resolution rate, escalations, CSAT, and response speed in monthly reviews.",
   },
   {
     question: "What if our product or pricing changes?",
-    answer: "That's what the monthly optimization includes. When you update products, policies, or pricing, we update the chatbot's training data so it stays accurate. Changes typically take 1-2 business days to implement.",
+    answer: "We update training data during monthly optimization, usually within 1-2 business days.",
   },
 ];
 
@@ -185,7 +185,7 @@ export default function CustomerSupportChatbotsPage() {
         breadcrumbs={breadcrumbs}
         titleBold="Customer Support"
         titleLight="That Actually Answers Questions"
-        subtitle="AI chatbots built for your business, trained on your knowledge—not generic scripts that frustrate customers."
+        subtitle="AI chatbots trained on your knowledge to resolve support questions faster."
         onCtaClick={() => setIsModalOpen(true)}
       />
 
@@ -211,7 +211,7 @@ export default function CustomerSupportChatbotsPage() {
               />
             </motion.div>
             <motion.p className="text-gray-600 text-lg max-w-3xl mx-auto" variants={fadeUpVariants}>
-              Than they solve
+              Most add friction instead of resolution.
             </motion.p>
           </motion.div>
 
@@ -248,7 +248,7 @@ export default function CustomerSupportChatbotsPage() {
             variants={fadeUpVariants}
           >
             <p className="text-xl text-black font-bold">
-              Here's what works: Chatbots trained on your actual business data, connected to your systems, with clear handoff to humans when needed. Not AI hype—AI that solves specific support problems.
+              What works: business-trained bots, connected systems, and fast handoff to humans when needed.
             </p>
           </motion.div>
         </div>

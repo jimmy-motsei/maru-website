@@ -139,7 +139,7 @@ export default function LeadGenerationPage() {
                 <SplitHeadline
                   as="h2"
                   leadingText="Our Approach"
-                  emphasisText="and Work Specifics"
+                  emphasisText="at a Glance"
                   className="text-[30px] sm:text-[34px] md:text-[44px] lg:text-[52px] text-text-primary mb-8 leading-[1.15]"
                   breakClassName="block"
                   leadingWeight="strong"
@@ -147,10 +147,10 @@ export default function LeadGenerationPage() {
                 />
 
                 <p className="text-text-secondary leading-relaxed mb-6">
-                  We use data-driven diagnostics to identify why high-intent website visitors are not converting into qualified leads.
+                  Find exactly where high-intent traffic is dropping before conversion.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-8">
-                  From conversion gap analysis to revenue-prioritized fixes, you get a clear execution path that improves conversion performance quickly.
+                  Prioritize fixes that increase qualified leads fast.
                 </p>
 
                 <Link href="/ai-implementation-assessment" className="btn-primary-hero-cta group">

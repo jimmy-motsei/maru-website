@@ -149,7 +149,7 @@ export default function OngoingAISupportOptimizationPage() {
                 <SplitHeadline
                   as="h2"
                   leadingText="Our Approach"
-                  emphasisText="and Work Specifics"
+                  emphasisText="at a Glance"
                   className="text-[30px] sm:text-[34px] md:text-[44px] lg:text-[52px] text-text-primary mb-8 leading-[1.15]"
                   breakClassName="block"
                   leadingWeight="strong"
@@ -157,10 +157,10 @@ export default function OngoingAISupportOptimizationPage() {
                 />
 
                 <p className="text-text-secondary leading-relaxed mb-6">
-                  We provide ongoing strategic and operational support to keep your AI systems performing as your business and tools evolve.
+                  Keep AI systems performing as your business goals and tools change.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-8">
-                  You get continuous optimization, proactive recommendations, and expert guidance that protects ROI and compliance over time.
+                  Get ongoing optimization, guidance, and compliance support.
                 </p>
 
                 <Link href="/contact" className="btn-primary-hero-cta group">

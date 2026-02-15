@@ -167,7 +167,7 @@ export default function AIRevenueDiagnosticPage() {
                 <SplitHeadline
                   as="h2"
                   leadingText="Our Approach"
-                  emphasisText="and Work Specifics"
+                  emphasisText="at a Glance"
                   className="text-[30px] sm:text-[34px] md:text-[44px] lg:text-[52px] text-text-primary mb-8 leading-[1.15]"
                   breakClassName="block"
                   leadingWeight="strong"
@@ -175,10 +175,10 @@ export default function AIRevenueDiagnosticPage() {
                 />
 
                 <p className="text-text-secondary leading-relaxed mb-6">
-                  A comprehensive 360° audit of your existing marketing and sales systems to identify where AI can drive immediate ROI, eliminate inefficiencies, and ensure POPIA compliance.
+                  Audit your revenue system to identify high-impact AI opportunities quickly.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-8">
-                  We analyze your website, lead generation processes, sales pipeline, tech stack, and customer data practices to create a prioritized implementation roadmap.
+                  Get a prioritized, POPIA-aware roadmap your team can execute.
                 </p>
 
                 <Link href="/ai-implementation-assessment" className="btn-primary-hero-cta group">

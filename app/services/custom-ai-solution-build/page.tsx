@@ -167,7 +167,7 @@ export default function CustomAISolutionBuildPage() {
                 <SplitHeadline
                   as="h2"
                   leadingText="Our Approach"
-                  emphasisText="and Work Specifics"
+                  emphasisText="at a Glance"
                   className="text-[30px] sm:text-[34px] md:text-[44px] lg:text-[52px] text-text-primary mb-8 leading-[1.15]"
                   breakClassName="block"
                   leadingWeight="strong"
@@ -175,10 +175,10 @@ export default function CustomAISolutionBuildPage() {
                 />
 
                 <p className="text-text-secondary leading-relaxed mb-6">
-                  We design, build, and deploy custom AI systems around your specific revenue goals, team context, and existing platforms.
+                  Build custom AI workflows around your revenue goals and current stack.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-8">
-                  Instead of forcing generic tools, we create integrated solutions with brand alignment and POPIA-compliant data architecture from day one.
+                  Launch with brand-safe outputs and POPIA-aware architecture.
                 </p>
 
                 <Link href="/contact" className="btn-primary-hero-cta group">

@@ -149,7 +149,7 @@ export default function AITrainingCapabilityBuildingPage() {
                 <SplitHeadline
                   as="h2"
                   leadingText="Our Approach"
-                  emphasisText="and Work Specifics"
+                  emphasisText="at a Glance"
                   className="text-[30px] sm:text-[34px] md:text-[44px] lg:text-[52px] text-text-primary mb-8 leading-[1.15]"
                   breakClassName="block"
                   leadingWeight="strong"
@@ -157,10 +157,10 @@ export default function AITrainingCapabilityBuildingPage() {
                 />
 
                 <p className="text-text-secondary leading-relaxed mb-6">
-                  We help teams move from inconsistent AI usage to repeatable, high-quality execution with practical training programs.
+                  Turn inconsistent AI use into repeatable, high-quality team execution.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-8">
-                  Your people learn how to get better outputs, build reliable workflows, and sustain performance improvements long after sessions end.
+                  Train your team to improve outputs, workflows, and adoption speed.
                 </p>
 
                 <Link href="/contact" className="btn-primary-hero-cta group">

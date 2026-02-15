@@ -149,7 +149,7 @@ export default function SalesSystemsPage() {
                 <SplitHeadline
                   as="h2"
                   leadingText="Our Approach"
-                  emphasisText="and Work Specifics"
+                  emphasisText="at a Glance"
                   className="text-[30px] sm:text-[34px] md:text-[44px] lg:text-[52px] text-text-primary mb-8 leading-[1.15]"
                   breakClassName="block"
                   leadingWeight="strong"
@@ -157,10 +157,10 @@ export default function SalesSystemsPage() {
                 />
 
                 <p className="text-text-secondary leading-relaxed mb-6">
-                  We fix stalled pipelines by identifying where deals drop, automating repetitive execution, and tightening sales-system handoffs.
+                  Fix stalled pipelines by removing handoff friction and manual bottlenecks.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-8">
-                  The outcome is a cleaner process, faster response cycles, and stronger conversion performance without adding admin overhead.
+                  Improve response speed, visibility, and conversion consistency.
                 </p>
 
                 <Link href="/assessments/pipeline-leak" className="btn-primary-hero-cta group">

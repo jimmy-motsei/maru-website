@@ -149,7 +149,7 @@ export default function WhatsAppSolutionsPage() {
                 <SplitHeadline
                   as="h2"
                   leadingText="Our Approach"
-                  emphasisText="and Work Specifics"
+                  emphasisText="at a Glance"
                   className="text-[30px] sm:text-[34px] md:text-[44px] lg:text-[52px] text-text-primary mb-8 leading-[1.15]"
                   breakClassName="block"
                   leadingWeight="strong"
@@ -157,10 +157,10 @@ export default function WhatsAppSolutionsPage() {
                 />
 
                 <p className="text-text-secondary leading-relaxed mb-6">
-                  We build follow-up automation around your actual pipeline behavior so leads are engaged consistently without manual chasing.
+                  Automate follow-up based on real pipeline behavior and lead intent.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-8">
-                  The focus is simple: faster response, better conversion, and less admin burden on your team.
+                  Respond faster, convert more leads, and cut admin time.
                 </p>
 
                 <Link href="/assessments/pipeline-leak" className="btn-primary-hero-cta group">

@@ -149,7 +149,7 @@ export default function OfficeAutomationContent() {
                 <SplitHeadline
                   as="h2"
                   leadingText="Our Approach"
-                  emphasisText="and Work Specifics"
+                  emphasisText="at a Glance"
                   className="text-[30px] sm:text-[34px] md:text-[44px] lg:text-[52px] text-text-primary mb-8 leading-[1.15]"
                   breakClassName="block"
                   leadingWeight="strong"
@@ -157,10 +157,10 @@ export default function OfficeAutomationContent() {
                 />
 
                 <p className="text-text-secondary leading-relaxed mb-6">
-                  We connect disconnected tools so your customer and revenue data moves through one unified system instead of fragmented silos.
+                  Connect fragmented tools into one reliable operating system.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-8">
-                  The result is fewer manual tasks, cleaner reporting, and faster execution across marketing, sales, and operations.
+                  Reduce manual work and speed up execution across teams.
                 </p>
 
                 <Link href="/assessments/tech-audit" className="btn-primary-hero-cta group">
