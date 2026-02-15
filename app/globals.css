@@ -72,6 +72,18 @@
     overflow-x: clip;
   }
 
+  :where(main, footer) :is(p, li, small) {
+    font-weight: var(--font-body-weight) !important;
+  }
+
+  :where(main, footer) .text-text-muted {
+    font-weight: var(--font-body-weight);
+  }
+
+  .prose :is(p, li, small) {
+    font-weight: var(--font-body-weight);
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-heading), sans-serif;
     color: var(--color-text-primary);
@@ -583,7 +595,7 @@
   .bg-card-dark { background-color: var(--color-card-dark); }
   .bg-card-dark-soft { background-color: var(--color-card-dark-soft); }
   .bg-card-dark-hover { background-color: var(--color-card-dark-hover); }
-  .bg-card-dark p { font-weight: 400; }
+  .bg-card-dark p { font-weight: var(--font-body-weight); }
 
   /* Semantic text */
   .text-text-primary { color: var(--color-text-primary); }
