@@ -9,11 +9,14 @@
   --text-h5: 20px;
   --text-h6: 18px;
   --text-body: 16px;
+  --text-card-body: 17px;
   --font-body-weight: 500;
   --font-weight-headline-light: 100;
   --font-weight-headline-strong: 500;
   --line-height-tight: 1.2;
   --line-height-base: 1.5;
+  --line-height-copy-body: 1.6;
+  --line-height-copy-card: 1.65;
   --line-height-relaxed: 1.7;
   --tracking-label: 2px;
 

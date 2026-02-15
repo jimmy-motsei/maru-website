@@ -92,6 +92,16 @@
 }
 
 @layer components {
+  .copy-body {
+    font-size: var(--text-body);
+    line-height: var(--line-height-copy-body);
+  }
+
+  .copy-card {
+    font-size: var(--text-card-body);
+    line-height: var(--line-height-copy-card);
+  }
+
   /* Ashley-style split headline pattern for repo-wide reuse */
   .maru-headline-split {
     font-family: var(--font-family-heading), sans-serif;

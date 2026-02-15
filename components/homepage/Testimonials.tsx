@@ -112,7 +112,7 @@ export function Testimonials() {
                 </div>
 
                 {/* Quote */}
-                <p className="text-text-secondary text-[15px] leading-relaxed italic mb-6 flex-grow">
+                <p className="copy-card text-text-secondary italic mb-6 flex-grow">
                    "{item.quote}"
                 </p>
 

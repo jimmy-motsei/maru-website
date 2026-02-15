@@ -126,7 +126,7 @@ export function Services() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-dark/70 mb-6 text-base leading-relaxed flex-grow">
+                  <p className="copy-card text-dark/70 mb-6 flex-grow">
                     {tool.description}
                   </p>
 

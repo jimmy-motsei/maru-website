@@ -206,7 +206,7 @@ export default function WhatsAppSolutionsPage() {
                   <service.icon size={20} />
                 </span>
                 <h3 className="text-3xl leading-tight text-text-primary maru-headline-split-strong mb-4">{service.title}</h3>
-                <p className="text-text-secondary leading-relaxed mb-6">{service.description}</p>
+                <p className="copy-card text-text-secondary mb-6">{service.description}</p>
                 <ul className="space-y-3 border-y border-border-subtle py-6 mb-7">
                   {service.points.map((point) => (
                     <li key={point} className="text-xs uppercase tracking-[2px] text-text-primary">

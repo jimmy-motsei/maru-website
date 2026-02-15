@@ -153,7 +153,7 @@ export function ServicesAccordion() {
                                 {service.name}
                             </h3>
                             {!isActive && (
-                                <p className="text-text-muted text-sm md:text-base hidden md:block">
+                                <p className="copy-card text-text-muted hidden md:block">
                                     {service.description}
                                 </p>
                             )}
@@ -181,13 +181,13 @@ export function ServicesAccordion() {
                                     <div className="space-y-6">
                                         <div>
                                             <h4 className="text-action-primary font-bold uppercase tracking-wider text-sm mb-3">What It Is</h4>
-                                            <p className="text-white/80 leading-relaxed text-sm">
+                                            <p className="copy-card text-white/80">
                                                 {service.whatItIs}
                                             </p>
                                         </div>
                                         <div>
                                             <h4 className="text-action-primary font-bold uppercase tracking-wider text-sm mb-3">Who It's For</h4>
-                                            <p className="text-white/80 leading-relaxed text-sm">
+                                            <p className="copy-card text-white/80">
                                                 {service.whoItsFor}
                                             </p>
                                         </div>
@@ -199,7 +199,7 @@ export function ServicesAccordion() {
                                             <h4 className="text-action-primary font-bold uppercase tracking-wider text-sm mb-3">What You Get</h4>
                                             <ul className="space-y-2">
                                                 {service.whatYouGet.map((item, i) => (
-                                                    <li key={i} className="flex items-start gap-2 text-white/80 text-sm">
+                                                    <li key={i} className="copy-body flex items-start gap-2 text-white/80">
                                                         <Check className="w-4 h-4 text-action-primary mt-0.5" />
                                                         <span>{item}</span>
                                                     </li>
