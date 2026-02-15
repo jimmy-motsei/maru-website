@@ -115,7 +115,7 @@ export function PricingSection({
                     {tier.subtitle}
                   </p>
                 )}
-                <p className="text-white/60 text-sm leading-relaxed">
+                <p className="copy-card text-white/60">
                   {tier.description}
                 </p>
               </div>

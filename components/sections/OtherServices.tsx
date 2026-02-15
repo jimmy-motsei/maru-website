@@ -124,14 +124,14 @@ export function OtherServices({ currentServiceId: _currentServiceId }: OtherServ
                   </div>
 
                   {/* Description */}
-                  <p className="text-dark/70 mb-6 text-base leading-relaxed">
+                  <p className="copy-card text-dark/70 mb-6">
                     {service.description}
                   </p>
 
                   {/* Features */}
                   <ul className="space-y-2 mb-8">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="text-dark/70 text-base flex items-center gap-2">
+                      <li key={idx} className="copy-body text-dark/70 flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                         {feature}
                       </li>

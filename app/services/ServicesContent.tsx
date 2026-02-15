@@ -123,7 +123,7 @@ export default function ServicesPage() {
                       {service.title}
                     </h3>
                     <div className="h-px bg-white/10 mb-4 sm:mb-5" />
-                    <p className="text-white/65 leading-relaxed mb-6 min-h-0 md:min-h-[96px]">{service.description}</p>
+                    <p className="copy-card text-white/65 mb-6 min-h-0 md:min-h-[96px]">{service.description}</p>
                     <div className="h-px bg-white/10 mb-2" />
                     <ul className="mb-6">
                       {service.bullets.map((item) => (

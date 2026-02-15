@@ -234,7 +234,7 @@ export default function CustomerSupportChatbotsPage() {
                 <h3 className="text-xl font-bold text-black mb-4">{item.title}</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">{item.description}</p>
                 {item.impact && (
-                  <p className="text-gray-700 font-medium text-sm">{item.impact}</p>
+                  <p className="copy-body text-gray-700 font-medium">{item.impact}</p>
                 )}
               </motion.div>
             ))}
@@ -304,7 +304,7 @@ export default function CustomerSupportChatbotsPage() {
                         {item.benefits.map((benefit, idx) => (
                           <li key={idx} className="flex items-start gap-3">
                             <CheckCircle2 size={18} className="text-highlight shrink-0 mt-0.5" />
-                            <span className="text-zinc-300 text-sm">{benefit}</span>
+                            <span className="copy-body text-zinc-300">{benefit}</span>
                           </li>
                         ))}
                       </ul>
@@ -369,7 +369,7 @@ export default function CustomerSupportChatbotsPage() {
                       </div>
                       
                       <h3 className="text-xl font-bold mb-3 text-black">{step.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed font-medium mb-4">{step.description}</p>
+                      <p className="copy-body text-gray-600 font-medium mb-4">{step.description}</p>
                       
                       <div className="mt-auto pt-4 border-t border-gray-300 w-full">
                         <div className="flex items-center justify-center gap-2 text-xs text-gray-500">

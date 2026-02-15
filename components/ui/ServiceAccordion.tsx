@@ -72,7 +72,7 @@ export function ServiceAccordion({ items }: ServiceAccordionProps) {
                       {item.subtitle}
                     </h4>
                   )}
-                  <p className="text-dark/80 leading-relaxed mb-4">
+                  <p className="copy-card text-dark/80 mb-4">
                     {item.content}
                   </p>
                   {item.features && item.features.length > 0 && (
@@ -80,7 +80,7 @@ export function ServiceAccordion({ items }: ServiceAccordionProps) {
                       <p className="text-sm font-medium text-dark mb-2">What you get:</p>
                       <ul className="space-y-2">
                         {item.features.map((feature, idx) => (
-                          <li key={idx} className="text-dark/70 text-sm flex items-start gap-2">
+                          <li key={idx} className="copy-body text-dark/70 flex items-start gap-2">
                             <span className="text-accent mt-1">•</span>
                             <span>{feature}</span>
                           </li>
