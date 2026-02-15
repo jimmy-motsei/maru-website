@@ -11,14 +11,14 @@ const SERVICES = [
     id: "audit",
     name: "AI Implementation Audit & Roadmap",
     icon: Search,
-    description: "A comprehensive assessment of your current AI marketing stack, identifying gaps between investment and impact.",
-    whatItIs: "A comprehensive assessment of your current AI marketing stack, identifying gaps between investment and impact. We analyze what you own, how you're using it, where the revenue leaks are, and what quick wins are available.",
-    whoItsFor: "Businesses that have invested in AI tools but aren't seeing the revenue impact they expected. You know something isn't working, but you're not sure what to fix first.",
+    description: "Audit your AI stack, find revenue leaks, and prioritize fast ROI actions.",
+    whatItIs: "We audit your tools, workflows, and data flow to pinpoint blockers and quick wins.",
+    whoItsFor: "Teams with AI tools but unclear ROI or no clear next move.",
     whatYouGet: [
-      "Technology stack audit and utilization analysis",
-      "Revenue leak identification and quantification",
-      "90-day prioritized implementation roadmap",
-      "Quick-win opportunities targeting 30-day ROI"
+      "Stack usage audit with integration and ownership gaps",
+      "Revenue leaks ranked by impact and effort",
+      "90-day roadmap with accountable implementation owners",
+      "Quick wins designed for 30-day ROI"
     ],
     timeline: "2 weeks",
     investment: "Starting at R25,000",
@@ -27,14 +27,14 @@ const SERVICES = [
     id: "human-centric",
     name: "Human-Centric AI Implementation",
     icon: Users,
-    description: "Hands-on implementation of AI marketing systems with a focus on preserving brand authenticity.",
-    whatItIs: "Hands-on implementation of AI marketing systems with a focus on preserving brand authenticity and customer relationships. We configure tools to sound like you, feel like you, and maintain the personal touch.",
-    whoItsFor: "Businesses concerned that AI will make them feel robotic. You want efficiency without losing the authentic customer relationships that built your business.",
+    description: "Implement AI workflows that scale output without losing brand voice and trust.",
+    whatItIs: "We tune AI touchpoints to sound like your team and protect relationship quality.",
+    whoItsFor: "Teams that want efficiency without robotic customer experiences.",
     whatYouGet: [
-      "Brand voice integration into all AI touchpoints",
-      "Chatbot personality development",
-      "Email and content humanization frameworks",
-      "Relationship-focused lead scoring"
+      "Brand voice rules across AI touchpoints",
+      "Chatbot tone and response design",
+      "Humanized email and content workflows",
+      "Relationship-first lead scoring logic"
     ],
     timeline: "6-8 weeks",
     investment: "Starting at R75,000",
@@ -43,14 +43,14 @@ const SERVICES = [
     id: "revops",
     name: "Revenue Operations (RevOps) Optimization",
     icon: Settings,
-    description: "End-to-end alignment of your marketing, sales, and customer success systems to maximize revenue.",
-    whatItIs: "End-to-end alignment of your marketing, sales, and customer success systems. We connect your AI tools into a unified revenue engine, ensuring marketing-qualified leads convert and sales teams have context.",
-    whoItsFor: "Businesses generating leads but struggling with conversion rates, sales-marketing misalignment, or tracking ROI.",
+    description: "Align marketing, sales, and success systems so more qualified leads convert.",
+    whatItIs: "We connect teams and tooling into one revenue workflow with shared context.",
+    whoItsFor: "Businesses with leads coming in but conversion and attribution still weak.",
     whatYouGet: [
-      "Marketing-sales-success system integration",
-      "Lead handoff and qualification framework",
-      "Revenue attribution modeling",
-      "Conversion funnel optimization"
+      "Marketing, sales, and success workflow integration",
+      "Lead qualification and handoff standards",
+      "Revenue attribution model and reporting",
+      "Conversion funnel bottleneck optimization"
     ],
     timeline: "8-12 weeks",
     investment: "Starting at R120,000",
@@ -59,14 +59,14 @@ const SERVICES = [
     id: "popia",
     name: "POPIA-Compliant Growth Systems",
     icon: ShieldCheck,
-    description: "Implementation of consent-based, compliant marketing and data systems that build trust while driving growth.",
-    whatItIs: "Implementation of consent-based, compliant marketing and data systems. We help you transition to inbound attraction, ensuring every interaction respects privacy and builds trust.",
-    whoItsFor: "Businesses concerned about POPIA compliance, data security, or building trust in a privacy-conscious market.",
+    description: "Build consent-first growth systems that stay compliant and still drive pipeline.",
+    whatItIs: "We implement POPIA-ready data and messaging workflows across your revenue system.",
+    whoItsFor: "Businesses managing privacy risk while scaling customer acquisition.",
     whatYouGet: [
-      "POPIA compliance audit and remediation",
-      "Consent management system implementation",
-      "Privacy-first lead generation strategies",
-      "Data governance frameworks"
+      "POPIA audit with practical remediation plan",
+      "Consent capture and preference management",
+      "Privacy-first lead generation playbooks",
+      "Data governance standards for teams"
     ],
     timeline: "4-6 weeks",
     investment: "Starting at R50,000",
@@ -75,14 +75,14 @@ const SERVICES = [
     id: "training",
     name: "AI Capability Building & Training",
     icon: BookOpen,
-    description: "Hands-on training for your team so they can maintain and optimize AI systems after implementation.",
-    whatItIs: "Hands-on training and capability building for your team. We don't create dependency—we build internal expertise so your team can interpret insights and optimize workflows.",
-    whoItsFor: "Businesses that want to own their AI capabilities, not rent them. You're willing to invest in your team's skills.",
+    description: "Train your team to run, improve, and own your AI revenue systems.",
+    whatItIs: "Hands-on training that builds internal operators for AI workflows and optimization.",
+    whoItsFor: "Businesses that want long-term capability, not ongoing vendor dependency.",
     whatYouGet: [
-      "Team training on AI system management",
-      "Playbook documentation & SOPs",
-      "Ongoing optimization frameworks",
-      "Internal capability assessment"
+      "Team training on core AI operations",
+      "Playbooks, SOPs, and handover docs",
+      "Monthly optimization review framework",
+      "Capability assessment and growth plan"
     ],
     timeline: "4 weeks",
     investment: "Starting at R40,000",
@@ -119,7 +119,7 @@ export function ServicesAccordion() {
             transition={{ delay: 0.1 }}
             className="text-lg text-text-secondary leading-relaxed max-w-2xl"
           >
-            We don't sell you new technology. We make your existing technology work. Our implementation-focused services bridge the gap between AI investment and revenue impact.
+            We make your existing AI tools produce measurable revenue, faster.
           </motion.p>
         </div>
 

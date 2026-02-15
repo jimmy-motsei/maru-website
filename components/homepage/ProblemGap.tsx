@@ -24,18 +24,27 @@ export function ProblemGap() {
             </h2>
 
             <p className="text-lg text-text-secondary mb-6 leading-relaxed">
-              You've done everything right. You invested in AI-powered marketing automation, chatbots, analytics platforms, and CRM systems. Your competitors are using the same tools. But somehow, the promised transformation hasn't materialized.
+              Adoption is high, but execution gaps keep AI from producing revenue.
             </p>
+
+            <ul className="space-y-2 mb-8">
+              {[
+                "Tools were deployed, but workflows were never redesigned.",
+                "Teams chase dashboards while lead quality quietly drops.",
+                "Automation runs, but handoffs and context break conversions.",
+                "Without implementation systems, AI spend becomes operating drag.",
+              ].map((item) => (
+                <li key={item} className="text-text-secondary text-base leading-relaxed">
+                  {item}
+                </li>
+              ))}
+            </ul>
 
             <div className="bg-action-primary/10 border-l-4 border-action-primary p-6 my-8 rounded-r-lg">
                <p className="text-text-primary font-medium italic">
                  "You're not failing at AI. You're succeeding at buying tools but lacking the implementation expertise to make them profitable."
                </p>
             </div>
-
-            <p className="text-lg text-text-secondary mb-8 leading-relaxed">
-              This gap exists because AI tools are sold as plug-and-play solutions, but the reality is far more complex. Without proper implementation frameworks, you get expensive technology running on autopilot—generating leads that don't convert.
-            </p>
 
             <div className="flex items-center gap-3 text-text-primary font-bold">
                 <div className="w-12 h-12 rounded-full bg-action-primary/20 flex items-center justify-center text-action-primary">

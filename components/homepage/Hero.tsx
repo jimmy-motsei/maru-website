@@ -39,8 +39,20 @@ export function Hero() {
               transition={{ duration: 1, delay: 0.2, ease: [0, 0, 0.3642, 1] }}
               className="text-[16px] md:text-[18px] text-text-inverse-muted font-light mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0"
             >
-              Most businesses have adopted AI marketing tools, but less than half see real revenue impact. We operationalize your investment with proven playbooks—without losing the human touch.
+              We turn disconnected AI tools into one revenue system your team can run, measure, and scale.
             </motion.p>
+
+            <ul className="mb-10 space-y-2 text-left max-w-xl mx-auto lg:mx-0">
+              {[
+                "Audit your current stack before buying anything new",
+                "Prioritize revenue leaks by impact and implementation speed",
+                "Operationalize AI with workflows your team can maintain",
+              ].map((item) => (
+                <li key={item} className="text-[15px] text-text-inverse-muted">
+                  {item}
+                </li>
+              ))}
+            </ul>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}

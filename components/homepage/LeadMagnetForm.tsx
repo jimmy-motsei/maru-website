@@ -27,22 +27,22 @@ export function LeadMagnetForm() {
             <SplitHeadline
               as="h2"
               leadingText="Ready To Operationalize"
-              emphasisText="Your Ai Investment?"
+              emphasisText="Your AI Investment?"
               className="text-[32px] sm:text-4xl md:text-5xl lg:text-[62px] font-sans text-text-inverse mb-6 leading-[1.1]"
               breakClassName="block"
               leadingWeight="light"
               emphasisWeight="strong"
             />
             <p className="text-lg text-text-inverse-muted mb-8 leading-relaxed">
-              Get your free <strong>AI Implementation Scorecard</strong> to see exactly where your revenue leaks are—and how to fix them.
+              Get your free <strong>AI Implementation Scorecard</strong> to find revenue leaks and fix priorities in one session.
             </p>
 
             <ul className="space-y-4 mb-10">
                 {[
-                    "Self-assessment of your current AI stack",
-                    "Revenue leak identification framework",
-                    "30-day implementation checklist",
-                    "Gap analysis template"
+                    "Score your current AI stack against revenue outcomes",
+                    "Find the leaks draining qualified pipeline opportunities",
+                    "Follow a practical 30-day implementation checklist",
+                    "Use a gap template to align sales and marketing"
                 ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-white/80">
                         <CheckCircle2 className="w-5 h-5 text-action-primary" />
@@ -58,7 +58,7 @@ export function LeadMagnetForm() {
                     </div>
                     <div>
                         <h4 className="text-white font-bold mb-1">Limited Availability</h4>
-                        <p className="text-white/60 text-sm">We only onboard 5 new implementation partners per month to ensure quality delivery.</p>
+                        <p className="text-white/60 text-sm">We onboard five implementation partners monthly to protect delivery quality.</p>
                     </div>
                 </div>
             </div>

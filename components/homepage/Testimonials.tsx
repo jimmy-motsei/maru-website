@@ -10,7 +10,7 @@ const TESTIMONIALS = [
     location: "Johannesburg",
     industry: "Manufacturing & Distribution",
     size: "120 employees",
-    quote: "We had invested heavily in HubSpot and various AI tools, but our marketing team was drowning in dashboards and our leads weren't converting. Maruonline didn't sell us more software—they showed us how to actually use what we already had.",
+    quote: "We already had the tools, but not the system. Maruonline fixed implementation, and conversions started climbing within weeks.",
     author: "Thabo Mokoena",
     role: "Marketing Director",
     icon: Factory,
@@ -25,7 +25,7 @@ const TESTIMONIALS = [
     location: "Cape Town",
     industry: "Professional Services",
     size: "85 employees",
-    quote: "Our biggest fear with AI was losing the personal relationships that built our business. Maruonline understood that immediately. They helped us implement AI that handles the administrative work so our consultants can spend more time actually consulting.",
+    quote: "We needed AI efficiency without losing trust. Maruonline automated admin work and protected the client experience.",
     author: "Sarah van der Merwe",
     role: "Managing Partner",
     icon: Briefcase,
@@ -40,7 +40,7 @@ const TESTIMONIALS = [
     location: "Durban",
     industry: "E-Commerce & Retail",
     size: "65 employees",
-    quote: "We were using AI chatbots, but customers hated them. Maruonline completely redesigned our chatbot personality—now it sounds like our brand. Our customer service costs dropped by 30%, but our customer satisfaction scores actually improved.",
+    quote: "Our chatbot felt robotic and hurt service quality. Maruonline redesigned it to match our brand and improve outcomes.",
     author: "Lindiwe Nkosi",
     role: "E-Commerce Director",
     icon: ShoppingBag,
@@ -80,7 +80,7 @@ export function Testimonials() {
             transition={{ delay: 0.1 }}
             className="text-lg text-text-secondary leading-relaxed"
           >
-            Our clients achieve measurable ROI while maintaining the authentic customer relationships that built their businesses.
+            Measurable ROI from AI-powered revenue systems for South African SMEs.
           </motion.p>
         </div>
 

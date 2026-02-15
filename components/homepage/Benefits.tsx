@@ -8,28 +8,28 @@ const BENEFITS = [
     icon: TrendingUp,
     color: "text-electric-cyan",
     title: "Measurable ROI From Existing Investments",
-    body: "You don't need more tools. You need to operationalize the ones you already have. We analyze your current AI stack, identify the gaps between investment and impact, and implement proven frameworks that turn underperforming technology into revenue-driving systems.",
+    body: "We turn your current AI stack into measurable pipeline gains within one focused quarter.",
     metric: "Average 187% increase in lead conversion rates within 90 days",
   },
   {
     icon: Users,
     color: "text-warm-amber",
     title: "AI That Feels Like You",
-    body: "Your brand personality doesn't disappear when you scale with AI. We implement automation that handles the repetitive, low-value tasks while preserving—and even enhancing—the authentic touchpoints that build customer loyalty. Your chatbot sounds like your team.",
+    body: "Automations handle repetitive work while your team keeps the human moments customers remember.",
     metric: "92% of clients report improved customer satisfaction scores",
   },
   {
     icon: ClipboardCheck,
     color: "text-electric-cyan",
     title: "Clear Playbooks, Not Vague Consulting",
-    body: "We don't deliver 50-page strategy decks that sit on a shelf. We provide step-by-step implementation playbooks tailored to your business, your team, and your existing technology. Every recommendation includes the 'what,' the 'how,' and the 'who'.",
+    body: "You get practical implementation playbooks with owners, steps, and timelines your team can execute.",
     metric: "Average 30-day time to first measurable improvement",
   },
   {
     icon: Map,
     color: "text-warm-amber",
     title: "South African Market Expertise",
-    body: "We understand the unique challenges of the South African mid-market: POPIA compliance requirements, multilingual customer bases, budget constraints, and the need to compete with both local and international players. We speak your language.",
+    body: "Built for South African SMEs balancing POPIA, lean teams, multilingual customers, and tight budgets.",
     metric: "100% POPIA-compliant implementations",
   },
 ];
@@ -59,7 +59,7 @@ export function Benefits() {
             transition={{ delay: 0.2 }}
             className="text-lg text-text-secondary leading-relaxed"
           >
-            We bridge the gap between AI investment and revenue impact—while preserving the authentic relationships that built your business.
+            We turn AI investments into revenue systems your team can run confidently.
           </motion.p>
         </div>
 
