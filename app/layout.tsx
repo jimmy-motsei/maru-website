@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Outfit, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
@@ -15,16 +15,16 @@ import { Analytics } from "@vercel/analytics/react";
 
 import BookingModal from "@/components/ui/BookingModal";
 
-const outfit = Outfit({
+const outfit = localFont({
+  src: "../public/fonts/outfit/Outfit-Variable.woff2",
   variable: "--font-outfit",
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
-const inter = Inter({
+const inter = localFont({
+  src: "../public/fonts/inter/Inter-Variable.woff2",
   variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
