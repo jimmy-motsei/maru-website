@@ -17,7 +17,7 @@
   /* Legacy aliases used in existing JSX */
   --color-deep-navy: var(--color-surface);
   --color-electric-cyan: var(--color-action-primary);
-  --color-warm-amber: var(--color-action-primary);
+  --color-warm-amber: var(--color-brand-amber);
 
   /* Semantic color utilities */
   --color-surface: var(--color-base-black);

@@ -25,6 +25,7 @@
   --color-base-white: rgba(255, 255, 255, 1);
   --color-brand-accent: rgba(0, 161, 165, 1);
   --color-brand-cta: rgba(4, 179, 204, 1);
+  --color-brand-amber: rgba(232, 160, 32, 1);
   --color-card-dark: rgba(50, 50, 50, 1);
   --color-card-dark-soft: rgba(50, 50, 50, 0.72);
   --color-card-dark-hover: rgba(60, 60, 60, 1);

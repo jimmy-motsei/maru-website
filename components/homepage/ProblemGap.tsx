@@ -76,7 +76,7 @@ export function ProblemGap() {
                     <div className="relative">
                         <div className="flex justify-between mb-2">
                            <span className="font-bold text-text-primary">Invested in AI Tech</span>
-                           <span className="font-mono font-bold text-action-primary text-xl">73%</span>
+                           <span className="font-mono font-bold text-warm-amber text-xl">73%</span>
                         </div>
                         <div className="h-4 w-full bg-gray-200/80 rounded-full overflow-hidden">
                             <motion.div 
@@ -93,7 +93,7 @@ export function ProblemGap() {
                     <div className="relative">
                         <div className="flex justify-between mb-2">
                            <span className="font-bold text-text-primary">Driving Actual Revenue</span>
-                           <span className="font-mono font-bold text-action-primary text-xl">47%</span>
+                           <span className="font-mono font-bold text-warm-amber text-xl">47%</span>
                         </div>
                         <div className="h-4 w-full bg-gray-200/80 rounded-full overflow-hidden">
                             <motion.div 
@@ -119,7 +119,7 @@ export function ProblemGap() {
                              </div>
 
                              <div className="relative z-10">
-                                <div className="text-4xl font-bold font-mono text-action-primary mb-2">26%</div>
+                                <div className="text-4xl font-bold font-mono text-warm-amber mb-2">26%</div>
                                 <div className="text-lg font-bold text-text-inverse mb-2">Stuck in the Gap</div>
                                 <p className="text-text-inverse-muted text-sm leading-relaxed">
                                     Businesses paying for tools they can't fully operationalize. This is where churn happens.

@@ -45,8 +45,8 @@ export function WhoThisIsFor() {
               className="bg-card-dark p-10 lg:p-14"
             >
               <div className="flex items-center gap-3 mb-10">
-                <div className="w-8 h-8 rounded-full bg-highlight/10 flex items-center justify-center">
-                  <Plus className="w-4 h-4 text-highlight" />
+                <div className="w-8 h-8 rounded-full bg-warm-amber/10 flex items-center justify-center">
+                  <Plus className="w-4 h-4 text-warm-amber" />
                 </div>
                 <h3 className="text-white font-bold uppercase tracking-widest text-sm">This is for you if...</h3>
               </div>
@@ -54,7 +54,7 @@ export function WhoThisIsFor() {
               <ul className="space-y-6">
                 {isFor.map((item, i) => (
                   <li key={i} className="flex gap-4 items-start">
-                    <span className="text-highlight font-mono text-xs mt-1">/</span>
+                    <span className="text-warm-amber font-mono text-xs mt-1">/</span>
                     <p className="text-zinc-300 font-light leading-relaxed">{item}</p>
                   </li>
                 ))}

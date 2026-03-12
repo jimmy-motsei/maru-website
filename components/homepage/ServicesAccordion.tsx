@@ -213,8 +213,8 @@ export function ServicesAccordion() {
                                                 <span className="text-white/60 text-sm">{service.timeline}</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                 <DollarSign className="w-4 h-4 text-white/50" />
-                                                 <span className="text-white/60 text-sm">{service.investment}</span>
+                                                 <DollarSign className="w-4 h-4 text-warm-amber" />
+                                                 <span className="text-warm-amber text-sm">{service.investment}</span>
                                             </div>
                                         </div>
                                     </div>
