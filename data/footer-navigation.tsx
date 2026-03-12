@@ -2,7 +2,7 @@ export const footerNavigation = {
   main: [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
-    { name: "Resources", href: "/resources/popia-ai-checklist" },
+    { name: "Resources", href: "/resources" },
     { name: "Contact", href: "/contact" },
   ],
   legal: [

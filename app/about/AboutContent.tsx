@@ -39,12 +39,12 @@ export default function AboutContent() {
             className="mb-12"
           >
             <h1 className="maru-headline-split text-[32px] sm:text-[38px] md:text-[44px] lg:text-[86px] leading-[0.95] text-white mb-10 tracking-[-0.02em]">
-              <span className="maru-headline-split-strong">AI Revenue Systems.</span>
+              <span className="maru-headline-split-strong">Built for the Gap Between</span>
               <br />
-              <span className="maru-headline-split-light">Built for SMEs.</span>
+              <span className="maru-headline-split-light">AI Investment and AI Results.</span>
             </h1>
             <p className="text-lg md:text-2xl text-white/70 max-w-3xl leading-relaxed">
-              We implement AI infrastructure for African SMEs — replacing disconnected tools with revenue systems your team can run, measure, and scale.
+              We are an AI integration consultancy built specifically for South African SMEs.
             </p>
           </motion.div>
 
@@ -69,40 +69,32 @@ export default function AboutContent() {
       {/* About Content Section - Light Background */}
       <section id="about-content" className="bg-white py-section-tab lg:py-section text-black">
         <div className="container mx-auto px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             className="max-w-4xl mx-auto"
             variants={staggerContainerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            {/* Single Column: Text Content */}
             <div className="space-y-8">
               <motion.p className="text-xl leading-relaxed text-black font-semibold" variants={fadeUpVariants}>
-                Maru is an AI implementation consultancy — not a marketing agency, not an AI reseller.
+                Most businesses have now invested in AI tools. CRMs with AI scoring. Marketing platforms with automation. Customer service bots. Proposal generators. The tools are real, the spend is real — but for most SMEs, the revenue impact isn&apos;t.
               </motion.p>
 
               <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
-                We design and build the systems that connect your AI tools into a single, measurable revenue engine. Our work starts with an honest audit of what you already have — and ends with infrastructure your team can actually run.
+                That gap between what AI promises and what it actually delivers in your business is exactly where we work.
               </motion.p>
 
               <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
-                Maru was founded by Jimmy Motsei — a marketing and revenue systems practitioner with 20+ years of experience working with SMEs across South Africa. What started as revenue consulting evolved into AI implementation as the tools matured enough to deliver what strategy alone couldn&apos;t.
+                Maru Online was founded by Jimmy Motsei, who brings over 20 years of experience in sales, marketing, and business systems. That track record matters here: AI integration fails not because the technology is wrong, but because it&apos;s implemented without understanding how a business actually runs. We bridge that gap — connecting your AI tools to your workflows, your team, and your revenue targets in a way that holds.
               </motion.p>
 
               <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
-                Today, Maru operates as a focused team of specialists — combining AI implementation expertise with deep SME market knowledge. We work closely with a select number of clients at a time, so the work is always done properly.
+                Our approach is structured, not improvised. Every engagement follows the same four-stage path: Audit, Architect, Integrate, Hand Over. We build systems your team can own and run without us. An AI system that depends on its implementor to function is a liability, not an asset.
               </motion.p>
 
-              <motion.ul className="space-y-3 text-lg leading-relaxed text-black/80 pl-4 border-l-2 border-[var(--color-brand-accent)]" variants={fadeUpVariants}>
-                <li>We audit your current stack before recommending anything new.</li>
-                <li>We design revenue systems, not standalone automations.</li>
-                <li>We implement with POPIA-aware data guardrails.</li>
-                <li>We measure business outcomes, not tool adoption.</li>
-              </motion.ul>
-
               <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
-                If you&apos;re buying AI tools and not getting ROI — the problem isn&apos;t the tools.
+                We work with a deliberately small number of clients at any time so that every integration gets our full attention. POPIA compliance is built into every data touchpoint from day one — not added as an afterthought.
               </motion.p>
 
               {/* Quote Block */}
@@ -120,7 +112,7 @@ export default function AboutContent() {
                 </div>
                 <div>
                   <p className="text-xl md:text-2xl leading-snug text-white mb-3 maru-headline-split">
-                    &ldquo;<span className="maru-headline-split-strong">We solve</span> <span className="maru-headline-split-light">marketing problems using</span> <span className="maru-headline-split-strong">AI intelligence</span><span className="maru-headline-split-light">—not AI hype.</span>&rdquo;
+                    &ldquo;<span className="maru-headline-split-strong">We solve</span> <span className="maru-headline-split-light">marketing problems using</span> <span className="maru-headline-split-strong">AI intelligence</span><span className="maru-headline-split-light"> — not AI hype.</span>&rdquo;
                   </p>
                   <p className="text-sm text-white/70 font-medium">
                     Jimmy Motsei — Founder, Maru Online

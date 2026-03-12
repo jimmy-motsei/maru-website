@@ -1,59 +1,51 @@
-import Link from 'next/link';
-import { Check } from 'lucide-react';
-import { Metadata } from 'next';
+import Link from "next/link";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Pricing - Maru Online',
-  description: 'Simple, flat-rate pricing for AI-powered marketing services. Choose the plan that fits your business needs.',
+  title: "Pricing | What Does AI Integration Actually Cost? | Maru Online",
+  description:
+    "Fixed-scope pricing for AI integration. Every engagement is scoped to your stack, team, and revenue objectives. Get a full quote after a free 30-minute Discovery Call.",
 };
 
-const tiers = [
+const services = [
   {
-    name: 'Starter',
-    id: 'tier-starter',
-    href: '/contact',
-    price: 'R4,950',
-    description: 'For local businesses starting structured digital growth.',
-    features: [
-      'Google Business Profile Optimization',
-      'Basic SEO Setup (5 Pages)',
-      'Monthly Performance Report',
-      '1 Blog Post / Month',
-      'Email Support'
-    ],
+    id: "ai-revenue-diagnostic",
+    label: "Start Here",
+    name: "AI Revenue Diagnostic",
+    price: "From R25,000",
+    priceNote: "Fixed-scope. Typically 2 weeks.",
+    description:
+      "A focused audit of your AI tools, workflows, and data flows. You get a prioritised integration roadmap and quick wins you can act on in 30 days — whether you hire us or not.",
     featured: false,
   },
   {
-    name: 'Growth',
-    id: 'tier-growth',
-    href: '/contact',
-    price: 'R12,500',
-    description: 'For businesses ready to scale with stronger systems.',
-    features: [
-      'Everything in Starter',
-      'Advanced SEO Strategy',
-      'Google Ads Management',
-      'Social Media Content (8 posts/mo)',
-      'Bi-Weekly Strategy Calls',
-      'Dedicated Account Manager'
-    ],
+    id: "custom-ai-solution-build",
+    label: "Most Common",
+    name: "Custom AI Solution Build",
+    price: "From R45,000",
+    priceNote: "Fixed-scope. Typically 4–8 weeks depending on complexity.",
+    description:
+      "Custom AI integration built for your existing stack. We design the architecture, build the connections, configure the behaviours, and test across the full system.",
     featured: true,
   },
   {
-    name: 'Enterprise',
-    id: 'tier-enterprise',
-    href: '/contact',
-    price: 'R28,000+',
-    description: 'For complex teams needing custom AI and full execution.',
-    features: [
-      'Everything in Growth',
-      'Custom AI Solutions Development',
-      // 'Custom AI Chatbot Development',
-      'LinkedIn Lead Gen Automation',
-      'Video Content Production',
-      'Weekly Deep-Dive Analysis',
-      '24/7 Priority Support'
-    ],
+    id: "ai-training-capability-building",
+    label: "",
+    name: "AI Training & Capability Building",
+    price: "From R15,000",
+    priceNote: "Fixed-scope. Typically 2 weeks.",
+    description:
+      "Hands-on training so your team can run, improve, and own your AI systems. Includes prompt engineering, workflow walkthroughs, and 30 days of follow-up support.",
+    featured: false,
+  },
+  {
+    id: "ongoing-ai-support-optimisation",
+    label: "",
+    name: "Ongoing AI Support & Optimisation",
+    price: "From R8,500/month",
+    priceNote: "Monthly retainer. Minimum 3-month commitment.",
+    description:
+      "Monthly optimisation retainer. Monthly performance reviews, priority support, quarterly strategy sessions, and compliance monitoring. Available after initial implementation.",
     featured: false,
   },
 ];
@@ -62,63 +54,84 @@ export default function PricingPage() {
   return (
     <div className="bg-dark py-12 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Header */}
         <div className="mx-auto max-w-4xl text-center mb-20">
           <span className="uppercase tracking-[2px] text-zinc-500 text-[12px] font-medium mb-6 block">
             Pricing
           </span>
           <h1 className="text-h1 font-medium text-white leading-[1.2] mb-8">
-            Simple, <span className="font-thin">flat-rate</span> <br className="hidden md:block" />
-            <span>pricing.</span>
+            What Does AI Integration{" "}
+            <span className="font-thin">Actually Cost?</span>
           </h1>
           <p className="text-lg leading-8 text-zinc-300 mx-auto max-w-2xl">
-            Flat monthly pricing. Choose the plan that matches your growth stage.
+            Every engagement is scoped to your specific stack, team, and revenue
+            objectives. Pricing is fixed-scope — you know the full investment
+            before work begins. Final quotes are generated after a free
+            30-minute Discovery Call.
           </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8">
-          {tiers.map((tier) => (
+        {/* Pricing Cards — 2×2 grid on desktop */}
+        <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:gap-8">
+          {services.map((service) => (
             <div
-              key={tier.id}
-              className={`flex flex-col justify-between rounded-3xl p-8 ring-1 transition-transform hover:scale-[1.02] duration-300 ${
-                tier.featured
-                  ? 'bg-dark ring-accent shadow-[0_0_30px_rgba(61,184,198,0.15)] relative border-l-4 border-accent'
-                  : 'bg-card-dark ring-white/10 hover:ring-accent/50 border-l-4 border-transparent hover:border-accent/30'
+              key={service.id}
+              className={`relative flex flex-col justify-between rounded-3xl p-8 ring-1 transition-transform hover:scale-[1.02] duration-300 ${
+                service.featured
+                  ? "bg-dark ring-accent shadow-[0_0_30px_rgba(61,184,198,0.15)] border-l-4 border-accent"
+                  : "bg-card-dark ring-white/10 hover:ring-accent/50 border-l-4 border-transparent hover:border-accent/30"
               }`}
             >
-              {tier.featured && (
-                <div className="absolute -top-4 left-0 right-0 mx-auto w-fit rounded-full bg-accent px-3 py-1 text-xs font-semibold leading-5 text-dark shadow-sm">
-                  Most Popular
+              {service.label && (
+                <div className="absolute -top-4 left-8 rounded-full bg-accent px-3 py-1 text-xs font-semibold leading-5 text-dark shadow-sm">
+                  {service.label}
                 </div>
               )}
+
               <div>
-                <h3 className="text-lg font-semibold leading-8 text-white">{tier.name}</h3>
-                <p className="mt-4 flex items-baseline gap-x-2">
-                  <span className="text-4xl font-bold tracking-tight text-white">{tier.price}</span>
-                  <span className="text-sm font-semibold leading-6 text-zinc-400">/month</span>
+                <h3 className="text-lg font-semibold leading-8 text-white">
+                  {service.name}
+                </h3>
+                <p className="mt-4">
+                  <span className="text-4xl font-bold tracking-tight text-white">
+                    {service.price}
+                  </span>
                 </p>
-                <p className="copy-card mt-6 text-zinc-300">{tier.description}</p>
-                <ul role="list" className="mt-8 space-y-3 text-base leading-6 text-zinc-300">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex gap-x-3">
-                      <Check className="h-6 w-5 flex-none text-accent" aria-hidden="true" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                <p className="mt-6 text-base leading-7 text-zinc-300">
+                  {service.description}
+                </p>
+                <p className="mt-4 text-sm text-zinc-500 italic">
+                  {service.priceNote}
+                </p>
               </div>
+
               <Link
-                href={tier.href}
+                href="/booking"
                 className={`mt-8 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 transition-colors ${
-                  tier.featured
-                    ? 'bg-accent text-dark hover:bg-accent-light'
-                    : 'bg-white/10 text-white hover:bg-white/20'
+                  service.featured
+                    ? "bg-accent text-dark hover:bg-accent-light"
+                    : "bg-white/10 text-white hover:bg-white/20"
                 }`}
               >
-                Select {tier.name}
+                Book a Discovery Call
               </Link>
             </div>
           ))}
+        </div>
+
+        {/* Note block */}
+        <div className="mx-auto mt-16 max-w-2xl text-center">
+          <p className="text-base leading-7 text-zinc-400">
+            All prices are starting points. Your final quote is generated after a
+            free 30-minute Discovery Call where we scope your specific
+            requirements. No obligation.
+          </p>
+          <Link
+            href="/booking"
+            className="mt-8 inline-block rounded-md bg-accent px-6 py-3 text-sm font-semibold text-dark hover:bg-accent-light transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          >
+            Book Your Free Discovery Call
+          </Link>
         </div>
       </div>
     </div>

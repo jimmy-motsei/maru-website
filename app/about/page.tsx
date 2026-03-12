@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 import AboutContent from "./AboutContent";
 
 export const metadata: Metadata = {
-  title: "About | AI Implementation Consultancy for African SMEs | Maru Online",
-  description: "Maru is an AI implementation consultancy for South African SMEs. Founded by Jimmy Motsei with 20+ years in marketing and revenue systems. We build AI infrastructure that generates measurable ROI.",
+  title: "Built for the Gap Between AI Investment and AI Results | Maru Online",
+  description: "Maru Online is an AI integration consultancy for South African SMEs. Founded by Jimmy Motsei with 20+ years in sales, marketing, and business systems. We bridge the gap between AI spend and AI results.",
 };
 
 export default function AboutPage() {
