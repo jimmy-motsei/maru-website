@@ -20,7 +20,7 @@ export function Hero() {
           transition={{ duration: 1, ease: [0, 0, 0.3642, 1] }}
           className="mb-12"
         >
-          <h1 className="uppercase tracking-[2px] text-action-primary text-[14px] font-medium mb-10 block">
+          <h1 className="uppercase tracking-[2px] text-action-primary text-[15.4px] font-medium mb-10 block">
             AI Integration Consulting for South African SMEs
           </h1>
           <SplitHeadline
@@ -39,7 +39,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: [0, 0, 0.3642, 1] }}
-            className="text-lg leading-8 text-slate-400 font-sans font-normal mb-12"
+            className="text-lg leading-8 text-white font-sans font-normal mb-12 uppercase"
           >
             We turn disconnected AI tools into one revenue system your team can run, measure, and scale.
           </motion.p>
