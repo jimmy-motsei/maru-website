@@ -36,7 +36,7 @@ const BENEFITS = [
 
 export function Benefits() {
   return (
-    <section className="bg-surface-muted py-section text-text-primary">
+    <section className="bg-surface-muted py-section-tab lg:py-section text-text-primary">
       <div className="container mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
@@ -46,7 +46,7 @@ export function Benefits() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="maru-headline-split text-4xl md:text-5xl lg:text-[68px] font-sans text-text-primary mb-6 leading-[1.1]">
+            <h2 className="maru-headline-split text-[28px] sm:text-[32px] md:text-[38px] lg:text-[68px] font-sans text-text-primary mb-6 leading-[1.1]">
               <span className="maru-headline-split-light">What Changes When You</span>
               <br />
               <span className="maru-headline-split-strong">Partner with Us</span>
@@ -74,7 +74,7 @@ export function Benefits() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="group bg-surface-inverse rounded-xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-action-primary h-full flex flex-col items-center text-center"
+                className="group bg-surface-inverse rounded-xl p-8 lg:p-[60px] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-action-primary h-full flex flex-col items-center text-center"
               >
                 {/* Icon Circle */}
                 <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-black/5 group-hover:bg-surface transition-colors duration-300`}>

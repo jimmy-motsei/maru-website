@@ -5,7 +5,7 @@ import { AlertCircle, TrendingUp } from "lucide-react";
 
 export function ProblemGap() {
   return (
-    <section className="bg-surface-inverse py-section">
+    <section className="bg-surface-inverse py-section-tab lg:py-section">
       <div className="container mx-auto px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -18,7 +18,7 @@ export function ProblemGap() {
             transition={{ duration: 0.8 }}
           >
             {/* Ashley-style thin/bold heading */}
-            <h2 className="text-4xl md:text-5xl lg:text-[68px] font-thin font-sans text-text-primary mb-8 leading-[1.1]">
+            <h2 className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[68px] font-thin font-sans text-text-primary mb-8 leading-[1.1]">
               Why Most Businesses <br />
               <span className="font-bold text-text-primary">Aren't Seeing ROI</span>
             </h2>

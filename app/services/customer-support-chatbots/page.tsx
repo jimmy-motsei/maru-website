@@ -190,7 +190,7 @@ export default function CustomerSupportChatbotsPage() {
       />
 
       {/* Problem Section - WHITE BACKGROUND */}
-      <section className="py-24 bg-white">
+      <section className="py-section-tab lg:py-section bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -204,7 +204,7 @@ export default function CustomerSupportChatbotsPage() {
                 as="h2"
                 leadingText="Why Most"
                 emphasisText="Chatbots Create More Problems"
-                className="text-[34px] sm:text-[44px] lg:text-h2 mb-12 md:mb-14 text-black leading-[1.2]"
+                className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-h2 mb-12 md:mb-14 text-black leading-[1.2]"
                 breakClassName="hidden md:block"
                 leadingWeight="light"
                 emphasisWeight="strong"
@@ -255,7 +255,7 @@ export default function CustomerSupportChatbotsPage() {
       </section>
 
       {/* Solution Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#161616]">
+      <section className="py-section-tab lg:py-section bg-[#161616]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -269,7 +269,7 @@ export default function CustomerSupportChatbotsPage() {
                 as="h2"
                 leadingText="How We"
                 emphasisText="Build Chatbots That Actually Support Customers"
-                className="text-[34px] sm:text-[44px] lg:text-h2 mb-12 md:mb-14 text-white leading-[1.2]"
+                className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-h2 mb-12 md:mb-14 text-white leading-[1.2]"
                 breakClassName="hidden md:block"
                 leadingWeight="light"
                 emphasisWeight="strong"
@@ -318,7 +318,7 @@ export default function CustomerSupportChatbotsPage() {
       </section>
 
       {/* Process Section - WHITE BACKGROUND */}
-      <section className="py-24 bg-white">
+      <section className="py-section-tab lg:py-section bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-20"
@@ -332,7 +332,7 @@ export default function CustomerSupportChatbotsPage() {
                 as="h2"
                 leadingText="From Setup"
                 emphasisText="to Support in 4 Weeks"
-                className="text-[34px] sm:text-[44px] lg:text-h2 mb-12 md:mb-14 text-black leading-[1.2]"
+                className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-h2 mb-12 md:mb-14 text-black leading-[1.2]"
                 leadingWeight="light"
                 emphasisWeight="strong"
               />
@@ -387,7 +387,7 @@ export default function CustomerSupportChatbotsPage() {
       </section>
 
       {/* Use Cases Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#161616]">
+      <section className="py-section-tab lg:py-section bg-[#161616]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -401,7 +401,7 @@ export default function CustomerSupportChatbotsPage() {
                 as="h2"
                 leadingText="What Your"
                 emphasisText="Chatbot Can Handle"
-                className="text-[34px] sm:text-[44px] lg:text-h2 mb-12 md:mb-14 text-white leading-[1.2]"
+                className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-h2 mb-12 md:mb-14 text-white leading-[1.2]"
                 leadingWeight="light"
                 emphasisWeight="strong"
               />
@@ -437,7 +437,7 @@ export default function CustomerSupportChatbotsPage() {
       </section>
 
       {/* Pricing Section - WHITE BACKGROUND */}
-      <section className="py-24 bg-white">
+      <section className="py-section-tab lg:py-section bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -451,7 +451,7 @@ export default function CustomerSupportChatbotsPage() {
                 as="h2"
                 leadingText="Straightforward"
                 emphasisText="Pricing for SMEs"
-                className="text-[34px] sm:text-[44px] lg:text-h2 mb-12 md:mb-14 text-black leading-[1.2]"
+                className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-h2 mb-12 md:mb-14 text-black leading-[1.2]"
                 leadingWeight="light"
                 emphasisWeight="strong"
               />
@@ -561,7 +561,7 @@ export default function CustomerSupportChatbotsPage() {
       </section>
 
       {/* FAQ Section - DARK BACKGROUND */}
-      <section className="py-24 bg-[#161616]">
+      <section className="py-section-tab lg:py-section bg-[#161616]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -575,7 +575,7 @@ export default function CustomerSupportChatbotsPage() {
                 as="h2"
                 leadingText="Common"
                 emphasisText="Questions"
-                className="text-[34px] sm:text-[44px] lg:text-h2 mb-12 md:mb-14 text-white leading-[1.2]"
+                className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-h2 mb-12 md:mb-14 text-white leading-[1.2]"
                 leadingWeight="light"
                 emphasisWeight="strong"
               />
@@ -619,7 +619,7 @@ export default function CustomerSupportChatbotsPage() {
       </section>
 
       {/* CTA Section - WHITE BACKGROUND */}
-      <section className="py-24 bg-white relative">
+      <section className="py-section-tab lg:py-section bg-white relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             className="max-w-3xl mx-auto text-center"
@@ -633,7 +633,7 @@ export default function CustomerSupportChatbotsPage() {
                 as="h2"
                 leadingText="Ready to"
                 emphasisText="Fix Your Support Experience?"
-                className="text-[34px] sm:text-[44px] lg:text-h2 mb-12 md:mb-14 text-black leading-[1.2]"
+                className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-h2 mb-12 md:mb-14 text-black leading-[1.2]"
                 breakClassName="hidden md:block"
                 leadingWeight="light"
                 emphasisWeight="strong"

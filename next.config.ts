@@ -53,12 +53,12 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/knowledge',
-        destination: '/services',
+        destination: '/resources',
         permanent: true,
       },
       {
         source: '/knowledge/:path*',
-        destination: '/services',
+        destination: '/resources',
         permanent: true,
       },
     ];

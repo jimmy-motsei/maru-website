@@ -54,7 +54,7 @@ const TESTIMONIALS = [
 
 export function Testimonials() {
   return (
-    <section className="bg-surface-muted py-section border-t border-border-strong text-text-primary">
+    <section className="bg-surface-muted py-section-tab lg:py-section border-t border-border-strong text-text-primary">
       <div className="container mx-auto px-6 lg:px-8">
         
         {/* Header */}
@@ -68,7 +68,7 @@ export function Testimonials() {
               as="h2"
               leadingText="Real Results From"
               emphasisText="South African Businesses"
-              className="text-4xl md:text-5xl lg:text-[68px] font-sans text-text-primary mb-6 leading-[1.1]"
+              className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[68px] font-sans text-text-primary mb-6 leading-[1.1]"
               leadingWeight="light"
               emphasisWeight="strong"
             />
@@ -95,7 +95,7 @@ export function Testimonials() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="bg-surface-inverse rounded-2xl p-8 shadow-lg border border-border-subtle flex flex-col h-full"
+                className="bg-surface-inverse rounded-2xl p-8 lg:p-[60px] shadow-lg border border-border-subtle flex flex-col h-full"
               >
                 {/* Header: Company & Logo Placeholder */}
                 <div className="flex items-start justify-between mb-6">

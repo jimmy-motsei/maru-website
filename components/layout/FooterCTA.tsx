@@ -28,7 +28,7 @@ export function FooterCTA() {
   return (
     <footer className="bg-dark">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-6 lg:px-8 py-section">
+      <div className="container mx-auto px-6 lg:px-8 py-section-tab lg:py-section">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -90,34 +90,34 @@ export function FooterCTA() {
               <ul className="space-y-4">
                 <li>
                   <Link
-                    href="/services/lead-generation"
+                    href="/services/ai-revenue-diagnostic"
                     className="text-text-inverse-muted hover:text-accent transition-colors duration-300 text-base"
                   >
-                    Website Conversion
+                    AI Revenue Diagnostic
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/sales-systems"
+                    href="/services/custom-ai-solution-build"
                     className="text-text-inverse-muted hover:text-accent transition-colors duration-300 text-base"
                   >
-                    Sales Process
+                    Custom AI Solution Build
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/office-automation"
+                    href="/services/ai-training-capability-building"
                     className="text-text-inverse-muted hover:text-accent transition-colors duration-300 text-base"
                   >
-                    Marketing Integration
+                    AI Training & Capability Building
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/whatsapp-solutions"
+                    href="/services/ongoing-ai-support-optimization"
                     className="text-text-inverse-muted hover:text-accent transition-colors duration-300"
                   >
-                    Follow-Up Automation
+                    Ongoing AI Support & Optimization
                   </Link>
                 </li>
               </ul>
@@ -135,8 +135,21 @@ export function FooterCTA() {
                     hello@maruonline.com
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="https://wa.me/27635643263"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text-inverse-muted hover:text-highlight transition-colors duration-300 text-base font-light"
+                  >
+                    +27 63 564 3263
+                  </a>
+                </li>
                 <li className="text-text-inverse-muted text-base font-light">
                   Johannesburg, South Africa
+                </li>
+                <li className="text-text-inverse-muted text-base font-light">
+                  Mon–Fri, 9am–6pm SAST
                 </li>
               </ul>
             </motion.div>

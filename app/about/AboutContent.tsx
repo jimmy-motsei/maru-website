@@ -38,7 +38,7 @@ export default function AboutContent() {
             transition={{ duration: 0.55, delay: 0.05 }}
             className="mb-12"
           >
-            <h1 className="maru-headline-split text-[44px] sm:text-[52px] md:text-[78px] lg:text-[92px] xl:text-[106px] leading-[0.95] text-white mb-10 tracking-[-0.02em]">
+            <h1 className="maru-headline-split text-[32px] sm:text-[38px] md:text-[44px] lg:text-[86px] leading-[0.95] text-white mb-10 tracking-[-0.02em]">
               <span className="maru-headline-split-strong">Built </span>
               <span className="maru-headline-split-light">Different.</span>
               <br />
@@ -69,7 +69,7 @@ export default function AboutContent() {
       </section>
 
       {/* About Content Section - Light Background */}
-      <section id="about-content" className="bg-white py-32 text-black">
+      <section id="about-content" className="bg-white py-section-tab lg:py-section text-black">
         <div className="container mx-auto px-6 lg:px-8">
           <motion.div 
             className="max-w-4xl mx-auto"

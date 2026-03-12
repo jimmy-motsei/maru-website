@@ -10,7 +10,7 @@
   --text-h6: 18px;
   --text-body: 16px;
   --text-card-body: 17px;
-  --font-body-weight: 500;
+  --font-body-weight: 300;
   --font-weight-headline-light: 100;
   --font-weight-headline-strong: 500;
   --line-height-tight: 1.2;
@@ -69,10 +69,12 @@
   /* Ashley primitives: spacing + radius */
   --space-section: 120px;
   --space-section-mobile: 90px;
-  --space-block-lg: 60px;
-  --space-block-md: 30px;
+  --space-block-lg: 60px;   /* card padding desktop = tailwind 'card' */
+  --space-block-md: 30px;   /* container-x, grid-gap = tailwind 'container-x', 'grid-gap' */
+  --space-card-padding-mobile: 32px; /* card padding mobile = tailwind 'card-mobile' */
   --space-inline-md: 30px;
   --space-inline-sm: 15px;
+  --eyebrow-font-weight: 500; /* eyebrow / label weight = tailwind 'font-eyebrow' */
 
   --size-control-lg: 70px;
   --size-control-md: 60px;

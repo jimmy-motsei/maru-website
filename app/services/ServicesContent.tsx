@@ -50,7 +50,7 @@ const services = [
 export default function ServicesPage() {
   return (
     <main className="bg-surface text-text-inverse">
-      <section className="relative bg-black overflow-hidden pb-24 md:pb-36">
+      <section className="relative bg-black overflow-hidden pb-section-tab lg:pb-section">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-[112px] sm:pt-[128px] md:pt-[152px] lg:pt-[168px]">
           <motion.nav
             initial={{ opacity: 0, y: 12 }}
@@ -72,7 +72,7 @@ export default function ServicesPage() {
 
           <motion.div initial="hidden" animate="visible" variants={staggerContainerVariants} className="max-w-4xl">
             <motion.div variants={fadeUpVariants}>
-              <h1 className="maru-headline-split text-[38px] sm:text-[52px] md:text-[78px] lg:text-[92px] xl:text-[106px] leading-[0.95] text-white mb-12 md:mb-16 tracking-[-0.02em]">
+              <h1 className="maru-headline-split text-[32px] sm:text-[38px] md:text-[44px] lg:text-[86px] leading-[0.95] text-white mb-12 md:mb-16 tracking-[-0.02em]">
                 <span className="maru-headline-split-strong">This is </span>
                 <span className="maru-headline-split-light">what</span>
                 <br />
@@ -95,7 +95,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section id="services" className="bg-black pb-24 md:pb-32">
+      <section id="services" className="bg-black pb-section-tab lg:pb-section">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 xl:grid-cols-12 gap-10 md:gap-12 xl:gap-16">
             <div className="hidden xl:block xl:col-span-3">

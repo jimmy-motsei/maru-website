@@ -6,7 +6,7 @@ import { SplitHeadline } from "@/components/ui/SplitHeadline";
 
 export function LeadMagnetForm() {
   return (
-    <section className="bg-surface py-section border-t border-border-inverse-subtle relative overflow-hidden">
+    <section className="bg-surface py-section-tab lg:py-section border-t border-border-inverse-subtle relative overflow-hidden">
       
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-action-primary/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
@@ -21,14 +21,14 @@ export function LeadMagnetForm() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="uppercase tracking-[2px] text-action-primary text-[12px] font-bold mb-6 block">
+            <span className="uppercase tracking-[2px] text-action-primary text-[12px] font-medium mb-6 block">
                Free Resource
             </span>
             <SplitHeadline
               as="h2"
               leadingText="Ready To Operationalize"
               emphasisText="Your AI Investment?"
-              className="text-[32px] sm:text-4xl md:text-5xl lg:text-[62px] font-sans text-text-inverse mb-6 leading-[1.1]"
+              className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[62px] font-sans text-text-inverse mb-6 leading-[1.1]"
               breakClassName="block"
               leadingWeight="light"
               emphasisWeight="strong"

@@ -2,82 +2,77 @@
 
 import { motion } from "framer-motion";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
-import { HeroDashboard } from "@/components/homepage/HeroDashboard";
 import { ArrowRight } from "lucide-react";
 import { SafeLink } from "@/components/ui/SafeLink";
 import { SplitHeadline } from "@/components/ui/SplitHeadline";
 
 export function Hero() {
   return (
-    <section className="relative bg-black min-h-screen flex items-center py-section overflow-hidden">
+    <section className="relative bg-black min-h-screen flex items-end pb-section-tab lg:pb-section overflow-hidden">
       <AtmosphericBackground variant="hero" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          
-          {/* LEFT COLUMN: Text Content */}
-          <div className="text-center lg:text-left relative order-2 lg:order-1">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: [0, 0, 0.3642, 1] }}
+
+        {/* Headline block — unconstrained width so large font sizes don't wrap */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0, 0, 0.3642, 1] }}
+          className="mb-12"
+        >
+          <span className="uppercase tracking-[2px] text-action-primary text-[14px] font-medium mb-10 block">
+            Trusted AI Implementation Partner for SMEs
+          </span>
+          <SplitHeadline
+            as="h1"
+            leadingText="You've Invested in AI."
+            emphasisText="Now Get the ROI."
+            breakBeforeEmphasis={true}
+            breakClassName="block"
+            className="text-[32px] sm:text-[38px] md:text-[44px] lg:text-[86px] text-text-inverse"
+          />
+        </motion.div>
+
+        {/* Sub-content — capped at 640px so paragraph/list/CTA don't stretch wide */}
+        <div className="max-w-[640px]">
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0, 0, 0.3642, 1] }}
+            className="text-[14px] font-heading font-medium text-action-primary mb-12 leading-relaxed"
+          >
+            We turn disconnected AI tools into one revenue system your team can run, measure, and scale.
+          </motion.p>
+
+          <ul className="mb-14 space-y-3">
+            {[
+              "Audit your current stack before buying anything new",
+              "Prioritize revenue leaks by impact and implementation speed",
+              "Operationalize AI with workflows your team can maintain",
+            ].map((item) => (
+              <li key={item} className="text-[15px] text-text-inverse-muted">
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4, ease: [0, 0, 0.3642, 1] }}
+          >
+            <SafeLink
+              href="/ai-implementation-assessment"
+              className="btn-primary-hero-cta group"
             >
-              <span className="uppercase tracking-[2px] text-action-primary text-[12px] font-bold mb-6 block">
-                Trusted AI Implementation Partner for SMEs
-              </span>
-              <SplitHeadline
-                as="h1"
-                leadingText="You've Invested in AI."
-                emphasisText="Now Get the ROI."
-                className="text-[32px] md:text-[58px] lg:text-[86px] text-text-inverse mb-8"
-              />
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2, ease: [0, 0, 0.3642, 1] }}
-              className="text-[16px] md:text-[18px] text-text-inverse-muted font-light mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0"
-            >
-              We turn disconnected AI tools into one revenue system your team can run, measure, and scale.
-            </motion.p>
-
-            <ul className="mb-10 space-y-2 text-left max-w-xl mx-auto lg:mx-0">
-              {[
-                "Audit your current stack before buying anything new",
-                "Prioritize revenue leaks by impact and implementation speed",
-                "Operationalize AI with workflows your team can maintain",
-              ].map((item) => (
-                <li key={item} className="text-[15px] text-text-inverse-muted">
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4, ease: [0, 0, 0.3642, 1] }}
-              className="flex items-center justify-center lg:justify-start"
-            >
-              <SafeLink
-                href="/ai-implementation-assessment"
-                className="btn-primary-hero-cta group"
-              >
-                Get Your Free AI Implementation Audit
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </SafeLink>
-            </motion.div>
-          </div>
-
-          {/* RIGHT COLUMN: Visual Dashboard */}
-          <div className="relative order-1 lg:order-2 mb-10 lg:mb-0">
-            <HeroDashboard />
-          </div>
-
+              Get Your Free AI Implementation Audit
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </SafeLink>
+          </motion.div>
         </div>
+
       </div>
-      
+
     </section>
   );
 }

@@ -121,7 +121,7 @@ export default function ContactPage() {
               breakBeforeEmphasis={false}
               leadingWeight="strong"
               emphasisWeight="light"
-              className="text-[42px] md:text-[68px] text-text-primary"
+              className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[68px] text-text-primary"
             />
           </motion.div>
 

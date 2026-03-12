@@ -67,7 +67,7 @@ export default function POPIAChecklistPageClient() {
   return (
     <main className="bg-deep-navy">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center py-section overflow-hidden">
+      <section className="relative min-h-screen flex items-center py-section-tab lg:py-section overflow-hidden">
         <AtmosphericBackground variant="hero" />
         
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -248,7 +248,7 @@ export default function POPIAChecklistPageClient() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-section">
+      <section className="py-section-tab lg:py-section">
         <div className="container mx-auto px-6 lg:px-8 text-center max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

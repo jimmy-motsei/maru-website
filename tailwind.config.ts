@@ -33,6 +33,14 @@ const config: Config = {
         'section': '120px',
         'section-tab': '90px',
         'input': '70px',
+        'card': '60px',         // card padding (desktop)
+        'card-mobile': '32px',  // card padding (mobile) = p-8
+        'container-x': '30px',  // horizontal container padding
+        'grid-gap': '30px',     // standard grid gap
+      },
+      fontWeight: {
+        'body': '300',    // base body copy weight
+        'eyebrow': '500', // eyebrow / label weight
       },
       borderRadius: {
         'pill': '70px',

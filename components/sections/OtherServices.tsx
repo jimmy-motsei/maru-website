@@ -106,7 +106,7 @@ export function OtherServices({ currentServiceId: _currentServiceId }: OtherServ
             const IconComponent = service.icon;
             return (
               <motion.div key={service.id} variants={itemVariants}>
-                <div className="group bg-white rounded-2xl p-6 sm:p-8 h-full shadow-sm border border-action-primary hover:border-action-primary transition-colors duration-300 flex flex-col">
+                <div className="group bg-white rounded-2xl p-8 lg:p-[60px] h-full shadow-sm border border-action-primary hover:border-action-primary transition-colors duration-300 flex flex-col">
                   {/* Title + Inline Icon */}
                   <div className="flex items-center gap-3 mb-3">
                     <div

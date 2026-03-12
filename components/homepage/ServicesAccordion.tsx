@@ -93,9 +93,9 @@ export function ServicesAccordion() {
   const [activeService, setActiveService] = useState<string | null>("audit");
 
   return (
-    <section className="bg-surface-inverse py-section text-text-primary">
+    <section className="bg-surface py-section-tab lg:py-section">
       <div className="container mx-auto px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="max-w-3xl mb-16">
           <motion.div
@@ -107,7 +107,7 @@ export function ServicesAccordion() {
               as="h2"
               leadingText="How We Operationalize"
               emphasisText="Your AI Investment"
-              className="text-4xl md:text-5xl lg:text-[68px] font-sans text-text-primary mb-6 leading-[1.1]"
+              className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[68px] font-sans text-text-inverse mb-6 leading-[1.1]"
               leadingWeight="light"
               emphasisWeight="strong"
             />
@@ -117,7 +117,7 @@ export function ServicesAccordion() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-text-secondary leading-relaxed max-w-2xl"
+            className="text-lg text-text-inverse-muted leading-relaxed max-w-2xl"
           >
             We make your existing AI tools produce measurable revenue, faster.
           </motion.p>
@@ -136,31 +136,31 @@ export function ServicesAccordion() {
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ delay: index * 0.1 }}
-                 className={`group rounded-2xl transition-all duration-300 overflow-hidden border ${isActive ? 'bg-card-dark border-action-primary shadow-2xl md:scale-[1.01]' : 'bg-surface-muted border-transparent hover:bg-surface-inverse hover:border-border-strong'}`}
+                 className={`group rounded-2xl transition-all duration-300 overflow-hidden border ${isActive ? 'bg-card-dark border-action-primary shadow-2xl md:scale-[1.01]' : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'}`}
                >
-                 
+
                  {/* Summary / Clickable Area */}
-                 <button 
+                 <button
                     onClick={() => setActiveService(isActive ? null : service.id)}
-                    className="w-full flex items-center justify-between p-6 md:p-8 text-left"
+                    className="w-full flex items-center justify-between p-8 lg:p-[60px] text-left"
                  >
                     <div className="flex items-center gap-4 md:gap-6 min-w-0">
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${isActive ? 'bg-action-primary text-text-primary' : 'bg-gray-200 text-gray-500 group-hover:bg-action-primary/20 group-hover:text-action-primary'}`}>
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${isActive ? 'bg-action-primary text-text-primary' : 'bg-white/10 text-white/50 group-hover:bg-action-primary/20 group-hover:text-action-primary'}`}>
                             <Icon className="w-6 h-6" />
                         </div>
                         <div className="min-w-0">
-                            <h3 className={`text-xl md:text-2xl font-bold font-sans mb-2 transition-colors ${isActive ? 'text-text-inverse' : 'text-text-primary'}`}>
+                            <h3 className="text-xl md:text-2xl font-bold font-sans mb-2 transition-colors text-text-inverse">
                                 {service.name}
                             </h3>
                             {!isActive && (
-                                <p className="copy-card text-text-muted hidden md:block">
+                                <p className="copy-card text-text-inverse-muted hidden md:block">
                                     {service.description}
                                 </p>
                             )}
                         </div>
                     </div>
-                    
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all ${isActive ? 'border-action-primary bg-action-primary text-text-primary rotate-180' : 'border-border-strong text-text-muted group-hover:border-action-primary group-hover:text-action-primary'}`}>
+
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all ${isActive ? 'border-action-primary bg-action-primary text-text-primary rotate-180' : 'border-white/20 text-white/50 group-hover:border-action-primary group-hover:text-action-primary'}`}>
                         <ChevronDown className="w-5 h-5" />
                     </div>
                  </button>
@@ -174,9 +174,9 @@ export function ServicesAccordion() {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3 }}
                         >
-                            <div className="px-6 md:px-8 pb-8 pt-0 border-t border-white/10">
+                            <div className="px-8 lg:px-[60px] pb-8 pt-0 border-t border-white/10">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                                    
+
                                     {/* Left: What/Who */}
                                     <div className="space-y-6">
                                         <div>
@@ -206,7 +206,7 @@ export function ServicesAccordion() {
                                                 ))}
                                             </ul>
                                         </div>
-                                        
+
                                         <div className="flex items-center gap-6 pt-4 border-t border-white/10">
                                             <div className="flex items-center gap-2">
                                                 <Clock className="w-4 h-4 text-white/50" />
@@ -229,7 +229,7 @@ export function ServicesAccordion() {
              );
           })}
         </div>
-        
+
         {/* CTA Footer */}
         <div className="text-center mt-16 bg-card-dark py-12 px-6 rounded-2xl border border-white/10">
             <h3 className="text-2xl font-bold text-white mb-6">Not sure which service you need?</h3>

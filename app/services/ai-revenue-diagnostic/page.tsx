@@ -100,7 +100,7 @@ export default function AIRevenueDiagnosticPage() {
   return (
     <main className="bg-surface-muted min-h-screen">
       <section className="relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-[120px] md:pt-[140px] pb-20 md:pb-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-[120px] md:pt-[140px] pb-section-tab lg:pb-section">
           <motion.nav
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -132,7 +132,7 @@ export default function AIRevenueDiagnosticPage() {
               as="h1"
               leadingText="AI Revenue"
               emphasisText="Diagnostic"
-              className="text-[36px] sm:text-[44px] md:text-[72px] lg:text-[86px] text-text-primary mb-10"
+              className="text-[32px] sm:text-[38px] md:text-[44px] lg:text-[86px] text-text-primary mb-10"
               breakBeforeEmphasis={false}
               leadingWeight="strong"
               emphasisWeight="light"
@@ -154,7 +154,7 @@ export default function AIRevenueDiagnosticPage() {
         </div>
       </section>
 
-      <section id="about-service" className="pb-24 md:pb-32">
+      <section id="about-service" className="pb-section-tab lg:pb-section">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16">
             <div className="lg:col-span-4">
@@ -168,7 +168,7 @@ export default function AIRevenueDiagnosticPage() {
                   as="h2"
                   leadingText="Our Approach"
                   emphasisText="at a Glance"
-                  className="text-[30px] sm:text-[34px] md:text-[44px] lg:text-[52px] text-text-primary mb-8 leading-[1.15]"
+                  className="text-[30px] sm:text-[34px] md:text-[38px] lg:text-[52px] text-text-primary mb-8 leading-[1.15]"
                   breakClassName="block"
                   leadingWeight="strong"
                   emphasisWeight="light"
@@ -195,14 +195,14 @@ export default function AIRevenueDiagnosticPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24 bg-surface-inverse border-t border-border-subtle">
+      <section className="py-section-tab lg:py-section bg-surface-inverse border-t border-border-subtle">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="text-[34px] sm:text-[42px] md:text-[56px] leading-[1.1] text-text-primary"
+              className="text-[34px] sm:text-[42px] md:text-[38px] leading-[1.1] text-text-primary"
             >
               <SplitHeadline
                 as="h2"
@@ -234,7 +234,7 @@ export default function AIRevenueDiagnosticPage() {
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
-                className="border border-border-strong rounded-2xl p-6 sm:p-8 bg-surface-inverse"
+                className="border border-border-strong rounded-2xl p-8 lg:p-[60px] bg-surface-inverse"
               >
                 <span className={`inline-flex w-10 h-10 rounded-xl border items-center justify-center mb-4 ${service.iconClassName}`}>
                   <service.icon size={20} />
