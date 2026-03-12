@@ -73,7 +73,7 @@ export function AtmosphericBackground({ variant = "hero", className, theme: _the
         <WireframePolyhedron
           size={920}
           color="rgb(130, 130, 130)"
-          strokeWidth={2.4}
+          strokeWidth={2.64}
           opacity={0.9}
           speedX={0.0006}
           speedY={0.0013}
