@@ -18,6 +18,7 @@ const services = [
     description:
       "A focused audit to find fast AI wins, reduce friction, and protect compliance.",
     bullets: ["Opportunity assessment", "POPIA scorecard", "90-day roadmap", "Executive strategy session"],
+    pricing: "From R25,000 · Scoped after a free Discovery Call",
     href: "/services/ai-revenue-diagnostic",
     offset: true,
   },
@@ -26,6 +27,7 @@ const services = [
     description:
       "Custom AI systems built for your stack, workflows, and revenue priorities.",
     bullets: ["Custom development", "Platform integration", "Brand voice training", "Compliance architecture"],
+    pricing: "From R45,000 · Scoped after a free Discovery Call",
     href: "/services/custom-ai-solution-build",
     offset: false,
   },
@@ -34,6 +36,7 @@ const services = [
     description:
       "Hands-on training that improves AI output quality, adoption, and team execution.",
     bullets: ["Hands-on workshops", "Prompt engineering", "Workflow automation", "30-day support"],
+    pricing: "From R15,000 · Scoped after a free Discovery Call",
     href: "/services/ai-training-capability-building",
     offset: true,
   },
@@ -42,6 +45,7 @@ const services = [
     description:
       "Ongoing optimization to keep AI performance, compliance, and results on track.",
     bullets: ["Monthly reviews", "Priority support", "Quarterly strategy", "Compliance monitoring"],
+    pricing: "From R8,500/month · Scoped after a free Discovery Call",
     href: "/services/ongoing-ai-support-optimization",
     offset: false,
   },
@@ -97,6 +101,9 @@ export default function ServicesPage() {
 
       <section id="services" className="bg-black pb-section-tab lg:pb-section">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-base text-white/60 max-w-2xl mb-10 lg:mb-14 leading-relaxed">
+            Every engagement is fixed-scope and priced before work begins. We start with a free 30-minute Discovery Call to assess your stack and recommend the right starting point.
+          </p>
           <div className="grid grid-cols-1 xl:grid-cols-12 gap-10 md:gap-12 xl:gap-16">
             <div className="hidden xl:block xl:col-span-3">
               <AshleySpine />
@@ -125,13 +132,14 @@ export default function ServicesPage() {
                     <div className="h-px bg-white/10 mb-4 sm:mb-5" />
                     <p className="copy-card text-white/65 mb-6 min-h-0 md:min-h-[96px]">{service.description}</p>
                     <div className="h-px bg-white/10 mb-2" />
-                    <ul className="mb-6">
+                    <ul className="mb-4">
                       {service.bullets.map((item) => (
                         <li key={item} className="text-[11px] uppercase tracking-[2px] text-white/80 py-3 border-b border-white/10">
                           {item}
                         </li>
                       ))}
                     </ul>
+                    <p className="text-xs text-white/35 mb-6 font-mono">{service.pricing}</p>
                     <div className="inline-flex items-center gap-3 text-xs uppercase tracking-[2px] font-semibold text-action-primary">
                       Explore Service
                       <span className="w-9 h-9 rounded-full bg-[var(--color-brand-accent)] text-white border border-[var(--color-brand-accent)] flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">

@@ -52,6 +52,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Maru Online",
+              "email": "hello@maruonline.com",
+              "telephone": "+27635643263",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Johannesburg",
+                "addressCountry": "ZA",
+              },
+              "areaServed": "South Africa",
+              "url": "https://maruonline.com",
+              "description": "AI integration consulting for South African SMEs. POPIA-compliant implementations that connect your AI tools to measurable revenue outcomes.",
+            }),
+          }}
+        />
+      </head>
       <body
         className={`${outfit.variable} ${inter.variable} antialiased font-sans bg-dark text-white`}
         suppressHydrationWarning

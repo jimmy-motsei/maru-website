@@ -20,11 +20,11 @@ export function Hero() {
           transition={{ duration: 1, ease: [0, 0, 0.3642, 1] }}
           className="mb-12"
         >
-          <span className="uppercase tracking-[2px] text-action-primary text-[14px] font-medium mb-10 block">
-            Trusted AI Implementation Partner for SMEs
-          </span>
+          <h1 className="uppercase tracking-[2px] text-action-primary text-[14px] font-medium mb-10 block">
+            AI Integration Consulting for South African SMEs
+          </h1>
           <SplitHeadline
-            as="h1"
+            as="h2"
             leadingText="You've Invested in AI."
             emphasisText="Now Get the ROI."
             breakBeforeEmphasis={true}

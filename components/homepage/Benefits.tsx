@@ -100,6 +100,11 @@ export function Benefits() {
             );
           })}
         </div>
+
+        {/* Stat attribution */}
+        <p className="mt-10 text-center text-xs text-text-muted">
+          Based on client engagements 2023–2025. Full methodology available on request.
+        </p>
       </div>
     </section>
   );

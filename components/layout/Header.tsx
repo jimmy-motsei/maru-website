@@ -57,6 +57,7 @@ const menuGroups: MenuGroup[] = [
     id: "resources",
     label: "Resources",
     items: [
+      { name: "Resources", href: "/resources" },
       { name: "POPIA AI Checklist", href: "/resources/popia-ai-checklist" },
       { name: "Pricing", href: "/pricing" },
     ],
