@@ -115,6 +115,7 @@ export function WireframePolyhedron({
     }
 
     function draw() {
+      if (!ctx) return;
       ctx.clearRect(0, 0, size, size);
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
