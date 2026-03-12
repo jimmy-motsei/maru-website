@@ -152,21 +152,15 @@ export default function AIImplementationAssessmentPage() {
 
   return (
     <main className="min-h-screen bg-surface text-text-inverse">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/85 backdrop-blur-sm border-b border-border-inverse-subtle">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-5">
-          <Link href="/" className="text-white font-bold text-3xl tracking-tight hover:text-action-primary transition-colors">
-            M.
-          </Link>
-        </div>
-        <div className="h-1 bg-card-dark">
-          <motion.div
-            className="h-full bg-action-primary"
-            initial={{ width: 0 }}
-            animate={{ width: `${progress}%` }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-          />
-        </div>
-      </header>
+      {/* Progress bar — sits below the shared Header */}
+      <div className="fixed top-[60px] left-0 right-0 z-40 h-1 bg-card-dark">
+        <motion.div
+          className="h-full bg-action-primary"
+          initial={{ width: 0 }}
+          animate={{ width: `${progress}%` }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+        />
+      </div>
 
       <div className="pt-32 md:pt-40 pb-16 min-h-screen flex items-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
