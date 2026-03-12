@@ -30,6 +30,7 @@ export function Hero() {
             breakBeforeEmphasis={true}
             breakClassName="block"
             className="text-[32px] sm:text-[38px] md:text-[44px] lg:text-[86px] text-text-inverse"
+            emphasisClassName="text-warm-amber"
           />
         </motion.div>
 
