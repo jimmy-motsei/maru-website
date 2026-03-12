@@ -65,7 +65,7 @@ export function Hero() {
               href="/ai-implementation-assessment"
               className="btn-primary-hero-cta group"
             >
-              Get Your Free AI Implementation Audit
+              Get Your Free AI Integration Audit
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </SafeLink>
           </motion.div>
