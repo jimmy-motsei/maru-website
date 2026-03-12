@@ -39,14 +39,12 @@ export default function AboutContent() {
             className="mb-12"
           >
             <h1 className="maru-headline-split text-[32px] sm:text-[38px] md:text-[44px] lg:text-[86px] leading-[0.95] text-white mb-10 tracking-[-0.02em]">
-              <span className="maru-headline-split-strong">Built </span>
-              <span className="maru-headline-split-light">Different.</span>
+              <span className="maru-headline-split-strong">AI Revenue Systems.</span>
               <br />
-              <span className="maru-headline-split-strong">Built </span>
-              <span className="maru-headline-split-light">for SMEs.</span>
+              <span className="maru-headline-split-light">Built for SMEs.</span>
             </h1>
             <p className="text-lg md:text-2xl text-white/70 max-w-3xl leading-relaxed">
-              We turn disconnected marketing into one revenue system built for SMEs.
+              We implement AI infrastructure for African SMEs — replacing disconnected tools with revenue systems your team can run, measure, and scale.
             </p>
           </motion.div>
 
@@ -81,44 +79,52 @@ export default function AboutContent() {
             {/* Single Column: Text Content */}
             <div className="space-y-8">
               <motion.p className="text-xl leading-relaxed text-black font-semibold" variants={fadeUpVariants}>
-                We saw the same pattern: SMEs buying tools, but not getting outcomes.
+                Maru is an AI implementation consultancy — not a marketing agency, not an AI reseller.
               </motion.p>
 
               <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
-                The core issue was never effort. It was systems design built for enterprise teams, not SME reality.
+                We design and build the systems that connect your AI tools into a single, measurable revenue engine. Our work starts with an honest audit of what you already have — and ends with infrastructure your team can actually run.
               </motion.p>
 
-              <motion.ul className="space-y-3 text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
-                <li>We map where revenue leaks first.</li>
-                <li>We simplify workflows before adding tools.</li>
-                <li>We implement AI with POPIA-aware guardrails.</li>
-                <li>We focus on measurable gains, not AI hype.</li>
+              <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
+                Maru was founded by Jimmy Motsei — a marketing and revenue systems practitioner with 20+ years of experience working with SMEs across South Africa. What started as revenue consulting evolved into AI implementation as the tools matured enough to deliver what strategy alone couldn&apos;t.
+              </motion.p>
+
+              <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
+                Today, Maru operates as a focused team of specialists — combining AI implementation expertise with deep SME market knowledge. We work closely with a select number of clients at a time, so the work is always done properly.
+              </motion.p>
+
+              <motion.ul className="space-y-3 text-lg leading-relaxed text-black/80 pl-4 border-l-2 border-[var(--color-brand-accent)]" variants={fadeUpVariants}>
+                <li>We audit your current stack before recommending anything new.</li>
+                <li>We design revenue systems, not standalone automations.</li>
+                <li>We implement with POPIA-aware data guardrails.</li>
+                <li>We measure business outcomes, not tool adoption.</li>
               </motion.ul>
 
               <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
-                Today, Maru helps South African SMEs run clearer, faster, revenue-focused systems.
+                If you&apos;re buying AI tools and not getting ROI — the problem isn&apos;t the tools.
               </motion.p>
 
-              {/* Quote Block - Relocated to end */}
-              <motion.div 
+              {/* Quote Block */}
+              <motion.div
                 className="mt-16 flex flex-col sm:flex-row sm:items-center gap-6 rounded-3xl bg-card-dark border border-white/10 p-8 md:p-10"
                 variants={fadeUpVariants}
               >
                 <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full ring-2 ring-[var(--color-brand-accent)]/50">
-                  <Image 
-                    src="/images/brand/founder.jpg" 
-                    alt="Founder" 
+                  <Image
+                    src="/images/brand/founder.jpg"
+                    alt="Jimmy Motsei, Founder of Maru Online"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div>
                   <p className="text-xl md:text-2xl leading-snug text-white mb-3 maru-headline-split">
-                    "<span className="maru-headline-split-strong">We solve</span> <span className="maru-headline-split-light">marketing problems with</span> <span className="maru-headline-split-strong">AI precision</span><span className="maru-headline-split-light">, not AI hype.</span>"
+                    &ldquo;<span className="maru-headline-split-strong">We solve</span> <span className="maru-headline-split-light">marketing problems using</span> <span className="maru-headline-split-strong">AI intelligence</span><span className="maru-headline-split-light">—not AI hype.</span>&rdquo;
                   </p>
                   <p className="text-sm text-white/70 font-medium">
-                    Founder - Jimmy Motsei
-                  </p>                  
+                    Jimmy Motsei — Founder, Maru Online
+                  </p>
                 </div>
               </motion.div>
             </div>
