@@ -83,7 +83,7 @@ export default function PricingPage() {
               }`}
             >
               {service.label && (
-                <div className="absolute -top-4 left-8 rounded-full bg-accent px-3 py-1 text-xs font-semibold leading-5 text-dark shadow-sm">
+                <div className="absolute -top-4 left-8 rounded-full bg-[#E8A020] px-3 py-1 text-xs font-semibold leading-5 text-dark shadow-sm">
                   {service.label}
                 </div>
               )}
