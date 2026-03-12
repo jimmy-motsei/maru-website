@@ -13,7 +13,7 @@ const services = [
     label: "Start Here",
     name: "AI Revenue Diagnostic",
     price: "From R25,000",
-    priceNote: "Fixed-scope. Typically 2 weeks.",
+    priceNote: "Fixed-scope · Typically 2 weeks",
     description:
       "A focused audit of your AI tools, workflows, and data flows. You get a prioritised integration roadmap and quick wins you can act on in 30 days — whether you hire us or not.",
     featured: false,
@@ -23,7 +23,7 @@ const services = [
     label: "Most Common",
     name: "Custom AI Solution Build",
     price: "From R45,000",
-    priceNote: "Fixed-scope. Typically 4–8 weeks depending on complexity.",
+    priceNote: "Fixed-scope · Typically 4–8 weeks",
     description:
       "Custom AI integration built for your existing stack. We design the architecture, build the connections, configure the behaviours, and test across the full system.",
     featured: true,
@@ -33,7 +33,7 @@ const services = [
     label: "",
     name: "AI Training & Capability Building",
     price: "From R15,000",
-    priceNote: "Fixed-scope. Typically 2 weeks.",
+    priceNote: "Fixed-scope · Typically 2 weeks",
     description:
       "Hands-on training so your team can run, improve, and own your AI systems. Includes prompt engineering, workflow walkthroughs, and 30 days of follow-up support.",
     featured: false,
@@ -43,7 +43,7 @@ const services = [
     label: "",
     name: "Ongoing AI Support & Optimisation",
     price: "From R8,500/month",
-    priceNote: "Monthly retainer. Minimum 3-month commitment.",
+    priceNote: "Monthly retainer · Minimum 3-month commitment",
     description:
       "Monthly optimisation retainer. Monthly performance reviews, priority support, quarterly strategy sessions, and compliance monitoring. Available after initial implementation.",
     featured: false,

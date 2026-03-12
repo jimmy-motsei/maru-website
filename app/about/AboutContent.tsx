@@ -78,7 +78,7 @@ export default function AboutContent() {
           >
             <div className="space-y-8">
               <motion.p className="text-xl leading-relaxed text-black font-semibold" variants={fadeUpVariants}>
-                Most businesses have now invested in AI tools. CRMs with AI scoring. Marketing platforms with automation. Customer service bots. Proposal generators. The tools are real, the spend is real — but for most SMEs, the revenue impact isn&apos;t.
+                Most businesses have now invested in AI tools — CRMs with AI scoring, marketing platforms with automation, customer service bots, proposal generators. The tools are real, the spend is real. But for most SMEs, the revenue impact isn&apos;t.
               </motion.p>
 
               <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
@@ -90,7 +90,7 @@ export default function AboutContent() {
               </motion.p>
 
               <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
-                Our approach is structured, not improvised. Every engagement follows the same four-stage path: Audit, Architect, Integrate, Hand Over. We build systems your team can own and run without us. An AI system that depends on its implementor to function is a liability, not an asset.
+                Our approach is structured, not improvised. Every engagement follows the same four-stage path: Audit, Architect, Integrate, Hand Over. We build systems your team can own and run independently. An AI system that depends on its implementor to function is a liability, not an asset.
               </motion.p>
 
               <motion.p className="text-lg leading-relaxed text-black/80" variants={fadeUpVariants}>
