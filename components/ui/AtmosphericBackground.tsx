@@ -65,24 +65,9 @@ export function AtmosphericBackground({ variant = "hero", className, theme: _the
     );
   }
 
-  // Hero / Default: Spinning dodecahedron wireframes — positions matched to Ashley reference
+  // Hero / Default: Single dominant dodecahedron — top-right corner
   return (
     <div className={cn("absolute inset-0 pointer-events-none overflow-hidden select-none", className)}>
-      {/* Top-left: center ~(240px, 60px) — bottom-right quadrant visible */}
-      <div className="absolute" style={{ top: "-200px", left: "-20px" }}>
-        <WireframePolyhedron
-          size={520}
-          color="rgb(130, 130, 130)"
-          strokeWidth={2.0}
-          opacity={0.9}
-          speedX={0.0009}
-          speedY={0.0007}
-          speedZ={0.0005}
-          initX={1.2}
-          initY={0.8}
-        />
-      </div>
-
       {/* Top-right: large, center ~(1300px, 250px) on 1440px — dominant corner piece */}
       <div className="absolute" style={{ top: "-210px", right: "-330px" }}>
         <WireframePolyhedron
@@ -94,21 +79,6 @@ export function AtmosphericBackground({ variant = "hero", className, theme: _the
           speedY={0.0013}
           speedZ={0.0003}
           initY={0.5}
-        />
-      </div>
-
-      {/* Bottom-center-right: center ~(880px, 740px) — top portion visible */}
-      <div className="absolute" style={{ bottom: "-300px", left: "560px" }}>
-        <WireframePolyhedron
-          size={640}
-          color="rgb(130, 130, 130)"
-          strokeWidth={1.8}
-          opacity={0.9}
-          speedX={0.0005}
-          speedY={0.0010}
-          speedZ={0.0006}
-          initZ={0.7}
-          initX={2.1}
         />
       </div>
     </div>
