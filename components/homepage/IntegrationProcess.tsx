@@ -9,43 +9,33 @@ import { SplitHeadline } from "@/components/ui/SplitHeadline";
 interface Stage {
   step: string;
   title: string;
-  timeline: string;
   description: string;
-  cta: { label: string; href: string };
 }
 
 const STAGES: Stage[] = [
   {
     step: "01",
     title: "Audit",
-    timeline: "2 weeks",
     description:
-      "We map your existing tech stack, data flows, and workflow touchpoints to find every place AI should be producing revenue — and isn't. You get a plain-language gap report with prioritised fixes.",
-    cta: { label: "Start with a Free Audit", href: "/ai-implementation-assessment" },
+      "Map your stack and data flows. Find every place AI should be producing revenue — and isn't. You get a plain-language gap report with prioritised fixes.",
   },
   {
     step: "02",
     title: "Architect",
-    timeline: "1–2 weeks",
     description:
-      "Before we build anything, we design the integration architecture: which tools connect, how data moves between them, and what success metrics we'll track. No surprises mid-build.",
-    cta: { label: "See How We Plan", href: "/services/ai-revenue-diagnostic" },
+      "Design the integration before we build anything. Define which tools connect and how data moves between them. No surprises mid-build.",
   },
   {
     step: "03",
     title: "Integrate",
-    timeline: "4–8 weeks",
     description:
-      "We build the connections, configure the AI behaviours, and test each handoff point. Every integration is validated against your revenue KPIs before we move to the next layer.",
-    cta: { label: "See How We Build", href: "/services/custom-ai-solution-build" },
+      "Build the connections and configure AI behaviours. Test every handoff against your revenue KPIs. Nothing ships until it works.",
   },
   {
     step: "04",
     title: "Hand Over",
-    timeline: "2 weeks",
     description:
-      "We train your team to own, manage, and evolve the integrated system. You receive runbooks, escalation protocols, and a 90-day optimisation schedule so results compound over time.",
-    cta: { label: "See How We Train", href: "/services/ai-training-capability-building" },
+      "Train your team to own and evolve the system. Receive runbooks and a 90-day optimisation schedule. Results compound over time.",
   },
 ];
 
@@ -129,7 +119,7 @@ export function IntegrationProcess() {
                   {stage.title}
                 </h3>
 
-                {/* Expandable content */}
+                {/* Expandable description */}
                 <AnimatePresence initial={false}>
                   {isActive && (
                     <motion.div
@@ -140,19 +130,9 @@ export function IntegrationProcess() {
                       transition={{ duration: 0.35, ease: [0, 0, 0.3642, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="text-[14px] text-white/70 leading-relaxed mb-3">
+                      <p className="text-[14px] leading-relaxed text-[rgb(130,130,130)]">
                         {stage.description}
                       </p>
-                      <p className="text-[11px] text-white/40 uppercase tracking-[2px] mb-6">
-                        Timeline: {stage.timeline}
-                      </p>
-                      <Link
-                        href={stage.cta.href}
-                        className="inline-flex items-center gap-2 bg-action-primary text-[#0d1b2a] text-[12px] font-medium uppercase tracking-[2px] px-4 py-2 rounded-full hover:opacity-90 transition-opacity"
-                      >
-                        {stage.cta.label}
-                        <ArrowRight className="w-3 h-3" />
-                      </Link>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -168,6 +148,17 @@ export function IntegrationProcess() {
               </div>
             );
           })}
+        </div>
+
+        {/* Single CTA below grid */}
+        <div className="mt-10 text-center">
+          <Link
+            href="/ai-implementation-assessment"
+            className="inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[2px] text-action-primary hover:opacity-70 transition-opacity duration-300"
+          >
+            Get your free integration audit
+            <ArrowRight className="w-3 h-3" />
+          </Link>
         </div>
       </div>
     </section>
