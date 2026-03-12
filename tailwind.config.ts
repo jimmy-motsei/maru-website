@@ -38,6 +38,11 @@ const config: Config = {
         'container-x': '30px',  // horizontal container padding
         'grid-gap': '30px',     // standard grid gap
       },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-outfit)', 'Outfit', 'Inter', 'sans-serif'],
+        display: ['var(--font-outfit)', 'Outfit', 'Inter', 'sans-serif'],
+      },
       fontWeight: {
         'body': '300',    // base body copy weight
         'eyebrow': '500', // eyebrow / label weight

@@ -149,7 +149,7 @@
   }
 
   .btn-primary-hero-cta:hover {
-    transform: translateY(-1px) scale(1.01);
+    transform: translateY(-3px) scale(1.03);
     box-shadow: var(--cta-shadow-hover);
     opacity: var(--cta-primary-hover-opacity);
   }

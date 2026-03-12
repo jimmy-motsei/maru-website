@@ -1,6 +1,7 @@
 "use client";
 
 import { CloudWireframe } from "@/components/ui/CloudWireframe";
+import { WireframePolyhedron } from "@/components/ui/WireframePolyhedron";
 import { cn } from "@/lib/utils";
 
 interface AtmosphericBackgroundProps {
@@ -64,64 +65,51 @@ export function AtmosphericBackground({ variant = "hero", className, theme: _the
     );
   }
 
-  // Hero / Default: Full screen, 3 layers
+  // Hero / Default: Spinning dodecahedron wireframes — positions matched to Ashley reference
   return (
     <div className={cn("absolute inset-0 pointer-events-none overflow-hidden select-none", className)}>
-      {/* LAYER 1: BACK */}
-      <div className="absolute inset-0 z-0">
-         <div className="absolute top-[-10%] left-[-10%] opacity-[0.43]">
-            <CloudWireframe className={cn("w-[1320px] h-[880px] rotate-6 text-white", className?.includes("text-") ? "" : "")} duration={60} delay={0} />
-         </div>
-         <div className="absolute bottom-[-10%] right-[-10%] opacity-[0.43]">
-            <CloudWireframe className="w-[1320px] h-[880px] -rotate-6 text-white" duration={65} delay={5} />
-         </div>
-         <div className="absolute top-[20%] left-[20%] opacity-[0.43]">
-            <CloudWireframe className="w-[1100px] h-[770px] rotate-12 text-white" duration={62} delay={2} />
-         </div>
+      {/* Top-left: center ~(240px, 60px) — bottom-right quadrant visible */}
+      <div className="absolute" style={{ top: "-200px", left: "-20px" }}>
+        <WireframePolyhedron
+          size={520}
+          color="rgb(130, 130, 130)"
+          strokeWidth={2.0}
+          opacity={0.9}
+          speedX={0.0009}
+          speedY={0.0007}
+          speedZ={0.0005}
+          initX={1.2}
+          initY={0.8}
+        />
       </div>
 
-      {/* LAYER 2: MIDDLE */}
-      <div className="absolute inset-0 z-10">
-         <div className="absolute top-[-5%] right-[10%] opacity-[0.61]">
-            <CloudWireframe className="w-[990px] h-[660px] -rotate-12 text-white" duration={45} delay={1} />
-         </div>
-         <div className="absolute bottom-[10%] left-[-5%] opacity-[0.61]">
-            <CloudWireframe className="w-[1045px] h-[715px] rotate-3 text-white" duration={48} delay={3} />
-         </div>
-         <div className="absolute top-[30%] right-[-5%] opacity-[0.61]">
-            <CloudWireframe className="w-[935px] h-[605px] rotate-180 text-white" duration={42} delay={6} />
-         </div>
+      {/* Top-right: large, center ~(1300px, 250px) on 1440px — dominant corner piece */}
+      <div className="absolute" style={{ top: "-210px", right: "-330px" }}>
+        <WireframePolyhedron
+          size={920}
+          color="rgb(130, 130, 130)"
+          strokeWidth={2.4}
+          opacity={0.9}
+          speedX={0.0006}
+          speedY={0.0013}
+          speedZ={0.0003}
+          initY={0.5}
+        />
       </div>
 
-      {/* LAYER 3: FRONT */}
-      <div className="absolute inset-0 z-20">
-         <div className="absolute top-[10%] left-[5%] opacity-[0.73]">
-            <CloudWireframe 
-               className={cn("w-[550px] h-[385px] rotate-12", strokeColor)} 
-               duration={30} 
-               delay={0} 
-               strokeWidth={2.2} 
-               showNodes={true}
-            />
-         </div>
-         <div className="absolute bottom-[20%] right-[15%] opacity-[0.73]">
-            <CloudWireframe 
-               className={cn("w-[660px] h-[440px] -rotate-6 scale-x-[-1]", strokeColor)} 
-               duration={32} 
-               delay={2}
-               strokeWidth={2.2}
-               showNodes={true}
-            />
-         </div>
-          <div className="absolute top-[50%] left-[-10%] opacity-[0.73]">
-            <CloudWireframe 
-               className={cn("w-[605px] h-[418px] rotate-45", strokeColor)} 
-               duration={28} 
-               delay={4}
-               strokeWidth={2.2}
-               showNodes={true}
-            />
-         </div>
+      {/* Bottom-center-right: center ~(880px, 740px) — top portion visible */}
+      <div className="absolute" style={{ bottom: "-300px", left: "560px" }}>
+        <WireframePolyhedron
+          size={640}
+          color="rgb(130, 130, 130)"
+          strokeWidth={1.8}
+          opacity={0.9}
+          speedX={0.0005}
+          speedY={0.0010}
+          speedZ={0.0006}
+          initZ={0.7}
+          initX={2.1}
+        />
       </div>
     </div>
   );

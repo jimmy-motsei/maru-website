@@ -39,7 +39,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: [0, 0, 0.3642, 1] }}
-            className="text-[14px] font-heading font-medium text-action-primary mb-12 leading-relaxed"
+            className="text-lg leading-8 text-slate-400 font-sans font-normal mb-12"
           >
             We turn disconnected AI tools into one revenue system your team can run, measure, and scale.
           </motion.p>
@@ -50,7 +50,7 @@ export function Hero() {
               "Prioritize revenue leaks by impact and implementation speed",
               "Operationalize AI with workflows your team can maintain",
             ].map((item) => (
-              <li key={item} className="text-[15px] text-text-inverse-muted">
+              <li key={item} className="text-lg leading-8 text-slate-400 font-sans">
                 {item}
               </li>
             ))}

@@ -129,3 +129,11 @@
   --cta-shadow-hover: 0 14px 30px rgba(4, 179, 204, 0.35);
   --cta-outline-shadow-hover: 0 12px 26px rgba(4, 179, 204, 0.25);
 }
+
+body {
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-outfit), "Outfit", sans-serif;
+}
