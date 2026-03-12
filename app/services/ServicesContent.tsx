@@ -76,13 +76,16 @@ export default function ServicesPage() {
 
           <motion.div initial="hidden" animate="visible" variants={staggerContainerVariants} className="max-w-4xl">
             <motion.div variants={fadeUpVariants}>
-              <h1 className="maru-headline-split text-[32px] sm:text-[38px] md:text-[44px] lg:text-[86px] leading-[0.95] text-white mb-12 md:mb-16 tracking-[-0.02em]">
-                <span className="maru-headline-split-strong">This is </span>
-                <span className="maru-headline-split-light">what</span>
+              <h1 className="maru-headline-split text-[32px] sm:text-[38px] md:text-[44px] lg:text-[86px] leading-[0.95] text-white mb-6 md:mb-8 tracking-[-0.02em]">
+                <span className="maru-headline-split-light">AI Tools Don&apos;t </span>
+                <span className="maru-headline-split-strong">Create ROI.</span>
                 <br />
-                <span className="maru-headline-split-strong">we do </span>
-                <span className="maru-headline-split-light">best</span>
+                <span className="maru-headline-split-strong">Integrated AI </span>
+                <span className="maru-headline-split-light">Systems Do.</span>
               </h1>
+              <p className="text-base sm:text-lg text-white/60 max-w-2xl mb-12 md:mb-16 leading-relaxed">
+                Four structured services. One integrated system. Built for your stack, your team, and your revenue targets.
+              </p>
             </motion.div>
 
             <motion.a

@@ -2,9 +2,8 @@ import { Metadata } from "next";
 import ServicesContent from "./ServicesContent";
 
 export const metadata: Metadata = {
-  title: "AI & Automation Services | Maru Online",
-  description: "Explore our AI solutions: Lead Generation, CRM Automation, Office Ops, and Multi-Channel Follow-Up automation designed for growth.",
-  // description: "Explore our AI solutions: Lead Generation, CRM Automation, Office Ops, and WhatsApp Chatbots designed for growth.",
+  title: "AI Integration Services for South African SMEs | Maru Online",
+  description: "Four structured services to turn your existing AI tools into a connected revenue system. Fixed-scope engagements from R25,000. POPIA-compliant by design.",
 };
 
 export default function ServicesPage() {
