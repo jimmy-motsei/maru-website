@@ -1,9 +1,9 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import Button from "@/components/ui/Button";
 import CardNavy from "@/components/ui/CardNavy";
 import ListItem from "@/components/ui/ListItem";
 import ListGroup from "@/components/ui/ListGroup";
+import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 
 export const metadata: Metadata = {
   title: "Services | Maru Online",
@@ -114,31 +114,39 @@ export default function ServicesPage() {
           }}
         />
         <div className={inner}>
-          <span className="label-eyebrow">Services</span>
-          <h1>
-            AI tools don&apos;t create ROI.<br />
-            Integrated AI systems do.
-          </h1>
-          <p
-            className="font-body font-light text-lg max-w-[600px]"
-            style={{
-              color: "var(--color-ink-inverted-muted)",
-              marginBottom: "var(--space-section-header-mb)",
-              lineHeight: "var(--leading-body)",
-            }}
-          >
-            Four structured services. One integrated system. Built for your
-            stack, your team, and your revenue targets. Every engagement is
-            fixed-scope and priced before work begins.
-          </p>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <Button href="/contact" variant="primary">
-              Start with a diagnostic
-            </Button>
-            <Button href="#services" variant="tertiary">
-              See all services
-            </Button>
-          </div>
+          <FadeUp>
+            <span className="label-eyebrow">Services</span>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <h1>
+              AI tools don&apos;t create ROI.<br />
+              Integrated AI systems do.
+            </h1>
+          </FadeUp>
+          <FadeUp delay={0.16}>
+            <p
+              className="font-body font-light text-lg max-w-[600px]"
+              style={{
+                color: "var(--color-ink-inverted-muted)",
+                marginBottom: "var(--space-section-header-mb)",
+                lineHeight: "var(--leading-body)",
+              }}
+            >
+              Four structured services. One integrated system. Built for your
+              stack, your team, and your revenue targets. Every engagement is
+              fixed-scope and priced before work begins.
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.24}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              <Button href="/contact" variant="primary">
+                Start with a diagnostic
+              </Button>
+              <Button href="#services" variant="tertiary">
+                See all services
+              </Button>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -150,21 +158,23 @@ export default function ServicesPage() {
         style={{ backgroundColor: "var(--color-bg-secondary)" }}
       >
         <div className={innerNarrow}>
-          <p
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "var(--text-h3-serif)",
-              fontWeight: 400,
-              lineHeight: "var(--leading-subheading)",
-              color: "var(--color-ink-primary)",
-              letterSpacing: "var(--tracking-tight)",
-              margin: 0,
-            }}
-          >
-            Every engagement is fixed-scope and priced before work begins. We
-            start with a diagnostic so you know exactly what&apos;s broken — and
-            what fixing it is worth — before you commit to anything.
-          </p>
+          <FadeUp>
+            <p
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "var(--text-h3-serif)",
+                fontWeight: 400,
+                lineHeight: "var(--leading-subheading)",
+                color: "var(--color-ink-primary)",
+                letterSpacing: "var(--tracking-tight)",
+                margin: 0,
+              }}
+            >
+              Every engagement is fixed-scope and priced before work begins. We
+              start with a diagnostic so you know exactly what&apos;s broken — and
+              what fixing it is worth — before you commit to anything.
+            </p>
+          </FadeUp>
         </div>
       </section>
 
@@ -180,98 +190,102 @@ export default function ServicesPage() {
         >
           <div className={inner}>
             {/* Header */}
-            <div style={{ marginBottom: "var(--space-section-header-mb)" }}>
-              <span
-                className="label-eyebrow-gold"
-                style={{ marginBottom: "0.75rem" }}
-              >
-                {service.label} — {service.title}
-              </span>
-              <h2>{service.title}</h2>
-              <p
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "var(--text-h3-serif)",
-                  fontWeight: 400,
-                  lineHeight: "var(--leading-subheading)",
-                  color: "var(--color-ink-primary)",
-                  letterSpacing: "var(--tracking-tight)",
-                  margin: 0,
-                }}
-              >
-                {service.tagline}
-              </p>
-            </div>
-
-            {/* 2-col: description + bullets */}
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-12 md:gap-16 items-start">
-              {/* Left — description + pricing */}
-              <div>
-                <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-                  {service.description}
-                </p>
-
-                {/* Pricing block */}
-                <div
+            <FadeUp>
+              <div style={{ marginBottom: "var(--space-section-header-mb)" }}>
+                <span
+                  className="label-eyebrow-gold"
+                  style={{ marginBottom: "0.75rem" }}
+                >
+                  {service.label} — {service.title}
+                </span>
+                <h2>{service.title}</h2>
+                <p
                   style={{
-                    borderTop: "1px solid var(--color-border-default)",
-                    paddingTop: "1.25rem",
+                    fontFamily: "var(--font-display)",
+                    fontSize: "var(--text-h3-serif)",
+                    fontWeight: 400,
+                    lineHeight: "var(--leading-subheading)",
+                    color: "var(--color-ink-primary)",
+                    letterSpacing: "var(--tracking-tight)",
+                    margin: 0,
                   }}
                 >
-                  <p
+                  {service.tagline}
+                </p>
+              </div>
+            </FadeUp>
+
+            {/* 2-col: description + bullets */}
+            <FadeUp delay={0.08}>
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-12 md:gap-16 items-start">
+                {/* Left — description + pricing */}
+                <div>
+                  <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
+                    {service.description}
+                  </p>
+
+                  {/* Pricing block */}
+                  <div
                     style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "1.75rem",
-                      fontWeight: 600,
-                      color: "var(--color-navy)",
-                      lineHeight: 1,
-                      marginBottom: "0.375rem",
+                      borderTop: "1px solid var(--color-border-default)",
+                      paddingTop: "1.25rem",
                     }}
                   >
-                    {service.pricing}
-                  </p>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: "1.75rem",
+                        fontWeight: 600,
+                        color: "var(--color-navy)",
+                        lineHeight: 1,
+                        marginBottom: "0.375rem",
+                      }}
+                    >
+                      {service.pricing}
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-body)",
+                        fontSize: "var(--text-meta)",
+                        fontWeight: 300,
+                        color: "var(--color-ink-tertiary)",
+                        margin: 0,
+                      }}
+                    >
+                      {service.note}
+                    </p>
+                  </div>
+
+                  <div style={{ marginTop: "1.5rem" }}>
+                    <Button href={service.href} variant="secondary">
+                      Learn more
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Right — what's included */}
+                <div>
                   <p
                     style={{
                       fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-meta)",
-                      fontWeight: 300,
+                      fontSize: "var(--text-label)",
+                      fontWeight: 500,
+                      letterSpacing: "var(--tracking-eyebrow)",
+                      textTransform: "uppercase",
                       color: "var(--color-ink-tertiary)",
-                      margin: 0,
+                      marginBottom: "0.75rem",
                     }}
                   >
-                    {service.note}
+                    What&apos;s included
                   </p>
-                </div>
-
-                <div style={{ marginTop: "1.5rem" }}>
-                  <Button href={service.href} variant="secondary">
-                    Learn more
-                  </Button>
+                  <ListGroup>
+                    {service.bullets.map((b) => (
+                      <ListItem key={b.leader} leader={b.leader} body={b.body} />
+                    ))}
+                  </ListGroup>
                 </div>
               </div>
-
-              {/* Right — what's included */}
-              <div>
-                <p
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "var(--text-label)",
-                    fontWeight: 500,
-                    letterSpacing: "var(--tracking-eyebrow)",
-                    textTransform: "uppercase",
-                    color: "var(--color-ink-tertiary)",
-                    marginBottom: "0.75rem",
-                  }}
-                >
-                  What&apos;s included
-                </p>
-                <ListGroup>
-                  {service.bullets.map((b) => (
-                    <ListItem key={b.leader} leader={b.leader} body={b.body} />
-                  ))}
-                </ListGroup>
-              </div>
-            </div>
+            </FadeUp>
           </div>
         </section>
       ))}
@@ -284,42 +298,46 @@ export default function ServicesPage() {
         style={{ backgroundColor: "var(--color-bg-secondary)" }}
       >
         <div className={inner}>
-          <h2>What clients say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
-            <CardNavy label="Client" title="Sound Studio, Johannesburg">
-              <p>
-                &ldquo;Since the site went live we&apos;ve been getting more
-                business opportunities than before.&rdquo;
-              </p>
-              <p
-                style={{
-                  marginTop: "0.75rem",
-                  marginBottom: 0,
-                  fontSize: "var(--text-meta)",
-                  color: "rgba(250,250,248,0.5)",
-                }}
-              >
-                — Founder, Sound Studio (Johannesburg)
-              </p>
-            </CardNavy>
-            <CardNavy label="Client" title="Seokane Inc">
-              <p>
-                &ldquo;[Seokane Inc quote about quality of work and brand
-                capture]&rdquo;
-              </p>
-              <p
-                style={{
-                  marginTop: "0.75rem",
-                  marginBottom: 0,
-                  fontSize: "var(--text-meta)",
-                  color: "rgba(250,250,248,0.5)",
-                }}
-              >
-                — [Name], Seokane Inc ·{" "}
-                <em>Placeholder — replace on receipt</em>
-              </p>
-            </CardNavy>
-          </div>
+          <FadeUp><h2>What clients say</h2></FadeUp>
+          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+            <StaggerChild>
+              <CardNavy label="Client" title="Sound Studio, Johannesburg">
+                <p>
+                  &ldquo;Since the site went live we&apos;ve been getting more
+                  business opportunities than before.&rdquo;
+                </p>
+                <p
+                  style={{
+                    marginTop: "0.75rem",
+                    marginBottom: 0,
+                    fontSize: "var(--text-meta)",
+                    color: "rgba(250,250,248,0.5)",
+                  }}
+                >
+                  — Founder, Sound Studio (Johannesburg)
+                </p>
+              </CardNavy>
+            </StaggerChild>
+            <StaggerChild>
+              <CardNavy label="Client" title="Seokane Inc">
+                <p>
+                  &ldquo;[Seokane Inc quote about quality of work and brand
+                  capture]&rdquo;
+                </p>
+                <p
+                  style={{
+                    marginTop: "0.75rem",
+                    marginBottom: 0,
+                    fontSize: "var(--text-meta)",
+                    color: "rgba(250,250,248,0.5)",
+                  }}
+                >
+                  — [Name], Seokane Inc ·{" "}
+                  <em>Placeholder — replace on receipt</em>
+                </p>
+              </CardNavy>
+            </StaggerChild>
+          </StaggerParent>
         </div>
       </section>
 
@@ -344,37 +362,43 @@ export default function ServicesPage() {
           }}
         />
         <div className={innerNarrow}>
-          <span className="label-eyebrow">Not sure where to start?</span>
-          <h2
-            style={{
-              color: "var(--color-ink-inverted)",
-              border: "none",
-              padding: 0,
-              marginBottom: "var(--space-heading-body)",
-            }}
-          >
-            The diagnostic is the right first step — for every business.
-          </h2>
-          <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-            We don&apos;t recommend a service until we know what your business
-            actually needs. The diagnostic gives us — and you — a clear picture
-            before any further commitment is made.
-          </p>
-          <hr
-            className="rule"
-            style={{
-              background: "rgba(250,250,248,0.15)",
-              marginBottom: "var(--space-para-section)",
-            }}
-          />
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <Button href="/contact" variant="primary">
-              Start with a diagnostic
-            </Button>
-            <Button href="/booking" variant="tertiary">
-              Book a 20-minute call — no pitch
-            </Button>
-          </div>
+          <FadeUp>
+            <span className="label-eyebrow">Not sure where to start?</span>
+            <h2
+              style={{
+                color: "var(--color-ink-inverted)",
+                border: "none",
+                padding: 0,
+                marginBottom: "var(--space-heading-body)",
+              }}
+            >
+              The diagnostic is the right first step — for every business.
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
+              We don&apos;t recommend a service until we know what your business
+              actually needs. The diagnostic gives us — and you — a clear picture
+              before any further commitment is made.
+            </p>
+            <hr
+              className="rule"
+              style={{
+                background: "rgba(250,250,248,0.15)",
+                marginBottom: "var(--space-para-section)",
+              }}
+            />
+          </FadeUp>
+          <FadeUp delay={0.14}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <Button href="/contact" variant="primary">
+                Start with a diagnostic
+              </Button>
+              <Button href="/booking" variant="tertiary">
+                Book a 20-minute call — no pitch
+              </Button>
+            </div>
+          </FadeUp>
         </div>
       </section>
     </>

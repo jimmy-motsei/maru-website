@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Button from '@/components/ui/Button'
 import ListItem from '@/components/ui/ListItem'
 import ListGroup from '@/components/ui/ListGroup'
+import { FadeUp, StaggerParent, StaggerChild } from '@/components/ui/Animate'
 
 export const metadata: Metadata = {
   title:       'Pricing | Maru Online',
@@ -156,31 +157,39 @@ export default function PricingPage() {
           }}
         />
         <div className={inner}>
-          <span className="label-eyebrow">Pricing</span>
-          <h1>
-            Fixed-scope.<br />
-            Priced before work begins.
-          </h1>
-          <p
-            className="font-body font-light text-lg max-w-[600px]"
-            style={{
-              color:        'var(--color-ink-inverted-muted)',
-              marginBottom: 'var(--space-section-header-mb)',
-              lineHeight:   'var(--leading-body)',
-            }}
-          >
-            Every engagement is scoped to your specific stack, team, and
-            revenue targets. You know the full cost before we start — no
-            hourly billing, no scope creep, no surprises.
-          </p>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <Button href="/contact" variant="primary">
-              Start with a diagnostic
-            </Button>
-            <Button href="#engagements" variant="tertiary">
-              See all pricing
-            </Button>
-          </div>
+          <FadeUp>
+            <span className="label-eyebrow">Pricing</span>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <h1>
+              Fixed-scope.<br />
+              Priced before work begins.
+            </h1>
+          </FadeUp>
+          <FadeUp delay={0.16}>
+            <p
+              className="font-body font-light text-lg max-w-[600px]"
+              style={{
+                color:        'var(--color-ink-inverted-muted)',
+                marginBottom: 'var(--space-section-header-mb)',
+                lineHeight:   'var(--leading-body)',
+              }}
+            >
+              Every engagement is scoped to your specific stack, team, and
+              revenue targets. You know the full cost before we start — no
+              hourly billing, no scope creep, no surprises.
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.22}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              <Button href="/contact" variant="primary">
+                Start with a diagnostic
+              </Button>
+              <Button href="#engagements" variant="tertiary">
+                See all pricing
+              </Button>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -192,22 +201,24 @@ export default function PricingPage() {
         style={{ backgroundColor: 'var(--color-bg-secondary)' }}
       >
         <div className={innerNarrow}>
-          <p
-            style={{
-              fontFamily:    'var(--font-display)',
-              fontSize:      'var(--text-h3-serif)',
-              fontWeight:    400,
-              lineHeight:    'var(--leading-subheading)',
-              color:         'var(--color-ink-primary)',
-              letterSpacing: 'var(--tracking-tight)',
-              margin:        0,
-            }}
-          >
-            We don&apos;t quote until we understand the problem. The diagnostic
-            is how we scope every engagement — it protects you from buying work
-            that won&apos;t move the needle, and it means the price we give you
-            is real.
-          </p>
+          <FadeUp>
+            <p
+              style={{
+                fontFamily:    'var(--font-display)',
+                fontSize:      'var(--text-h3-serif)',
+                fontWeight:    400,
+                lineHeight:    'var(--leading-subheading)',
+                color:         'var(--color-ink-primary)',
+                letterSpacing: 'var(--tracking-tight)',
+                margin:        0,
+              }}
+            >
+              We don&apos;t quote until we understand the problem. The diagnostic
+              is how we scope every engagement — it protects you from buying work
+              that won&apos;t move the needle, and it means the price we give you
+              is real.
+            </p>
+          </FadeUp>
         </div>
       </section>
 
@@ -220,139 +231,142 @@ export default function PricingPage() {
         style={{ backgroundColor: 'var(--color-bg-primary)' }}
       >
         <div className={inner}>
-          <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-            <span className="label-eyebrow-gold">Engagements</span>
-            <h2>Project-based work</h2>
-            <p
-              className="body-muted"
-              style={{ margin: 0, maxWidth: '560px' }}
-            >
-              All three are fixed-scope. Start with the diagnostic — the other
-              two are scoped from what it finds.
-            </p>
-          </div>
+          <FadeUp>
+            <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
+              <span className="label-eyebrow-gold">Engagements</span>
+              <h2>Project-based work</h2>
+              <p
+                className="body-muted"
+                style={{ margin: 0, maxWidth: '560px' }}
+              >
+                All three are fixed-scope. Start with the diagnostic — the other
+                two are scoped from what it finds.
+              </p>
+            </div>
+          </FadeUp>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
             {engagements.map((eng) => (
-              <div
-                key={eng.id}
-                style={{
-                  backgroundColor: eng.featured ? 'var(--color-bg-canvas)' : 'var(--color-bg-primary)',
-                  border:          eng.featured
-                    ? '1px solid var(--color-cyan)'
-                    : '1px solid var(--color-border-default)',
-                  borderRadius:    '8px',
-                  overflow:        'hidden',
-                }}
-              >
-                {/* Card header */}
+              <FadeUp key={eng.id}>
                 <div
                   style={{
-                    display:         'flex',
-                    alignItems:      'flex-start',
-                    justifyContent:  'space-between',
-                    flexWrap:        'wrap',
-                    gap:             '1rem',
-                    padding:         '1.75rem 2rem',
-                    borderBottom:    '1px solid var(--color-border-default)',
+                    backgroundColor: eng.featured ? 'var(--color-bg-canvas)' : 'var(--color-bg-primary)',
+                    border:          eng.featured
+                      ? '1px solid var(--color-cyan)'
+                      : '1px solid var(--color-border-default)',
+                    borderRadius:    '8px',
+                    overflow:        'hidden',
                   }}
                 >
-                  <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-                      <span className="section-number">{eng.label}</span>
-                      {eng.badge && (
-                        <span
-                          style={{
-                            fontFamily:      'var(--font-body)',
-                            fontSize:        'var(--text-label)',
-                            fontWeight:      500,
-                            letterSpacing:   'var(--tracking-eyebrow)',
-                            textTransform:   'uppercase',
-                            color:           eng.featured ? 'var(--color-cyan)' : 'var(--color-gold-antique)',
-                            backgroundColor: eng.featured ? 'var(--color-cyan-light)' : 'var(--color-gold-light)',
-                            borderRadius:    '4px',
-                            padding:         '0.2rem 0.5rem',
-                          }}
-                        >
-                          {eng.badge}
-                        </span>
-                      )}
+                  {/* Card header */}
+                  <div
+                    style={{
+                      display:         'flex',
+                      alignItems:      'flex-start',
+                      justifyContent:  'space-between',
+                      flexWrap:        'wrap',
+                      gap:             '1rem',
+                      padding:         '1.75rem 2rem',
+                      borderBottom:    '1px solid var(--color-border-default)',
+                    }}
+                  >
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                        <span className="section-number">{eng.label}</span>
+                        {eng.badge && (
+                          <span
+                            style={{
+                              fontFamily:      'var(--font-body)',
+                              fontSize:        'var(--text-label)',
+                              fontWeight:      500,
+                              letterSpacing:   'var(--tracking-eyebrow)',
+                              textTransform:   'uppercase',
+                              color:           eng.featured ? 'var(--color-cyan)' : 'var(--color-gold-antique)',
+                              backgroundColor: eng.featured ? 'var(--color-cyan-light)' : 'var(--color-gold-light)',
+                              borderRadius:    '4px',
+                              padding:         '0.2rem 0.5rem',
+                            }}
+                          >
+                            {eng.badge}
+                          </span>
+                        )}
+                      </div>
+                      <h3 style={{ margin: 0 }}>{eng.title}</h3>
+                      <p
+                        style={{
+                          fontFamily: 'var(--font-body)',
+                          fontSize:   'var(--text-meta)',
+                          fontWeight: 300,
+                          color:      'var(--color-ink-tertiary)',
+                          margin:     '0.25rem 0 0',
+                        }}
+                      >
+                        {eng.scope}
+                      </p>
                     </div>
-                    <h3 style={{ margin: 0 }}>{eng.title}</h3>
-                    <p
-                      style={{
-                        fontFamily: 'var(--font-body)',
-                        fontSize:   'var(--text-meta)',
-                        fontWeight: 300,
-                        color:      'var(--color-ink-tertiary)',
-                        margin:     '0.25rem 0 0',
-                      }}
-                    >
-                      {eng.scope}
-                    </p>
+                    <div style={{ textAlign: 'right' }}>
+                      <p
+                        style={{
+                          fontFamily:   'var(--font-display)',
+                          fontSize:     '1.75rem',
+                          fontWeight:   600,
+                          color:        'var(--color-navy)',
+                          lineHeight:   1,
+                          marginBottom: '0.25rem',
+                        }}
+                      >
+                        {eng.price}
+                      </p>
+                      <p
+                        style={{
+                          fontFamily: 'var(--font-body)',
+                          fontSize:   'var(--text-meta)',
+                          fontWeight: 300,
+                          color:      'var(--color-ink-tertiary)',
+                          margin:     0,
+                        }}
+                      >
+                        {eng.note}
+                      </p>
+                    </div>
                   </div>
-                  <div style={{ textAlign: 'right' }}>
-                    <p
-                      style={{
-                        fontFamily:   'var(--font-display)',
-                        fontSize:     '1.75rem',
-                        fontWeight:   600,
-                        color:        'var(--color-navy)',
-                        lineHeight:   1,
-                        marginBottom: '0.25rem',
-                      }}
-                    >
-                      {eng.price}
-                    </p>
-                    <p
-                      style={{
-                        fontFamily: 'var(--font-body)',
-                        fontSize:   'var(--text-meta)',
-                        fontWeight: 300,
-                        color:      'var(--color-ink-tertiary)',
-                        margin:     0,
-                      }}
-                    >
-                      {eng.note}
-                    </p>
-                  </div>
-                </div>
 
-                {/* Card body */}
-                <div
-                  className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-10 md:gap-16"
-                  style={{ padding: '1.75rem 2rem' }}
-                >
-                  <div>
-                    <p className="body-muted" style={{ marginBottom: '1.5rem' }}>
-                      {eng.body}
-                    </p>
-                    <Button href={eng.href} variant="secondary">
-                      Learn more
-                    </Button>
-                  </div>
-                  <div>
-                    <p
-                      style={{
-                        fontFamily:    'var(--font-body)',
-                        fontSize:      'var(--text-label)',
-                        fontWeight:    500,
-                        letterSpacing: 'var(--tracking-eyebrow)',
-                        textTransform: 'uppercase',
-                        color:         'var(--color-ink-tertiary)',
-                        marginBottom:  '0.75rem',
-                      }}
-                    >
-                      What&apos;s included
-                    </p>
-                    <ListGroup>
-                      {eng.items.map((item) => (
-                        <ListItem key={item.leader} leader={item.leader} body={item.body} />
-                      ))}
-                    </ListGroup>
+                  {/* Card body */}
+                  <div
+                    className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-10 md:gap-16"
+                    style={{ padding: '1.75rem 2rem' }}
+                  >
+                    <div>
+                      <p className="body-muted" style={{ marginBottom: '1.5rem' }}>
+                        {eng.body}
+                      </p>
+                      <Button href={eng.href} variant="secondary">
+                        Learn more
+                      </Button>
+                    </div>
+                    <div>
+                      <p
+                        style={{
+                          fontFamily:    'var(--font-body)',
+                          fontSize:      'var(--text-label)',
+                          fontWeight:    500,
+                          letterSpacing: 'var(--tracking-eyebrow)',
+                          textTransform: 'uppercase',
+                          color:         'var(--color-ink-tertiary)',
+                          marginBottom:  '0.75rem',
+                        }}
+                      >
+                        What&apos;s included
+                      </p>
+                      <ListGroup>
+                        {eng.items.map((item) => (
+                          <ListItem key={item.leader} leader={item.leader} body={item.body} />
+                        ))}
+                      </ListGroup>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </FadeUp>
             ))}
           </div>
         </div>
@@ -366,121 +380,124 @@ export default function PricingPage() {
         style={{ backgroundColor: 'var(--color-bg-canvas)' }}
       >
         <div className={inner}>
-          <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-            <span className="label-eyebrow-gold">Retainers</span>
-            <h2>Ongoing support & optimisation</h2>
-            <p
-              className="body-muted"
-              style={{ margin: 0, maxWidth: '560px' }}
-            >
-              Monthly retainers are available to clients who have completed a
-              build engagement. Systems drift — this keeps yours performing.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {retainerTiers.map((tier) => (
-              <div
-                key={tier.name}
-                style={{
-                  backgroundColor: tier.featured ? 'var(--color-bg-navy)' : 'var(--color-bg-primary)',
-                  border:          tier.featured
-                    ? '1px solid var(--color-cyan)'
-                    : '1px solid var(--color-border-default)',
-                  borderRadius:    '8px',
-                  padding:         '2rem 1.75rem',
-                  display:         'flex',
-                  flexDirection:   'column',
-                }}
+          <FadeUp>
+            <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
+              <span className="label-eyebrow-gold">Retainers</span>
+              <h2>Ongoing support & optimisation</h2>
+              <p
+                className="body-muted"
+                style={{ margin: 0, maxWidth: '560px' }}
               >
-                <p
+                Monthly retainers are available to clients who have completed a
+                build engagement. Systems drift — this keeps yours performing.
+              </p>
+            </div>
+          </FadeUp>
+
+          <StaggerParent className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {retainerTiers.map((tier) => (
+              <StaggerChild key={tier.name}>
+                <div
                   style={{
-                    fontFamily:    'var(--font-body)',
-                    fontSize:      'var(--text-label)',
-                    fontWeight:    500,
-                    letterSpacing: 'var(--tracking-eyebrow)',
-                    textTransform: 'uppercase',
-                    color:         tier.featured ? 'var(--color-cyan)' : 'var(--color-ink-tertiary)',
-                    marginBottom:  '0.5rem',
+                    backgroundColor: tier.featured ? 'var(--color-bg-navy)' : 'var(--color-bg-primary)',
+                    border:          tier.featured
+                      ? '1px solid var(--color-cyan)'
+                      : '1px solid var(--color-border-default)',
+                    borderRadius:    '8px',
+                    padding:         '2rem 1.75rem',
+                    display:         'flex',
+                    flexDirection:   'column',
                   }}
                 >
-                  {tier.name}
-                </p>
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '1.5rem' }}>
-                  <span
+                  <p
                     style={{
-                      fontFamily:  'var(--font-display)',
-                      fontSize:    '2rem',
-                      fontWeight:  600,
-                      color:       tier.featured ? 'var(--color-ink-inverted)' : 'var(--color-navy)',
-                      lineHeight:  1,
+                      fontFamily:    'var(--font-body)',
+                      fontSize:      'var(--text-label)',
+                      fontWeight:    500,
+                      letterSpacing: 'var(--tracking-eyebrow)',
+                      textTransform: 'uppercase',
+                      color:         tier.featured ? 'var(--color-cyan)' : 'var(--color-ink-tertiary)',
+                      marginBottom:  '0.5rem',
                     }}
                   >
-                    {tier.price}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-body)',
-                      fontSize:   'var(--text-meta)',
-                      fontWeight: 300,
-                      color:      tier.featured ? 'var(--color-ink-inverted-muted)' : 'var(--color-ink-tertiary)',
-                    }}
-                  >
-                    {tier.unit}
-                  </span>
-                </div>
-
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem', flex: 1 }}>
-                  {tier.items.map((item) => (
-                    <li
-                      key={item}
+                    {tier.name}
+                  </p>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '1.5rem' }}>
+                    <span
                       style={{
-                        display:       'flex',
-                        alignItems:    'flex-start',
-                        gap:           '0.625rem',
-                        paddingBottom: '0.625rem',
-                        marginBottom:  '0.625rem',
-                        borderBottom:  tier.featured
-                          ? '1px solid rgba(250,250,248,0.1)'
-                          : '1px solid var(--color-border-default)',
+                        fontFamily:  'var(--font-display)',
+                        fontSize:    '2rem',
+                        fontWeight:  600,
+                        color:       tier.featured ? 'var(--color-ink-inverted)' : 'var(--color-navy)',
+                        lineHeight:  1,
                       }}
                     >
-                      <span
-                        aria-hidden="true"
+                      {tier.price}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize:   'var(--text-meta)',
+                        fontWeight: 300,
+                        color:      tier.featured ? 'var(--color-ink-inverted-muted)' : 'var(--color-ink-tertiary)',
+                      }}
+                    >
+                      {tier.unit}
+                    </span>
+                  </div>
+
+                  <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem', flex: 1 }}>
+                    {tier.items.map((item) => (
+                      <li
+                        key={item}
                         style={{
-                          display:         'block',
-                          width:           '6px',
-                          height:          '6px',
-                          borderRadius:    '50%',
-                          backgroundColor: 'var(--color-cyan)',
-                          marginTop:       '0.45rem',
-                          flexShrink:      0,
-                        }}
-                      />
-                      <span
-                        style={{
-                          fontFamily: 'var(--font-body)',
-                          fontSize:   'var(--text-body)',
-                          fontWeight: 300,
-                          color:      tier.featured ? 'var(--color-ink-inverted-muted)' : 'var(--color-ink-secondary)',
-                          lineHeight: 'var(--leading-body)',
+                          display:       'flex',
+                          alignItems:    'flex-start',
+                          gap:           '0.625rem',
+                          paddingBottom: '0.625rem',
+                          marginBottom:  '0.625rem',
+                          borderBottom:  tier.featured
+                            ? '1px solid rgba(250,250,248,0.1)'
+                            : '1px solid var(--color-border-default)',
                         }}
                       >
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                        <span
+                          aria-hidden="true"
+                          style={{
+                            display:         'block',
+                            width:           '6px',
+                            height:          '6px',
+                            borderRadius:    '50%',
+                            backgroundColor: 'var(--color-cyan)',
+                            marginTop:       '0.45rem',
+                            flexShrink:      0,
+                          }}
+                        />
+                        <span
+                          style={{
+                            fontFamily: 'var(--font-body)',
+                            fontSize:   'var(--text-body)',
+                            fontWeight: 300,
+                            color:      tier.featured ? 'var(--color-ink-inverted-muted)' : 'var(--color-ink-secondary)',
+                            lineHeight: 'var(--leading-body)',
+                          }}
+                        >
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
 
-                <Button
-                  href="/contact"
-                  variant={tier.featured ? 'primary' : 'secondary'}
-                >
-                  Enquire
-                </Button>
-              </div>
+                  <Button
+                    href="/contact"
+                    variant={tier.featured ? 'primary' : 'secondary'}
+                  >
+                    Enquire
+                  </Button>
+                </div>
+              </StaggerChild>
             ))}
-          </div>
+          </StaggerParent>
 
           <p
             style={{
@@ -505,38 +522,41 @@ export default function PricingPage() {
         style={{ backgroundColor: 'var(--color-bg-secondary)' }}
       >
         <div className={inner}>
-          <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-            <span className="label-eyebrow-gold">Common questions</span>
-            <h2>Pricing questions answered</h2>
-          </div>
+          <FadeUp>
+            <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
+              <span className="label-eyebrow-gold">Common questions</span>
+              <h2>Pricing questions answered</h2>
+            </div>
+          </FadeUp>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {faqs.map((faq, i) => (
-              <div
-                key={i}
-                style={{
-                  borderTop:  '1px solid var(--color-border-default)',
-                  padding:    '1.5rem 0',
-                }}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-4 md:gap-16">
-                  <p
-                    style={{
-                      fontFamily:   'var(--font-display)',
-                      fontSize:     'var(--text-h3-serif)',
-                      fontWeight:   600,
-                      color:        'var(--color-navy)',
-                      lineHeight:   'var(--leading-subheading)',
-                      margin:       0,
-                    }}
-                  >
-                    {faq.q}
-                  </p>
-                  <p className="body-muted" style={{ margin: 0 }}>
-                    {faq.a}
-                  </p>
+              <FadeUp key={i}>
+                <div
+                  style={{
+                    borderTop:  '1px solid var(--color-border-default)',
+                    padding:    '1.5rem 0',
+                  }}
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-4 md:gap-16">
+                    <p
+                      style={{
+                        fontFamily:   'var(--font-display)',
+                        fontSize:     'var(--text-h3-serif)',
+                        fontWeight:   600,
+                        color:        'var(--color-navy)',
+                        lineHeight:   'var(--leading-subheading)',
+                        margin:       0,
+                      }}
+                    >
+                      {faq.q}
+                    </p>
+                    <p className="body-muted" style={{ margin: 0 }}>
+                      {faq.a}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </FadeUp>
             ))}
             <div style={{ borderTop: '1px solid var(--color-border-default)' }} />
           </div>
@@ -564,37 +584,43 @@ export default function PricingPage() {
           }}
         />
         <div className={innerNarrow}>
-          <span className="label-eyebrow">Not sure where to start?</span>
-          <h2
-            style={{
-              color:        'var(--color-ink-inverted)',
-              border:       'none',
-              padding:      0,
-              marginBottom: 'var(--space-heading-body)',
-            }}
-          >
-            The diagnostic tells you exactly what you need — before you spend anything else.
-          </h2>
-          <p className="body-on-navy" style={{ marginBottom: 'var(--space-para-section)' }}>
-            R4,500. 48-hour turnaround. A written report with your integration
-            failures, the cost of each, and a prioritised fix order. If you
-            proceed to a build, this fee offsets against the project cost.
-          </p>
-          <hr
-            className="rule"
-            style={{
-              background:   'rgba(250,250,248,0.15)',
-              marginBottom: 'var(--space-para-section)',
-            }}
-          />
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <Button href="/contact" variant="primary">
-              Start with a diagnostic
-            </Button>
-            <Button href="/booking" variant="tertiary">
-              Book a 20-minute call — no pitch
-            </Button>
-          </div>
+          <FadeUp>
+            <span className="label-eyebrow">Not sure where to start?</span>
+            <h2
+              style={{
+                color:        'var(--color-ink-inverted)',
+                border:       'none',
+                padding:      0,
+                marginBottom: 'var(--space-heading-body)',
+              }}
+            >
+              The diagnostic tells you exactly what you need — before you spend anything else.
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <p className="body-on-navy" style={{ marginBottom: 'var(--space-para-section)' }}>
+              R4,500. 48-hour turnaround. A written report with your integration
+              failures, the cost of each, and a prioritised fix order. If you
+              proceed to a build, this fee offsets against the project cost.
+            </p>
+            <hr
+              className="rule"
+              style={{
+                background:   'rgba(250,250,248,0.15)',
+                marginBottom: 'var(--space-para-section)',
+              }}
+            />
+          </FadeUp>
+          <FadeUp delay={0.14}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <Button href="/contact" variant="primary">
+                Start with a diagnostic
+              </Button>
+              <Button href="/booking" variant="tertiary">
+                Book a 20-minute call — no pitch
+              </Button>
+            </div>
+          </FadeUp>
         </div>
       </section>
     </>

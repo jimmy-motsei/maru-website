@@ -4,6 +4,7 @@ import CardGold from '@/components/ui/CardGold'
 import ListItem from '@/components/ui/ListItem'
 import ListGroup from '@/components/ui/ListGroup'
 import ToolsScroller from '@/components/ui/ToolsScroller'
+import { FadeUp, StaggerParent, StaggerChild } from '@/components/ui/Animate'
 
 export const metadata: Metadata = {
   title:       'How We Work | Maru Online',
@@ -114,31 +115,39 @@ export default function ProcessPage() {
           }}
         />
         <div className={inner}>
-          <span className="label-eyebrow">How we work</span>
-          <h1>
-            Four phases.<br />
-            Fixed scope. Fixed price.
-          </h1>
-          <p
-            className="font-body font-light text-lg max-w-[600px]"
-            style={{
-              color:        'var(--color-ink-inverted-muted)',
-              marginBottom: 'var(--space-section-header-mb)',
-              lineHeight:   'var(--leading-body)',
-            }}
-          >
-            Every engagement follows the same path — from diagnostic to
-            handover. The scope is written down, the price is fixed, and the
-            outcome is measured. No guessing, no retrofitting, no surprises.
-          </p>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <Button href="/contact" variant="primary">
-              Start with a diagnostic
-            </Button>
-            <Button href="#phases" variant="tertiary">
-              See the process
-            </Button>
-          </div>
+          <FadeUp>
+            <span className="label-eyebrow">How we work</span>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <h1>
+              Four phases.<br />
+              Fixed scope. Fixed price.
+            </h1>
+          </FadeUp>
+          <FadeUp delay={0.16}>
+            <p
+              className="font-body font-light text-lg max-w-[600px]"
+              style={{
+                color:        'var(--color-ink-inverted-muted)',
+                marginBottom: 'var(--space-section-header-mb)',
+                lineHeight:   'var(--leading-body)',
+              }}
+            >
+              Every engagement follows the same path — from diagnostic to
+              handover. The scope is written down, the price is fixed, and the
+              outcome is measured. No guessing, no retrofitting, no surprises.
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.22}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              <Button href="/contact" variant="primary">
+                Start with a diagnostic
+              </Button>
+              <Button href="#phases" variant="tertiary">
+                See the process
+              </Button>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -150,22 +159,24 @@ export default function ProcessPage() {
         style={{ backgroundColor: 'var(--color-bg-secondary)' }}
       >
         <div className={innerNarrow}>
-          <p
-            style={{
-              fontFamily:    'var(--font-display)',
-              fontSize:      'var(--text-h3-serif)',
-              fontWeight:    400,
-              lineHeight:    'var(--leading-subheading)',
-              color:         'var(--color-ink-primary)',
-              letterSpacing: 'var(--tracking-tight)',
-              margin:        0,
-            }}
-          >
-            Most AI implementations fail not because the technology is wrong,
-            but because the implementor doesn&apos;t understand how the
-            business actually runs. We start with that understanding — not with
-            a preferred stack.
-          </p>
+          <FadeUp>
+            <p
+              style={{
+                fontFamily:    'var(--font-display)',
+                fontSize:      'var(--text-h3-serif)',
+                fontWeight:    400,
+                lineHeight:    'var(--leading-subheading)',
+                color:         'var(--color-ink-primary)',
+                letterSpacing: 'var(--tracking-tight)',
+                margin:        0,
+              }}
+            >
+              Most AI implementations fail not because the technology is wrong,
+              but because the implementor doesn&apos;t understand how the
+              business actually runs. We start with that understanding — not with
+              a preferred stack.
+            </p>
+          </FadeUp>
         </div>
       </section>
 
@@ -173,27 +184,29 @@ export default function ProcessPage() {
           TOOLS WE USE
           ════════════════════════════════════════════════════════════════════ */}
       <div>
-        <div
-          className={`${outerPad} py-6`}
-          style={{ backgroundColor: 'var(--color-bg-secondary)' }}
-        >
-          <div className={inner}>
-            <p
-              style={{
-                fontFamily:    'var(--font-body)',
-                fontSize:      'var(--text-label)',
-                fontWeight:    500,
-                letterSpacing: 'var(--tracking-eyebrow)',
-                textTransform: 'uppercase',
-                color:         'var(--color-ink-tertiary)',
-                marginBottom:  0,
-                textAlign:     'center',
-              }}
-            >
-              Tools we work with
-            </p>
+        <FadeUp>
+          <div
+            className={`${outerPad} py-6`}
+            style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+          >
+            <div className={inner}>
+              <p
+                style={{
+                  fontFamily:    'var(--font-body)',
+                  fontSize:      'var(--text-label)',
+                  fontWeight:    500,
+                  letterSpacing: 'var(--tracking-eyebrow)',
+                  textTransform: 'uppercase',
+                  color:         'var(--color-ink-tertiary)',
+                  marginBottom:  0,
+                  textAlign:     'center',
+                }}
+              >
+                Tools we work with
+              </p>
+            </div>
           </div>
-        </div>
+        </FadeUp>
         <ToolsScroller />
       </div>
 
@@ -209,67 +222,71 @@ export default function ProcessPage() {
           >
             <div className={inner}>
               {/* Section header */}
-              <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                  <span className="section-number">{phase.number}</span>
-                  <span className="label-eyebrow-gold" style={{ margin: 0 }}>{phase.label}</span>
+              <FadeUp>
+                <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                    <span className="section-number">{phase.number}</span>
+                    <span className="label-eyebrow-gold" style={{ margin: 0 }}>{phase.label}</span>
+                  </div>
+                  <h2>{phase.title}</h2>
                 </div>
-                <h2>{phase.title}</h2>
-              </div>
+              </FadeUp>
 
               {/* 2-col: prose + list */}
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-12 md:gap-16 items-start">
-                {/* Left — description */}
-                <div>
-                  {phase.body.map((para, i) => (
-                    <p
-                      key={i}
-                      className="body-muted"
-                      style={{ marginBottom: i < phase.body.length - 1 ? 'var(--space-para-section)' : 0 }}
-                    >
-                      {para}
-                    </p>
-                  ))}
-                  {phase.note && (
+              <FadeUp delay={0.08}>
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-12 md:gap-16 items-start">
+                  {/* Left — description */}
+                  <div>
+                    {phase.body.map((para, i) => (
+                      <p
+                        key={i}
+                        className="body-muted"
+                        style={{ marginBottom: i < phase.body.length - 1 ? 'var(--space-para-section)' : 0 }}
+                      >
+                        {para}
+                      </p>
+                    ))}
+                    {phase.note && (
+                      <p
+                        style={{
+                          fontFamily:      'var(--font-body)',
+                          fontSize:        'var(--text-meta)',
+                          fontWeight:      300,
+                          color:           'var(--color-ink-tertiary)',
+                          marginTop:       '1.5rem',
+                          marginBottom:    0,
+                          paddingTop:      '1rem',
+                          borderTop:       '1px solid var(--color-border-default)',
+                        }}
+                      >
+                        {phase.note}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Right — what's included */}
+                  <div>
                     <p
                       style={{
-                        fontFamily:      'var(--font-body)',
-                        fontSize:        'var(--text-meta)',
-                        fontWeight:      300,
-                        color:           'var(--color-ink-tertiary)',
-                        marginTop:       '1.5rem',
-                        marginBottom:    0,
-                        paddingTop:      '1rem',
-                        borderTop:       '1px solid var(--color-border-default)',
+                        fontFamily:    'var(--font-body)',
+                        fontSize:      'var(--text-label)',
+                        fontWeight:    500,
+                        letterSpacing: 'var(--tracking-eyebrow)',
+                        textTransform: 'uppercase',
+                        color:         'var(--color-ink-tertiary)',
+                        marginBottom:  '0.75rem',
                       }}
                     >
-                      {phase.note}
+                      What happens in this phase
                     </p>
-                  )}
+                    <ListGroup>
+                      {phase.items.map((item) => (
+                        <ListItem key={item.leader} leader={item.leader} body={item.body} />
+                      ))}
+                    </ListGroup>
+                  </div>
                 </div>
-
-                {/* Right — what's included */}
-                <div>
-                  <p
-                    style={{
-                      fontFamily:    'var(--font-body)',
-                      fontSize:      'var(--text-label)',
-                      fontWeight:    500,
-                      letterSpacing: 'var(--tracking-eyebrow)',
-                      textTransform: 'uppercase',
-                      color:         'var(--color-ink-tertiary)',
-                      marginBottom:  '0.75rem',
-                    }}
-                  >
-                    What happens in this phase
-                  </p>
-                  <ListGroup>
-                    {phase.items.map((item) => (
-                      <ListItem key={item.leader} leader={item.leader} body={item.body} />
-                    ))}
-                  </ListGroup>
-                </div>
-              </div>
+              </FadeUp>
             </div>
           </section>
         ))}
@@ -283,27 +300,35 @@ export default function ProcessPage() {
         style={{ backgroundColor: 'var(--color-bg-canvas)' }}
       >
         <div className={inner}>
-          <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-            <span className="label-eyebrow-gold">Principles</span>
-            <h2>Three things we do that most consultancies don&apos;t</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <CardGold title="Audit before recommendation">
-              We map what you have and quantify what your gaps are costing you
-              before recommending anything. Most consultants arrive with a
-              preferred stack. We arrive with a diagnostic.
-            </CardGold>
-            <CardGold title="Build for handover">
-              Every system we build is documented and handed over to your team.
-              We train whoever needs to run it. You should not need us to keep
-              it working.
-            </CardGold>
-            <CardGold title="POPIA built in from day one">
-              Compliance is not an afterthought. Every data touchpoint is
-              designed with POPIA in mind before a line of code is written —
-              not retrofitted after the fact.
-            </CardGold>
-          </div>
+          <FadeUp>
+            <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
+              <span className="label-eyebrow-gold">Principles</span>
+              <h2>Three things we do that most consultancies don&apos;t</h2>
+            </div>
+          </FadeUp>
+          <StaggerParent className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <StaggerChild>
+              <CardGold title="Audit before recommendation">
+                We map what you have and quantify what your gaps are costing you
+                before recommending anything. Most consultants arrive with a
+                preferred stack. We arrive with a diagnostic.
+              </CardGold>
+            </StaggerChild>
+            <StaggerChild>
+              <CardGold title="Build for handover">
+                Every system we build is documented and handed over to your team.
+                We train whoever needs to run it. You should not need us to keep
+                it working.
+              </CardGold>
+            </StaggerChild>
+            <StaggerChild>
+              <CardGold title="POPIA built in from day one">
+                Compliance is not an afterthought. Every data touchpoint is
+                designed with POPIA in mind before a line of code is written —
+                not retrofitted after the fact.
+              </CardGold>
+            </StaggerChild>
+          </StaggerParent>
         </div>
       </section>
 
@@ -315,16 +340,18 @@ export default function ProcessPage() {
         style={{ backgroundColor: 'var(--color-bg-secondary)' }}
       >
         <div className={innerNarrow}>
-          <span className="label-eyebrow-gold">Capacity</span>
-          <h2>We work with a maximum of five clients at any time</h2>
-          <p className="body-muted" style={{ marginBottom: 0 }}>
-            That limit is deliberate. Every integration gets our full attention
-            from the initial diagnostic through to handover and the 30-day
-            measurement phase. We don&apos;t take on more work than we can do
-            properly. If you&apos;re considering an engagement, the right first
-            step is the diagnostic — it gives you a clear picture of your
-            situation before you commit to anything.
-          </p>
+          <FadeUp>
+            <span className="label-eyebrow-gold">Capacity</span>
+            <h2>We work with a maximum of five clients at any time</h2>
+            <p className="body-muted" style={{ marginBottom: 0 }}>
+              That limit is deliberate. Every integration gets our full attention
+              from the initial diagnostic through to handover and the 30-day
+              measurement phase. We don&apos;t take on more work than we can do
+              properly. If you&apos;re considering an engagement, the right first
+              step is the diagnostic — it gives you a clear picture of your
+              situation before you commit to anything.
+            </p>
+          </FadeUp>
         </div>
       </section>
 
@@ -349,38 +376,44 @@ export default function ProcessPage() {
           }}
         />
         <div className={innerNarrow}>
-          <span className="label-eyebrow">Ready to start?</span>
-          <h2
-            style={{
-              color:        'var(--color-ink-inverted)',
-              border:       'none',
-              padding:      0,
-              marginBottom: 'var(--space-heading-body)',
-            }}
-          >
-            The diagnostic is the right first step — for every business.
-          </h2>
-          <p className="body-on-navy" style={{ marginBottom: 'var(--space-para-section)' }}>
-            R4,500. Delivered in 48 hours. You get a written report that names
-            your gaps, quantifies what they&apos;re costing you, and tells you
-            exactly what to fix first. If you proceed to a build, the
-            diagnostic fee offsets against the project cost.
-          </p>
-          <hr
-            className="rule"
-            style={{
-              background:   'rgba(250,250,248,0.15)',
-              marginBottom: 'var(--space-para-section)',
-            }}
-          />
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <Button href="/contact" variant="primary">
-              Start with a diagnostic
-            </Button>
-            <Button href="/booking" variant="tertiary">
-              Book a 20-minute call — no pitch
-            </Button>
-          </div>
+          <FadeUp>
+            <span className="label-eyebrow">Ready to start?</span>
+            <h2
+              style={{
+                color:        'var(--color-ink-inverted)',
+                border:       'none',
+                padding:      0,
+                marginBottom: 'var(--space-heading-body)',
+              }}
+            >
+              The diagnostic is the right first step — for every business.
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <p className="body-on-navy" style={{ marginBottom: 'var(--space-para-section)' }}>
+              R4,500. Delivered in 48 hours. You get a written report that names
+              your gaps, quantifies what they&apos;re costing you, and tells you
+              exactly what to fix first. If you proceed to a build, the
+              diagnostic fee offsets against the project cost.
+            </p>
+            <hr
+              className="rule"
+              style={{
+                background:   'rgba(250,250,248,0.15)',
+                marginBottom: 'var(--space-para-section)',
+              }}
+            />
+          </FadeUp>
+          <FadeUp delay={0.14}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <Button href="/contact" variant="primary">
+                Start with a diagnostic
+              </Button>
+              <Button href="/booking" variant="tertiary">
+                Book a 20-minute call — no pitch
+              </Button>
+            </div>
+          </FadeUp>
         </div>
       </section>
     </>
