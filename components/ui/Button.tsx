@@ -18,33 +18,43 @@ interface ButtonProps {
 // ─── Variant class maps ───────────────────────────────────────────────────────
 
 const base =
-  'inline-flex items-center justify-center font-body font-bold text-[11px] tracking-[0.15em] uppercase transition-all duration-200 focus:outline-none disabled:opacity-40 disabled:pointer-events-none'
+  'inline-flex items-center justify-center ' +
+  'font-body font-bold text-[11px] tracking-[0.15em] uppercase ' +
+  'rounded-[8px] ' +
+  'transition-[transform,opacity,box-shadow,background-color,border-color] duration-200 ease-out ' +
+  'focus:outline-none focus-visible:ring-0 ' +
+  'disabled:opacity-40 disabled:pointer-events-none'
 
 const variantClasses: Record<ButtonVariant, string> = {
-  // Solid cyan fill — 8px radius, dark navy text
+  // Solid cyan fill — dark navy text
   primary:
-    'px-6 py-2.5 bg-cyan text-[#0D1B2A] rounded-[8px] border-0 ' +
-    'hover:bg-cyan-dark hover:scale-[1.02] active:scale-100 ' +
-    'focus:shadow-[var(--shadow-focus)]',
+    'px-6 py-2.5 bg-[#3DB8C6] text-[#0D1B2A] border-0 ' +
+    'hover:bg-[#2DA8B6] hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.35)] ' +
+    'active:scale-[0.98] active:bg-[#2DA8B6] active:shadow-none ' +
+    'focus-visible:shadow-[0_0_0_3px_rgba(61,184,198,0.45),0_4px_16px_rgba(61,184,198,0.25)]',
 
-  // Transparent — cyan outline, 8px radius
+  // Transparent — cyan outline, cyan text
   secondary:
-    'px-6 py-2.5 bg-transparent text-cyan rounded-[8px] border border-cyan ' +
-    'hover:bg-cyan-light active:bg-cyan-light ' +
-    'focus:shadow-[var(--shadow-focus)]',
+    'px-6 py-2.5 bg-transparent text-[#3DB8C6] border border-[#3DB8C6] ' +
+    'hover:bg-[#3DB8C6] hover:text-[#0D1B2A] hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.25)] ' +
+    'active:scale-[0.98] active:bg-[#2DA8B6] active:text-[#0D1B2A] active:shadow-none ' +
+    'focus-visible:shadow-[0_0_0_3px_rgba(61,184,198,0.45),0_4px_16px_rgba(61,184,198,0.15)]',
 
   // Legacy alias — renders identically to secondary.
   outline:
-    'px-6 py-2.5 bg-transparent text-cyan rounded-[8px] border border-cyan ' +
-    'hover:bg-cyan-light active:bg-cyan-light ' +
-    'focus:shadow-[var(--shadow-focus)]',
+    'px-6 py-2.5 bg-transparent text-[#3DB8C6] border border-[#3DB8C6] ' +
+    'hover:bg-[#3DB8C6] hover:text-[#0D1B2A] hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.25)] ' +
+    'active:scale-[0.98] active:bg-[#2DA8B6] active:text-[#0D1B2A] active:shadow-none ' +
+    'focus-visible:shadow-[0_0_0_3px_rgba(61,184,198,0.45),0_4px_16px_rgba(61,184,198,0.15)]',
 
   // Inline text link — no border, no background.
   // The → character is appended inside the component so callers
   // only need to pass the label text.
   tertiary:
-    'text-cyan no-underline hover:underline transition-colors duration-150 ' +
-    'focus:outline-none focus:underline',
+    'rounded-none text-[#3DB8C6] no-underline ' +
+    'hover:text-[#2DA8B6] hover:underline hover:underline-offset-4 ' +
+    'active:opacity-70 ' +
+    'focus-visible:underline focus-visible:underline-offset-4 focus-visible:shadow-[0_0_0_2px_rgba(61,184,198,0.4)]',
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
