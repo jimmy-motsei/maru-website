@@ -57,17 +57,19 @@ export default function RootLayout({
     // font-body sets DM Sans as the default font-family via the Tailwind utility.
     <html
       lang="en"
+      data-theme="light"
       className={`${cormorant.variable} ${dmSans.variable} font-body`}
       suppressHydrationWarning
     >
       <body>
         {/* attribute="data-theme" matches [data-theme='dark'] in globals.css
-            enableSystem: on first visit, respect the OS preference;
-            subsequent visits use the value persisted to localStorage.       */}
+            defaultTheme="light" + enableSystem={false}: always start on warm
+            neutral light mode; OS dark-mode preference is intentionally ignored.
+            Visitors can still toggle dark mode via the Nav switch.             */}
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="light"
-          enableSystem
+          enableSystem={false}
         >
           <Nav />
           <main id="main-content">
