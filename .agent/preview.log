@@ -1,0 +1,207 @@
+
+> maru-website@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.0 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.178:3000
+- Environments: .env.local
+- Experiments (use with caution):
+  · optimizePackageImports
+
+✓ Starting...
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 955ms
+ GET / 200 in 1382ms (compile: 1121ms, proxy.ts: 44ms, render: 216ms)
+The `fetchConnectionCache` option is deprecated (now always `true`)
+Analytics API error: Error: Failed query: insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)
+params: page_view,/,{},Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,::1,2026-03-12T06:05:21.106Z
+    at async POST (app/api/analytics/route.ts:16:5)
+  14 |
+  15 |     // Store analytics event using Drizzle/Neon
+> 16 |     await dbWebsite.insert(analyticsEvents).values({
+     |     ^
+  17 |       eventType: event,
+  18 |       pagePath: page,
+  19 |       createdAt: timestamp ? new Date(timestamp) : new Date(), {
+  query: 'insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)',
+  params: [Array],
+  [cause]: Error: No database host or connection string was set, and key parameters have default values (host: localhost, user: ramoloimotsei, db: ramoloimotsei, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly.
+      at ignore-listed frames
+}
+ POST /api/analytics 500 in 307ms (compile: 140ms, proxy.ts: 14ms, render: 153ms)
+Analytics API error: Error: Failed query: insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)
+params: performance_metric,/,{"metric_name":"LCP","metric_value":1720,"metric_rating":"good","page_path":"/"},Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,::1,2026-03-12T06:05:21.146Z
+    at async POST (app/api/analytics/route.ts:16:5)
+  14 |
+  15 |     // Store analytics event using Drizzle/Neon
+> 16 |     await dbWebsite.insert(analyticsEvents).values({
+     |     ^
+  17 |       eventType: event,
+  18 |       pagePath: page,
+  19 |       createdAt: timestamp ? new Date(timestamp) : new Date(), {
+  query: 'insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)',
+  params: [Array],
+  [cause]: Error: No database host or connection string was set, and key parameters have default values (host: localhost, user: ramoloimotsei, db: ramoloimotsei, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly.
+      at ignore-listed frames
+}
+ POST /api/analytics 500 in 353ms (compile: 279ms, proxy.ts: 4ms, render: 71ms)
+ POST /api/analytics/journey 200 in 495ms (compile: 395ms, proxy.ts: 14ms, render: 86ms)
+ HEAD / 200 in 63ms (compile: 5ms, proxy.ts: 7ms, render: 52ms)
+ GET / 200 in 103ms (compile: 12ms, proxy.ts: 11ms, render: 80ms)
+Analytics API error: Error: Failed query: insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)
+params: page_view,/,{},Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,::1,2026-03-12T06:06:17.882Z
+    at async POST (app/api/analytics/route.ts:16:5)
+  14 |
+  15 |     // Store analytics event using Drizzle/Neon
+> 16 |     await dbWebsite.insert(analyticsEvents).values({
+     |     ^
+  17 |       eventType: event,
+  18 |       pagePath: page,
+  19 |       createdAt: timestamp ? new Date(timestamp) : new Date(), {
+  query: 'insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)',
+  params: [Array],
+  [cause]: Error: No database host or connection string was set, and key parameters have default values (host: localhost, user: ramoloimotsei, db: ramoloimotsei, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly.
+      at ignore-listed frames
+}
+ POST /api/analytics 500 in 136ms (compile: 9ms, proxy.ts: 4ms, render: 123ms)
+ POST /api/analytics/journey 200 in 22ms (compile: 3ms, proxy.ts: 2ms, render: 17ms)
+Analytics API error: Error: Failed query: insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)
+params: performance_metric,/,{"metric_name":"LCP","metric_value":2332,"metric_rating":"good","page_path":"/"},Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,::1,2026-03-12T06:06:19.715Z
+    at async POST (app/api/analytics/route.ts:16:5)
+  14 |
+  15 |     // Store analytics event using Drizzle/Neon
+> 16 |     await dbWebsite.insert(analyticsEvents).values({
+     |     ^
+  17 |       eventType: event,
+  18 |       pagePath: page,
+  19 |       createdAt: timestamp ? new Date(timestamp) : new Date(), {
+  query: 'insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)',
+  params: [Array],
+  [cause]: Error: No database host or connection string was set, and key parameters have default values (host: localhost, user: ramoloimotsei, db: ramoloimotsei, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly.
+      at ignore-listed frames
+}
+ POST /api/analytics 500 in 107ms (compile: 3ms, proxy.ts: 7ms, render: 97ms)
+ GET / 200 in 235ms (compile: 29ms, proxy.ts: 28ms, render: 178ms)
+Analytics API error: Error: Failed query: insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)
+params: page_view,/,{},Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,::1,2026-03-12T06:09:22.500Z
+    at async POST (app/api/analytics/route.ts:16:5)
+  14 |
+  15 |     // Store analytics event using Drizzle/Neon
+> 16 |     await dbWebsite.insert(analyticsEvents).values({
+     |     ^
+  17 |       eventType: event,
+  18 |       pagePath: page,
+  19 |       createdAt: timestamp ? new Date(timestamp) : new Date(), {
+  query: 'insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)',
+  params: [Array],
+  [cause]: Error: No database host or connection string was set, and key parameters have default values (host: localhost, user: ramoloimotsei, db: ramoloimotsei, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly.
+      at ignore-listed frames
+}
+ POST /api/analytics 500 in 114ms (compile: 3ms, proxy.ts: 3ms, render: 108ms)
+Analytics API error: Error: Failed query: insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)
+params: performance_metric,/,{"metric_name":"LCP","metric_value":668,"metric_rating":"good","page_path":"/"},Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,::1,2026-03-12T06:09:22.544Z
+    at async POST (app/api/analytics/route.ts:16:5)
+  14 |
+  15 |     // Store analytics event using Drizzle/Neon
+> 16 |     await dbWebsite.insert(analyticsEvents).values({
+     |     ^
+  17 |       eventType: event,
+  18 |       pagePath: page,
+  19 |       createdAt: timestamp ? new Date(timestamp) : new Date(), {
+  query: 'insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)',
+  params: [Array],
+  [cause]: Error: No database host or connection string was set, and key parameters have default values (host: localhost, user: ramoloimotsei, db: ramoloimotsei, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly.
+      at ignore-listed frames
+}
+ POST /api/analytics 500 in 135ms (compile: 22ms, proxy.ts: 10ms, render: 103ms)
+ POST /api/analytics/journey 200 in 143ms (compile: 19ms, proxy.ts: 3ms, render: 121ms)
+Analytics API error: Error: Failed query: insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)
+params: performance_metric,/,{"metric_name":"CLS","metric_value":0,"metric_rating":"good","page_path":"/"},Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,::1,2026-03-12T06:09:25.328Z
+    at async POST (app/api/analytics/route.ts:16:5)
+  14 |
+  15 |     // Store analytics event using Drizzle/Neon
+> 16 |     await dbWebsite.insert(analyticsEvents).values({
+     |     ^
+  17 |       eventType: event,
+  18 |       pagePath: page,
+  19 |       createdAt: timestamp ? new Date(timestamp) : new Date(), {
+  query: 'insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)',
+  params: [Array],
+  [cause]: Error: No database host or connection string was set, and key parameters have default values (host: localhost, user: ramoloimotsei, db: ramoloimotsei, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly.
+      at ignore-listed frames
+}
+ POST /api/analytics 500 in 130ms (compile: 14ms, proxy.ts: 13ms, render: 102ms)
+Analytics API error: Error: Failed query: insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)
+params: performance_metric,/,{"metric_name":"CLS","metric_value":0,"metric_rating":"good","page_path":"/"},Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,::1,2026-03-12T06:09:25.351Z
+    at async POST (app/api/analytics/route.ts:16:5)
+  14 |
+  15 |     // Store analytics event using Drizzle/Neon
+> 16 |     await dbWebsite.insert(analyticsEvents).values({
+     |     ^
+  17 |       eventType: event,
+  18 |       pagePath: page,
+  19 |       createdAt: timestamp ? new Date(timestamp) : new Date(), {
+  query: 'insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)',
+  params: [Array],
+  [cause]: Error: No database host or connection string was set, and key parameters have default values (host: localhost, user: ramoloimotsei, db: ramoloimotsei, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly.
+      at ignore-listed frames
+}
+ POST /api/analytics 500 in 212ms (compile: 117ms, proxy.ts: 7ms, render: 87ms)
+Analytics API error: Error: Failed query: insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)
+params: performance_metric,/,{"metric_name":"CLS","metric_value":0,"metric_rating":"good","page_path":"/"},Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,::1,2026-03-12T06:09:25.371Z
+    at async POST (app/api/analytics/route.ts:16:5)
+  14 |
+  15 |     // Store analytics event using Drizzle/Neon
+> 16 |     await dbWebsite.insert(analyticsEvents).values({
+     |     ^
+  17 |       eventType: event,
+  18 |       pagePath: page,
+  19 |       createdAt: timestamp ? new Date(timestamp) : new Date(), {
+  query: 'insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)',
+  params: [Array],
+  [cause]: Error: No database host or connection string was set, and key parameters have default values (host: localhost, user: ramoloimotsei, db: ramoloimotsei, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly.
+      at ignore-listed frames
+}
+ POST /api/analytics 500 in 279ms (compile: 206ms, proxy.ts: 7ms, render: 66ms)
+Analytics API error: Error: Failed query: insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)
+params: performance_metric,/,{"metric_name":"CLS","metric_value":0,"metric_rating":"good","page_path":"/"},Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,::1,2026-03-12T06:09:25.410Z
+    at async POST (app/api/analytics/route.ts:16:5)
+  14 |
+  15 |     // Store analytics event using Drizzle/Neon
+> 16 |     await dbWebsite.insert(analyticsEvents).values({
+     |     ^
+  17 |       eventType: event,
+  18 |       pagePath: page,
+  19 |       createdAt: timestamp ? new Date(timestamp) : new Date(), {
+  query: 'insert into "analytics_events" ("id", "event_type", "page_path", "assessment_type", "step", "metadata", "user_agent", "ip_address", "created_at") values (default, $1, $2, default, default, $3, $4, $5, $6)',
+  params: [Array],
+  [cause]: Error: No database host or connection string was set, and key parameters have default values (host: localhost, user: ramoloimotsei, db: ramoloimotsei, password: null). Is an environment variable missing? Alternatively, if you intended to connect with these parameters, please set the host to 'localhost' explicitly.
+      at ignore-listed frames
+}
+ POST /api/analytics 500 in 341ms (compile: 271ms, proxy.ts: 7ms, render: 63ms)
+✓ Compiled in 662ms
+ GET / 200 in 292ms (compile: 116ms, proxy.ts: 8ms, render: 167ms)
+ POST /api/analytics/journey 200 in 81ms (compile: 5ms, proxy.ts: 4ms, render: 72ms)
+✓ Compiled in 717ms
+ GET / 200 in 289ms (compile: 97ms, proxy.ts: 6ms, render: 187ms)
+ POST /api/analytics 200 in 3.7min (compile: 3ms, proxy.ts: 8ms, render: 3.7min)
+ POST /api/analytics 200 in 33.9s (compile: 12ms, proxy.ts: 42ms, render: 33.8s)
+ POST /api/analytics 200 in 3.7min (compile: 2ms, proxy.ts: 1907µs, render: 3.7min)
+ POST /api/analytics/journey 200 in 64ms (compile: 3ms, proxy.ts: 3ms, render: 58ms)
+✓ Compiled in 392ms
+✓ Compiled in 272ms
+✓ Compiled in 261ms
+✓ Compiled in 260ms
+✓ Compiled in 291ms
+✓ Compiled in 137ms
+✓ Compiled in 335ms
+✓ Compiled in 119ms
+✓ Compiled in 560ms
+✓ Compiled in 347ms
+ POST /api/analytics 200 in 31.8min (compile: 6ms, proxy.ts: 18ms, render: 31.8min)
+ POST /api/analytics 200 in 31.5min (compile: 3ms, proxy.ts: 6ms, render: 31.5min)
+ POST /api/analytics 200 in 39.6min (compile: 3ms, proxy.ts: 5ms, render: 39.6min)
+ POST /api/analytics 200 in 31.5min (compile: 5ms, proxy.ts: 3ms, render: 31.5min)
+ POST /api/analytics 200 in 39.5min (compile: 4ms, proxy.ts: 5ms, render: 39.5min)
+[?25h
