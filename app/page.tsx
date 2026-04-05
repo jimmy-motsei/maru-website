@@ -4,6 +4,7 @@ import CardNavy from "@/components/ui/CardNavy";
 import CardGold from "@/components/ui/CardGold";
 import ListItem from "@/components/ui/ListItem";
 import ListGroup from "@/components/ui/ListGroup";
+import Dodecahedron from "@/components/ui/Dodecahedron";
 
 export const metadata: Metadata = {
   title: "Maru Online | AI Implementation Consultancy",
@@ -22,37 +23,26 @@ export default function Home() {
   return (
     <>
       {/* ════════════════════════════════════════════════════════════════════
-          HERO — navy, full viewport
+          HERO — navy, full viewport, two-column
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`min-h-screen flex items-center ${outerPad} pt-28 pb-24`}
-        style={{ backgroundColor: "var(--color-bg-navy)" }}
+        className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] items-center px-6 md:px-10 xl:px-[60px] pt-24 pb-16 relative overflow-hidden"
+        style={{ backgroundColor: "var(--color-bg-navy)", minHeight: "100vh" }}
       >
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            top: "-120px",
-            right: "-120px",
-            width: "480px",
-            height: "480px",
-            borderRadius: "50%",
-            border: "1px solid rgba(61,184,198,0.15)",
-            pointerEvents: "none",
-          }}
-        />
-        <div className={inner}>
+        {/* Left — text */}
+        <div className="max-w-[640px] py-16 lg:py-0">
           <span className="label-eyebrow">South Africa&apos;s AI Integration Consultancy</span>
           <h1>
             You&apos;ve invested in AI tools.<br />
             They should be paying for themselves by now.
           </h1>
           <p
-            className="font-body font-light text-lg md:text-xl max-w-[600px]"
+            className="font-body font-light text-lg md:text-xl"
             style={{
               color: "var(--color-ink-inverted-muted)",
               marginBottom: "var(--space-section-header-mb)",
               lineHeight: "var(--leading-body-relaxed)",
+              maxWidth: "520px",
             }}
           >
             We audit what you have, fix what&apos;s broken between your
@@ -67,6 +57,11 @@ export default function Home() {
               Book a 20-minute call — no pitch
             </Button>
           </div>
+        </div>
+
+        {/* Right — dodecahedron, desktop only */}
+        <div className="hidden lg:flex justify-center items-center h-full min-h-[480px]">
+          <Dodecahedron className="w-[480px] h-[480px]" />
         </div>
       </section>
 
