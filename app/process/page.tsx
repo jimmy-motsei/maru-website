@@ -3,6 +3,7 @@ import Button from '@/components/ui/Button'
 import CardGold from '@/components/ui/CardGold'
 import ListItem from '@/components/ui/ListItem'
 import ListGroup from '@/components/ui/ListGroup'
+import ToolsScroller from '@/components/ui/ToolsScroller'
 
 export const metadata: Metadata = {
   title:       'How We Work | Maru Online',
@@ -167,6 +168,34 @@ export default function ProcessPage() {
           </p>
         </div>
       </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          TOOLS WE USE
+          ════════════════════════════════════════════════════════════════════ */}
+      <div>
+        <div
+          className={`${outerPad} py-6`}
+          style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+        >
+          <div className={inner}>
+            <p
+              style={{
+                fontFamily:    'var(--font-body)',
+                fontSize:      'var(--text-label)',
+                fontWeight:    500,
+                letterSpacing: 'var(--tracking-eyebrow)',
+                textTransform: 'uppercase',
+                color:         'var(--color-ink-tertiary)',
+                marginBottom:  0,
+                textAlign:     'center',
+              }}
+            >
+              Tools we work with
+            </p>
+          </div>
+        </div>
+        <ToolsScroller />
+      </div>
 
       {/* ════════════════════════════════════════════════════════════════════
           FOUR PHASES
