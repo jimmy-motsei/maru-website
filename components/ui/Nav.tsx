@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import ThemeToggle from './ThemeToggle'
 import Button from './Button'
 
 // ─── Nav link definitions ─────────────────────────────────────────────────────
@@ -127,9 +126,8 @@ export default function Nav() {
             ))}
           </ul>
 
-          {/* ── Desktop right: ThemeToggle + CTA (lg+) ───────────────────── */}
+          {/* ── Desktop right: CTA (lg+) ─────────────────────────────────── */}
           <div className="hidden lg:flex items-center gap-4">
-            <ThemeToggle />
             <Button
               variant="primary"
               href="/contact"
@@ -139,9 +137,8 @@ export default function Nav() {
             </Button>
           </div>
 
-          {/* ── Mobile right: ThemeToggle + hamburger (below lg) ─────────── */}
+          {/* ── Mobile right: hamburger (below lg) ───────────────────────── */}
           <div className="flex lg:hidden items-center gap-3">
-            <ThemeToggle />
             <button
               type="button"
               onClick={() => setMenuOpen(true)}

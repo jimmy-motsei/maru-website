@@ -1,22 +1,15 @@
 import type { Config } from 'tailwindcss'
 
-// Dark mode strategy: 'selector' tells Tailwind v4 that dark: utilities activate
-// when [data-theme="dark"] is present on any ancestor element. next-themes sets
-// this attribute on <html>, so dark: utilities work site-wide.
 const config: Config = {
   content: [
     './app/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
   ],
 
-  darkMode: ['selector', '[data-theme="dark"]'],
-
   theme: {
     extend: {
       // ─── Colours ─────────────────────────────────────────────────────────
       // All values reference CSS custom properties defined in globals.css.
-      // No hex values here — the variables resolve to different values in
-      // :root (light) and [data-theme='dark'] (dark) automatically.
       colors: {
 
         // Ink (text) scale
@@ -37,14 +30,12 @@ const config: Config = {
           darkest:   'var(--color-bg-darkest)',
         },
 
-        // Brand cyan — light value switches in dark mode via CSS var
         cyan: {
           DEFAULT: 'var(--color-cyan)',
           light:   'var(--color-cyan-light)',
           dark:    'var(--color-cyan-dark)',
         },
 
-        // Brand gold — no dark-mode override; CSS var resolves to same value
         gold: {
           DEFAULT: 'var(--color-gold)',
           light:   'var(--color-gold-light)',
@@ -58,9 +49,7 @@ const config: Config = {
       },
 
       // ─── Font families ───────────────────────────────────────────────────
-      // font-display → Cormorant Garamond (display / H1 moments only)
-      // font-body    → DM Sans (all UI, body copy, labels, buttons)
-      // CSS variables are injected by next/font in layout.tsx.
+      // font-display → Cormorant Garamond  |  font-body → DM Sans
       fontFamily: {
         display: ['var(--font-display)', 'Georgia', 'Cambria', 'serif'],
         body:    ['var(--font-body)', 'system-ui', 'sans-serif'],
