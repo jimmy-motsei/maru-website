@@ -95,14 +95,35 @@
 
   body {
     background-color:        var(--color-bg-primary);
-    color:                   var(--color-ink-primary);
+    color:                   #0D1B2A;
     font-family:             var(--font-body), system-ui, sans-serif;
     font-weight:             300;
-    font-size:               0.9375rem;
+    font-size:               15px;
     line-height:             1.8;
+    letter-spacing:          0.01em;
     overflow-x:              clip;
     -webkit-font-smoothing:  antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  p {
+    font-weight:    300;
+    font-size:      15px;
+    line-height:    1.8;
+    color:          #4A5568;
+    letter-spacing: 0.01em;
+  }
+
+  strong, b {
+    font-weight: 600;
+    color:       #1A3A5C;
+  }
+
+  small {
+    font-size:      12px;
+    font-weight:    400;
+    letter-spacing: 0.05em;
+    color:          #718096;
   }
 
   h1 {

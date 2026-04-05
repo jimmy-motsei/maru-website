@@ -28,12 +28,13 @@ export default function ListItem({ leader, body, className = '' }: ListItemProps
         style={{
           fontFamily: 'var(--font-body)',
           fontSize: '15px',
-          lineHeight: 1.7,
+          lineHeight: 1.8,
+          letterSpacing: '0.01em',
           margin: 0,
         }}
       >
-        <span style={{ fontWeight: 600, color: '#1A3A5C' }}>{leader}</span>
-        <span style={{ fontWeight: 300, color: '#4A5568' }}>{' — '}{body}</span>
+        <span style={{ fontWeight: 600, color: '#1A3A5C', letterSpacing: '0.01em' }}>{leader}</span>
+        <span style={{ fontWeight: 300, color: '#4A5568', letterSpacing: '0.01em' }}>{' — '}{body}</span>
       </p>
     </li>
   )

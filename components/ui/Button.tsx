@@ -18,24 +18,24 @@ interface ButtonProps {
 // ─── Variant class maps ───────────────────────────────────────────────────────
 
 const base =
-  'inline-flex items-center justify-center font-body font-medium text-[11px] tracking-[0.15em] uppercase transition-all duration-200 focus:outline-none disabled:opacity-40 disabled:pointer-events-none'
+  'inline-flex items-center justify-center font-body font-bold text-[11px] tracking-[0.15em] uppercase transition-all duration-200 focus:outline-none disabled:opacity-40 disabled:pointer-events-none'
 
 const variantClasses: Record<ButtonVariant, string> = {
-  // Solid cyan fill — pill shape
+  // Solid cyan fill — 8px radius, dark navy text
   primary:
-    'px-6 py-2.5 bg-cyan text-white rounded-full border-0 ' +
+    'px-6 py-2.5 bg-cyan text-[#0D1B2A] rounded-[8px] border-0 ' +
     'hover:bg-cyan-dark hover:scale-[1.02] active:scale-100 ' +
     'focus:shadow-[var(--shadow-focus)]',
 
-  // Transparent — cyan outline, pill shape
+  // Transparent — cyan outline, 8px radius
   secondary:
-    'px-6 py-2.5 bg-transparent text-cyan rounded-full border border-cyan ' +
+    'px-6 py-2.5 bg-transparent text-cyan rounded-[8px] border border-cyan ' +
     'hover:bg-cyan-light active:bg-cyan-light ' +
     'focus:shadow-[var(--shadow-focus)]',
 
   // Legacy alias — renders identically to secondary.
   outline:
-    'px-6 py-2.5 bg-transparent text-cyan rounded-full border border-cyan ' +
+    'px-6 py-2.5 bg-transparent text-cyan rounded-[8px] border border-cyan ' +
     'hover:bg-cyan-light active:bg-cyan-light ' +
     'focus:shadow-[var(--shadow-focus)]',
 
