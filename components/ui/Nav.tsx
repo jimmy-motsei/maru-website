@@ -38,12 +38,13 @@ function CloseIcon() {
 
 export default function Nav() {
   const pathname  = usePathname()
-  const [scrolled,  setScrolled]  = useState(false)
+  const [isHero,    setIsHero]    = useState(true)
   const [menuOpen,  setMenuOpen]  = useState(false)
 
-  // Reveal border-b once the user scrolls past 80px
+  // Hero state: scrollY < window.innerHeight; page state: scrollY >= window.innerHeight
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80)
+    const onScroll = () => setIsHero(window.scrollY < window.innerHeight)
+    onScroll() // initialise on mount
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -55,6 +56,16 @@ export default function Nav() {
   }, [menuOpen])
 
   const closeMenu = () => setMenuOpen(false)
+
+  // ── Derived style tokens based on scroll position ─────────────────────────
+  const headerBg     = isHero ? 'rgba(13, 27, 42, 0.5)'         : 'rgba(255, 255, 255, 0.95)'
+  const headerBorder = isHero ? 'transparent'                    : '#E2E8F0'
+  const logoColor    = isHero ? '#FFFFFF'                        : '#1A3A5C'
+  const logoHover    = '#3DB8C6'
+  const linkDefault  = isHero ? 'rgba(250, 250, 248, 0.8)'      : '#4A5568'
+  const linkHover    = isHero ? '#FFFFFF'                        : '#0D1B2A'
+  const linkActive   = '#3DB8C6'
+  const hamburgerColor = isHero ? '#FFFFFF' : '#4A5568'
 
   return (
     <>
@@ -73,15 +84,12 @@ export default function Nav() {
 
       {/* ── Header bar ────────────────────────────────────────────────────── */}
       <header
-        className={`
-          fixed top-0 left-0 right-0 z-50
-          bg-bg-primary/90 backdrop-blur-sm
-          transition-[border-color] duration-300
-          ${scrolled
-            ? 'border-b border-border-default'
-            : 'border-b border-transparent'
-          }
-        `}
+        style={{
+          backgroundColor: headerBg,
+          borderBottomColor: headerBorder,
+          transition: 'background-color 0.3s ease, border-color 0.3s ease',
+        }}
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b"
       >
         <nav
           aria-label="Main navigation"
@@ -95,35 +103,43 @@ export default function Nav() {
           {/* Logo */}
           <Link
             href="/"
-            className="
-              font-display font-light text-[28px] leading-none
-              text-ink-primary hover:text-cyan
-              transition-colors duration-150
-            "
+            style={{
+              color: logoColor,
+              transition: 'color 0.3s ease',
+            }}
+            className="font-display font-light text-[28px] leading-none hover:text-[#3DB8C6]"
+            onMouseEnter={e => (e.currentTarget.style.color = logoHover)}
+            onMouseLeave={e => (e.currentTarget.style.color = logoColor)}
           >
             Maru
           </Link>
 
           {/* ── Desktop links (lg+) ───────────────────────────────────────── */}
           <ul className="hidden lg:flex items-center gap-8 list-none m-0 p-0">
-            {allLinks.map(({ label, href }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  aria-current={isActive(href, pathname) ? 'page' : undefined}
-                  className={`
-                    font-body text-[14px] font-normal
-                    transition-colors duration-150
-                    ${isActive(href, pathname)
-                      ? 'text-cyan'
-                      : 'text-ink-secondary hover:text-ink-primary'
-                    }
-                  `}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
+            {allLinks.map(({ label, href }) => {
+              const active = isActive(href, pathname)
+              return (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    aria-current={active ? 'page' : undefined}
+                    style={{
+                      color: active ? linkActive : linkDefault,
+                      transition: 'color 0.3s ease',
+                    }}
+                    className="font-body text-[14px] font-normal"
+                    onMouseEnter={e => {
+                      if (!active) e.currentTarget.style.color = linkHover
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.color = active ? linkActive : linkDefault
+                    }}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
 
           {/* ── Desktop right: CTA (lg+) ─────────────────────────────────── */}
@@ -131,7 +147,7 @@ export default function Nav() {
             <Button
               variant="primary"
               href="/contact"
-              className="!px-5 !py-2 !text-[14px]"
+              className="!px-5 !py-2 !text-[11px]"
             >
               Start diagnostic
             </Button>
@@ -145,9 +161,10 @@ export default function Nav() {
               aria-label="Open navigation menu"
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
+              style={{ color: hamburgerColor, transition: 'color 0.3s ease' }}
               className="
                 flex flex-col justify-center gap-[6px]
-                w-7 h-7 text-ink-primary
+                w-7 h-7
                 focus:outline-none focus:ring-[3px] focus:ring-cyan/30 rounded-sm
               "
             >
@@ -228,7 +245,6 @@ export default function Nav() {
             </ul>
 
             {/* Full-width CTA at bottom of overlay */}
-            {/* Wrapped in div so onClick closes overlay regardless of Link internals */}
             <div className="pt-8" onClick={closeMenu}>
               <Button variant="primary" href="/contact" className="w-full !justify-center">
                 Start diagnostic

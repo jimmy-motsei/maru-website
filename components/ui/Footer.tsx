@@ -19,7 +19,7 @@ const linkClass =
 export default function Footer() {
   return (
     <>
-      <footer className="bg-bg-darkest">
+      <footer className="bg-bg-navy-deep">
         <div className="max-w-[900px] mx-auto px-6 md:px-[60px] py-16">
 
           {/* ── Top: wordmark + tagline ─────────────────────────────────── */}

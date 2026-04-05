@@ -18,26 +18,26 @@ interface ButtonProps {
 // ─── Variant class maps ───────────────────────────────────────────────────────
 
 const base =
-  'inline-flex items-center justify-center font-body font-medium text-[15px] tracking-normal transition-all duration-200 focus:outline-none disabled:opacity-40 disabled:pointer-events-none'
+  'inline-flex items-center justify-center font-body font-medium text-[11px] tracking-[0.15em] uppercase transition-all duration-200 focus:outline-none disabled:opacity-40 disabled:pointer-events-none'
 
 const variantClasses: Record<ButtonVariant, string> = {
-  // Solid cyan fill — brand signature. Sharp corners are intentional.
+  // Solid cyan fill — pill shape
   primary:
-    'px-7 py-3.5 bg-cyan text-bg-darkest rounded-none border-0 ' +
-    'hover:bg-cyan-dark hover:-translate-y-px active:translate-y-0 ' +
-    'focus:ring-[3px] focus:ring-cyan/30',
+    'px-6 py-2.5 bg-cyan text-white rounded-full border-0 ' +
+    'hover:bg-cyan-dark hover:scale-[1.02] active:scale-100 ' +
+    'focus:shadow-[var(--shadow-focus)]',
 
-  // Transparent — cyan outline and text. Same geometry as primary.
+  // Transparent — cyan outline, pill shape
   secondary:
-    'px-7 py-3.5 bg-transparent text-cyan rounded-none border border-cyan ' +
-    'hover:bg-cyan/10 active:bg-cyan/15 ' +
-    'focus:ring-[3px] focus:ring-cyan/30',
+    'px-6 py-2.5 bg-transparent text-cyan rounded-full border border-cyan ' +
+    'hover:bg-cyan-light active:bg-cyan-light ' +
+    'focus:shadow-[var(--shadow-focus)]',
 
   // Legacy alias — renders identically to secondary.
   outline:
-    'px-7 py-3.5 bg-transparent text-cyan rounded-none border border-cyan ' +
-    'hover:bg-cyan/10 active:bg-cyan/15 ' +
-    'focus:ring-[3px] focus:ring-cyan/30',
+    'px-6 py-2.5 bg-transparent text-cyan rounded-full border border-cyan ' +
+    'hover:bg-cyan-light active:bg-cyan-light ' +
+    'focus:shadow-[var(--shadow-focus)]',
 
   // Inline text link — no border, no background.
   // The → character is appended inside the component so callers
