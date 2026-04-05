@@ -352,4 +352,14 @@
   .card-navy p:last-child {
     margin-bottom:   0;
   }
+
+  /* Contact form — 2-col name/email row collapses to 1-col on mobile */
+  .grid-cols-contact {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) {
+    .grid-cols-contact {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 }

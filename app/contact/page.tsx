@@ -1,211 +1,398 @@
-"use client";
+import { Metadata } from 'next'
+import ContactForm from './ContactForm'
+import CardNavy from '@/components/ui/CardNavy'
+import Button from '@/components/ui/Button'
 
-import { useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
-import { SplitHeadline } from "@/components/ui/SplitHeadline";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { submitToHubSpot, HUBSPOT_FORMS } from "@/lib/hubspot";
-import { contactFormSchema, type ContactFormData } from "@/lib/validation/schemas";
+export const metadata: Metadata = {
+  title:       'Contact | Maru Online',
+  description: 'Start with a diagnostic or ask a question. Fixed-scope engagements — we tell you the price before work begins.',
+}
 
-const breadcrumbs = [
-  { label: "Home", href: "/" },
-  { label: "Contact", href: "/contact" },
-];
+const outerPad    = 'px-6 md:px-[60px]'
+const inner       = 'max-w-[900px] mx-auto'
+const innerNarrow = 'max-w-[720px] mx-auto'
 
 export default function ContactPage() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formStatus, setFormStatus] = useState<{ success: boolean; message: string } | null>(null);
-
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    setFormStatus(null);
-    
-    if (!HUBSPOT_FORMS.CONTACT) {
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setFormStatus({ success: true, message: "Message received. We'll be in touch shortly." });
-        reset();
-      }, 1500);
-      return;
-    }
-
-    const result = await submitToHubSpot(HUBSPOT_FORMS.CONTACT, data);
-    
-    setIsSubmitting(false);
-    setFormStatus(result);
-    
-    if (result.success) {
-      reset();
-    }
-  };
-
   return (
-    <main className="bg-surface-muted text-text-primary min-h-screen">
-      <section className="relative bg-black py-[120px] md:py-[140px] border-b border-white/10 overflow-hidden">
-        <AtmosphericBackground variant="hero" />
-        <div className="container mx-auto px-6 lg:px-8 relative z-10">
-          <motion.nav
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
-            className="mb-12"
+    <>
+      {/* ════════════════════════════════════════════════════════════════════
+          HERO
+          ════════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`min-h-[60vh] flex items-center ${outerPad} pt-32 pb-24`}
+        style={{ backgroundColor: 'var(--color-bg-navy)' }}
+      >
+        <div
+          aria-hidden="true"
+          style={{
+            position:      'absolute',
+            top:           '-120px',
+            right:         '-120px',
+            width:         '480px',
+            height:        '480px',
+            borderRadius:  '50%',
+            border:        '1px solid rgba(61,184,198,0.15)',
+            pointerEvents: 'none',
+          }}
+        />
+        <div className={inner}>
+          <span className="label-eyebrow">Contact</span>
+          <h1>
+            Tell us what&apos;s broken.<br />
+            We&apos;ll tell you what it costs.
+          </h1>
+          <p
+            className="font-body font-light text-lg max-w-[560px]"
+            style={{
+              color:        'var(--color-ink-inverted-muted)',
+              marginBottom: 'var(--space-section-header-mb)',
+              lineHeight:   'var(--leading-body)',
+            }}
           >
-            <ol className="flex items-center justify-center gap-2 text-xs uppercase tracking-[2px] text-white/60">
-              {breadcrumbs.map((crumb, index) => (
-                <li key={crumb.href} className="flex items-center gap-2">
-                  <Link
-                    href={crumb.href}
-                    className={index === breadcrumbs.length - 1 ? "text-white" : "hover:text-white transition-colors"}
-                  >
-                    {crumb.label}
-                  </Link>
-                  {index < breadcrumbs.length - 1 ? <span>/</span> : null}
-                </li>
-              ))}
-            </ol>
-          </motion.nav>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-[54px] md:text-[86px] leading-[1.05] maru-headline-split-strong text-white mb-10"
-          >
-            Get in touch!
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            className="text-center text-white/70 max-w-2xl mx-auto mb-10"
-          >
-            Share your goals. We will recommend the fastest path to measurable revenue impact.
-          </motion.p>
-
-          <motion.a
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            href="#contact"
-            className="inline-flex items-center justify-center w-full gap-3 text-xs uppercase tracking-[2px] font-semibold text-white"
-          >
-            Send message
-            <span className="w-9 h-9 rounded-full bg-white/10 border border-white/25 flex items-center justify-center">
-              <ArrowRight size={16} className="rotate-90" />
-            </span>
-          </motion.a>
+            Every engagement starts with a diagnostic. Share what&apos;s not
+            working and we&apos;ll map the gaps, quantify the cost, and tell you
+            exactly what to fix first.
+          </p>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+            <Button href="#contact-form" variant="primary">
+              Send us a message
+            </Button>
+            <Button href="/booking" variant="tertiary">
+              Book a 20-minute call
+            </Button>
+          </div>
         </div>
       </section>
 
-      <section id="contact" className="py-[90px] md:py-[120px]">
-        <div className="container mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
-          >
-            <SplitHeadline
-              as="h2"
-              leadingText="Let's"
-              emphasisText="Talk"
-              breakBeforeEmphasis={false}
-              leadingWeight="strong"
-              emphasisWeight="light"
-              className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[68px] text-text-primary"
-            />
-          </motion.div>
+      {/* ════════════════════════════════════════════════════════════════════
+          CONTACT FORM + SIDE INFO
+          ════════════════════════════════════════════════════════════════════ */}
+      <section
+        id="contact-form"
+        className={`${outerPad} py-24`}
+        style={{ backgroundColor: 'var(--color-bg-primary)' }}
+      >
+        <div className={inner}>
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_340px] gap-16 items-start">
 
-          <form onSubmit={handleSubmit(onSubmit)} className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <label className="block text-[11px] uppercase tracking-[2px] text-text-secondary mb-3">
-                  What's your name
-                </label>
-                <input
-                  {...register("firstname")}
-                  type="text"
-                  placeholder="Your name"
-                  disabled={isSubmitting}
-                  className="w-full h-[56px] bg-transparent border-b border-border-strong focus:border-action-primary text-text-primary placeholder:text-text-muted outline-none transition-colors text-lg"
-                />
-                {errors.firstname && <p className="text-warm-amber text-sm mt-2">{errors.firstname.message}</p>}
-              </motion.div>
-
-              <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <label className="block text-[11px] uppercase tracking-[2px] text-text-secondary mb-3">
-                  Your email
-                </label>
-                <input
-                  {...register("email")}
-                  type="email"
-                  placeholder="name@company.com"
-                  disabled={isSubmitting}
-                  className="w-full h-[56px] bg-transparent border-b border-border-strong focus:border-action-primary text-text-primary placeholder:text-text-muted outline-none transition-colors text-lg"
-                />
-                {errors.email && <p className="text-warm-amber text-sm mt-2">{errors.email.message}</p>}
-              </motion.div>
-            </div>
-
-            <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8">
-              <label className="block text-[11px] uppercase tracking-[2px] text-text-secondary mb-3">
-                Tell us about your project
-              </label>
-              <textarea
-                {...register("message")}
-                rows={7}
-                  placeholder="Current challenge, goals, and timeline."
-                disabled={isSubmitting}
-                className="w-full bg-transparent border-b border-border-strong focus:border-action-primary text-text-primary placeholder:text-text-muted outline-none transition-colors text-lg resize-none"
-              />
-              {errors.message && <p className="text-warm-amber text-sm mt-2">{errors.message.message}</p>}
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <p className="text-text-secondary text-sm">
-                  <span className="text-action-primary">*</span> Your details stay private and are never sold.
+            {/* Left — form */}
+            <div>
+              <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
+                <h2>Send a message</h2>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize:   'var(--text-body)',
+                    fontWeight: 300,
+                    color:      'var(--color-ink-secondary)',
+                    lineHeight: 'var(--leading-body)',
+                    margin:     0,
+                  }}
+                >
+                  Tell us about your business and what&apos;s not working. We respond
+                  within one business day and don&apos;t send you to a sales process.
                 </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="flex justify-start md:justify-end"
-              >
-                <button type="submit" disabled={isSubmitting} className="btn-primary-hero-cta group disabled:opacity-50 disabled:cursor-not-allowed">
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                  {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />}
-                </button>
-              </motion.div>
+              </div>
+              <ContactForm />
             </div>
 
-            {formStatus && (
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                className={`mt-8 p-4 rounded-lg text-sm font-medium text-center ${
-                  formStatus.success
-                    ? "bg-action-primary/10 text-action-primary border border-action-primary/30"
-                    : "bg-warm-amber/10 text-warm-amber border border-warm-amber/30"
-                }`}
+            {/* Right — contact details */}
+            <div style={{ paddingTop: '0.5rem' }}>
+              <p
+                style={{
+                  fontFamily:    'var(--font-body)',
+                  fontSize:      'var(--text-label)',
+                  fontWeight:    500,
+                  letterSpacing: 'var(--tracking-eyebrow)',
+                  textTransform: 'uppercase',
+                  color:         'var(--color-ink-tertiary)',
+                  marginBottom:  '1.5rem',
+                }}
               >
-                {formStatus.message}
-              </motion.div>
-            )}
-          </form>
+                Other ways to reach us
+              </p>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <div>
+                  <p
+                    style={{
+                      fontFamily:    'var(--font-body)',
+                      fontSize:      'var(--text-label)',
+                      fontWeight:    500,
+                      letterSpacing: 'var(--tracking-eyebrow)',
+                      textTransform: 'uppercase',
+                      color:         'var(--color-ink-tertiary)',
+                      marginBottom:  '0.25rem',
+                    }}
+                  >
+                    Email
+                  </p>
+                  <a
+                    href="mailto:hello@maruonline.com"
+                    style={{
+                      fontFamily:     'var(--font-body)',
+                      fontSize:       'var(--text-body)',
+                      fontWeight:     300,
+                      color:          'var(--color-cyan)',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    hello@maruonline.com
+                  </a>
+                </div>
+
+                <div>
+                  <p
+                    style={{
+                      fontFamily:    'var(--font-body)',
+                      fontSize:      'var(--text-label)',
+                      fontWeight:    500,
+                      letterSpacing: 'var(--tracking-eyebrow)',
+                      textTransform: 'uppercase',
+                      color:         'var(--color-ink-tertiary)',
+                      marginBottom:  '0.25rem',
+                    }}
+                  >
+                    Location
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize:   'var(--text-body)',
+                      fontWeight: 300,
+                      color:      'var(--color-ink-secondary)',
+                      margin:     0,
+                    }}
+                  >
+                    Gauteng, South Africa<br />
+                    Remote engagements nationwide
+                  </p>
+                </div>
+
+                <div>
+                  <p
+                    style={{
+                      fontFamily:    'var(--font-body)',
+                      fontSize:      'var(--text-label)',
+                      fontWeight:    500,
+                      letterSpacing: 'var(--tracking-eyebrow)',
+                      textTransform: 'uppercase',
+                      color:         'var(--color-ink-tertiary)',
+                      marginBottom:  '0.25rem',
+                    }}
+                  >
+                    Response time
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize:   'var(--text-body)',
+                      fontWeight: 300,
+                      color:      'var(--color-ink-secondary)',
+                      margin:     0,
+                    }}
+                  >
+                    Within one business day
+                  </p>
+                </div>
+              </div>
+
+              <hr className="rule" style={{ marginTop: '2rem', marginBottom: '1.5rem' }} />
+
+              <p
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize:   'var(--text-meta)',
+                  fontWeight: 300,
+                  color:      'var(--color-ink-tertiary)',
+                  lineHeight: 'var(--leading-body)',
+                  margin:     0,
+                }}
+              >
+                Not ready to commit? Book a free 20-minute call — no pitch, no
+                pressure. Just a conversation about what you&apos;re trying to fix.
+              </p>
+              <div style={{ marginTop: '1rem' }}>
+                <Button href="/booking" variant="secondary">
+                  Book a call
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-    </main>
-  );
+
+      {/* ════════════════════════════════════════════════════════════════════
+          WHAT HAPPENS NEXT
+          ════════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`${outerPad} py-24`}
+        style={{ backgroundColor: 'var(--color-bg-canvas)' }}
+      >
+        <div className={inner}>
+          <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
+            <span className="label-eyebrow-gold">Process</span>
+            <h2>What happens after you send a message</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                step:  '01',
+                title: 'We read your message',
+                body:  "Every enquiry is read by a person — not a bot. We look at what you've shared and decide if and how we can help.",
+              },
+              {
+                step:  '02',
+                title: 'We respond within a day',
+                body:  "You'll receive a direct reply within one business day — with a clear next step, not a brochure.",
+              },
+              {
+                step:  '03',
+                title: 'Diagnostic or call — your choice',
+                body:  "We'll either propose a diagnostic (if the scope is clear) or suggest a short call to fill the gaps first.",
+              },
+            ].map(item => (
+              <div
+                key={item.step}
+                style={{
+                  backgroundColor: 'var(--color-bg-primary)',
+                  border:          '1px solid var(--color-border-default)',
+                  borderRadius:    '8px',
+                  padding:         '1.75rem 1.5rem',
+                }}
+              >
+                <span
+                  className="section-number"
+                  style={{ display: 'block', marginBottom: '0.75rem' }}
+                >
+                  {item.step}
+                </span>
+                <p
+                  style={{
+                    fontFamily:   'var(--font-display)',
+                    fontSize:     'var(--text-h3-serif)',
+                    fontWeight:   600,
+                    color:        'var(--color-navy)',
+                    lineHeight:   'var(--leading-subheading)',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  {item.title}
+                </p>
+                <p
+                  className="body-muted"
+                  style={{ margin: 0 }}
+                >
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          TESTIMONIALS
+          ════════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`${outerPad} py-24`}
+        style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+      >
+        <div className={inner}>
+          <h2>What clients say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+            <CardNavy label="Client" title="Sound Studio, Johannesburg">
+              <p>
+                &ldquo;Since the site went live we&apos;ve been getting more
+                business opportunities than before.&rdquo;
+              </p>
+              <p
+                style={{
+                  marginTop:    '0.75rem',
+                  marginBottom: 0,
+                  fontSize:     'var(--text-meta)',
+                  color:        'rgba(250,250,248,0.5)',
+                }}
+              >
+                — Founder, Sound Studio (Johannesburg)
+              </p>
+            </CardNavy>
+            <CardNavy label="Client" title="Seokane Inc">
+              <p>
+                &ldquo;[Seokane Inc quote about quality of work and brand
+                capture]&rdquo;
+              </p>
+              <p
+                style={{
+                  marginTop:    '0.75rem',
+                  marginBottom: 0,
+                  fontSize:     'var(--text-meta)',
+                  color:        'rgba(250,250,248,0.5)',
+                }}
+              >
+                — [Name], Seokane Inc ·{' '}
+                <em>Placeholder — replace on receipt</em>
+              </p>
+            </CardNavy>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          FINAL CTA — navy
+          ════════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`${outerPad} py-24`}
+        style={{ backgroundColor: 'var(--color-bg-navy)' }}
+      >
+        <div
+          aria-hidden="true"
+          style={{
+            position:      'absolute',
+            bottom:        '-80px',
+            left:          '-80px',
+            width:         '320px',
+            height:        '320px',
+            borderRadius:  '50%',
+            border:        '1px solid rgba(61,184,198,0.12)',
+            pointerEvents: 'none',
+          }}
+        />
+        <div className={innerNarrow}>
+          <span className="label-eyebrow">Ready to start?</span>
+          <h2
+            style={{
+              color:        'var(--color-ink-inverted)',
+              border:       'none',
+              padding:      0,
+              marginBottom: 'var(--space-heading-body)',
+            }}
+          >
+            The diagnostic is the right first step.
+          </h2>
+          <p className="body-on-navy" style={{ marginBottom: 'var(--space-para-section)' }}>
+            R4,500. Delivered in 48 hours. A written report that tells you
+            exactly what&apos;s broken, what it&apos;s costing you, and what to
+            fix first. If you proceed to a build, this fee offsets against the
+            project cost.
+          </p>
+          <hr
+            className="rule"
+            style={{
+              background:    'rgba(250,250,248,0.15)',
+              marginBottom:  'var(--space-para-section)',
+            }}
+          />
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <Button href="/services/ai-revenue-diagnostic" variant="primary">
+              Learn about the diagnostic
+            </Button>
+            <Button href="#contact-form" variant="tertiary">
+              Send a message instead
+            </Button>
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }
