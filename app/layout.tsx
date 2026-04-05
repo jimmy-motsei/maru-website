@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
+import Nav from '@/components/ui/Nav'
+import Footer from '@/components/ui/Footer'
 import './globals.css'
 
 // ─── Fonts ────────────────────────────────────────────────────────────────────
@@ -67,7 +69,11 @@ export default function RootLayout({
           defaultTheme="light"
           enableSystem
         >
-          {children}
+          <Nav />
+          <main id="main-content">
+            {children}
+          </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
