@@ -57,7 +57,7 @@ export default function Footer() {
             <div className="flex flex-col gap-1 sm:flex-row sm:gap-5">
               <a
                 href="mailto:hello@maruonline.com"
-                className="font-body text-[12px] font-light text-ink-tertiary hover:text-cyan transition-colors duration-150"
+                className="font-body text-[12px] font-light text-ink-inverted-muted hover:text-cyan transition-colors duration-150"
               >
                 hello@maruonline.com
               </a>
@@ -65,14 +65,14 @@ export default function Footer() {
                 href="https://wa.me/27635643263"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-body text-[12px] font-light text-ink-tertiary hover:text-cyan transition-colors duration-150"
+                className="font-body text-[12px] font-light text-ink-inverted-muted hover:text-cyan transition-colors duration-150"
               >
                 wa.me/27635643263
               </a>
             </div>
 
             {/* Right: capacity + location */}
-            <p className="font-body text-[12px] font-light text-ink-tertiary sm:text-right">
+            <p className="font-body text-[12px] font-light text-ink-inverted-muted sm:text-right">
               Maximum five clients at any time&nbsp;·&nbsp;Johannesburg
             </p>
           </div>
