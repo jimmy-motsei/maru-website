@@ -1,58 +1,74 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
 
+// Dark mode strategy: 'selector' tells Tailwind v4 that dark: utilities activate
+// when [data-theme="dark"] is present on any ancestor element. next-themes sets
+// this attribute on <html>, so dark: utilities work site-wide.
 const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './app/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
   ],
+
+  darkMode: ['selector', '[data-theme="dark"]'],
+
   theme: {
     extend: {
-       colors: {
-        'highlight': 'var(--color-highlight)',
-        'highlight-hover': 'var(--color-highlight-hover)',
-        'cyan-primary': 'var(--color-cyan-primary)',
-        'cyan-hover': 'var(--color-cyan-hover)',
-        'accent': 'var(--color-accent)',
-        'orange-accent': 'var(--color-orange-accent)',
-        'dark': 'var(--color-dark)',
-        'card-border': 'var(--color-card-border)',
-        'electric-cyan': '#00D9FF',
-        'warm-amber': '#00A1A5',
-        'deep-navy': '#0A1219',
+      // ─── Colours ─────────────────────────────────────────────────────────
+      // All values reference CSS custom properties defined in globals.css.
+      // No hex values here — the variables resolve to different values in
+      // :root (light) and [data-theme='dark'] (dark) automatically.
+      colors: {
+
+        // Ink (text) scale
+        ink: {
+          primary:          'var(--color-ink-primary)',
+          secondary:        'var(--color-ink-secondary)',
+          tertiary:         'var(--color-ink-tertiary)',
+          inverted:         'var(--color-ink-inverted)',
+          'inverted-muted': 'var(--color-ink-inverted-muted)',
+        },
+
+        // Background scale
+        bg: {
+          primary:   'var(--color-bg-primary)',
+          secondary: 'var(--color-bg-secondary)',
+          tertiary:  'var(--color-bg-tertiary)',
+          dark:      'var(--color-bg-dark)',
+          darkest:   'var(--color-bg-darkest)',
+        },
+
+        // Brand cyan — light value switches in dark mode via CSS var
+        cyan: {
+          DEFAULT: 'var(--color-cyan)',
+          light:   'var(--color-cyan-light)',
+          dark:    'var(--color-cyan-dark)',
+        },
+
+        // Brand gold — no dark-mode override; CSS var resolves to same value
+        gold: {
+          DEFAULT: 'var(--color-gold)',
+          light:   'var(--color-gold-light)',
+        },
+
+        // Border scale
+        border: {
+          default: 'var(--color-border-default)',
+          strong:  'var(--color-border-strong)',
+        },
       },
-      fontSize: {
-        h1: ['86px', '1.2'],
-        h2: ['68px', '1.2'],
-        h3: ['42px', '1.2'],
-        h4: ['28px', '1.2'],
-        h5: ['20px', '1.5'],
-        h6: ['18px', '1.5'],
-      },
-      spacing: {
-        'section': '120px',
-        'section-tab': '90px',
-        'input': '70px',
-        'card': '60px',         // card padding (desktop)
-        'card-mobile': '32px',  // card padding (mobile) = p-8
-        'container-x': '30px',  // horizontal container padding
-        'grid-gap': '30px',     // standard grid gap
-      },
+
+      // ─── Font families ───────────────────────────────────────────────────
+      // font-display → Cormorant Garamond (display / H1 moments only)
+      // font-body    → DM Sans (all UI, body copy, labels, buttons)
+      // CSS variables are injected by next/font in layout.tsx.
       fontFamily: {
-        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        heading: ['var(--font-outfit)', 'Outfit', 'Inter', 'sans-serif'],
-        display: ['var(--font-outfit)', 'Outfit', 'Inter', 'sans-serif'],
-      },
-      fontWeight: {
-        'body': '300',    // base body copy weight
-        'eyebrow': '500', // eyebrow / label weight
-      },
-      borderRadius: {
-        'pill': '70px',
+        display: ['var(--font-display)', 'Georgia', 'Cambria', 'serif'],
+        body:    ['var(--font-body)', 'system-ui', 'sans-serif'],
       },
     },
   },
-  plugins: [],
-};
 
-export default config;
+  plugins: [],
+}
+
+export default config
