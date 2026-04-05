@@ -18,7 +18,7 @@ const cormorant = Cormorant_Garamond({
 // DM Sans — all body copy, UI, labels, buttons (weight 300 body / 500 headings)
 const dmSans = DM_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-dm-sans',
   display: 'swap',
 })
