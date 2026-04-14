@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Next.js dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "Drizzle Studio — website DB",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "db:studio:website"],
+      "port": 4983
+    },
+    {
+      "name": "Drizzle Studio — lead-engine DB",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "db:studio:lead-engine"],
+      "port": 4984
+    }
+  ]
+}

@@ -8,7 +8,7 @@ import { FadeUp, StaggerParent, StaggerChild } from '@/components/ui/Animate'
 
 export const metadata: Metadata = {
   title:       'How We Work | Maru Online',
-  description: 'Four phases. Fixed scope. Fixed price. Every Maru engagement starts with a diagnostic — no guessing, no retrofitting, no surprises.',
+  description: 'A process built around what\'s actually broken — not what\'s easiest to sell. Four phases, fixed scope, fixed price, clear outcomes at every stage.',
 }
 
 const outerPad    = 'px-6 md:px-[60px]'
@@ -23,13 +23,13 @@ const phases = [
     label:   'Diagnose',
     title:   'We map what is broken before we touch anything',
     body: [
-      "Every engagement starts with the diagnostic — no exceptions. Before we recommend a single new tool or write a line of code, we do a structured audit of your business: your tools, your workflows, and the gaps between them.",
-      "You receive a written report within 48 hours. It names your integration failures by name, quantifies what each gap is costing you in Rands, and gives you a prioritised order for fixing them. Whether or not you proceed with us, that report is yours.",
+      "You complete a sector-specific intake form — fifteen questions, designed for mobile, takes about fifteen minutes. We follow up with a short verification call. Within 48 hours you receive your diagnostic report.",
+      "The report covers your workflow and process audit, your AI tool inventory, your site infrastructure, and a revenue gap analysis — specific to your numbers, quantified in Rands. It is delivered as a live document, not a PDF. Whether or not you proceed with us, that report is yours.",
     ],
     items: [
-      { leader: 'Sector-specific intake brief', body: 'Structured questions tailored to your industry — not a generic form.' },
+      { leader: 'Sector-specific intake brief', body: 'Fifteen questions tailored to your industry — medico legal, HR & recruitment, or conference & events.' },
       { leader: '30–45 min verification call',  body: 'We clarify the brief, fill any gaps, and confirm scope before work begins.' },
-      { leader: 'Written gap report',            body: 'Named failures, the cost of each, and a fix priority order.' },
+      { leader: 'Written gap report',            body: 'Five sections: business snapshot, what\'s working, cost of current state, priority map, recommended next step.' },
       { leader: '90-day roadmap',                body: 'A sequenced action plan so you know exactly what to do and in what order.' },
     ],
     note: 'R4,500. If you proceed to a build, this fee offsets against the project cost.',
@@ -40,8 +40,8 @@ const phases = [
     label:   'Design',
     title:   'We scope the work before you commit to it',
     body: [
-      "Once the diagnostic is complete, we build a fixed-scope implementation plan based on what it found. You know exactly what we are building, what it costs, and what the measurable outcome will be — before you sign off on anything.",
-      "We don't start with a preferred stack. We start with your business. If your existing tools can do the job with better connections between them, that is what we build. We only recommend new tools when there is a genuine capability gap your current systems cannot fill.",
+      "We take the diagnostic findings and build a fixed-scope implementation plan. Every item is specified — what we're building, in what sequence, what it connects to, and what it's designed to produce. Nothing is vague.",
+      "You review it, ask questions, request adjustments. We don't proceed until you've signed off on every element. If the diagnostic surfaces a critical site infrastructure issue — a broken foundation that would undermine anything built on top of it — the plan addresses that first. We tell you this upfront, not halfway through the build.",
     ],
     items: [
       { leader: 'Fixed-scope definition',    body: 'A clear written spec of what will be built, delivered, and measured.' },
@@ -57,8 +57,8 @@ const phases = [
     label:   'Build',
     title:   'We build on solid foundations — not broken ones',
     body: [
-      "Implementation follows the scope exactly. If site infrastructure needs to be fixed or built first, we do that before the automation layer. We don't build AI workflows on top of broken foundations — the result would fail within weeks.",
-      "Brand voice is calibrated before outputs go live. POPIA compliance is designed in from the start — not retrofitted after the fact. Every touchpoint where your business handles personal data is reviewed before it goes into production.",
+      "We build what the plan specifies. If site remediation is sprint one, that goes first. The automation layer follows once the foundation is sound. Every sprint has a defined output and a defined completion point.",
+      "Everything built is tested, documented, and handed over with instructions your team can follow without a technical background. Brand voice is calibrated before outputs go live. POPIA compliance is designed in from the start — not retrofitted after the fact.",
     ],
     items: [
       { leader: 'Infrastructure first',        body: 'Site and stack issues resolved before automation is layered on top.' },
@@ -72,11 +72,11 @@ const phases = [
   },
   {
     number:  '04',
-    label:   'Hand over',
-    title:   'You own the system. Your team runs it.',
+    label:   'Launch and measure',
+    title:   'You own the system. The numbers prove it worked.',
     body: [
-      "A system that depends on its implementor to function is a liability, not an asset. Every engagement includes full documentation and hands-on training for whoever will be running the system day-to-day.",
-      "The 30-day measurement phase runs after handover. We track what changed against the baseline we set in the design phase and give you a results report — not just a handover document. You leave with proof, not just a build.",
+      "Before we build anything, we set a baseline — the numbers that matter to your business right now. After launch we track what changes over 30 days. At the end of the measurement period you receive a results report: not 'the system is live' — 'here's what moved, here's what didn't, here's what to watch.'",
+      "This phase is built into every engagement. It is not optional and it is not an add-on. It is also where the decision about any further optimisation work gets made — based on data, not on a sales conversation.",
     ],
     items: [
       { leader: 'Full documentation',          body: 'Every workflow, connection, and configuration documented for your team.' },
@@ -120,8 +120,8 @@ export default function ProcessPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1>
-              Four phases.<br />
-              Fixed scope. Fixed price.
+              A process built around<br />
+              what&apos;s actually broken.
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>
@@ -133,9 +133,8 @@ export default function ProcessPage() {
                 lineHeight:   'var(--leading-body)',
               }}
             >
-              Every engagement follows the same path — from diagnostic to
-              handover. The scope is written down, the price is fixed, and the
-              outcome is measured. No guessing, no retrofitting, no surprises.
+              Every Maru engagement follows the same four phases. Fixed scope,
+              fixed price, clear outcomes at every stage.
             </p>
           </FadeUp>
           <FadeUp delay={0.22}>
@@ -171,10 +170,11 @@ export default function ProcessPage() {
                 margin:        0,
               }}
             >
-              Most AI implementations fail not because the technology is wrong,
-              but because the implementor doesn&apos;t understand how the
-              business actually runs. We start with that understanding — not with
-              a preferred stack.
+              Most consultants start with a solution. We start with a diagnostic.
+              Not because it generates a fee — because building the wrong thing
+              faster is still building the wrong thing. Every engagement starts
+              the same way: with a structured look at what&apos;s actually
+              happening in your business before we touch a single tool.
             </p>
           </FadeUp>
         </div>
@@ -303,32 +303,133 @@ export default function ProcessPage() {
           <FadeUp>
             <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
               <span className="label-eyebrow-gold">Principles</span>
-              <h2>Three things we do that most consultancies don&apos;t</h2>
+              <h2>What you can expect from every engagement</h2>
             </div>
           </FadeUp>
           <StaggerParent className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <StaggerChild>
-              <CardGold title="Audit before recommendation">
-                We map what you have and quantify what your gaps are costing you
-                before recommending anything. Most consultants arrive with a
-                preferred stack. We arrive with a diagnostic.
+              <CardGold title="Fixed scope before we start">
+                You know exactly what we&apos;re building before you commit to
+                anything. No &ldquo;we&apos;ll figure it out as we go.&rdquo;
               </CardGold>
             </StaggerChild>
             <StaggerChild>
-              <CardGold title="Build for handover">
-                Every system we build is documented and handed over to your team.
-                We train whoever needs to run it. You should not need us to keep
-                it working.
+              <CardGold title="Fixed price before we start">
+                One number, agreed upfront. No hourly billing, no scope additions,
+                no invoice surprises.
               </CardGold>
             </StaggerChild>
             <StaggerChild>
-              <CardGold title="POPIA built in from day one">
-                Compliance is not an afterthought. Every data touchpoint is
-                designed with POPIA in mind before a line of code is written —
-                not retrofitted after the fact.
+              <CardGold title="Foundation first">
+                If your site or digital infrastructure is broken, we fix it before
+                we build on it — even if it means the engagement takes longer than
+                initially expected.
+              </CardGold>
+            </StaggerChild>
+            <StaggerChild>
+              <CardGold title="Independence at handover">
+                Every system we build is documented so your team can run it
+                without us. If it only works when we&apos;re involved, we
+                haven&apos;t done our job.
+              </CardGold>
+            </StaggerChild>
+            <StaggerChild>
+              <CardGold title="Honest measurement">
+                The 30-day results report tells you what actually changed —
+                including what didn&apos;t work as expected. We don&apos;t
+                curate results to protect the relationship.
+              </CardGold>
+            </StaggerChild>
+            <StaggerChild>
+              <CardGold title="Maximum five clients">
+                This isn&apos;t a marketing line. It&apos;s how we ensure every
+                engagement gets full attention. When you work with Maru you work
+                with Jimmy — not an account manager.
               </CardGold>
             </StaggerChild>
           </StaggerParent>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          FAQ
+          ════════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`${outerPad} py-24`}
+        style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+      >
+        <div className={inner}>
+          <FadeUp>
+            <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
+              <span className="label-eyebrow-gold">Common questions</span>
+              <h2>How the process works in practice</h2>
+            </div>
+          </FadeUp>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+            {[
+              {
+                q: 'How long does the whole process take?',
+                a: 'The diagnostic takes 48 hours from intake form submission to report delivery. The core engagement — Phases 2 through 4 — typically runs six to ten weeks depending on complexity and whether site remediation is required. The 30-day measurement phase runs after launch.',
+              },
+              {
+                q: 'Do I need to be technical to work with you?',
+                a: "No. We build systems your team can use and maintain without a technical background. Everything is documented in plain language at handover. If something breaks after we've handed over, we're reachable — but the systems are designed not to need us.",
+              },
+              {
+                q: "What if my business isn't ready for AI implementation?",
+                a: "The diagnostic will tell you. If the honest answer is that your foundation needs work before AI automation makes sense, we'll say so — and we can scope a site remediation engagement at R8,000–R15,000 to get you there. We'd rather give you a clear picture than sell you something you're not ready for.",
+              },
+              {
+                q: 'I already have AI tools. Do I have to replace them?',
+                a: "Almost certainly not. Our first obligation is to audit what you have and make it work better. We only recommend new tools when there is a genuine capability gap your existing stack cannot fill — and we explain exactly why when that happens.",
+              },
+              {
+                q: 'How many clients do you work with at once?',
+                a: "Maximum five. That's a hard limit, not a soft guideline. It's how we protect the quality of every engagement.",
+              },
+              {
+                q: 'What happens if the results don\'t meet expectations?',
+                a: "The 30-day measurement phase is where this gets addressed honestly. If something didn't perform as expected, the results report says so and explains why. We don't disappear after handover — the 30-day check-in is built in specifically to catch this and course-correct where needed.",
+              },
+              {
+                q: 'Can I start with just the diagnostic and decide later?',
+                a: "Yes — that's exactly how it's designed. The diagnostic is a complete, standalone deliverable. There is no obligation to proceed to a full engagement. Many clients use the diagnostic report to make an internal case for the investment before committing.",
+              },
+              {
+                q: 'Do you work outside Johannesburg?',
+                a: "The diagnostic and most of the engagement work is handled remotely. For clients in Gauteng we can meet in person at key stages. For clients elsewhere in South Africa the process works entirely via video call and shared documents — same quality, same process.",
+              },
+            ].map((faq, i) => (
+              <FadeUp key={i}>
+                <div
+                  style={{
+                    borderTop: '1px solid var(--color-border-default)',
+                    padding:   '1.5rem 0',
+                  }}
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-4 md:gap-16">
+                    <p
+                      style={{
+                        fontFamily:  'var(--font-display)',
+                        fontSize:    'var(--text-h3-serif)',
+                        fontWeight:  600,
+                        color:       'var(--color-navy)',
+                        lineHeight:  'var(--leading-subheading)',
+                        margin:      0,
+                      }}
+                    >
+                      {faq.q}
+                    </p>
+                    <p className="body-muted" style={{ margin: 0 }}>
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
+              </FadeUp>
+            ))}
+            <div style={{ borderTop: '1px solid var(--color-border-default)' }} />
+          </div>
         </div>
       </section>
 
@@ -344,12 +445,12 @@ export default function ProcessPage() {
             <span className="label-eyebrow-gold">Capacity</span>
             <h2>We work with a maximum of five clients at any time</h2>
             <p className="body-muted" style={{ marginBottom: 0 }}>
-              That limit is deliberate. Every integration gets our full attention
-              from the initial diagnostic through to handover and the 30-day
-              measurement phase. We don&apos;t take on more work than we can do
-              properly. If you&apos;re considering an engagement, the right first
-              step is the diagnostic — it gives you a clear picture of your
-              situation before you commit to anything.
+              That&apos;s a hard limit, not a soft guideline. Every engagement gets
+              full attention from the initial diagnostic through to handover and
+              the 30-day measurement phase. We don&apos;t take on more work than
+              we can do properly. If you&apos;re considering an engagement, the
+              diagnostic is the right first step — it gives you a clear picture
+              before either of us commits to anything larger.
             </p>
           </FadeUp>
         </div>
@@ -377,7 +478,7 @@ export default function ProcessPage() {
         />
         <div className={innerNarrow}>
           <FadeUp>
-            <span className="label-eyebrow">Ready to start?</span>
+            <span className="label-eyebrow">The diagnostic</span>
             <h2
               style={{
                 color:        'var(--color-ink-inverted)',
@@ -386,15 +487,16 @@ export default function ProcessPage() {
                 marginBottom: 'var(--space-heading-body)',
               }}
             >
-              The diagnostic is the right first step — for every business.
+              The diagnostic is where every engagement starts.
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: 'var(--space-para-section)' }}>
-              R4,500. Delivered in 48 hours. You get a written report that names
-              your gaps, quantifies what they&apos;re costing you, and tells you
-              exactly what to fix first. If you proceed to a build, the
-              diagnostic fee offsets against the project cost.
+              It&apos;s also where you find out whether we&apos;re the right fit
+              for each other — before either of us commits to anything larger.
+              R4,500. Delivered in 48 hours. A written report that names your gaps,
+              quantifies what they&apos;re costing you, and tells you exactly what
+              to fix first.
             </p>
             <hr
               className="rule"

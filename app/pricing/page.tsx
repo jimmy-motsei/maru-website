@@ -6,7 +6,7 @@ import { FadeUp, StaggerParent, StaggerChild } from '@/components/ui/Animate'
 
 export const metadata: Metadata = {
   title:       'Pricing | Maru Online',
-  description: 'Fixed-scope pricing for AI integration and website builds. You know the full investment before work begins. Engagements from R4,500.',
+  description: 'Every Maru engagement begins with a diagnostic — R4,500, delivered in 48 hours. Fixed scope, fixed price. No surprises after that.',
 }
 
 const outerPad    = 'px-6 md:px-[60px]'
@@ -110,24 +110,20 @@ const retainerTiers = [
 
 const faqs = [
   {
-    q: 'Why does every engagement start with a diagnostic?',
-    a: "Because we don't recommend a solution until we know what's actually broken. The diagnostic protects you from paying for work that won't move the needle — and it protects us from building the wrong thing.",
+    q: 'Why do I have to pay for the diagnostic?',
+    a: "Because it's real work that produces a real deliverable. A free discovery call tells you what we think might be wrong. A paid diagnostic tells you exactly what is wrong, what it's costing you, and what to fix first — with your specific numbers in it. The fee also ensures we're both serious about the conversation before either of us invests significant time in it.",
   },
   {
-    q: 'What does "fixed-scope" mean in practice?',
-    a: "It means the price is agreed before work begins and doesn't change. We define the scope during the diagnostic, write it up clearly, and you sign off on it. No hourly billing, no surprises.",
+    q: 'What if I decide not to proceed after the diagnostic?',
+    a: "That's completely fine. The diagnostic report is yours regardless. You'll walk away with a clear picture of your business's AI readiness, a quantified cost-of-current-state, and a prioritised action plan you can act on yourself or take to another provider. We'd rather you have that clarity than commit to an engagement you're not ready for.",
   },
   {
-    q: 'Can I start with the diagnostic and decide later?',
-    a: "Yes — and that's the right approach. The diagnostic is designed to give you a clear picture before you commit to anything. If the numbers don't make sense, we'll tell you. If they do, the diagnostic fee offsets against the build cost.",
+    q: "Why don't you publish the full engagement price?",
+    a: "Every engagement is scoped to what the diagnostic finds. Publishing a single number would either undersell complex work or oversell simple work. What we guarantee is that the price is fixed before you commit — no surprises, no scope creep.",
   },
   {
-    q: 'Do you work with businesses outside Gauteng?',
-    a: 'Yes. All engagements are run remotely unless you specifically request on-site. We have worked with clients across South Africa.',
-  },
-  {
-    q: 'What industries do you work in?',
-    a: 'Our current focus sectors are medico legal, HR and recruitment, and conference and events. We take on work outside these sectors if the brief is well-scoped and the ROI case is clear.',
+    q: 'Do you offer payment plans?',
+    a: "The diagnostic is payable upfront. For the core engagement we can discuss a milestone-based payment structure — typically 50% on scoping sign-off and 50% on delivery. Raise it during the scoping conversation and we'll work something out.",
   },
 ]
 
@@ -162,8 +158,8 @@ export default function PricingPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1>
-              Fixed-scope.<br />
-              Priced before work begins.
+              One fixed price to start.<br />
+              No surprises after that.
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>
@@ -175,9 +171,8 @@ export default function PricingPage() {
                 lineHeight:   'var(--leading-body)',
               }}
             >
-              Every engagement is scoped to your specific stack, team, and
-              revenue targets. You know the full cost before we start — no
-              hourly billing, no scope creep, no surprises.
+              Every Maru engagement begins with a diagnostic. Here&apos;s exactly
+              what that costs, what you get — and what comes after if you proceed.
             </p>
           </FadeUp>
           <FadeUp delay={0.22}>
@@ -213,10 +208,10 @@ export default function PricingPage() {
                 margin:        0,
               }}
             >
-              We don&apos;t quote until we understand the problem. The diagnostic
-              is how we scope every engagement — it protects you from buying work
-              that won&apos;t move the needle, and it means the price we give you
-              is real.
+              If you&apos;ve already invested in AI tools, you don&apos;t need
+              more tools. You need someone to make the ones you have work together.
+              The diagnostic is where that starts — and the fee offsets against
+              the engagement if you proceed.
             </p>
           </FadeUp>
         </div>
@@ -234,13 +229,13 @@ export default function PricingPage() {
           <FadeUp>
             <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
               <span className="label-eyebrow-gold">Engagements</span>
-              <h2>Project-based work</h2>
+              <h2>Start here. Build from what we find.</h2>
               <p
                 className="body-muted"
                 style={{ margin: 0, maxWidth: '560px' }}
               >
-                All three are fixed-scope. Start with the diagnostic — the other
-                two are scoped from what it finds.
+                All three are fixed-scope and priced before work begins. Start
+                with the diagnostic — everything else is scoped from what it finds.
               </p>
             </div>
           </FadeUp>
@@ -383,13 +378,14 @@ export default function PricingPage() {
           <FadeUp>
             <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
               <span className="label-eyebrow-gold">Retainers</span>
-              <h2>Ongoing support & optimisation</h2>
+              <h2>After the engagement</h2>
               <p
                 className="body-muted"
                 style={{ margin: 0, maxWidth: '560px' }}
               >
-                Monthly retainers are available to clients who have completed a
-                build engagement. Systems drift — this keeps yours performing.
+                For businesses that want to keep building after the initial
+                engagement. Your team owns the system independently — a retainer
+                keeps it performing as your business evolves.
               </p>
             </div>
           </FadeUp>
@@ -525,7 +521,7 @@ export default function PricingPage() {
           <FadeUp>
             <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
               <span className="label-eyebrow-gold">Common questions</span>
-              <h2>Pricing questions answered</h2>
+              <h2>A note on how we price</h2>
             </div>
           </FadeUp>
 
@@ -585,7 +581,7 @@ export default function PricingPage() {
         />
         <div className={innerNarrow}>
           <FadeUp>
-            <span className="label-eyebrow">Not sure where to start?</span>
+            <span className="label-eyebrow">The right first step</span>
             <h2
               style={{
                 color:        'var(--color-ink-inverted)',
@@ -594,14 +590,15 @@ export default function PricingPage() {
                 marginBottom: 'var(--space-heading-body)',
               }}
             >
-              The diagnostic tells you exactly what you need — before you spend anything else.
+              The diagnostic is where every engagement starts.
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: 'var(--space-para-section)' }}>
-              R4,500. 48-hour turnaround. A written report with your integration
-              failures, the cost of each, and a prioritised fix order. If you
-              proceed to a build, this fee offsets against the project cost.
+              It&apos;s also where you find out whether we&apos;re the right fit
+              for each other — before either of us commits to anything larger.
+              R4,500. 48-hour turnaround. A written report with your gaps, the
+              cost of each, and a prioritised fix order.
             </p>
             <hr
               className="rule"

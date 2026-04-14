@@ -132,9 +132,9 @@ export default function ServicesPage() {
                 lineHeight: "var(--leading-body)",
               }}
             >
-              Four structured services. One integrated system. Built for your
-              stack, your team, and your revenue targets. Every engagement is
-              fixed-scope and priced before work begins.
+              We build AI workflows that connect what you already have — and
+              measure what changes. Every engagement is fixed-scope and priced
+              before work begins.
             </p>
           </FadeUp>
           <FadeUp delay={0.24}>
@@ -170,9 +170,12 @@ export default function ServicesPage() {
                 margin: 0,
               }}
             >
-              Every engagement is fixed-scope and priced before work begins. We
-              start with a diagnostic so you know exactly what&apos;s broken — and
-              what fixing it is worth — before you commit to anything.
+              If you&apos;ve already invested in AI tools, you don&apos;t need
+              more tools. You need someone to make the ones you have work
+              together. We use AI systems in our own process to deliver faster,
+              more consistent work — your diagnostic report is ready within 48
+              hours, and your results are tracked against a baseline we set before
+              we build anything.
             </p>
           </FadeUp>
         </div>
@@ -363,7 +366,7 @@ export default function ServicesPage() {
         />
         <div className={innerNarrow}>
           <FadeUp>
-            <span className="label-eyebrow">Not sure where to start?</span>
+            <span className="label-eyebrow">The right place to start</span>
             <h2
               style={{
                 color: "var(--color-ink-inverted)",
@@ -372,14 +375,15 @@ export default function ServicesPage() {
                 marginBottom: "var(--space-heading-body)",
               }}
             >
-              The diagnostic is the right first step — for every business.
+              The right place to start is a conversation about what&apos;s actually broken.
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-              We don&apos;t recommend a service until we know what your business
-              actually needs. The diagnostic gives us — and you — a clear picture
-              before any further commitment is made.
+              Not a sales call. A diagnostic. For R4,500 you get a structured
+              audit of your business, a quantified cost-of-current-state report,
+              and a clear map of what to fix first. If we proceed to a full
+              engagement, the diagnostic fee comes off the project cost.
             </p>
             <hr
               className="rule"

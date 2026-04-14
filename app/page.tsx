@@ -69,12 +69,26 @@ export default function Home() {
           <FadeUp delay={0.24}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
               <Button href="/contact" variant="primary">
-                Start with a diagnostic
+                Start with a diagnostic — R4,500
               </Button>
               <Button href="/booking" variant="tertiary">
                 Book a 20-minute call — no pitch
               </Button>
             </div>
+          </FadeUp>
+          <FadeUp delay={0.30}>
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "var(--text-meta)",
+                fontWeight: 300,
+                color: "rgba(250,250,248,0.45)",
+                marginTop: "1.25rem",
+                marginBottom: 0,
+              }}
+            >
+              Working with owner-managed businesses across medico legal, HR, and events — Johannesburg.
+            </p>
           </FadeUp>
         </div>
       </section>
@@ -351,15 +365,15 @@ export default function Home() {
             {[
               {
                 title: "Medico legal",
-                body: "Appointment scheduling, no-show reduction, insurer workflows, patient communication.",
+                body: "Appointment scheduling, no-show reduction, insurer authorisation workflows, patient communication automation.",
               },
               {
                 title: "HR and recruitment",
-                body: "Application screening, candidate communication, time-to-shortlist, onboarding automation.",
+                body: "Application screening, candidate communication, time-to-shortlist reduction, onboarding workflow automation.",
               },
               {
                 title: "Conference and events",
-                body: "Speaker and sponsor coordination, registration workflows, post-event follow-up.",
+                body: "Speaker and sponsor communication, attendee registration workflows, pre-event coordination, post-event follow-up automation.",
               },
             ].map((sector) => (
               <StaggerChild key={sector.title}>
@@ -489,7 +503,7 @@ export default function Home() {
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Button href="/contact" variant="primary">
-                Start with a diagnostic
+                Start with a diagnostic — R4,500
               </Button>
               <Button href="/booking" variant="tertiary">
                 Book a 20-minute call — no pitch

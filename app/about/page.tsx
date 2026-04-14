@@ -9,7 +9,7 @@ import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 export const metadata: Metadata = {
   title: "About | Maru Online",
   description:
-    "Maru Online is an AI integration consultancy for South African SMEs. Founded by Jimmy Motsei with 20+ years in sales, marketing, and business systems.",
+    "Jimmy Motsei founded Maru Online after two decades building commercial operations in South African sport, sponsorship and business. We solve your business problem — not your AI problem.",
 };
 
 const outerPad    = "px-6 md:px-[60px]";
@@ -45,8 +45,8 @@ export default function AboutPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1>
-              Built for the gap between<br />
-              AI investment and AI results.
+              Built by someone who&apos;s been<br />
+              on the other side of the table.
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>
@@ -58,14 +58,12 @@ export default function AboutPage() {
                 lineHeight: "var(--leading-body)",
               }}
             >
-              We are an AI integration consultancy built specifically for South
-              African SMEs — connecting your tools to your workflows and your
-              revenue targets in a way that holds.
+              Jimmy Motsei — Founder, Maru Online
             </p>
           </FadeUp>
           <FadeUp delay={0.22}>
             <Button href="/contact" variant="primary">
-              Speak to the team
+              Start with a diagnostic — R4,500
             </Button>
           </FadeUp>
         </div>
@@ -79,7 +77,7 @@ export default function AboutPage() {
         style={{ backgroundColor: "var(--color-bg-primary)" }}
       >
         <div className={innerNarrow}>
-          <FadeUp><h2>Why we exist</h2></FadeUp>
+          <FadeUp><h2>Before Maru Online</h2></FadeUp>
           <FadeUp delay={0.06}>
             <p
               style={{
@@ -92,23 +90,27 @@ export default function AboutPage() {
                 letterSpacing: "var(--tracking-tight)",
               }}
             >
-              Most businesses have invested in AI tools. The revenue impact
-              isn&apos;t matching the spend.
+              Before AI integration, before digital strategy, before Maru Online
+              — there was Maru Sponsorship and Marketing.
             </p>
           </FadeUp>
           <FadeUp delay={0.1}>
             <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-              CRMs with AI scoring, marketing platforms with automation, customer
-              service bots, proposal generators — the tools are real and the spend
-              is real. But for most SMEs, the results aren&apos;t. The gap between
-              what AI promises and what it actually delivers in your business is
-              exactly where we work.
+              In 2002 Jimmy co-founded it from scratch. No clients, no revenue,
+              no guaranteed contracts. Within a year he had personally negotiated
+              a R10 million per annum title sponsorship for the South African Open
+              Golf Championship with South African Airways — a deal that grew to
+              R28 million per annum over seven years. By 2007 the business was
+              generating over R70 million annually, holding commercial rights to
+              one of South Africa&apos;s most prestigious sporting events.
             </p>
             <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-              AI integration fails not because the technology is wrong, but because
-              it&apos;s implemented without understanding how a business actually
-              runs. We bridge that gap — connecting your AI tools to your
-              workflows, your team, and your revenue targets.
+              He was not an advisor on that business. He built it, owned it, ran
+              it, negotiated the deals himself, managed the relationships,
+              delivered the events, and was personally accountable when things went
+              wrong — including a two-year legal battle to recover a full contract
+              value from a Dubai World subsidiary after the global financial crisis.
+              He recovered every rand.
             </p>
             <hr className="rule" style={{ marginBottom: "var(--space-para-section)" }} />
             <p
@@ -121,7 +123,9 @@ export default function AboutPage() {
                 margin: 0,
               }}
             >
-              We solve your business problem — not your AI problem.
+              That background matters for one reason: Jimmy understands what it means
+              to run a business where the outcomes are real, the stakes are personal,
+              and someone has to be in the room making it happen.
             </p>
           </FadeUp>
         </div>
@@ -135,7 +139,7 @@ export default function AboutPage() {
         style={{ backgroundColor: "var(--color-bg-canvas)" }}
       >
         <div className={inner}>
-          <FadeUp><h2>The founder</h2></FadeUp>
+          <FadeUp><h2>The pivot that became Maru Online</h2></FadeUp>
           <FadeUp delay={0.08}>
             <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-10 md:gap-14 items-start">
               {/* Portrait */}
@@ -187,25 +191,26 @@ export default function AboutPage() {
               {/* Bio */}
               <div>
                 <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-                  Jimmy brings over 20 years of experience across sales, marketing,
-                  sponsorship, and business systems. He founded Maru Sponsorship
-                  &amp; Marketing in 2002, personally negotiating over R250m in
-                  commercial value across sport and entertainment — including seven
-                  consecutive SA Open Championship editions and three international
-                  rights-holder deals.
+                  In 2014, Jimmy accompanied his wife to Barcelona while she
+                  completed an MBA at the European University. EU labour regulations
+                  prevented formal employment, but a Barcelona-based software company
+                  made serious efforts to bring him on — efforts that planted a seed.
                 </p>
                 <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-                  That track record matters here. Most AI implementations fail not
-                  because the technology is wrong, but because the implementor
-                  doesn&apos;t understand how a business actually runs. Jimmy does.
-                  He has built and run commercial operations, managed enterprise
-                  client relationships, and closed deals at board level. That
-                  experience is what makes the diagnostic different.
+                  He spent 18 months teaching business English to executives at IBM
+                  Spain, Adecco and G4S Security while watching European businesses
+                  run rings around South African competitors in one specific area:
+                  their ability to connect their systems, automate their workflows,
+                  and measure what was actually working.
                 </p>
                 <p className="body-muted" style={{ marginBottom: 0 }}>
-                  He founded Maru Online to bring that same commercial discipline
-                  to AI integration for South African SMEs — starting with what
-                  the business needs, not what the technology can theoretically do.
+                  When he returned to South Africa in 2016, he brought that
+                  observation with him. Most SA SMEs had the same commercial
+                  instincts and relationship-driven approach that had always
+                  characterised the market — but they were leaving significant
+                  revenue on the table because their operations weren&apos;t
+                  connected. The tools existed. The integration didn&apos;t.
+                  That gap is what Maru Online was built to close.
                 </p>
               </div>
             </div>
@@ -227,8 +232,8 @@ export default function AboutPage() {
               className="body-muted"
               style={{ maxWidth: "580px", marginBottom: "var(--space-section-header-mb)" }}
             >
-              20+ years of building and running commercial operations — before the
-              AI consultancy.
+              Two decades of building and running commercial operations at board
+              level — before the AI consultancy.
             </p>
           </FadeUp>
 
@@ -288,28 +293,28 @@ export default function AboutPage() {
       >
         <div className={inner}>
           <FadeUp>
-            <h2>How we work</h2>
+            <h2>How Jimmy works — and why it&apos;s different</h2>
             <p className="body-muted" style={{ marginBottom: "var(--space-section-header-mb)" }}>
-              Structured, not improvised. Every engagement follows the same path.
+              Two decades of commercial experience produce one instinct above all others: diagnose before you prescribe.
             </p>
           </FadeUp>
           <FadeUp delay={0.08}>
             <ListGroup>
               <ListItem
-                leader="Audit"
-                body="We map your existing tools, workflows, and the gaps between them. You get a written report that names exactly what's broken and what it's costing you."
+                leader="Diagnose before prescribing"
+                body="Every Maru engagement starts with a structured diagnostic — not because it's a billable first step, but because building the wrong thing faster is still building the wrong thing."
               />
               <ListItem
-                leader="Architect"
-                body="We design a fixed-scope integration plan based on what the audit found. Fixed price, fixed deliverables — no scope creep."
+                leader="Fixed scope, fixed price"
+                body="The implementation fixes specifically what the diagnostic found. No open-ended engagements, no hourly billing, no scope additions mid-project."
               />
               <ListItem
-                leader="Integrate"
-                body="We build it. Site infrastructure first if needed, then the automation layer on top. We don't build on broken foundations."
+                leader="30-day measurement"
+                body="The measurement phase 30 days after launch shows you the numbers that prove it worked — or tells you honestly what needs adjusting."
               />
               <ListItem
-                leader="Hand over"
-                body="We build systems your team can own and run independently. An AI system that depends on its implementor to function is a liability, not an asset."
+                leader="Maximum five clients"
+                body="Not as a positioning statement — as a practical commitment to doing the work properly. Every client gets his full attention, from diagnostic through to handover."
               />
             </ListGroup>
           </FadeUp>
@@ -325,34 +330,37 @@ export default function AboutPage() {
       >
         <div className={inner}>
           <FadeUp>
-            <h2>What makes us different</h2>
+            <h2>What ten years of watching SA businesses operate leaves you</h2>
             <p
               className="body-muted"
               style={{ maxWidth: "580px", marginBottom: "var(--space-section-header-mb)" }}
             >
-              Three things we do that most AI consultancies don&apos;t.
+              Having worked across South African sport, entertainment, hospitality,
+              digital and now AI integration — Jimmy brings something most
+              consultants don&apos;t: pattern recognition from real conditions.
             </p>
           </FadeUp>
           <StaggerParent className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <StaggerChild>
-              <CardGold title="We start with audit, not tools">
+              <CardGold title="SA conditions, not US case studies">
+                Load shedding, late payments, lean teams doing the work of three
+                departments. The diagnostic frameworks are built around how SA
+                businesses actually operate — not how a global platform assumes
+                they do.
+              </CardGold>
+            </StaggerChild>
+            <StaggerChild>
+              <CardGold title="Audit before recommendation">
                 Before we recommend anything, we map what you have and quantify
                 what your gaps are costing you. Most consultants arrive with a
                 preferred stack. We arrive with a diagnostic.
               </CardGold>
             </StaggerChild>
             <StaggerChild>
-              <CardGold title="We build for handover">
+              <CardGold title="Independence at handover">
                 Every system we build is documented and handed over to your team.
-                We train whoever needs to run it. You should not need us to keep
-                it working.
-              </CardGold>
-            </StaggerChild>
-            <StaggerChild>
-              <CardGold title="POPIA built in from day one">
-                Compliance is not an afterthought. Every data touchpoint is
-                designed with POPIA in mind before a line of code is written —
-                not retrofitted after the fact.
+                An AI workflow that depends on its implementor to function is a
+                liability, not an asset.
               </CardGold>
             </StaggerChild>
           </StaggerParent>
@@ -381,7 +389,7 @@ export default function AboutPage() {
         />
         <div className={innerNarrow}>
           <FadeUp>
-            <span className="label-eyebrow">Capacity</span>
+            <span className="label-eyebrow">Where to start</span>
             <h2
               style={{
                 color: "var(--color-ink-inverted)",
@@ -390,31 +398,55 @@ export default function AboutPage() {
                 marginBottom: "var(--space-heading-body)",
               }}
             >
-              We work with a maximum of five clients at any time.
+              If you want someone who will tell you honestly what&apos;s broken.
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-              That limit is deliberate. Every integration gets our full attention —
-              from the initial diagnostic through to handover and the 30-day
-              measurement phase. We don&apos;t take on more work than we can do
-              properly.
+              The diagnostic is the right place to start. Fifteen questions, a
+              follow-up call, and a written report delivered within 48 hours —
+              specific to your business, with your numbers in it.
             </p>
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-              If you&apos;re considering an engagement, the right first step is the
-              diagnostic. It&apos;s fixed price, scoped, and gives you a clear
-              picture of your situation regardless of whether you proceed further
-              with us.
+              If you proceed to a full engagement, the diagnostic fee offsets
+              against the project cost. If you don&apos;t, you walk away with
+              a clear picture of what&apos;s broken and exactly what to do about it.
             </p>
             <hr
               className="rule"
               style={{ background: "rgba(250,250,248,0.15)", marginBottom: "var(--space-para-section)" }}
             />
+            <p
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "var(--text-h3-serif)",
+                fontWeight: 400,
+                fontStyle: "italic",
+                color: "var(--color-ink-inverted-muted)",
+                lineHeight: "var(--leading-subheading)",
+                letterSpacing: "var(--tracking-tight)",
+                marginBottom: "0.5rem",
+              }}
+            >
+              &ldquo;I don&apos;t advise from the sidelines. I build things
+              and I&apos;m accountable for what they produce.&rdquo;
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "var(--text-meta)",
+                fontWeight: 300,
+                color: "rgba(250,250,248,0.45)",
+                marginBottom: "var(--space-section-header-mb)",
+              }}
+            >
+              — Jimmy Motsei
+            </p>
           </FadeUp>
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Button href="/contact" variant="primary">
-                Start with a diagnostic
+                Start with a diagnostic — R4,500
               </Button>
               <Button href="/booking" variant="tertiary">
                 Book a 20-minute call — no pitch

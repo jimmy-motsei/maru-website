@@ -9,92 +9,141 @@ import { submitToHubSpot, HUBSPOT_FORMS } from "@/lib/hubspot";
 
 const questions = [
   {
-    id: "implementation_clarity",
-    pillar: "Implementation Clarity",
-    question: "Do you have a defined implementation roadmap for your current AI tools?",
+    id: "ai_tool_usage",
+    pillar: "AI Tool Usage",
+    question: "Which best describes how your business currently uses AI tools?",
     options: [
-      { label: "No roadmap. Tools were adopted ad hoc.", score: 0 },
-      { label: "Some rough plans exist but are not operationalized.", score: 25 },
-      { label: "A roadmap exists with clear phases for key teams.", score: 50 },
-      { label: "A structured roadmap is actively executed and reviewed.", score: 100 },
+      { label: "We don't use any AI tools yet.", score: 1 },
+      { label: "We use one or two tools but mostly for basic tasks.", score: 2 },
+      { label: "We use several AI tools across different parts of the business.", score: 3 },
+      { label: "AI tools are integrated into most of our key workflows.", score: 4 },
     ],
   },
   {
-    id: "workflow_integration",
-    pillar: "Workflow Integration",
-    question: "How well are your AI tools integrated into daily team workflows?",
+    id: "tool_connectivity",
+    pillar: "Tool Connectivity",
+    question: "How connected are your business tools to each other?",
     options: [
-      { label: "Mostly disconnected from real day-to-day execution.", score: 0 },
-      { label: "Used occasionally, but not embedded in core workflows.", score: 25 },
-      { label: "Integrated in some revenue-critical workflows.", score: 50 },
-      { label: "Deeply integrated across teams with clear handoffs.", score: 100 },
+      { label: "Most things are separate — we copy information between systems manually.", score: 1 },
+      { label: "Some tools are connected but a lot still requires manual input.", score: 2 },
+      { label: "Most of our tools talk to each other automatically.", score: 3 },
+      { label: "Everything is integrated — data flows between systems without manual intervention.", score: 4 },
     ],
   },
   {
-    id: "team_adoption",
-    pillar: "Team Adoption",
-    question: "What level of team adoption and consistency do you currently have?",
+    id: "lead_automation",
+    pillar: "Lead & Enquiry Handling",
+    question: "When a new lead or enquiry comes in, what happens?",
     options: [
-      { label: "Low adoption. AI use depends on individual effort.", score: 0 },
-      { label: "Partial adoption with inconsistent output quality.", score: 25 },
-      { label: "Good adoption with some governance and standards.", score: 50 },
-      { label: "Strong adoption with repeatable standards and coaching.", score: 100 },
+      { label: "Someone on the team handles it manually when they get to it.", score: 1 },
+      { label: "We have a basic process but it's not always followed consistently.", score: 2 },
+      { label: "We have an automated acknowledgement but follow-up is still manual.", score: 3 },
+      { label: "The entire follow-up sequence is automated until a human needs to step in.", score: 4 },
     ],
   },
   {
-    id: "roi_measurement",
-    pillar: "ROI Measurement",
-    question: "How effectively do you measure ROI from AI implementation?",
+    id: "manual_task_burden",
+    pillar: "Manual Task Burden",
+    question: "How much of your team's time goes to repetitive manual tasks — scheduling, chasing, data entry, follow-ups?",
     options: [
-      { label: "No clear ROI measurement in place.", score: 0 },
-      { label: "Basic metrics exist, but weak linkage to revenue outcomes.", score: 25 },
-      { label: "Key implementation metrics tracked with periodic reviews.", score: 50 },
-      { label: "Clear ROI dashboard tied to conversion, velocity, and margin.", score: 100 },
+      { label: "More than half our time.", score: 1 },
+      { label: "Roughly a quarter to half our time.", score: 2 },
+      { label: "Less than a quarter — we've automated most of it.", score: 3 },
+      { label: "Almost none — our workflows are largely automated.", score: 4 },
     ],
   },
   {
-    id: "governance_compliance",
-    pillar: "Governance & Compliance",
-    question: "How mature are your controls for quality, risk, and POPIA compliance?",
+    id: "roi_tracking",
+    pillar: "ROI Tracking",
+    question: "Do you know what your current AI tools are costing you versus what they're producing?",
     options: [
-      { label: "No formal controls or compliance process.", score: 0 },
-      { label: "Some controls exist, but enforcement is weak.", score: 25 },
-      { label: "Documented controls with periodic quality checks.", score: 50 },
-      { label: "Operational controls with continuous compliance monitoring.", score: 100 },
+      { label: "No — we don't track this.", score: 1 },
+      { label: "We have a rough sense but nothing precise.", score: 2 },
+      { label: "We track costs but not the revenue impact.", score: 3 },
+      { label: "Yes — we measure both cost and return on our AI investment.", score: 4 },
+    ],
+  },
+  {
+    id: "website_performance",
+    pillar: "Website as Business Tool",
+    question: "How would you describe your website's performance as a business tool?",
+    options: [
+      { label: "It's basically a brochure — it doesn't generate leads or do much for us.", score: 1 },
+      { label: "It generates some interest but conversion is low.", score: 2 },
+      { label: "It generates consistent leads that feed our pipeline.", score: 3 },
+      { label: "It's a core part of our revenue system — fully integrated with our CRM and workflows.", score: 4 },
+    ],
+  },
+  {
+    id: "implementation_history",
+    pillar: "Implementation Track Record",
+    question: "When you've tried to implement new tools or automations in the past, what usually happens?",
+    options: [
+      { label: "We haven't really tried.", score: 1 },
+      { label: "We try but it doesn't stick — the team goes back to the old way.", score: 2 },
+      { label: "It works initially but breaks down over time without maintenance.", score: 3 },
+      { label: "New tools get adopted and integrated successfully most of the time.", score: 4 },
+    ],
+  },
+  {
+    id: "honest_assessment",
+    pillar: "Honest Self-Assessment",
+    question: "What's the most honest description of where your business is with AI right now?",
+    options: [
+      { label: "We know we should be doing something but haven't started.", score: 1 },
+      { label: "We've invested in tools but we're not getting the return we expected.", score: 2 },
+      { label: "We're getting some value but we know there's more on the table.", score: 3 },
+      { label: "AI is working well for us — we're looking to go deeper.", score: 4 },
     ],
   },
 ];
 
 const getTier = (score: number) => {
-  if (score >= 86) {
+  if (score >= 27) {
     return {
-      name: "Operationalized",
+      name: "Advanced",
       color: "text-emerald-400",
+      heading: "Your AI foundation is strong. The question now is how to go deeper.",
       description:
-        "Your implementation foundation is strong. Focus on optimization cycles to compound ROI.",
+        "You're ahead of most SA SMEs in your adoption and integration. The opportunity at this stage is usually in measurement — knowing precisely what your AI investment is producing and where the next layer of return sits. Businesses at your level typically benefit most from a targeted optimisation engagement rather than a foundational build.",
+      cta: "A 20-minute call will help us understand your current setup and whether there's a specific optimisation worth pursuing.",
+      ctaLabel: "Book a 20-minute call",
+      ctaHref: "/booking",
     };
   }
-  if (score >= 61) {
+  if (score >= 21) {
     return {
-      name: "Scaling",
+      name: "Partial integration",
       color: "text-action-primary",
+      heading: "You're getting some return — but there's a layer of value you haven't unlocked yet.",
       description:
-        "You have momentum. Standardize execution and tighten measurement to unlock stronger returns.",
+        "You've done the hard work of adopting AI tools and getting your team to use them. The next layer is connecting those tools more deeply into your revenue workflows — so that the automation compounds rather than stays isolated. The businesses that move from 'some value' to 'significant value' usually make one or two structural changes, not a dozen small ones.",
+      cta: "A diagnostic will identify which structural changes would have the most impact for your specific setup.",
+      ctaLabel: "Book your diagnostic — R4,500",
+      ctaHref: "/contact",
     };
   }
-  if (score >= 41) {
+  if (score >= 15) {
     return {
-      name: "Activating",
+      name: "Investment made, returns pending",
       color: "text-amber-300",
+      heading: "You've invested in AI tools. They're not paying for themselves yet.",
       description:
-        "You have signals of progress, but implementation is not yet consistent enough for reliable ROI.",
+        "This is the most common position for SA SMEs right now — real spend, real tools, underwhelming results. In most cases the tools aren't the problem. The connections between them are. A workflow audit almost always surfaces two or three integration gaps that, when closed, unlock the return on investment that's already been made.",
+      cta: "A diagnostic will show you exactly what those gaps are — and what they're costing you in Rands.",
+      ctaLabel: "Book your diagnostic — R4,500",
+      ctaHref: "/contact",
     };
   }
   return {
-    name: "Foundational",
-    color: "text-red-400",
+    name: "Foundation stage",
+    color: "text-sky-400",
+    heading: "Your AI investment hasn't started yet — and that's actually an advantage.",
     description:
-      "Your tools are not operationalized yet. Prioritize workflow integration and adoption before adding new tooling.",
+      "Most businesses that struggle with AI implementation do so because they adopted tools before they had the right foundation. You have the opportunity to build it correctly from the start. The first step is understanding which processes in your business are ready for automation — and which ones need to be fixed first.",
+    cta: "A diagnostic will give you a personalised picture of where to start — specific to your business and your sector.",
+    ctaLabel: "Book your diagnostic — R4,500",
+    ctaHref: "/contact",
   };
 };
 
@@ -111,11 +160,9 @@ export default function AIImplementationAssessmentPage() {
   const isResults = currentStep === totalQuestions + 2;
   const currentQuestion = isQuestion ? questions[currentStep - 1] : null;
 
-  const score = Math.round(
-    Object.values(answers).length
-      ? Object.values(answers).reduce((a, b) => a + b, 0) / Object.values(answers).length
-      : 0,
-  );
+  const score = Object.values(answers).length
+    ? Object.values(answers).reduce((a, b) => a + b, 0)
+    : 0;
   const tier = getTier(score);
 
   const progress = isQuestion ? (currentStep / totalQuestions) * 100 : isForm || isResults ? 100 : 0;
@@ -183,8 +230,8 @@ export default function AIImplementationAssessmentPage() {
 
                 <SplitHeadline
                   as="h1"
-                  leadingText="Is Your AI Investment"
-                  emphasisText="Implementation-Optimized?"
+                  leadingText="Find out where your"
+                  emphasisText="AI investment stands."
                   className="text-[36px] sm:text-[48px] md:text-[74px] lg:text-[88px] text-white mb-10"
                   breakClassName="hidden md:block"
                   leadingWeight="strong"
@@ -192,15 +239,15 @@ export default function AIImplementationAssessmentPage() {
                 />
 
                 <p className="text-[18px] md:text-[22px] text-text-inverse-muted leading-relaxed mb-10 max-w-3xl mx-auto">
-                  Assess how well your AI tools run in real workflows, then improve ROI without adding more software.
+                  Eight questions. Instant results. No email required to see your score.
                 </p>
 
                 <button onClick={handleNext} className="btn-primary-hero-cta">
-                  Get Your Free AI Implementation Assessment
+                  Start the AI Readiness Check
                   <ArrowRight className="w-5 h-5" />
                 </button>
 
-                <p className="mt-7 text-sm text-text-inverse-muted">Takes less than 5 minutes</p>
+                <p className="mt-7 text-sm text-text-inverse-muted">Takes about 3 minutes</p>
               </motion.section>
             )}
 
@@ -324,8 +371,8 @@ export default function AIImplementationAssessmentPage() {
               >
                 <SplitHeadline
                   as="h2"
-                  leadingText="Your AI Implementation"
-                  emphasisText="Audit Report"
+                  leadingText="Your AI Readiness"
+                  emphasisText="Score"
                   className="text-[34px] sm:text-[46px] md:text-[56px] text-white mb-8"
                   breakClassName="hidden md:block"
                   leadingWeight="light"
@@ -345,13 +392,13 @@ export default function AIImplementationAssessmentPage() {
                       strokeLinecap="round"
                       strokeDasharray={503}
                       initial={{ strokeDashoffset: 503 }}
-                      animate={{ strokeDashoffset: 503 - (503 * score) / 100 }}
+                      animate={{ strokeDashoffset: 503 - (503 * (score - 8)) / 24 }}
                       transition={{ duration: 1.2, ease: "easeOut" }}
                     />
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <span className="text-5xl font-bold text-white">{score}</span>
-                    <span className="text-xs text-text-inverse-muted uppercase tracking-[2px]">out of 100</span>
+                    <span className="text-xs text-text-inverse-muted uppercase tracking-[2px]">out of 32</span>
                   </div>
                 </div>
 
@@ -359,22 +406,27 @@ export default function AIImplementationAssessmentPage() {
                   <span className="font-semibold">{tier.name}</span>
                 </div>
 
-                <p className="text-text-inverse-muted max-w-2xl mx-auto mb-10">{tier.description}</p>
+                <p className="text-lg font-semibold text-white max-w-2xl mx-auto mb-4">{tier.heading}</p>
+                <p className="text-text-inverse-muted max-w-2xl mx-auto mb-8">{tier.description}</p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-10">
+                <div className="rounded-xl border border-white/10 bg-card-dark px-6 py-5 max-w-xl mx-auto mb-10 text-left">
+                  <p className="text-sm text-text-inverse-muted mb-3">{tier.cta}</p>
+                  <Link href={tier.ctaHref} className="btn-primary-hero-cta inline-flex">
+                    {tier.ctaLabel}
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
                   {questions.map((q) => (
                     <div key={q.id} className="rounded-lg border border-white/10 bg-card-dark px-3 py-4">
                       <p className="text-[10px] uppercase tracking-[2px] text-text-inverse-muted mb-2">{q.pillar}</p>
-                      <p className="text-2xl font-semibold text-white">{answers[q.id] ?? 0}</p>
+                      <p className="text-2xl font-semibold text-white">{answers[q.id] ?? "—"}</p>
                     </div>
                   ))}
                 </div>
 
                 <div className="flex flex-col items-center gap-4">
-                  <Link href="/contact" className="btn-primary-hero-cta">
-                    Book a Strategy Session
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
                   <Link href="/" className="text-sm text-text-inverse-muted hover:text-white transition-colors">
                     Return to Homepage
                   </Link>

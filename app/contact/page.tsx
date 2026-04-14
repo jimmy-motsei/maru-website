@@ -6,7 +6,7 @@ import { FadeUp, StaggerParent, StaggerChild } from '@/components/ui/Animate'
 
 export const metadata: Metadata = {
   title:       'Contact | Maru Online',
-  description: 'Start with a diagnostic or ask a question. Fixed-scope engagements — we tell you the price before work begins.',
+  description: "No pitch. No pressure. Two ways to start — book a diagnostic (R4,500) or a free 20-minute call. You'll speak directly with Jimmy.",
 }
 
 const outerPad    = 'px-6 md:px-[60px]'
@@ -42,8 +42,8 @@ export default function ContactPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1>
-              Tell us what&apos;s broken.<br />
-              We&apos;ll tell you what it costs.
+              Let&apos;s find out<br />
+              if we&apos;re the right fit.
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>
@@ -55,9 +55,8 @@ export default function ContactPage() {
                 lineHeight:   'var(--leading-body)',
               }}
             >
-              Every engagement starts with a diagnostic. Share what&apos;s not
-              working and we&apos;ll map the gaps, quantify the cost, and tell you
-              exactly what to fix first.
+              No pitch. No pressure. Two ways to start — choose whichever
+              feels right.
             </p>
           </FadeUp>
           <FadeUp delay={0.22}>
@@ -99,8 +98,9 @@ export default function ContactPage() {
                       margin:     0,
                     }}
                   >
-                    Tell us about your business and what&apos;s not working. We respond
-                    within one business day and don&apos;t send you to a sales process.
+                    Every engagement starts with a conversation. Tell us about your
+                    business and what&apos;s not working — you&apos;ll speak directly
+                    with Jimmy, not a sales team or intake coordinator.
                   </p>
                 </div>
                 <ContactForm />
@@ -125,6 +125,36 @@ export default function ContactPage() {
                 </p>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                  <div>
+                    <p
+                      style={{
+                        fontFamily:    'var(--font-body)',
+                        fontSize:      'var(--text-label)',
+                        fontWeight:    500,
+                        letterSpacing: 'var(--tracking-eyebrow)',
+                        textTransform: 'uppercase',
+                        color:         'var(--color-ink-tertiary)',
+                        marginBottom:  '0.25rem',
+                      }}
+                    >
+                      WhatsApp — fastest
+                    </p>
+                    <a
+                      href="https://wa.me/27635643263"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        fontFamily:     'var(--font-body)',
+                        fontSize:       'var(--text-body)',
+                        fontWeight:     300,
+                        color:          'var(--color-cyan)',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      +27 63 564 3263
+                    </a>
+                  </div>
+
                   <div>
                     <p
                       style={{
@@ -176,8 +206,8 @@ export default function ContactPage() {
                         margin:     0,
                       }}
                     >
-                      Gauteng, South Africa<br />
-                      Remote engagements nationwide
+                      Johannesburg, Gauteng<br />
+                      Working with clients across South Africa
                     </p>
                   </div>
 
@@ -204,7 +234,9 @@ export default function ContactPage() {
                         margin:     0,
                       }}
                     >
-                      Within one business day
+                      WhatsApp within 4 business hours.<br />
+                      Email within 1 business day.<br />
+                      Mon–Fri, 8am–6pm SAST.
                     </p>
                   </div>
                 </div>
@@ -253,18 +285,18 @@ export default function ContactPage() {
             {[
               {
                 step:  '01',
-                title: 'We read your message',
-                body:  "Every enquiry is read by a person — not a bot. We look at what you've shared and decide if and how we can help.",
+                title: 'You choose how to start',
+                body:  "Book the diagnostic if you know your business has an AI integration problem and want a clear picture. Book the call if you want to talk it through first — no pitch, no pressure.",
               },
               {
                 step:  '02',
-                title: 'We respond within a day',
-                body:  "You'll receive a direct reply within one business day — with a clear next step, not a brochure.",
+                title: 'You speak directly with Jimmy',
+                body:  "Not a sales team, not an intake coordinator. The person who will actually do the work is the same person you talk to first.",
               },
               {
                 step:  '03',
-                title: 'Diagnostic or call — your choice',
-                body:  "We'll either propose a diagnostic (if the scope is clear) or suggest a short call to fill the gaps first.",
+                title: 'We tell you honestly if we can help',
+                body:  "If the diagnostic is the right next step, we propose it. If the honest answer is that we're not the right fit, we'll say so — and point you in the right direction.",
               },
             ].map(item => (
               <StaggerChild key={item.step}>
@@ -389,15 +421,15 @@ export default function ContactPage() {
                 marginBottom: 'var(--space-heading-body)',
               }}
             >
-              The diagnostic is the right first step.
+              The right first step is an honest conversation about where you are.
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: 'var(--space-para-section)' }}>
-              R4,500. Delivered in 48 hours. A written report that tells you
-              exactly what&apos;s broken, what it&apos;s costing you, and what to
-              fix first. If you proceed to a build, this fee offsets against the
-              project cost.
+              If you already know AI integration is the issue, the diagnostic is
+              the right place to start — R4,500, 48-hour turnaround, with your
+              specific numbers in the report. If you&apos;re not sure yet, the
+              20-minute call costs nothing and tells you what you need to know.
             </p>
             <hr
               className="rule"
@@ -406,14 +438,40 @@ export default function ContactPage() {
                 marginBottom:  'var(--space-para-section)',
               }}
             />
+            <p
+              style={{
+                fontFamily:    'var(--font-display)',
+                fontSize:      'var(--text-h3-serif)',
+                fontWeight:    400,
+                fontStyle:     'italic',
+                color:         'var(--color-ink-inverted-muted)',
+                lineHeight:    'var(--leading-subheading)',
+                letterSpacing: 'var(--tracking-tight)',
+                marginBottom:  '0.5rem',
+              }}
+            >
+              &ldquo;The right first step is an honest conversation about
+              where you are. Everything else follows from that.&rdquo;
+            </p>
+            <p
+              style={{
+                fontFamily:   'var(--font-body)',
+                fontSize:     'var(--text-meta)',
+                fontWeight:   300,
+                color:        'rgba(250,250,248,0.45)',
+                marginBottom: 'var(--space-section-header-mb)',
+              }}
+            >
+              — Jimmy Motsei
+            </p>
           </FadeUp>
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <Button href="/services/ai-revenue-diagnostic" variant="primary">
-                Learn about the diagnostic
+              <Button href="/contact" variant="primary">
+                Book your diagnostic — R4,500
               </Button>
-              <Button href="#contact-form" variant="tertiary">
-                Send a message instead
+              <Button href="/booking" variant="tertiary">
+                Book a 20-minute call — no pitch
               </Button>
             </div>
           </FadeUp>
