@@ -6,7 +6,7 @@ import { FadeUp, StaggerParent, StaggerChild } from '@/components/ui/Animate'
 
 export const metadata: Metadata = {
   title:       'Contact | Maru Online',
-  description: "No pitch. No pressure. Two ways to start — book a diagnostic (R4,500) or a free 20-minute call. You'll speak directly with Jimmy.",
+  description: "No pitch. No pressure. Two ways to start — book a diagnostic or a free 20-minute call. You'll speak directly with Jimmy.",
 }
 
 const outerPad    = 'px-6 md:px-[60px]'
@@ -468,7 +468,7 @@ export default function ContactPage() {
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Button href="/contact" variant="primary">
-                Book your diagnostic — R4,500
+                Book your diagnostic
               </Button>
               <Button href="/booking" variant="tertiary">
                 Book a 20-minute call — no pitch

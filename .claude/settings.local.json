@@ -5,7 +5,9 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(npx tsc:*)",
-      "Bash(grep -E \"\\(env|\\\\.json$\\)\")"
+      "Bash(grep -E \"\\(env|\\\\.json$\\)\")",
+      "Bash(git fetch *)",
+      "Bash(git cherry-pick *)"
     ]
   }
 }

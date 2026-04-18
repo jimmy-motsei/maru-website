@@ -1,441 +1,419 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, CheckCircle, Sparkles } from "lucide-react";
-import { SplitHeadline } from "@/components/ui/SplitHeadline";
-import { submitToHubSpot, HUBSPOT_FORMS } from "@/lib/hubspot";
+/**
+ * Maru Online — Operations Diagnostic Assessment Page
+ * File: app/ai-readiness/page.tsx
+ * 
+ * Flow:
+ * Step 0: Framing (pre-assessment context)
+ * Steps 1-5: Questions (one per screen)
+ * Step 6: Results (level revealed, ungated)
+ * Step 7: Email gate (name + email + optional website)
+ * Step 8: Confirmation (report sent)
+ */
+
+import { useState, useEffect } from "react";
+import { calculateScore, ScoreResult } from "@/lib/assessment/scoring";
+
+// ── Question definitions ───────────────────────────────────────────────────
 
 const questions = [
   {
-    id: "ai_tool_usage",
-    pillar: "AI Tool Usage",
-    question: "Which best describes how your business currently uses AI tools?",
+    id: "q1",
+    text: "How would you describe the way your business manages day-to-day operations?",
     options: [
-      { label: "We don't use any AI tools yet.", score: 1 },
-      { label: "We use one or two tools but mostly for basic tasks.", score: 2 },
-      { label: "We use several AI tools across different parts of the business.", score: 3 },
-      { label: "AI tools are integrated into most of our key workflows.", score: 4 },
+      { value: "clear-processes", label: "We have clear processes that most of the team follows consistently" },
+      { value: "people-dependent", label: "We have processes but they depend heavily on specific people knowing what to do" },
+      { value: "same-problems", label: "Most things work but we often find ourselves solving the same problems repeatedly" },
+      { value: "organised-chaos", label: "Honestly, it's organised chaos — we get things done but not always efficiently" },
     ],
   },
   {
-    id: "tool_connectivity",
-    pillar: "Tool Connectivity",
-    question: "How connected are your business tools to each other?",
+    id: "q2",
+    text: "Where does your team's time go that you wish it didn't?",
     options: [
-      { label: "Most things are separate — we copy information between systems manually.", score: 1 },
-      { label: "Some tools are connected but a lot still requires manual input.", score: 2 },
-      { label: "Most of our tools talk to each other automatically.", score: 3 },
-      { label: "Everything is integrated — data flows between systems without manual intervention.", score: 4 },
+      { value: "chasing-information", label: "Chasing information that should already be in one place" },
+      { value: "repetitive-tasks", label: "Doing the same tasks repeatedly that feel like they should just happen automatically" },
+      { value: "manual-errors", label: "Fixing mistakes that came from information being entered or moved manually" },
+      { value: "waiting-on-others", label: "Waiting on other people or systems before work can continue" },
+      { value: "too-busy-to-track", label: "Honestly, I'm not sure — we're too busy to track it properly" },
     ],
   },
   {
-    id: "lead_automation",
-    pillar: "Lead & Enquiry Handling",
-    question: "When a new lead or enquiry comes in, what happens?",
+    id: "q3",
+    text: "When a new client or order comes into your business, what happens next?",
     options: [
-      { label: "Someone on the team handles it manually when they get to it.", score: 1 },
-      { label: "We have a basic process but it's not always followed consistently.", score: 2 },
-      { label: "We have an automated acknowledgement but follow-up is still manual.", score: 3 },
-      { label: "The entire follow-up sequence is automated until a human needs to step in.", score: 4 },
+      { value: "handles-personally", label: "Someone handles it personally and figures it out as they go" },
+      { value: "rough-process", label: "We have a rough process but it varies depending on who's available" },
+      { value: "defined-manual", label: "We have a defined process but it involves a lot of manual steps across different tools" },
+      { value: "streamlined-automatic", label: "We have a streamlined process — information flows automatically from one step to the next" },
     ],
   },
   {
-    id: "manual_task_burden",
-    pillar: "Manual Task Burden",
-    question: "How much of your team's time goes to repetitive manual tasks — scheduling, chasing, data entry, follow-ups?",
+    id: "q4",
+    text: "If you could fix one thing about how your business operates in the next six months, what would it be?",
     options: [
-      { label: "More than half our time.", score: 1 },
-      { label: "Roughly a quarter to half our time.", score: 2 },
-      { label: "Less than a quarter — we've automated most of it.", score: 3 },
-      { label: "Almost none — our workflows are largely automated.", score: 4 },
+      { value: "reduce-manual-tasks", label: "Reduce the amount of time my team spends on repetitive manual tasks" },
+      { value: "less-people-dependent", label: "Make the business less dependent on specific people to keep things running" },
+      { value: "better-visibility", label: "Get better visibility into what's actually happening across the business" },
+      { value: "convert-more-leads", label: "Convert more of the enquiries or leads we're already receiving" },
+      { value: "scale-without-hiring", label: "Scale the business without having to hire proportionally more people" },
     ],
   },
   {
-    id: "roi_tracking",
-    pillar: "ROI Tracking",
-    question: "Do you know what your current AI tools are costing you versus what they're producing?",
+    id: "q5",
+    text: "Have you tried to improve how your business operations run before?",
     options: [
-      { label: "No — we don't track this.", score: 1 },
-      { label: "We have a rough sense but nothing precise.", score: 2 },
-      { label: "We track costs but not the revenue impact.", score: 3 },
-      { label: "Yes — we measure both cost and return on our AI investment.", score: 4 },
-    ],
-  },
-  {
-    id: "website_performance",
-    pillar: "Website as Business Tool",
-    question: "How would you describe your website's performance as a business tool?",
-    options: [
-      { label: "It's basically a brochure — it doesn't generate leads or do much for us.", score: 1 },
-      { label: "It generates some interest but conversion is low.", score: 2 },
-      { label: "It generates consistent leads that feed our pipeline.", score: 3 },
-      { label: "It's a core part of our revenue system — fully integrated with our CRM and workflows.", score: 4 },
-    ],
-  },
-  {
-    id: "implementation_history",
-    pillar: "Implementation Track Record",
-    question: "When you've tried to implement new tools or automations in the past, what usually happens?",
-    options: [
-      { label: "We haven't really tried.", score: 1 },
-      { label: "We try but it doesn't stick — the team goes back to the old way.", score: 2 },
-      { label: "It works initially but breaks down over time without maintenance.", score: 3 },
-      { label: "New tools get adopted and integrated successfully most of the time.", score: 4 },
-    ],
-  },
-  {
-    id: "honest_assessment",
-    pillar: "Honest Self-Assessment",
-    question: "What's the most honest description of where your business is with AI right now?",
-    options: [
-      { label: "We know we should be doing something but haven't started.", score: 1 },
-      { label: "We've invested in tools but we're not getting the return we expected.", score: 2 },
-      { label: "We're getting some value but we know there's more on the table.", score: 3 },
-      { label: "AI is working well for us — we're looking to go deeper.", score: 4 },
+      { value: "no-not-priority", label: "No — this hasn't been a priority until now" },
+      { value: "tried-internally", label: "Yes — we tried to figure it out internally but haven't got far" },
+      { value: "brought-someone-in", label: "Yes — we brought someone in to help but it didn't fully deliver what we needed" },
+      { value: "something-in-place", label: "Yes — we have something in place but it needs to work better" },
     ],
   },
 ];
 
-const getTier = (score: number) => {
-  if (score >= 27) {
-    return {
-      name: "Advanced",
-      color: "text-emerald-400",
-      heading: "Your AI foundation is strong. The question now is how to go deeper.",
-      description:
-        "You're ahead of most SA SMEs in your adoption and integration. The opportunity at this stage is usually in measurement — knowing precisely what your AI investment is producing and where the next layer of return sits. Businesses at your level typically benefit most from a targeted optimisation engagement rather than a foundational build.",
-      cta: "A 20-minute call will help us understand your current setup and whether there's a specific optimisation worth pursuing.",
-      ctaLabel: "Book a 20-minute call",
-      ctaHref: "/booking",
-    };
+// ── Types ──────────────────────────────────────────────────────────────────
+
+type Answers = Record<string, string>;
+type Step = "intro" | number | "results" | "gate" | "done";
+
+// ── Component ──────────────────────────────────────────────────────────────
+
+export default function AssessmentPage() {
+  const [step, setStep] = useState<Step>("intro");
+  const [answers, setAnswers] = useState<Answers>({});
+  const [scoreResult, setScoreResult] = useState<ScoreResult | null>(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [progress, setProgress] = useState(0);
+
+  // Update progress bar
+  useEffect(() => {
+    if (step === "intro") setProgress(0);
+    else if (typeof step === "number") setProgress((step / questions.length) * 80);
+    else if (step === "results") setProgress(85);
+    else if (step === "gate") setProgress(95);
+    else if (step === "done") setProgress(100);
+  }, [step]);
+
+  // ── Handlers ─────────────────────────────────────────────────────────────
+
+  function handleStart() {
+    setStep(0);
   }
-  if (score >= 21) {
-    return {
-      name: "Partial integration",
-      color: "text-action-primary",
-      heading: "You're getting some return — but there's a layer of value you haven't unlocked yet.",
-      description:
-        "You've done the hard work of adopting AI tools and getting your team to use them. The next layer is connecting those tools more deeply into your revenue workflows — so that the automation compounds rather than stays isolated. The businesses that move from 'some value' to 'significant value' usually make one or two structural changes, not a dozen small ones.",
-      cta: "A diagnostic will identify which structural changes would have the most impact for your specific setup.",
-      ctaLabel: "Book your diagnostic — R4,500",
-      ctaHref: "/contact",
-    };
-  }
-  if (score >= 15) {
-    return {
-      name: "Investment made, returns pending",
-      color: "text-amber-300",
-      heading: "You've invested in AI tools. They're not paying for themselves yet.",
-      description:
-        "This is the most common position for SA SMEs right now — real spend, real tools, underwhelming results. In most cases the tools aren't the problem. The connections between them are. A workflow audit almost always surfaces two or three integration gaps that, when closed, unlock the return on investment that's already been made.",
-      cta: "A diagnostic will show you exactly what those gaps are — and what they're costing you in Rands.",
-      ctaLabel: "Book your diagnostic — R4,500",
-      ctaHref: "/contact",
-    };
-  }
-  return {
-    name: "Foundation stage",
-    color: "text-sky-400",
-    heading: "Your AI investment hasn't started yet — and that's actually an advantage.",
-    description:
-      "Most businesses that struggle with AI implementation do so because they adopted tools before they had the right foundation. You have the opportunity to build it correctly from the start. The first step is understanding which processes in your business are ready for automation — and which ones need to be fixed first.",
-    cta: "A diagnostic will give you a personalised picture of where to start — specific to your business and your sector.",
-    ctaLabel: "Book your diagnostic — R4,500",
-    ctaHref: "/contact",
-  };
-};
 
-export default function AIImplementationAssessmentPage() {
-  const [currentStep, setCurrentStep] = useState(0); // 0=intro, 1..n questions, n+1=form, n+2=results
-  const [answers, setAnswers] = useState<Record<string, number>>({});
-  const [formData, setFormData] = useState({ name: "", email: "", company: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  function handleAnswer(questionId: string, value: string) {
+    const newAnswers = { ...answers, [questionId]: value };
+    setAnswers(newAnswers);
 
-  const totalQuestions = questions.length;
-  const isIntro = currentStep === 0;
-  const isQuestion = currentStep >= 1 && currentStep <= totalQuestions;
-  const isForm = currentStep === totalQuestions + 1;
-  const isResults = currentStep === totalQuestions + 2;
-  const currentQuestion = isQuestion ? questions[currentStep - 1] : null;
+    const currentIndex = typeof step === "number" ? step : 0;
+    const nextIndex = currentIndex + 1;
 
-  const score = Object.values(answers).length
-    ? Object.values(answers).reduce((a, b) => a + b, 0)
-    : 0;
-  const tier = getTier(score);
-
-  const progress = isQuestion ? (currentStep / totalQuestions) * 100 : isForm || isResults ? 100 : 0;
-
-  const handleNext = () => setCurrentStep((prev) => prev + 1);
-  const handlePrev = () => setCurrentStep((prev) => prev - 1);
-
-  const handleAnswer = (questionId: string, value: number) => {
-    setAnswers((prev) => ({ ...prev, [questionId]: value }));
-    setTimeout(handleNext, 250);
-  };
-
-  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const submissionData = {
-      firstname: formData.name,
-      email: formData.email,
-      company: formData.company,
-      ai_readiness_score_result: score,
-      ai_readiness_tier_result: tier.name,
-    };
-
-    if (HUBSPOT_FORMS.AI_READINESS) {
-      await submitToHubSpot(HUBSPOT_FORMS.AI_READINESS, submissionData);
+    if (nextIndex >= questions.length) {
+      // All answered — calculate score
+      const result = calculateScore({
+        q1: newAnswers.q1,
+        q2: newAnswers.q2,
+        q3: newAnswers.q3,
+        q4: newAnswers.q4,
+        q5: newAnswers.q5,
+      });
+      setScoreResult(result);
+      setStep("results");
     } else {
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      setStep(nextIndex);
     }
+  }
 
-    setIsSubmitting(false);
-    handleNext();
-  };
+  async function handleGateSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!name.trim() || !email.trim()) return;
+
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch("/api/assessment/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          answers,
+          name: name.trim(),
+          email: email.trim(),
+          website: website.trim() || undefined,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Submission failed");
+
+      setStep("done");
+    } catch {
+      setSubmitError("Something went wrong. Please try again or email hello@maruonline.com directly.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  // ── Render ────────────────────────────────────────────────────────────────
 
   return (
-    <main className="min-h-screen bg-surface text-text-inverse">
-      {/* Progress bar — sits below the shared Header */}
-      <div className="fixed top-[60px] left-0 right-0 z-40 h-1 bg-card-dark">
-        <motion.div
-          className="h-full bg-action-primary"
-          initial={{ width: 0 }}
-          animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.35, ease: "easeInOut" }}
+    <main className="min-h-screen bg-[#0d1117] text-[#c9d1d9]">
+      {/* Progress bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-[#1e2a38]">
+        <div
+          className="h-full bg-[#04B3CC] transition-all duration-500 ease-out"
+          style={{ width: `${progress}%` }}
         />
       </div>
 
-      <div className="pt-32 md:pt-40 pb-16 min-h-screen flex items-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <AnimatePresence mode="wait">
-            {isIntro && (
-              <motion.section
-                key="intro"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -18 }}
-                transition={{ duration: 0.35 }}
-                className="text-center"
-              >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-action-primary/10 border border-action-primary/40 mb-8">
-                  <Sparkles size={16} className="text-action-primary" />
-                  <span className="text-xs font-semibold text-action-primary uppercase tracking-[2px]">
-                    AI Implementation Assessment
-                  </span>
-                </div>
+      <div className="max-w-2xl mx-auto px-6 py-20">
 
-                <SplitHeadline
-                  as="h1"
-                  leadingText="Find out where your"
-                  emphasisText="AI investment stands."
-                  className="text-[36px] sm:text-[48px] md:text-[74px] lg:text-[88px] text-white mb-10"
-                  breakClassName="hidden md:block"
-                  leadingWeight="strong"
-                  emphasisWeight="light"
+        {/* ── INTRO ─────────────────────────────────────────────────────── */}
+        {step === "intro" && (
+          <div className="animate-fade-in">
+            <p className="text-xs font-mono text-[#04B3CC] tracking-widest uppercase mb-6">
+              Maru Online · Operations Diagnostic
+            </p>
+            <h1 className="text-3xl font-semibold text-[#e6edf3] leading-tight mb-4">
+              Find out where your business is losing time and money to manual processes.
+            </h1>
+            <p className="text-[#768390] text-lg mb-8 leading-relaxed">
+              Five questions. Two minutes. Instant result.
+            </p>
+
+            <div className="bg-[#111820] border border-[#1e2a38] rounded-lg p-6 mb-8">
+              <p className="text-[#c9d1d9] text-sm leading-relaxed mb-3">
+                Answer based on how things actually work in your business today — not how you'd like them to work. The more honest your answers, the more useful your result.
+              </p>
+              <p className="text-[#768390] text-sm leading-relaxed">
+                At the end, you'll see where your business sits and what a realistic first step looks like.
+              </p>
+            </div>
+
+            <button
+              onClick={handleStart}
+              className="bg-[#04B3CC] text-[#0d1117] font-semibold px-8 py-4 rounded-lg text-base hover:bg-[#03a0b7] transition-colors cursor-pointer"
+            >
+              Start the assessment →
+            </button>
+          </div>
+        )}
+
+        {/* ── QUESTIONS ─────────────────────────────────────────────────── */}
+        {typeof step === "number" && step < questions.length && (
+          <QuestionStep
+            key={step}
+            question={questions[step]}
+            questionNumber={step + 1}
+            totalQuestions={questions.length}
+            onAnswer={(value) => handleAnswer(questions[step].id, value)}
+          />
+        )}
+
+        {/* ── RESULTS ───────────────────────────────────────────────────── */}
+        {step === "results" && scoreResult && (
+          <div className="animate-fade-in">
+            <p className="text-xs font-mono text-[#04B3CC] tracking-widest uppercase mb-6">
+              Your result
+            </p>
+
+            <div className="bg-[#111820] border border-[#04B3CC]/30 rounded-lg p-8 mb-8">
+              <div className="inline-block bg-[#04B3CC]/10 border border-[#04B3CC]/30 rounded px-3 py-1 text-xs font-mono text-[#04B3CC] tracking-wider uppercase mb-4">
+                {scoreResult.label}
+              </div>
+              <p className="text-[#e6edf3] text-xl font-semibold mb-4 leading-snug">
+                {scoreResult.tagline}
+              </p>
+              <p className="text-[#c9d1d9] text-sm leading-relaxed">
+                {scoreResult.summary}
+              </p>
+            </div>
+
+            {/* Teaser for detailed report */}
+            <div className="bg-[#161e28] border border-[#1e2a38] rounded-lg p-6 mb-8">
+              <p className="text-[#e6edf3] font-semibold mb-2">
+                Your detailed report goes deeper.
+              </p>
+              <p className="text-[#768390] text-sm leading-relaxed">
+                It breaks down exactly where your biggest integration opportunities are — and what a realistic first step looks like for a business at your stage. Enter your details below to receive it.
+              </p>
+            </div>
+
+            <button
+              onClick={() => setStep("gate")}
+              className="bg-[#04B3CC] text-[#0d1117] font-semibold px-8 py-4 rounded-lg text-base hover:bg-[#03a0b7] transition-colors cursor-pointer w-full"
+            >
+              Get my free detailed report →
+            </button>
+          </div>
+        )}
+
+        {/* ── EMAIL GATE ────────────────────────────────────────────────── */}
+        {step === "gate" && (
+          <div className="animate-fade-in">
+            <p className="text-xs font-mono text-[#04B3CC] tracking-widest uppercase mb-6">
+              Your report
+            </p>
+            <h2 className="text-2xl font-semibold text-[#e6edf3] mb-2">
+              Where should we send it?
+            </h2>
+            <p className="text-[#768390] text-sm mb-8 leading-relaxed">
+              Your report will arrive as a Notion page — a structured document you can return to and share. It includes personalised observations based on your answers and a recommended next step.
+            </p>
+
+            <form onSubmit={handleGateSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-mono text-[#768390] uppercase tracking-wider mb-2">
+                  Your name
+                </label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="First name is fine"
+                  required
+                  className="w-full bg-[#111820] border border-[#1e2a38] rounded-lg px-4 py-3 text-[#e6edf3] placeholder-[#768390] text-sm focus:outline-none focus:border-[#04B3CC] transition-colors"
                 />
+              </div>
 
-                <p className="text-[18px] md:text-[22px] text-text-inverse-muted leading-relaxed mb-10 max-w-3xl mx-auto">
-                  Eight questions. Instant results. No email required to see your score.
-                </p>
-
-                <button onClick={handleNext} className="btn-primary-hero-cta">
-                  Start the AI Readiness Check
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-
-                <p className="mt-7 text-sm text-text-inverse-muted">Takes about 3 minutes</p>
-              </motion.section>
-            )}
-
-            {isQuestion && currentQuestion && (
-              <motion.section
-                key={currentQuestion.id}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.3 }}
-              >
-                <p className="text-sm text-text-inverse-muted mb-4">
-                  Question {currentStep} of {totalQuestions}
-                </p>
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-action-primary/10 text-action-primary text-xs font-semibold tracking-[2px] uppercase mb-6">
-                  {currentQuestion.pillar}
-                </div>
-                <h2 className="text-[30px] sm:text-[36px] md:text-[42px] leading-tight maru-headline-split-strong text-white mb-8">
-                  {currentQuestion.question}
-                </h2>
-
-                <div className="space-y-4">
-                  {currentQuestion.options.map((option) => {
-                    const isSelected = answers[currentQuestion.id] === option.score;
-                    return (
-                      <button
-                        key={option.label}
-                        onClick={() => handleAnswer(currentQuestion.id, option.score)}
-                        className={`w-full text-left p-5 sm:p-6 rounded-xl border transition-colors ${
-                          isSelected
-                            ? "border-action-primary bg-action-primary/10"
-                            : "border-white/10 bg-card-dark hover:border-action-primary/60"
-                        }`}
-                      >
-                        <div className="flex items-start justify-between gap-4">
-                          <span className="text-base sm:text-lg leading-relaxed text-white">{option.label}</span>
-                          {isSelected ? <CheckCircle size={22} className="text-action-primary shrink-0 mt-0.5" /> : null}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="mt-10 flex items-center justify-between">
-                  <button onClick={handlePrev} className="inline-flex items-center gap-2 text-text-inverse-muted hover:text-white transition-colors">
-                    <ArrowLeft size={18} />
-                    Back
-                  </button>
-                  {answers[currentQuestion.id] !== undefined ? (
-                    <button onClick={handleNext} className="inline-flex items-center gap-2 text-action-primary hover:opacity-80 transition-opacity">
-                      Next
-                      <ArrowRight size={18} />
-                    </button>
-                  ) : null}
-                </div>
-              </motion.section>
-            )}
-
-            {isForm && (
-              <motion.section
-                key="form"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -18 }}
-                transition={{ duration: 0.35 }}
-                className="max-w-xl mx-auto"
-              >
-                <div className="text-center mb-8">
-                  <h2 className="text-[34px] sm:text-[42px] maru-headline-split-strong text-white mb-3">See Your Results</h2>
-                  <p className="text-text-inverse-muted">
-                    Enter your details to view your AI Implementation Audit report.
-                  </p>
-                </div>
-
-                <form onSubmit={handleFormSubmit} className="space-y-4">
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full h-[52px] px-5 rounded-lg bg-card-dark border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-action-primary"
-                    placeholder="Full Name"
-                  />
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full h-[52px] px-5 rounded-lg bg-card-dark border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-action-primary"
-                    placeholder="Work Email"
-                  />
-                  <input
-                    type="text"
-                    required
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full h-[52px] px-5 rounded-lg bg-card-dark border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-action-primary"
-                    placeholder="Company Name"
-                  />
-
-                  <button type="submit" disabled={isSubmitting} className="btn-primary-hero-cta w-full sm:w-full">
-                    {isSubmitting ? "Processing..." : "View My Score"}
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
-                </form>
-
-                <button onClick={handlePrev} className="mt-6 mx-auto inline-flex items-center gap-2 text-text-inverse-muted hover:text-white transition-colors">
-                  <ArrowLeft size={18} />
-                  Back to questions
-                </button>
-              </motion.section>
-            )}
-
-            {isResults && (
-              <motion.section
-                key="results"
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.35 }}
-                className="text-center"
-              >
-                <SplitHeadline
-                  as="h2"
-                  leadingText="Your AI Readiness"
-                  emphasisText="Score"
-                  className="text-[34px] sm:text-[46px] md:text-[56px] text-white mb-8"
-                  breakClassName="hidden md:block"
-                  leadingWeight="light"
-                  emphasisWeight="strong"
+              <div>
+                <label className="block text-xs font-mono text-[#768390] uppercase tracking-wider mb-2">
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@yourbusiness.com"
+                  required
+                  className="w-full bg-[#111820] border border-[#1e2a38] rounded-lg px-4 py-3 text-[#e6edf3] placeholder-[#768390] text-sm focus:outline-none focus:border-[#04B3CC] transition-colors"
                 />
+              </div>
 
-                <div className="relative w-44 h-44 mx-auto mb-7">
-                  <svg className="w-full h-full -rotate-90">
-                    <circle cx="88" cy="88" r="80" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="10" />
-                    <motion.circle
-                      cx="88"
-                      cy="88"
-                      r="80"
-                      fill="none"
-                      stroke="var(--color-action-primary)"
-                      strokeWidth="10"
-                      strokeLinecap="round"
-                      strokeDasharray={503}
-                      initial={{ strokeDashoffset: 503 }}
-                      animate={{ strokeDashoffset: 503 - (503 * (score - 8)) / 24 }}
-                      transition={{ duration: 1.2, ease: "easeOut" }}
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-5xl font-bold text-white">{score}</span>
-                    <span className="text-xs text-text-inverse-muted uppercase tracking-[2px]">out of 32</span>
-                  </div>
-                </div>
+              <div>
+                <label className="block text-xs font-mono text-[#768390] uppercase tracking-wider mb-2">
+                  Business website{" "}
+                  <span className="text-[#1e2a38] normal-case font-sans">(optional — helps us personalise your report)</span>
+                </label>
+                <input
+                  type="text"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  placeholder="yourbusiness.com"
+                  className="w-full bg-[#111820] border border-[#1e2a38] rounded-lg px-4 py-3 text-[#e6edf3] placeholder-[#768390] text-sm focus:outline-none focus:border-[#04B3CC] transition-colors"
+                />
+                <p className="text-[#768390] text-xs mt-1">
+                  Don't have a website yet? Leave this blank — it's useful context but not required.
+                </p>
+              </div>
 
-                <div className={`inline-flex px-4 py-2 rounded-full bg-card-dark border border-white/10 ${tier.color} mb-4`}>
-                  <span className="font-semibold">{tier.name}</span>
-                </div>
+              {submitError && (
+                <p className="text-red-400 text-sm">{submitError}</p>
+              )}
 
-                <p className="text-lg font-semibold text-white max-w-2xl mx-auto mb-4">{tier.heading}</p>
-                <p className="text-text-inverse-muted max-w-2xl mx-auto mb-8">{tier.description}</p>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full bg-[#04B3CC] text-[#0d1117] font-semibold px-8 py-4 rounded-lg text-base hover:bg-[#03a0b7] transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+              >
+                {submitting ? "Sending your report..." : "Send my report →"}
+              </button>
 
-                <div className="rounded-xl border border-white/10 bg-card-dark px-6 py-5 max-w-xl mx-auto mb-10 text-left">
-                  <p className="text-sm text-text-inverse-muted mb-3">{tier.cta}</p>
-                  <Link href={tier.ctaHref} className="btn-primary-hero-cta inline-flex">
-                    {tier.ctaLabel}
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
-                </div>
+              <p className="text-[#768390] text-xs text-center leading-relaxed">
+                We'll email you a link to your Notion report. No spam. Unsubscribe any time.
+              </p>
+            </form>
+          </div>
+        )}
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
-                  {questions.map((q) => (
-                    <div key={q.id} className="rounded-lg border border-white/10 bg-card-dark px-3 py-4">
-                      <p className="text-[10px] uppercase tracking-[2px] text-text-inverse-muted mb-2">{q.pillar}</p>
-                      <p className="text-2xl font-semibold text-white">{answers[q.id] ?? "—"}</p>
-                    </div>
-                  ))}
-                </div>
+        {/* ── DONE ──────────────────────────────────────────────────────── */}
+        {step === "done" && (
+          <div className="animate-fade-in text-center">
+            <div className="inline-block bg-[#04B3CC]/10 border border-[#04B3CC]/30 rounded-full p-6 mb-6">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17l-5-5" stroke="#04B3CC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
 
-                <div className="flex flex-col items-center gap-4">
-                  <Link href="/" className="text-sm text-text-inverse-muted hover:text-white transition-colors">
-                    Return to Homepage
-                  </Link>
-                </div>
-              </motion.section>
-            )}
-          </AnimatePresence>
-        </div>
+            <h2 className="text-2xl font-semibold text-[#e6edf3] mb-3">
+              Your report is on its way.
+            </h2>
+            <p className="text-[#768390] text-sm leading-relaxed mb-8 max-w-md mx-auto">
+              Check your inbox for a link to your Notion report. It includes personalised observations based on your answers and a clear recommended next step.
+            </p>
+
+            <div className="bg-[#111820] border border-[#1e2a38] rounded-lg p-6 text-left mb-8">
+              <p className="text-[#e6edf3] font-semibold text-sm mb-2">
+                While you wait — one thing worth knowing:
+              </p>
+              <p className="text-[#768390] text-sm leading-relaxed">
+                The report will invite you to book a 30-minute discovery call. That call is where we review what the diagnostic found and tell you honestly whether a full engagement makes sense. No commitment required beyond the conversation.
+              </p>
+            </div>
+
+            <a
+              href="/"
+              className="text-[#04B3CC] text-sm hover:underline"
+            >
+              ← Back to Maru Online
+            </a>
+          </div>
+        )}
+
       </div>
     </main>
+  );
+}
+
+// ── Question Step Component ────────────────────────────────────────────────
+
+function QuestionStep({
+  question,
+  questionNumber,
+  totalQuestions,
+  onAnswer,
+}: {
+  question: typeof questions[0];
+  questionNumber: number;
+  totalQuestions: number;
+  onAnswer: (value: string) => void;
+}) {
+  const [selected, setSelected] = useState<string | null>(null);
+
+  function handleSelect(value: string) {
+    setSelected(value);
+    // Small delay so user sees the selection before advancing
+    setTimeout(() => onAnswer(value), 200);
+  }
+
+  return (
+    <div className="animate-fade-in">
+      <p className="text-xs font-mono text-[#768390] tracking-widest uppercase mb-6">
+        Question {questionNumber} of {totalQuestions}
+      </p>
+
+      <h2 className="text-xl font-semibold text-[#e6edf3] leading-snug mb-8">
+        {question.text}
+      </h2>
+
+      <div className="space-y-3">
+        {question.options.map((option) => (
+          <button
+            key={option.value}
+            onClick={() => handleSelect(option.value)}
+            className={`w-full text-left bg-[#111820] border rounded-lg px-5 py-4 text-sm leading-relaxed transition-all cursor-pointer ${
+              selected === option.value
+                ? "border-[#04B3CC] text-[#e6edf3] bg-[#04B3CC]/5"
+                : "border-[#1e2a38] text-[#c9d1d9] hover:border-[#768390] hover:text-[#e6edf3]"
+            }`}
+          >
+            {option.label}
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }

@@ -24,9 +24,9 @@ const inter = localFont({
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   metadataBase: new URL('https://maruonline.com'),
-  title: 'Maru Online | AI Implementation Consultancy',
+  title: 'AI & Automation Consultants for Growing Businesses | Maru Online',
   description:
-    'We help businesses cut operating costs by building AI-powered workflows where it matters most.',
+    'We identify where your processes are costing you time and money — then build AI-powered workflows that fix & augment your systems.',
   alternates: {
     canonical: 'https://maruonline.com',
   },
@@ -35,9 +35,16 @@ export const metadata: Metadata = {
     siteName: 'Maru Online',
     locale: 'en_ZA',
     url: 'https://maruonline.com',
-    title: 'Maru Online | AI Implementation Consultancy',
+    title: 'Practical AI Solutions to Power Growth, without the Complexity',
     description:
-      'We help businesses cut operating costs by building AI-powered workflows where it matters most.',
+      'We connect artificial intelligence technologies with your existing software, hardware, and workflows to automate processes and boost efficiency.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title:
+      'Avoid paying for software tools that aren\'t integrated — not talking to each other. Find out why — free.',
+    description:
+      'Free AI assessment for growing SMEs. We find where your existing tools & processes are falling short — and how to improve them with practical AI integration.',
   },
 }
 

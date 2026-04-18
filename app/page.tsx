@@ -69,7 +69,7 @@ export default function Home() {
           <FadeUp delay={0.24}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
               <Button href="/contact" variant="primary">
-                Start with a diagnostic — R4,500
+                Start with a diagnostic
               </Button>
               <Button href="/booking" variant="tertiary">
                 Book a 20-minute call — no pitch
@@ -503,7 +503,7 @@ export default function Home() {
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Button href="/contact" variant="primary">
-                Start with a diagnostic — R4,500
+                Start with a diagnostic
               </Button>
               <Button href="/booking" variant="tertiary">
                 Book a 20-minute call — no pitch

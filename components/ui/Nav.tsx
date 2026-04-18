@@ -132,7 +132,7 @@ export default function Nav() {
 
           {/* ── Desktop CTA ───────────────────────────────────────────────── */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="primary" href="/contact" className="!px-5 !py-2 !text-[11px]">
+            <Button variant="primary" href="/ai-readiness" className="!px-5 !py-2 !text-[11px]">
               Start diagnostic
             </Button>
           </div>
@@ -211,7 +211,7 @@ export default function Nav() {
 
             {/* CTA */}
             <div className="pt-8" onClick={closeMenu}>
-              <Button variant="primary" href="/contact" className="w-full !justify-center">
+              <Button variant="primary" href="/ai-readiness" className="w-full !justify-center">
                 Start diagnostic
               </Button>
             </div>
