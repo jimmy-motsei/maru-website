@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../styles/tokens.css";
 
 :root {
   /* ── Backgrounds ─────────────────────────────────────────────────────────── */
@@ -58,8 +59,8 @@
   --text-label:               0.6875rem;                  /* 11px — eyebrow / badge */
   --text-meta:                0.75rem;                    /* 12px — period/date */
 
-  /* ── Line heights ───────────────────────────────────────────────────────── */
-  --leading-display:          1.05;
+  /* ── Line heights — profile-derived, tuned for Outfit/Inter ─────────────── */
+  --leading-display:          1.1;
   --leading-heading:          1.2;
   --leading-subheading:       1.3;
   --leading-body:             1.8;
@@ -71,9 +72,13 @@
   --space-para-section:       1.5rem;    /* 24px between paragraphs in body copy */
   --space-section-header-mb:  2.5rem;    /* 40px below section header before content */
 
-  /* ── Font families ──────────────────────────────────────────────────────── */
-  --font-display:             var(--font-cormorant);
-  --font-body:                var(--font-dm-sans);
+  /* ── Font families — Outfit (headings) + Inter (body) ──────────────────── */
+  --font-display:             var(--font-outfit);
+  --font-body:                var(--font-inter);
+
+  /* ── Headline split weights — for SplitHeadline component ──────────────── */
+  --font-weight-headline-light:  100;
+  --font-weight-headline-strong: 500;
 }
 
 @theme inline {
@@ -164,10 +169,10 @@
     color:          var(--color-ink-tertiary);
   }
 
-  /* H1 — Cormorant, display weight, tight tracking — matched to profile cover-name */
+  /* H1 — Outfit, display weight — profile cover-name treatment */
   h1 {
-    font-family:    var(--font-display), serif;
-    font-weight:    600;
+    font-family:    var(--font-display), sans-serif;
+    font-weight:    500;
     font-size:      var(--text-h1);
     line-height:    var(--leading-display);
     letter-spacing: var(--tracking-display);
@@ -175,10 +180,16 @@
     margin-bottom:  1.5rem;
   }
 
-  /* H2 — Cormorant, section title — matched to profile .section-title */
+  /* H1 second line — wrap in <em> for muted-white treatment */
+  h1 em {
+    font-style: normal;
+    color:      rgba(255, 255, 255, 0.75);
+  }
+
+  /* H2 — Outfit, section title — lighter weight for elegance */
   h2 {
-    font-family:    var(--font-display), serif;
-    font-weight:    400;
+    font-family:    var(--font-display), sans-serif;
+    font-weight:    300;
     font-size:      var(--text-h2);
     line-height:    var(--leading-heading);
     letter-spacing: var(--tracking-tight);
@@ -188,10 +199,16 @@
     border-bottom:  1px solid var(--color-border-default);
   }
 
-  /* H3 — Cormorant, card/content level — matched to profile .case-title / .pillar-title */
+  /* H2 second line — wrap in <em> for muted navy on light backgrounds */
+  h2 em {
+    font-style: normal;
+    color:      rgba(26, 58, 92, 0.6);
+  }
+
+  /* H3 — Outfit, card/content level */
   h3 {
-    font-family:    var(--font-display), serif;
-    font-weight:    600;
+    font-family:    var(--font-display), sans-serif;
+    font-weight:    500;
     font-size:      var(--text-h3-serif);
     line-height:    var(--leading-subheading);
     letter-spacing: var(--tracking-tight);
@@ -205,6 +222,28 @@
    apply them without writing inline styles.
    ─────────────────────────────────────────────────────────────────────────── */
 @layer components {
+
+  /* ── CTA heading override — navy section h2s ───────────────────────────── */
+  .h2-cta {
+    color:          var(--color-ink-inverted);
+    border-bottom:  none;
+    padding-bottom: 0;
+  }
+
+  /* ── Split headline — light (100) / strong (500) pattern ───────────────── */
+  .maru-headline-split {
+    font-family:    var(--font-display), sans-serif;
+    line-height:    1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .maru-headline-split-light {
+    font-weight: var(--font-weight-headline-light);
+  }
+
+  .maru-headline-split-strong {
+    font-weight: var(--font-weight-headline-strong);
+  }
 
   /* Eyebrow / caps label — 11px / 500 / 0.2em / uppercase */
   .label-eyebrow {
@@ -239,9 +278,9 @@
     border-bottom:   1px solid var(--color-border-default);
   }
 
-  /* Section number — Cormorant, cyan */
+  /* Section number — Outfit, cyan */
   .section-number {
-    font-family:     var(--font-display), serif;
+    font-family:     var(--font-display), sans-serif;
     font-size:       var(--text-meta);
     font-weight:     400;
     color:           var(--color-cyan);
@@ -297,9 +336,9 @@
   }
 
   .card-gold h3 {
-    font-family:     var(--font-display), serif;
+    font-family:     var(--font-display), sans-serif;
     font-size:       var(--text-h3-serif);
-    font-weight:     600;
+    font-weight:     500;
     color:           var(--color-gold-antique);
     line-height:     var(--leading-subheading);
     letter-spacing:  var(--tracking-tight);
@@ -330,7 +369,7 @@
   }
 
   .card-navy h3 {
-    font-family:     var(--font-display), serif;
+    font-family:     var(--font-display), sans-serif;
     font-size:       var(--text-h3-serif);
     font-weight:     400;
     color:           var(--color-cyan);

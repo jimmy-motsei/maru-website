@@ -49,10 +49,21 @@ const config: Config = {
       },
 
       // ─── Font families ───────────────────────────────────────────────────
-      // font-display → Cormorant Garamond  |  font-body → DM Sans
+      // font-display → Outfit  |  font-body → Inter
       fontFamily: {
-        display: ['var(--font-display)', 'Georgia', 'Cambria', 'serif'],
+        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
         body:    ['var(--font-body)', 'system-ui', 'sans-serif'],
+      },
+
+      animation: {
+        'fade-in': 'fadeIn 0.6s ease-out forwards',
+      },
+
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
     },
   },

@@ -1,25 +1,23 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import Nav from '@/components/ui/Nav'
 import Footer from '@/components/ui/Footer'
 import './globals.css'
 
 // ─── Fonts ────────────────────────────────────────────────────────────────────
-// Cormorant Garamond — display / H1 moments only (see design-token brief §2)
-// Italic loaded here so pull-quotes and editorial moments don't trigger FOIT.
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '600'],
-  style: ['normal', 'italic'],
-  variable: '--font-cormorant',
+// Outfit Variable — headings (h1–h6), display moments, nav, labels
+// Variable font: weight axis 100–900, no separate files needed.
+const outfit = localFont({
+  src: '../public/fonts/outfit/Outfit-Variable.woff2',
+  variable: '--font-outfit',
   display: 'swap',
 })
 
-// DM Sans — all body copy, UI, labels, buttons (weight 300 body / 500 headings)
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-dm-sans',
+// Inter Variable — all body copy, UI text, form inputs, buttons
+// Variable font: weight axis 100–900.
+const inter = localFont({
+  src: '../public/fonts/inter/Inter-Variable.woff2',
+  variable: '--font-inter',
   display: 'swap',
 })
 
@@ -52,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${dmSans.variable} font-body`}
+      className={`${outfit.variable} ${inter.variable} font-body`}
       suppressHydrationWarning
     >
       <body>
