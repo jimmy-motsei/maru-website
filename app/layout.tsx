@@ -24,9 +24,9 @@ const inter = localFont({
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   metadataBase: new URL('https://maruonline.com'),
-  title: 'AI & Automation Consultants for Growing Businesses | Maru Online',
+  title: 'AI & Automation Consultants for Growing SMEs | Maru Online',
   description:
-    'We identify where your processes are costing you time and money — then build AI-powered workflows that fix & augment your systems.',
+    'We find where your processes are costing you time and money — then build AI-powered workflows that cut costs and free your team. Free assessment.',
   alternates: {
     canonical: 'https://maruonline.com',
   },
@@ -35,16 +35,15 @@ export const metadata: Metadata = {
     siteName: 'Maru Online',
     locale: 'en_ZA',
     url: 'https://maruonline.com',
-    title: 'Practical AI Solutions to Power Growth, without the Complexity',
+    title: 'AI That Actually Works for Your Business — Not Just Another Tool',
     description:
-      'We connect artificial intelligence technologies with your existing software, hardware, and workflows to automate processes and boost efficiency.',
+      'We connect AI with your existing tools and workflows to automate the work your team shouldn\'t be doing manually. Free assessment for growing SMEs.',
   },
   twitter: {
     card: 'summary_large_image',
-    title:
-      'Avoid paying for software tools that aren\'t integrated — not talking to each other. Find out why — free.',
+    title: 'AI That Actually Works for Your Business — Not Just Another Tool',
     description:
-      'Free AI assessment for growing SMEs. We find where your existing tools & processes are falling short — and how to improve them with practical AI integration.',
+      'We find where your processes are costing you time and money — then build AI-powered workflows that cut costs and free your team. Free assessment.',
   },
 }
 
