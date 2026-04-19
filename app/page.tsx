@@ -111,7 +111,7 @@ export default function Home() {
                 fontWeight: 400,
                 lineHeight: "var(--leading-subheading)",
                 color: "var(--color-ink-primary)",
-                marginBottom: "1.75rem",
+                marginBottom: "2.375rem",
                 letterSpacing: "var(--tracking-tight)",
               }}
             >
@@ -121,25 +121,25 @@ export default function Home() {
           </FadeUp>
 
           <FadeUp delay={0.1}>
-            <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
+            <p className="body-muted" style={{ marginBottom: "2.125rem" }}>
               The tools work. The CRM tracks leads. The scheduling platform books
               appointments. The email platform sends follow-ups. But none of them
               talk to each other — and in the gaps between them, revenue
               disappears.
             </p>
-            <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
+            <p className="body-muted" style={{ marginBottom: "2.125rem" }}>
               A lead comes in on a Friday afternoon and sits in an inbox until
               Monday. An appointment isn&apos;t confirmed and the patient
               doesn&apos;t show. A candidate applies, gets an automated
               acknowledgement, and never hears from anyone again. A conference
               speaker confirmation gets lost in an email chain three people deep.
             </p>
-            <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
+            <p className="body-muted" style={{ marginBottom: "1.625rem" }}>
               These aren&apos;t technology failures. They&apos;re coordination
               failures that technology should be solving — and isn&apos;t, because
               nobody has connected the pieces.
             </p>
-            <hr className="rule" style={{ marginBottom: "var(--space-para-section)" }} />
+            <hr className="rule" />
             <p
               style={{
                 fontFamily: "var(--font-body)",
