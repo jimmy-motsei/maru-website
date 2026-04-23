@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 import AssessmentFormSection from "@/components/homepage/AssessmentFormSection";
 import NewsletterSection from "@/components/homepage/NewsletterSection";
+import PrimaryServicesFilter from "@/components/homepage/PrimaryServicesFilter";
 
 export const metadata: Metadata = {
   title: "AI & Automation Consultants for Growing SMEs | Maru Online",
@@ -16,142 +17,6 @@ const inner     = "max-w-[900px] mx-auto";
 const innerNarrow = "max-w-[720px] mx-auto";
 const innerWide = "max-w-[1100px] mx-auto";
 
-// ─── Service data ─────────────────────────────────────────────────────────────
-
-const coreServices = [
-  {
-    variant: "navy" as const,
-    name: "Free AI Readiness Assessment",
-    forWho: "Businesses with AI tools but no clear integration plan — or no tools yet but unsure where to start.",
-    what: "We audit your current workflows, tools, and data flow to find where time and money are being lost. You get a clear diagnostic and a prioritised roadmap.",
-    bullets: [
-      "Workflow and process audit — what's working, what's costing you",
-      "Gap analysis — which tools aren't talking to each other",
-      "Cost quantification — exactly how many hours per week you're losing",
-      "Prioritised recommendations — ranked by impact and implementation effort",
-      "Clear next steps — no ambiguity about what happens next",
-    ],
-    pricing: "Free | Results delivered within 24 hours",
-    why: "We diagnose first. Clarity first — start with quick wins.",
-  },
-  {
-    variant: "gold" as const,
-    name: "AI-Powered Workflow Integration",
-    forWho: "Businesses ready to connect their tools and stop doing manual admin work.",
-    what: "We design, build, and deploy workflows that connect your existing systems. Your tools talk to each other. Your team's admin time drops.",
-    bullets: [
-      "Workflow architecture based on your assessment findings",
-      "Integration across your existing tools — vendor agnostic",
-      "Documentation and team training (if needed)",
-      "Real-time measurement metrics against your baseline",
-      "First month of support included (30 days)",
-    ],
-    pricing: "From R18,000 fixed | 20–30 days to first workflow live",
-    why: "Project based fixed pricing. No \"discovery as we go.\" You know the cost and timeline upfront.",
-  },
-  {
-    variant: "navy" as const,
-    name: "Results Measurement & Optimisation",
-    forWho: "Businesses that have implemented workflows and want to measure results, find gaps, and optimise over time.",
-    what: "We measure your workflows against your baseline: hours saved, costs cut, errors reduced. We identify what's working, what's not, and where to optimize next.",
-    bullets: [
-      "Baseline measurement against your original workflow",
-      "Real-time dashboards showing hours saved and cost impact",
-      "Gap analysis — what's working, what needs adjustment",
-      "Quarterly optimisation recommendations",
-    ],
-    pricing: "From R18,000 fixed for 30-day sprint | Ongoing support available",
-    why: "If we can't measure it, we can't prove it worked. Measurement is built into every engagement.",
-  },
-  {
-    variant: "gold" as const,
-    name: "Site Infrastructure Analysis & Remediation",
-    forWho: "Businesses with legacy websites (pre-2020 WordPress, broken CMS) or no website that need clean infrastructure to support lead capture and AI workflows.",
-    what: "We audit your site's infrastructure — speed, lead capture mechanisms, CRM integration. If it needs rebuilding, we scope remediation work with automation in mind. Lead capture flows directly into your CRM. No manual entry. No lost leads.",
-    bullets: [
-      "Site audit and remediation plan",
-      "Clean, fast infrastructure that supports AI workflows (Next.js, React, Tailwind CSS tech stack)",
-      "POPIA compliant lead capture forms that connect to your CRM",
-      "Clear measurement of leads from day one",
-    ],
-    pricing: "R12,500 – R25,000 fixed | Scoped after initial assessment",
-    why: "We don't build AI workflows on broken infrastructure. Your website is the central engine — it sets the foundation for everything that follows.",
-  },
-  {
-    variant: "navy" as const,
-    name: "POPIA-Compliant AI Integration",
-    forWho: "Regulated sectors (e.g. legal, financial, HR, healthcare) that need AI workflows designed around compliance from day one.",
-    what: "Data compliance isn't an afterthought — it's built into your workflow architecture. We design consent-first systems that meet POPIA requirements and audit requirements.",
-    bullets: [
-      "Data flow mapping and compliance assessment",
-      "Consent architecture built into every workflow",
-      "Documentation for regulatory purposes",
-      "Ongoing compliance monitoring",
-    ],
-    pricing: "Scoped per engagement | From R12,500",
-    why: "In the regulated online space, compliance isn't optional. We build it in from the start.",
-  },
-  {
-    variant: "gold" as const,
-    name: "Team Training & Capability Support",
-    forWho: "Organisations that want their team to understand, manage, and continuously improve their workflows — not dependent on outside support.",
-    what: "We train your team to run, monitor, and adapt the workflows we've built. Knowledge transfer is the goal. Independence is the outcome.",
-    bullets: [
-      "Hands-on training for every workflow deployed",
-      "Plain-language documentation (not technical)",
-      "Designated internal owner for each workflow set",
-      "30-day free support post-handover",
-      "Ongoing support available on retainer if needed",
-    ],
-    pricing: "Included in every implementation | Standalone: from R4,500/person/day",
-    why: "Your team should run the system, not IT. Training ensures that happens.",
-  },
-];
-
-const foundationServices = [
-  {
-    name: "Strategy & Consultation",
-    forWho: "Businesses that need clarity on their digital direction, market positioning, or technology roadmap before implementing AI workflows.",
-    what: "We conduct user research, define your digital roadmap, outline technical strategy, and design prototypes that validate your approach before full development. This is discovery and planning — the foundation for smarter implementation decisions.",
-    bullets: [
-      "User research and audience insights",
-      "Digital roadmap and technology strategy",
-      "Technical architecture planning",
-      "Prototype design and validation",
-      "Go-to-market strategy development",
-    ],
-    pricing: "Scoped per engagement | From R12,500",
-    why: "Rushing into AI without strategy means solving the wrong problems first. We map your competitor landscape, market position and technology needs before building.",
-  },
-  {
-    name: "Design & Development",
-    forWho: "Businesses that need a new website, web application, e-commerce platform, or mobile app built to support their AI-powered workflows using modern high-performing tech stacks.",
-    what: "We design and build websites, web applications, e-commerce sites, and mobile apps. Every digital product is built with AI integration in mind — lead capture, data collection, workflow automation are baked in from the start.",
-    bullets: [
-      "Website and web application development",
-      "E-commerce platform builds",
-      "Mobile app development",
-      "Built for AI workflow integration",
-      "Performance and conversion optimised",
-    ],
-    pricing: "Scoped per engagement | From R12,500",
-    why: "A digital product is only as good as the workflows it enables and how its data is captured. We build both.",
-  },
-  {
-    name: "Digital Marketing Support",
-    forWho: "Businesses that need data-driven insights, strategic marketing direction, or campaign execution to boost online presence and visibility.",
-    what: "We provide strategic insights using your website analytics, customer data, and market research. We help you understand how people discover and use your digital presence, and we help develop and execute the campaigns that improve it.",
-    bullets: [
-      "Website analytics and insights",
-      "Campaign strategy and planning",
-      "Campaign execution and management",
-      "Online visibility optimisation",
-      "Data-driven marketing decisions",
-    ],
-    pricing: "Scoped per engagement | From R8,000/project",
-    why: "Marketing without data is guesswork. We turn your analytics into action, and your action into measurable results.",
-  },
-];
 
 const processPhases = [
   {
@@ -533,7 +398,7 @@ export default function Home() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════════
-          SECTION 04 — PRIMARY SERVICES
+          SECTION 04 — PRIMARY SERVICES (filter layout)
           bg: secondary (#F5F4F0)
           ════════════════════════════════════════════════════════════════════ */}
       <section
@@ -548,105 +413,16 @@ export default function Home() {
               className="body-muted"
               style={{ maxWidth: "640px", marginBottom: "var(--space-section-header-mb)" }}
             >
-              Six core services designed to cut your operating costs, build stronger digital foundations, and free your team to do what they&apos;re actually paid for.
+              Start with your primary integration challenge. We&apos;ll recommend a relevant starting point to your solution.
             </p>
           </FadeUp>
 
-          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {coreServices.map((service) => (
-              <StaggerChild key={service.name}>
-                <div className={service.variant === "navy" ? "card-navy" : "card-gold"} style={{ height: "100%" }}>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-meta)",
-                      fontWeight: 500,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.1em",
-                      color: service.variant === "navy" ? "rgba(61,184,198,0.7)" : "var(--color-gold-antique)",
-                      marginBottom: "0.5rem",
-                      lineHeight: 1.4,
-                    }}
-                  >
-                    For: {service.forWho}
-                  </p>
-
-                  <h3 style={{ marginBottom: "0.75rem" }}>{service.name}</h3>
-
-                  <p style={{ marginBottom: "1rem" }}>{service.what}</p>
-
-                  <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.25rem 0" }}>
-                    {service.bullets.map((bullet) => (
-                      <li key={bullet} style={{ display: "flex", gap: "0.625rem", alignItems: "flex-start", marginBottom: "0.5rem" }}>
-                        <span
-                          style={{
-                            color: service.variant === "navy" ? "var(--color-cyan)" : "var(--color-gold-antique)",
-                            fontWeight: 700,
-                            flexShrink: 0,
-                            fontSize: "var(--text-body-sm)",
-                            lineHeight: "1.7",
-                          }}
-                        >
-                          ✓
-                        </span>
-                        <span
-                          style={{
-                            fontFamily: "var(--font-body)",
-                            fontSize: "var(--text-body-sm)",
-                            fontWeight: 300,
-                            color: service.variant === "navy" ? "rgba(250,250,248,0.7)" : "var(--color-ink-secondary)",
-                            lineHeight: "var(--leading-body)",
-                          }}
-                        >
-                          {bullet}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <hr
-                    className="rule"
-                    style={{
-                      background: service.variant === "navy" ? "rgba(250,250,248,0.12)" : undefined,
-                      marginTop: "auto",
-                    }}
-                  />
-
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-body-sm)",
-                      fontWeight: 600,
-                      color: service.variant === "navy" ? "var(--color-cyan)" : "var(--color-gold-antique)",
-                      marginBottom: "0.5rem",
-                      marginTop: "0.75rem",
-                    }}
-                  >
-                    {service.pricing}
-                  </p>
-
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-meta)",
-                      fontWeight: 300,
-                      color: service.variant === "navy" ? "rgba(250,250,248,0.5)" : "var(--color-ink-tertiary)",
-                      marginBottom: 0,
-                      lineHeight: 1.5,
-                      fontStyle: "italic",
-                    }}
-                  >
-                    {service.why}
-                  </p>
-                </div>
-              </StaggerChild>
-            ))}
-          </StaggerParent>
+          <PrimaryServicesFilter />
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════════
-          SECTION 05 — FOUNDATION SERVICES
+          SECTION 05 — FOUNDATION SERVICES (flush 3-col grid)
           bg: white (#FFFFFF)
           ════════════════════════════════════════════════════════════════════ */}
       <section
@@ -660,141 +436,159 @@ export default function Home() {
               className="body-muted"
               style={{ maxWidth: "680px", marginBottom: "var(--space-section-header-mb)" }}
             >
-              AI-powered workflows work best on strong foundations. If your online strategy needs clarity, your digital presence needs rebuilding, or your marketing needs direction, we handle that too. These aren&apos;t separate from our core AI work — they&apos;re the strategic and technical foundations that make everything else possible.
+              AI-powered workflows work best on strong foundations. If your strategy needs clarity, your digital presence needs rebuilding, or your marketing needs direction — we handle that too.
             </p>
           </FadeUp>
 
-          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {foundationServices.map((service) => (
-              <StaggerChild key={service.name}>
-                <div className="card-gold" style={{ height: "100%" }}>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-meta)",
-                      fontWeight: 500,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.1em",
-                      color: "var(--color-gold-antique)",
-                      marginBottom: "0.5rem",
-                      lineHeight: 1.4,
-                    }}
-                  >
-                    For: {service.forWho}
-                  </p>
-
-                  <h3 style={{ marginBottom: "0.75rem" }}>{service.name}</h3>
-
-                  <p style={{ marginBottom: "1rem" }}>{service.what}</p>
-
-                  <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.25rem 0" }}>
-                    {service.bullets.map((bullet) => (
-                      <li key={bullet} style={{ display: "flex", gap: "0.625rem", alignItems: "flex-start", marginBottom: "0.5rem" }}>
-                        <span
-                          style={{
-                            color: "var(--color-gold-antique)",
-                            fontWeight: 700,
-                            flexShrink: 0,
-                            fontSize: "var(--text-body-sm)",
-                            lineHeight: "1.7",
-                          }}
-                        >
-                          ✓
-                        </span>
-                        <span
-                          style={{
-                            fontFamily: "var(--font-body)",
-                            fontSize: "var(--text-body-sm)",
-                            fontWeight: 300,
-                            color: "var(--color-ink-secondary)",
-                            lineHeight: "var(--leading-body)",
-                          }}
-                        >
-                          {bullet}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <hr className="rule" style={{ marginTop: "auto" }} />
-
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-body-sm)",
-                      fontWeight: 600,
-                      color: "var(--color-gold-antique)",
-                      marginBottom: "0.5rem",
-                      marginTop: "0.75rem",
-                    }}
-                  >
-                    {service.pricing}
-                  </p>
-
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-meta)",
-                      fontWeight: 300,
-                      color: "var(--color-ink-tertiary)",
-                      marginBottom: 0,
-                      lineHeight: 1.5,
-                      fontStyle: "italic",
-                    }}
-                  >
-                    {service.why}
-                  </p>
-                </div>
-              </StaggerChild>
-            ))}
-
-            {/* 4th column — CTA */}
-            <StaggerChild>
+          {/* Flush 3-column grid — gap IS the divider */}
+          <div
+            className="grid grid-cols-1 md:grid-cols-3"
+            style={{
+              gap: "1px",
+              background: "var(--color-border-default)",
+              border: "0.5px solid var(--color-border-default)",
+              borderRadius: "8px",
+              overflow: "hidden",
+            }}
+          >
+            {[
+              {
+                ghost: "01",
+                name: "Strategy & Consultation",
+                description: "Discovery and planning before implementation. We map your competitor landscape, market position, and technology needs before anything is built.",
+                deliverables: [
+                  "User research and audience insights",
+                  "Digital roadmap and technology strategy",
+                  "Technical architecture planning",
+                  "Prototype design and validation",
+                  "Go-to-market strategy development",
+                ],
+              },
+              {
+                ghost: "02",
+                name: "Design & Development",
+                description: "Digital products built with AI integration in mind. Lead capture, data collection, and workflow automation baked in — not retrofitted.",
+                deliverables: [
+                  "Website and web application development",
+                  "E-commerce platform builds",
+                  "Mobile app development",
+                  "Built for AI workflow integration",
+                  "Performance and conversion optimised",
+                ],
+              },
+              {
+                ghost: "03",
+                name: "Digital Marketing Support",
+                description: "Strategic insights from your data — then the campaign execution that acts on what the data reveals. Marketing without data is guesswork.",
+                deliverables: [
+                  "Website analytics and insights",
+                  "Campaign strategy and planning",
+                  "Campaign execution and management",
+                  "Online visibility optimisation",
+                  "Data-driven marketing decisions",
+                ],
+              },
+            ].map((col) => (
               <div
+                key={col.ghost}
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  padding: "2rem",
-                  background: "var(--color-bg-navy)",
-                  borderRadius: "0 12px 12px 0",
-                  borderLeft: "4px solid var(--color-cyan)",
-                  height: "100%",
+                  background: "var(--color-bg-primary)",
+                  padding: "1.75rem 1.5rem",
                 }}
               >
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "var(--text-h3-serif)",
-                    fontWeight: 400,
-                    color: "var(--color-cyan)",
-                    lineHeight: "var(--leading-subheading)",
-                    letterSpacing: "var(--tracking-tight)",
-                    marginBottom: "1rem",
-                    borderBottom: "none",
-                    paddingBottom: 0,
-                  }}
-                >
-                  Ready to Build Your Foundation?
-                </h3>
+                {/* Ghost number */}
                 <p
                   style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "var(--text-body-sm)",
-                    fontWeight: 300,
-                    color: "rgba(250,250,248,0.75)",
-                    lineHeight: "var(--leading-body)",
-                    marginBottom: "1.5rem",
+                    fontSize: "32px",
+                    fontWeight: 100,
+                    color: "rgba(205, 170, 83, 0.30)",
+                    lineHeight: 1,
+                    marginBottom: "1rem",
+                    fontFamily: "var(--font-display)",
                   }}
                 >
-                  These strategic services lay the groundwork for successful AI integration. Whether you need clarity on direction, a stronger digital product, or smarter marketing, we handle the full scope.
+                  {col.ghost}
                 </p>
-                <Button href="#assessment" variant="primary">
-                  Get Started — Book a Strategy Call
-                </Button>
+
+                {/* Service name + gold underline */}
+                <p
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 500,
+                    color: "var(--color-ink-primary)",
+                    lineHeight: 1.3,
+                    marginBottom: "0.75rem",
+                    borderBottom: "2px solid var(--color-gold)",
+                    paddingBottom: "0.75rem",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  {col.name}
+                </p>
+
+                {/* Description */}
+                <p
+                  style={{
+                    fontSize: "13px",
+                    color: "var(--color-ink-secondary)",
+                    lineHeight: 1.65,
+                    marginBottom: "1.25rem",
+                    fontFamily: "var(--font-body)",
+                    fontWeight: 300,
+                  }}
+                >
+                  {col.description}
+                </p>
+
+                {/* Deliverables label */}
+                <p
+                  style={{
+                    fontSize: "11px",
+                    fontWeight: 500,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "var(--color-ink-secondary)",
+                    marginBottom: "0.5rem",
+                    fontFamily: "var(--font-body)",
+                  }}
+                >
+                  Deliverables
+                </p>
+
+                {/* Deliverables list */}
+                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                  {col.deliverables.map((item) => (
+                    <li
+                      key={item}
+                      style={{
+                        fontSize: "12px",
+                        color: "var(--color-ink-secondary)",
+                        padding: "4px 0",
+                        lineHeight: 1.5,
+                        display: "flex",
+                        gap: "8px",
+                        alignItems: "flex-start",
+                        fontFamily: "var(--font-body)",
+                        fontWeight: 300,
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: "var(--color-gold)",
+                          fontSize: "12px",
+                          flexShrink: 0,
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        →
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </StaggerChild>
-          </StaggerParent>
+            ))}
+          </div>
         </div>
       </section>
 
