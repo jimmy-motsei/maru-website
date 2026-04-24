@@ -56,6 +56,7 @@
   --text-h3-sans:             1.125rem;                   /* 18px — pillar title */
   --text-body:                1.25rem;                    /* 20px */
   --text-body-sm:             1.125rem;                   /* 18px — card body */
+  --text-cta:                 0.75rem;                    /* 12px — button / CTA label */
   --text-label:               0.6875rem;                  /* 11px — eyebrow / badge */
   --text-meta:                0.75rem;                    /* 12px — period/date */
 
@@ -108,6 +109,7 @@
   --color-border-strong:      var(--color-border-strong);
   --font-display:             var(--font-display);
   --font-body:                var(--font-body);
+  --text-cta:                 var(--text-cta);
 }
 
 /* ── Animations ─────────────────────────────────────────────────────────────── */

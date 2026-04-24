@@ -513,8 +513,8 @@ export default function Home() {
                 {/* Service name + gold underline */}
                 <p
                   style={{
-                    fontSize: "16px",
-                    fontWeight: 500,
+                    fontSize: "var(--text-h3-sans)",
+                    fontWeight: 600,
                     color: "var(--color-ink-primary)",
                     lineHeight: 1.3,
                     marginBottom: "0.75rem",
@@ -527,16 +527,7 @@ export default function Home() {
                 </p>
 
                 {/* Description */}
-                <p
-                  style={{
-                    fontSize: "13px",
-                    color: "var(--color-ink-secondary)",
-                    lineHeight: 1.65,
-                    marginBottom: "1.25rem",
-                    fontFamily: "var(--font-body)",
-                    fontWeight: 300,
-                  }}
-                >
+                <p className="body-muted" style={{ marginBottom: "1.25rem" }}>
                   {col.description}
                 </p>
 
@@ -561,10 +552,10 @@ export default function Home() {
                     <li
                       key={item}
                       style={{
-                        fontSize: "12px",
+                        fontSize: "var(--text-body-sm)",
                         color: "var(--color-ink-secondary)",
                         padding: "4px 0",
-                        lineHeight: 1.5,
+                        lineHeight: "var(--leading-body)",
                         display: "flex",
                         gap: "8px",
                         alignItems: "flex-start",
@@ -575,9 +566,9 @@ export default function Home() {
                       <span
                         style={{
                           color: "var(--color-gold)",
-                          fontSize: "12px",
+                          fontSize: "var(--text-body-sm)",
                           flexShrink: 0,
-                          lineHeight: 1.5,
+                          lineHeight: "var(--leading-body)",
                         }}
                       >
                         →
@@ -743,7 +734,14 @@ export default function Home() {
           </FadeUp>
 
           <FadeUp delay={0.08}>
-            <p className="body-on-navy" style={{ marginBottom: "var(--space-section-header-mb)" }}>
+            <p
+              className="body-on-navy"
+              style={{
+                marginBottom: "var(--space-section-header-mb)",
+                fontWeight: 400,
+                color: "var(--color-ink-inverted)",
+              }}
+            >
               Start with a free assessment. We&apos;ll show you exactly where you&apos;re losing time and money, what to fix first, and what working with us looks like. No obligation.
             </p>
           </FadeUp>

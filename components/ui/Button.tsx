@@ -28,7 +28,7 @@ const base =
 const variantClasses: Record<ButtonVariant, string> = {
   // Solid cyan fill — dark navy text
   primary:
-    'px-6 py-2.5 bg-[#3DB8C6] text-[#0D1B2A] border-0 ' +
+    'px-6 py-2.5 bg-[#3DB8C6] text-[var(--color-navy)] border-0 ' +
     'hover:bg-[#2DA8B6] hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.35)] ' +
     'active:scale-[0.98] active:bg-[#2DA8B6] active:shadow-none ' +
     'focus-visible:shadow-[0_0_0_3px_rgba(61,184,198,0.45),0_4px_16px_rgba(61,184,198,0.25)]',
@@ -36,15 +36,15 @@ const variantClasses: Record<ButtonVariant, string> = {
   // Transparent — cyan outline, cyan text
   secondary:
     'px-6 py-2.5 bg-transparent text-[#3DB8C6] border border-[#3DB8C6] ' +
-    'hover:bg-[#3DB8C6] hover:text-[#0D1B2A] hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.25)] ' +
-    'active:scale-[0.98] active:bg-[#2DA8B6] active:text-[#0D1B2A] active:shadow-none ' +
+    'hover:bg-[#3DB8C6] hover:text-[var(--color-navy)] hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.25)] ' +
+    'active:scale-[0.98] active:bg-[#2DA8B6] active:text-[var(--color-navy)] active:shadow-none ' +
     'focus-visible:shadow-[0_0_0_3px_rgba(61,184,198,0.45),0_4px_16px_rgba(61,184,198,0.15)]',
 
   // Legacy alias — renders identically to secondary.
   outline:
     'px-6 py-2.5 bg-transparent text-[#3DB8C6] border border-[#3DB8C6] ' +
-    'hover:bg-[#3DB8C6] hover:text-[#0D1B2A] hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.25)] ' +
-    'active:scale-[0.98] active:bg-[#2DA8B6] active:text-[#0D1B2A] active:shadow-none ' +
+    'hover:bg-[#3DB8C6] hover:text-[var(--color-navy)] hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.25)] ' +
+    'active:scale-[0.98] active:bg-[#2DA8B6] active:text-[var(--color-navy)] active:shadow-none ' +
     'focus-visible:shadow-[0_0_0_3px_rgba(61,184,198,0.45),0_4px_16px_rgba(61,184,198,0.15)]',
 
   // Inline text link — no border, no background.

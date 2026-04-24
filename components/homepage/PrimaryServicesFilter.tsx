@@ -76,11 +76,11 @@ export default function PrimaryServicesFilter() {
         <p
           style={{
             fontFamily: 'var(--font-body)',
-            fontSize: '11px',
+            fontSize: 'var(--text-meta)',
             fontWeight: 500,
             textTransform: 'uppercase',
             letterSpacing: '0.1em',
-            color: 'var(--color-ink-tertiary)',
+            color: 'var(--color-ink-secondary)',
             marginBottom: '0.75rem',
           }}
         >
@@ -95,8 +95,8 @@ export default function PrimaryServicesFilter() {
                 onClick={() => setActiveFilter(f.label === activeFilter ? null : f.label)}
                 style={{
                   border: isActive
-                    ? '0.5px solid var(--color-cyan)'
-                    : '0.5px solid var(--color-border-strong)',
+                    ? '1px solid var(--color-cyan)'
+                    : '1px solid var(--color-border-strong)',
                   background: isActive ? 'rgba(61, 184, 198, 0.08)' : 'transparent',
                   color: isActive ? 'var(--color-cyan)' : 'var(--color-ink-secondary)',
                   borderRadius: '4px',
@@ -194,28 +194,19 @@ export default function PrimaryServicesFilter() {
               {/* Name */}
               <p
                 style={{
-                  fontSize: '14px',
-                  fontWeight: 500,
+                  fontSize: 'var(--text-h3-sans)',
+                  fontWeight: 600,
                   color: 'var(--color-ink-primary)',
                   fontFamily: 'var(--font-body)',
                   marginBottom: '0.5rem',
-                  lineHeight: 1.4,
+                  lineHeight: 1.3,
                 }}
               >
                 {svc.name}
               </p>
 
               {/* Body */}
-              <p
-                style={{
-                  fontSize: '12px',
-                  color: 'var(--color-ink-secondary)',
-                  fontFamily: 'var(--font-body)',
-                  lineHeight: 1.5,
-                  marginBottom: 0,
-                  fontWeight: 300,
-                }}
-              >
+              <p className="body-muted" style={{ marginBottom: 0 }}>
                 {svc.body}
               </p>
             </div>
