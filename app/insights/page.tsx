@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 
 const outerPad    = "px-6 md:px-[60px]";
 const inner       = "max-w-[900px] mx-auto";
+const innerWide   = "max-w-[1100px] mx-auto";
 const innerNarrow = "max-w-[720px] mx-auto";
 
 // ─── Article data ─────────────────────────────────────────────────────────────
@@ -216,7 +217,7 @@ export default function InsightsPage() {
           HERO
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`min-h-[50vh] flex items-center ${outerPad} pt-32 pb-20`}
+        className={`min-h-[50vh] flex items-center ${outerPad} pt-48 pb-32`}
         style={{ backgroundColor: "var(--color-bg-navy)" }}
       >
         <div
@@ -232,7 +233,7 @@ export default function InsightsPage() {
             pointerEvents: "none",
           }}
         />
-        <div className={inner}>
+        <div className={innerWide}>
           <FadeUp>
             <span className="label-eyebrow">Insights</span>
           </FadeUp>

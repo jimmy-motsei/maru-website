@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 
 const outerPad    = "px-6 md:px-[60px]";
 const inner       = "max-w-[900px] mx-auto";
+const innerWide   = "max-w-[1100px] mx-auto";
 const innerNarrow = "max-w-[720px] mx-auto";
 
 export default function AboutPage() {
@@ -23,7 +24,7 @@ export default function AboutPage() {
           HERO — navy
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`min-h-[70vh] flex items-center ${outerPad} pt-32 pb-24`}
+        className={`min-h-[70vh] flex items-center ${outerPad} pt-48 pb-32`}
         style={{ backgroundColor: "var(--color-bg-navy)" }}
       >
         <div
@@ -39,7 +40,7 @@ export default function AboutPage() {
             pointerEvents: "none",
           }}
         />
-        <div className={inner}>
+        <div className={innerWide}>
           <FadeUp>
             <span className="label-eyebrow">About Maru Online</span>
           </FadeUp>

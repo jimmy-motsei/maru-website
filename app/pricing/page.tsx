@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 const outerPad    = 'px-6 md:px-[60px]'
 const inner       = 'max-w-[900px] mx-auto'
+const innerWide   = 'max-w-[1100px] mx-auto'
 const innerNarrow = 'max-w-[720px] mx-auto'
 
 // ─── Pricing data ─────────────────────────────────────────────────────────────
@@ -72,42 +73,6 @@ const engagements = [
   },
 ]
 
-const retainerTiers = [
-  {
-    name:  'Basic Care',
-    price: 'R3,500',
-    unit:  '/month',
-    items: [
-      'Monthly performance check',
-      'Email support (48hr response)',
-      'Minor content updates',
-    ],
-  },
-  {
-    name:  'Growth',
-    price: 'R7,500',
-    unit:  '/month',
-    items: [
-      'Everything in Basic Care',
-      '4 hours priority support',
-      'Monthly performance report',
-      'Quarterly review session',
-    ],
-    featured: true,
-  },
-  {
-    name:  'Partner',
-    price: 'R14,500',
-    unit:  '/month',
-    items: [
-      'Everything in Growth',
-      '8 hours priority support',
-      'Quarterly strategy session',
-      'POPIA compliance monitoring',
-    ],
-  },
-]
-
 const faqs = [
   {
     q: 'Why do I have to pay for the diagnostic?',
@@ -136,7 +101,7 @@ export default function PricingPage() {
           HERO
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`min-h-[60vh] flex items-center ${outerPad} pt-32 pb-24`}
+        className={`min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}
         style={{ backgroundColor: 'var(--color-bg-navy)' }}
       >
         <div
@@ -152,7 +117,7 @@ export default function PricingPage() {
             pointerEvents: 'none',
           }}
         />
-        <div className={inner}>
+        <div className={innerWide}>
           <FadeUp>
             <span className="label-eyebrow">Pricing</span>
           </FadeUp>
@@ -367,148 +332,6 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════════════════
-          RETAINER PRICING
-          ════════════════════════════════════════════════════════════════════ */}
-      <section
-        className={`${outerPad} py-24`}
-        style={{ backgroundColor: 'var(--color-bg-canvas)' }}
-      >
-        <div className={inner}>
-          <FadeUp>
-            <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-              <span className="label-eyebrow-gold">Retainers</span>
-              <h2>After the engagement</h2>
-              <p
-                className="body-muted"
-                style={{ margin: 0, maxWidth: '560px' }}
-              >
-                For businesses that want to keep building after the initial
-                engagement. Your team owns the system independently — a retainer
-                keeps it performing as your business evolves.
-              </p>
-            </div>
-          </FadeUp>
-
-          <StaggerParent className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {retainerTiers.map((tier) => (
-              <StaggerChild key={tier.name}>
-                <div
-                  style={{
-                    backgroundColor: tier.featured ? 'var(--color-bg-navy)' : 'var(--color-bg-primary)',
-                    border:          tier.featured
-                      ? '1px solid var(--color-cyan)'
-                      : '1px solid var(--color-border-default)',
-                    borderRadius:    '8px',
-                    padding:         '2rem 1.75rem',
-                    display:         'flex',
-                    flexDirection:   'column',
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily:    'var(--font-body)',
-                      fontSize:      'var(--text-label)',
-                      fontWeight:    500,
-                      letterSpacing: 'var(--tracking-eyebrow)',
-                      textTransform: 'uppercase',
-                      color:         tier.featured ? 'var(--color-cyan)' : 'var(--color-ink-tertiary)',
-                      marginBottom:  '0.5rem',
-                    }}
-                  >
-                    {tier.name}
-                  </p>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '1.5rem' }}>
-                    <span
-                      style={{
-                        fontFamily:  'var(--font-display)',
-                        fontSize:    '2rem',
-                        fontWeight:  600,
-                        color:       tier.featured ? 'var(--color-ink-inverted)' : 'var(--color-navy)',
-                        lineHeight:  1,
-                      }}
-                    >
-                      {tier.price}
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'var(--font-body)',
-                        fontSize:   'var(--text-meta)',
-                        fontWeight: 300,
-                        color:      tier.featured ? 'var(--color-ink-inverted-muted)' : 'var(--color-ink-tertiary)',
-                      }}
-                    >
-                      {tier.unit}
-                    </span>
-                  </div>
-
-                  <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem', flex: 1 }}>
-                    {tier.items.map((item) => (
-                      <li
-                        key={item}
-                        style={{
-                          display:       'flex',
-                          alignItems:    'flex-start',
-                          gap:           '0.625rem',
-                          paddingBottom: '0.625rem',
-                          marginBottom:  '0.625rem',
-                          borderBottom:  tier.featured
-                            ? '1px solid rgba(250,250,248,0.1)'
-                            : '1px solid var(--color-border-default)',
-                        }}
-                      >
-                        <span
-                          aria-hidden="true"
-                          style={{
-                            display:         'block',
-                            width:           '6px',
-                            height:          '6px',
-                            borderRadius:    '50%',
-                            backgroundColor: 'var(--color-cyan)',
-                            marginTop:       '0.45rem',
-                            flexShrink:      0,
-                          }}
-                        />
-                        <span
-                          style={{
-                            fontFamily: 'var(--font-body)',
-                            fontSize:   'var(--text-body)',
-                            fontWeight: 300,
-                            color:      tier.featured ? 'var(--color-ink-inverted-muted)' : 'var(--color-ink-secondary)',
-                            lineHeight: 'var(--leading-body)',
-                          }}
-                        >
-                          {item}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Button
-                    href="/contact"
-                    variant={tier.featured ? 'primary' : 'secondary'}
-                  >
-                    Enquire
-                  </Button>
-                </div>
-              </StaggerChild>
-            ))}
-          </StaggerParent>
-
-          <p
-            style={{
-              fontFamily:  'var(--font-body)',
-              fontSize:    'var(--text-meta)',
-              fontWeight:  300,
-              color:       'var(--color-ink-tertiary)',
-              marginTop:   '1.5rem',
-              marginBottom: 0,
-            }}
-          >
-            Minimum 3-month commitment. Prices exclude VAT.
-          </p>
-        </div>
-      </section>
 
       {/* ════════════════════════════════════════════════════════════════════
           FAQ — common pricing objections

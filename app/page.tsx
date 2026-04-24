@@ -88,7 +88,7 @@ export default function Home() {
           bg: navy-deep (#0D1B2A)
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`relative min-h-screen flex items-center ${outerPad} pt-28 pb-24`}
+        className={`relative min-h-screen flex items-center ${outerPad} pt-48 pb-32`}
         style={{ backgroundColor: "var(--color-bg-navy-deep)" }}
       >
         <div
@@ -104,16 +104,16 @@ export default function Home() {
             pointerEvents: "none",
           }}
         />
-        <div className={inner}>
+        <div className={innerWide}>
           <FadeUp>
-            <span className="label-eyebrow">AI &amp; Automation Consultants for Growing SMEs</span>
+            <span className="label-eyebrow" style={{ marginBottom: "3rem" }}>AI &amp; Automation Consultants for Growing SMEs</span>
           </FadeUp>
 
           <FadeUp delay={0.08}>
-            <h1 className="maru-headline-split" style={{ marginBottom: "1.5rem" }}>
-              <span className="maru-headline-split-light">Grow Your Revenue</span>
+            <h1 className="maru-headline-split" style={{ marginBottom: "2.5rem" }}>
+              <span className="maru-headline-split-light">Unlock the true potential</span>
               <br />
-              <span className="maru-headline-split-strong">with Measurable AI-Powered Systems</span>
+              <span className="maru-headline-split-strong">hidden within your operations.</span>
             </h1>
           </FadeUp>
 
@@ -125,11 +125,27 @@ export default function Home() {
                 fontSize: "var(--text-body)",
                 color: "var(--color-ink-inverted-muted)",
                 lineHeight: "var(--leading-body-relaxed)",
-                maxWidth: "600px",
-                marginBottom: "var(--space-section-header-mb)",
+                maxWidth: "100%",
+                marginBottom: "2rem",
               }}
             >
-              We find where your processes are bleeding time and money — then build workflows that fix both. AI that integrates with your existing tools &amp; processes.
+              Every business holds untapped capabilities, waiting to be fully realized. Imagine your existing tools and talented teams working in perfect concert, creating a seamless flow that elevates performance and directs every effort towards remarkable growth. This is the future where your enterprise thrives with renewed purpose and efficiency.
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={0.19}>
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontWeight: 400,
+                fontSize: "var(--text-body)",
+                color: "var(--color-ink-inverted)",
+                lineHeight: "var(--leading-body-relaxed)",
+                maxWidth: "100%",
+                marginBottom: "3rem",
+              }}
+            >
+              Your existing tools, intelligently connected, now orchestrate a seamless flow that elevates performance and accelerates growth.
             </p>
           </FadeUp>
 
@@ -153,63 +169,6 @@ export default function Home() {
             </p>
           </FadeUp>
 
-          {/* Trust bar */}
-          <FadeUp delay={0.32}>
-            <div
-              className="flex flex-col sm:flex-row gap-6 mt-10 pt-8"
-              style={{ borderTop: "1px solid rgba(61,184,198,0.15)" }}
-            >
-              {[
-                {
-                  icon: <IconSearch />,
-                  label: "Free diagnostic",
-                  description: "Find where you're losing time and money",
-                },
-                {
-                  icon: <IconShield />,
-                  label: "Fixed pricing",
-                  description: "No surprise costs or scope creep",
-                },
-                {
-                  icon: <IconStar />,
-                  label: "Maru Online",
-                  description: "20+ years in business and marketing across various industries",
-                },
-              ].map((item) => (
-                <div key={item.label} className="flex items-start gap-3" style={{ flex: 1 }}>
-                  <div style={{ color: "var(--color-cyan)", flexShrink: 0, marginTop: "2px" }}>
-                    {item.icon}
-                  </div>
-                  <div>
-                    <p
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontWeight: 600,
-                        fontSize: "var(--text-body-sm)",
-                        color: "var(--color-ink-inverted)",
-                        marginBottom: "0.2rem",
-                        lineHeight: 1.3,
-                      }}
-                    >
-                      {item.label}
-                    </p>
-                    <p
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontWeight: 300,
-                        fontSize: "var(--text-meta)",
-                        color: "rgba(250,250,248,0.6)",
-                        marginBottom: 0,
-                        lineHeight: 1.5,
-                      }}
-                    >
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </FadeUp>
         </div>
       </section>
 
