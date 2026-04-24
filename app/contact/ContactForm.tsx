@@ -115,7 +115,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
       {/* Name + Email row */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }} className="grid-cols-contact">
-        <div style={fieldStyle}>
+        <div style={{ ...fieldStyle, minWidth: 0 }}>
           <label htmlFor="cf-name" style={labelStyle}>Full name *</label>
           <input
             id="cf-name"
@@ -129,7 +129,7 @@ export default function ContactForm() {
             onBlur={e   => (e.currentTarget.style.borderBottomColor = 'var(--color-border-default)')}
           />
         </div>
-        <div style={fieldStyle}>
+        <div style={{ ...fieldStyle, minWidth: 0 }}>
           <label htmlFor="cf-email" style={labelStyle}>Email address *</label>
           <input
             id="cf-email"
