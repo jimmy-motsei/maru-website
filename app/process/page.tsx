@@ -8,7 +8,7 @@ import { FadeUp, StaggerParent, StaggerChild } from '@/components/ui/Animate'
 
 export const metadata: Metadata = {
   title:       'How We Work | Maru Online',
-  description: 'A process built around what\'s actually broken — not what\'s easiest to sell. Four phases, fixed scope, fixed price, clear outcomes at every stage.',
+  description: 'A structured four-phase process. Fixed scope, fixed price, clear deliverables at every stage — from the initial diagnostic through to a 30-day measurement report.',
 }
 
 const outerPad    = 'px-6 md:px-[60px]'
@@ -22,7 +22,7 @@ const phases = [
   {
     number:  '01',
     label:   'Diagnose',
-    title:   'We map what is broken before we touch anything',
+    title:   'We map where the gaps are before we configure anything',
     body: [
       "You complete a sector-specific intake form — fifteen questions, designed for mobile, takes about fifteen minutes. We follow up with a short verification call. Within 48 hours you receive your diagnostic report.",
       "The report covers your workflow and process audit, your AI tool inventory, your site infrastructure, and a revenue gap analysis — specific to your numbers, quantified in Rands. It is delivered as a live document, not a PDF. Whether or not you proceed with us, that report is yours.",
@@ -33,7 +33,7 @@ const phases = [
       { leader: 'Written gap report',            body: 'Five sections: business snapshot, what\'s working, cost of current state, priority map, recommended next step.' },
       { leader: '90-day roadmap',                body: 'A sequenced action plan so you know exactly what to do and in what order.' },
     ],
-    note: 'R4,500. If you proceed to a build, this fee offsets against the project cost.',
+    note: 'The Operations Diagnostic. If you proceed to a full engagement, this fee offsets against the project cost.',
     bg:   'var(--color-bg-primary)',
   },
   {
@@ -42,7 +42,7 @@ const phases = [
     title:   'We scope the work before you commit to it',
     body: [
       "We take the diagnostic findings and build a fixed-scope implementation plan. Every item is specified — what we're building, in what sequence, what it connects to, and what it's designed to produce. Nothing is vague.",
-      "You review it, ask questions, request adjustments. We don't proceed until you've signed off on every element. If the diagnostic surfaces a critical site infrastructure issue — a broken foundation that would undermine anything built on top of it — the plan addresses that first. We tell you this upfront, not halfway through the build.",
+      "You review it, ask questions, request adjustments. We don't proceed until you've signed off on every element. If the diagnostic surfaces a critical site infrastructure issue — infrastructure that needs work before anything can be built on top of it — the plan addresses that first. We tell you this upfront, not halfway through the build.",
     ],
     items: [
       { leader: 'Fixed-scope definition',    body: 'A clear written spec of what will be built, delivered, and measured.' },
@@ -56,7 +56,7 @@ const phases = [
   {
     number:  '03',
     label:   'Build',
-    title:   'We build on solid foundations — not broken ones',
+    title:   'We configure on solid foundations',
     body: [
       "We build what the plan specifies. If site remediation is sprint one, that goes first. The automation layer follows once the foundation is sound. Every sprint has a defined output and a defined completion point.",
       "Everything built is tested, documented, and handed over with instructions your team can follow without a technical background. Brand voice is calibrated before outputs go live. POPIA compliance is designed in from the start — not retrofitted after the fact.",
@@ -122,7 +122,7 @@ export default function ProcessPage() {
           <FadeUp delay={0.08}>
             <h1>
               A process built around<br />
-              what&apos;s actually broken.
+              where your operation has gaps.
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>
@@ -141,7 +141,7 @@ export default function ProcessPage() {
           <FadeUp delay={0.22}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
               <Button href="/contact" variant="primary">
-                Start with a diagnostic
+                Start with the Operations Diagnostic
               </Button>
               <Button href="#phases" variant="tertiary">
                 See the process
@@ -172,10 +172,13 @@ export default function ProcessPage() {
               }}
             >
               Most consultants start with a solution. We start with a diagnostic.
-              Not because it generates a fee — because building the wrong thing
-              faster is still building the wrong thing. Every engagement starts
-              the same way: with a structured look at what&apos;s actually
-              happening in your business before we touch a single tool.
+              Not because it generates a fee — because configuring the wrong thing
+              faster is still configuring the wrong thing. We&apos;ve seen what happens
+              when an automation layer gets built on top of infrastructure that isn&apos;t
+              ready, or when a workflow gets configured without understanding how the
+              business actually operates. The result is a system nobody uses and a client
+              who&apos;s more sceptical of the category than when they started. That&apos;s
+              not the outcome we&apos;re building toward.
             </p>
           </FadeUp>
         </div>
@@ -322,9 +325,8 @@ export default function ProcessPage() {
             </StaggerChild>
             <StaggerChild>
               <CardGold title="Foundation first">
-                If your site or digital infrastructure is broken, we fix it before
-                we build on it — even if it means the engagement takes longer than
-                initially expected.
+                If your site or digital infrastructure needs work before automation can run on it,
+                we scope that as sprint one — before we configure anything on top of it.
               </CardGold>
             </StaggerChild>
             <StaggerChild>
@@ -379,7 +381,7 @@ export default function ProcessPage() {
               },
               {
                 q: "What if my business isn't ready for AI implementation?",
-                a: "The diagnostic will tell you. If the honest answer is that your foundation needs work before AI automation makes sense, we'll say so — and we can scope a site remediation engagement at R8,000–R15,000 to get you there. We'd rather give you a clear picture than sell you something you're not ready for.",
+                a: "The diagnostic will tell you. If the honest answer is that your foundation needs work before AI automation makes sense, we'll say so — and we can scope the infrastructure work that needs to happen first, before any automation is layered on top. We'd rather give you a clear picture than sell you something you're not ready for.",
               },
               {
                 q: 'I already have AI tools. Do I have to replace them?',
@@ -495,9 +497,9 @@ export default function ProcessPage() {
             <p className="body-on-navy" style={{ marginBottom: 'var(--space-para-section)' }}>
               It&apos;s also where you find out whether we&apos;re the right fit
               for each other — before either of us commits to anything larger.
-              R4,500. Delivered in 48 hours. A written report that names your gaps,
+              R4,500. Delivered in 48 hours. A written report that maps your gaps,
               quantifies what they&apos;re costing you, and tells you exactly what
-              to fix first.
+              to configure first.
             </p>
             <hr
               className="rule"
@@ -510,7 +512,7 @@ export default function ProcessPage() {
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Button href="/contact" variant="primary">
-                Start with a diagnostic
+                Start with the Operations Diagnostic
               </Button>
               <Button href="/booking" variant="tertiary">
                 Book a 20-minute call — no pitch

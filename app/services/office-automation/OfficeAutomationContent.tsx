@@ -86,7 +86,7 @@ const otherServices = [
     iconClassName: "text-emerald-500 bg-emerald-500/10 border-emerald-500/30",
   },
   {
-    title: "Custom AI Solution Build",
+    title: "Workflow Integration",
     description:
       "Bespoke AI systems built around your existing platforms, workflows, and business model.",
     points: ["Custom development", "Platform integration", "POPIA-compliant architecture", "Optimization support"],

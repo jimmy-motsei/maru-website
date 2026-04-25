@@ -68,7 +68,7 @@ const accordionItems = [
 
 const otherServices = [
   {
-    title: "AI Revenue Diagnostic",
+    title: "Operations Diagnostic",
     description:
       "A 360° audit of your current systems to identify the highest-impact AI and revenue opportunities.",
     points: ["Opportunity assessment", "POPIA scorecard", "90-day roadmap", "Executive strategy session"],
@@ -77,7 +77,7 @@ const otherServices = [
     iconClassName: "text-cyan-500 bg-cyan-500/10 border-cyan-500/30",
   },
   {
-    title: "Custom AI Solution Build",
+    title: "Workflow Integration",
     description:
       "Bespoke AI systems built around your existing platforms, workflows, and brand voice.",
     points: ["Platform integration", "Brand voice training", "POPIA-compliant architecture", "60-day optimization support"],
@@ -86,7 +86,7 @@ const otherServices = [
     iconClassName: "text-amber-500 bg-amber-500/10 border-amber-500/30",
   },
   {
-    title: "Ongoing AI Support & Optimization",
+    title: "Results Optimisation",
     description:
       "Continuous performance tuning, strategic guidance, and proactive updates as AI evolves.",
     points: ["Monthly performance reviews", "Priority support", "Quarterly strategy sessions", "Ongoing POPIA monitoring"],
@@ -117,7 +117,7 @@ export default function AITrainingCapabilityBuildingPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.05 }} className="max-w-4xl">
             <SplitHeadline
               as="h1"
-              leadingText="AI Training & Capability"
+              leadingText="Team Training & Handover"
               emphasisText="Building"
               className="text-[32px] sm:text-[38px] md:text-[44px] lg:text-[86px] text-text-primary mb-10"
               breakBeforeEmphasis={false}

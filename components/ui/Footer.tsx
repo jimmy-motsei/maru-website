@@ -126,10 +126,10 @@ export default function Footer() {
                 </h4>
                 <ul className="flex flex-col gap-3 list-none m-0 p-0">
                   {[
-                    { name: 'AI Revenue Diagnostic',      href: '/services/ai-revenue-diagnostic' },
-                    { name: 'Custom AI Solution Build',    href: '/services/custom-ai-solution-build' },
-                    { name: 'AI Training & Capability',    href: '/services/ai-training-capability-building' },
-                    { name: 'Ongoing AI Support',          href: '/services/ongoing-ai-support-optimization' },
+                    { name: 'Operations Diagnostic',      href: '/services/operations-diagnostic' },
+                    { name: 'Workflow Integration',    href: '/services/workflow-integration' },
+                    { name: 'Team Training & Handover',    href: '/services/team-training-handover' },
+                    { name: 'Results Optimisation',          href: '/services/results-optimisation' },
                   ].map((item) => (
                     <li key={item.name}>
                       <Link

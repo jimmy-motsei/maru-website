@@ -5,7 +5,7 @@ import { FadeUp } from '@/components/ui/Animate'
 
 export const metadata: Metadata = {
   title:       'Contact | Maru Online',
-  description: "No pitch. No pressure. Two ways to start — book a diagnostic or a free 20-minute call. You'll speak directly with Jimmy.",
+  description: "No pitch. No pressure. Two ways to start a conversation — the Operations Diagnostic or a free 20-minute call. You speak directly with Jimmy.",
 }
 
 const outerPad    = 'px-6 md:px-[60px]'
@@ -38,7 +38,7 @@ export default function ContactPage() {
         />
         <div className={innerWide}>
           <FadeUp>
-            <h1>How can we help you?</h1>
+            <h1>Let&apos;s find out if we&apos;re the right fit.</h1>
           </FadeUp>
         </div>
       </section>
@@ -69,9 +69,93 @@ export default function ContactPage() {
                       margin:     0,
                     }}
                   >
-                    Every engagement starts with a conversation. How can we help you?
+                    Every engagement starts with a conversation. Two ways to start — choose whichever feels right.
                   </p>
                 </div>
+
+                {/* Two paths */}
+                <div
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                  style={{ marginBottom: 'var(--space-section-header-mb)' }}
+                >
+                  {[
+                    {
+                      label:   'Option 1',
+                      heading: 'Start with the Operations Diagnostic',
+                      body:    "Best if you already know your business has an integration or workflow problem and want a clear picture of where the gaps are and what to configure first.",
+                      cta:     'Start the Operations Diagnostic',
+                      href:    '/ai-readiness',
+                      variant: 'primary' as const,
+                    },
+                    {
+                      label:   'Option 2',
+                      heading: 'Start with a 20-minute call',
+                      body:    "Best if you're not sure yet whether workflow integration is the right priority, or you want to understand the process before committing to the diagnostic.",
+                      cta:     'Book a 20-minute call',
+                      href:    '/booking',
+                      variant: 'secondary' as const,
+                    },
+                  ].map((path) => (
+                    <div
+                      key={path.label}
+                      style={{
+                        border:       '0.5px solid var(--color-border-default)',
+                        borderRadius: '8px',
+                        padding:      '1.75rem',
+                      }}
+                    >
+                      <p
+                        style={{
+                          fontSize:      'var(--text-label)',
+                          fontWeight:    500,
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.12em',
+                          color:         'var(--color-cyan)',
+                          marginBottom:  '0.75rem',
+                          fontFamily:    'var(--font-body)',
+                        }}
+                      >
+                        {path.label}
+                      </p>
+                      <p
+                        style={{
+                          fontSize:     'var(--text-h3-sans)',
+                          fontWeight:   600,
+                          color:        'var(--color-ink-primary)',
+                          marginBottom: '0.5rem',
+                          lineHeight:   'var(--leading-subheading)',
+                          fontFamily:   'var(--font-body)',
+                        }}
+                      >
+                        {path.heading}
+                      </p>
+                      <p
+                        className="body-muted"
+                        style={{ marginBottom: '1.25rem' }}
+                      >
+                        {path.body}
+                      </p>
+                      <Button href={path.href} variant={path.variant}>
+                        {path.cta}
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+
+                <p
+                  style={{
+                    fontSize:      'var(--text-label)',
+                    fontWeight:    500,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.12em',
+                    color:         'var(--color-ink-tertiary)',
+                    marginBottom:  '1.5rem',
+                    fontFamily:    'var(--font-body)',
+                  }}
+                >
+                  Or send a message directly
+                </p>
+
                 <ContactForm />
               </div>
             </FadeUp>
@@ -182,6 +266,34 @@ export default function ContactPage() {
                   </div>
                 </div>
 
+                <div>
+                  <p
+                    style={{
+                      fontFamily:    'var(--font-body)',
+                      fontSize:      'var(--text-label)',
+                      fontWeight:    500,
+                      letterSpacing: 'var(--tracking-eyebrow)',
+                      textTransform: 'uppercase',
+                      color:         'var(--color-ink-tertiary)',
+                      marginBottom:  '0.25rem',
+                    }}
+                  >
+                    Location
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize:   'var(--text-body)',
+                      fontWeight: 300,
+                      color:      'var(--color-ink-secondary)',
+                      margin:     0,
+                    }}
+                  >
+                    Johannesburg, Gauteng.<br />
+                    Clients across South Africa.
+                  </p>
+                </div>
+
                 <hr className="rule" style={{ marginTop: '2rem', marginBottom: '1.5rem' }} />
 
                 <p
@@ -195,7 +307,7 @@ export default function ContactPage() {
                   }}
                 >
                   Not ready to commit? Book a free 20-minute call — no pitch, no
-                  pressure. Just a conversation about what you&apos;re trying to fix.
+                  pressure. Just a conversation about where you are right now.
                 </p>
                 <div style={{ marginTop: '1rem' }}>
                   <Button href="/booking" variant="secondary">
@@ -208,6 +320,44 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* ════════════════════════════════════════════════════════════════════
+          CLOSING QUOTE
+          ════════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`${outerPad} py-16`}
+        style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+      >
+        <div className={innerNarrow}>
+          <FadeUp>
+            <p
+              style={{
+                fontFamily:    'var(--font-display)',
+                fontSize:      'var(--text-h3-serif)',
+                fontWeight:    400,
+                fontStyle:     'italic',
+                color:         'var(--color-ink-primary)',
+                lineHeight:    'var(--leading-subheading)',
+                letterSpacing: 'var(--tracking-tight)',
+                marginBottom:  '0.75rem',
+              }}
+            >
+              &ldquo;The right first step is an honest conversation about where you are.
+              Everything else follows from that.&rdquo;
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize:   'var(--text-meta)',
+                fontWeight: 300,
+                color:      'var(--color-ink-tertiary)',
+                margin:     0,
+              }}
+            >
+              — Jimmy Motsei
+            </p>
+          </FadeUp>
+        </div>
+      </section>
     </>
   )
 }

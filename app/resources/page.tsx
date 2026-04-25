@@ -1,121 +1,284 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, FileCheck, Wrench, Clock } from "lucide-react";
+import { FileCheck, Wrench, Clock } from "lucide-react";
+import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 import { MaruBriefForm } from "./MaruBriefForm";
 
 export const metadata: Metadata = {
-  title: "Resources for South African SMEs Navigating AI | Maru Online",
+  title: "Resources | Maru Online",
   description:
-    "Practical guides, checklists, and tools for South African SMEs implementing AI — no vendor fluff.",
+    "Practical guides and tools for South African SMEs navigating AI implementation — no vendor fluff.",
 };
+
+const outerPad    = "px-6 md:px-[60px]";
+const innerWide   = "max-w-[1100px] mx-auto";
+const innerNarrow = "max-w-[720px] mx-auto";
 
 export default function ResourcesPage() {
   return (
-    <main className="min-h-screen bg-dark">
+    <>
       {/* Hero */}
-      <section className="pt-[112px] sm:pt-[128px] md:pt-[152px] lg:pt-[168px] pb-section-tab lg:pb-section border-b border-white/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="uppercase tracking-[2px] text-action-primary text-[12px] font-medium mb-6 block">
-            Free Tools &amp; Guides
-          </span>
-          <h1 className="text-[32px] sm:text-[38px] md:text-[44px] lg:text-[72px] leading-[1.02] text-white mb-6 tracking-[-0.02em]">
-            Resources for South African SMEs
-            <br className="hidden lg:block" /> Navigating AI
-          </h1>
-          <p className="text-white/60 text-lg md:text-xl max-w-2xl font-light leading-relaxed">
-            Practical guides, checklists, and tools — no vendor fluff.
-          </p>
+      <section
+        className={`min-h-[50vh] flex items-center ${outerPad} pt-48 pb-24`}
+        style={{ backgroundColor: "var(--color-bg-navy)" }}
+      >
+        <div className={innerWide}>
+          <FadeUp>
+            <span className="label-eyebrow" style={{ marginBottom: "1.5rem" }}>
+              Free Tools &amp; Guides
+            </span>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <h1>
+              Resources for South African SMEs<br />
+              navigating AI implementation.
+            </h1>
+          </FadeUp>
+          <FadeUp delay={0.14}>
+            <p
+              style={{
+                fontFamily:   "var(--font-body)",
+                fontWeight:   300,
+                fontSize:     "var(--text-body)",
+                color:        "var(--color-ink-inverted-muted)",
+                lineHeight:   "var(--leading-body)",
+                maxWidth:     "560px",
+                marginBottom: 0,
+              }}
+            >
+              Practical guides, checklists, and tools. No vendor fluff.
+            </p>
+          </FadeUp>
         </div>
       </section>
 
-      {/* Resource Cards */}
-      <section className="py-section-tab lg:py-section">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Resource cards */}
+      <section
+        className={`${outerPad} py-24`}
+        style={{ backgroundColor: "var(--color-bg-primary)" }}
+      >
+        <div className={innerWide}>
+          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {/* Card 1 — POPIA Checklist */}
-            <Link
-              href="/resources/popia-ai-checklist"
-              className="group flex flex-col rounded-2xl border border-white/10 bg-card-dark p-8 hover:border-action-primary/50 transition-colors duration-300"
-            >
-              <span className="inline-flex w-10 h-10 rounded-xl border border-white/10 items-center justify-center mb-6 text-action-primary group-hover:border-action-primary/50 transition-colors">
-                <FileCheck size={20} />
-              </span>
-              <h2 className="text-[22px] leading-tight text-white font-bold mb-3">
-                POPIA AI Compliance Checklist
-              </h2>
-              <p className="text-white/60 text-sm leading-relaxed mb-8 flex-grow">
-                A plain-language checklist for SA SMEs using AI tools.
-              </p>
-              <div className="inline-flex items-center gap-3 text-xs uppercase tracking-[2px] font-semibold text-action-primary">
-                View Checklist
-                <span className="w-8 h-8 rounded-full bg-action-primary/10 border border-action-primary/30 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-                  <ArrowRight size={14} />
+            <StaggerChild key="popia">
+              <Link
+                href="/resources/popia-ai-checklist"
+                style={{
+                  display:        "flex",
+                  flexDirection:  "column",
+                  border:         "0.5px solid var(--color-border-default)",
+                  borderRadius:   "8px",
+                  padding:        "1.75rem",
+                  background:     "var(--color-bg-primary)",
+                  textDecoration: "none",
+                  transition:     "border-color 0.15s",
+                }}
+              >
+                <span
+                  style={{
+                    display:         "inline-flex",
+                    width:           "40px",
+                    height:          "40px",
+                    borderRadius:    "8px",
+                    border:          "0.5px solid var(--color-border-default)",
+                    alignItems:      "center",
+                    justifyContent:  "center",
+                    marginBottom:    "1.5rem",
+                    color:           "var(--color-cyan)",
+                  }}
+                >
+                  <FileCheck size={20} />
                 </span>
-              </div>
-            </Link>
+                <p
+                  style={{
+                    fontSize:     "var(--text-h3-sans)",
+                    fontWeight:   600,
+                    color:        "var(--color-ink-primary)",
+                    marginBottom: "0.75rem",
+                    fontFamily:   "var(--font-body)",
+                    lineHeight:   "var(--leading-subheading)",
+                  }}
+                >
+                  POPIA AI Compliance Checklist
+                </p>
+                <p className="body-muted" style={{ marginBottom: "1.5rem", flex: 1 }}>
+                  A plain-language checklist for SA SMEs using AI tools.
+                </p>
+                <p
+                  style={{
+                    fontFamily:    "var(--font-body)",
+                    fontSize:      "var(--text-label)",
+                    fontWeight:    500,
+                    letterSpacing: "var(--tracking-eyebrow)",
+                    textTransform: "uppercase",
+                    color:         "var(--color-cyan)",
+                    margin:        0,
+                  }}
+                >
+                  View Checklist →
+                </p>
+              </Link>
+            </StaggerChild>
 
             {/* Card 2 — AI Assessment Tools */}
-            <Link
-              href="/ai-implementation-assessment"
-              className="group flex flex-col rounded-2xl border border-white/10 bg-card-dark p-8 hover:border-action-primary/50 transition-colors duration-300"
-            >
-              <span className="inline-flex w-10 h-10 rounded-xl border border-white/10 items-center justify-center mb-6 text-action-primary group-hover:border-action-primary/50 transition-colors">
-                <Wrench size={20} />
-              </span>
-              <h2 className="text-[22px] leading-tight text-white font-bold mb-3">
-                Free AI Assessment Tools
-              </h2>
-              <p className="text-white/60 text-sm leading-relaxed mb-8 flex-grow">
-                Four tools to diagnose your AI integration readiness, pipeline health, lead quality, and tech stack.
-              </p>
-              <div className="inline-flex items-center gap-3 text-xs uppercase tracking-[2px] font-semibold text-action-primary">
-                Use the Tools
-                <span className="w-8 h-8 rounded-full bg-action-primary/10 border border-action-primary/30 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-                  <ArrowRight size={14} />
+            <StaggerChild key="assessment">
+              <Link
+                href="/ai-implementation-assessment"
+                style={{
+                  display:        "flex",
+                  flexDirection:  "column",
+                  border:         "0.5px solid var(--color-border-default)",
+                  borderRadius:   "8px",
+                  padding:        "1.75rem",
+                  background:     "var(--color-bg-primary)",
+                  textDecoration: "none",
+                  transition:     "border-color 0.15s",
+                }}
+              >
+                <span
+                  style={{
+                    display:         "inline-flex",
+                    width:           "40px",
+                    height:          "40px",
+                    borderRadius:    "8px",
+                    border:          "0.5px solid var(--color-border-default)",
+                    alignItems:      "center",
+                    justifyContent:  "center",
+                    marginBottom:    "1.5rem",
+                    color:           "var(--color-cyan)",
+                  }}
+                >
+                  <Wrench size={20} />
                 </span>
-              </div>
-            </Link>
+                <p
+                  style={{
+                    fontSize:     "var(--text-h3-sans)",
+                    fontWeight:   600,
+                    color:        "var(--color-ink-primary)",
+                    marginBottom: "0.75rem",
+                    fontFamily:   "var(--font-body)",
+                    lineHeight:   "var(--leading-subheading)",
+                  }}
+                >
+                  Free AI Assessment Tools
+                </p>
+                <p className="body-muted" style={{ marginBottom: "1.5rem", flex: 1 }}>
+                  Four tools to diagnose your AI integration readiness, pipeline health, lead quality, and tech stack.
+                </p>
+                <p
+                  style={{
+                    fontFamily:    "var(--font-body)",
+                    fontSize:      "var(--text-label)",
+                    fontWeight:    500,
+                    letterSpacing: "var(--tracking-eyebrow)",
+                    textTransform: "uppercase",
+                    color:         "var(--color-cyan)",
+                    margin:        0,
+                  }}
+                >
+                  Use the Tools →
+                </p>
+              </Link>
+            </StaggerChild>
 
             {/* Card 3 — The Maru Brief (Coming Soon) */}
-            <div className="flex flex-col rounded-2xl border border-dashed border-white/15 bg-card-dark/50 p-8 opacity-70">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="inline-flex w-10 h-10 rounded-xl border border-white/10 items-center justify-center text-white/40">
-                  <Clock size={20} />
-                </span>
-                <span className="text-[10px] uppercase tracking-[2px] font-semibold bg-white/10 text-white/60 px-2 py-1 rounded">
-                  Coming Soon
-                </span>
+            <StaggerChild key="brief">
+              <div
+                style={{
+                  display:        "flex",
+                  flexDirection:  "column",
+                  border:         "0.5px dashed var(--color-border-default)",
+                  borderRadius:   "8px",
+                  padding:        "1.75rem",
+                  background:     "var(--color-bg-primary)",
+                  opacity:        0.5,
+                  pointerEvents:  "none",
+                  cursor:         "default",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
+                  <span
+                    style={{
+                      display:         "inline-flex",
+                      width:           "40px",
+                      height:          "40px",
+                      borderRadius:    "8px",
+                      border:          "0.5px solid var(--color-border-default)",
+                      alignItems:      "center",
+                      justifyContent:  "center",
+                      color:           "var(--color-ink-tertiary)",
+                    }}
+                  >
+                    <Clock size={20} />
+                  </span>
+                  <span
+                    style={{
+                      fontFamily:    "var(--font-body)",
+                      fontSize:      "var(--text-label)",
+                      fontWeight:    500,
+                      letterSpacing: "var(--tracking-eyebrow)",
+                      textTransform: "uppercase",
+                      color:         "var(--color-ink-tertiary)",
+                      background:    "var(--color-bg-secondary)",
+                      borderRadius:  "4px",
+                      padding:       "0.2rem 0.5rem",
+                    }}
+                  >
+                    Coming Soon
+                  </span>
+                </div>
+                <p
+                  style={{
+                    fontSize:     "var(--text-h3-sans)",
+                    fontWeight:   600,
+                    color:        "var(--color-ink-primary)",
+                    marginBottom: "0.75rem",
+                    fontFamily:   "var(--font-body)",
+                    lineHeight:   "var(--leading-subheading)",
+                  }}
+                >
+                  The Maru Brief
+                </p>
+                <p className="body-muted" style={{ flex: 1, marginBottom: 0 }}>
+                  A fortnightly AI revenue insight for South African SMEs.
+                </p>
               </div>
-              <h2 className="text-[22px] leading-tight text-white font-bold mb-3">
-                The Maru Brief
-              </h2>
-              <p className="text-white/50 text-sm leading-relaxed flex-grow">
-                A fortnightly AI revenue insight for South African SMEs.
-              </p>
-            </div>
+            </StaggerChild>
 
-          </div>
+          </StaggerParent>
         </div>
       </section>
 
-      {/* Email Capture — The Maru Brief */}
-      <section className="py-section-tab lg:py-section border-t border-white/10 bg-card-dark/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-[28px] sm:text-[32px] md:text-[38px] leading-[1.1] text-white font-bold mb-4">
+      {/* Maru Brief email capture */}
+      <section
+        className={`${outerPad} py-16`}
+        style={{ backgroundColor: "var(--color-bg-canvas)" }}
+      >
+        <div className={innerNarrow}>
+          <FadeUp>
+            <h2 style={{ marginBottom: "var(--space-heading-body)" }}>
               Get The Maru Brief
             </h2>
-            <p className="text-white/60 text-lg leading-relaxed mb-10">
+            <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
               A fortnightly email with one practical AI revenue insight for South African SMEs. No fluff, no sales pitch.
             </p>
             <MaruBriefForm />
-            <p className="mt-5 text-xs text-white/35">
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize:   "var(--text-meta)",
+                fontWeight: 300,
+                color:      "var(--color-ink-tertiary)",
+                marginTop:  "1rem",
+                marginBottom: 0,
+              }}
+            >
               Handled in compliance with POPIA. Unsubscribe anytime.
             </p>
-          </div>
+          </FadeUp>
         </div>
       </section>
-    </main>
+    </>
   );
 }

@@ -32,7 +32,7 @@ const services = [
     offset: false,
   },
   {
-    title: "AI Training &\nCapability Building",
+    title: "Team Training &\nHandover",
     description:
       "Hands-on training that improves AI output quality, adoption, and team execution.",
     bullets: ["Hands-on workshops", "Prompt engineering", "Workflow automation", "30-day support"],
@@ -41,7 +41,7 @@ const services = [
     offset: true,
   },
   {
-    title: "Ongoing AI Support &\nOptimization",
+    title: "Results Optimisation",
     description:
       "Ongoing optimization to keep AI performance, compliance, and results on track.",
     bullets: ["Monthly reviews", "Priority support", "Quarterly strategy", "Compliance monitoring"],

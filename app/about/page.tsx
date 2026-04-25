@@ -7,9 +7,9 @@ import ListGroup from "@/components/ui/ListGroup";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 
 export const metadata: Metadata = {
-  title: "About | Maru Online",
+  title: "About Maru Online | Jimmy Motsei — AI & Workflow Integration Consultant",
   description:
-    "Jimmy Motsei founded Maru Online after two decades building commercial operations in South African sport, sponsorship and business. We solve your business problem — not your AI problem.",
+    "Twenty years building commercial operations in South African sport and business. Maru Online connects the systems growing businesses already have — so they run the way they should.",
 };
 
 const outerPad    = "px-6 md:px-[60px]";
@@ -64,7 +64,7 @@ export default function AboutPage() {
           </FadeUp>
           <FadeUp delay={0.22}>
             <Button href="/contact" variant="primary">
-              Start with a diagnostic
+              Start with the Operations Diagnostic
             </Button>
           </FadeUp>
         </div>
@@ -399,19 +399,19 @@ export default function AboutPage() {
                 marginBottom: "var(--space-heading-body)",
               }}
             >
-              If you want someone who will tell you honestly what&apos;s broken.
+              If you want clarity before you commit to anything.
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-              The diagnostic is the right place to start. Fifteen questions, a
-              follow-up call, and a written report delivered within 48 hours —
+              The Operations Diagnostic is where every engagement starts. Five questions online,
+              a short follow-up call, and a written report delivered within 48 hours —
               specific to your business, with your numbers in it.
             </p>
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
               If you proceed to a full engagement, the diagnostic fee offsets
               against the project cost. If you don&apos;t, you walk away with
-              a clear picture of what&apos;s broken and exactly what to do about it.
+              a clear picture of where the gaps are and exactly what to do about it.
             </p>
             <hr
               className="rule"
@@ -447,7 +447,7 @@ export default function AboutPage() {
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Button href="/contact" variant="primary">
-                Start with a diagnostic
+                Start with the Operations Diagnostic
               </Button>
               <Button href="/booking" variant="tertiary">
                 Book a 20-minute call — no pitch

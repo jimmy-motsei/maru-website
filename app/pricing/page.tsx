@@ -6,7 +6,7 @@ import { FadeUp, StaggerParent, StaggerChild } from '@/components/ui/Animate'
 
 export const metadata: Metadata = {
   title:       'Pricing | Maru Online',
-  description: 'Every Maru engagement begins with a diagnostic — R4,500, delivered in 48 hours. Fixed scope, fixed price. No surprises after that.',
+  description: 'Every Maru engagement begins with the Operations Diagnostic. Fixed scope, fixed price, clear deliverables at every stage. No surprises.',
 }
 
 const outerPad    = 'px-6 md:px-[60px]'
@@ -21,54 +21,54 @@ const engagements = [
     id:      'diagnostic',
     label:   '01',
     badge:   'Start here',
-    title:   'AI Revenue Diagnostic',
+    title:   'Operations Diagnostic',
     price:   'R4,500',
     note:    'Offsets against build cost if you proceed.',
     scope:   'Fixed-scope · Delivered in 48 hours',
-    body:    'A structured audit of your business, tools, and the gaps between them. You receive a written report that maps your integration failures, quantifies the cost in Rands, and tells you exactly what to fix first.',
+    body:    'A structured audit of your current workflows, tools, and data connections. You receive a written report that maps where your workflows aren\'t connected, quantifies what that\'s costing you in Rands, and tells you exactly what to configure first.',
     items: [
       { leader: 'Sector-specific intake brief', body: 'Structured questions tailored to your industry.' },
       { leader: '30–45 min verification call',  body: 'We clarify the brief and confirm scope before work begins.' },
       { leader: 'Written gap report',            body: 'Named failures, cost per gap, fix priority order.' },
       { leader: '90-day roadmap',                body: 'A sequenced action plan so you know what to do next.' },
     ],
-    href:      '/services/ai-revenue-diagnostic',
+    href:      '/services/operations-diagnostic',
     featured:  false,
   },
   {
     id:      'build',
     label:   '02',
     badge:   'Most common',
-    title:   'Custom AI Solution Build',
+    title:   'Workflow Integration',
     price:   'From R45,000',
     note:    'Fixed price. Scoped after the diagnostic.',
     scope:   'Fixed-scope · Typically 4–8 weeks',
-    body:    'Fixed-scope implementation based on what the diagnostic found. We connect your tools, automate the workflows that are costing you, and build to your stack — not ours.',
+    body:    'Fixed-scope implementation built around what the diagnostic found. We configure the connections between your tools, extend what\'s already working, and build the automation layer on top. Vendor-agnostic. Your stack stays — we connect it.',
     items: [
       { leader: 'Custom integration build',  body: 'Connecting your CRM, calendar, email, and forms correctly.' },
       { leader: 'Automation layer',          body: 'Workflows that run without human intervention.' },
       { leader: 'Brand voice training',      body: 'AI outputs calibrated to sound like your business.' },
       { leader: 'POPIA compliance built in', body: 'Every data touchpoint designed for compliance first.' },
     ],
-    href:      '/services/custom-ai-solution-build',
+    href:      '/services/workflow-integration',
     featured:  true,
   },
   {
     id:      'training',
     label:   '03',
     badge:   '',
-    title:   'AI Training & Capability Building',
+    title:   'Team Training & Handover',
     price:   'From R15,000',
     note:    'Can be standalone or follow a build.',
     scope:   'Fixed-scope · Scoped per engagement',
-    body:    "Hands-on training that improves how your team uses AI day to day — output quality, prompt discipline, adoption, and workflow execution. We train the people who'll actually be using the system.",
+    body:    "Hands-on training built around the specific workflows we've configured. Your team learns how to use, manage, and adapt the system — so the capability stays in the business after we hand over.",
     items: [
       { leader: 'Hands-on workshops',        body: 'Built around your actual tools, not generic AI theory.' },
       { leader: 'Prompt engineering',        body: 'Consistent, high-quality outputs from the tools you have.' },
       { leader: 'Workflow adoption',         body: 'Getting new workflows embedded in how the team works.' },
       { leader: '30-day follow-up support',  body: 'A structured support window to catch issues early.' },
     ],
-    href:      '/services/ai-training-capability-building',
+    href:      '/services/team-training-handover',
     featured:  false,
   },
 ]
@@ -80,7 +80,7 @@ const faqs = [
   },
   {
     q: 'What if I decide not to proceed after the diagnostic?',
-    a: "That's completely fine. The diagnostic report is yours regardless. You'll walk away with a clear picture of your business's AI readiness, a quantified cost-of-current-state, and a prioritised action plan you can act on yourself or take to another provider. We'd rather you have that clarity than commit to an engagement you're not ready for.",
+    a: "That's completely fine. The diagnostic report is yours regardless. You'll walk away with a clear picture of where your operation has gaps, a quantified cost-of-current-state, and a prioritised action plan you can act on yourself or take to another provider. We'd rather you have that clarity than commit to an engagement you're not ready for.",
   },
   {
     q: "Why don't you publish the full engagement price?",
@@ -136,14 +136,14 @@ export default function PricingPage() {
                 lineHeight:   'var(--leading-body)',
               }}
             >
-              Every Maru engagement begins with a diagnostic. Here&apos;s exactly
-              what that costs, what you get — and what comes after if you proceed.
+              Every Maru engagement begins with the Operations Diagnostic. Here&apos;s exactly
+              what that involves and what you receive.
             </p>
           </FadeUp>
           <FadeUp delay={0.22}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
               <Button href="/contact" variant="primary">
-                Start with a diagnostic
+                Start with the Operations Diagnostic
               </Button>
               <Button href="#engagements" variant="tertiary">
                 See all pricing
@@ -421,7 +421,7 @@ export default function PricingPage() {
               It&apos;s also where you find out whether we&apos;re the right fit
               for each other — before either of us commits to anything larger.
               R4,500. 48-hour turnaround. A written report with your gaps, the
-              cost of each, and a prioritised fix order.
+              cost of each, and a prioritised configuration order.
             </p>
             <hr
               className="rule"
@@ -434,7 +434,7 @@ export default function PricingPage() {
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Button href="/contact" variant="primary">
-                Start with a diagnostic
+                Start with the Operations Diagnostic
               </Button>
               <Button href="/booking" variant="tertiary">
                 Book a 20-minute call — no pitch

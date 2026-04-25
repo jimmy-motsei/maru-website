@@ -8,7 +8,7 @@ import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 export const metadata: Metadata = {
   title: "Services | Maru Online",
   description:
-    "Four structured services to turn your existing AI tools into a connected revenue system. Fixed-scope engagements from R8,500. POPIA-compliant by design.",
+    "We configure the connections your business is missing — so your systems share data, your team stops the manual handoffs, and your operation runs the way it should.",
 };
 
 const outerPad    = "px-6 md:px-[60px]";
@@ -22,26 +22,26 @@ const services = [
   {
     id:          "diagnostic",
     label:       "01",
-    title:       "AI Revenue Diagnostic",
-    tagline:     "Find out exactly what's broken and what it's costing you.",
-    description: "A structured audit of your business, your tools, and the gaps between them. You receive a written report — delivered within 48 hours — that maps your integration failures, quantifies the cost in Rands, and tells you exactly what to fix first. This is where every engagement starts, without exception.",
+    title:       "Operations Diagnostic",
+    tagline:     "Map where your operation has gaps — before configuring anything.",
+    description: "A structured audit of your current workflows, tools, and data connections. You receive a written report — delivered within 48 hours — that maps where information isn't flowing, quantifies what that's costing, and tells you exactly what to configure first. This is where every engagement starts.",
     bullets: [
       { leader: "Sector-specific intake",   body: "A structured brief tailored to your industry — medico legal, HR & recruitment, or conference & events." },
       { leader: "Verification call",         body: "A 30–45 minute call to clarify the brief, ask the right questions, and confirm scope." },
-      { leader: "Written gap report",        body: "A clear document naming your integration failures, the cost of each, and the fix priority order." },
-      { leader: "90-day roadmap",            body: "A sequenced action plan so you know exactly what to do and in what order." },
+      { leader: "Written gap report",        body: "A clear document mapping where your workflows aren't connected, the cost of each gap, and the configuration priority order." },
+      { leader: "90-day roadmap",            body: "A sequenced action plan so you know exactly what to configure and in what order." },
     ],
     pricing:     "R4,500",
     note:        "If you proceed to a full engagement, this fee offsets against the project cost.",
-    href:        "/services/ai-revenue-diagnostic",
+    href:        "/services/operations-diagnostic",
     bg:          "var(--color-bg-primary)",
   },
   {
     id:          "build",
     label:       "02",
-    title:       "Custom AI Solution Build",
-    tagline:     "We build the integration. You own it when we're done.",
-    description: "Fixed-scope implementation based on what the diagnostic found. We connect your tools, automate the workflows that are costing you, and build the system to your stack — not ours. Site infrastructure first if needed, then the automation layer on top. We don't build on broken foundations.",
+    title:       "Workflow Integration",
+    tagline:     "Connect your existing tools. Configure the workflows between them.",
+    description: "Fixed-scope implementation built around what the diagnostic found. We configure the connections between your tools, extend what's already working, and build the automation layer on top. Vendor-agnostic. Your stack stays — we connect it.",
     bullets: [
       { leader: "Custom integration build",  body: "Connecting your existing tools — CRM, calendar, email, forms — so they pass information correctly." },
       { leader: "Automation layer",          body: "The workflows that run without human intervention: follow-ups, confirmations, handoffs, notifications." },
@@ -50,15 +50,15 @@ const services = [
     ],
     pricing:     "From R45,000",
     note:        "Fixed price. Scoped after the diagnostic — no surprises.",
-    href:        "/services/custom-ai-solution-build",
+    href:        "/services/workflow-integration",
     bg:          "var(--color-bg-canvas)",
   },
   {
     id:          "training",
     label:       "03",
-    title:       "AI Training & Capability Building",
-    tagline:     "Your team needs to be able to use the system, not depend on us to run it.",
-    description: "Hands-on training that improves how your team uses AI tools day to day — output quality, adoption, prompt discipline, and workflow execution. Delivered as workshops, not slide decks. We train the people who will actually be using the system.",
+    title:       "Team Training & Handover",
+    tagline:     "Your team runs the system. Not us.",
+    description: "Hands-on training built around the specific workflows we've configured. Your team learns how to use, manage, and adapt the system — so the capability stays in the business after we hand over.",
     bullets: [
       { leader: "Hands-on workshops",       body: "Practical sessions built around your actual tools, not generic AI theory." },
       { leader: "Prompt engineering",       body: "Teaching your team to get consistent, high-quality outputs from the tools you already have." },
@@ -67,24 +67,24 @@ const services = [
     ],
     pricing:     "From R15,000",
     note:        "Scoped per engagement. Can be standalone or follow a build.",
-    href:        "/services/ai-training-capability-building",
+    href:        "/services/team-training-handover",
     bg:          "var(--color-bg-primary)",
   },
   {
     id:          "support",
     label:       "04",
-    title:       "Ongoing AI Support & Optimisation",
-    tagline:     "Systems drift. Tools update. Compliance requirements change.",
-    description: "Monthly retainer to keep your AI systems performing, compliant, and aligned with how your business is actually running. We monitor, adjust, and report — so you don't have to manage the infrastructure yourself.",
+    title:       "Results Optimisation",
+    tagline:     "A second sprint when the first one shows what's next.",
+    description: "A fixed-scope optimisation engagement triggered by what the 30-day measurement phase surfaces. Not a retainer — a defined sprint built around specific opportunities the data identified.",
     bullets: [
-      { leader: "Monthly performance review", body: "We check what's working, what's drifted, and what needs adjustment." },
-      { leader: "Priority support",           body: "Direct access when something breaks or a workflow needs changing quickly." },
-      { leader: "Quarterly strategy session", body: "A structured session to review results and plan the next quarter's optimisation priorities." },
-      { leader: "Compliance monitoring",      body: "Ongoing POPIA review as your data flows and tool stack evolve." },
+      { leader: "Data-led scope",              body: "Built around what the 30-day measurement report surfaced — not assumptions." },
+      { leader: "Fixed-scope sprint",          body: "Defined deliverables, defined timeline, agreed before work begins." },
+      { leader: "Compliance review",           body: "Ongoing POPIA review as your data flows and tool stack evolve." },
+      { leader: "Updated results baseline",    body: "A new measurement baseline set after the optimisation sprint completes." },
     ],
-    pricing:     "From R8,500 / month",
+    pricing:     "From R8,500",
     note:        "Available to clients who have completed a build engagement.",
-    href:        "/services/ongoing-ai-support-optimization",
+    href:        "/services/results-optimisation",
     bg:          "var(--color-bg-canvas)",
   },
 ];
@@ -141,7 +141,7 @@ export default function ServicesPage() {
           <FadeUp delay={0.24}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
               <Button href="/contact" variant="primary">
-                Start with a diagnostic
+                Start with the Operations Diagnostic
               </Button>
               <Button href="#services" variant="tertiary">
                 See all services
@@ -168,15 +168,41 @@ export default function ServicesPage() {
                 lineHeight: "var(--leading-subheading)",
                 color: "var(--color-ink-primary)",
                 letterSpacing: "var(--tracking-tight)",
+                marginBottom: "1.75rem",
+              }}
+            >
+              If you&apos;ve already invested in tools, you don&apos;t need more tools.
+              You need the connections between them configured correctly.
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "var(--text-body)",
+                fontWeight: 300,
+                lineHeight: "var(--leading-body)",
+                color: "var(--color-ink-secondary)",
+                marginBottom: "1.75rem",
+              }}
+            >
+              Most businesses we work with have a CRM that doesn&apos;t talk to their scheduling system.
+              An email platform disconnected from their lead source. Workflows that depend on someone
+              manually moving information from one place to another. The tools are capable. The
+              configuration between them isn&apos;t there yet.
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "var(--text-body)",
+                fontWeight: 300,
+                lineHeight: "var(--leading-body)",
+                color: "var(--color-ink-secondary)",
                 margin: 0,
               }}
             >
-              If you&apos;ve already invested in AI tools, you don&apos;t need
-              more tools. You need someone to make the ones you have work
-              together. We use AI systems in our own process to deliver faster,
-              more consistent work — your diagnostic report is ready within 48
-              hours, and your results are tracked against a baseline we set before
-              we build anything.
+              We start by mapping what you already have. We identify where information isn&apos;t
+              flowing automatically, and we configure the connections that make it happen. We only
+              recommend new tools when there is a genuine capability gap your existing stack cannot
+              fill — and we&apos;ll tell you plainly when that&apos;s the case.
             </p>
           </FadeUp>
         </div>
@@ -376,15 +402,14 @@ export default function ServicesPage() {
                 marginBottom: "var(--space-heading-body)",
               }}
             >
-              The right place to start is a conversation about what&apos;s actually broken.
+              The right place to start is a conversation about where your operation has gaps.
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-              Not a sales call. A diagnostic. For R4,500 you get a structured
-              audit of your business, a quantified cost-of-current-state report,
-              and a clear map of what to fix first. If we proceed to a full
-              engagement, the diagnostic fee comes off the project cost.
+              Not a sales call. The Operations Diagnostic is where every engagement starts — a
+              structured audit of your current setup, a clear picture of what to configure first,
+              and a written report delivered within 48 hours.
             </p>
             <hr
               className="rule"
@@ -397,7 +422,7 @@ export default function ServicesPage() {
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Button href="/contact" variant="primary">
-                Start with a diagnostic
+                Start with the Operations Diagnostic
               </Button>
               <Button href="/booking" variant="tertiary">
                 Book a 20-minute call — no pitch
