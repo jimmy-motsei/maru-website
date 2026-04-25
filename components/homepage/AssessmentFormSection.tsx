@@ -120,28 +120,74 @@ export default function AssessmentFormSection() {
 
           {/* ── Left: copy ─────────────────────────────────────────── */}
           <div>
-            <span className="label-eyebrow">Free Operations Diagnostic</span>
+            <span className="label-eyebrow">Free AI Readiness Assessment</span>
 
             <h2
               className="h2-cta"
               style={{ marginBottom: "var(--space-heading-body)" }}
             >
-              Start with a clear picture of where you stand.
+              Find Out Exactly What&apos;s Costing You Time and Money
             </h2>
 
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-              Our free Operations Diagnostic gives you a clear picture of where your processes are losing time and money. Answer five questions. Get your result instantly. Full report delivered within 24 hours.
+              Our free AI Readiness Assessment gives you an initial diagnostic of where your processes are losing time and money. It takes 10 minutes to answer the questions. You get results within 24 hours.
             </p>
 
-            <p className="body-on-navy" style={{ marginBottom: "var(--space-section-header-mb)" }}>
-              If there&apos;s a clear opportunity to improve, we&apos;ll show you. If there isn&apos;t, we&apos;ll tell you that too.
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontWeight: 500,
+                fontSize: "var(--text-body-sm)",
+                color: "var(--color-ink-inverted)",
+                marginBottom: "0.75rem",
+              }}
+            >
+              After you see the diagnostic, you&apos;ll know:
             </p>
 
-            {/* Side panel stats */}
+            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 var(--space-para-section)" }}>
+              {[
+                "Which of your tools are working vs. creating more work",
+                "Where you're losing the most hours per week",
+                "What to fix first — ranked by impact",
+                "Whether working with us makes sense",
+              ].map((item) => (
+                <li key={item} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", marginBottom: "0.5rem" }}>
+                  <span className="bullet-cyan" style={{ marginTop: "9px" }} />
+                  <span
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: "var(--text-body-sm)",
+                      fontWeight: 300,
+                      color: "rgba(250,250,248,0.75)",
+                      lineHeight: "var(--leading-body)",
+                    }}
+                  >
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "var(--text-body-sm)",
+                fontWeight: 300,
+                color: "rgba(250,250,248,0.5)",
+                lineHeight: "var(--leading-body)",
+                marginBottom: "var(--space-section-header-mb)",
+                fontStyle: "italic",
+              }}
+            >
+              Either way, you get clarity. That&apos;s the point.
+            </p>
+
+            {/* Proof stats */}
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
               {[
-                "3–5 integration gaps identified on average per assessment",
-                "24-hour turnaround — diagnostic report by email",
+                "Average 3–5 critical gaps identified per assessment",
+                "Average 12–18 hours per week recoverable through integration",
               ].map((stat) => (
                 <div key={stat} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
                   <span className="bullet-cyan" style={{ marginTop: "9px" }} />
@@ -170,7 +216,7 @@ export default function AssessmentFormSection() {
                 letterSpacing: "0.02em",
               }}
             >
-              POPIA compliant. No marketing opt-in. Just your results.
+              POPIA compliant. No opt-in to marketing — just your results.
             </p>
           </div>
 
@@ -335,7 +381,7 @@ export default function AssessmentFormSection() {
                     disabled={loading}
                     className="w-full justify-center"
                   >
-                    {loading ? "Submitting…" : "Send My Assessment Request"}
+                    {loading ? "Submitting…" : "Get My Free Assessment"}
                   </Button>
                 </div>
 
@@ -371,7 +417,7 @@ export default function AssessmentFormSection() {
               fontStyle: "italic",
             }}
           >
-            No obligation. POPIA compliant. Your details are used for your assessment only.
+            No obligation. If the assessment doesn&apos;t show a clear opportunity, we&apos;ll tell you that — and you&apos;ll still have a clear picture of where your business stands.
           </p>
         </div>
       </div>
