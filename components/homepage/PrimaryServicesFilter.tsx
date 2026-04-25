@@ -17,16 +17,18 @@ const services = [
     tag: 'Free entry point',
     tagColor: 'cyan',
     number: '01',
-    name: 'Free AI Readiness Assessment',
-    body: 'Recommended first step for any challenge. We find exactly where you\'re losing time and money before prescribing anything.',
+    name: 'Operations Diagnostic',
+    body: 'Five questions. Instant result. Full report within 24 hours. The right starting point for any challenge.',
+    price: 'Free — results within 24 hours',
   },
   {
     id: 'svc2',
     tag: 'Core',
     tagColor: 'cyan',
     number: '02',
-    name: 'AI-Powered Workflow Integration',
-    body: 'Businesses ready to connect tools and stop doing manual admin work. Fixed price, vendor agnostic.',
+    name: 'Workflow Integration',
+    body: 'We configure the connections between your existing tools so data moves automatically and your team stops the manual handoffs.',
+    price: 'From R18,000 fixed — first workflow live in 20–30 days',
   },
   {
     id: 'svc3',
@@ -34,31 +36,35 @@ const services = [
     tagColor: 'cyan',
     number: '03',
     name: 'Results Measurement & Optimisation',
-    body: 'Workflows running but no evidence of impact. We measure and optimise against your baseline.',
+    body: 'We measure your workflows against your original baseline and identify where to optimise next.',
+    price: 'From R18,000 fixed — 30-day sprint',
   },
   {
     id: 'svc4',
     tag: 'Foundation',
     tagColor: 'gold',
     number: '04',
-    name: 'Site Infrastructure Analysis & Remediation',
-    body: 'Legacy or broken sites that need clean infrastructure before AI workflows can run on them.',
+    name: 'Site Infrastructure & Remediation',
+    body: 'We audit and rebuild your digital infrastructure so lead capture, CRM integration, and workflow automation have a clean foundation to run on.',
+    price: 'R12,500–R25,000 fixed — scoped after assessment',
   },
   {
     id: 'svc5',
     tag: 'Compliance',
     tagColor: 'gold',
     number: '05',
-    name: 'POPIA-Compliant AI Integration',
-    body: 'Regulated sectors: legal, financial, HR, healthcare. Compliance built in from day one — not bolted on.',
+    name: 'POPIA-Compliant Integration',
+    body: 'For regulated sectors — we build consent-first workflows that meet POPIA requirements from day one, not as an afterthought.',
+    price: 'From R12,500 — scoped per engagement',
   },
   {
     id: 'svc6',
     tag: 'Support',
     tagColor: 'cyan',
     number: '06',
-    name: 'Team Training & Capability Support',
-    body: 'Teams that won\'t adopt new workflows without proper onboarding. Your team runs the system — not IT.',
+    name: 'Team Training & Handover',
+    body: 'We train your team to own, manage, and adapt the workflows we\'ve built — so you\'re not dependent on outside support to keep them running.',
+    price: 'Included in every implementation — standalone from R4,500/person/day',
   },
 ];
 
@@ -206,8 +212,22 @@ export default function PrimaryServicesFilter() {
               </p>
 
               {/* Body */}
-              <p className="body-muted" style={{ marginBottom: 0 }}>
+              <p className="body-muted" style={{ marginBottom: '0.625rem' }}>
                 {svc.body}
+              </p>
+
+              {/* Price signal */}
+              <p
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: 'var(--text-meta)',
+                  fontWeight: 500,
+                  color: svc.tagColor === 'cyan' ? 'var(--color-cyan)' : 'var(--color-gold)',
+                  marginBottom: 0,
+                  letterSpacing: '0.01em',
+                }}
+              >
+                {svc.price}
               </p>
             </div>
           );

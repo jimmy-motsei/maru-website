@@ -132,9 +132,11 @@ export default function Nav() {
 
           {/* ── Desktop CTA ───────────────────────────────────────────────── */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="primary" href="/ai-readiness" className="!px-5 !py-2 !text-[11px]">
-              Start diagnostic
-            </Button>
+            <div style={{ fontSize: "var(--text-label)" }}>
+              <Button variant="primary" href="/ai-readiness" className="!px-5 !py-2">
+                Start diagnostic
+              </Button>
+            </div>
           </div>
 
           {/* ── Mobile hamburger ──────────────────────────────────────────── */}
