@@ -214,13 +214,6 @@ interface NotionReportParams {
 async function createNotionReport(params: NotionReportParams): Promise<string> {
   const { name, email, website, level, levelLabel, summary, nextStep, observations, scoreResult } = params;
 
-  // Template page IDs — one per level, pre-built in Notion
-  const templateIds: Record<number, string> = {
-    1: process.env.NOTION_TEMPLATE_LEVEL_1_ID!,
-    2: process.env.NOTION_TEMPLATE_LEVEL_2_ID!,
-    3: process.env.NOTION_TEMPLATE_LEVEL_3_ID!,
-  };
-
   const parentPageId = process.env.NOTION_REPORTS_PARENT_ID!;
 
   // Build the page content blocks
@@ -439,11 +432,18 @@ async function fireBrevoEmails(params: BrevoEmailParams) {
 async function sendProspectEmail(params: BrevoEmailParams) {
   const { name, email, level, levelLabel, notionPageUrl, painTag } = params;
 
-  // Map level to Brevo template ID (set these up in Brevo)
+  const templateId1 = parseInt(process.env.BREVO_TEMPLATE_LEVEL_1 ?? "0");
+  const templateId2 = parseInt(process.env.BREVO_TEMPLATE_LEVEL_2 ?? "0");
+  const templateId3 = parseInt(process.env.BREVO_TEMPLATE_LEVEL_3 ?? "0");
+
+  if (!templateId1 || !templateId2 || !templateId3) {
+    throw new Error("Brevo template IDs not configured — check BREVO_TEMPLATE_LEVEL_1/2/3 env vars");
+  }
+
   const templateIds: Record<number, number> = {
-    1: parseInt(process.env.BREVO_TEMPLATE_LEVEL_1!),
-    2: parseInt(process.env.BREVO_TEMPLATE_LEVEL_2!),
-    3: parseInt(process.env.BREVO_TEMPLATE_LEVEL_3!),
+    1: templateId1,
+    2: templateId2,
+    3: templateId3,
   };
 
   await fetch("https://api.brevo.com/v3/smtp/email", {
@@ -568,9 +568,9 @@ function buildJimmyBriefHtml(params: {
 
 function getFallbackNotionUrl(level: 1 | 2 | 3): string {
   const fallbacks: Record<number, string> = {
-    1: process.env.NOTION_FALLBACK_LEVEL_1_URL ?? "https://maruonline.com/report/early-stage",
-    2: process.env.NOTION_FALLBACK_LEVEL_2_URL ?? "https://maruonline.com/report/building",
-    3: process.env.NOTION_FALLBACK_LEVEL_3_URL ?? "https://maruonline.com/report/primed",
+    1: process.env.NOTION_FALLBACK_LEVEL_1_URL ?? "https://maruonline.com/#assessment",
+    2: process.env.NOTION_FALLBACK_LEVEL_2_URL ?? "https://maruonline.com/#assessment",
+    3: process.env.NOTION_FALLBACK_LEVEL_3_URL ?? "https://maruonline.com/#assessment",
   };
   return fallbacks[level];
 }

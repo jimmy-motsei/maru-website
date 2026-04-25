@@ -89,6 +89,7 @@ export default function AssessmentPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [progress, setProgress] = useState(0);
+  const [notionUrl, setNotionUrl] = useState<string | null>(null);
 
   // Update progress bar
   useEffect(() => {
@@ -148,6 +149,11 @@ export default function AssessmentPage() {
       });
 
       if (!response.ok) throw new Error("Submission failed");
+
+      const data = await response.json();
+      if (data.notionPageUrl) {
+        setNotionUrl(data.notionPageUrl);
+      }
 
       setStep("done");
     } catch {
@@ -353,6 +359,34 @@ export default function AssessmentPage() {
                 The report will invite you to book a 30-minute discovery call. That call is where we review what the diagnostic found and tell you honestly whether a full engagement makes sense. No commitment required beyond the conversation.
               </p>
             </div>
+
+            {notionUrl && (
+              <div
+                style={{
+                  background: "rgba(61,184,198,0.05)",
+                  border: "1px solid rgba(61,184,198,0.2)",
+                  borderRadius: "8px",
+                  padding: "1rem 1.25rem",
+                  marginBottom: "1.5rem",
+                  textAlign: "left",
+                }}
+              >
+                <p
+                  className="text-[#768390] text-xs uppercase tracking-widest mb-2"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Your report
+                </p>
+                <a
+                  href={notionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#04B3CC] text-sm hover:underline"
+                >
+                  View your Notion report →
+                </a>
+              </div>
+            )}
 
             <a
               href="/"
