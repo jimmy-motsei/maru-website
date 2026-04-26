@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import Nav from '@/components/ui/Nav'
 import Footer from '@/components/ui/Footer'
+import CookieConsent from '@/components/CookieConsent'
 import './globals.css'
 
 // ─── Fonts ────────────────────────────────────────────────────────────────────
@@ -65,6 +66,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   )
