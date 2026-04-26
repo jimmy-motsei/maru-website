@@ -45,9 +45,10 @@ export default function AboutPage() {
             <span className="label-eyebrow">About Maru Online</span>
           </FadeUp>
           <FadeUp delay={0.08}>
-            <h1>
-              Built by someone who&apos;s been<br />
-              on the other side of the table.
+            <h1 className="maru-headline-split">
+              <span className="maru-headline-split-strong">Built by someone who&apos;s been</span>
+              <br />
+              <span className="maru-headline-split-light">on the other side of the table.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>

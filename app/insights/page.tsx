@@ -238,9 +238,10 @@ export default function InsightsPage() {
             <span className="label-eyebrow">Insights</span>
           </FadeUp>
           <FadeUp delay={0.08}>
-            <h1>
-              Practical AI thinking<br />
-              for South African SMEs.
+            <h1 className="maru-headline-split">
+              <span className="maru-headline-split-strong">Practical AI thinking</span>
+              <br />
+              <span className="maru-headline-split-light">for South African SMEs.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>

@@ -89,7 +89,7 @@ export default function Home() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`relative min-h-screen flex items-center ${outerPad} pt-48 pb-32`}
-        style={{ backgroundColor: "var(--color-bg-navy-deep)" }}
+        style={{ backgroundColor: "var(--color-bg-navy)" }}
       >
         <div
           aria-hidden="true"

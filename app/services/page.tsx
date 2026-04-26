@@ -119,9 +119,10 @@ export default function ServicesPage() {
             <span className="label-eyebrow">Services</span>
           </FadeUp>
           <FadeUp delay={0.08}>
-            <h1>
-              AI tools don&apos;t create ROI.<br />
-              Integrated AI systems do.
+            <h1 className="maru-headline-split">
+              <span className="maru-headline-split-strong">AI tools don&apos;t create ROI.</span>
+              <br />
+              <span className="maru-headline-split-light">Integrated AI systems do.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>

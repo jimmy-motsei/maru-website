@@ -122,9 +122,10 @@ export default function PricingPage() {
             <span className="label-eyebrow">Pricing</span>
           </FadeUp>
           <FadeUp delay={0.08}>
-            <h1>
-              One fixed price to start.<br />
-              No surprises after that.
+            <h1 className="maru-headline-split">
+              <span className="maru-headline-split-strong">One fixed price to start.</span>
+              <br />
+              <span className="maru-headline-split-light">No surprises after that.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>

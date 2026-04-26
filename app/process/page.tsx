@@ -120,9 +120,10 @@ export default function ProcessPage() {
             <span className="label-eyebrow">How we work</span>
           </FadeUp>
           <FadeUp delay={0.08}>
-            <h1>
-              A process built around<br />
-              where your operation has gaps.
+            <h1 className="maru-headline-split">
+              <span className="maru-headline-split-strong">A process built around</span>
+              <br />
+              <span className="maru-headline-split-light">where your operation has gaps.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>
