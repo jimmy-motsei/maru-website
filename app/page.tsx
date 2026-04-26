@@ -152,7 +152,7 @@ export default function Home() {
           <FadeUp delay={0.22}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Button href="#assessment" variant="primary">
-                Get Your Free Assessment
+                Get a Free Diagnostic
               </Button>
             </div>
             <p
