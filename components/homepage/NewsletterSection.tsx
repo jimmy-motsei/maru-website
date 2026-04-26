@@ -27,7 +27,7 @@ export default function NewsletterSection() {
     >
       <div style={{ maxWidth: "560px", margin: "0 auto", textAlign: "center" }}>
         <span className="label-eyebrow" style={{ display: "block", marginBottom: "1rem" }}>
-          Free Fortnightly AI Useability Insight
+          Monthly AI Best Practices for SMEs
         </span>
 
         <h2
@@ -43,7 +43,7 @@ export default function NewsletterSection() {
             borderBottom: "1px solid var(--color-border-default)",
           }}
         >
-          The Maru Brief
+          The Integration Standard
         </h2>
 
         <p
@@ -56,7 +56,7 @@ export default function NewsletterSection() {
             marginBottom: "2rem",
           }}
         >
-          Every two weeks, one practical insight about where AI and automation are moving the needle and tips you can apply today. No fluff. No hype.
+          One monthly insight into the standards that make AI work for South African SMEs. No fluff.
         </p>
 
         {subscribed ? (
