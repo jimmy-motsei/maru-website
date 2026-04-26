@@ -211,8 +211,12 @@ export default function Home() {
               <StaggerChild key={col.heading}>
                 <div
                   style={{
-                    borderTop: "2px solid var(--color-cyan)",
-                    paddingTop: "1.25rem",
+                    background: "var(--color-bg-primary)",
+                    border: "0.5px solid var(--color-border-default)",
+                    borderTop: "3px solid var(--color-cyan)",
+                    borderRadius: "8px",
+                    padding: "1.5rem 1.25rem",
+                    height: "100%",
                   }}
                 >
                   <p
