@@ -129,7 +129,7 @@ export default function Home() {
                 marginBottom: "2rem",
               }}
             >
-              Six hours a week. That is how much time the average team loses manually moving data between a CRM, a spreadsheet, and an email platform. It adds up to two months of capacity every year spent on tasks that should be automated.
+              Six hours a week. That is how much time the average team loses manually moving data between a CRM, a spreadsheet, an email platform. It adds up to two months of capacity every year spent on tasks that should be automated.
             </p>
           </FadeUp>
 
