@@ -1,56 +1,22 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
-import { Quote, Briefcase, Factory, ShoppingBag } from "lucide-react";
+import { Quote } from "lucide-react";
 import { SplitHeadline } from "@/components/ui/SplitHeadline";
 
-const TESTIMONIALS = [
-  {
-    company: "TechFlow Manufacturing",
-    location: "Johannesburg",
-    industry: "Manufacturing & Distribution",
-    size: "120 employees",
-    quote: "We already had the tools, but not the system. Maruonline fixed implementation, and conversions started climbing within weeks.",
-    author: "Thabo Mokoena",
-    role: "Marketing Director",
-    icon: Factory,
-    highlight: "187% increase in conversion rate",
-    metrics: [
-      { label: "Lead Conversion", value: "8% → 23%" },
-      { label: "Sales Alignment", value: "+65%" },
-    ]
-  },
-  {
-    company: "Khulisa Consulting",
-    location: "Cape Town",
-    industry: "Professional Services",
-    size: "85 employees",
-    quote: "We needed AI efficiency without losing trust. Maruonline automated admin work and protected the client experience.",
-    author: "Sarah van der Merwe",
-    role: "Managing Partner",
-    icon: Briefcase,
-    highlight: "40% increase in billable hours",
-    metrics: [
-      { label: "Billable Hours", value: "+40%" },
-      { label: "NPS Score", value: "+22 pts" },
-    ]
-  },
-  {
-    company: "AfriStyle Online",
-    location: "Durban",
-    industry: "E-Commerce & Retail",
-    size: "65 employees",
-    quote: "Our chatbot felt robotic and hurt service quality. Maruonline redesigned it to match our brand and improve outcomes.",
-    author: "Lindiwe Nkosi",
-    role: "E-Commerce Director",
-    icon: ShoppingBag,
-    highlight: "30% cost reduction + improved NPS",
-    metrics: [
-      { label: "Service Costs", value: "-30%" },
-      { label: "Response Time", value: "-75%" },
-    ]
-  },
-];
+const TESTIMONIALS: {
+  company: string;
+  location: string;
+  industry: string;
+  size: string;
+  quote: string;
+  author: string;
+  role: string;
+  icon: React.ComponentType<{ className?: string }>;
+  highlight: string;
+  metrics: { label: string; value: string }[];
+}[] = [];
 
 export function Testimonials() {
   return (
