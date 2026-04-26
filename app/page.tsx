@@ -183,7 +183,7 @@ export default function Home() {
         <div className={innerWide}>
           <FadeUp>
             <span className="label-eyebrow" style={{ marginBottom: "1.5rem" }}>The operational gap</span>
-            <h2 style={{ marginBottom: "var(--space-heading-body)" }}>Your tools are doing their jobs. They&apos;re just not talking to each other.</h2>
+            <h2 style={{ marginBottom: "var(--space-heading-body)" }}>Your tools aren&apos;t talking to each other.</h2>
             <p className="body-muted" style={{ maxWidth: "640px", marginBottom: "var(--space-section-header-mb)" }}>
               Most growing businesses have the right tools in place. The problem isn&apos;t the software — it&apos;s the space between them. That space is where time disappears, errors happen, and your team ends up doing by hand what should run automatically.
             </p>
