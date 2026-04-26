@@ -4,6 +4,8 @@ import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 import AssessmentFormSection from "@/components/homepage/AssessmentFormSection";
 import NewsletterSection from "@/components/homepage/NewsletterSection";
 import PrimaryServicesFilter from "@/components/homepage/PrimaryServicesFilter";
+import ImageSplit from "@/components/ui/ImageSplit";
+import ImageBand from "@/components/ui/ImageBand";
 
 export const metadata: Metadata = {
   title: "AI & Automation Consultants for Growing SMEs | Maru Online",
@@ -257,6 +259,17 @@ export default function Home() {
           </FadeUp>
         </div>
       </section>
+
+      {/* ── IMAGE SPLIT — between problem cards and metrics ─────────────── */}
+      <ImageSplit
+        src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=80"
+        alt="Two professionals reviewing data on a monitor in a modern office"
+        eyebrow="The integration gap"
+        heading="Your tools work. Your workflows don't."
+        body="Most growing SA businesses have the right software in place. The problem is the manual handoffs between them — the copy-paste, the re-entry, the chasing. That's where Maru works."
+        imagePosition="left"
+        bg="var(--color-bg-canvas)"
+      />
 
       {/* ════════════════════════════════════════════════════════════════════
           SECTION 03 — METRICS BAR
@@ -612,6 +625,14 @@ export default function Home() {
           </FadeUp>
         </div>
       </section>
+
+      {/* ── IMAGE BAND — between process and assessment form ────────────── */}
+      <ImageBand
+        src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=80"
+        alt="Professional team collaborating around a screen in a dark office"
+        overlayText="We don't replace your team. We give them their time back."
+        height={420}
+      />
 
       {/* ════════════════════════════════════════════════════════════════════
           SECTION 07 — ASSESSMENT FORM (client component)

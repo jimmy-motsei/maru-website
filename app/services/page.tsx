@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import Button from "@/components/ui/Button";
 import { BGPattern } from "@/components/ui/bg-pattern";
+import ImageSplit from "@/components/ui/ImageSplit";
+import ImageBand from "@/components/ui/ImageBand";
 import CardNavy from "@/components/ui/CardNavy";
 import ListItem from "@/components/ui/ListItem";
 import ListGroup from "@/components/ui/ListGroup";
@@ -153,6 +155,17 @@ export default function ServicesPage() {
           </FadeUp>
         </div>
       </section>
+
+      {/* ── IMAGE SPLIT — between hero and intro ─────────────────────────── */}
+      <ImageSplit
+        src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80"
+        alt="Professionals working together at computers in a bright modern office"
+        eyebrow="Integrated AI in practice"
+        heading="What integrated AI actually looks like."
+        body="Leads captured in your CRM automatically. Follow-up emails triggered without anyone pressing send. Invoices generated the moment a job is marked complete. Reports that update themselves. This is what connected systems deliver."
+        imagePosition="right"
+        bg="var(--color-bg-primary)"
+      />
 
       {/* ════════════════════════════════════════════════════════════════════
           INTRO — fixed-scope principle
@@ -341,6 +354,14 @@ export default function ServicesPage() {
           </StaggerParent>
         </div>
       </section>
+
+      {/* ── IMAGE BAND — before final CTA ────────────────────────────────── */}
+      <ImageBand
+        src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1600&q=80"
+        alt="Two professionals reviewing analytics on a monitor in a dark office"
+        overlayText="Vendor-agnostic. Your tools stay. We configure the connections between them."
+        height={400}
+      />
 
       {/* ════════════════════════════════════════════════════════════════════
           FINAL CTA — navy

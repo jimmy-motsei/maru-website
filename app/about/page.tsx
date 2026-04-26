@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { BGPattern } from "@/components/ui/bg-pattern";
 import Button from "@/components/ui/Button";
+import ImageSplit from "@/components/ui/ImageSplit";
+import ImageBand from "@/components/ui/ImageBand";
 import CardGold from "@/components/ui/CardGold";
 import ListItem from "@/components/ui/ListItem";
 import ListGroup from "@/components/ui/ListGroup";
@@ -135,6 +137,17 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── IMAGE SPLIT — between why-we-exist and founder ──────────────── */}
+      <ImageSplit
+        src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1200&q=80"
+        alt="Business professionals collaborating in a modern meeting room"
+        eyebrow="How we work"
+        heading="Built from the inside out."
+        body="Maru Online was built by someone who has been on the other side of the table — as a founder, an operator, and someone personally accountable for outcomes. That shapes how we engage with every client."
+        imagePosition="right"
+        bg="var(--color-bg-primary)"
+      />
+
       {/* ════════════════════════════════════════════════════════════════════
           SECTION 2 — The founder
           ════════════════════════════════════════════════════════════════════ */}
@@ -221,6 +234,14 @@ export default function AboutPage() {
           </FadeUp>
         </div>
       </section>
+
+      {/* ── IMAGE BAND — between founder and track record ───────────────── */}
+      <ImageBand
+        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=80"
+        alt="Professional woman working at a computer in a modern office"
+        overlayText="The tools existed. The integration didn't. That gap is what Maru Online was built to close."
+        height={380}
+      />
 
       {/* ════════════════════════════════════════════════════════════════════
           SECTION 3 — Track record (stat cards)

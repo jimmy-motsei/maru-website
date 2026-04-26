@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
 import Button from '@/components/ui/Button'
 import { BGPattern } from '@/components/ui/bg-pattern'
+import ImageSplit from '@/components/ui/ImageSplit'
+import ImageBand from '@/components/ui/ImageBand'
 import CardGold from '@/components/ui/CardGold'
 import ListItem from '@/components/ui/ListItem'
 import ListGroup from '@/components/ui/ListGroup'
@@ -185,6 +187,17 @@ export default function ProcessPage() {
         </div>
       </section>
 
+      {/* ── IMAGE SPLIT — between principle and tools scroller ──────────── */}
+      <ImageSplit
+        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=80"
+        alt="Team of professionals reviewing workflow diagrams on multiple screens"
+        eyebrow="Diagnostic first"
+        heading="We audit your workflows before we touch your tools."
+        body="Building automation on top of broken infrastructure just breaks faster. We map how your business actually operates — the manual steps, the data handoffs, the gaps — before a single workflow is configured."
+        imagePosition="left"
+        bg="var(--color-bg-canvas)"
+      />
+
       {/* ════════════════════════════════════════════════════════════════════
           TOOLS WE USE
           ════════════════════════════════════════════════════════════════════ */}
@@ -296,6 +309,14 @@ export default function ProcessPage() {
           </section>
         ))}
       </div>
+
+      {/* ── IMAGE BAND — between phases and principles ───────────────────── */}
+      <ImageBand
+        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80"
+        alt="Diverse team collaborating around a laptop in a modern workspace"
+        overlayText="Every phase has a defined output. You always know what's happening and what comes next."
+        height={380}
+      />
 
       {/* ════════════════════════════════════════════════════════════════════
           PRINCIPLES — what makes us different
