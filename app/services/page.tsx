@@ -158,8 +158,8 @@ export default function ServicesPage() {
 
       {/* ── IMAGE SPLIT — between hero and intro ─────────────────────────── */}
       <ImageSplit
-        src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80"
-        alt="Professionals working together at computers in a bright modern office"
+        src="/images/people/integration-looks-like.png"
+        alt="Two professionals reviewing data on a monitor in a modern office"
         eyebrow="Integrated AI in practice"
         heading="What integrated AI actually looks like."
         body="Leads captured in your CRM automatically. Follow-up emails triggered without anyone pressing send. Invoices generated the moment a job is marked complete. Reports that update themselves. This is what connected systems deliver."
