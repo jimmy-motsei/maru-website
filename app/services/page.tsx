@@ -162,20 +162,6 @@ export default function ServicesPage() {
           <FadeUp>
             <p
               style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "var(--text-h3-serif)",
-                fontWeight: 400,
-                lineHeight: "var(--leading-subheading)",
-                color: "var(--color-ink-primary)",
-                letterSpacing: "var(--tracking-tight)",
-                marginBottom: "1.75rem",
-              }}
-            >
-              If you&apos;ve already invested in tools, you don&apos;t need more tools.
-              You need the connections between them configured correctly.
-            </p>
-            <p
-              style={{
                 fontFamily: "var(--font-body)",
                 fontSize: "var(--text-body)",
                 fontWeight: 300,
@@ -184,10 +170,10 @@ export default function ServicesPage() {
                 marginBottom: "1.75rem",
               }}
             >
-              Most businesses we work with have a CRM that doesn&apos;t talk to their scheduling system.
-              An email platform disconnected from their lead source. Workflows that depend on someone
-              manually moving information from one place to another. The tools are capable. The
-              configuration between them isn&apos;t there yet.
+              We start by mapping what you already have. Most businesses we work with have a CRM
+              that doesn&apos;t talk to their scheduling system, an email platform disconnected from
+              their lead source, workflows that depend on someone manually moving data between tools.
+              The tools are capable. The configuration between them isn&apos;t there yet.
             </p>
             <p
               style={{
@@ -199,10 +185,10 @@ export default function ServicesPage() {
                 margin: 0,
               }}
             >
-              We start by mapping what you already have. We identify where information isn&apos;t
-              flowing automatically, and we configure the connections that make it happen. We only
-              recommend new tools when there is a genuine capability gap your existing stack cannot
-              fill — and we&apos;ll tell you plainly when that&apos;s the case.
+              We identify where information isn&apos;t flowing automatically and configure the
+              connections that make it happen. We only recommend new tools when there&apos;s a
+              genuine capability gap your existing stack can&apos;t fill — and we&apos;ll tell you
+              plainly when that&apos;s the case.
             </p>
           </FadeUp>
         </div>
