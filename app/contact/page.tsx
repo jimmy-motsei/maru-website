@@ -81,7 +81,7 @@ export default function ContactPage() {
                   {[
                     {
                       label:   'Option 1',
-                      heading: 'Start with the Operations Diagnostic',
+                      heading: 'Start with Diagnostic',
                       body:    "Best if you already know your business has an integration or workflow problem and want a clear picture of where the gaps are and what to configure first.",
                       cta:     'Start the Operations Diagnostic',
                       href:    '/ai-readiness',

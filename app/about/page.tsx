@@ -64,7 +64,7 @@ export default function AboutPage() {
           </FadeUp>
           <FadeUp delay={0.22}>
             <Button href="/contact" variant="primary">
-              Start with the Operations Diagnostic
+              Start with Diagnostic
             </Button>
           </FadeUp>
         </div>
@@ -447,7 +447,7 @@ export default function AboutPage() {
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Button href="/contact" variant="primary">
-                Start with the Operations Diagnostic
+                Start with Diagnostic
               </Button>
               <Button href="/booking" variant="tertiary">
                 Book a 20-minute call — no pitch
