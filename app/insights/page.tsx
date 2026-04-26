@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import { BGPattern } from "@/components/ui/bg-pattern";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import BriefForm from "./BriefForm";
@@ -217,9 +218,10 @@ export default function InsightsPage() {
           HERO
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`min-h-[50vh] flex items-center ${outerPad} pt-48 pb-32`}
+        className={`relative min-h-[50vh] flex items-center ${outerPad} pt-48 pb-32`}
         style={{ backgroundColor: "var(--color-bg-navy)" }}
       >
+        <BGPattern variant="grid" mask="none" size={40} fill="rgba(61, 184, 198, 0.12)" className="z-0" />
         <div
           aria-hidden="true"
           style={{
@@ -233,7 +235,7 @@ export default function InsightsPage() {
             pointerEvents: "none",
           }}
         />
-        <div className={innerWide}>
+        <div className={`${innerWide} relative z-10`}>
           <FadeUp>
             <span className="label-eyebrow">Insights</span>
           </FadeUp>

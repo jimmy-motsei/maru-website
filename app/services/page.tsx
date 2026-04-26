@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Button from "@/components/ui/Button";
+import { BGPattern } from "@/components/ui/bg-pattern";
 import CardNavy from "@/components/ui/CardNavy";
 import ListItem from "@/components/ui/ListItem";
 import ListGroup from "@/components/ui/ListGroup";
@@ -98,9 +99,10 @@ export default function ServicesPage() {
           HERO
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`min-h-[70vh] flex items-center ${outerPad} pt-48 pb-32`}
+        className={`relative min-h-[70vh] flex items-center ${outerPad} pt-48 pb-32`}
         style={{ backgroundColor: "var(--color-bg-navy)" }}
       >
+        <BGPattern variant="grid" mask="none" size={40} fill="rgba(61, 184, 198, 0.12)" className="z-0" />
         <div
           aria-hidden="true"
           style={{
@@ -114,7 +116,7 @@ export default function ServicesPage() {
             pointerEvents: "none",
           }}
         />
-        <div className={innerWide}>
+        <div className={`${innerWide} relative z-10`}>
           <FadeUp>
             <span className="label-eyebrow">Services</span>
           </FadeUp>

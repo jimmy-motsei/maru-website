@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BGPattern } from "@/components/ui/bg-pattern";
 import { FileCheck, Wrench, Clock } from "lucide-react";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 import { MaruBriefForm } from "./MaruBriefForm";
@@ -19,10 +20,11 @@ export default function ResourcesPage() {
     <>
       {/* Hero */}
       <section
-        className={`min-h-[50vh] flex items-center ${outerPad} pt-48 pb-24`}
+        className={`relative min-h-[50vh] flex items-center ${outerPad} pt-48 pb-24`}
         style={{ backgroundColor: "var(--color-bg-navy)" }}
       >
-        <div className={innerWide}>
+        <BGPattern variant="grid" mask="none" size={40} fill="rgba(61, 184, 198, 0.12)" className="z-0" />
+        <div className={`${innerWide} relative z-10`}>
           <FadeUp>
             <span className="label-eyebrow" style={{ marginBottom: "1.5rem" }}>
               Free Tools &amp; Guides
