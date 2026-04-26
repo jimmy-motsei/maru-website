@@ -110,10 +110,8 @@ export default function Home() {
           </FadeUp>
 
           <FadeUp delay={0.08}>
-            <h1 className="maru-headline-split" style={{ marginBottom: "2.5rem" }}>
-              <span className="maru-headline-split-light">Your tools work.</span>
-              <br />
-              <span className="maru-headline-split-strong">They just don&apos;t work together.</span>
+            <h1 style={{ marginBottom: "2.5rem" }}>
+              You are paying for 312 hours of busywork every year.
             </h1>
           </FadeUp>
 
@@ -125,28 +123,28 @@ export default function Home() {
                 fontSize: "var(--text-body)",
                 color: "var(--color-ink-inverted-muted)",
                 lineHeight: "var(--leading-body-relaxed)",
-                maxWidth: "100%",
+                maxWidth: "640px",
                 marginBottom: "2rem",
               }}
             >
-              Most businesses don&apos;t have an AI problem. They have an integration problem. Your team spends hours on manual admin because your CRM doesn&apos;t talk to your website, and your email doesn&apos;t talk to your spreadsheet. We fix the connections your business is missing.
+              Six hours a week. That is how much time the average team loses manually moving data between a CRM, a spreadsheet, and an email platform. It adds up to two months of capacity every year spent on tasks that should be automated.
             </p>
           </FadeUp>
 
           <FadeUp delay={0.19}>
-            <p
+            <h3
               style={{
                 fontFamily: "var(--font-body)",
-                fontWeight: 400,
-                fontSize: "var(--text-body)",
+                fontWeight: 500,
+                fontSize: "var(--text-h3-sans)",
                 color: "var(--color-ink-inverted)",
-                lineHeight: "var(--leading-body-relaxed)",
-                maxWidth: "100%",
+                lineHeight: "var(--leading-subheading)",
+                maxWidth: "560px",
                 marginBottom: "3rem",
               }}
             >
-              We start with what you have — not what we want to sell you. Your existing tools, intelligently connected.
-            </p>
+              We don&apos;t sell you new tools. We use AI to configure the connections your business is missing.
+            </h3>
           </FadeUp>
 
           <FadeUp delay={0.22}>
