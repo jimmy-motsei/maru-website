@@ -130,7 +130,7 @@ export default function ContactForm() {
           />
         </div>
         <div style={{ ...fieldStyle, minWidth: 0 }}>
-          <label htmlFor="cf-email" style={labelStyle}>Email address *</label>
+          <label htmlFor="cf-email" style={labelStyle}>Work email *</label>
           <input
             id="cf-email"
             name="email"
@@ -168,7 +168,7 @@ export default function ContactForm() {
           name="message"
           required
           rows={6}
-          placeholder="Tell us about your business, the problem you're trying to solve, and your timeline."
+          placeholder="Tell us about your business, the challenge you are trying to solve."
           disabled={state === 'submitting'}
           style={{
             ...inputStyle,
@@ -220,7 +220,7 @@ export default function ContactForm() {
             margin:     0,
           }}
         >
-          Handled in compliance with POPIA. We'll respond within one business day.
+          Handled in compliance with POPIA. We respond within one business day.
         </p>
       </div>
     </form>

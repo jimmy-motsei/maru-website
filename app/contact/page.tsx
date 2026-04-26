@@ -38,7 +38,7 @@ export default function ContactPage() {
         />
         <div className={innerWide}>
           <FadeUp>
-            <h1>Let&apos;s find out if we&apos;re the right fit.</h1>
+            <h1>Every engagement starts with a conversation.</h1>
           </FadeUp>
         </div>
       </section>
@@ -57,104 +57,26 @@ export default function ContactPage() {
             {/* Left — form */}
             <FadeUp>
               <div>
+                {/* Calendly CTA */}
                 <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-                  <h2>Send a message</h2>
+                  <Button href="/booking" variant="primary">
+                    Book a 20-minute call
+                  </Button>
                   <p
                     style={{
-                      fontFamily: 'var(--font-body)',
-                      fontSize:   'var(--text-body)',
-                      fontWeight: 300,
-                      color:      'var(--color-ink-secondary)',
-                      lineHeight: 'var(--leading-body)',
-                      margin:     0,
+                      fontFamily:  'var(--font-body)',
+                      fontSize:    'var(--text-meta)',
+                      fontWeight:  300,
+                      color:       'var(--color-ink-tertiary)',
+                      marginTop:   '0.75rem',
+                      marginBottom: 0,
                     }}
                   >
-                    Every engagement starts with a conversation. Two ways to start — choose whichever feels right.
+                    No pitch. No pressure. Just a conversation.
                   </p>
                 </div>
 
-                {/* Two paths */}
-                <div
-                  className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                  style={{ marginBottom: 'var(--space-section-header-mb)' }}
-                >
-                  {[
-                    {
-                      label:   'Option 1',
-                      heading: 'Start with Diagnostic',
-                      body:    "Best if you know you have an integration problem and want a clear picture of what to fix first.",
-                      cta:     'Start the Operations Diagnostic',
-                      href:    '/ai-readiness',
-                      variant: 'primary' as const,
-                    },
-                    {
-                      label:   'Option 2',
-                      heading: 'Start with a 20-minute call',
-                      body:    "Best if you're not sure about priorities or want to understand the process first.",
-                      cta:     'Book a 20-minute call',
-                      href:    '/booking',
-                      variant: 'secondary' as const,
-                    },
-                  ].map((path) => (
-                    <div
-                      key={path.label}
-                      style={{
-                        border:       '0.5px solid var(--color-border-default)',
-                        borderRadius: '8px',
-                        padding:      '1.75rem',
-                      }}
-                    >
-                      <p
-                        style={{
-                          fontSize:      'var(--text-label)',
-                          fontWeight:    500,
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.12em',
-                          color:         'var(--color-cyan)',
-                          marginBottom:  '0.75rem',
-                          fontFamily:    'var(--font-body)',
-                        }}
-                      >
-                        {path.label}
-                      </p>
-                      <p
-                        style={{
-                          fontSize:     'var(--text-h3-sans)',
-                          fontWeight:   600,
-                          color:        'var(--color-ink-primary)',
-                          marginBottom: '0.5rem',
-                          lineHeight:   'var(--leading-subheading)',
-                          fontFamily:   'var(--font-body)',
-                        }}
-                      >
-                        {path.heading}
-                      </p>
-                      <p
-                        className="body-muted"
-                        style={{ marginBottom: '1.25rem' }}
-                      >
-                        {path.body}
-                      </p>
-                      <Button href={path.href} variant={path.variant}>
-                        {path.cta}
-                      </Button>
-                    </div>
-                  ))}
-                </div>
-
-                <p
-                  style={{
-                    fontSize:      'var(--text-label)',
-                    fontWeight:    500,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.12em',
-                    color:         'var(--color-ink-tertiary)',
-                    marginBottom:  '1.5rem',
-                    fontFamily:    'var(--font-body)',
-                  }}
-                >
-                  Or send a message directly
-                </p>
+                <h2 style={{ marginBottom: '1.5rem' }}>Or send a message directly</h2>
 
                 <ContactForm />
               </div>
@@ -202,10 +124,23 @@ export default function ContactPage() {
                         fontWeight:     300,
                         color:          'var(--color-cyan)',
                         textDecoration: 'none',
+                        display:        'block',
+                        marginBottom:   '0.25rem',
                       }}
                     >
                       +27 63 564 3263
                     </a>
+                    <p
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize:   'var(--text-meta)',
+                        fontWeight: 300,
+                        color:      'var(--color-ink-tertiary)',
+                        margin:     0,
+                      }}
+                    >
+                      Response within 4 business hours.
+                    </p>
                   </div>
 
                   <div>
@@ -230,89 +165,36 @@ export default function ContactPage() {
                         fontWeight:     300,
                         color:          'var(--color-cyan)',
                         textDecoration: 'none',
+                        display:        'block',
+                        marginBottom:   '0.25rem',
                       }}
                     >
                       hello@maruonline.com
                     </a>
-                  </div>
-
-                  <div>
-                    <p
-                      style={{
-                        fontFamily:    'var(--font-body)',
-                        fontSize:      'var(--text-label)',
-                        fontWeight:    500,
-                        letterSpacing: 'var(--tracking-eyebrow)',
-                        textTransform: 'uppercase',
-                        color:         'var(--color-ink-tertiary)',
-                        marginBottom:  '0.25rem',
-                      }}
-                    >
-                      Response time
-                    </p>
                     <p
                       style={{
                         fontFamily: 'var(--font-body)',
-                        fontSize:   'var(--text-body)',
+                        fontSize:   'var(--text-meta)',
                         fontWeight: 300,
-                        color:      'var(--color-ink-secondary)',
+                        color:      'var(--color-ink-tertiary)',
                         margin:     0,
                       }}
                     >
-                      WhatsApp within 4 business hours.<br />
-                      Email within 1 business day.<br />
-                      Mon–Fri, 8am–6pm SAST.
+                      Response within 1 business day.
                     </p>
                   </div>
-                </div>
 
-                <div>
-                  <p
-                    style={{
-                      fontFamily:    'var(--font-body)',
-                      fontSize:      'var(--text-label)',
-                      fontWeight:    500,
-                      letterSpacing: 'var(--tracking-eyebrow)',
-                      textTransform: 'uppercase',
-                      color:         'var(--color-ink-tertiary)',
-                      marginBottom:  '0.25rem',
-                    }}
-                  >
-                    Location
-                  </p>
                   <p
                     style={{
                       fontFamily: 'var(--font-body)',
-                      fontSize:   'var(--text-body)',
+                      fontSize:   'var(--text-meta)',
                       fontWeight: 300,
-                      color:      'var(--color-ink-secondary)',
+                      color:      'var(--color-ink-tertiary)',
                       margin:     0,
                     }}
                   >
-                    Johannesburg, Gauteng.<br />
-                    Clients across South Africa.
+                    Mon–Fri, 8am–6pm SAST.
                   </p>
-                </div>
-
-                <hr className="rule" style={{ marginTop: '2rem', marginBottom: '1.5rem' }} />
-
-                <p
-                  style={{
-                    fontFamily: 'var(--font-body)',
-                    fontSize:   'var(--text-meta)',
-                    fontWeight: 300,
-                    color:      'var(--color-ink-tertiary)',
-                    lineHeight: 'var(--leading-body)',
-                    margin:     0,
-                  }}
-                >
-                  Not ready to commit? Book a free 20-minute call — no pitch, no
-                  pressure. Just a conversation about where you are right now.
-                </p>
-                <div style={{ marginTop: '1rem' }}>
-                  <Button href="/booking" variant="secondary">
-                    Book a call
-                  </Button>
                 </div>
               </div>
             </FadeUp>
