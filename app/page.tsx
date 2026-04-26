@@ -110,8 +110,10 @@ export default function Home() {
           </FadeUp>
 
           <FadeUp delay={0.08}>
-            <h1 style={{ marginBottom: "2.5rem" }}>
-              You are paying for 312 hours of busywork every year.
+            <h1 className="maru-headline-split" style={{ marginBottom: "2.5rem" }}>
+              <span className="maru-headline-split-light">You&apos;re paying for 312 hours</span>
+              <br />
+              <span className="maru-headline-split-strong">of Busywork Every Year.</span>
             </h1>
           </FadeUp>
 
