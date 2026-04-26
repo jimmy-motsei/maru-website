@@ -405,10 +405,3 @@
     }
   }
 }
-
-@media (max-width: 480px) {
-  .integration-diagram-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}

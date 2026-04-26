@@ -4,7 +4,6 @@ import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 import AssessmentFormSection from "@/components/homepage/AssessmentFormSection";
 import NewsletterSection from "@/components/homepage/NewsletterSection";
 import PrimaryServicesFilter from "@/components/homepage/PrimaryServicesFilter";
-import IntegrationDiagram from "@/components/IntegrationDiagram";
 
 export const metadata: Metadata = {
   title: "AI & Automation Consultants for Growing SMEs | Maru Online",
@@ -239,10 +238,6 @@ export default function Home() {
               </StaggerChild>
             ))}
           </StaggerParent>
-
-          <div className="integration-diagram-wrapper w-full my-12 px-4 md:px-0">
-            <IntegrationDiagram />
-          </div>
 
           <FadeUp delay={0.16}>
             <p
