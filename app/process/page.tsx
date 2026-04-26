@@ -171,7 +171,7 @@ export default function ProcessPage() {
                 margin:        0,
               }}
             >
-              Most consultants start with a solution. We start with a diagnostic.
+              We start with a diagnostic.
               <br /><br />
               Building the wrong thing faster is still building the wrong thing. We
               don&apos;t build automation on top of broken infrastructure. We don&apos;t
