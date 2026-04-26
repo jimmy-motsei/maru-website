@@ -458,28 +458,6 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════════════════
-          CAPACITY NOTE
-          ════════════════════════════════════════════════════════════════════ */}
-      <section
-        className={`${outerPad} py-20`}
-        style={{ backgroundColor: 'var(--color-bg-secondary)' }}
-      >
-        <div className={innerNarrow}>
-          <FadeUp>
-            <span className="label-eyebrow-gold">Capacity</span>
-            <h2>We work with a maximum of five clients at any time</h2>
-            <p className="body-muted" style={{ marginBottom: 0 }}>
-              That&apos;s a hard limit, not a soft guideline. Every engagement gets
-              full attention from the initial diagnostic through to handover and
-              the 30-day measurement phase. We don&apos;t take on more work than
-              we can do properly. If you&apos;re considering an engagement, the
-              diagnostic is the right first step — it gives you a clear picture
-              before either of us commits to anything larger.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
 
       {/* ════════════════════════════════════════════════════════════════════
           FINAL CTA — navy
