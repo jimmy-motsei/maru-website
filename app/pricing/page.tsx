@@ -24,13 +24,13 @@ const engagements = [
     title:   'Operations Diagnostic',
     price:   'R4,500',
     note:    'Offsets against build cost if you proceed.',
-    scope:   'Fixed-scope · Delivered in 48 hours',
+    scope:   '48 hours',
     body:    'A structured audit of your workflows, tools, and data connections. You receive a written report that maps your gaps and tells you exactly what to configure first.',
     items: [
-      { leader: 'Sector-specific intake brief', body: 'Structured questions tailored to your industry.' },
-      { leader: '30–45 min verification call',  body: 'We clarify the brief and confirm scope before work begins.' },
-      { leader: 'Written gap report',            body: 'Named failures, cost per gap, fix priority order.' },
-      { leader: '90-day roadmap',                body: 'A sequenced action plan so you know what to do next.' },
+      { leader: 'Intake brief',        body: 'Structured questions tailored to your industry.' },
+      { leader: 'Verification call',   body: 'A 30-minute call to clarify the brief and confirm scope.' },
+      { leader: 'Gap report',          body: 'Named failures, cost per gap, and fix priority.' },
+      { leader: '90-day roadmap',      body: 'A sequenced action plan for your next steps.' },
     ],
     href:      '/services/operations-diagnostic',
     featured:  false,
@@ -42,13 +42,13 @@ const engagements = [
     title:   'Workflow Integration',
     price:   'From R45,000',
     note:    'Fixed price. Scoped after the diagnostic.',
-    scope:   'Fixed-scope · Typically 4–8 weeks',
-    body:    'Fixed-scope implementation built around what the diagnostic found. We configure the connections between your tools, extend what\'s already working, and build the automation layer on top. Vendor-agnostic. Your stack stays — we connect it.',
+    scope:   '4–8 weeks',
+    body:    'Implementation built around the diagnostic findings. We configure the connections between your tools and build the automation layer. We work with your existing stack.',
     items: [
-      { leader: 'Custom integration build',  body: 'Connecting your CRM, calendar, email, and forms correctly.' },
-      { leader: 'Automation layer',          body: 'Workflows that run without human intervention.' },
-      { leader: 'Brand voice training',      body: 'AI outputs calibrated to sound like your business.' },
-      { leader: 'POPIA compliance built in', body: 'Every data touchpoint designed for compliance first.' },
+      { leader: 'Custom integration',   body: 'Connecting your CRM, calendar, and email correctly.' },
+      { leader: 'Automation layer',     body: 'Workflows that run without human intervention.' },
+      { leader: 'Brand voice training', body: 'AI outputs calibrated to sound like your business.' },
+      { leader: 'POPIA compliance',     body: 'Every data touchpoint is designed for compliance first.' },
     ],
     href:      '/services/workflow-integration',
     featured:  true,
@@ -60,13 +60,13 @@ const engagements = [
     title:   'Team Training & Handover',
     price:   'From R15,000',
     note:    'Can be standalone or follow a build.',
-    scope:   'Fixed-scope · Scoped per engagement',
-    body:    "Hands-on training built around the specific workflows we've configured. Your team learns how to use, manage, and adapt the system — so the capability stays in the business after we hand over.",
+    scope:   'Scoped per engagement',
+    body:    "Hands-on training built around your specific workflows. Your team learns how to use and manage the system. The capability stays in your business after we hand over.",
     items: [
-      { leader: 'Hands-on workshops',        body: 'Built around your actual tools, not generic AI theory.' },
-      { leader: 'Prompt engineering',        body: 'Consistent, high-quality outputs from the tools you have.' },
-      { leader: 'Workflow adoption',         body: 'Getting new workflows embedded in how the team works.' },
-      { leader: '30-day follow-up support',  body: 'A structured support window to catch issues early.' },
+      { leader: 'Hands-on workshops',  body: 'Built around your tools, not generic theory.' },
+      { leader: 'Prompt engineering',  body: 'High-quality outputs from the tools you have.' },
+      { leader: 'Workflow adoption',   body: 'Getting new workflows embedded in daily work.' },
+      { leader: 'Follow-up support',   body: '30 days of support to catch issues early.' },
     ],
     href:      '/services/team-training-handover',
     featured:  false,
@@ -76,19 +76,19 @@ const engagements = [
 const faqs = [
   {
     q: 'Why do I have to pay for the diagnostic?',
-    a: "Because it's real work that produces a real deliverable. A free discovery call tells you what we think might be wrong. A paid diagnostic tells you exactly what is wrong, what it's costing you, and what to fix first — with your specific numbers in it. The fee also ensures we're both serious about the conversation before either of us invests significant time in it.",
+    a: "Because it is real work that produces a real deliverable. A free call tells you what we think is wrong. A paid diagnostic tells you exactly what is wrong and what it is costing you. It ensures we are both serious about the conversation.",
   },
   {
     q: 'What if I decide not to proceed after the diagnostic?',
-    a: "That's completely fine. The diagnostic report is yours regardless. You'll walk away with a clear picture of where your operation has gaps, a quantified cost-of-current-state, and a prioritised action plan you can act on yourself or take to another provider. We'd rather you have that clarity than commit to an engagement you're not ready for.",
+    a: "That is fine. The report is yours. You walk away with a clear picture of your gaps and a prioritised action plan. You can act on it yourself or take it elsewhere. We would rather you have clarity than commit to an engagement you are not ready for.",
   },
   {
-    q: "Why don't you publish the full engagement price?",
-    a: "Every engagement is scoped to what the diagnostic finds. Publishing a single number would either undersell complex work or oversell simple work. What we guarantee is that the price is fixed before you commit — no surprises, no scope creep.",
+    q: "Why don't you publish a full engagement price?",
+    a: "Every engagement is scoped to what the diagnostic finds. A single number would either undersell complex work or oversell simple work. We guarantee the price is fixed before you commit. No surprises. No scope creep.",
   },
   {
     q: 'Do you offer payment plans?',
-    a: "The diagnostic is payable upfront. For the core engagement we can discuss a milestone-based payment structure — typically 50% on scoping sign-off and 50% on delivery. Raise it during the scoping conversation and we'll work something out.",
+    a: "The diagnostic is payable upfront. For the core engagement, we can discuss a milestone-based structure. Typically, this is 50% on sign-off and 50% on delivery. We can work something out during the scoping conversation.",
   },
 ]
 
@@ -172,10 +172,10 @@ export default function PricingPage() {
                 margin:        0,
               }}
             >
-              If you&apos;ve already invested in AI tools, you don&apos;t need
-              more tools. You need someone to make the ones you have work together.
-              The diagnostic is where that starts — and the fee offsets against
-              the engagement if you proceed.
+              If you have already invested in AI tools, you don&apos;t need more
+              tools. You need the ones you have to work together. The diagnostic
+              is where that starts. If you proceed to a full engagement, the
+              diagnostic fee offsets against the project cost.
             </p>
           </FadeUp>
         </div>
@@ -198,8 +198,9 @@ export default function PricingPage() {
                 className="body-muted"
                 style={{ margin: 0, maxWidth: '560px' }}
               >
-                All three are fixed-scope and priced before work begins. Start
-                with the diagnostic — everything else is scoped from what it finds.
+                All three engagements are fixed-scope. We agree on the price before
+                work begins. Start with the diagnostic. Everything else is scoped
+                from what it finds.
               </p>
             </div>
           </FadeUp>
@@ -403,7 +404,7 @@ export default function PricingPage() {
         />
         <div className={innerNarrow}>
           <FadeUp>
-            <span className="label-eyebrow">The right first step</span>
+            <span className="label-eyebrow">The diagnostic</span>
             <h2
               style={{
                 color:        'var(--color-ink-inverted)',
@@ -417,10 +418,9 @@ export default function PricingPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: 'var(--space-para-section)' }}>
-              It&apos;s also where you find out whether we&apos;re the right fit
-              for each other — before either of us commits to anything larger.
-              R4,500. 48-hour turnaround. A written report with your gaps, the
-              cost of each, and a prioritised configuration order.
+              It is where you find out if we are the right fit. R4,500.
+              48-hour turnaround. A written report with your gaps, the cost
+              of each, and a prioritised configuration order.
             </p>
             <hr
               className="rule"
