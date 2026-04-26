@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import ContactForm from './ContactForm'
 import Button from '@/components/ui/Button'
 import { FadeUp } from '@/components/ui/Animate'
+import { BGPattern } from '@/components/ui/bg-pattern'
 
 export const metadata: Metadata = {
   title:       'Contact | Maru Online',
@@ -20,9 +21,15 @@ export default function ContactPage() {
           HERO
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}
+        className={`relative min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}
         style={{ backgroundColor: 'var(--color-bg-navy)' }}
       >
+        <BGPattern
+          variant="grid"
+          mask="fade-edges"
+          size={32}
+          fill="rgba(61, 184, 198, 0.08)"
+        />
         <div
           aria-hidden="true"
           style={{
