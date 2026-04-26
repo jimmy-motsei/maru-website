@@ -22,16 +22,16 @@ const phases = [
   {
     number:  '01',
     label:   'Diagnose',
-    title:   'We map where the gaps are before we configure anything',
+    title:   'We map the gaps before we configure anything.',
     body: [
-      "You complete a sector-specific intake form — fifteen questions, designed for mobile, takes about fifteen minutes. We follow up with a short verification call. Within 48 hours you receive your diagnostic report.",
-      "The report covers your workflow and process audit, your AI tool inventory, your site infrastructure, and a revenue gap analysis — specific to your numbers, quantified in Rands. It is delivered as a live document, not a PDF. Whether or not you proceed with us, that report is yours.",
+      "You complete a sector-specific intake form. It takes fifteen minutes. We follow up with a short verification call. Within 48 hours, you receive your diagnostic report.",
+      "The report covers your workflows, tools, and site infrastructure. It includes a revenue gap analysis quantified in Rands. This is a live document, not a PDF. Whether you proceed or not, the report is yours.",
     ],
     items: [
-      { leader: 'Sector-specific intake brief', body: 'Fifteen questions tailored to your industry — medico legal, HR & recruitment, or conference & events.' },
-      { leader: '30–45 min verification call',  body: 'We clarify the brief, fill any gaps, and confirm scope before work begins.' },
-      { leader: 'Written gap report',            body: 'Five sections: business snapshot, what\'s working, cost of current state, priority map, recommended next step.' },
-      { leader: '90-day roadmap',                body: 'A sequenced action plan so you know exactly what to do and in what order.' },
+      { leader: 'Sector-specific intake brief', body: 'Fifteen questions tailored to your industry.' },
+      { leader: 'Verification call',             body: 'We clarify the brief and confirm scope before work begins.' },
+      { leader: 'Written gap report',            body: 'A snapshot of what is working and the cost of your current state.' },
+      { leader: '90-day roadmap',                body: 'A sequenced action plan so you know what to do next.' },
     ],
     note: 'The Operations Diagnostic. If you proceed to a full engagement, this fee offsets against the project cost.',
     bg:   'var(--color-bg-primary)',
@@ -39,16 +39,16 @@ const phases = [
   {
     number:  '02',
     label:   'Design',
-    title:   'We scope the work before you commit to it',
+    title:   'We scope the work before you commit.',
     body: [
-      "We take the diagnostic findings and build a fixed-scope implementation plan. Every item is specified — what we're building, in what sequence, what it connects to, and what it's designed to produce. Nothing is vague.",
-      "You review it, ask questions, request adjustments. We don't proceed until you've signed off on every element. If the diagnostic surfaces a critical site infrastructure issue — infrastructure that needs work before anything can be built on top of it — the plan addresses that first. We tell you this upfront, not halfway through the build.",
+      "We use the diagnostic findings to build a fixed-scope plan. Every item is specified. We define what we are building, what it connects to, and what it produces. Nothing is vague.",
+      "You review the plan and request adjustments. We do not proceed until you sign off on every element. If your site infrastructure needs work first, the plan addresses it upfront.",
     ],
     items: [
-      { leader: 'Fixed-scope definition',    body: 'A clear written spec of what will be built, delivered, and measured.' },
-      { leader: 'Fixed price',               body: 'Agreed before work begins. No hourly billing, no scope creep.' },
-      { leader: 'Baseline measurement set',  body: 'We establish the before-state so the results are provable.' },
-      { leader: 'Stack decision documented', body: 'We tell you exactly why we chose each tool or connection.' },
+      { leader: 'Fixed-scope definition',    body: 'A clear written spec of what will be built and measured.' },
+      { leader: 'Fixed price',               body: 'Agreed before work begins. No hourly billing. No scope creep.' },
+      { leader: 'Baseline measurement',      body: 'We establish the “before” state so results are provable.' },
+      { leader: 'Stack decision',            body: 'We document exactly why we chose each tool or connection.' },
     ],
     note: null,
     bg:   'var(--color-bg-canvas)',
@@ -56,34 +56,34 @@ const phases = [
   {
     number:  '03',
     label:   'Build',
-    title:   'We configure on solid foundations',
+    title:   'We configure on solid foundations.',
     body: [
-      "We build what the plan specifies. If site remediation is sprint one, that goes first. The automation layer follows once the foundation is sound. Every sprint has a defined output and a defined completion point.",
-      "Everything built is tested, documented, and handed over with instructions your team can follow without a technical background. Brand voice is calibrated before outputs go live. POPIA compliance is designed in from the start — not retrofitted after the fact.",
+      "We build exactly what the plan specifies. If your site needs remediation, that happens first. The automation layer follows once the foundation is sound. Every sprint has a defined output.",
+      "Everything we build is tested and documented. Your team receives instructions they can follow without a technical background. POPIA compliance is designed in from the start.",
     ],
     items: [
-      { leader: 'Infrastructure first',        body: 'Site and stack issues resolved before automation is layered on top.' },
-      { leader: 'Custom integration build',    body: 'Connecting your CRM, calendar, email, and forms so they pass data correctly.' },
-      { leader: 'Automation layer',            body: 'Workflows that run without human intervention: follow-ups, confirmations, handoffs.' },
-      { leader: 'Brand voice calibration',     body: 'AI outputs trained to sound like your business, not a generic chatbot.' },
-      { leader: 'POPIA compliance by design',  body: 'Every data touchpoint reviewed before a line of code is written.' },
+      { leader: 'Infrastructure first',        body: 'We resolve site and stack issues before adding automation.' },
+      { leader: 'Custom integration',          body: 'We connect your CRM, calendar, and email so data passes correctly.' },
+      { leader: 'Automation layer',            body: 'Workflows that run without human intervention.' },
+      { leader: 'Brand voice calibration',     body: 'AI outputs trained to sound like your business.' },
+      { leader: 'Compliance by design',        body: 'Every data touchpoint is reviewed for POPIA compliance.' },
     ],
     note: null,
     bg:   'var(--color-bg-secondary)',
   },
   {
     number:  '04',
-    label:   'Launch and measure',
+    label:   'Launch and Measure',
     title:   'You own the system. The numbers prove it worked.',
     body: [
-      "Before we build anything, we set a baseline — the numbers that matter to your business right now. After launch we track what changes over 30 days. At the end of the measurement period you receive a results report: not 'the system is live' — 'here's what moved, here's what didn't, here's what to watch.'",
-      "This phase is built into every engagement. It is not optional and it is not an add-on. It is also where the decision about any further optimisation work gets made — based on data, not on a sales conversation.",
+      "We track results against your baseline for 30 days after launch. At the end of the period, you receive a results report. It shows what moved, what didn’t, and what to watch next.",
+      "This phase is built into every engagement. It is not an optional add-on. We make decisions about further optimisation based on data, not a sales conversation.",
     ],
     items: [
-      { leader: 'Full documentation',          body: 'Every workflow, connection, and configuration documented for your team.' },
-      { leader: 'Hands-on training',           body: 'We train the people who will actually be using the system — not just the decision maker.' },
-      { leader: '30-day measurement phase',    body: 'We track results against the baseline and report what changed.' },
-      { leader: 'Results report',              body: 'A written report of outcomes, not just a handover checklist.' },
+      { leader: 'Full documentation',       body: 'Every connection and configuration is documented for your team.' },
+      { leader: 'Hands-on training',        body: 'We train the people who will actually use the system.' },
+      { leader: '30-day measurement',       body: 'We track results against the baseline and report changes.' },
+      { leader: 'Results report',           body: 'A written report of outcomes, not just a handover checklist.' },
     ],
     note: null,
     bg:   'var(--color-bg-primary)',
@@ -172,13 +172,11 @@ export default function ProcessPage() {
               }}
             >
               Most consultants start with a solution. We start with a diagnostic.
-              Not because it generates a fee — because configuring the wrong thing
-              faster is still configuring the wrong thing. We&apos;ve seen what happens
-              when an automation layer gets built on top of infrastructure that isn&apos;t
-              ready, or when a workflow gets configured without understanding how the
-              business actually operates. The result is a system nobody uses and a client
-              who&apos;s more sceptical of the category than when they started. That&apos;s
-              not the outcome we&apos;re building toward.
+              <br /><br />
+              Building the wrong thing faster is still building the wrong thing. We
+              don&apos;t build automation on top of broken infrastructure. We don&apos;t
+              configure workflows without understanding how your business actually
+              operates. We build systems that your team actually uses.
             </p>
           </FadeUp>
         </div>
