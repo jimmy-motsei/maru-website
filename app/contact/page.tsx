@@ -38,7 +38,27 @@ export default function ContactPage() {
         />
         <div className={innerWide}>
           <FadeUp>
-            <h1>Every engagement starts with a conversation.</h1>
+            <span className="label-eyebrow">Contact us</span>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <h1 className="maru-headline-split">
+              <span className="maru-headline-split-strong">Every engagement starts</span>
+              <br />
+              <span className="maru-headline-split-light">with a conversation.</span>
+            </h1>
+          </FadeUp>
+          <FadeUp delay={0.16}>
+            <p
+              className="font-body font-light"
+              style={{
+                color:      'var(--color-ink-inverted-muted)',
+                fontSize:   'var(--text-body-sm)',
+                lineHeight: 'var(--leading-body)',
+                marginBottom: 0,
+              }}
+            >
+              We respond within 24 hours.
+            </p>
           </FadeUp>
         </div>
       </section>
@@ -225,17 +245,6 @@ export default function ContactPage() {
             >
               &ldquo;The right first step is an honest conversation about where you are.
               Everything else follows from that.&rdquo;
-            </p>
-            <p
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontSize:   'var(--text-meta)',
-                fontWeight: 300,
-                color:      'var(--color-ink-tertiary)',
-                margin:     0,
-              }}
-            >
-              — Jimmy Motsei
             </p>
           </FadeUp>
         </div>
