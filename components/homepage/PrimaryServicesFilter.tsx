@@ -18,7 +18,7 @@ const services = [
     tagColor: 'cyan',
     number: '01',
     name: 'Free AI Readiness Assessment',
-    body: 'Recommended first step for any challenge. We find exactly where you\'re losing time and money before prescribing anything.',
+    body: 'Recommended first step. We find exactly where you\'re losing time and money before prescribing anything.',
   },
   {
     id: 'svc2',
@@ -26,7 +26,7 @@ const services = [
     tagColor: 'cyan',
     number: '02',
     name: 'AI-Powered Workflow Integration',
-    body: 'Businesses ready to connect tools and stop doing manual admin work. Fixed price, vendor agnostic.',
+    body: 'For businesses ready to connect tools and stop manual admin. Fixed price, vendor-agnostic.',
   },
   {
     id: 'svc3',
@@ -42,7 +42,7 @@ const services = [
     tagColor: 'gold',
     number: '04',
     name: 'Site Infrastructure Analysis & Remediation',
-    body: 'Legacy or broken sites that need clean infrastructure before AI workflows can run on them.',
+    body: 'Legacy or broken sites that need clean infrastructure before AI workflows can run.',
   },
   {
     id: 'svc5',
@@ -50,7 +50,7 @@ const services = [
     tagColor: 'gold',
     number: '05',
     name: 'POPIA-Compliant AI Integration',
-    body: 'Regulated sectors: legal, financial, HR, healthcare. Compliance built in from day one — not bolted on.',
+    body: 'For legal, financial, and healthcare sectors. Compliance built in from day one.',
   },
   {
     id: 'svc6',
@@ -58,7 +58,7 @@ const services = [
     tagColor: 'cyan',
     number: '06',
     name: 'Team Training & Capability Support',
-    body: 'Teams that won\'t adopt new workflows without proper onboarding. Your team runs the system — not IT.',
+    body: 'Onboarding for teams to ensure adoption. Your team runs the system — not IT.',
   },
 ];
 

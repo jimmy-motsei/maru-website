@@ -120,7 +120,7 @@ export default function AssessmentFormSection() {
 
           {/* ── Left: copy ─────────────────────────────────────────── */}
           <div>
-            <span className="label-eyebrow">Free AI Readiness Assessment</span>
+            <span className="label-eyebrow">Free Business Diagnostic</span>
 
             <h2
               className="h2-cta"
@@ -130,7 +130,7 @@ export default function AssessmentFormSection() {
             </h2>
 
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-              Our free AI Readiness Assessment gives you an initial diagnostic of where your processes are losing time and money. It takes 10 minutes to answer the questions. You get results within 24 hours.
+              Our free diagnostic gives you a clear picture of where your processes are losing capacity. Ten minutes to answer the questions. Results within 24 hours.
             </p>
 
             <p
@@ -142,15 +142,16 @@ export default function AssessmentFormSection() {
                 marginBottom: "0.75rem",
               }}
             >
-              After you see the diagnostic, you&apos;ll know:
+              After you see the results, you&apos;ll know:
             </p>
 
             <ul style={{ listStyle: "none", padding: 0, margin: "0 0 var(--space-para-section)" }}>
               {[
-                "Which of your tools are working vs. creating more work",
-                "Where you're losing the most hours per week",
-                "What to fix first — ranked by impact",
-                "Whether working with us makes sense",
+                "Understand which tools are helping vs. creating more work",
+                "Find where your team's time is being wasted",
+                "Get a prioritised list of fixes — ranked by impact",
+                "See exactly how many hours per week you could recover",
+                "Get a clear picture, with or without us",
               ].map((item) => (
                 <li key={item} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", marginBottom: "0.5rem" }}>
                   <span className="bullet-cyan" style={{ marginTop: "9px" }} />
@@ -288,7 +289,7 @@ export default function AssessmentFormSection() {
                     paddingBottom: 0,
                   }}
                 >
-                  Get Your Free Assessment
+                  Get Your Free Diagnostic
                 </h3>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -381,7 +382,7 @@ export default function AssessmentFormSection() {
                     disabled={loading}
                     className="w-full justify-center"
                   >
-                    {loading ? "Submitting…" : "Get My Free Assessment"}
+                    {loading ? "Submitting…" : "Get My Free Diagnostic"}
                   </Button>
                 </div>
 
@@ -397,7 +398,7 @@ export default function AssessmentFormSection() {
                     lineHeight: 1.5,
                   }}
                 >
-                  Results delivered within 24 hours. You&apos;ll get an email with your diagnostic and next steps.
+                  Results delivered within 24 hours. You&apos;ll receive an email with your diagnostic and next steps.
                 </p>
               </form>
             )}
@@ -417,7 +418,7 @@ export default function AssessmentFormSection() {
               fontStyle: "italic",
             }}
           >
-            No obligation. If the assessment doesn&apos;t show a clear opportunity, we&apos;ll tell you that — and you&apos;ll still have a clear picture of where your business stands.
+            No obligation. If the diagnostic doesn&apos;t show a clear opportunity, we&apos;ll tell you that — and you&apos;ll still have a clear picture of where your business stands.
           </p>
         </div>
       </div>

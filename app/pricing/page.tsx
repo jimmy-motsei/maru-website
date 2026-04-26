@@ -25,7 +25,7 @@ const engagements = [
     price:   'R4,500',
     note:    'Offsets against build cost if you proceed.',
     scope:   'Fixed-scope · Delivered in 48 hours',
-    body:    'A structured audit of your current workflows, tools, and data connections. You receive a written report that maps where your workflows aren\'t connected, quantifies what that\'s costing you in Rands, and tells you exactly what to configure first.',
+    body:    'A structured audit of your workflows, tools, and data connections. You receive a written report that maps your gaps and tells you exactly what to configure first.',
     items: [
       { leader: 'Sector-specific intake brief', body: 'Structured questions tailored to your industry.' },
       { leader: '30–45 min verification call',  body: 'We clarify the brief and confirm scope before work begins.' },
@@ -136,8 +136,7 @@ export default function PricingPage() {
                 lineHeight:   'var(--leading-body)',
               }}
             >
-              Every Maru engagement begins with the Operations Diagnostic. Here&apos;s exactly
-              what that involves and what you receive.
+              Every Maru engagement begins with the Operations Diagnostic. Fixed scope, fixed price, clear deliverables.
             </p>
           </FadeUp>
           <FadeUp delay={0.22}>

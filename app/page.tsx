@@ -8,7 +8,7 @@ import PrimaryServicesFilter from "@/components/homepage/PrimaryServicesFilter";
 export const metadata: Metadata = {
   title: "AI & Automation Consultants for Growing SMEs | Maru Online",
   description:
-    "We find where your processes are costing you time and money — then build AI-powered workflows that cut costs and free your team. Free assessment.",
+    "We find where your processes are costing you time and money. We build the connections your business is missing. Free assessment.",
 };
 
 // ─── Layout constants ─────────────────────────────────────────────────────────
@@ -22,30 +22,30 @@ const processPhases = [
   {
     number: "01",
     name: "Diagnose",
-    description: "We audit your workflows, tools, and data flow. The goal: find where you're losing time and money. You get a detailed diagnostic report, a cost calculation, and a prioritised roadmap.",
-    outcome: "A clear picture of what's broken, why it matters, and what to fix first.",
-    timeline: "24 hours from submission to results",
+    description: "We audit your workflows, tools, and data flow. We find where you're losing time and money.",
+    outcome: "A diagnostic report, a cost calculation, and a prioritised roadmap.",
+    timeline: "24 hours from submission.",
   },
   {
     number: "02",
     name: "Design",
-    description: "Based on the audit, we design your integration architecture. What systems connect where? What data flows how? What's the sequence? You get a detailed implementation plan — non-technical, easy to understand and follow.",
-    outcome: "A documented roadmap with clear ownership, timelines, and success metrics.",
-    timeline: "5–7 business days",
+    description: "We design your integration architecture. What systems connect where? What data flows how?",
+    outcome: "A documented roadmap with clear ownership and success metrics.",
+    timeline: "5–7 business days.",
   },
   {
     number: "03",
     name: "Build",
-    description: "We integrate your tools, build the workflows, test every connection. Your team learns how to use and manage each workflow as we build. Nothing ships until it's tested and proven to work.",
+    description: "We integrate your tools and build the workflows. We test every connection.",
     outcome: "Live workflows that connect your tools. Your team can manage them.",
-    timeline: "20–30 days depending on complexity",
+    timeline: "20–30 days.",
   },
   {
     number: "04",
     name: "Launch & Measure",
-    description: "We deploy with your team, measure results against your baseline, and provide 30 days of free support. You see exactly how many hours you saved, how many errors you eliminated, what revenue impact happened.",
-    outcome: "Measured results. Real evidence. Confidence in the system.",
-    timeline: "First 30 days of operation",
+    description: "We deploy with your team and measure results against your baseline. 30 days of free support included.",
+    outcome: "Measured results. Real evidence of time and money saved.",
+    timeline: "First 30 days of operation.",
   },
 ];
 
@@ -106,14 +106,14 @@ export default function Home() {
         />
         <div className={innerWide}>
           <FadeUp>
-            <span className="label-eyebrow" style={{ marginBottom: "3rem" }}>AI &amp; Automation Consultants for Growing SMEs</span>
+            <span className="label-eyebrow" style={{ marginBottom: "3rem" }}>South Africa&apos;s AI Integration Consultancy</span>
           </FadeUp>
 
           <FadeUp delay={0.08}>
             <h1 className="maru-headline-split" style={{ marginBottom: "2.5rem" }}>
-              <span className="maru-headline-split-light">Unlock the true potential</span>
+              <span className="maru-headline-split-light">Your tools work.</span>
               <br />
-              <span className="maru-headline-split-strong">hidden within your operations.</span>
+              <span className="maru-headline-split-strong">They just don&apos;t work together.</span>
             </h1>
           </FadeUp>
 
@@ -129,7 +129,7 @@ export default function Home() {
                 marginBottom: "2rem",
               }}
             >
-              Every business holds untapped capabilities, waiting to be fully realized. Imagine your existing tools and talented teams working in perfect concert, creating a seamless flow that elevates performance and directs every effort towards remarkable growth. This is the future where your enterprise thrives with renewed purpose and efficiency.
+              Most businesses don&apos;t have an AI problem. They have an integration problem. Your team spends hours on manual admin because your CRM doesn&apos;t talk to your website, and your email doesn&apos;t talk to your spreadsheet. We fix the connections your business is missing.
             </p>
           </FadeUp>
 
@@ -145,7 +145,7 @@ export default function Home() {
                 marginBottom: "3rem",
               }}
             >
-              Your existing tools, intelligently connected, now orchestrate a seamless flow that elevates performance and accelerates growth.
+              We start with what you have — not what we want to sell you. Your existing tools, intelligently connected.
             </p>
           </FadeUp>
 
@@ -173,123 +173,83 @@ export default function Home() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════════
-          SECTION 02 — PROBLEM STATEMENT
+          SECTION 02 — OPERATIONAL GAP
           bg: canvas (#FAFAF8)
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`${outerPad} py-24`}
         style={{ backgroundColor: "var(--color-bg-canvas)" }}
       >
-        <div className={innerNarrow}>
+        <div className={innerWide}>
           <FadeUp>
-            <h2>The AI Investment Paradox</h2>
-          </FadeUp>
-
-          <FadeUp delay={0.06}>
-            <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-              73% of SA businesses are investing in AI tools. Only 47% see a return. The gap isn&apos;t the tools — it&apos;s integration. Your spreadsheet doesn&apos;t talk to your CRM. Your CRM doesn&apos;t talk to your email system. Each tool solves one problem. All of them together create a new one: your team spending hours connecting dots.
+            <span className="label-eyebrow" style={{ marginBottom: "1.5rem" }}>The operational gap</span>
+            <h2 style={{ marginBottom: "var(--space-heading-body)" }}>Your tools are doing their jobs. They&apos;re just not talking to each other.</h2>
+            <p className="body-muted" style={{ maxWidth: "640px", marginBottom: "var(--space-section-header-mb)" }}>
+              Most growing businesses have the right tools in place. The problem isn&apos;t the software — it&apos;s the space between them. That space is where time disappears, errors happen, and your team ends up doing by hand what should run automatically.
             </p>
           </FadeUp>
 
-          {/* Problem 1 */}
-          <FadeUp delay={0.1}>
-            <div style={{ marginBottom: "var(--space-para-section)" }}>
-              <p
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontWeight: 600,
-                  fontSize: "var(--text-body-sm)",
-                  color: "var(--color-ink-primary)",
-                  marginBottom: "0.75rem",
-                  lineHeight: "var(--leading-subheading)",
-                }}
-              >
-                Buying AI tools without integration is like buying car parts and hoping they&apos;ll assemble themselves.
-              </p>
-              <p className="body-muted" style={{ marginBottom: 0 }}>
-                You end up with expensive tools that don&apos;t talk to each other. Your team still manually moves data between systems. Still sends the same emails twice. Still chases invoices on Friday afternoon. The tool didn&apos;t fail. The integration did.
-              </p>
-            </div>
-          </FadeUp>
+          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ marginBottom: "var(--space-section-header-mb)" }}>
+            {[
+              {
+                heading: "Disconnected systems",
+                body: "Your CRM, email, and accounting platform each work fine — separately. Your team bridges the gaps manually, every day.",
+              },
+              {
+                heading: "Admin that shouldn’t exist",
+                body: "Re-entering data. Copying across spreadsheets. Chasing confirmation emails. These aren’t small tasks — they stack up to days lost every month.",
+              },
+              {
+                heading: "No visibility on what’s working",
+                body: "When data lives in five places, there’s no single view of performance. Decisions get made on gut feel — or last month’s export that’s already out of date.",
+              },
+              {
+                heading: "Compliance risk in the gaps",
+                body: "Manual data handling is where POPIA exposure lives. When consent, storage, and access aren’t automated, they’re inconsistent — and inconsistency is risk.",
+              },
+            ].map((col) => (
+              <StaggerChild key={col.heading}>
+                <div
+                  style={{
+                    borderTop: "2px solid var(--color-cyan)",
+                    paddingTop: "1.25rem",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontWeight: 600,
+                      fontSize: "var(--text-body-sm)",
+                      color: "var(--color-ink-primary)",
+                      marginBottom: "0.625rem",
+                      lineHeight: "var(--leading-subheading)",
+                    }}
+                  >
+                    {col.heading}
+                  </p>
+                  <p className="body-muted" style={{ marginBottom: 0 }}>
+                    {col.body}
+                  </p>
+                </div>
+              </StaggerChild>
+            ))}
+          </StaggerParent>
 
-          {/* Problem 2 */}
-          <FadeUp delay={0.14}>
-            <div style={{ marginBottom: "var(--space-para-section)" }}>
-              <p
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontWeight: 600,
-                  fontSize: "var(--text-body-sm)",
-                  color: "var(--color-ink-primary)",
-                  marginBottom: "0.75rem",
-                  lineHeight: "var(--leading-subheading)",
-                }}
-              >
-                Manual workarounds hide the real cost.
-              </p>
-              <p className="body-muted" style={{ marginBottom: 0 }}>
-                When your CRM doesn&apos;t connect to your website, you manually enter leads. When your email doesn&apos;t connect to your spreadsheet, you manually update your list. These &ldquo;5-minute tasks&rdquo; stack up. Six hours a week. Twenty-six hours a month. 312 hours a year. That&apos;s two months of your team&apos;s time, every year, on busywork.
-              </p>
-            </div>
-          </FadeUp>
-
-          {/* Problem 3 */}
-          <FadeUp delay={0.18}>
-            <div style={{ marginBottom: "var(--space-section-header-mb)" }}>
-              <p
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontWeight: 600,
-                  fontSize: "var(--text-body-sm)",
-                  color: "var(--color-ink-primary)",
-                  marginBottom: "0.75rem",
-                  lineHeight: "var(--leading-subheading)",
-                }}
-              >
-                Tool sprawl kills efficiency before it kills your budget.
-              </p>
-              <p className="body-muted" style={{ marginBottom: 0 }}>
-                Each new tool adds switching cost, training time, another password. Your team context-switches across seven systems. Focus breaks. Mistakes happen. Results slow down. By the time you&apos;ve connected everything, you&apos;ve already lost the ROI.
-              </p>
-            </div>
-          </FadeUp>
-
-          {/* Founder quote */}
-          <FadeUp delay={0.22}>
-            <blockquote
+          <FadeUp delay={0.16}>
+            <p
               style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "var(--text-body-sm)",
+                fontWeight: 500,
+                color: "var(--color-ink-primary)",
                 borderLeft: "4px solid var(--color-cyan)",
-                paddingLeft: "1.5rem",
+                paddingLeft: "1.25rem",
                 margin: 0,
+                lineHeight: "var(--leading-body)",
               }}
             >
-              <p
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "var(--text-h3-serif)",
-                  fontWeight: 300,
-                  lineHeight: "var(--leading-subheading)",
-                  color: "var(--color-ink-primary)",
-                  letterSpacing: "var(--tracking-tight)",
-                  fontStyle: "italic",
-                  marginBottom: "0.75rem",
-                }}
-              >
-                &ldquo;Most businesses don&apos;t have an AI problem. They have an integration problem. That&apos;s exactly what we fix.&rdquo;
-              </p>
-              <cite
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontWeight: 500,
-                  fontSize: "var(--text-body-sm)",
-                  color: "var(--color-ink-tertiary)",
-                  fontStyle: "normal",
-                  display: "block",
-                }}
-              >
-                — Jimmy Motsei, Founder, Maru Online
-              </cite>
-            </blockquote>
+              These aren&apos;t technology problems. They&apos;re configuration problems. And they&apos;re solvable without replacing the systems your team already knows.
+            </p>
           </FadeUp>
         </div>
       </section>
@@ -307,19 +267,19 @@ export default function Home() {
             {[
               {
                 stat: "Free",
-                sub: "Assessment — no cost to find out where you stand",
+                sub: "Assessment — no cost to find where you stand",
               },
               {
                 stat: "24-Hour",
-                sub: "Turnaround on your diagnostic report and clear next steps",
+                sub: "Turnaround on your diagnostic report",
               },
               {
                 stat: "30 Days",
-                sub: "Average timeline from diagnosis to first automated workflow live",
+                sub: "Average timeline to first automated workflow live",
               },
               {
                 stat: "Fixed",
-                sub: "Clear pricing at every phase — no surprise invoices, no scope creep",
+                sub: "Clear pricing at every phase — no surprise invoices",
               },
             ].map((item) => (
               <StaggerChild key={item.stat}>
@@ -372,7 +332,7 @@ export default function Home() {
               className="body-muted"
               style={{ maxWidth: "640px", marginBottom: "var(--space-section-header-mb)" }}
             >
-              Start with your primary integration challenge. We&apos;ll recommend a relevant starting point to your solution.
+              We solve your business problem, not your AI problem. Start with your primary challenge.
             </p>
           </FadeUp>
 
@@ -553,12 +513,12 @@ export default function Home() {
       >
         <div className={inner}>
           <FadeUp>
-            <h2>Our 4-Step Process to AI Integration Success</h2>
+            <h2>Our 4-Step Process</h2>
             <p
               className="body-muted"
               style={{ maxWidth: "620px", marginBottom: "var(--space-section-header-mb)" }}
             >
-              A structured approach designed to help growing SMEs implement AI-powered workflows with clarity, confidence, and measurable results. Every step builds on the last.
+              A structured approach for growing SMEs to implement AI-powered workflows with clarity and measurable results.
             </p>
           </FadeUp>
 
@@ -642,7 +602,7 @@ export default function Home() {
                 This process keeps you informed and in control at every step. No surprises. No waiting to understand what&apos;s happening.
               </p>
               <Button href="#assessment" variant="primary">
-                See How It Works — Book Your Free Assessment
+                Get My Free Assessment
               </Button>
             </div>
           </FadeUp>
@@ -701,14 +661,14 @@ export default function Home() {
                 color: "var(--color-ink-inverted)",
               }}
             >
-              Start with a free assessment. We&apos;ll show you exactly where you&apos;re losing time and money, what to fix first, and what working with us looks like. No obligation.
+              Start with a free diagnostic. We&apos;ll show you exactly where you&apos;re losing time and money, what to fix first, and what working with us looks like. No obligation.
             </p>
           </FadeUp>
 
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5" style={{ marginBottom: "1.25rem" }}>
               <Button href="#assessment" variant="primary">
-                Get Your Free Assessment
+                Get Your Free Diagnostic
               </Button>
               <Button href="#process" variant="tertiary">
                 See our four-step process

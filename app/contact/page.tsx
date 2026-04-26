@@ -82,7 +82,7 @@ export default function ContactPage() {
                     {
                       label:   'Option 1',
                       heading: 'Start with Diagnostic',
-                      body:    "Best if you already know your business has an integration or workflow problem and want a clear picture of where the gaps are and what to configure first.",
+                      body:    "Best if you know you have an integration problem and want a clear picture of what to fix first.",
                       cta:     'Start the Operations Diagnostic',
                       href:    '/ai-readiness',
                       variant: 'primary' as const,
@@ -90,7 +90,7 @@ export default function ContactPage() {
                     {
                       label:   'Option 2',
                       heading: 'Start with a 20-minute call',
-                      body:    "Best if you're not sure yet whether workflow integration is the right priority, or you want to understand the process before committing to the diagnostic.",
+                      body:    "Best if you're not sure about priorities or want to understand the process first.",
                       cta:     'Book a 20-minute call',
                       href:    '/booking',
                       variant: 'secondary' as const,

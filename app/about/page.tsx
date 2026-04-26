@@ -7,7 +7,7 @@ import ListGroup from "@/components/ui/ListGroup";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 
 export const metadata: Metadata = {
-  title: "About Maru Online | Jimmy Motsei — AI & Workflow Integration Consultant",
+  title: "About Maru Online | Jimmy Motsei",
   description:
     "Twenty years building commercial operations in South African sport and business. Maru Online connects the systems growing businesses already have — so they run the way they should.",
 };
