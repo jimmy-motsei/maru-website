@@ -23,8 +23,8 @@ const articles = [
     slug:     "why-ai-tools-fail-sme",
     image:    "/images/insights/article-01.png",
     category: "Integration",
-    title:    "Why AI tools fail South African SMEs — and it's not the tools",
-    excerpt:  "Most AI tool failures in SMEs come down to one thing: the tools were implemented in isolation. The CRM doesn't know what the calendar is doing. The email platform doesn't know what the CRM recorded. Here's the pattern we see, and why it's fixable.",
+    title:    "Why AI tools fail South African SMEs — and it is not the tools",
+    excerpt:  "Most AI tool failures in SMEs happen because the tools were implemented in isolation. The CRM does not know what the calendar is doing. The email platform does not know what the CRM recorded. Here is the pattern we see, and why it is fixable.",
     date:     "March 2026",
     featured: true,
   },
@@ -33,7 +33,7 @@ const articles = [
     image:    "/images/insights/article-02.png",
     category: "Diagnostic",
     title:    "What a Maru diagnostic actually finds",
-    excerpt:  "We've run enough diagnostics to know the common failure patterns. This is what we find — in order of frequency — across medico legal, HR, and events businesses.",
+    excerpt:  "We have run enough diagnostics to know the common failure patterns. This article breaks down the five most frequent integration gaps we find in SA businesses — and what they cost in team capacity.",
     date:     "February 2026",
     featured: false,
   },
@@ -41,8 +41,8 @@ const articles = [
     slug:     "popia-ai-what-smes-need-to-know",
     image:    "/images/insights/article-03.png",
     category: "Compliance",
-    title:    "POPIA and AI: what South African SMEs actually need to do",
-    excerpt:  "POPIA compliance in an AI context isn't about ticking a legal box — it's about designing your data flows correctly from the start. Most SMEs get this wrong because they add compliance after the fact.",
+    title:    "POPIA and AI: What South African SMEs actually need to do",
+    excerpt:  "Compliance in an AI context is not about ticking boxes. It is about data flow. We explain how to build POPIA compliance into your automated workflows from day one, rather than retrofitting it later.",
     date:     "February 2026",
     featured: false,
   },
@@ -50,8 +50,8 @@ const articles = [
     slug:     "fixed-scope-vs-retainer",
     image:    "/images/insights/article-04.png",
     category: "Engagements",
-    title:    "Fixed-scope vs retainer: how to think about AI implementation spend",
-    excerpt:  "The question we get most often after a diagnostic: should we do this as a project or a retainer? The answer depends on what you're trying to fix and how stable your workflows are.",
+    title:    "Fixed-scope vs retainer: How to think about AI implementation spend",
+    excerpt:  "The question we get most often after a diagnostic is about budget. We explain why we use fixed-scope engagements and how to measure the ROI of an integration before you commit to the build.",
     date:     "January 2026",
     featured: false,
   },
@@ -59,8 +59,8 @@ const articles = [
     slug:     "automation-isnt-ai",
     image:    "/images/insights/article-05.png",
     category: "Integration",
-    title:    "Automation isn't AI — and confusing them is costing you",
-    excerpt:  "A Zapier workflow is not AI. A form that routes to an inbox is not AI. Before you spend on AI, it's worth knowing what you already have — and whether you're actually using it.",
+    title:    "Automation is not AI — and confusing them is costing you",
+    excerpt:  "A Zapier workflow is not AI. A form that routes to a spreadsheet is not AI. Confusing the two leads to overpaying for simple tasks. We define the difference and show you where to use each.",
     date:     "January 2026",
     featured: false,
   },
@@ -68,8 +68,8 @@ const articles = [
     slug:     "the-handover-problem",
     image:    "/images/insights/article-06.png",
     category: "Implementation",
-    title:    "The handover problem: why AI systems fail after the consultant leaves",
-    excerpt:  "The most common failure mode in AI implementation isn't the build — it's what happens three months later when the business has to run the system without the people who built it.",
+    title:    "The handover problem: Why AI systems fail after the consultant leaves",
+    excerpt:  "The most common failure mode in AI integration is dependency. If your team cannot run the system without the person who built it, the system is a liability. We share our best practices for documentation and training.",
     date:     "December 2025",
     featured: false,
   },
@@ -77,8 +77,8 @@ const articles = [
     slug:     "medico-legal-automation",
     image:    "/images/insights/article-07.png",
     category: "Sector",
-    title:    "The three automations every medico legal practice should have",
-    excerpt:  "No-show rates, insurer follow-up delays, and appointment confirmation gaps are the three most common revenue leaks in medico legal practices. All three are fixable with existing tools.",
+    title:    "Three automations every medico-legal practice should have",
+    excerpt:  "No-show rates, insurer follow-up delays, and appointment scheduling are the primary capacity killers in medico-legal practices. We map the three workflows that fix these gaps.",
     date:     "December 2025",
     featured: false,
   },
@@ -86,8 +86,8 @@ const articles = [
     slug:     "ai-readiness-self-test",
     image:    "/images/insights/article-08.png",
     category: "Diagnostic",
-    title:    "A self-test for AI readiness: five questions before you spend anything",
-    excerpt:  "Before any AI investment, there are five questions your business needs to be able to answer. If you can't answer them, the investment will underperform — regardless of which tools you choose.",
+    title:    "A self-test for AI readiness: Five questions before you spend anything",
+    excerpt:  "Before any AI investment, there are five questions you need to answer about your current data and tools. If you cannot answer these, you are not ready to automate.",
     date:     "November 2025",
     featured: false,
   },
@@ -450,26 +450,13 @@ export default function InsightsPage() {
       >
         <div className={innerNarrow}>
           <FadeUp>
-            <h2>The Maru Brief</h2>
-            <p
-              style={{
-                fontFamily:    "var(--font-display)",
-                fontSize:      "var(--text-h3-serif)",
-                fontWeight:    400,
-                lineHeight:    "var(--leading-subheading)",
-                color:         "var(--color-ink-primary)",
-                letterSpacing: "var(--tracking-tight)",
-                marginBottom:  "1.75rem",
-              }}
-            >
-              One practical AI revenue insight for South African SMEs,
-              fortnightly.
-            </p>
+            <span className="label-eyebrow-gold">Monthly Best Practices for AI Integration</span>
+            <h2>The Integration Standard</h2>
             <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-              No vendor fluff. No sales pitch. Each edition covers one pattern
-              we&apos;re seeing in real engagements — a failure mode, a fix, or
-              a framework — explained in plain language for business owners, not
-              developers.
+              One practical AI insight for South African SMEs every month. No
+              vendor fluff. No sales pitch. Each edition covers one pattern we
+              see in real engagements — a failure mode, a fix, or a framework.
+              Explained in plain language for business owners.
             </p>
 
             <hr className="rule" style={{ marginBottom: "var(--space-para-section)" }} />
@@ -518,8 +505,8 @@ export default function InsightsPage() {
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
               The diagnostic takes the patterns in these articles and applies them
-              specifically to your business — your tools, your workflows, your
-              revenue gaps. R4,500. Delivered within 48 hours.
+              to your business — your tools, your workflows, your revenue gaps.
+              R4,500. Delivered within 48 hours.
             </p>
             <hr
               className="rule"
