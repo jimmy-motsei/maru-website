@@ -160,31 +160,13 @@ export default function ServicesPage() {
       >
         <div className={innerNarrow}>
           <FadeUp>
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "var(--text-body)",
-                fontWeight: 300,
-                lineHeight: "var(--leading-body)",
-                color: "var(--color-ink-secondary)",
-                marginBottom: "1.75rem",
-              }}
-            >
+            <p className="body-muted" style={{ marginBottom: "1.75rem" }}>
               We start by mapping what you already have. Most businesses we work with have a CRM
               that doesn&apos;t talk to their scheduling system, an email platform disconnected from
               their lead source, workflows that depend on someone manually moving data between tools.
               The tools are capable. The configuration between them isn&apos;t there yet.
             </p>
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "var(--text-body)",
-                fontWeight: 300,
-                lineHeight: "var(--leading-body)",
-                color: "var(--color-ink-secondary)",
-                margin: 0,
-              }}
-            >
+            <p className="body-muted" style={{ margin: 0 }}>
               We identify where information isn&apos;t flowing automatically and configure the
               connections that make it happen. We only recommend new tools when there&apos;s a
               genuine capability gap your existing stack can&apos;t fill — and we&apos;ll tell you
