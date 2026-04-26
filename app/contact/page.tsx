@@ -26,9 +26,10 @@ export default function ContactPage() {
       >
         <BGPattern
           variant="grid"
-          mask="fade-edges"
-          size={32}
-          fill="rgba(61, 184, 198, 0.08)"
+          mask="none"
+          size={40}
+          fill="rgba(61, 184, 198, 0.12)"
+          className="z-0"
         />
         <div
           aria-hidden="true"
@@ -43,7 +44,7 @@ export default function ContactPage() {
             pointerEvents: 'none',
           }}
         />
-        <div className={innerWide}>
+        <div className={`${innerWide} relative z-10`}>
           <FadeUp>
             <span className="label-eyebrow">Contact us</span>
           </FadeUp>
