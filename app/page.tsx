@@ -5,6 +5,7 @@ import AssessmentFormSection from "@/components/homepage/AssessmentFormSection";
 import PrimaryServicesFilter from "@/components/homepage/PrimaryServicesFilter";
 import ImageSplit from "@/components/ui/ImageSplit";
 import ImageBand from "@/components/ui/ImageBand";
+import { BGPattern } from "@/components/ui/bg-pattern";
 
 export const metadata: Metadata = {
   title: "AI & Automation Consultants for Growing SMEs | Maru Online",
@@ -92,6 +93,13 @@ export default function Home() {
         className={`relative min-h-screen flex items-center ${outerPad} pt-48 pb-32`}
         style={{ backgroundColor: "var(--color-bg-navy-deep)" }}
       >
+        <BGPattern
+          variant="grid"
+          mask="fade-edges"
+          size={40}
+          fill="rgba(61, 184, 198, 0.101)"
+          className="z-0"
+        />
         <div
           aria-hidden="true"
           style={{
@@ -107,7 +115,7 @@ export default function Home() {
         />
         <div className={innerWide}>
           <FadeUp>
-            <span className="label-eyebrow" style={{ marginBottom: "3rem" }}>South Africa&apos;s AI Integration Consultancy</span>
+            <span className="label-eyebrow" style={{ marginBottom: "3rem" }}>AI Integration Consultancy</span>
           </FadeUp>
 
           <FadeUp delay={0.08}>
@@ -130,7 +138,7 @@ export default function Home() {
                 marginBottom: "2rem",
               }}
             >
-              Six hours a week. That is how much time the average team loses manually moving data between a CRM, a spreadsheet, an email platform. It adds up to two months of capacity every year spent on tasks that should be automated.
+              Six hours a week. That&apos;s how much time the average team loses manually moving data between a CRM, a spreadsheet, an email platform.
             </p>
           </FadeUp>
 
