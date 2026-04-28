@@ -1,11 +1,12 @@
 import Image from 'next/image'
+import React from 'react'
 
 type ImageSplitProps = {
   src: string
   alt: string
   eyebrow?: string
-  heading: string
-  body: string
+  heading: React.ReactNode
+  body: React.ReactNode
   imagePosition?: 'left' | 'right'
   bg?: string
 }
@@ -60,19 +61,16 @@ export default function ImageSplit({
       >
         {heading}
       </h2>
-      {body.split('\n\n').map((para, i) => (
-        <p
-          key={i}
-          className={
-            bg === 'var(--color-bg-navy)' || bg === 'var(--color-bg-navy-deep)'
-              ? 'body-on-navy'
-              : 'body-muted'
-          }
-          style={{ marginBottom: i < body.split('\n\n').length - 1 ? '1rem' : 0, maxWidth: '520px' }}
-        >
-          {para}
-        </p>
-      ))}
+      <div
+        className={
+          bg === 'var(--color-bg-navy)' || bg === 'var(--color-bg-navy-deep)'
+            ? 'body-on-navy'
+            : 'body-muted'
+        }
+        style={{ maxWidth: '520px' }}
+      >
+        {body}
+      </div>
     </div>
   )
 

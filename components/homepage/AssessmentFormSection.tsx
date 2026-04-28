@@ -130,45 +130,8 @@ export default function AssessmentFormSection() {
             </h2>
 
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-              Our free diagnostic gives you a clear picture of where your processes are losing capacity. Ten minutes to answer the questions. Results within 24 hours.
+              Our free diagnostic shows you exactly where your processes are losing capacity. Ten minutes. Results within 24 hours.
             </p>
-
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontWeight: 500,
-                fontSize: "var(--text-body-sm)",
-                color: "var(--color-ink-inverted)",
-                marginBottom: "0.75rem",
-              }}
-            >
-              After you see the results, you&apos;ll know:
-            </p>
-
-            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 var(--space-para-section)" }}>
-              {[
-                "Understand which tools are helping vs. creating more work",
-                "Find where your team's time is being wasted",
-                "Get a prioritised list of fixes — ranked by impact",
-                "See exactly how many hours per week you could recover",
-                "Get a clear picture, with or without us",
-              ].map((item) => (
-                <li key={item} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", marginBottom: "0.5rem" }}>
-                  <span className="bullet-cyan" style={{ marginTop: "9px" }} />
-                  <span
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-body-sm)",
-                      fontWeight: 300,
-                      color: "rgba(250,250,248,0.75)",
-                      lineHeight: "var(--leading-body)",
-                    }}
-                  >
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
 
             <p
               style={{
@@ -418,7 +381,7 @@ export default function AssessmentFormSection() {
               fontStyle: "italic",
             }}
           >
-            No obligation. If the diagnostic doesn&apos;t show a clear opportunity, we&apos;ll tell you that — and you&apos;ll still have a clear picture of where your business stands.
+            No obligation. If there&apos;s no clear opportunity, we&apos;ll tell you — and you&apos;ll still walk away with a clear picture of where you stand.
           </p>
         </div>
       </div>

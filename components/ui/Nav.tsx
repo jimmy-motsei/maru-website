@@ -10,7 +10,7 @@ import Button from './Button'
 // ─── Nav link definitions ─────────────────────────────────────────────────────
 
 const allLinks = [
-  { label: 'Home',         href: '/' },
+  { label: 'About',        href: '/about' },
   { label: 'Services',     href: '/services' },
   { label: 'How We Work',  href: '/process' },
   { label: 'Pricing',      href: '/pricing' },

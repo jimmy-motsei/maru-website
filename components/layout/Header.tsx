@@ -22,8 +22,14 @@ const menuGroups: MenuGroup[] = [
     label: "Homepage",
     items: [
       { name: "Landing Page", href: "/" },
-      { name: "About", href: "/about" },
       { name: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    id: "about",
+    label: "About",
+    items: [
+      { name: "About", href: "/about" },
     ],
   },
   {
@@ -284,6 +290,20 @@ export function Header() {
                     pathMatches(pathname, item.href),
                   );
                   const isOpen = openGroupId === group.id;
+
+                  if (group.items.length === 1) {
+                    return (
+                      <li key={group.id}>
+                        <Link
+                          href={group.items[0].href}
+                          onClick={closeMenu}
+                          className={`maru-main-link ${isCurrentGroup ? "maru-current" : ""}`}
+                        >
+                          {group.label}
+                        </Link>
+                      </li>
+                    );
+                  }
 
                   return (
                     <li

@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Button from "@/components/ui/Button";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 import AssessmentFormSection from "@/components/homepage/AssessmentFormSection";
-import NewsletterSection from "@/components/homepage/NewsletterSection";
 import PrimaryServicesFilter from "@/components/homepage/PrimaryServicesFilter";
 import ImageSplit from "@/components/ui/ImageSplit";
 import ImageBand from "@/components/ui/ImageBand";
@@ -185,36 +184,30 @@ export default function Home() {
         <div className={innerWide}>
           <FadeUp>
             <span className="label-eyebrow" style={{ marginBottom: "1.5rem" }}>The operational gap</span>
-            <h2 style={{ marginBottom: "var(--space-heading-body)" }}>
+            <h2 style={{ marginBottom: "var(--space-section-header-mb)" }}>
               <span style={{ fontWeight: 700 }}>Your tools work.</span>
               <br />
-              <span style={{ fontWeight: 300 }}>They&apos;re just not talking to each other.</span>
+              <span style={{ fontWeight: 300 }}>Your workflows don&apos;t.</span>
             </h2>
-            <p className="body-muted" style={{ maxWidth: "640px", marginBottom: "var(--space-para-section)" }}>
-              You already own the right business software. The problem is the manual admin between them—the copy-pasting, the re-entry, and the chasing.
-            </p>
-            <p className="body-muted" style={{ maxWidth: "640px", marginBottom: "var(--space-section-header-mb)" }}>
-              That is where we work. We use AI to configure the connections that turn your separate tools into a single, automated system that creates team capacity and orchestration.
-            </p>
           </FadeUp>
 
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ marginBottom: "var(--space-section-header-mb)" }}>
             {[
               {
                 heading: "Your tools don’t talk to each other.",
-                body: "Your CRM, email, and accounting platforms work fine—separately. Your team spends every day manually bridging the gaps. That is effort wasted on work that should be automatic.",
+                body: "Your CRM, email, and accounting software all work — separately. Your team pays the difference in manual effort, every day.",
               },
               {
                 heading: "Manual admin is killing your capacity.",
-                body: "Re-entering data and chasing confirmation emails are not \"small tasks.\" They stack up to days of lost productivity every month. We eliminate the busywork that shouldn’t exist.",
+                body: "Re-entering data and chasing confirmations aren’t small tasks. They stack into days of lost productivity every month.",
               },
               {
-                heading: "Decisions made on gut feel.",
-                body: "When data lives in five different places, you have no single view of performance. You are making decisions based on last month’s exports that are already out of date.",
+                heading: "You’re making decisions on stale data.",
+                body: "When information lives across five systems, you’re always working from last month’s export. Never from right now.",
               },
               {
                 heading: "Manual data handling is a POPIA risk.",
-                body: "Inconsistency is exposure. When consent and storage are not automated, they are inconsistent. We build compliance into your workflows so your data is handled correctly every time.",
+                body: "Inconsistent consent and storage aren’t just inefficient — they’re exposure. We build compliance in from the start.",
               },
             ].map((col) => (
               <StaggerChild key={col.heading}>
@@ -261,22 +254,12 @@ export default function Home() {
                 lineHeight: "var(--leading-body)",
               }}
             >
-              These aren&apos;t technology problems. They&apos;re configuration problems. And they&apos;re solvable without replacing the systems your team already knows.
+              These are configuration problems — solvable without replacing a single system your team already uses.
             </p>
           </FadeUp>
         </div>
       </section>
 
-      {/* ── IMAGE SPLIT — between problem cards and metrics ─────────────── */}
-      <ImageSplit
-        src="/images/people/integration-gap-image.webp"
-        alt="Business team reviewing data and analytics together in a meeting"
-        eyebrow="The integration gap"
-        heading="Your tools work. Your workflows don't."
-        body="Most growing businesses have the right software. The problem is the manual handoffs between them—the copy-pasting, the re-entry, and the chasing. These gaps cost you time and revenue.\n\nThat is where we work. We configure the connections that turn your separate tools into a single, automated system."
-        imagePosition="left"
-        bg="var(--color-bg-canvas)"
-      />
 
       {/* ════════════════════════════════════════════════════════════════════
           SECTION 03 — METRICS BAR
@@ -360,7 +343,7 @@ export default function Home() {
               className="body-muted"
               style={{ maxWidth: "640px", marginBottom: "var(--space-section-header-mb)" }}
             >
-              We solve your business problem, not your AI problem. Start with your primary challenge.
+              Six services. One starting point — the free diagnostic.
             </p>
           </FadeUp>
 
@@ -387,7 +370,7 @@ export default function Home() {
               className="body-muted"
               style={{ maxWidth: "680px", marginBottom: "var(--space-section-header-mb)" }}
             >
-              AI-powered workflows work best on strong foundations. If your strategy needs clarity, your digital presence needs rebuilding, or your marketing needs direction — we handle that too.
+              Strong workflows need strong foundations. We handle the strategy, build, and marketing that makes integration possible.
             </p>
           </FadeUp>
 
@@ -406,7 +389,7 @@ export default function Home() {
               {
                 ghost: "01",
                 name: "Strategy & Consultation",
-                description: "Discovery and planning before implementation. We map your competitor landscape, market position, and technology needs before anything is built.",
+                description: "We map your market position, technology needs, and competitor landscape before anything gets built.",
                 deliverables: [
                   "User research and audience insights",
                   "Digital roadmap and technology strategy",
@@ -418,7 +401,7 @@ export default function Home() {
               {
                 ghost: "02",
                 name: "Design & Development",
-                description: "Digital products built with AI integration in mind. Lead capture, data collection, and workflow automation baked in — not retrofitted.",
+                description: "Digital products built for AI integration from day one — lead capture, data collection, and workflow automation baked in.",
                 deliverables: [
                   "Website and web application development",
                   "E-commerce platform builds",
@@ -430,7 +413,7 @@ export default function Home() {
               {
                 ghost: "03",
                 name: "Digital Marketing Support",
-                description: "Strategic insights from your data — then the campaign execution that acts on what the data reveals. Marketing without data is guesswork.",
+                description: "Strategic insights from your data, then the campaign execution that acts on what the data reveals.",
                 deliverables: [
                   "Website analytics and insights",
                   "Campaign strategy and planning",
@@ -545,17 +528,9 @@ export default function Home() {
       >
         <div className={inner}>
           <FadeUp>
-            <h2>
-              <span style={{ fontWeight: 300 }}>Our</span>
-              <br />
-              <span style={{ fontWeight: 700 }}>4-Step Process</span>
+            <h2 style={{ marginBottom: "var(--space-section-header-mb)", fontWeight: 700 }}>
+              Our 4-Step Process
             </h2>
-            <p
-              className="body-muted"
-              style={{ maxWidth: "620px", marginBottom: "var(--space-section-header-mb)" }}
-            >
-              A structured approach for growing SMEs to implement AI-powered workflows with clarity and measurable results.
-            </p>
           </FadeUp>
 
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -635,7 +610,7 @@ export default function Home() {
               }}
             >
               <p className="body-muted" style={{ marginBottom: 0, maxWidth: "560px" }}>
-                This process keeps you informed and in control at every step. No surprises. No waiting to understand what&apos;s happening.
+                Four steps. Fixed price. Measured outcome.
               </p>
               <Button href="#assessment" variant="primary">
                 Get My Free Assessment
@@ -659,81 +634,6 @@ export default function Home() {
           ════════════════════════════════════════════════════════════════════ */}
       <AssessmentFormSection />
 
-      {/* ════════════════════════════════════════════════════════════════════
-          SECTION 08 — NEWSLETTER (client component)
-          bg: white (#FFFFFF)
-          ════════════════════════════════════════════════════════════════════ */}
-      <NewsletterSection />
-
-      {/* ════════════════════════════════════════════════════════════════════
-          SECTION 09 — FOOTER CTA
-          bg: navy-deep (#0D1B2A)
-          ════════════════════════════════════════════════════════════════════ */}
-      <section
-        className={`relative ${outerPad} py-24`}
-        style={{ backgroundColor: "var(--color-bg-navy-deep)" }}
-      >
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            bottom: "-60px",
-            left: "-60px",
-            width: "320px",
-            height: "320px",
-            borderRadius: "50%",
-            border: "1px solid rgba(61,184,198,0.08)",
-            pointerEvents: "none",
-          }}
-        />
-        <div className={innerNarrow}>
-          <FadeUp>
-            <h2
-              className="h2-cta"
-              style={{ marginBottom: "var(--space-heading-body)" }}
-            >
-              <span style={{ fontWeight: 300 }}>Ready to find out</span>
-              <br />
-              <span style={{ fontWeight: 700 }}>what&apos;s costing you time and money?</span>
-            </h2>
-          </FadeUp>
-
-          <FadeUp delay={0.08}>
-            <p
-              className="body-on-navy"
-              style={{
-                marginBottom: "var(--space-section-header-mb)",
-                fontWeight: 400,
-                color: "var(--color-ink-inverted)",
-              }}
-            >
-              Start with a free diagnostic. We&apos;ll show you exactly where you&apos;re losing time and money, what to fix first, and what working with us looks like. No obligation.
-            </p>
-          </FadeUp>
-
-          <FadeUp delay={0.14}>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5" style={{ marginBottom: "1.25rem" }}>
-              <Button href="#assessment" variant="primary">
-                Get Your Free Diagnostic
-              </Button>
-              <Button href="#process" variant="tertiary">
-                See our four-step process
-              </Button>
-            </div>
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "var(--text-meta)",
-                fontWeight: 300,
-                color: "rgba(250,250,248,0.4)",
-                marginBottom: 0,
-              }}
-            >
-              No obligation. POPIA compliant. 24-hour turnaround.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
     </>
   );
 }
