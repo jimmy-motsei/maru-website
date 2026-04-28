@@ -194,20 +194,20 @@ export default function Home() {
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ marginBottom: "var(--space-section-header-mb)" }}>
             {[
               {
-                heading: "Disconnected systems",
-                body: "Your CRM, email, and accounting platform each work fine — separately. Your team bridges the gaps manually, every day.",
+                heading: "Your tools don’t talk to each other.",
+                body: "Your CRM, email, and accounting platforms work fine—separately. Your team spends every day manually bridging the gaps. That is effort wasted on work that should be automatic.",
               },
               {
-                heading: "Admin that shouldn’t exist",
-                body: "Re-entering data. Copying across spreadsheets. Chasing confirmation emails. These aren’t small tasks — they stack up to days lost every month.",
+                heading: "Manual admin is killing your capacity.",
+                body: "Re-entering data and chasing confirmation emails are not \"small tasks.\" They stack up to days of lost productivity every month. We eliminate the busywork that shouldn’t exist.",
               },
               {
-                heading: "No visibility on what’s working",
-                body: "When data lives in five places, there’s no single view of performance. Decisions get made on gut feel — or last month’s export that’s already out of date.",
+                heading: "Decisions made on gut feel.",
+                body: "When data lives in five different places, you have no single view of performance. You are making decisions based on last month’s exports that are already out of date.",
               },
               {
-                heading: "Compliance risk in the gaps",
-                body: "Manual data handling is where POPIA exposure lives. When consent, storage, and access aren’t automated, they’re inconsistent — and inconsistency is risk.",
+                heading: "Manual data handling is a POPIA risk.",
+                body: "Inconsistency is exposure. When consent and storage are not automated, they are inconsistent. We build compliance into your workflows so your data is handled correctly every time.",
               },
             ].map((col) => (
               <StaggerChild key={col.heading}>
@@ -266,7 +266,7 @@ export default function Home() {
         alt="Two professionals reviewing data on a monitor in a modern office"
         eyebrow="The integration gap"
         heading="Your tools work. Your workflows don't."
-        body="Most growing SA businesses have the right software in place. The problem is the manual handoffs between them — the copy-paste, the re-entry, the chasing. That's where Maru works."
+        body="Most growing businesses have the right software. The problem is the manual handoffs between them—the copy-pasting, the re-entry, and the chasing. These gaps cost you time and revenue.\n\nThat is where we work. We configure the connections that turn your separate tools into a single, automated system."
         imagePosition="left"
         bg="var(--color-bg-canvas)"
       />

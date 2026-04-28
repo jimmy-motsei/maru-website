@@ -67,6 +67,21 @@ const nextConfig: NextConfig = {
         destination: '/resources',
         permanent: true,
       },
+      {
+        source: '/ai-readiness',
+        destination: '/operations-diagnostic',
+        permanent: true,
+      },
+      {
+        source: '/ai-implementation-assessment',
+        destination: '/operations-diagnostic',
+        permanent: true,
+      },
+      {
+        source: '/ai-implementation-audit',
+        destination: '/operations-diagnostic',
+        permanent: true,
+      },
     ];
   },
 };

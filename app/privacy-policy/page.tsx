@@ -145,7 +145,7 @@ export default function PrivacyPolicyPage() {
         <ul className="list-disc list-inside space-y-2 text-light-soft mb-4">
           <li>Grade multiple-choice quizzes immediately upon submission.</li>
           <li>Award automated badges and certificates based on completion criteria.</li>
-          <li>Assess "AI Readiness" scores based on form inputs.</li>
+          <li>Assess Operations Diagnostic scores based on form inputs.</li>
         </ul>
         <p className="text-light-soft">
           These automated decisions do not have legal or similarly significant effects on you. However, if you believe an automated grading or scoring error has occurred, you have the right to request manual review by contacting our support team.

@@ -51,7 +51,7 @@ export default function TermsConditionsPage() {
           </div>
           
           <p className="text-light-soft">
-            <strong className="text-white">Custom Projects:</strong> Project fees range from R25,000 for single workflow automation to R200,000+ for comprehensive sales and marketing systems. All pricing is provided in fixed-price quotes following your free AI Readiness Assessment.
+            <strong className="text-white">Custom Projects:</strong> Project fees range from R25,000 for single workflow automation to R200,000+ for comprehensive sales and marketing systems. All pricing is provided in fixed-price quotes following your Operations Diagnostic.
           </p>
 
           <div>

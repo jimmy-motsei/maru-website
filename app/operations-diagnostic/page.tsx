@@ -2,7 +2,7 @@
 
 /**
  * Maru Online — Operations Diagnostic Assessment Page
- * File: app/ai-readiness/page.tsx
+ * File: app/operations-diagnostic/page.tsx
  * 
  * Flow:
  * Step 0: Framing (pre-assessment context)

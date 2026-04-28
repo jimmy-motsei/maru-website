@@ -7,7 +7,7 @@ export const contactFormSchema = z.object({
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
 
-export const aiReadinessSchema = z.object({
+export const operationsDiagnosticSchema = z.object({
   firstname: z.string().min(2, 'Name is required'),
   email: z.string().email('Invalid email address'),
   company: z.string().min(2, 'Company name is required'),
@@ -18,4 +18,4 @@ export const aiReadinessSchema = z.object({
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
-export type AIReadinessFormData = z.infer<typeof aiReadinessSchema>;
+export type OperationsDiagnosticFormData = z.infer<typeof operationsDiagnosticSchema>;

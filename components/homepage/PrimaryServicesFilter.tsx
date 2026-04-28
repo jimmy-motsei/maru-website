@@ -17,7 +17,7 @@ const services = [
     tag: 'Free entry point',
     tagColor: 'cyan',
     number: '01',
-    name: 'Free AI Readiness Assessment',
+    name: 'Operations Diagnostic',
     body: 'Recommended first step. We find exactly where you\'re losing time and money before prescribing anything.',
   },
   {

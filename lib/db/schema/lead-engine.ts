@@ -75,10 +75,10 @@ export const pipelineAnalyses = pgTable('pipeline_analyses', {
 });
 
 // =============================================================================
-// AI READINESS ASSESSMENTS TABLE
+// OPERATIONS DIAGNOSTIC TABLE
 // =============================================================================
 
-export const aiReadinessAssessments = pgTable('ai_readiness_assessments', {
+export const operationsDiagnosticAssessments = pgTable('ai_readiness_assessments', {
   id: uuid('id').primaryKey().defaultRandom(),
   leadId: uuid('lead_id').references(() => leads.id, { onDelete: 'set null' }),
   email: text('email').notNull(),
@@ -116,7 +116,7 @@ export type Assessment = typeof assessments.$inferSelect;
 export type NewAssessment = typeof assessments.$inferInsert;
 export type PipelineAnalysis = typeof pipelineAnalyses.$inferSelect;
 export type NewPipelineAnalysis = typeof pipelineAnalyses.$inferInsert;
-export type AIReadinessAssessment = typeof aiReadinessAssessments.$inferSelect;
-export type NewAIReadinessAssessment = typeof aiReadinessAssessments.$inferInsert;
+export type OperationsDiagnostic = typeof operationsDiagnosticAssessments.$inferSelect;
+export type NewOperationsDiagnostic = typeof operationsDiagnosticAssessments.$inferInsert;
 export type LeadActivity = typeof leadActivities.$inferSelect;
 export type NewLeadActivity = typeof leadActivities.$inferInsert;
