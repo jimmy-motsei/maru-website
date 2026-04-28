@@ -44,7 +44,7 @@ export function Partners() {
           {allPartners.map((partner, index) => (
             <motion.div
               key={`${partner.name}-${index}`}
-              className="flex-shrink-0 px-12 flex items-center justify-center min-w-[200px]"
+              className="flex-shrink-0 px-6 sm:px-12 flex items-center justify-center min-w-[140px] sm:min-w-[200px]"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "0px" }}

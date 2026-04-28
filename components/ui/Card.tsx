@@ -206,11 +206,14 @@ export function IconBox({ icon, className, color = "var(--color-cyan-primary)" }
       className={cn(
         "w-12 h-12 rounded-xl flex items-center justify-center",
         "bg-[#1a1a1a] border",
+        "transition-[transform,box-shadow,border-color] duration-200 ease-out",
+        "group-hover:scale-105 group-hover:border-[color:var(--icon-hover-border)]",
         className
       )}
       style={{
         borderColor: `${color}30`,
         color: color,
+        ["--icon-hover-border" as string]: `${color}70`,
       }}
     >
       {icon}

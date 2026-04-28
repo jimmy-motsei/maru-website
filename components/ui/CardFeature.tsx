@@ -13,8 +13,8 @@ export default function CardFeature({ icon, title, body, className = '' }: CardF
       className={`
         group flex flex-col gap-4 p-7
         bg-white border border-[#E2E8F0] rounded-none
-        hover:bg-[rgba(61,184,198,0.08)]
-        transition-colors duration-200
+        hover:bg-[rgba(61,184,198,0.08)] hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.07)] hover:border-[#3DB8C6]
+        transition-[transform,box-shadow,border-color,background-color] duration-300 ease-out
         ${className}
       `}
     >
@@ -23,8 +23,8 @@ export default function CardFeature({ icon, title, body, className = '' }: CardF
         className="
           w-11 h-11 flex items-center justify-center rounded-none
           bg-[rgba(61,184,198,0.1)]
-          group-hover:bg-[#3DB8C6]
-          transition-colors duration-200
+          group-hover:bg-[#3DB8C6] group-hover:scale-105
+          transition-[transform,background-color] duration-200
         "
       >
         <span className="text-cyan group-hover:text-white transition-colors duration-200">

@@ -90,7 +90,7 @@ export default function Home() {
           bg: navy-deep (#0D1B2A)
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`relative min-h-screen flex items-center ${outerPad} pt-48 pb-32`}
+        className={`relative min-h-screen flex items-center ${outerPad} pt-28 sm:pt-36 md:pt-48 pb-16 sm:pb-24 md:pb-32`}
         style={{ backgroundColor: "var(--color-bg-navy-deep)" }}
       >
         <BGPattern
@@ -102,6 +102,7 @@ export default function Home() {
         />
         <div
           aria-hidden="true"
+          className="hidden sm:block"
           style={{
             position: "absolute",
             top: "-100px",

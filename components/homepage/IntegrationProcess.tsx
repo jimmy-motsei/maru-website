@@ -95,7 +95,7 @@ export function IntegrationProcess() {
                 key={stage.step}
                 onClick={() => handleClick(index)}
                 onMouseEnter={() => handleMouseEnter(index)}
-                className={`relative px-[30px] py-[40px] cursor-pointer transition-colors duration-300
+                className={`relative px-5 py-7 sm:px-[30px] sm:py-[40px] cursor-pointer transition-colors duration-300
                   border-b lg:border-b-0
                   ${!isLast ? "border-r-0 lg:border-r border-white/10" : ""}
                   ${isActive ? "bg-white/5" : "hover:bg-white/[0.03]"}

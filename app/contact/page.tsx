@@ -80,7 +80,7 @@ export default function ContactPage() {
         style={{ backgroundColor: 'var(--color-bg-primary)' }}
       >
         <div className={innerWide}>
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-24 items-end">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-10 md:gap-24 items-end">
 
             {/* Left — form */}
             <FadeUp>

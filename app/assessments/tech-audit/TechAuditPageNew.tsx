@@ -267,7 +267,7 @@ export default function TechAuditPage() {
           </div>
 
           {/* Available Tools */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
             {filteredTools.slice(0, 12).map(tool => (
               <div key={tool.id} className="p-4 bg-zinc-800 border border-zinc-700 rounded-lg">
                 <div className="flex justify-between items-start mb-2">

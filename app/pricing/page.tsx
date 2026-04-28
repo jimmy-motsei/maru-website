@@ -4,6 +4,7 @@ import { BGPattern } from '@/components/ui/bg-pattern'
 import ListItem from '@/components/ui/ListItem'
 import ListGroup from '@/components/ui/ListGroup'
 import { FadeUp, StaggerParent, StaggerChild } from '@/components/ui/Animate'
+import AccordionFAQ from '@/components/ui/AccordionFAQ'
 
 export const metadata: Metadata = {
   title:       'Pricing | Maru Online',
@@ -300,7 +301,7 @@ export default function PricingPage() {
 
                   {/* Card body */}
                   <div
-                    className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-10 md:gap-16"
+                    className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 md:gap-10 lg:gap-16"
                     style={{ padding: '1.75rem 2rem' }}
                   >
                     <div>
@@ -359,37 +360,9 @@ export default function PricingPage() {
             </div>
           </FadeUp>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            {faqs.map((faq, i) => (
-              <FadeUp key={i}>
-                <div
-                  style={{
-                    borderTop:  '1px solid var(--color-border-default)',
-                    padding:    '1.5rem 0',
-                  }}
-                >
-                  <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-4 md:gap-16">
-                    <p
-                      style={{
-                        fontFamily:   'var(--font-display)',
-                        fontSize:     'var(--text-h3-serif)',
-                        fontWeight:   600,
-                        color:        'var(--color-navy)',
-                        lineHeight:   'var(--leading-subheading)',
-                        margin:       0,
-                      }}
-                    >
-                      {faq.q}
-                    </p>
-                    <p className="body-muted" style={{ margin: 0 }}>
-                      {faq.a}
-                    </p>
-                  </div>
-                </div>
-              </FadeUp>
-            ))}
-            <div style={{ borderTop: '1px solid var(--color-border-default)' }} />
-          </div>
+          <FadeUp delay={0.08}>
+            <AccordionFAQ items={faqs} />
+          </FadeUp>
         </div>
       </section>
 
@@ -424,16 +397,14 @@ export default function PricingPage() {
                 marginBottom: 'var(--space-heading-body)',
               }}
             >
-              <span style={{ fontWeight: 300 }}>The diagnostic is where</span>
+              <span style={{ fontWeight: 300 }}>Start with</span>
               <br />
-              <span style={{ fontWeight: 700 }}>every engagement starts.</span>
+              <span style={{ fontWeight: 700 }}>a Diagnostic</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: 'var(--space-para-section)' }}>
-              It is where you find out if we are the right fit. R4,500.
-              48-hour turnaround. A written report with your gaps, the cost
-              of each, and a prioritised configuration order.
+              It takes 15 minutes. A written report delivered in 48 hours.
             </p>
             <hr
               className="rule"
@@ -449,7 +420,7 @@ export default function PricingPage() {
                 Start with Diagnostic
               </Button>
               <Button href="/booking" variant="tertiary">
-                Book a 20-minute call — no pitch
+                Book a 20-minute call
               </Button>
             </div>
           </FadeUp>
