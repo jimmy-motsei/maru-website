@@ -3,7 +3,6 @@ import Link from "next/link";
 import { BGPattern } from "@/components/ui/bg-pattern";
 import { FileCheck, Wrench, Clock } from "lucide-react";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
-import { MaruBriefForm } from "./MaruBriefForm";
 
 export const metadata: Metadata = {
   title: "Resources | Maru Online",
@@ -253,37 +252,6 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Maru Brief email capture */}
-      <section
-        className={`${outerPad} py-16`}
-        style={{ backgroundColor: "var(--color-bg-canvas)" }}
-      >
-        <div className={innerNarrow}>
-          <FadeUp>
-            <h2 style={{ marginBottom: "var(--space-heading-body)" }}>
-              <span style={{ fontWeight: 300 }}>Get</span>
-              <br />
-              <span style={{ fontWeight: 700 }}>The Maru Brief</span>
-            </h2>
-            <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-              A fortnightly email with one practical AI revenue insight for South African SMEs. No fluff, no sales pitch.
-            </p>
-            <MaruBriefForm />
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize:   "var(--text-meta)",
-                fontWeight: 300,
-                color:      "var(--color-ink-tertiary)",
-                marginTop:  "1rem",
-                marginBottom: 0,
-              }}
-            >
-              Handled in compliance with POPIA. Unsubscribe anytime.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
     </>
   );
 }

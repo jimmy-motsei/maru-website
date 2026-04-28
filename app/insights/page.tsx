@@ -3,7 +3,7 @@ import Image from "next/image";
 import { BGPattern } from "@/components/ui/bg-pattern";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
-import BriefForm from "./BriefForm";
+import { MaruBriefForm } from "@/app/resources/MaruBriefForm";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 
 export const metadata: Metadata = {
@@ -473,7 +473,7 @@ export default function InsightsPage() {
           </FadeUp>
 
           <FadeUp delay={0.08}>
-            <BriefForm />
+            <MaruBriefForm />
           </FadeUp>
         </div>
       </section>
