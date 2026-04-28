@@ -399,7 +399,11 @@ export default function InsightsPage() {
       >
         <div className={inner}>
           <FadeUp>
-            <h2>All articles</h2>
+            <h2>
+              <span style={{ fontWeight: 300 }}>All</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>articles</span>
+            </h2>
 
             {/* Category filter row */}
             <div
@@ -454,7 +458,11 @@ export default function InsightsPage() {
         <div className={innerNarrow}>
           <FadeUp>
             <span className="label-eyebrow-gold">Monthly Best Practices for AI Integration</span>
-            <h2>The Integration Standard</h2>
+            <h2>
+              <span style={{ fontWeight: 300 }}>The</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>Integration Standard</span>
+            </h2>
             <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
               One practical AI insight for South African SMEs every month. No
               vendor fluff. No sales pitch. Each edition covers one pattern we
@@ -502,7 +510,9 @@ export default function InsightsPage() {
                 marginBottom:  "var(--space-heading-body)",
               }}
             >
-              Reading about integration gaps is one thing. Finding yours is another.
+              <span style={{ fontWeight: 300 }}>Reading about integration gaps is one thing.</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>Finding yours is another.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>

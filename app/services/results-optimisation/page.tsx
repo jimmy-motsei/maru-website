@@ -242,7 +242,9 @@ export default function ResultsOptimisationPage() {
                 marginBottom: "var(--space-heading-body)",
               }}
             >
-              Every engagement starts with the diagnostic. The data tells us what comes next.
+              <span style={{ fontWeight: 300 }}>Every engagement starts with the diagnostic.</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>The data tells us what comes next.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>

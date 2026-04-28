@@ -261,7 +261,9 @@ export default function ResourcesPage() {
         <div className={innerNarrow}>
           <FadeUp>
             <h2 style={{ marginBottom: "var(--space-heading-body)" }}>
-              Get The Maru Brief
+              <span style={{ fontWeight: 300 }}>Get</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>The Maru Brief</span>
             </h2>
             <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
               A fortnightly email with one practical AI revenue insight for South African SMEs. No fluff, no sales pitch.

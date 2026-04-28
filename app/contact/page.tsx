@@ -104,7 +104,11 @@ export default function ContactPage() {
                   </p>
                 </div>
 
-                <h2 style={{ marginBottom: '1.5rem' }}>Or send a message directly</h2>
+                <h2 style={{ marginBottom: '1.5rem' }}>
+                  <span style={{ fontWeight: 300 }}>Or send a</span>
+                  <br />
+                  <span style={{ fontWeight: 700 }}>message directly</span>
+                </h2>
 
                 <ContactForm />
               </div>

@@ -83,7 +83,13 @@ export default function AboutPage() {
         style={{ backgroundColor: "var(--color-bg-primary)" }}
       >
         <div className={innerNarrow}>
-          <FadeUp><h2>Before Maru Online</h2></FadeUp>
+          <FadeUp>
+            <h2>
+              <span style={{ fontWeight: 300 }}>Before</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>Maru Online</span>
+            </h2>
+          </FadeUp>
           <FadeUp delay={0.06}>
             <p
               style={{
@@ -156,7 +162,13 @@ export default function AboutPage() {
         style={{ backgroundColor: "var(--color-bg-canvas)" }}
       >
         <div className={inner}>
-          <FadeUp><h2>The pivot that became Maru Online</h2></FadeUp>
+          <FadeUp>
+            <h2>
+              <span style={{ fontWeight: 300 }}>The pivot that became</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>Maru Online</span>
+            </h2>
+          </FadeUp>
           <FadeUp delay={0.08}>
             <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-10 md:gap-14 items-start">
               {/* Portrait */}
@@ -252,7 +264,11 @@ export default function AboutPage() {
       >
         <div className={inner}>
           <FadeUp>
-            <h2>Track record</h2>
+            <h2>
+              <span style={{ fontWeight: 300 }}>Track</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>record</span>
+            </h2>
             <p
               className="body-muted"
               style={{ maxWidth: "580px", marginBottom: "var(--space-section-header-mb)" }}
@@ -318,7 +334,11 @@ export default function AboutPage() {
       >
         <div className={inner}>
           <FadeUp>
-            <h2>How Jimmy works — and why it&apos;s different</h2>
+            <h2>
+              <span style={{ fontWeight: 300 }}>How Jimmy works —</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>and why it&apos;s different</span>
+            </h2>
             <p className="body-muted" style={{ marginBottom: "var(--space-section-header-mb)" }}>
               Two decades of commercial experience produce one instinct above all others: diagnose before you prescribe.
             </p>
@@ -355,7 +375,11 @@ export default function AboutPage() {
       >
         <div className={inner}>
           <FadeUp>
-            <h2>What ten years of watching SA businesses operate leaves you</h2>
+            <h2>
+              <span style={{ fontWeight: 300 }}>What ten years of watching SA businesses operate</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>leaves you</span>
+            </h2>
             <p
               className="body-muted"
               style={{ maxWidth: "580px", marginBottom: "var(--space-section-header-mb)" }}
@@ -423,7 +447,9 @@ export default function AboutPage() {
                 marginBottom: "var(--space-heading-body)",
               }}
             >
-              If you want clarity before you commit to anything.
+              <span style={{ fontWeight: 300 }}>If you want clarity</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>before you commit to anything.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>

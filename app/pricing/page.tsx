@@ -196,7 +196,11 @@ export default function PricingPage() {
           <FadeUp>
             <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
               <span className="label-eyebrow-gold">Engagements</span>
-              <h2>Start here. Build from what we find.</h2>
+              <h2>
+                <span style={{ fontWeight: 300 }}>Start here.</span>
+                <br />
+                <span style={{ fontWeight: 700 }}>Build from what we find.</span>
+              </h2>
               <p
                 className="body-muted"
                 style={{ margin: 0, maxWidth: '560px' }}
@@ -347,7 +351,11 @@ export default function PricingPage() {
           <FadeUp>
             <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
               <span className="label-eyebrow-gold">Common questions</span>
-              <h2>A note on how we price</h2>
+              <h2>
+                <span style={{ fontWeight: 300 }}>A note on</span>
+                <br />
+                <span style={{ fontWeight: 700 }}>how we price</span>
+              </h2>
             </div>
           </FadeUp>
 
@@ -416,7 +424,9 @@ export default function PricingPage() {
                 marginBottom: 'var(--space-heading-body)',
               }}
             >
-              The diagnostic is where every engagement starts.
+              <span style={{ fontWeight: 300 }}>The diagnostic is where</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>every engagement starts.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>

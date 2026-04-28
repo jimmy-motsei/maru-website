@@ -246,7 +246,9 @@ export default function WorkflowIntegrationPage() {
                 marginBottom: "var(--space-heading-body)",
               }}
             >
-              Every integration starts with the diagnostic. That&apos;s where the scope comes from.
+              <span style={{ fontWeight: 300 }}>Every integration starts with the diagnostic.</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>That&apos;s where the scope comes from.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>

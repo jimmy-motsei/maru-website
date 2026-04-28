@@ -246,7 +246,9 @@ export default function TeamTrainingHandoverPage() {
                 marginBottom: "var(--space-heading-body)",
               }}
             >
-              Start with the diagnostic. Training is scoped from what we find.
+              <span style={{ fontWeight: 300 }}>Start with the diagnostic.</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>Training is scoped from what we find.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>

@@ -243,7 +243,9 @@ export default function OperationsDiagnosticPage() {
                 marginBottom: "var(--space-heading-body)",
               }}
             >
-              The right place to start is a conversation about where your operation has gaps.
+              <span style={{ fontWeight: 300 }}>The right place to start is</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>a conversation about where your operation has gaps.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>

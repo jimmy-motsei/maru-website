@@ -333,7 +333,11 @@ export default function ProcessPage() {
           <FadeUp>
             <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
               <span className="label-eyebrow-gold">Common questions</span>
-              <h2>How the process works in practice</h2>
+              <h2>
+                <span style={{ fontWeight: 300 }}>How the process works</span>
+                <br />
+                <span style={{ fontWeight: 700 }}>in practice</span>
+              </h2>
             </div>
           </FadeUp>
 
@@ -406,7 +410,9 @@ export default function ProcessPage() {
                 marginBottom: 'var(--space-heading-body)',
               }}
             >
-              Start with a Diagnostic
+              <span style={{ fontWeight: 300 }}>Start with</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>a Diagnostic</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>

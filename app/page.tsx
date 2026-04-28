@@ -185,9 +185,16 @@ export default function Home() {
         <div className={innerWide}>
           <FadeUp>
             <span className="label-eyebrow" style={{ marginBottom: "1.5rem" }}>The operational gap</span>
-            <h2 style={{ marginBottom: "var(--space-heading-body)" }}>Your tools aren&apos;t talking to each other.</h2>
+            <h2 style={{ marginBottom: "var(--space-heading-body)" }}>
+              <span style={{ fontWeight: 700 }}>Your tools work.</span>
+              <br />
+              <span style={{ fontWeight: 300 }}>They&apos;re just not talking to each other.</span>
+            </h2>
+            <p className="body-muted" style={{ maxWidth: "640px", marginBottom: "var(--space-para-section)" }}>
+              You already own the right business software. The problem is the manual admin between them—the copy-pasting, the re-entry, and the chasing.
+            </p>
             <p className="body-muted" style={{ maxWidth: "640px", marginBottom: "var(--space-section-header-mb)" }}>
-              Most growing businesses have the right tools in place. The problem isn&apos;t the software — it&apos;s the connection between them. That connection is where time disappears, errors happen, and your team ends up doing by hand what should run automatically.
+              That is where we work. We use AI to configure the connections that turn your separate tools into a single, automated system that creates team capacity and orchestration.
             </p>
           </FadeUp>
 
@@ -344,7 +351,11 @@ export default function Home() {
       >
         <div className={innerWide}>
           <FadeUp>
-            <h2>How We Fix the Integration Gap</h2>
+            <h2>
+              <span style={{ fontWeight: 300 }}>How We Fix</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>the Integration Gap</span>
+            </h2>
             <p
               className="body-muted"
               style={{ maxWidth: "640px", marginBottom: "var(--space-section-header-mb)" }}
@@ -367,7 +378,11 @@ export default function Home() {
       >
         <div className={innerWide}>
           <FadeUp>
-            <h2>Beyond AI Integration — Full-Spectrum Business Support</h2>
+            <h2>
+              <span style={{ fontWeight: 300 }}>Beyond AI Integration —</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>Full-Spectrum Business Support</span>
+            </h2>
             <p
               className="body-muted"
               style={{ maxWidth: "680px", marginBottom: "var(--space-section-header-mb)" }}
@@ -530,7 +545,11 @@ export default function Home() {
       >
         <div className={inner}>
           <FadeUp>
-            <h2>Our 4-Step Process</h2>
+            <h2>
+              <span style={{ fontWeight: 300 }}>Our</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>4-Step Process</span>
+            </h2>
             <p
               className="body-muted"
               style={{ maxWidth: "620px", marginBottom: "var(--space-section-header-mb)" }}
@@ -673,7 +692,9 @@ export default function Home() {
               className="h2-cta"
               style={{ marginBottom: "var(--space-heading-body)" }}
             >
-              Ready to find out what&apos;s costing you time and money?
+              <span style={{ fontWeight: 300 }}>Ready to find out</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>what&apos;s costing you time and money?</span>
             </h2>
           </FadeUp>
 
