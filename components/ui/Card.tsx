@@ -131,13 +131,15 @@ export function ProcessCard({
       }}
       variants={{
         rest: {
-          boxShadow: "0 0 0 0 rgba(34, 211, 238, 0)",
+          boxShadow: "0 4px 16px rgba(0, 0, 0, 0.35)",
         },
         hover: glowOnHover
           ? {
-              boxShadow: "0 0 30px rgba(34, 211, 238, 0.15), 0 0 60px rgba(34, 211, 238, 0.05)",
+              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.35), 0 0 30px rgba(34, 211, 238, 0.15), 0 0 60px rgba(34, 211, 238, 0.05)",
             }
-          : {},
+          : {
+              boxShadow: "0 8px 28px rgba(0, 0, 0, 0.45)",
+            },
       }}
     >
       {children}
@@ -176,13 +178,15 @@ export function FeatureCard({
       }}
       variants={{
         rest: {
-          boxShadow: "0 0 0 0 rgba(34, 211, 238, 0)",
+          boxShadow: "0 4px 16px rgba(0, 0, 0, 0.35)",
         },
         hover: glowOnHover
           ? {
-              boxShadow: "0 0 20px rgba(34, 211, 238, 0.1)",
+              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.35), 0 0 20px rgba(34, 211, 238, 0.1)",
             }
-          : {},
+          : {
+              boxShadow: "0 8px 28px rgba(0, 0, 0, 0.45)",
+            },
       }}
     >
       {children}
