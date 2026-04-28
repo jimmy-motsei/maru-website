@@ -243,7 +243,7 @@ export default function InsightsPage() {
             <h1 className="maru-headline-split">
               <span className="maru-headline-split-strong">Practical AI thinking</span>
               <br />
-              <span className="maru-headline-split-light">for South African SMEs.</span>
+              <span className="maru-headline-split-light">for growing SMEs.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>
@@ -255,8 +255,7 @@ export default function InsightsPage() {
                 lineHeight:    "var(--leading-body)",
               }}
             >
-              No vendor fluff. No hype. Real patterns from real engagements —
-              written for business owners, not developers.
+              No hype. Just practical strategies from real-world success, tailored for SMEs.
             </p>
           </FadeUp>
         </div>
@@ -459,15 +458,15 @@ export default function InsightsPage() {
           <FadeUp>
             <span className="label-eyebrow-gold">Monthly Best Practices for AI Integration</span>
             <h2>
-              <span style={{ fontWeight: 300 }}>The</span>
+              <span style={{ fontWeight: 300 }}>The Business</span>
               <br />
-              <span style={{ fontWeight: 700 }}>Integration Standard</span>
+              <span style={{ fontWeight: 700 }}>AI Journal</span>
             </h2>
             <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-              One practical AI insight for South African SMEs every month. No
-              vendor fluff. No sales pitch. Each edition covers one pattern we
-              see in real engagements — a failure mode, a fix, or a framework.
-              Explained in plain language for business owners.
+              Unlock practical strategies to optimize your AI integration. Each
+              month, we deliver actionable insights from real-world
+              engagements—covering common pitfalls, effective fixes, and proven
+              frameworks. Written in plain language for business owners.
             </p>
 
             <hr className="rule" style={{ marginBottom: "var(--space-para-section)" }} />
