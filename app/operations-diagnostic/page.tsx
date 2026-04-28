@@ -14,6 +14,7 @@
 
 import { useState, useEffect } from "react";
 import { calculateScore, ScoreResult } from "@/lib/assessment/scoring";
+import { BGPattern } from "@/components/ui/bg-pattern";
 
 // ── Question definitions ───────────────────────────────────────────────────
 
@@ -166,7 +167,18 @@ export default function AssessmentPage() {
   // ── Render ────────────────────────────────────────────────────────────────
 
   return (
-    <main className="min-h-screen bg-[#0d1117] text-[#c9d1d9]">
+    <main
+      className="relative min-h-screen flex items-center text-[#c9d1d9]"
+      style={{ backgroundColor: "var(--color-bg-navy)" }}
+    >
+      <BGPattern
+        variant="grid"
+        mask="none"
+        size={40}
+        fill="rgba(61, 184, 198, 0.07)"
+        className="z-0"
+      />
+
       {/* Progress bar */}
       <div className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-[#1e2a38]">
         <div
@@ -175,7 +187,7 @@ export default function AssessmentPage() {
         />
       </div>
 
-      <div className="max-w-2xl mx-auto px-6 py-20">
+      <div className="relative z-10 w-full max-w-2xl mx-auto px-6 py-20">
 
         {/* ── INTRO ─────────────────────────────────────────────────────── */}
         {step === "intro" && (
