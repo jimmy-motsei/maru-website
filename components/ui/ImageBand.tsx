@@ -1,9 +1,10 @@
 import Image from 'next/image'
+import { ReactNode } from 'react'
 
 type ImageBandProps = {
   src: string
   alt: string
-  overlayText?: string
+  overlayText?: ReactNode
   height?: number
 }
 
@@ -51,7 +52,7 @@ export default function ImageBand({
             style={{
               fontFamily:   'var(--font-display)',
               fontSize:     'clamp(1.375rem, 3vw, 2.25rem)',
-              fontWeight:   300,
+              fontWeight:   600,
               color:        'var(--color-ink-inverted)',
               lineHeight:   'var(--leading-subheading)',
               letterSpacing: 'var(--tracking-tight)',

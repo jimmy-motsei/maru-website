@@ -262,8 +262,8 @@ export default function Home() {
 
       {/* ── IMAGE SPLIT — between problem cards and metrics ─────────────── */}
       <ImageSplit
-        src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=80"
-        alt="Two professionals reviewing data on a monitor in a modern office"
+        src="/images/people/integration-gap-image.webp"
+        alt="Business team reviewing data and analytics together in a meeting"
         eyebrow="The integration gap"
         heading="Your tools work. Your workflows don't."
         body="Most growing businesses have the right software. The problem is the manual handoffs between them—the copy-pasting, the re-entry, and the chasing. These gaps cost you time and revenue.\n\nThat is where we work. We configure the connections that turn your separate tools into a single, automated system."
@@ -628,8 +628,8 @@ export default function Home() {
 
       {/* ── IMAGE BAND — between process and assessment form ────────────── */}
       <ImageBand
-        src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=80"
-        alt="Professional team collaborating around a screen in a dark office"
+        src="/images/people/replace-team.png"
+        alt="Two professionals celebrating a win together in the office"
         overlayText="We don't replace your team. We give them their time back."
         height={420}
       />

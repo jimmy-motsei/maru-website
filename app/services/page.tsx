@@ -305,61 +305,18 @@ export default function ServicesPage() {
       ))}
 
       {/* ════════════════════════════════════════════════════════════════════
-          TESTIMONIALS — two navy cards
-          ════════════════════════════════════════════════════════════════════ */}
-      <section
-        className={`${outerPad} py-24`}
-        style={{ backgroundColor: "var(--color-bg-secondary)" }}
-      >
-        <div className={inner}>
-          <FadeUp><h2>What clients say</h2></FadeUp>
-          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
-            <StaggerChild>
-              <CardNavy label="Client" title="Sound Studio, Johannesburg">
-                <p>
-                  &ldquo;Since the site went live we&apos;ve been getting more
-                  business opportunities than before.&rdquo;
-                </p>
-                <p
-                  style={{
-                    marginTop: "0.75rem",
-                    marginBottom: 0,
-                    fontSize: "var(--text-meta)",
-                    color: "rgba(250,250,248,0.5)",
-                  }}
-                >
-                  — Founder, Sound Studio (Johannesburg)
-                </p>
-              </CardNavy>
-            </StaggerChild>
-            <StaggerChild>
-              <CardNavy label="Client" title="Seokane Inc">
-                <p>
-                  &ldquo;[Seokane Inc quote about quality of work and brand
-                  capture]&rdquo;
-                </p>
-                <p
-                  style={{
-                    marginTop: "0.75rem",
-                    marginBottom: 0,
-                    fontSize: "var(--text-meta)",
-                    color: "rgba(250,250,248,0.5)",
-                  }}
-                >
-                  — [Name], Seokane Inc ·{" "}
-                  <em>Placeholder — replace on receipt</em>
-                </p>
-              </CardNavy>
-            </StaggerChild>
-          </StaggerParent>
-        </div>
-      </section>
-
       {/* ── IMAGE BAND — before final CTA ────────────────────────────────── */}
       <ImageBand
-        src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1600&q=80"
-        alt="Two professionals reviewing analytics on a monitor in a dark office"
-        overlayText="Vendor-agnostic. Your tools stay. We configure the connections between them."
+        src="/images/people/vendor-agnostic.png"
+        alt="South African professionals working together at a computer"
+        overlayText={
+          <>
+            <span style={{ fontWeight: 300 }}>Vendor-agnostic.</span>{' '}
+            <span style={{ fontWeight: 700 }}>Your tools stay.</span>
+            <br />
+            <span style={{ fontWeight: 300 }}>We configure the connections between them.</span>
+          </>
+        }
         height={400}
       />
 
@@ -394,12 +351,14 @@ export default function ServicesPage() {
                 marginBottom: "var(--space-heading-body)",
               }}
             >
-              The right place to start is a conversation about where your operation has gaps.
+              <span style={{ fontWeight: 300 }}>The right place to start is</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>a conversation about where your operation has gaps.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-              Not a sales call. The Operations Diagnostic is where every engagement starts — a
+              The Operations Diagnostic is where every engagement starts — a
               structured audit of your current setup, a clear picture of what to configure first,
               and a written report delivered within 48 hours.
             </p>
@@ -417,7 +376,7 @@ export default function ServicesPage() {
                 Start with Diagnostic
               </Button>
               <Button href="/booking" variant="tertiary">
-                Book a 20-minute call — no pitch
+                Book a 20-minute call
               </Button>
             </div>
           </FadeUp>
