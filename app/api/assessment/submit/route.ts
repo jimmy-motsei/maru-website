@@ -458,9 +458,10 @@ async function sendProspectEmail(params: BrevoEmailParams) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "api-key": process.env.BREVO_API_KEY!,
+      "api-key": (process.env.BREVO_API_KEY ?? "").trim(),
     },
     body: JSON.stringify({
+      sender: { name: "Maru Online", email: "hello@maruonline.com" },
       to: [{ email, name }],
       templateId: templateIds[level],
       params: {
@@ -492,19 +493,22 @@ async function sendJimmyBriefEmail(params: BrevoEmailParams) {
     answers,
   });
 
-  await fetch("https://api.brevo.com/v3/smtp/email", {
+  const jimmyRes = await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "api-key": process.env.BREVO_API_KEY!,
+      "api-key": (process.env.BREVO_API_KEY ?? "").trim(),
     },
     body: JSON.stringify({
+      sender: { name: "Maru Online", email: "hello@maruonline.com" },
       to: [{ email: "hello@maruonline.com", name: "Maru Online" }],
       subject: `New diagnostic: ${name} — ${levelLabel}${segmentB ? " ⚠️ Segment B" : ""}`,
       htmlContent: briefHtml,
       replyTo: { email, name },
     }),
   });
+  const jimmyBody = await jimmyRes.json();
+  console.log("Brevo Jimmy brief email response:", jimmyRes.status, JSON.stringify(jimmyBody));
 }
 
 function buildJimmyBriefHtml(params: {
