@@ -59,7 +59,7 @@ export function FadeUp({ children, delay = 0, className, style }: AnimProps) {
       variants={fadeUpVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: true, amount: 0 }}
       transition={{ delay }}
     >
       {children}
