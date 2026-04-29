@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PopupModal } from "react-calendly";
+import dynamic from "next/dynamic";
+
+const PopupModal = dynamic(
+  () => import("react-calendly").then((m) => m.PopupModal),
+  { ssr: false }
+);
 
 export default function BookingModal() {
   const [isOpen, setIsOpen] = useState(false);
