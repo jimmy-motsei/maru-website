@@ -68,18 +68,23 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/operations-diagnostic',
+        destination: '/operations-assessment',
+        permanent: true,
+      },
+      {
         source: '/ai-readiness',
-        destination: '/operations-diagnostic',
+        destination: '/operations-assessment',
         permanent: true,
       },
       {
         source: '/ai-implementation-assessment',
-        destination: '/operations-diagnostic',
+        destination: '/operations-assessment',
         permanent: true,
       },
       {
         source: '/ai-implementation-audit',
-        destination: '/operations-diagnostic',
+        destination: '/operations-assessment',
         permanent: true,
       },
     ];

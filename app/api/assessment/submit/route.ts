@@ -251,7 +251,7 @@ async function createNotionReport(params: NotionReportParams): Promise<string> {
           title: [
             {
               text: {
-                content: `Operations Diagnostic — ${name} — ${new Date().toLocaleDateString("en-GB")}`,
+                content: `Operations Assessment — ${name} — ${new Date().toLocaleDateString("en-GB")}`,
               },
             },
           ],
@@ -287,8 +287,8 @@ function buildNotionBlocks(params: {
 
   const blocks: object[] = [
     // Header
-    notionHeading1(`Your Operations Diagnostic Report`),
-    notionParagraph(`Hi ${name}, here's what your assessment reveals about where your business is right now — and what a realistic first step looks like.`),
+    notionHeading1(`Your Operations Assessment Report`),
+    notionParagraph(`Hi ${name}, here's what your assessment reveals about how your business currently organises its operations — and what a realistic next step looks like.`),
     notionDivider(),
 
     // Readiness level
@@ -319,46 +319,49 @@ function buildNotionBlocks(params: {
     notionParagraph(nextStep),
     notionDivider(),
 
-    notionHeading2("About the Operations Diagnostic"),
+    notionHeading2("What this assessment tells us"),
     notionParagraph(
-      "The diagnostic is a single 30-minute discovery conversation. We review how your business currently operates — where information moves, where it stalls, and where specific people are carrying load that a system should carry. We come prepared. We ask direct questions. And we tell you honestly if we think the engagement isn't the right fit for your situation."
+      "The Operations Assessment gives us a picture of how your business currently organises its work — where processes are defined, where they depend on specific people, and where things tend to stall. It is not a full diagnosis. It is a starting point."
     ),
     notionParagraph(
-      "What you walk away with: a written diagnostic report identifying the three highest-leverage integration opportunities in your business, ranked by impact, with a recommended first step and a realistic scope and timeline. Delivered within five working days of the discovery call."
-    ),
-    notionParagraph(
-      "What this is not: a full implementation. A commitment to a longer engagement. Or a generic AI strategy document. Everything in the output is specific to how your business actually operates."
+      "Think of it as the intake. The real work happens in the discovery call."
     ),
     notionDivider(),
 
-    // Expectation management
-    notionHeading2("A note on what to expect"),
+    notionHeading2("The discovery call — free, 30 minutes"),
     notionParagraph(
-      "The diagnostic is a paid engagement. The investment offsets against your core engagement if you decide to proceed. If the diagnostic finds that AI integration isn't the right priority for your business right now — that has happened — we will tell you that directly. It is more useful to you than a roadmap you don't need."
+      "We review your assessment before we speak so we come prepared. On the call, we go deeper — asking direct questions about where time is actually going, where information gets stuck, and where the manual work is concentrated."
     ),
     notionParagraph(
-      "We don't build on broken foundations to collect a fee. We don't recommend tools we have a commercial relationship with. And we measure whether it worked — every time."
+      "At the end of the call we will tell you honestly whether we think an Operations Diagnostic makes sense for your business right now. If it does not, we will say so directly. A clear answer is more useful than a process you do not need."
     ),
     notionDivider(),
 
-    // CTA options
-    notionHeading2("Ready to talk?"),
+    notionHeading2("If the fit is there — the Operations Diagnostic"),
     notionParagraph(
-      "There are two ways to take the next step:"
+      "The Operations Diagnostic is a structured engagement we propose after the discovery call, if both sides agree it is the right next step. It goes deep into how your business actually operates — mapping where the friction is, what it is costing you, and where targeted integration would have the most impact."
+    ),
+    notionParagraph(
+      "The output is a written report: the three highest-leverage integration opportunities in your business, ranked by impact, with a recommended first step and a realistic scope and timeline. Delivered within five working days of the engagement starting."
+    ),
+    notionDivider(),
+
+    notionHeading2("Book a discovery call"),
+    notionParagraph(
+      "The next step is a free 30-minute call. No pitch. No commitment. We will have reviewed your assessment before we speak."
     ),
     notionCallout(
-      "Option 1 — Book a 30-minute discovery call directly. Pick a time that works and we'll come prepared with what we've learned from your assessment.",
+      "Book a discovery call — pick a time that works and we will come prepared with what we have learned from your assessment.",
       "📅"
     ),
     notionCallout(
-      "Option 2 — Tell us a bit more first. Fill in a few more details about your business and we'll reach out to schedule a call when the time is right for you.",
+      "Not ready to book yet? Reply to your report email and tell us a bit more about what is going on in the business. We will take it from there.",
       "✉️"
     ),
     notionDivider(),
 
-    // Footer
     notionParagraph(
-      "This report was prepared by Maru Online. If you have questions before booking a call, email hello@maruonline.com."
+      "This report was prepared by Maru Online. Questions? Email hello@maruonline.com."
     )
   );
 
@@ -582,9 +585,9 @@ function buildJimmyBriefHtml(params: {
 
 function getFallbackNotionUrl(level: 1 | 2 | 3): string {
   const fallbacks: Record<number, string> = {
-    1: (process.env.NOTION_FALLBACK_LEVEL_1_URL ?? "https://maruonline.com/operations-diagnostic").trim(),
-    2: (process.env.NOTION_FALLBACK_LEVEL_2_URL ?? "https://maruonline.com/operations-diagnostic").trim(),
-    3: (process.env.NOTION_FALLBACK_LEVEL_3_URL ?? "https://maruonline.com/operations-diagnostic").trim(),
+    1: (process.env.NOTION_FALLBACK_LEVEL_1_URL ?? "https://maruonline.com/operations-assessment").trim(),
+    2: (process.env.NOTION_FALLBACK_LEVEL_2_URL ?? "https://maruonline.com/operations-assessment").trim(),
+    3: (process.env.NOTION_FALLBACK_LEVEL_3_URL ?? "https://maruonline.com/operations-assessment").trim(),
   };
   return fallbacks[level];
 }

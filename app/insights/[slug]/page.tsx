@@ -397,7 +397,7 @@ export default async function InsightArticlePage(
                 your workflows, your revenue gaps. R4,500. Delivered within 48 hours.
               </p>
               <div className="article-cta-actions">
-                <Link href="/operations-diagnostic" className="btn-cyan">
+                <Link href="/operations-assessment" className="btn-cyan">
                   Start your diagnostic
                 </Link>
                 <Link href="/insights" className="btn-ghost-white">

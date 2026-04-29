@@ -90,7 +90,7 @@ export function FooterCTA() {
               <ul className="space-y-4">
                 <li>
                   <Link
-                    href="/services/operations-diagnostic"
+                    href="/services/operations-assessment"
                     className="text-text-inverse-muted hover:text-accent transition-colors duration-300 text-base"
                   >
                     Operations Diagnostic

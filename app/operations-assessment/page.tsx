@@ -1,9 +1,9 @@
 "use client";
 
 /**
- * Maru Online — Operations Diagnostic Assessment Page
- * File: app/operations-diagnostic/page.tsx
- * 
+ * Maru Online — Operations Assessment Page
+ * File: app/operations-assessment/page.tsx
+ *
  * Flow:
  * Step 0: Framing (pre-assessment context)
  * Steps 1-5: Questions (one per screen)
@@ -193,7 +193,7 @@ export default function AssessmentPage() {
         {step === "intro" && (
           <div className="animate-fade-in">
             <p className="text-xs font-mono text-[#04B3CC] tracking-widest uppercase mb-6">
-              Maru Online · Operations Diagnostic
+              Maru Online · Operations Assessment
             </p>
             <h1 className="text-3xl font-semibold text-[#e6edf3] leading-tight mb-4">
               Find out where your business is losing time and money to manual processes.
@@ -368,7 +368,7 @@ export default function AssessmentPage() {
                 While you wait — one thing worth knowing:
               </p>
               <p className="text-[#3a4a5c] text-base font-medium leading-relaxed">
-                The report will invite you to book a 30-minute discovery call. That call is where we review what the diagnostic found and tell you honestly whether a full engagement makes sense. No commitment required beyond the conversation.
+                The report will invite you to book a free 30-minute discovery call. That call is where we review your assessment together, go deeper on what we find, and tell you honestly whether a full Operations Diagnostic makes sense for your business. No commitment required beyond the conversation.
               </p>
             </div>
 

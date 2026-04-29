@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contact`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/insights`, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/resources`, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${baseUrl}/operations-diagnostic`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/operations-assessment`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/booking`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/careers`, changeFrequency: 'monthly', priority: 0.5 },
   ];
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/services/custom-ai-solution-build`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/services/ai-training-capability-building`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/services/ongoing-ai-support-optimization`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/services/operations-diagnostic`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/services/operations-assessment`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/services/workflow-integration`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/services/team-training-handover`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/services/results-optimisation`, changeFrequency: 'monthly', priority: 0.7 },
