@@ -96,7 +96,17 @@ export async function POST(req: NextRequest) {
       // Falls back to static URL
     }
 
-    // ── 6 & 7. Brevo emails (fire and forget — don't block response) ───────
+    // ── 6. Brevo contact upsert (fire and forget) ─────────────────────────
+    upsertBrevoContact({
+      name: body.name,
+      email: body.email,
+      level: scoreResult.level,
+      levelLabel: scoreResult.label,
+      painTag,
+      notionPageUrl,
+    }).catch((err) => console.error("Brevo contact upsert failed:", err));
+
+    // ── 7 & 8. Brevo emails (fire and forget — don't block response) ──────
     fireBrevoEmails({
       name: body.name,
       email: body.email,
@@ -416,6 +426,47 @@ function notionCallout(text: string, emoji: string) {
       icon: { type: "emoji", emoji },
     },
   };
+}
+
+// ── Brevo contact upsert ───────────────────────────────────────────────────
+
+const BREVO_ASSESSMENT_LIST_ID = 21;
+
+async function upsertBrevoContact(params: {
+  name: string;
+  email: string;
+  level: number;
+  levelLabel: string;
+  painTag: string;
+  notionPageUrl: string;
+}) {
+  const { name, email, level, levelLabel, painTag, notionPageUrl } = params;
+  const firstName = name.trim().split(" ")[0];
+  const lastName = name.trim().split(" ").slice(1).join(" ") || "";
+
+  const res = await fetch("https://api.brevo.com/v3/contacts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "api-key": (process.env.BREVO_API_KEY ?? "").trim(),
+    },
+    body: JSON.stringify({
+      email,
+      updateEnabled: true,
+      listIds: [BREVO_ASSESSMENT_LIST_ID],
+      attributes: {
+        FIRSTNAME: firstName,
+        LASTNAME: lastName,
+        ASSESSMENT_LEVEL: level,
+        ASSESSMENT_LABEL: levelLabel,
+        PAIN_TAG: painTag,
+        NOTION_REPORT_URL: notionPageUrl,
+        ASSESSMENT_DATE: new Date().toISOString().split("T")[0],
+      },
+    }),
+  });
+  const body = await res.json();
+  console.log("Brevo contact upsert response:", res.status, JSON.stringify(body));
 }
 
 // ── Brevo emails ───────────────────────────────────────────────────────────
