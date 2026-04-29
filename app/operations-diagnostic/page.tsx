@@ -238,24 +238,24 @@ export default function AssessmentPage() {
               Your result
             </p>
 
-            <div className="bg-[#111820] border border-[#04B3CC]/30 rounded-lg p-8 mb-8">
-              <div className="inline-block bg-[#04B3CC]/10 border border-[#04B3CC]/30 rounded px-3 py-1 text-xs font-mono text-[#04B3CC] tracking-wider uppercase mb-4">
+            <div className="bg-[#e8f4f6] border border-[#04B3CC]/30 rounded-lg p-8 mb-8">
+              <div className="inline-block bg-[#04B3CC]/20 border border-[#04B3CC]/40 rounded px-3 py-1 text-xs font-mono text-[#0d7a8a] tracking-wider uppercase mb-4">
                 {scoreResult.label}
               </div>
-              <p className="text-[#e6edf3] text-xl font-semibold mb-4 leading-snug">
+              <p className="text-[#0d1117] text-xl font-semibold mb-4 leading-snug">
                 {scoreResult.tagline}
               </p>
-              <p className="text-[#c9d1d9] text-base leading-relaxed">
+              <p className="text-[#3a4a5c] text-base font-medium leading-relaxed">
                 {scoreResult.summary}
               </p>
             </div>
 
             {/* Teaser for detailed report */}
-            <div className="bg-[#161e28] border border-[#1e2a38] rounded-lg p-6 mb-8">
-              <p className="text-[#e6edf3] font-semibold mb-2">
+            <div className="bg-[#e8f4f6] border border-[#04B3CC]/30 rounded-lg p-6 mb-8">
+              <p className="text-[#0d1117] font-semibold mb-2">
                 Your detailed report goes deeper.
               </p>
-              <p className="text-[#768390] text-base leading-relaxed">
+              <p className="text-[#3a4a5c] text-base font-medium leading-relaxed">
                 It breaks down exactly where your biggest integration opportunities are — and what a realistic first step looks like for a business at your stage. Enter your details below to receive it.
               </p>
             </div>
@@ -363,11 +363,11 @@ export default function AssessmentPage() {
               Check your inbox for a link to your Notion report. It includes personalised observations based on your answers and a clear recommended next step.
             </p>
 
-            <div className="bg-[#111820] border border-[#1e2a38] rounded-lg p-6 text-left mb-8">
-              <p className="text-[#e6edf3] font-semibold text-base mb-2">
+            <div className="bg-[#e8f4f6] border border-[#04B3CC]/30 rounded-lg p-6 text-left mb-8">
+              <p className="text-[#0d1117] font-semibold text-base mb-2">
                 While you wait — one thing worth knowing:
               </p>
-              <p className="text-[#768390] text-base leading-relaxed">
+              <p className="text-[#3a4a5c] text-base font-medium leading-relaxed">
                 The report will invite you to book a 30-minute discovery call. That call is where we review what the diagnostic found and tell you honestly whether a full engagement makes sense. No commitment required beyond the conversation.
               </p>
             </div>
