@@ -222,7 +222,7 @@ interface NotionReportParams {
 async function createNotionReport(params: NotionReportParams): Promise<string> {
   const { name, email, website, level, levelLabel, summary, nextStep, observations, scoreResult } = params;
 
-  const parentPageId = process.env.NOTION_REPORTS_PARENT_ID!;
+  const parentPageId = (process.env.NOTION_REPORTS_PARENT_ID ?? "").trim();
 
   // Build the page content blocks
   const blocks = buildNotionBlocks({
@@ -578,9 +578,9 @@ function buildJimmyBriefHtml(params: {
 
 function getFallbackNotionUrl(level: 1 | 2 | 3): string {
   const fallbacks: Record<number, string> = {
-    1: process.env.NOTION_FALLBACK_LEVEL_1_URL ?? "https://maruonline.com/#assessment",
-    2: process.env.NOTION_FALLBACK_LEVEL_2_URL ?? "https://maruonline.com/#assessment",
-    3: process.env.NOTION_FALLBACK_LEVEL_3_URL ?? "https://maruonline.com/#assessment",
+    1: (process.env.NOTION_FALLBACK_LEVEL_1_URL ?? "https://maruonline.com/operations-diagnostic").trim(),
+    2: (process.env.NOTION_FALLBACK_LEVEL_2_URL ?? "https://maruonline.com/operations-diagnostic").trim(),
+    3: (process.env.NOTION_FALLBACK_LEVEL_3_URL ?? "https://maruonline.com/operations-diagnostic").trim(),
   };
   return fallbacks[level];
 }
