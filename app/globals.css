@@ -1,120 +1,241 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
 
-@theme {
-  --font-sans: var(--font-family-body);
-  --font-heading: var(--font-family-heading);
+:root {
+  /* ── Backgrounds ─────────────────────────────────────────────────────────── */
+  --color-bg-primary:         #FFFFFF;
+  --color-bg-secondary:       #F5F4F0;
+  --color-bg-tertiary:        #EEEDE8;
+  --color-bg-canvas:          #FAFAF8;   /* warm off-white — profile page bg */
+  --color-bg-navy:            #1A3A5C;
+  --color-bg-navy-deep:       #0D1B2A;
+  --color-bg-darkest:         #060E15;
 
-  /* Core token utilities */
-  --color-dark: var(--color-surface);
-  --color-highlight: var(--color-action-primary);
-  --color-highlight-hover: var(--color-action-primary-hover);
-  --color-accent: var(--color-action-primary);
-  --color-cyan-primary: var(--color-action-primary);
-  --color-cyan-hover: var(--color-action-primary-hover);
-  --color-card-border: var(--color-border-inverse-subtle);
+  /* ── Ink — on WHITE/CANVAS backgrounds ──────────────────────────────────── */
+  --color-ink-primary:        #0D1B2A;
+  --color-ink-secondary:      #4A5568;
+  --color-ink-tertiary:       #718096;
 
-  /* Legacy aliases used in existing JSX */
-  --color-deep-navy: var(--color-surface);
-  --color-electric-cyan: var(--color-action-primary);
-  --color-warm-amber: var(--color-brand-amber);
+  /* ── Ink — on NAVY backgrounds ──────────────────────────────────────────── */
+  --color-ink-inverted:       #FAFAF8;
+  --color-ink-inverted-muted: rgba(250, 250, 248, 0.75);
 
-  /* Semantic color utilities */
-  --color-surface: var(--color-base-black);
-  --color-surface-elevated: var(--color-alpha-black-95);
-  --color-surface-muted: var(--color-gray-5);
-  --color-surface-inverse: var(--color-base-white);
-  --color-text-primary: var(--color-base-black);
-  --color-text-secondary: var(--color-alpha-black-60);
-  --color-text-muted: var(--color-alpha-black-50);
-  --color-text-inverse: var(--color-base-white);
-  --color-text-inverse-muted: var(--color-alpha-white-70);
-  --color-border-subtle: var(--color-alpha-black-10);
-  --color-border-strong: var(--color-alpha-black-20);
-  --color-border-inverse-subtle: var(--color-alpha-white-10);
-  --color-action-primary: var(--color-brand-cta);
-  --color-action-primary-hover: rgba(4, 179, 204, 0.85);
+  /* ── Brand cyan ─────────────────────────────────────────────────────────── */
+  --color-cyan:               #3DB8C6;
+  --color-cyan-light:         #E8F8FA;   /* solid tint — for badges/icon bg */
+  --color-cyan-dark:          #2DA8B6;
 
-  /* Ashley typography scale */
-  --text-h1: 86px;
-  --text-h2: 68px;
-  --text-h3: 42px;
-  --text-h4: 28px;
-  --text-h5: 20px;
-  --text-h6: 18px;
-  --font-weight-headline-light: 100;
+  /* ── Brand gold — two registers ─────────────────────────────────────────── */
+  --color-gold:               #CDAA53;   /* Maru warm gold */
+  --color-gold-antique:       #B8860B;   /* dark antique gold — profile cards */
+  --color-gold-light:         #FDF8EE;   /* shared gold tint bg */
+  --color-gold-border:        rgba(205, 170, 83, 0.25);
+  --color-gold-antique-border:rgba(184, 134, 11, 0.2);
+
+  /* ── Navy accent ────────────────────────────────────────────────────────── */
+  --color-navy:               #1A3A5C;
+
+  /* ── Borders / rules ────────────────────────────────────────────────────── */
+  --color-border-default:     #E2E8F0;   /* same as profile --rule */
+  --color-border-subtle:      rgba(26, 58, 92, 0.1);
+  --color-border-strong:      #CBD5E0;
+
+  /* ── Focus ──────────────────────────────────────────────────────────────── */
+  --shadow-focus:             0 0 0 3px rgba(61, 184, 198, 0.3);
+
+  /* ── Letter spacing ─────────────────────────────────────────────────────── */
+  --tracking-display:         -0.02em;   /* large headings */
+  --tracking-tight:           -0.01em;   /* h2/section titles */
+  --tracking-label:            0.12em;   /* standard label */
+  --tracking-eyebrow:          0.2em;    /* eyebrow / caps label — profile standard */
+
+  /* ── Type scale — matched to personal-profile ───────────────────────────── */
+  --text-h1:                  clamp(2.5rem, 5vw, 5rem);   /* ~80px at desktop */
+  --text-h2:                  clamp(1.75rem, 3.75vw, 3rem); /* 28px → 48px fluid */
+  --text-h3-serif:            1.375rem;                   /* 22px — card title / case title */
+  --text-h3-sans:             1.125rem;                   /* 18px — pillar title */
+  --text-body:                1.25rem;                    /* 20px */
+  --text-body-sm:             1.125rem;                   /* 18px — card body */
+  --text-cta:                 0.75rem;                    /* 12px — button / CTA label */
+  --text-label:               0.6875rem;                  /* 11px — eyebrow / badge */
+  --text-meta:                0.75rem;                    /* 12px — period/date */
+
+  /* ── Line heights — profile-derived, tuned for Outfit/Inter ─────────────── */
+  --leading-display:          1.1;
+  --leading-heading:          1.2;
+  --leading-subheading:       1.3;
+  --leading-body:             1.7;
+  --leading-body-relaxed:     1.85;
+
+  /* ── Spacing — heading → paragraph gap ─────────────────────────────────── */
+  --space-heading-body:       1.625rem;  /* 26px between h border and first p */
+  --space-para:               0.75rem;   /* 12px between paragraphs inside cards */
+  --space-para-section:       1.5rem;    /* 24px between paragraphs in body copy */
+  --space-section-header-mb:  2.5rem;    /* 40px below section header before content */
+
+  /* ── Font families — Outfit (headings) + Inter (body) ──────────────────── */
+  --font-display:             var(--font-outfit);
+  --font-body:                var(--font-inter);
+
+  /* ── Headline split weights — for SplitHeadline component ──────────────── */
+  --font-weight-headline-light:  100;
   --font-weight-headline-strong: 500;
-
-  /* Ashley layout scale */
-  --spacing-section: var(--space-section-y);
-  --spacing-section-tab: var(--space-section-y-mobile);
-  --spacing-input: var(--size-control-lg);
-  --radius-pill: var(--radius-pill);
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+@theme inline {
+  --color-bg-primary:         var(--color-bg-primary);
+  --color-bg-secondary:       var(--color-bg-secondary);
+  --color-bg-tertiary:        var(--color-bg-tertiary);
+  --color-bg-canvas:          var(--color-bg-canvas);
+  --color-bg-navy:            var(--color-bg-navy);
+  --color-bg-navy-deep:       var(--color-bg-navy-deep);
+  --color-bg-darkest:         var(--color-bg-darkest);
+  --color-ink-primary:        var(--color-ink-primary);
+  --color-ink-secondary:      var(--color-ink-secondary);
+  --color-ink-tertiary:       var(--color-ink-tertiary);
+  --color-ink-inverted:       var(--color-ink-inverted);
+  --color-ink-inverted-muted: var(--color-ink-inverted-muted);
+  --color-cyan:               var(--color-cyan);
+  --color-cyan-light:         var(--color-cyan-light);
+  --color-cyan-dark:          var(--color-cyan-dark);
+  --color-gold:               var(--color-gold);
+  --color-gold-antique:       var(--color-gold-antique);
+  --color-gold-light:         var(--color-gold-light);
+  --color-gold-border:        var(--color-gold-border);
+  --color-gold-antique-border:var(--color-gold-antique-border);
+  --color-navy:               var(--color-navy);
+  --color-border-default:     var(--color-border-default);
+  --color-border-subtle:      var(--color-border-subtle);
+  --color-border-strong:      var(--color-border-strong);
+  --font-display:             var(--font-display);
+  --font-body:                var(--font-body);
+  --text-cta:                 var(--text-cta);
 }
 
-.animate-fade-up {
-  animation: fadeUp 0.8s var(--ease-ashley) forwards;
+/* ── Animations ─────────────────────────────────────────────────────────────── */
+@keyframes whatsapp-pulse {
+  0%   { box-shadow: 0 0 0 0    rgba(37, 211, 102, 0.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);   }
+  100% { box-shadow: 0 0 0 0    rgba(37, 211, 102, 0);   }
 }
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
+@keyframes logo-scroll {
+  from { transform: translateX(0);    }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:        0.01ms !important;
+    animation-iteration-count: 1      !important;
+    transition-duration:       0.01ms !important;
+    scroll-behavior:           auto   !important;
   }
+}
+
+/* ── Base type ───────────────────────────────────────────────────────────────── */
+@layer base {
+  html { scroll-behavior: smooth; }
 
   body {
-    @apply bg-surface text-text-inverse font-sans font-light;
-    font-size: var(--text-body);
-    line-height: var(--line-height-base);
-    overflow-x: clip;
+    background-color:        var(--color-bg-primary);
+    color:                   var(--color-ink-primary);
+    font-family:             var(--font-body), system-ui, sans-serif;
+    font-weight:             330;
+    font-size:               var(--text-body);
+    line-height:             var(--leading-body);
+    letter-spacing:          0.01em;
+    overflow-x:              clip;
+    -webkit-font-smoothing:  antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  li {
-    font-weight: var(--font-body-weight);
+  p {
+    font-weight:    300;
+    font-size:      var(--text-body);
+    line-height:    var(--leading-body);
+    color:          var(--color-ink-secondary);
+    letter-spacing: 0.01em;
+    margin-bottom:  var(--space-para-section);
   }
 
-  span {
-    font-weight: inherit;
+  strong, b {
+    font-weight: 600;
+    color:       var(--color-navy);
   }
 
-  :where(main, footer) :is(p, li, small) {
-    font-weight: var(--font-body-weight) !important;
+  small {
+    font-size:      var(--text-meta);
+    font-weight:    400;
+    letter-spacing: 0.05em;
+    color:          var(--color-ink-tertiary);
   }
 
-  :where(main, footer) .text-text-muted {
-    font-weight: var(--font-body-weight);
+  /* H1 — Outfit, display weight — profile cover-name treatment */
+  h1 {
+    font-family:    var(--font-display), sans-serif;
+    font-weight:    500;
+    font-size:      var(--text-h1);
+    line-height:    var(--leading-display);
+    letter-spacing: var(--tracking-display);
+    color:          #FFFFFF;
+    margin-bottom:  1.5rem;
   }
 
-  .prose :is(p, li, small) {
-    font-weight: var(--font-body-weight);
+  /* H1 second line — wrap in <em> for muted-white treatment */
+  h1 em {
+    font-style: normal;
+    color:      rgba(255, 255, 255, 0.75);
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-family-heading), sans-serif;
-    color: var(--color-text-primary);
-    @apply font-medium tracking-tight;
+  /* H2 — Outfit, section title — single heavy weight (no split) */
+  h2 {
+    font-family:    var(--font-display), sans-serif;
+    font-weight:    600;
+    font-size:      var(--text-h2);
+    line-height:    var(--leading-heading);
+    letter-spacing: var(--tracking-tight);
+    color:          var(--color-navy);
+    margin-bottom:  var(--space-heading-body);
+    padding-bottom: 0.75rem;
+    border-bottom:  1px solid var(--color-border-default);
+  }
+
+  /* H2 second line — wrap in <em> for muted navy on light backgrounds */
+  h2 em {
+    font-style: normal;
+    color:      rgba(26, 58, 92, 0.6);
+  }
+
+  /* H3 — Outfit, card/content level */
+  h3 {
+    font-family:    var(--font-display), sans-serif;
+    font-weight:    500;
+    font-size:      var(--text-h3-serif);
+    line-height:    var(--leading-subheading);
+    letter-spacing: var(--tracking-tight);
+    color:          var(--color-navy);
+    margin-bottom:  var(--space-heading-body);
   }
 }
 
+/* ── Utility component classes ───────────────────────────────────────────────
+   These classes encode the profile's repeating patterns so any page can
+   apply them without writing inline styles.
+   ─────────────────────────────────────────────────────────────────────────── */
 @layer components {
-  .copy-body {
-    font-size: var(--text-body);
-    line-height: var(--line-height-copy-body);
+
+  /* ── CTA heading override — navy section h2s ───────────────────────────── */
+  .h2-cta {
+    color:          var(--color-ink-inverted);
+    border-bottom:  none;
+    padding-bottom: 0;
   }
 
-  .copy-card {
-    font-size: var(--text-card-body);
-    line-height: var(--line-height-copy-card);
-  }
-
-  /* Ashley-style split headline pattern for repo-wide reuse */
+  /* ── Split headline — light (100) / strong (500) pattern ───────────────── */
   .maru-headline-split {
-    font-family: var(--font-family-heading), sans-serif;
-    line-height: var(--line-height-tight);
+    font-family:    var(--font-display), sans-serif;
+    line-height:    1.2;
     letter-spacing: -0.02em;
   }
 
@@ -126,524 +247,176 @@
     font-weight: var(--font-weight-headline-strong);
   }
 
-  .btn-primary-hero-cta {
-    display: inline-flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    border-radius: var(--cta-radius);
-    background-color: var(--cta-primary-bg);
-    color: var(--cta-primary-text);
-    padding: var(--cta-padding-y) var(--cta-padding-x);
-    min-height: 60px;
-    font-family: var(--font-family-heading), sans-serif;
-    font-size: var(--cta-font-size);
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    line-height: 1.2;
-    text-align: center;
-    box-shadow: var(--cta-shadow);
-    transition: transform var(--motion-sm), box-shadow var(--motion-sm), opacity var(--motion-sm), background-color var(--motion-sm);
+  /* Eyebrow / caps label — 11px / 500 / 0.2em / uppercase */
+  .label-eyebrow {
+    font-family:     var(--font-body), sans-serif;
+    font-size:       var(--text-label);
+    font-weight:     500;
+    letter-spacing:  var(--tracking-eyebrow);
+    text-transform:  uppercase;
+    color:           var(--color-cyan);
+    margin-bottom:   2rem;
+    display:         block;
   }
 
-  .btn-primary-hero-cta:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: var(--cta-shadow-hover);
-    opacity: var(--cta-primary-hover-opacity);
+  .label-eyebrow-gold {
+    font-family:     var(--font-body), sans-serif;
+    font-size:       var(--text-label);
+    font-weight:     500;
+    letter-spacing:  var(--tracking-eyebrow);
+    text-transform:  uppercase;
+    color:           var(--color-gold-antique);
+    margin-bottom:   0.5rem;
+    display:         block;
   }
 
-  .btn-secondary-hero-cta {
-    display: inline-flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    border-radius: var(--cta-radius);
-    border: 1px solid var(--cta-outline-border);
-    background-color: transparent;
-    color: var(--cta-outline-text);
-    padding: var(--cta-padding-y) var(--cta-padding-x);
-    font-size: var(--cta-font-size);
-    font-weight: 500;
-    line-height: 1.2;
-    text-align: center;
-    transition: transform var(--motion-sm), box-shadow var(--motion-sm), background-color var(--motion-sm);
+  /* Section header rule — matches profile .section-header */
+  .section-header-rule {
+    display:         flex;
+    align-items:     baseline;
+    gap:             1.25rem;
+    margin-bottom:   var(--space-section-header-mb);
+    padding-bottom:  1rem;
+    border-bottom:   1px solid var(--color-border-default);
   }
 
-  .btn-secondary-hero-cta:hover {
-    transform: translateY(-1px) scale(1.01);
-    background-color: var(--cta-outline-hover-bg);
-    box-shadow: var(--cta-outline-shadow-hover);
+  /* Section number — Outfit, cyan */
+  .section-number {
+    font-family:     var(--font-display), sans-serif;
+    font-size:       var(--text-meta);
+    font-weight:     400;
+    color:           var(--color-cyan);
+    letter-spacing:  0.1em;
+    min-width:       1.75rem;
   }
 
-  .maru-frame-top {
-    --maru-header-fg: var(--color-base-white);
-    position: fixed;
-    z-index: 90;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 50px 0;
-    pointer-events: none;
+  /* Body copy inside a navy card — matches profile .current-block p */
+  .body-on-navy {
+    font-family:     var(--font-body), sans-serif;
+    font-size:       var(--text-body);
+    font-weight:     300;
+    color:           rgba(250, 250, 248, 0.75);
+    line-height:     var(--leading-body);
   }
 
-  .maru-frame-top.maru-light-surface {
-    --maru-header-fg: var(--color-base-black);
+  /* Body copy on white/canvas — matches profile .narrative-content p / .pillar-body */
+  .body-muted {
+    font-family:     var(--font-body), sans-serif;
+    font-size:       var(--text-body-sm);
+    font-weight:     300;
+    color:           var(--color-ink-secondary);
+    line-height:     var(--leading-body);
   }
 
-  .maru-frame-inner {
-    width: 100%;
-    padding-left: 30px;
-    padding-right: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    pointer-events: all;
+  /* Inline rule divider — 1px, border-default color, full width */
+  .rule {
+    width:           100%;
+    height:          1px;
+    background:      var(--color-border-default);
+    border:          none;
+    margin-top:      1.625rem;
+    margin-bottom:   0.75rem;
   }
 
-  .maru-logo {
-    color: var(--maru-header-fg);
-    font-size: 46px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    transition: color 0.3s cubic-bezier(0, 0, 0.3642, 1);
+  /* Cyan bullet dot — matches profile .network-dot */
+  .bullet-cyan {
+    width:           10px;
+    height:          10px;
+    background:      var(--color-cyan);
+    border-radius:   50%;
+    margin-top:      7px;
+    flex-shrink:     0;
+    display:         block;
   }
 
-  .maru-logo:hover {
-    color: var(--color-action-primary);
+  /* ── Card: Gold (dark antique) — matches profile .case-result style ──────── */
+  .card-gold {
+    background:      var(--color-gold-light);
+    border:          1px solid var(--color-gold-antique-border);
+    border-left:     4px solid var(--color-gold-antique);
+    border-radius:   0 8px 8px 0;
+    padding:         2rem 2.25rem;
+    box-shadow:      0 2px 12px rgba(0, 0, 0, 0.06);
+    transition:      transform 300ms ease-out, box-shadow 300ms ease-out;
   }
 
-  .maru-menu-btn {
-    pointer-events: all;
-    height: 28px;
-    width: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  .card-gold:hover {
+    transform:       translateY(-4px);
+    box-shadow:      0 8px 24px rgba(0, 0, 0, 0.10);
   }
 
-  .maru-menu-btn span,
-  .maru-menu-btn span::before,
-  .maru-menu-btn span::after {
-    content: "";
-    display: block;
-    width: 28px;
-    height: 2.5px;
-    background: var(--maru-header-fg);
-    transition: inherit;
-    backface-visibility: hidden;
+  .card-gold h3 {
+    font-family:     var(--font-display), sans-serif;
+    font-size:       var(--text-h3-serif);
+    font-weight:     500;
+    color:           var(--color-gold-antique);
+    line-height:     var(--leading-subheading);
+    letter-spacing:  var(--tracking-tight);
+    margin-bottom:   var(--space-heading-body);
+    border-bottom:   none;
+    padding-bottom:  0;
   }
 
-  .maru-menu-btn span {
-    position: relative;
+  .card-gold p {
+    font-size:       var(--text-body-sm);
+    font-weight:     300;
+    color:           var(--color-ink-secondary);
+    line-height:     var(--leading-body);
+    margin-bottom:   var(--space-para);
   }
 
-  .maru-menu-btn span::before,
-  .maru-menu-btn span::after {
-    position: absolute;
+  .card-gold p:last-child {
+    margin-bottom:   0;
   }
 
-  .maru-menu-btn span::before {
-    top: -9px;
+  /* ── Card: Navy (dark bg, cyan accents) — matches profile .current-block ─── */
+  .card-navy {
+    background:      var(--color-bg-navy);
+    border:          1px solid rgba(61, 184, 198, 0.15);
+    border-left:     4px solid var(--color-cyan);
+    border-radius:   0 12px 12px 0;
+    padding:         2rem 2.25rem;
+    box-shadow:      0 4px 16px rgba(0, 0, 0, 0.30);
+    transition:      transform 300ms ease-out, box-shadow 300ms ease-out, border-color 300ms ease-out;
   }
 
-  .maru-menu-btn span::after {
-    width: 18px;
-    top: 9px;
+  .card-navy:hover {
+    transform:       translateY(-4px);
+    box-shadow:      0 8px 28px rgba(0, 0, 0, 0.40), 0 0 16px rgba(61, 184, 198, 0.10);
+    border-color:    rgba(61, 184, 198, 0.35);
   }
 
-  .maru-menu-btn.maru-active span {
-    transform: rotate(45deg);
+  .card-navy h3 {
+    font-family:     var(--font-display), sans-serif;
+    font-size:       var(--text-h3-serif);
+    font-weight:     400;
+    color:           var(--color-cyan);
+    line-height:     var(--leading-heading);
+    letter-spacing:  var(--tracking-tight);
+    margin-bottom:   var(--space-heading-body);
+    border-bottom:   none;
+    padding-bottom:  0;
   }
 
-  .maru-menu-btn.maru-active span::before {
-    transform: translate(0, 9px) rotate(-90deg);
+  .card-navy p {
+    font-size:       var(--text-body);
+    font-weight:     300;
+    color:           rgba(250, 250, 248, 0.75);
+    line-height:     var(--leading-body);
+    margin-bottom:   var(--space-para);
   }
 
-  .maru-menu-btn.maru-active span::after {
-    opacity: 0;
-    width: 24px;
-    transform: translate(0, -9px) rotate(-90deg);
+  .card-navy p:last-child {
+    margin-bottom:   0;
   }
 
-  .maru-menu-frame {
-    position: fixed;
-    z-index: 80;
-    inset: 0;
-    background-color: var(--color-base-black);
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  /* Contact form — 2-col name/email row collapses to 1-col on mobile */
+  .grid-cols-contact {
+    grid-template-columns: 1fr;
   }
-
-  .maru-menu-frame.maru-active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .maru-menu-shell {
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 132px 60px 56px;
-  }
-
-  .maru-menu-content {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    min-height: calc(100vh - 160px);
-  }
-
-  .maru-main-menu {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    opacity: 0;
-    transform: translateX(-30px);
-    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  }
-
-  .maru-menu-frame.maru-active .maru-main-menu {
-    opacity: 1;
-    transform: translateX(0);
-    transition-delay: 0.4s;
-  }
-
-  .maru-main-menu ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .maru-main-menu > ul > li {
-    margin-bottom: 40px;
-  }
-
-  .maru-main-menu > ul > li:last-child {
-    margin-bottom: 0;
-  }
-
-  .maru-main-link {
-    position: relative;
-    display: flex;
-    align-items: center;
-    font-size: 34px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.8);
-    letter-spacing: -0.01em;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    padding: 0;
-    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  }
-
-  .maru-main-link::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    border-radius: 999px;
-    background-color: rgba(255, 255, 255, 0.4);
-    transform: scale(0);
-    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  }
-
-  .maru-main-link:hover {
-    color: var(--color-base-white);
-    padding-left: 25px;
-  }
-
-  .maru-main-link:hover::before {
-    transform: scale(1);
-  }
-
-  .maru-main-link.maru-current,
-  .maru-group-current > .maru-main-link {
-    color: var(--color-action-primary);
-  }
-
-  .maru-main-link.maru-active {
-    color: var(--color-action-primary);
-    padding-left: 25px;
-  }
-
-  .maru-main-link.maru-active::before {
-    transform: scale(1);
-    background-color: var(--color-action-primary);
-  }
-
-  .maru-submenu {
-    padding-left: 25px;
-    max-height: 0;
-    overflow: hidden;
-    transition: 0.6s cubic-bezier(0, 0, 0.3642, 1);
-  }
-
-  .maru-submenu.maru-active {
-    max-height: 360px;
-  }
-
-  .maru-submenu li {
-    margin-bottom: 5px;
-  }
-
-  .maru-submenu li:first-child {
-    margin-top: 40px;
-  }
-
-  .maru-submenu-link {
-    display: block;
-    font-size: 12px;
-    line-height: 1.7;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.45);
-    transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
-  }
-
-  .maru-submenu-link:hover {
-    color: rgba(255, 255, 255, 0.9);
-    transform: translateX(5px);
-  }
-
-  .maru-submenu-link.maru-active {
-    color: var(--color-action-primary);
-  }
-
-  .maru-menu-right-frame {
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    padding-left: 60px;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  }
-
-  .maru-menu-frame.maru-active .maru-menu-right-frame {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.6s;
-  }
-
-  .maru-menu-right {
-    width: 100%;
-    padding-bottom: 60px;
-  }
-
-  .maru-menu-right-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 42px;
-  }
-
-  .maru-menu-section-title {
-    margin: 0 0 28px;
-    color: var(--color-text-inverse-muted);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .maru-menu-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .maru-menu-list li {
-    margin-bottom: 15px;
-  }
-
-  .maru-menu-list li:last-child {
-    margin-bottom: 0;
-  }
-
-  .maru-menu-list li a {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 16px;
-    line-height: 1.45;
-    transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
-    display: block;
-  }
-
-  .maru-menu-list li a:hover {
-    transform: translateX(5px);
-    color: var(--color-base-white);
-  }
-
-  .maru-menu-divider {
-    width: 100%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.1);
-    margin: 60px 0;
-  }
-
-  .maru-menu-location-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 40px;
-  }
-
-  .maru-menu-meta {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  .maru-menu-meta-link {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 16px;
-    line-height: 1.5;
-    transition: color 0.2s cubic-bezier(0, 0, 0.3642, 1);
-  }
-
-  .maru-menu-meta-link:hover {
-    color: var(--color-base-white);
-  }
-
-  @media (max-width: 1200px) {
-    .maru-frame-top {
-      padding: 30px 0;
-    }
-
-    .maru-menu-shell {
-      padding: 96px 30px 36px;
-    }
-
-    .maru-menu-content {
-      grid-template-columns: 1fr;
-      min-height: auto;
-    }
-
-    .maru-main-menu {
-      justify-content: center;
-      transform: translateY(30px);
-      text-align: center;
-      padding-bottom: 24px;
-    }
-
-    .maru-menu-frame.maru-active .maru-main-menu {
-      transform: translateY(0);
-    }
-
-    .maru-main-menu > ul {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .maru-main-menu > ul > li {
-      margin-bottom: 30px;
-    }
-
-    .maru-main-link {
-      justify-content: center;
-    }
-
-    .maru-main-link::before {
-      display: none;
-    }
-
-    .maru-main-link:hover,
-    .maru-main-link.maru-active {
-      padding-left: 0;
-    }
-
-    .maru-submenu {
-      padding-left: 0;
-      text-align: center;
-    }
-
-    .maru-submenu li:first-child {
-      margin-top: 24px;
-    }
-
-    .maru-menu-right-frame {
-      display: none;
-    }
-  }
-
-  @media (max-width: 992px) {
-    .maru-menu-btn {
-      transform: scale(0.85);
-      transform-origin: right center;
-    }
-
-    .maru-main-link {
-      font-size: 26px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .maru-frame-top {
-      padding: 24px 0;
-    }
-
-    .maru-frame-inner {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    .maru-menu-shell {
-      padding: 88px 20px 28px;
-    }
-  }
-
   @media (min-width: 640px) {
-    .btn-primary-hero-cta,
-    .btn-secondary-hero-cta {
-      width: auto;
+    .grid-cols-contact {
+      grid-template-columns: 1fr 1fr;
     }
   }
-}
-
-@layer utilities {
-  /* Container width cap: Ashley standard 1200px */
-  .container { max-width: 1200px; }
-  @media (min-width: 1280px) { .container { max-width: 1200px; } }
-  @media (min-width: 1536px) { .container { max-width: 1200px; } }
-
-  /* Semantic surfaces */
-  .bg-surface { background-color: var(--color-surface); }
-  .bg-surface-elevated { background-color: var(--color-surface-elevated); }
-  .bg-surface-muted { background-color: var(--color-surface-muted); }
-  .bg-surface-inverse { background-color: var(--color-surface-inverse); }
-  .bg-card-dark { background-color: var(--color-card-dark); }
-  .bg-card-dark-soft { background-color: var(--color-card-dark-soft); }
-  .bg-card-dark-hover { background-color: var(--color-card-dark-hover); }
-  .bg-card-dark p { font-weight: var(--font-body-weight); }
-
-  /* Semantic text */
-  .text-text-primary { color: var(--color-text-primary); }
-  .text-text-secondary { color: var(--color-text-secondary); }
-  .text-text-muted { color: var(--color-text-muted); }
-  .text-text-inverse { color: var(--color-text-inverse); }
-  .text-text-inverse-muted { color: var(--color-text-inverse-muted); }
-
-  /* Semantic borders */
-  .border-border-subtle { border-color: var(--color-border-subtle); }
-  .border-border-strong { border-color: var(--color-border-strong); }
-  .border-border-inverse-subtle { border-color: var(--color-border-inverse-subtle); }
-
-  /* Semantic accents */
-  .bg-action-primary { background-color: var(--color-action-primary); }
-  .text-action-primary { color: var(--color-action-primary); }
-  .border-action-primary { border-color: var(--color-action-primary); }
 }

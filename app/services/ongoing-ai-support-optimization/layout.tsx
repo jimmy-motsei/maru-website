@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Ongoing AI Support & Optimization | Maru Online',
+  title: 'Results Optimisation | Maru Online',
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -22,8 +22,14 @@ const menuGroups: MenuGroup[] = [
     label: "Homepage",
     items: [
       { name: "Landing Page", href: "/" },
-      { name: "About", href: "/about" },
       { name: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    id: "about",
+    label: "About",
+    items: [
+      { name: "About", href: "/about" },
     ],
   },
   {
@@ -31,15 +37,15 @@ const menuGroups: MenuGroup[] = [
     label: "Services",
     items: [
       { name: "Services List", href: "/services" },
-      { name: "AI Revenue Diagnostic", href: "/services/ai-revenue-diagnostic" },
-      { name: "Custom AI Solution Build", href: "/services/custom-ai-solution-build" },
+      { name: "Operations Diagnostic", href: "/services/operations-diagnostic" },
+      { name: "Workflow Integration", href: "/services/workflow-integration" },
       {
-        name: "AI Training & Capability Building",
-        href: "/services/ai-training-capability-building",
+        name: "Team Training & Handover Building",
+        href: "/services/team-training-handover",
       },
       {
-        name: "Ongoing AI Support & Optimization",
-        href: "/services/ongoing-ai-support-optimization",
+        name: "Results Optimisation",
+        href: "/services/results-optimisation",
       },
     ],
   },
@@ -82,15 +88,15 @@ const toolLinks: MenuItem[] = [
 ];
 
 const serviceLinks: MenuItem[] = [
-  { name: "AI Revenue Diagnostic", href: "/services/ai-revenue-diagnostic" },
-  { name: "Custom AI Solution Build", href: "/services/custom-ai-solution-build" },
+  { name: "Operations Diagnostic", href: "/services/operations-diagnostic" },
+  { name: "Workflow Integration", href: "/services/workflow-integration" },
   {
-    name: "AI Training & Capability Building",
-    href: "/services/ai-training-capability-building",
+    name: "Team Training & Handover Building",
+    href: "/services/team-training-handover",
   },
   {
-    name: "Ongoing AI Support & Optimization",
-    href: "/services/ongoing-ai-support-optimization",
+    name: "Results Optimisation",
+    href: "/services/results-optimisation",
   },
 ];
 
@@ -284,6 +290,20 @@ export function Header() {
                     pathMatches(pathname, item.href),
                   );
                   const isOpen = openGroupId === group.id;
+
+                  if (group.items.length === 1) {
+                    return (
+                      <li key={group.id}>
+                        <Link
+                          href={group.items[0].href}
+                          onClick={closeMenu}
+                          className={`maru-main-link ${isCurrentGroup ? "maru-current" : ""}`}
+                        >
+                          {group.label}
+                        </Link>
+                      </li>
+                    );
+                  }
 
                   return (
                     <li

@@ -68,7 +68,7 @@ const accordionItems = [
 
 const otherServices = [
   {
-    title: "AI Revenue Diagnostic",
+    title: "Operations Diagnostic",
     description:
       "A 360° audit of your current systems to identify the highest-impact AI and revenue opportunities.",
     points: ["Opportunity assessment", "POPIA scorecard", "90-day roadmap", "Executive strategy session"],
@@ -77,7 +77,7 @@ const otherServices = [
     iconClassName: "text-cyan-500 bg-cyan-500/10 border-cyan-500/30",
   },
   {
-    title: "Custom AI Solution Build",
+    title: "Workflow Integration",
     description:
       "Bespoke AI systems built around your existing platforms, workflows, and brand voice.",
     points: ["Platform integration", "Brand voice training", "POPIA-compliant architecture", "60-day optimization support"],
@@ -86,7 +86,7 @@ const otherServices = [
     iconClassName: "text-amber-500 bg-amber-500/10 border-amber-500/30",
   },
   {
-    title: "AI Training & Capability Building",
+    title: "Team Training & Handover",
     description:
       "Hands-on team enablement to improve AI output quality, adoption, and execution consistency.",
     points: ["Prompt engineering mastery", "Workflow automation training", "Custom training playbooks", "30-day post-training support"],

@@ -3,29 +3,13 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 
-const testimonials = [
-  {
-    name: "Sarah Nkosi",
-    company: "Swift Logistics",
-    problem: "We hired an agency that implemented a complex marketing automation system with 15-stage email nurture sequences. It was designed for B2B SaaS companies with long sales cycles. We're a logistics company—our sales cycle is 2-3 weeks.",
-    switch: "Maru diagnosed that our actual problem was slow quote turnaround, not lack of nurture emails. They automated our quote generation and follow-up process instead.",
-    result: "Quote-to-close time dropped from 12 days to 4 days. Close rate improved from 18% to 31%. We're using 3 tools instead of 8. Monthly software cost down from R15,000 to R4,500."
-  },
-  {
-    name: "David Martinez",
-    company: "TechConsult SA",
-    problem: "I paid for HubSpot Enterprise because 'you need a proper CRM to scale.' Spent 3 months setting it up. My team hated it—too complex for our 4-person sales operation. Half the features sat unused.",
-    switch: "Maru showed me I was losing deals because of slow follow-up, not lack of CRM features. They set up simple automation in our existing system that actually matched how we sell.",
-    result: "Response time to new leads: 42 hours to 3 hours. Follow-up consistency: 2 touches to 7 touches on average. We closed 23% more deals in the first quarter. Downgraded to HubSpot Starter and saved R8,000/month."
-  },
-  {
-    name: "Jennifer Patel",
-    company: "GrowthLab",
-    problem: "We rebuilt our entire website because an agency said 'modern B2B sites need interactive experiences and personalization.' Cost R180,000. Looked beautiful. Conversion rate stayed at 1.9%.",
-    switch: "Maru's diagnostic showed our value proposition was unclear and our contact form was broken on mobile. Simple fixes—no rebuild needed.",
-    result: "Conversion rate: 1.9% to 5.3%. That's 178% more leads from the same traffic. Total cost: R12,000 vs. the R180,000 we'd already wasted. Fixed in 3 weeks instead of 3 months."
-  }
-];
+const testimonials: {
+  name: string;
+  company: string;
+  problem: string;
+  switch: string;
+  result: string;
+}[] = [];
 
 export function SocialProof() {
   return (

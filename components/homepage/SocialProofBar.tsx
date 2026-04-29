@@ -2,22 +2,9 @@
 
 import { motion } from "framer-motion";
 
-const STATS = [
-  { label: "Trusted by", value: "50+ Businesses" },
-  { label: "Revenue Delivered", value: "R45M+ ROI" },
-  { label: "Client Retention", value: "92%" },
-  { label: "Compliance", value: "100% POPIA" },
-];
+const STATS: { label: string; value: string }[] = [];
 
-const LOGOS = [
-  "Khulisa Consulting",
-  "AfriStyle Online",
-  "DataFlow Distribution",
-  "Legal Partners Network",
-  "HomeCraft Retail",
-  "TechShield Security",
-  "GrowthMetrics SA",
-];
+const LOGOS: string[] = [];
 
 export function SocialProofBar() {
   return (

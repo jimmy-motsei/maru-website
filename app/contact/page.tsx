@@ -1,211 +1,266 @@
-"use client";
+import { Metadata } from 'next'
+import ContactForm from './ContactForm'
+import Button from '@/components/ui/Button'
+import { FadeUp } from '@/components/ui/Animate'
+import { BGPattern } from '@/components/ui/bg-pattern'
 
-import { useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
-import { SplitHeadline } from "@/components/ui/SplitHeadline";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { submitToHubSpot, HUBSPOT_FORMS } from "@/lib/hubspot";
-import { contactFormSchema, type ContactFormData } from "@/lib/validation/schemas";
+export const metadata: Metadata = {
+  title:       'Contact | Maru Online',
+  description: "No pitch. No pressure. Two ways to start a conversation — the Operations Diagnostic or a free 20-minute call. You speak directly with Jimmy.",
+}
 
-const breadcrumbs = [
-  { label: "Home", href: "/" },
-  { label: "Contact", href: "/contact" },
-];
+const outerPad    = 'px-6 md:px-[60px]'
+const inner       = 'max-w-[900px] mx-auto'
+const innerWide   = 'max-w-[1100px] mx-auto'
+const innerNarrow = 'max-w-[720px] mx-auto'
 
 export default function ContactPage() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formStatus, setFormStatus] = useState<{ success: boolean; message: string } | null>(null);
-
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    setFormStatus(null);
-    
-    if (!HUBSPOT_FORMS.CONTACT) {
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setFormStatus({ success: true, message: "Message received. We'll be in touch shortly." });
-        reset();
-      }, 1500);
-      return;
-    }
-
-    const result = await submitToHubSpot(HUBSPOT_FORMS.CONTACT, data);
-    
-    setIsSubmitting(false);
-    setFormStatus(result);
-    
-    if (result.success) {
-      reset();
-    }
-  };
-
   return (
-    <main className="bg-surface-muted text-text-primary min-h-screen">
-      <section className="relative bg-black py-[120px] md:py-[140px] border-b border-white/10 overflow-hidden">
-        <AtmosphericBackground variant="hero" />
-        <div className="container mx-auto px-6 lg:px-8 relative z-10">
-          <motion.nav
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
-            className="mb-12"
-          >
-            <ol className="flex items-center justify-center gap-2 text-xs uppercase tracking-[2px] text-white/60">
-              {breadcrumbs.map((crumb, index) => (
-                <li key={crumb.href} className="flex items-center gap-2">
-                  <Link
-                    href={crumb.href}
-                    className={index === breadcrumbs.length - 1 ? "text-white" : "hover:text-white transition-colors"}
+    <>
+      {/* ════════════════════════════════════════════════════════════════════
+          HERO
+          ════════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`relative min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}
+        style={{ backgroundColor: 'var(--color-bg-navy)' }}
+      >
+        <BGPattern
+          variant="grid"
+          mask="none"
+          size={40}
+          fill="rgba(61, 184, 198, 0.12)"
+          className="z-0"
+        />
+        <div
+          aria-hidden="true"
+          style={{
+            position:      'absolute',
+            top:           '-120px',
+            right:         '-120px',
+            width:         '480px',
+            height:        '480px',
+            borderRadius:  '50%',
+            border:        '1px solid rgba(61,184,198,0.15)',
+            pointerEvents: 'none',
+          }}
+        />
+        <div className={`${innerWide} relative z-10`}>
+          <FadeUp>
+            <span className="label-eyebrow">Contact us</span>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <h1 className="maru-headline-split">
+              <span className="maru-headline-split-strong">Every engagement starts</span>
+              <br />
+              <span className="maru-headline-split-light">with a conversation.</span>
+            </h1>
+          </FadeUp>
+          <FadeUp delay={0.16}>
+            <p
+              className="font-body font-light"
+              style={{
+                color:      'var(--color-ink-inverted-muted)',
+                fontSize:   'var(--text-body-sm)',
+                lineHeight: 'var(--leading-body)',
+                marginBottom: 0,
+              }}
+            >
+              We respond within 24 hours.
+            </p>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          CONTACT FORM + SIDE INFO
+          ════════════════════════════════════════════════════════════════════ */}
+      <section
+        id="contact-form"
+        className={`${outerPad} py-24`}
+        style={{ backgroundColor: 'var(--color-bg-primary)' }}
+      >
+        <div className={innerWide}>
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-10 md:gap-24 items-end">
+
+            {/* Left — form */}
+            <FadeUp>
+              <div>
+                {/* Calendly CTA */}
+                <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
+                  <Button href="/booking" variant="primary">
+                    Book a 20-minute call
+                  </Button>
+                  <p
+                    style={{
+                      fontFamily:  'var(--font-body)',
+                      fontSize:    'var(--text-meta)',
+                      fontWeight:  300,
+                      color:       'var(--color-ink-tertiary)',
+                      marginTop:   '0.75rem',
+                      marginBottom: 0,
+                    }}
                   >
-                    {crumb.label}
-                  </Link>
-                  {index < breadcrumbs.length - 1 ? <span>/</span> : null}
-                </li>
-              ))}
-            </ol>
-          </motion.nav>
+                    No pitch. No pressure. Just a conversation.
+                  </p>
+                </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-[54px] md:text-[86px] leading-[1.05] maru-headline-split-strong text-white mb-10"
-          >
-            Get in touch!
-          </motion.h1>
+                <h2 style={{ marginBottom: '1.5rem' }}>
+                  <span style={{ fontWeight: 300 }}>Or send a</span>
+                  <br />
+                  <span style={{ fontWeight: 700 }}>message directly</span>
+                </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            className="text-center text-white/70 max-w-2xl mx-auto mb-10"
-          >
-            Share your goals. We will recommend the fastest path to measurable revenue impact.
-          </motion.p>
+                <ContactForm />
+              </div>
+            </FadeUp>
 
-          <motion.a
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            href="#contact"
-            className="inline-flex items-center justify-center w-full gap-3 text-xs uppercase tracking-[2px] font-semibold text-white"
-          >
-            Send message
-            <span className="w-9 h-9 rounded-full bg-white/10 border border-white/25 flex items-center justify-center">
-              <ArrowRight size={16} className="rotate-90" />
-            </span>
-          </motion.a>
-        </div>
-      </section>
-
-      <section id="contact" className="py-[90px] md:py-[120px]">
-        <div className="container mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
-          >
-            <SplitHeadline
-              as="h2"
-              leadingText="Let's"
-              emphasisText="Talk"
-              breakBeforeEmphasis={false}
-              leadingWeight="strong"
-              emphasisWeight="light"
-              className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[68px] text-text-primary"
-            />
-          </motion.div>
-
-          <form onSubmit={handleSubmit(onSubmit)} className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <label className="block text-[11px] uppercase tracking-[2px] text-text-secondary mb-3">
-                  What's your name
-                </label>
-                <input
-                  {...register("firstname")}
-                  type="text"
-                  placeholder="Your name"
-                  disabled={isSubmitting}
-                  className="w-full h-[56px] bg-transparent border-b border-border-strong focus:border-action-primary text-text-primary placeholder:text-text-muted outline-none transition-colors text-lg"
-                />
-                {errors.firstname && <p className="text-warm-amber text-sm mt-2">{errors.firstname.message}</p>}
-              </motion.div>
-
-              <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <label className="block text-[11px] uppercase tracking-[2px] text-text-secondary mb-3">
-                  Your email
-                </label>
-                <input
-                  {...register("email")}
-                  type="email"
-                  placeholder="name@company.com"
-                  disabled={isSubmitting}
-                  className="w-full h-[56px] bg-transparent border-b border-border-strong focus:border-action-primary text-text-primary placeholder:text-text-muted outline-none transition-colors text-lg"
-                />
-                {errors.email && <p className="text-warm-amber text-sm mt-2">{errors.email.message}</p>}
-              </motion.div>
-            </div>
-
-            <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8">
-              <label className="block text-[11px] uppercase tracking-[2px] text-text-secondary mb-3">
-                Tell us about your project
-              </label>
-              <textarea
-                {...register("message")}
-                rows={7}
-                  placeholder="Current challenge, goals, and timeline."
-                disabled={isSubmitting}
-                className="w-full bg-transparent border-b border-border-strong focus:border-action-primary text-text-primary placeholder:text-text-muted outline-none transition-colors text-lg resize-none"
-              />
-              {errors.message && <p className="text-warm-amber text-sm mt-2">{errors.message.message}</p>}
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <p className="text-text-secondary text-sm">
-                  <span className="text-action-primary">*</span> Your details stay private and are never sold.
+            {/* Right — contact details */}
+            <FadeUp delay={0.1}>
+              <div style={{ paddingTop: '0.5rem' }}>
+                <p
+                  style={{
+                    fontFamily:    'var(--font-body)',
+                    fontSize:      'var(--text-label)',
+                    fontWeight:    500,
+                    letterSpacing: 'var(--tracking-eyebrow)',
+                    textTransform: 'uppercase',
+                    color:         'var(--color-ink-tertiary)',
+                    marginBottom:  '1.5rem',
+                  }}
+                >
+                  Other ways to reach us
                 </p>
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="flex justify-start md:justify-end"
-              >
-                <button type="submit" disabled={isSubmitting} className="btn-primary-hero-cta group disabled:opacity-50 disabled:cursor-not-allowed">
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                  {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />}
-                </button>
-              </motion.div>
-            </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                  <div>
+                    <p
+                      style={{
+                        fontFamily:    'var(--font-body)',
+                        fontSize:      'var(--text-label)',
+                        fontWeight:    500,
+                        letterSpacing: 'var(--tracking-eyebrow)',
+                        textTransform: 'uppercase',
+                        color:         'var(--color-ink-tertiary)',
+                        marginBottom:  '0.25rem',
+                      }}
+                    >
+                      WhatsApp — fastest
+                    </p>
+                    <a
+                      href="https://wa.me/27635643263"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        fontFamily:     'var(--font-body)',
+                        fontSize:       'var(--text-body)',
+                        fontWeight:     300,
+                        color:          'var(--color-cyan)',
+                        textDecoration: 'none',
+                        display:        'block',
+                        marginBottom:   '0.25rem',
+                      }}
+                    >
+                      +27 63 564 3263
+                    </a>
+                    <p
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize:   'var(--text-meta)',
+                        fontWeight: 300,
+                        color:      'var(--color-ink-tertiary)',
+                        margin:     0,
+                      }}
+                    >
+                      Response within 4 business hours.
+                    </p>
+                  </div>
 
-            {formStatus && (
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                className={`mt-8 p-4 rounded-lg text-sm font-medium text-center ${
-                  formStatus.success
-                    ? "bg-action-primary/10 text-action-primary border border-action-primary/30"
-                    : "bg-warm-amber/10 text-warm-amber border border-warm-amber/30"
-                }`}
-              >
-                {formStatus.message}
-              </motion.div>
-            )}
-          </form>
+                  <div>
+                    <p
+                      style={{
+                        fontFamily:    'var(--font-body)',
+                        fontSize:      'var(--text-label)',
+                        fontWeight:    500,
+                        letterSpacing: 'var(--tracking-eyebrow)',
+                        textTransform: 'uppercase',
+                        color:         'var(--color-ink-tertiary)',
+                        marginBottom:  '0.25rem',
+                      }}
+                    >
+                      Email
+                    </p>
+                    <a
+                      href="mailto:hello@maruonline.com"
+                      style={{
+                        fontFamily:     'var(--font-body)',
+                        fontSize:       'var(--text-body)',
+                        fontWeight:     300,
+                        color:          'var(--color-cyan)',
+                        textDecoration: 'none',
+                        display:        'block',
+                        marginBottom:   '0.25rem',
+                      }}
+                    >
+                      hello@maruonline.com
+                    </a>
+                    <p
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize:   'var(--text-meta)',
+                        fontWeight: 300,
+                        color:      'var(--color-ink-tertiary)',
+                        margin:     0,
+                      }}
+                    >
+                      Response within 1 business day.
+                    </p>
+                  </div>
+
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize:   'var(--text-meta)',
+                      fontWeight: 300,
+                      color:      'var(--color-ink-tertiary)',
+                      margin:     0,
+                    }}
+                  >
+                    Mon–Fri, 8am–6pm SAST.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
         </div>
       </section>
-    </main>
-  );
+
+      {/* ════════════════════════════════════════════════════════════════════
+          CLOSING QUOTE
+          ════════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`${outerPad} py-16`}
+        style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+      >
+        <div className={innerNarrow}>
+          <FadeUp>
+            <p
+              style={{
+                fontFamily:    'var(--font-display)',
+                fontSize:      'var(--text-h3-serif)',
+                fontWeight:    400,
+                fontStyle:     'italic',
+                color:         'var(--color-ink-primary)',
+                lineHeight:    'var(--leading-subheading)',
+                letterSpacing: 'var(--tracking-tight)',
+                marginBottom:  '0.75rem',
+              }}
+            >
+              &ldquo;The right first step is an honest conversation about where you are.
+              Everything else follows from that.&rdquo;
+            </p>
+          </FadeUp>
+        </div>
+      </section>
+    </>
+  )
 }

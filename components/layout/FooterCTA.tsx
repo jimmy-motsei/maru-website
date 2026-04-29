@@ -90,34 +90,34 @@ export function FooterCTA() {
               <ul className="space-y-4">
                 <li>
                   <Link
-                    href="/services/ai-revenue-diagnostic"
+                    href="/services/operations-diagnostic"
                     className="text-text-inverse-muted hover:text-accent transition-colors duration-300 text-base"
                   >
-                    AI Revenue Diagnostic
+                    Operations Diagnostic
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/custom-ai-solution-build"
+                    href="/services/workflow-integration"
                     className="text-text-inverse-muted hover:text-accent transition-colors duration-300 text-base"
                   >
-                    Custom AI Solution Build
+                    Workflow Integration
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/ai-training-capability-building"
+                    href="/services/team-training-handover"
                     className="text-text-inverse-muted hover:text-accent transition-colors duration-300 text-base"
                   >
-                    AI Training & Capability Building
+                    Team Training & Handover Building
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/ongoing-ai-support-optimization"
+                    href="/services/results-optimisation"
                     className="text-text-inverse-muted hover:text-accent transition-colors duration-300"
                   >
-                    Ongoing AI Support & Optimization
+                    Results Optimisation
                   </Link>
                 </li>
               </ul>

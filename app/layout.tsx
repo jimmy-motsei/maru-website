@@ -1,105 +1,73 @@
-import type { Metadata } from "next";
-import { Suspense } from "react";
-import localFont from "next/font/local";
-import Script from "next/script";
-import "./globals.css";
-import { Header } from "@/components/layout/Header";
-import { FooterCTA } from "@/components/layout/FooterCTA";
-import { PageFrame } from "@/components/layout/PageFrame";
-import { ConversionTracking } from "@/components/analytics/ConversionTracking";
-import { PerformanceMonitor } from "@/components/analytics/PerformanceMonitor";
-import { JourneyAnalytics } from "@/components/analytics/JourneyAnalytics";
-import CookieConsent from "@/components/CookieConsent";
-import CookieManager from "@/components/CookieManager";
-import { Analytics } from "@vercel/analytics/react";
+import type { Metadata } from 'next'
+import localFont from 'next/font/local'
+import Nav from '@/components/ui/Nav'
+import Footer from '@/components/ui/Footer'
+import CookieConsent from '@/components/CookieConsent'
+import './globals.css'
 
-import BookingModal from "@/components/ui/BookingModal";
-
+// ─── Fonts ────────────────────────────────────────────────────────────────────
+// Outfit Variable — headings (h1–h6), display moments, nav, labels
+// Variable font: weight axis 100–900, no separate files needed.
 const outfit = localFont({
-  src: "../public/fonts/outfit/Outfit-Variable.woff2",
-  variable: "--font-outfit",
-  display: "swap",
-});
+  src: '../public/fonts/outfit/Outfit-Variable.woff2',
+  variable: '--font-outfit',
+  display: 'swap',
+})
 
+// Inter Variable — all body copy, UI text, form inputs, buttons
+// Variable font: weight axis 100–900.
 const inter = localFont({
-  src: "../public/fonts/inter/Inter-Variable.woff2",
-  variable: "--font-inter",
-  display: "swap",
-});
+  src: '../public/fonts/inter/Inter-Variable.woff2',
+  variable: '--font-inter',
+  display: 'swap',
+})
 
+// ─── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "Most SME Marketing Fails for One Reason: The Wrong Playbook | Maru Online",
-  description: "You're running enterprise marketing strategies on SME budgets. Free diagnostics show exactly where the playbook breaks down for your business—and what to fix first.",
+  metadataBase: new URL('https://maruonline.com'),
+  title: 'AI & Automation Consultants for Growing SMEs | Maru Online',
+  description:
+    'We find where your processes are costing you time and money — then build AI-powered workflows that cut costs and free your team. Free assessment.',
+  alternates: {
+    canonical: 'https://maruonline.com',
+  },
   openGraph: {
-    title: "Most SME Marketing Fails for One Reason: The Wrong Playbook",
-    description: "Free diagnostics show exactly where the playbook breaks down for your business.",
-    url: "https://maruonline.com",
-    siteName: "Maru Online",
-    locale: "en_ZA",
-    type: "website",
+    type: 'website',
+    siteName: 'Maru Online',
+    locale: 'en_ZA',
+    url: 'https://maruonline.com',
+    title: 'AI That Actually Works for Your Business — Not Just Another Tool',
+    description:
+      'We connect AI with your existing tools and workflows to automate the work your team shouldn\'t be doing manually. Free assessment for growing SMEs.',
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Most SME Marketing Fails for One Reason: The Wrong Playbook",
-    description: "Free diagnostics show exactly where the playbook breaks down for your business.",
+    card: 'summary_large_image',
+    title: 'AI That Actually Works for Your Business — Not Just Another Tool',
+    description:
+      'We find where your processes are costing you time and money — then build AI-powered workflows that cut costs and free your team. Free assessment.',
   },
-};
+}
 
+// ─── Root layout ──────────────────────────────────────────────────────────────
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Maru Online",
-              "email": "hello@maruonline.com",
-              "telephone": "+27635643263",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Johannesburg",
-                "addressCountry": "ZA",
-              },
-              "areaServed": "South Africa",
-              "url": "https://maruonline.com",
-              "description": "AI integration consulting for South African SMEs. POPIA-compliant implementations that connect your AI tools to measurable revenue outcomes.",
-            }),
-          }}
-        />
-      </head>
-      <body
-        className={`${outfit.variable} ${inter.variable} antialiased font-sans bg-dark text-white`}
-        suppressHydrationWarning
-      >
-        {/* HubSpot Tracking Script */}
-        <Script
-          id="hs-script-loader"
-          src="//js-eu1.hs-scripts.com/146669350.js"
-          strategy="afterInteractive"
-          async
-          defer
-        />
-        <ConversionTracking />
-        <PerformanceMonitor />
-        <Suspense fallback={null}>
-          <JourneyAnalytics />
-        </Suspense>
-        <Header />
-        <PageFrame />
-        {children}
-        <FooterCTA />
-        <CookieManager />
+    <html
+      lang="en"
+      className={`${outfit.variable} ${inter.variable} font-body`}
+      suppressHydrationWarning
+    >
+      <body>
+        <Nav />
+        <main id="main-content">
+          {children}
+        </main>
+        <Footer />
         <CookieConsent />
-        <BookingModal />
-        <Analytics />
       </body>
     </html>
-  );
+  )
 }

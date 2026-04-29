@@ -131,13 +131,15 @@ export function ProcessCard({
       }}
       variants={{
         rest: {
-          boxShadow: "0 0 0 0 rgba(34, 211, 238, 0)",
+          boxShadow: "0 4px 16px rgba(0, 0, 0, 0.35)",
         },
         hover: glowOnHover
           ? {
-              boxShadow: "0 0 30px rgba(34, 211, 238, 0.15), 0 0 60px rgba(34, 211, 238, 0.05)",
+              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.35), 0 0 30px rgba(34, 211, 238, 0.15), 0 0 60px rgba(34, 211, 238, 0.05)",
             }
-          : {},
+          : {
+              boxShadow: "0 8px 28px rgba(0, 0, 0, 0.45)",
+            },
       }}
     >
       {children}
@@ -176,13 +178,15 @@ export function FeatureCard({
       }}
       variants={{
         rest: {
-          boxShadow: "0 0 0 0 rgba(34, 211, 238, 0)",
+          boxShadow: "0 4px 16px rgba(0, 0, 0, 0.35)",
         },
         hover: glowOnHover
           ? {
-              boxShadow: "0 0 20px rgba(34, 211, 238, 0.1)",
+              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.35), 0 0 20px rgba(34, 211, 238, 0.1)",
             }
-          : {},
+          : {
+              boxShadow: "0 8px 28px rgba(0, 0, 0, 0.45)",
+            },
       }}
     >
       {children}
@@ -206,11 +210,14 @@ export function IconBox({ icon, className, color = "var(--color-cyan-primary)" }
       className={cn(
         "w-12 h-12 rounded-xl flex items-center justify-center",
         "bg-[#1a1a1a] border",
+        "transition-[transform,box-shadow,border-color] duration-200 ease-out",
+        "group-hover:scale-105 group-hover:border-[color:var(--icon-hover-border)]",
         className
       )}
       style={{
         borderColor: `${color}30`,
         color: color,
+        ["--icon-hover-border" as string]: `${color}70`,
       }}
     >
       {icon}

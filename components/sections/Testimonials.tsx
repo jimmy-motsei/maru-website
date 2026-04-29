@@ -4,36 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 
-const testimonials = [
-  {
-    id: 1,
-    name: "Sarah Nkosi",
-    company: "Swift Logistics",
-    image: "/images/testimonials/avatar-1.jpg",
-    quote: "The chaotic paperwork in our logistics business was overwhelming. Maru implemented an automated workflow that handles invoices and dispatch notices automatically. It's like having an extra full-time employee."
-  },
-  {
-    id: 2,
-    name: "David Meyer",
-    company: "Pinnacle Properties",
-    image: "/images/testimonials/avatar-2.jpg",
-    quote: "We didn't realize how many opportunities we were missing until Maru audited our sales pipeline. The automated follow-up system they built has increased our conversion rate by 25% in just two months."
-  },
-  {
-    id: 3,
-    name: "James Peterson",
-    company: "TechFlow Solutions",
-    image: "/images/testimonials/avatar-3.jpg",
-    quote: "MaruOnline completely transformed our lead process. We went from manually sorting emails to having qualified leads delivered directly to our CRM. Our sales team is 3x more productive."
-  },
-  {
-    id: 4,
-    name: "Elena Rodriguez",
-    company: "Urban Retail Group",
-    image: "/images/testimonials/avatar-4.jpg",
-    quote: "Customer support was our biggest bottleneck. The WhatsApp bot Maru built for us now handles 80% of common queries instantly, and our customers love the 24/7 response time."
-  },
-];
+const testimonials: {
+  id: number;
+  name: string;
+  company: string;
+  image: string;
+  quote: string;
+}[] = [];
 
 export function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);

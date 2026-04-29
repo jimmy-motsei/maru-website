@@ -9,7 +9,7 @@ interface ServiceCardProps {
 
 export function ServiceCard({ title, description, href }: ServiceCardProps) {
   return (
-    <Link href={href} className="group block h-full p-8 transition-colors hover:bg-card-dark">
+    <Link href={href} className="group block h-full p-8 shadow-[0_4px_16px_rgba(0,0,0,0.30)] transition-[transform,box-shadow,background-color] duration-300 ease-out hover:bg-card-dark hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(0,0,0,0.45)]">
       <h5 className="mb-8 text-xl font-medium text-white">{title}</h5>
       <p className="mb-8 text-light-soft">{description}</p>
       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-black transition-transform group-hover:scale-115">
