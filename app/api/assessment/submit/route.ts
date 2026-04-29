@@ -152,7 +152,7 @@ async function scrapeWebsite(url: string): Promise<string> {
   return data.data?.markdown ?? "";
 }
 
-// ── Claude synthesis ───────────────────────────────────────────────────────
+// ── Gemini synthesis ───────────────────────────────────────────────────────
 
 async function runSynthesis(
   answers: SubmissionBody["answers"],
@@ -161,33 +161,29 @@ async function runSynthesis(
 ): Promise<SynthesisOutput> {
   const prompt = buildSynthesisPrompt(answers, level, siteMarkdown);
 
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": process.env.ANTHROPIC_API_KEY!,
-      "anthropic-version": "2023-06-01",
-    },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-6",
-      max_tokens: 1500,
-      messages: [
-        {
-          role: "user",
-          content: prompt,
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          temperature: 0.4,
+          maxOutputTokens: 1500,
+          responseMimeType: "application/json",
         },
-      ],
-    }),
-  });
+      }),
+    }
+  );
 
   if (!response.ok) {
-    throw new Error(`Claude API error: ${response.status}`);
+    throw new Error(`Gemini API error: ${response.status}`);
   }
 
   const data = await response.json();
-  const rawText = data.content?.[0]?.text ?? "";
+  const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
 
-  // Strip any accidental markdown fences
   const cleaned = rawText
     .replace(/```json\n?/g, "")
     .replace(/```\n?/g, "")
