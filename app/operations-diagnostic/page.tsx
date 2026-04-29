@@ -202,11 +202,11 @@ export default function AssessmentPage() {
               Five questions. Two minutes. Instant result.
             </p>
 
-            <div className="bg-[#111820] border border-[#1e2a38] rounded-lg p-6 mb-8">
-              <p className="text-[#c9d1d9] text-sm leading-relaxed mb-3">
+            <div className="bg-[#e8f4f6] border border-[#04B3CC]/30 rounded-lg p-6 mb-8">
+              <p className="text-[#0d1117] text-sm leading-relaxed mb-3">
                 Answer based on how things actually work in your business today — not how you'd like them to work. The more honest your answers, the more useful your result.
               </p>
-              <p className="text-[#768390] text-sm leading-relaxed">
+              <p className="text-[#3a4a5c] text-sm leading-relaxed">
                 At the end, you'll see where your business sits and what a realistic first step looks like.
               </p>
             </div>
