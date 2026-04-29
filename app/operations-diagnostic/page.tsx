@@ -203,10 +203,10 @@ export default function AssessmentPage() {
             </p>
 
             <div className="bg-[#e8f4f6] border border-[#04B3CC]/30 rounded-lg p-6 mb-8">
-              <p className="text-[#0d1117] text-sm leading-relaxed mb-3">
+              <p className="text-[#0d1117] text-base font-medium leading-relaxed mb-3">
                 Answer based on how things actually work in your business today — not how you'd like them to work. The more honest your answers, the more useful your result.
               </p>
-              <p className="text-[#3a4a5c] text-sm leading-relaxed">
+              <p className="text-[#3a4a5c] text-base font-medium leading-relaxed">
                 At the end, you'll see where your business sits and what a realistic first step looks like.
               </p>
             </div>
@@ -245,7 +245,7 @@ export default function AssessmentPage() {
               <p className="text-[#e6edf3] text-xl font-semibold mb-4 leading-snug">
                 {scoreResult.tagline}
               </p>
-              <p className="text-[#c9d1d9] text-sm leading-relaxed">
+              <p className="text-[#c9d1d9] text-base leading-relaxed">
                 {scoreResult.summary}
               </p>
             </div>
@@ -255,7 +255,7 @@ export default function AssessmentPage() {
               <p className="text-[#e6edf3] font-semibold mb-2">
                 Your detailed report goes deeper.
               </p>
-              <p className="text-[#768390] text-sm leading-relaxed">
+              <p className="text-[#768390] text-base leading-relaxed">
                 It breaks down exactly where your biggest integration opportunities are — and what a realistic first step looks like for a business at your stage. Enter your details below to receive it.
               </p>
             </div>
@@ -278,7 +278,7 @@ export default function AssessmentPage() {
             <h2 className="text-2xl font-semibold text-[#e6edf3] mb-2">
               Where should we send it?
             </h2>
-            <p className="text-[#768390] text-sm mb-8 leading-relaxed">
+            <p className="text-[#768390] text-base mb-8 leading-relaxed">
               Your report will arrive as a Notion page — a structured document you can return to and share. It includes personalised observations based on your answers and a recommended next step.
             </p>
 
@@ -293,7 +293,7 @@ export default function AssessmentPage() {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="First name is fine"
                   required
-                  className="w-full bg-[#111820] border border-[#1e2a38] rounded-lg px-4 py-3 text-[#e6edf3] placeholder-[#768390] text-sm focus:outline-none focus:border-[#04B3CC] transition-colors"
+                  className="w-full bg-[#111820] border border-[#1e2a38] rounded-lg px-4 py-3 text-[#e6edf3] placeholder-[#768390] text-base focus:outline-none focus:border-[#04B3CC] transition-colors"
                 />
               </div>
 
@@ -307,7 +307,7 @@ export default function AssessmentPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@yourbusiness.com"
                   required
-                  className="w-full bg-[#111820] border border-[#1e2a38] rounded-lg px-4 py-3 text-[#e6edf3] placeholder-[#768390] text-sm focus:outline-none focus:border-[#04B3CC] transition-colors"
+                  className="w-full bg-[#111820] border border-[#1e2a38] rounded-lg px-4 py-3 text-[#e6edf3] placeholder-[#768390] text-base focus:outline-none focus:border-[#04B3CC] transition-colors"
                 />
               </div>
 
@@ -321,7 +321,7 @@ export default function AssessmentPage() {
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
                   placeholder="yourbusiness.com"
-                  className="w-full bg-[#111820] border border-[#1e2a38] rounded-lg px-4 py-3 text-[#e6edf3] placeholder-[#768390] text-sm focus:outline-none focus:border-[#04B3CC] transition-colors"
+                  className="w-full bg-[#111820] border border-[#1e2a38] rounded-lg px-4 py-3 text-[#e6edf3] placeholder-[#768390] text-base focus:outline-none focus:border-[#04B3CC] transition-colors"
                 />
                 <p className="text-[#768390] text-xs mt-1">
                   Don't have a website yet? Leave this blank — it's useful context but not required.
@@ -359,15 +359,15 @@ export default function AssessmentPage() {
             <h2 className="text-2xl font-semibold text-[#e6edf3] mb-3">
               Your report is on its way.
             </h2>
-            <p className="text-[#768390] text-sm leading-relaxed mb-8 max-w-md mx-auto">
+            <p className="text-[#768390] text-base leading-relaxed mb-8 max-w-md mx-auto">
               Check your inbox for a link to your Notion report. It includes personalised observations based on your answers and a clear recommended next step.
             </p>
 
             <div className="bg-[#111820] border border-[#1e2a38] rounded-lg p-6 text-left mb-8">
-              <p className="text-[#e6edf3] font-semibold text-sm mb-2">
+              <p className="text-[#e6edf3] font-semibold text-base mb-2">
                 While you wait — one thing worth knowing:
               </p>
-              <p className="text-[#768390] text-sm leading-relaxed">
+              <p className="text-[#768390] text-base leading-relaxed">
                 The report will invite you to book a 30-minute discovery call. That call is where we review what the diagnostic found and tell you honestly whether a full engagement makes sense. No commitment required beyond the conversation.
               </p>
             </div>
@@ -450,7 +450,7 @@ function QuestionStep({
           <button
             key={option.value}
             onClick={() => handleSelect(option.value)}
-            className={`w-full text-left bg-[#111820] border rounded-lg px-5 py-4 text-sm leading-relaxed transition-all cursor-pointer ${
+            className={`w-full text-left bg-[#111820] border rounded-lg px-5 py-4 text-base font-medium leading-relaxed transition-all cursor-pointer ${
               selected === option.value
                 ? "border-[#04B3CC] text-[#e6edf3] bg-[#04B3CC]/5"
                 : "border-[#1e2a38] text-[#c9d1d9] hover:border-[#768390] hover:text-[#e6edf3]"
