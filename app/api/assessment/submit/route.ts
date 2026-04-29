@@ -178,11 +178,23 @@ async function runSynthesis(
   );
 
   if (!response.ok) {
-    throw new Error(`Gemini API error: ${response.status}`);
+    const errText = await response.text();
+    throw new Error(`Gemini API error: ${response.status} — ${errText}`);
   }
 
   const data = await response.json();
-  const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+
+  // Gemini 2.5-flash with responseMimeType:application/json may return
+  // the JSON either as a string in parts[0].text or parsed directly
+  const candidate = data.candidates?.[0];
+  if (!candidate) {
+    throw new Error(`Gemini returned no candidates: ${JSON.stringify(data)}`);
+  }
+
+  const rawText = candidate.content?.parts?.[0]?.text ?? "";
+  if (!rawText) {
+    throw new Error(`Gemini returned empty text. FinishReason: ${candidate.finishReason}. Full: ${JSON.stringify(candidate)}`);
+  }
 
   const cleaned = rawText
     .replace(/```json\n?/g, "")
