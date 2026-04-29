@@ -92,7 +92,7 @@ export async function POST(req: NextRequest) {
         scoreResult,
       });
     } catch (err) {
-      console.error("Notion page creation failed:", err);
+      console.error("Notion page creation failed — full error:", JSON.stringify(err, Object.getOwnPropertyNames(err)));
       // Falls back to static URL
     }
 
@@ -454,7 +454,7 @@ async function sendProspectEmail(params: BrevoEmailParams) {
     3: templateId3,
   };
 
-  await fetch("https://api.brevo.com/v3/smtp/email", {
+  const brevoRes = await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -472,6 +472,8 @@ async function sendProspectEmail(params: BrevoEmailParams) {
       tags: [`level-${level}`, painTag, params.segmentB ? "segment-b" : "segment-standard"],
     }),
   });
+  const brevoBody = await brevoRes.json();
+  console.log("Brevo prospect email response:", brevoRes.status, JSON.stringify(brevoBody));
 }
 
 async function sendJimmyBriefEmail(params: BrevoEmailParams) {
