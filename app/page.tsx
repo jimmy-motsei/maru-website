@@ -160,8 +160,8 @@ export default function Home() {
           </FadeUp>
 
           <FadeUp delay={0.22}>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Button href="#assessment" variant="primary">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <Button href="#assessment" variant="primary" className="w-full sm:w-auto justify-center">
                 Get a Free Diagnostic
               </Button>
             </div>
@@ -621,7 +621,7 @@ export default function Home() {
               <p className="body-muted" style={{ marginBottom: 0, maxWidth: "560px" }}>
                 Four steps. Fixed price. Measured outcome.
               </p>
-              <Button href="#assessment" variant="primary">
+              <Button href="#assessment" variant="primary" className="w-full sm:w-auto justify-center">
                 Get My Free Assessment
               </Button>
             </div>

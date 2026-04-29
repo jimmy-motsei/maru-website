@@ -19,8 +19,8 @@ interface ButtonProps {
 
 const base =
   'inline-flex items-center justify-center ' +
-  'font-body font-bold text-[11px] tracking-[0.15em] uppercase ' +
-  'rounded-[8px] ' +
+  'font-body font-bold text-[13px] tracking-[0.15em] uppercase ' +
+  'rounded-[8px] min-h-[44px] px-6 ' +
   'transition-[transform,opacity,box-shadow,background-color,border-color] duration-200 ease-out ' +
   'focus:outline-none focus-visible:ring-0 ' +
   'disabled:opacity-40 disabled:pointer-events-none'
