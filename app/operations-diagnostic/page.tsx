@@ -441,7 +441,7 @@ function QuestionStep({
         Question {questionNumber} of {totalQuestions}
       </p>
 
-      <h2 className="text-xl font-semibold text-[#e6edf3] leading-snug mb-8">
+      <h2 className="text-xl font-semibold text-[#e6edf3] leading-snug mb-6">
         {question.text}
       </h2>
 
@@ -450,10 +450,10 @@ function QuestionStep({
           <button
             key={option.value}
             onClick={() => handleSelect(option.value)}
-            className={`w-full text-left bg-[#111820] border rounded-lg px-5 py-4 text-base font-medium leading-relaxed transition-all cursor-pointer ${
+            className={`w-full text-left border rounded-lg px-5 py-4 text-base font-medium leading-relaxed transition-all cursor-pointer ${
               selected === option.value
-                ? "border-[#04B3CC] text-[#e6edf3] bg-[#04B3CC]/5"
-                : "border-[#1e2a38] text-[#c9d1d9] hover:border-[#768390] hover:text-[#e6edf3]"
+                ? "border-[#04B3CC] text-[#0d1117] bg-[#04B3CC]/20"
+                : "border-[#04B3CC]/30 text-[#0d1117] bg-[#e8f4f6] hover:border-[#04B3CC] hover:bg-[#04B3CC]/10"
             }`}
           >
             {option.label}
