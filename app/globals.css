@@ -420,3 +420,6 @@
     }
   }
 }
+
+/* Prevent Calendly's injected iframe from blocking page interactions */
+.calendly-frame-tag { pointer-events: none !important; }
