@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createSession, verifyPassword } from '@/lib/auth';
+import { createSession } from '@/lib/auth';
+import { verifyPassword } from '@/lib/auth-password';
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'hello@maruonline.com';
 
