@@ -78,7 +78,7 @@ export default async function ReportPage({
   const style = levelStyles[level] ?? levelStyles[2];
   const firstName = name.trim().split(" ")[0];
 
-  const calendlyUrl = "https://calendly.com/maruonline/discovery";
+  const calendlyUrl = "https://calendly.com/hello-maruonline/discovery-call";
 
   return (
     <div className="min-h-screen bg-[#FAFAF8]" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
