@@ -453,7 +453,7 @@ function QuestionStep({
             className={`w-full text-left border rounded-lg px-5 py-4 text-base font-medium leading-relaxed transition-all cursor-pointer ${
               selected === option.value
                 ? "border-[#04B3CC] text-[#0d1117] bg-[#04B3CC]/20"
-                : "border-[#04B3CC]/30 text-[#0d1117] bg-[#e8f4f6] hover:border-[#04B3CC] hover:bg-[#04B3CC]/10"
+                : "border-[#04B3CC]/30 text-[#0d1117] bg-[#e8f4f6] hover:border-[#04B3CC] hover:bg-[#04B3CC]/10 hover:text-[#04B3CC] focus:text-[#04B3CC]"
             }`}
           >
             {option.label}
