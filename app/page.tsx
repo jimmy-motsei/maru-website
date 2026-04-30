@@ -476,19 +476,24 @@ export default function Home() {
                 </p>
 
                 {/* Deliverables label */}
-                <p
+                <span
                   style={{
-                    fontSize: "11px",
-                    fontWeight: 500,
+                    display: "inline-block",
+                    fontSize: "10px",
+                    fontWeight: 600,
                     textTransform: "uppercase",
                     letterSpacing: "0.1em",
-                    color: "var(--color-ink-secondary)",
-                    marginBottom: "0.5rem",
+                    color: "var(--color-cyan)",
+                    background: "rgba(61, 184, 198, 0.10)",
+                    border: "1px solid rgba(61, 184, 198, 0.25)",
+                    borderRadius: "4px",
+                    padding: "3px 8px",
+                    marginBottom: "0.75rem",
                     fontFamily: "var(--font-body)",
                   }}
                 >
                   Deliverables
-                </p>
+                </span>
 
                 {/* Deliverables list */}
                 <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
