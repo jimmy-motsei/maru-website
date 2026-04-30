@@ -6,16 +6,17 @@ const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'hello@maruonline.com';
 export async function POST(request: NextRequest) {
   try {
     const { email, password } = await request.json();
+    const normalizedEmail = typeof email === 'string' ? email.trim().toLowerCase() : '';
 
-    if (!email || !password) {
+    if (!normalizedEmail || !password) {
       return NextResponse.json(
         { error: 'Email and password required' },
         { status: 400 }
       );
     }
 
-    if (email === ADMIN_EMAIL && verifyPassword(password)) {
-      const token = await createSession(email, 'admin');
+    if (normalizedEmail === ADMIN_EMAIL.toLowerCase() && verifyPassword(password)) {
+      const token = await createSession(normalizedEmail, 'admin');
       
       const response = NextResponse.json({ success: true });
       response.cookies.set('admin-session', token, {

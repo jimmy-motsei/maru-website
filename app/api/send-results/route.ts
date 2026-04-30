@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
+import { escapeHtml } from '@/lib/security';
 
 interface LeadScoreResults {
   score: number;
@@ -14,9 +16,35 @@ interface LeadScoreResults {
   analysisId: string;
 }
 
+const sendResultsSchema = z.object({
+  email: z.string().trim().email().max(255),
+  name: z.string().trim().min(1).max(100),
+  results: z.object({
+    score: z.number().min(0).max(100),
+    potentialImprovement: z.number().min(0).max(100),
+    expectedIncrease: z.string().trim().max(100),
+    strengths: z.array(z.string().trim().max(300)).max(20),
+    gaps: z.array(z.string().trim().max(300)).max(20),
+    recommendations: z.object({
+      phase1: z.array(z.string().trim().max(300)).max(20),
+      phase2: z.array(z.string().trim().max(300)).max(20),
+      phase3: z.array(z.string().trim().max(300)).max(20),
+    }),
+    analysisId: z.string().trim().max(120),
+  }),
+});
+
 export async function POST(request: NextRequest) {
   try {
-    const { email, name, results } = await request.json();
+    const parsed = sendResultsSchema.safeParse(await request.json());
+    if (!parsed.success) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid input' },
+        { status: 400 }
+      );
+    }
+
+    const { email, name, results } = parsed.data;
 
     // Send email using Resend
     const response = await fetch('https://api.resend.com/emails', {
@@ -54,7 +82,13 @@ export async function POST(request: NextRequest) {
 }
 
 function generateEmailHTML(name: string, results: LeadScoreResults): string {
-  const firstName = name.split(' ')[0];
+  const firstName = escapeHtml(name.split(' ')[0]);
+  const expectedIncrease = escapeHtml(results.expectedIncrease);
+  const strengthsHtml = results.strengths.map((strength: string) => `<li>${escapeHtml(strength)}</li>`).join('');
+  const gapsHtml = results.gaps.map((gap: string) => `<li>${escapeHtml(gap)}</li>`).join('');
+  const phase1Html = results.recommendations.phase1.map((item: string) => `<li>${escapeHtml(item)}</li>`).join('');
+  const phase2Html = results.recommendations.phase2.map((item: string) => `<li>${escapeHtml(item)}</li>`).join('');
+  const phase3Html = results.recommendations.phase3.map((item: string) => `<li>${escapeHtml(item)}</li>`).join('');
   
   return `
     <!DOCTYPE html>
@@ -90,20 +124,20 @@ function generateEmailHTML(name: string, results: LeadScoreResults): string {
             <div class="score-circle">${results.score}</div>
             <p style="font-size: 18px; color: #6b7280;">out of 100</p>
             <p><strong>Potential Improvement:</strong> +${results.potentialImprovement} points</p>
-            <p><strong>Expected Lead Increase:</strong> ${results.expectedIncrease}</p>
+            <p><strong>Expected Lead Increase:</strong> ${expectedIncrease}</p>
           </div>
 
           <div class="section">
             <h3 class="strengths">✅ What's Working Well:</h3>
             <ul>
-              ${results.strengths.map((strength: string) => `<li>${strength}</li>`).join('')}
+              ${strengthsHtml}
             </ul>
           </div>
 
           <div class="section">
             <h3 class="gaps">❌ Critical Gaps:</h3>
             <ul>
-              ${results.gaps.map((gap: string) => `<li>${gap}</li>`).join('')}
+              ${gapsHtml}
             </ul>
           </div>
 
@@ -112,17 +146,17 @@ function generateEmailHTML(name: string, results: LeadScoreResults): string {
             
             <h4>Phase 1 (Days 1-30) - Quick Wins:</h4>
             <ul>
-              ${results.recommendations.phase1.map((item: string) => `<li>${item}</li>`).join('')}
+              ${phase1Html}
             </ul>
             
             <h4>Phase 2 (Days 31-60) - Optimization:</h4>
             <ul>
-              ${results.recommendations.phase2.map((item: string) => `<li>${item}</li>`).join('')}
+              ${phase2Html}
             </ul>
             
             <h4>Phase 3 (Days 61-90) - Acceleration:</h4>
             <ul>
-              ${results.recommendations.phase3.map((item: string) => `<li>${item}</li>`).join('')}
+              ${phase3Html}
             </ul>
           </div>
 

@@ -371,8 +371,8 @@ export default function ProcessPage() {
               a: "Yes — that's exactly how it's designed. The diagnostic is a complete, standalone deliverable. There is no obligation to proceed to a full engagement. Many clients use the diagnostic report to make an internal case for the investment before committing.",
             },
             {
-              q: 'Do you work outside Johannesburg?',
-              a: "The diagnostic and most of the engagement work is handled remotely. For clients in Gauteng we can meet in person at key stages. For clients elsewhere in South Africa the process works entirely via video call and shared documents — same quality, same process.",
+              q: 'Do you work outside Gauteng, South Africa?',
+              a: "Yes, we do. The diagnostic and most of the engagement work is handled remotely. For clients in Gauteng we can meet in person at key stages. For clients elsewhere in South Africa the process works entirely via video call and shared documents — same quality, same process.",
             },
           ]} />
         </div>

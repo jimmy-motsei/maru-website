@@ -1,6 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { z } from 'zod'
+import { escapeHtml, escapeHtmlPreserveBreaks } from '@/lib/security'
 
 const BREVO_API = 'https://api.brevo.com/v3'
+
+const leadSchema = z.object({
+  fullName: z.string().trim().min(1).max(100),
+  email: z.string().trim().email().max(255),
+  companyWebsite: z.string().trim().url().max(500).optional().or(z.literal('')),
+  biggestChallenge: z.string().trim().max(3000).optional().or(z.literal('')),
+})
 
 async function getOrCreateListId(name: string, apiKey: string): Promise<number | null> {
   try {
@@ -27,7 +36,17 @@ async function getOrCreateListId(name: string, apiKey: string): Promise<number |
 
 export async function POST(request: NextRequest) {
   try {
-    const { fullName, email, companyWebsite, biggestChallenge } = await request.json()
+    const parsed = leadSchema.safeParse(await request.json())
+
+    if (!parsed.success) {
+      return NextResponse.json({ error: 'Invalid input.' }, { status: 400 })
+    }
+
+    const { fullName, email, companyWebsite, biggestChallenge } = parsed.data
+    const safeFullName = escapeHtml(fullName)
+    const safeEmail = escapeHtml(email)
+    const safeCompanyWebsite = companyWebsite ? escapeHtml(companyWebsite) : ''
+    const safeBiggestChallenge = biggestChallenge ? escapeHtmlPreserveBreaks(biggestChallenge) : ''
 
     if (!fullName || !email) {
       return NextResponse.json({ error: 'Full name and email are required.' }, { status: 400 })
@@ -73,7 +92,7 @@ export async function POST(request: NextRequest) {
         sender:  { name: senderName, email: senderEmail },
         to:      notifyTo,
         replyTo: { email, name: fullName },
-        subject: `New lead — ${fullName}`,
+        subject: `New lead — ${safeFullName}`,
         htmlContent: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#0D1B2A">
             <div style="background:#1A3A5C;padding:32px 40px;border-radius:8px 8px 0 0">
@@ -85,23 +104,23 @@ export async function POST(request: NextRequest) {
               <table style="width:100%;border-collapse:collapse">
                 <tr style="border-bottom:1px solid #E2E8F0">
                   <td style="padding:12px 0;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#718096;width:35%">Name</td>
-                  <td style="padding:12px 0;font-size:15px;color:#0D1B2A">${fullName}</td>
+                  <td style="padding:12px 0;font-size:15px;color:#0D1B2A">${safeFullName}</td>
                 </tr>
                 <tr style="border-bottom:1px solid #E2E8F0">
                   <td style="padding:12px 0;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#718096">Email</td>
                   <td style="padding:12px 0;font-size:15px;color:#0D1B2A">
-                    <a href="mailto:${email}" style="color:#3DB8C6">${email}</a>
+                    <a href="mailto:${safeEmail}" style="color:#3DB8C6">${safeEmail}</a>
                   </td>
                 </tr>
-                ${companyWebsite ? `
+                ${safeCompanyWebsite ? `
                 <tr style="border-bottom:1px solid #E2E8F0">
                   <td style="padding:12px 0;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#718096">Company Website</td>
-                  <td style="padding:12px 0;font-size:15px;color:#0D1B2A">${companyWebsite}</td>
+                  <td style="padding:12px 0;font-size:15px;color:#0D1B2A">${safeCompanyWebsite}</td>
                 </tr>` : ''}
-                ${biggestChallenge ? `
+                ${safeBiggestChallenge ? `
                 <tr>
                   <td style="padding:12px 0;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#718096;vertical-align:top">Biggest Challenge</td>
-                  <td style="padding:12px 0;font-size:15px;color:#0D1B2A">${biggestChallenge}</td>
+                  <td style="padding:12px 0;font-size:15px;color:#0D1B2A">${safeBiggestChallenge}</td>
                 </tr>` : ''}
               </table>
             </div>

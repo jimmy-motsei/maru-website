@@ -3,20 +3,45 @@ import type { NextRequest } from 'next/server';
 import { rateLimit, createRateLimitResponse } from '@/lib/rate-limit';
 import { verifySession } from '@/lib/auth';
 
+function getAllowedOrigins(): string[] {
+  return (process.env.NEXT_PUBLIC_SITE_URL || '')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+}
+
+function getCorsOrigin(request: NextRequest): string {
+  const requestOrigin = request.headers.get('origin');
+  const allowedOrigins = getAllowedOrigins();
+
+  if (requestOrigin && allowedOrigins.includes(requestOrigin)) {
+    return requestOrigin;
+  }
+
+  return allowedOrigins[0] || 'https://maruonline.com';
+}
+
 export async function middleware(request: NextRequest) {
   // Security headers
   const response = NextResponse.next();
   
   // CORS headers
-  response.headers.set('Access-Control-Allow-Origin', process.env.NEXT_PUBLIC_SITE_URL || '*');
+  response.headers.set('Access-Control-Allow-Origin', getCorsOrigin(request));
   response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  response.headers.set('Vary', 'Origin');
   
   // Security headers
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('X-Frame-Options', 'DENY');
   response.headers.set('X-XSS-Protection', '1; mode=block');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  response.headers.set('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none';");
+
+  if (process.env.NODE_ENV === 'production') {
+    response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+  }
   
   // Handle CORS preflight
   if (request.method === 'OPTIONS') {
@@ -37,7 +62,7 @@ export async function middleware(request: NextRequest) {
 
     const session = await verifySession(token);
     
-    if (!session) {
+    if (!session || session.role !== 'admin') {
       const loginResponse = NextResponse.redirect(new URL('/admin/login', request.url));
       loginResponse.cookies.delete('admin-session');
       return loginResponse;

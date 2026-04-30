@@ -1,5 +1,6 @@
 import { SignJWT, jwtVerify } from 'jose';
 import { NextRequest } from 'next/server';
+import { scryptSync, timingSafeEqual } from 'node:crypto';
 
 function getJwtSecret(): Uint8Array {
   const secret = process.env.JWT_SECRET;
@@ -46,10 +47,32 @@ export async function getSessionFromRequest(request: NextRequest): Promise<Sessi
 }
 
 export function verifyPassword(password: string): boolean {
+  const adminPasswordHash = process.env.ADMIN_PASSWORD_HASH;
   const adminPassword = process.env.ADMIN_PASSWORD;
+
+  if (adminPasswordHash) {
+    const [algorithm, salt, storedHash] = adminPasswordHash.split('$');
+    if (algorithm !== 'scrypt' || !salt || !storedHash) {
+      console.error('ADMIN_PASSWORD_HASH has invalid format');
+      return false;
+    }
+
+    const derived = scryptSync(password, salt, 64).toString('hex');
+    try {
+      return timingSafeEqual(Buffer.from(derived, 'hex'), Buffer.from(storedHash, 'hex'));
+    } catch {
+      return false;
+    }
+  }
+
   if (!adminPassword) {
     console.error('ADMIN_PASSWORD not configured');
     return false;
   }
-  return password === adminPassword;
+
+  try {
+    return timingSafeEqual(Buffer.from(password), Buffer.from(adminPassword));
+  } catch {
+    return false;
+  }
 }

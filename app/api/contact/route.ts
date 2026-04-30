@@ -1,6 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { z } from 'zod'
+import { escapeHtml, escapeHtmlPreserveBreaks } from '@/lib/security'
 
 const BREVO_API = 'https://api.brevo.com/v3'
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1).max(100),
+  email: z.string().trim().email().max(255),
+  company: z.string().trim().max(200).optional().or(z.literal('')),
+  message: z.string().trim().min(1).max(3000),
+})
 
 async function getOrCreateListId(name: string, apiKey: string): Promise<number | null> {
   try {
@@ -28,7 +37,19 @@ async function getOrCreateListId(name: string, apiKey: string): Promise<number |
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, company, message } = await request.json()
+    const parsed = contactSchema.safeParse(await request.json())
+
+    if (!parsed.success) {
+      return NextResponse.json({ error: 'Invalid input.' }, { status: 400 })
+    }
+
+    const { name, email, company, message } = parsed.data
+    const safeName = escapeHtml(name)
+    const safeEmail = escapeHtml(email)
+    const safeCompany = company ? escapeHtml(company) : ''
+    const safeMessage = escapeHtmlPreserveBreaks(message)
+    const firstName = name.split(' ')[0]
+    const safeFirstName = escapeHtml(firstName)
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Name, email and message are required.' }, { status: 400 })
@@ -69,7 +90,7 @@ export async function POST(request: NextRequest) {
         sender:  { name: senderName, email: senderEmail },
         to:      notifyTo,
         replyTo: { email, name },
-        subject: `New contact form submission — ${name}`,
+        subject: `New contact form submission — ${safeName}`,
         htmlContent: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#0D1B2A">
             <div style="background:#1A3A5C;padding:32px 40px;border-radius:8px 8px 0 0">
@@ -81,22 +102,22 @@ export async function POST(request: NextRequest) {
               <table style="width:100%;border-collapse:collapse">
                 <tr style="border-bottom:1px solid #E2E8F0">
                   <td style="padding:12px 0;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#718096;width:30%">Name</td>
-                  <td style="padding:12px 0;font-size:15px;color:#0D1B2A">${name}</td>
+                  <td style="padding:12px 0;font-size:15px;color:#0D1B2A">${safeName}</td>
                 </tr>
                 <tr style="border-bottom:1px solid #E2E8F0">
                   <td style="padding:12px 0;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#718096">Email</td>
                   <td style="padding:12px 0;font-size:15px;color:#0D1B2A">
-                    <a href="mailto:${email}" style="color:#3DB8C6">${email}</a>
+                    <a href="mailto:${safeEmail}" style="color:#3DB8C6">${safeEmail}</a>
                   </td>
                 </tr>
-                ${company ? `
+                ${safeCompany ? `
                 <tr style="border-bottom:1px solid #E2E8F0">
                   <td style="padding:12px 0;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#718096">Company</td>
-                  <td style="padding:12px 0;font-size:15px;color:#0D1B2A">${company}</td>
+                  <td style="padding:12px 0;font-size:15px;color:#0D1B2A">${safeCompany}</td>
                 </tr>` : ''}
                 <tr>
                   <td style="padding:12px 0;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#718096;vertical-align:top">Message</td>
-                  <td style="padding:12px 0;font-size:15px;color:#0D1B2A;line-height:1.8">${message.replace(/\n/g, '<br>')}</td>
+                  <td style="padding:12px 0;font-size:15px;color:#0D1B2A;line-height:1.8">${safeMessage}</td>
                 </tr>
               </table>
             </div>
@@ -131,7 +152,7 @@ export async function POST(request: NextRequest) {
               </p>
             </div>
             <div style="background:#F5F4F0;padding:32px 40px;border-radius:0 0 8px 8px;border:1px solid #E2E8F0;border-top:none">
-              <p style="font-size:17px;color:#0D1B2A;margin:0 0 16px">Hi ${name.split(' ')[0]},</p>
+              <p style="font-size:17px;color:#0D1B2A;margin:0 0 16px">Hi ${safeFirstName},</p>
               <p style="font-size:15px;color:#4A5568;line-height:1.8;margin:0 0 16px">
                 Thanks for reaching out. We've received your message and someone from the Maru Online team
                 will be in touch within <strong>1 business day</strong>.

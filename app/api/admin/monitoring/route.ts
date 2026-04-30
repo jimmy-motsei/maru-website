@@ -4,7 +4,7 @@ import { logger, securityMonitor, performanceMonitor } from '@/lib/monitoring';
 
 export async function GET(request: NextRequest) {
   const session = await getSessionFromRequest(request);
-  if (!session) {
+  if (!session || session.role !== 'admin') {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -63,7 +63,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   const session = await getSessionFromRequest(request);
-  if (!session) {
+  if (!session || session.role !== 'admin') {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

@@ -1,7 +1,15 @@
 import { NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
+import { getSessionFromRequest } from '@/lib/auth';
+import { escapeCsvCell } from '@/lib/security';
+import { NextRequest } from 'next/server';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const session = await getSessionFromRequest(request);
+  if (!session || session.role !== 'admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const { data: leads, error } = await supabaseAdmin
       .from('leads')
@@ -29,16 +37,16 @@ export async function GET() {
     const csvRows = [
       headers.join(','),
       ...(leads || []).map(lead => [
-        `"${lead.email || ''}"`,
-        `"${lead.first_name || ''}"`,
-        `"${lead.last_name || ''}"`,
-        `"${lead.company_name || ''}"`,
-        `"${lead.website_url || ''}"`,
-        `"${lead.phone || ''}"`,
+        escapeCsvCell(lead.email || ''),
+        escapeCsvCell(lead.first_name || ''),
+        escapeCsvCell(lead.last_name || ''),
+        escapeCsvCell(lead.company_name || ''),
+        escapeCsvCell(lead.website_url || ''),
+        escapeCsvCell(lead.phone || ''),
         lead.lead_score || 0,
         lead.assessment_count || 0,
-        `"${new Date(lead.created_at).toLocaleDateString()}"`,
-        `"${lead.hubspot_contact_id || ''}"`
+        escapeCsvCell(new Date(lead.created_at).toLocaleDateString()),
+        escapeCsvCell(lead.hubspot_contact_id || '')
       ].join(','))
     ];
 
