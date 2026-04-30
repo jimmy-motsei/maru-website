@@ -140,6 +140,7 @@ export default function PrimaryServicesFilter() {
           return (
             <div
               key={svc.id}
+              className="card-lift"
               style={{
                 border: isHighlighted
                   ? '0.5px solid var(--color-cyan)'
@@ -149,7 +150,7 @@ export default function PrimaryServicesFilter() {
                 background: 'var(--color-bg-primary)',
                 opacity: isDimmed ? 0.15 : 1,
                 pointerEvents: isDimmed ? 'none' : 'auto',
-                transition: 'opacity 0.2s, border-color 0.2s',
+                transition: 'opacity 0.2s, border-color 0.2s, transform 280ms cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 280ms cubic-bezier(0.25, 0.1, 0.25, 1)',
               }}
             >
               {/* Tag badge */}

@@ -221,6 +221,7 @@ export default function Home() {
             ].map((col) => (
               <StaggerChild key={col.heading}>
                 <div
+                  className="card-lift"
                   style={{
                     background: "var(--color-bg-primary)",
                     border: "0.5px solid var(--color-border-default)",
@@ -545,7 +546,7 @@ export default function Home() {
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {processPhases.map((phase) => (
               <StaggerChild key={phase.number}>
-                <div style={{ padding: "2rem", background: "var(--color-bg-primary)", borderRadius: "8px", height: "100%" }}>
+                <div className="card-lift" style={{ padding: "2rem", background: "var(--color-bg-primary)", borderRadius: "8px", height: "100%" }}>
                   <span
                     style={{
                       fontFamily: "var(--font-display)",

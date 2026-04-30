@@ -217,6 +217,7 @@ export default function PricingPage() {
             {engagements.map((eng) => (
               <FadeUp key={eng.id}>
                 <div
+                  className="card-lift"
                   style={{
                     backgroundColor: eng.featured ? 'var(--color-bg-canvas)' : 'var(--color-bg-primary)',
                     border:          eng.featured

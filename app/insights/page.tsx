@@ -129,13 +129,12 @@ function ArticleCard({
   return (
     <Link
       href={`/insights/${article.slug}`}
-      className="group block"
+      className="group block card-lift"
       style={{
         backgroundColor: "var(--color-bg-primary)",
         border:          "1px solid var(--color-border-default)",
         borderRadius:    "8px",
         overflow:        "hidden",
-        transition:      "transform 0.2s ease, box-shadow 0.2s ease",
       }}
     >
       {/* Image */}
@@ -286,7 +285,7 @@ export default function InsightsPage() {
 
             <Link
               href={`/insights/${featured.slug}`}
-              className="group grid grid-cols-1 md:grid-cols-2 gap-0"
+              className="group grid grid-cols-1 md:grid-cols-2 gap-0 card-lift"
               style={{
                 backgroundColor: "var(--color-bg-primary)",
                 border:          "1px solid var(--color-border-default)",
