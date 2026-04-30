@@ -107,6 +107,27 @@ export const leadActivities = pgTable('lead_activities', {
 });
 
 // =============================================================================
+// OPERATIONS ASSESSMENT REPORTS TABLE
+// Stores the generated report for delivery via /report/[token]
+// =============================================================================
+
+export const operationsReports = pgTable('operations_reports', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  token: uuid('token').notNull().unique().defaultRandom(),
+  name: text('name').notNull(),
+  email: text('email').notNull(),
+  website: text('website'),
+  level: integer('level').notNull(),        // 1 | 2 | 3
+  levelLabel: text('level_label').notNull(),
+  painTag: text('pain_tag').notNull(),
+  segmentB: boolean('segment_b').default(false),
+  answers: jsonb('answers').notNull(),       // q1–q5 answer keys
+  template: jsonb('template').notNull(),     // ReportTemplate (intro + insights)
+  synthesis: jsonb('synthesis'),             // SynthesisOutput.objectA — null if Gemini failed
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
+});
+
+// =============================================================================
 // TYPE EXPORTS
 // =============================================================================
 
@@ -120,3 +141,5 @@ export type OperationsDiagnostic = typeof operationsDiagnosticAssessments.$infer
 export type NewOperationsDiagnostic = typeof operationsDiagnosticAssessments.$inferInsert;
 export type LeadActivity = typeof leadActivities.$inferSelect;
 export type NewLeadActivity = typeof leadActivities.$inferInsert;
+export type OperationsReport = typeof operationsReports.$inferSelect;
+export type NewOperationsReport = typeof operationsReports.$inferInsert;

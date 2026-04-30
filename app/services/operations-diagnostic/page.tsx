@@ -159,19 +159,24 @@ export default function OperationsDiagnosticPage() {
             {/* Left — what it is + how it connects */}
             <div>
               <FadeUp>
-                <p
+                <span
                   style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "var(--text-label)",
-                    fontWeight: 500,
-                    letterSpacing: "var(--tracking-eyebrow)",
+                    display: "inline-block",
+                    fontSize: "10px",
+                    fontWeight: 600,
                     textTransform: "uppercase",
-                    color: "var(--color-ink-tertiary)",
+                    letterSpacing: "0.1em",
+                    color: "var(--color-cyan)",
+                    background: "rgba(61, 184, 198, 0.10)",
+                    border: "1px solid rgba(61, 184, 198, 0.25)",
+                    borderRadius: "4px",
+                    padding: "3px 8px",
                     marginBottom: "0.75rem",
+                    fontFamily: "var(--font-body)",
                   }}
                 >
                   What it is
-                </p>
+                </span>
                 <p className="body-muted" style={{ marginBottom: "2.5rem" }}>
                   A structured audit of your current workflows, tools, and data connections. You
                   receive a written report — delivered within 48 hours — that maps where information
@@ -180,19 +185,24 @@ export default function OperationsDiagnosticPage() {
                 </p>
               </FadeUp>
               <FadeUp delay={0.08}>
-                <p
+                <span
                   style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "var(--text-label)",
-                    fontWeight: 500,
-                    letterSpacing: "var(--tracking-eyebrow)",
+                    display: "inline-block",
+                    fontSize: "10px",
+                    fontWeight: 600,
                     textTransform: "uppercase",
-                    color: "var(--color-ink-tertiary)",
+                    letterSpacing: "0.1em",
+                    color: "var(--color-cyan)",
+                    background: "rgba(61, 184, 198, 0.10)",
+                    border: "1px solid rgba(61, 184, 198, 0.25)",
+                    borderRadius: "4px",
+                    padding: "3px 8px",
                     marginBottom: "0.75rem",
+                    fontFamily: "var(--font-body)",
                   }}
                 >
                   How it connects
-                </p>
+                </span>
                 <p className="body-muted" style={{ margin: 0 }}>
                   The diagnostic report is the input to every other engagement. If we find a clear
                   integration opportunity, we scope the Workflow Integration engagement directly from
@@ -205,19 +215,24 @@ export default function OperationsDiagnosticPage() {
 
             {/* Right — what's included */}
             <FadeUp delay={0.1}>
-              <p
+              <span
                 style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: "var(--text-label)",
-                  fontWeight: 500,
-                  letterSpacing: "var(--tracking-eyebrow)",
+                  display: "inline-block",
+                  fontSize: "10px",
+                  fontWeight: 600,
                   textTransform: "uppercase",
-                  color: "var(--color-ink-tertiary)",
+                  letterSpacing: "0.1em",
+                  color: "var(--color-cyan)",
+                  background: "rgba(61, 184, 198, 0.10)",
+                  border: "1px solid rgba(61, 184, 198, 0.25)",
+                  borderRadius: "4px",
+                  padding: "3px 8px",
                   marginBottom: "0.75rem",
+                  fontFamily: "var(--font-body)",
                 }}
               >
                 What&apos;s included
-              </p>
+              </span>
               <ListGroup>
                 {bullets.map((b) => (
                   <ListItem key={b.leader} leader={b.leader} body={b.body} />

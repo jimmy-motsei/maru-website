@@ -90,7 +90,7 @@ export default function AssessmentPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [progress, setProgress] = useState(0);
-  const [notionUrl, setNotionUrl] = useState<string | null>(null);
+  const [reportUrl, setReportUrl] = useState<string | null>(null);
 
   // Update progress bar
   useEffect(() => {
@@ -152,8 +152,8 @@ export default function AssessmentPage() {
       if (!response.ok) throw new Error("Submission failed");
 
       const data = await response.json();
-      if (data.notionPageUrl) {
-        setNotionUrl(data.notionPageUrl);
+      if (data.reportUrl) {
+        setReportUrl(data.reportUrl);
       }
 
       setStep("done");
@@ -279,7 +279,7 @@ export default function AssessmentPage() {
               Where should we send it?
             </h2>
             <p className="text-[#8b949e] text-base mb-8 leading-relaxed">
-              Your report will arrive as a Notion page — a structured document you can return to and share. It includes personalised observations based on your answers and a recommended next step.
+              We will email you a link to your personalised report — a structured page you can return to and share. It includes observations based on your specific answers and a recommended next step.
             </p>
 
             <form onSubmit={handleGateSubmit} className="space-y-4">
@@ -341,7 +341,7 @@ export default function AssessmentPage() {
               </button>
 
               <p className="text-[#768390] text-xs text-center leading-relaxed">
-                We'll email you a link to your Notion report. No spam. Unsubscribe any time.
+                We will email you a link to your report. No spam. Unsubscribe any time.
               </p>
             </form>
           </div>
@@ -360,7 +360,7 @@ export default function AssessmentPage() {
               Your report is on its way.
             </h2>
             <p className="text-[#768390] text-base leading-relaxed mb-8 max-w-md mx-auto">
-              Check your inbox for a link to your Notion report. It includes personalised observations based on your answers and a clear recommended next step.
+              Check your inbox for a link to your personalised report. It includes observations based on your answers and a clear recommended next step.
             </p>
 
             <div className="bg-[#e8f4f6] border border-[#04B3CC]/30 rounded-lg p-6 text-left mb-8">
@@ -372,7 +372,7 @@ export default function AssessmentPage() {
               </p>
             </div>
 
-            {notionUrl && (
+            {reportUrl && (
               <div
                 style={{
                   background: "rgba(61,184,198,0.05)",
@@ -390,12 +390,12 @@ export default function AssessmentPage() {
                   Your report
                 </p>
                 <a
-                  href={notionUrl}
+                  href={reportUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#04B3CC] text-sm hover:underline"
                 >
-                  View your Notion report →
+                  View your report →
                 </a>
               </div>
             )}

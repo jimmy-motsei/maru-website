@@ -1,24 +1,29 @@
 /**
  * Maru Online — Assessment Submission API Route
  * File: app/api/assessment/submit/route.ts
- * 
+ *
  * Orchestration flow:
  * 1. Validate submission
- * 2. Calculate score (client-side already done, server validates)
- * 3. Claude synthesis (assessment answers → JSON)
- * 4. Notion page creation (personalised report from template)
- * 5. Brevo: Email A to prospect (Notion report link)
- * 6. Brevo: Email B to hello@maruonline.com (Jimmy's brief)
- * 8. Return Notion page URL to client
- * 
+ * 2. Calculate score + select rich template
+ * 3. Gemini synthesis (assessment answers → personalised observations JSON)
+ * 4. Store report in DB → generate token → build report URL
+ * 5. Brevo: contact upsert
+ * 6. Brevo: Email A to prospect (report link)
+ * 7. Brevo: Email B to hello@maruonline.com (Jimmy's brief)
+ * 8. Return report URL to client
+ *
  * Error handling: each step degrades gracefully.
- * If Notion fails → emails still send, URL falls back to static level page.
+ * If Gemini fails → report uses template only (no personalised observations).
+ * If DB store fails → report URL falls back to static assessment page.
  * If Brevo fails → log error, do not block response.
  */
 
 import { NextRequest, NextResponse } from "next/server";
 import { calculateScore, getPainTag } from "@/lib/assessment/scoring";
 import { buildSynthesisPrompt, SynthesisOutput } from "@/lib/assessment/synthesisPrompt";
+import { getFullTemplate } from "@/lib/assessment/reportTemplates";
+import { dbLeadEngine } from "@/lib/db";
+import { operationsReports } from "@/lib/db/schema/lead-engine";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -56,36 +61,49 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── 2. Calculate score ─────────────────────────────────────────────────
+    // ── 2. Score + template selection ─────────────────────────────────────
     const scoreResult = calculateScore(body.answers);
     const painTag = getPainTag(body.answers.q4);
+    const template = getFullTemplate(scoreResult.level, painTag, scoreResult.segmentB);
 
-    // ── 3. Claude synthesis ────────────────────────────────────────────────
+    // ── 3. Gemini synthesis (personalised observations — optional) ─────────
     let synthesis: SynthesisOutput | null = null;
     try {
       synthesis = await runSynthesis(body.answers, scoreResult.level);
     } catch (err) {
-      console.error("Claude synthesis failed:", err);
-      // Continue without synthesis — Notion report uses level-only template
+      console.error("Gemini synthesis failed:", err);
+      // Report continues using template-only — no observations block shown
     }
 
-    // ── 4. Notion page creation ────────────────────────────────────────────
-    let notionPageUrl = getFallbackNotionUrl(scoreResult.level);
+    // ── 4. Store report + generate URL ────────────────────────────────────
+    const baseUrl =
+      process.env.NEXT_PUBLIC_BASE_URL ??
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://maruonline.com");
+
+    let reportUrl = `${baseUrl}/operations-assessment`;
     try {
-      notionPageUrl = await createNotionReport({
-        name: body.name,
-        email: body.email,
-        website: body.website,
-        level: scoreResult.level,
-        levelLabel: scoreResult.label,
-        summary: scoreResult.summary,
-        nextStep: scoreResult.nextStep,
-        observations: synthesis?.objectA ?? null,
-        scoreResult,
-      });
+      const rows = await dbLeadEngine
+        .insert(operationsReports)
+        .values({
+          name: body.name,
+          email: body.email,
+          website: body.website ?? null,
+          level: scoreResult.level,
+          levelLabel: scoreResult.label,
+          painTag,
+          segmentB: scoreResult.segmentB,
+          answers: body.answers,
+          template: template as unknown as Record<string, unknown>,
+          synthesis: synthesis?.objectA ? (synthesis.objectA as Record<string, unknown>) : null,
+        })
+        .returning({ token: operationsReports.token });
+
+      if (rows[0]?.token) {
+        reportUrl = `${baseUrl}/report/${rows[0].token}`;
+      }
     } catch (err) {
-      console.error("Notion page creation failed — full error:", JSON.stringify(err, Object.getOwnPropertyNames(err)));
-      // Falls back to static URL
+      console.error("DB report store failed:", err);
+      // Falls back to static URL — emails still go out
     }
 
     // ── 5. Brevo contact upsert (fire and forget) ─────────────────────────
@@ -95,17 +113,17 @@ export async function POST(req: NextRequest) {
       level: scoreResult.level,
       levelLabel: scoreResult.label,
       painTag,
-      notionPageUrl,
+      reportUrl,
     }).catch((err) => console.error("Brevo contact upsert failed:", err));
 
-    // ── 6 & 7. Brevo emails (fire and forget — don't block response) ──────
+    // ── 6 & 7. Brevo emails (fire and forget) ─────────────────────────────
     fireBrevoEmails({
       name: body.name,
       email: body.email,
       website: body.website,
       level: scoreResult.level,
       levelLabel: scoreResult.label,
-      notionPageUrl,
+      reportUrl,
       painTag,
       segmentB: scoreResult.segmentB,
       jimmyBrief: synthesis?.objectB ?? null,
@@ -117,7 +135,7 @@ export async function POST(req: NextRequest) {
       success: true,
       level: scoreResult.level,
       label: scoreResult.label,
-      notionPageUrl,
+      reportUrl,
     });
 
   } catch (err) {
@@ -159,239 +177,14 @@ async function runSynthesis(
   }
 
   const data = await response.json();
-
-  // Gemini 2.5-flash with responseMimeType:application/json may return
-  // the JSON either as a string in parts[0].text or parsed directly
   const candidate = data.candidates?.[0];
-  if (!candidate) {
-    throw new Error(`Gemini returned no candidates: ${JSON.stringify(data)}`);
-  }
+  if (!candidate) throw new Error(`Gemini returned no candidates`);
 
   const rawText = candidate.content?.parts?.[0]?.text ?? "";
-  if (!rawText) {
-    throw new Error(`Gemini returned empty text. FinishReason: ${candidate.finishReason}. Full: ${JSON.stringify(candidate)}`);
-  }
+  if (!rawText) throw new Error(`Gemini returned empty text. FinishReason: ${candidate.finishReason}`);
 
-  const cleaned = rawText
-    .replace(/```json\n?/g, "")
-    .replace(/```\n?/g, "")
-    .trim();
-
-  const parsed = JSON.parse(cleaned) as SynthesisOutput;
-  return parsed;
-}
-
-// ── Notion page creation ───────────────────────────────────────────────────
-
-interface NotionReportParams {
-  name: string;
-  email: string;
-  website?: string;
-  level: 1 | 2 | 3;
-  levelLabel: string;
-  summary: string;
-  nextStep: string;
-  observations: SynthesisOutput["objectA"] | null;
-  scoreResult: ReturnType<typeof calculateScore>;
-}
-
-async function createNotionReport(params: NotionReportParams): Promise<string> {
-  const { name, email, website, level, levelLabel, summary, nextStep, observations, scoreResult } = params;
-
-  const parentPageId = (process.env.NOTION_REPORTS_PARENT_ID ?? "").trim();
-
-  // Build the page content blocks
-  const blocks = buildNotionBlocks({
-    name,
-    email,
-    website,
-    levelLabel,
-    summary,
-    nextStep,
-    observations,
-    segmentB: scoreResult.segmentB,
-  });
-
-  // Create the page
-  const response = await fetch("https://api.notion.com/v1/pages", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
-      "Notion-Version": "2022-06-28",
-    },
-    body: JSON.stringify({
-      parent: { page_id: parentPageId },
-      properties: {
-        title: {
-          title: [
-            {
-              text: {
-                content: `Operations Assessment — ${name} — ${new Date().toLocaleDateString("en-GB")}`,
-              },
-            },
-          ],
-        },
-      },
-      children: blocks,
-    }),
-  });
-
-  if (!response.ok) {
-    const err = await response.text();
-    throw new Error(`Notion API error: ${response.status} — ${err}`);
-  }
-
-  const data = await response.json();
-  const pageId = data.id as string;
-
-  // Return the shareable Notion URL
-  return `https://www.notion.so/${pageId.replace(/-/g, "")}`;
-}
-
-function buildNotionBlocks(params: {
-  name: string;
-  email: string;
-  website?: string;
-  levelLabel: string;
-  summary: string;
-  nextStep: string;
-  observations: SynthesisOutput["objectA"] | null;
-  segmentB: boolean;
-}) {
-  const { name, levelLabel, summary, nextStep, observations, segmentB } = params;
-
-  const blocks: object[] = [
-    // Header
-    notionHeading1(`Your Operations Assessment Report`),
-    notionParagraph(`Hi ${name}, here's what your assessment reveals about how your business currently organises its operations — and what a realistic next step looks like.`),
-    notionDivider(),
-
-    // Readiness level
-    notionHeading2(`Your Result: ${levelLabel}`),
-    notionParagraph(summary),
-    notionDivider(),
-  ];
-
-  // Personalised observations (if synthesis succeeded)
-  if (observations) {
-    blocks.push(
-      notionHeading2("What your answers suggest"),
-      notionParagraph(observations.observation1),
-      notionParagraph(observations.observation2),
-      notionParagraph(observations.observation3)
-    );
-
-    if (observations.siteObservation) {
-      blocks.push(notionParagraph(observations.siteObservation));
-    }
-
-    blocks.push(notionDivider());
-  }
-
-  // What the diagnostic engagement is
-  blocks.push(
-    notionHeading2("What happens next"),
-    notionParagraph(nextStep),
-    notionDivider(),
-
-    notionHeading2("What this assessment tells us"),
-    notionParagraph(
-      "The Operations Assessment gives us a picture of how your business currently organises its work — where processes are defined, where they depend on specific people, and where things tend to stall. It is not a full diagnosis. It is a starting point."
-    ),
-    notionParagraph(
-      "Think of it as the intake. The real work happens in the discovery call."
-    ),
-    notionDivider(),
-
-    notionHeading2("The discovery call — free, 30 minutes"),
-    notionParagraph(
-      "We review your assessment before we speak so we come prepared. On the call, we go deeper — asking direct questions about where time is actually going, where information gets stuck, and where the manual work is concentrated."
-    ),
-    notionParagraph(
-      "At the end of the call we will tell you honestly whether we think an Operations Diagnostic makes sense for your business right now. If it does not, we will say so directly. A clear answer is more useful than a process you do not need."
-    ),
-    notionDivider(),
-
-    notionHeading2("If the fit is there — the Operations Diagnostic"),
-    notionParagraph(
-      "The Operations Diagnostic is a structured engagement we propose after the discovery call, if both sides agree it is the right next step. It goes deep into how your business actually operates — mapping where the friction is, what it is costing you, and where targeted integration would have the most impact."
-    ),
-    notionParagraph(
-      "The output is a written report: the three highest-leverage integration opportunities in your business, ranked by impact, with a recommended first step and a realistic scope and timeline. Delivered within five working days of the engagement starting."
-    ),
-    notionDivider(),
-
-    notionHeading2("Book a discovery call"),
-    notionParagraph(
-      "The next step is a free 30-minute call. No pitch. No commitment. We will have reviewed your assessment before we speak."
-    ),
-    notionCallout(
-      "Book a discovery call — pick a time that works and we will come prepared with what we have learned from your assessment.",
-      "📅"
-    ),
-    notionCallout(
-      "Not ready to book yet? Reply to your report email and tell us a bit more about what is going on in the business. We will take it from there.",
-      "✉️"
-    ),
-    notionDivider(),
-
-    notionParagraph(
-      "This report was prepared by Maru Online. Questions? Email hello@maruonline.com."
-    )
-  );
-
-  // Segment B internal note (hidden from prospect — Notion property, not a block)
-  // Handled via page properties, not blocks
-
-  return blocks;
-}
-
-// ── Notion block builders ──────────────────────────────────────────────────
-
-function notionHeading1(text: string) {
-  return {
-    object: "block",
-    type: "heading_1",
-    heading_1: {
-      rich_text: [{ type: "text", text: { content: text } }],
-    },
-  };
-}
-
-function notionHeading2(text: string) {
-  return {
-    object: "block",
-    type: "heading_2",
-    heading_2: {
-      rich_text: [{ type: "text", text: { content: text } }],
-    },
-  };
-}
-
-function notionParagraph(text: string) {
-  return {
-    object: "block",
-    type: "paragraph",
-    paragraph: {
-      rich_text: [{ type: "text", text: { content: text } }],
-    },
-  };
-}
-
-function notionDivider() {
-  return { object: "block", type: "divider", divider: {} };
-}
-
-function notionCallout(text: string, emoji: string) {
-  return {
-    object: "block",
-    type: "callout",
-    callout: {
-      rich_text: [{ type: "text", text: { content: text } }],
-      icon: { type: "emoji", emoji },
-    },
-  };
+  const cleaned = rawText.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
+  return JSON.parse(cleaned) as SynthesisOutput;
 }
 
 // ── Brevo contact upsert ───────────────────────────────────────────────────
@@ -404,9 +197,9 @@ async function upsertBrevoContact(params: {
   level: number;
   levelLabel: string;
   painTag: string;
-  notionPageUrl: string;
+  reportUrl: string;
 }) {
-  const { name, email, level, levelLabel, painTag, notionPageUrl } = params;
+  const { name, email, level, levelLabel, painTag, reportUrl } = params;
   const firstName = name.trim().split(" ")[0];
   const lastName = name.trim().split(" ").slice(1).join(" ") || "";
 
@@ -426,7 +219,7 @@ async function upsertBrevoContact(params: {
         ASSESSMENT_LEVEL: level,
         ASSESSMENT_LABEL: levelLabel,
         PAIN_TAG: painTag,
-        NOTION_REPORT_URL: notionPageUrl,
+        REPORT_URL: reportUrl,
         ASSESSMENT_DATE: new Date().toISOString().split("T")[0],
       },
     }),
@@ -443,7 +236,7 @@ interface BrevoEmailParams {
   website?: string;
   level: 1 | 2 | 3;
   levelLabel: string;
-  notionPageUrl: string;
+  reportUrl: string;
   painTag: string;
   segmentB: boolean;
   jimmyBrief: SynthesisOutput["objectB"] | null;
@@ -458,7 +251,7 @@ async function fireBrevoEmails(params: BrevoEmailParams) {
 }
 
 async function sendProspectEmail(params: BrevoEmailParams) {
-  const { name, email, level, levelLabel, notionPageUrl, painTag } = params;
+  const { name, email, level, levelLabel, reportUrl, painTag, segmentB } = params;
 
   const templateId1 = parseInt(process.env.BREVO_TEMPLATE_LEVEL_1 ?? "0");
   const templateId2 = parseInt(process.env.BREVO_TEMPLATE_LEVEL_2 ?? "0");
@@ -487,10 +280,10 @@ async function sendProspectEmail(params: BrevoEmailParams) {
       params: {
         FIRSTNAME: name,
         LEVEL_LABEL: levelLabel,
-        NOTION_REPORT_URL: notionPageUrl,
+        REPORT_URL: reportUrl,
         PAIN_TAG: painTag,
       },
-      tags: [`level-${level}`, painTag, params.segmentB ? "segment-b" : "segment-standard"],
+      tags: [`level-${level}`, painTag, segmentB ? "segment-b" : "segment-standard"],
     }),
   });
   const brevoBody = await brevoRes.json();
@@ -498,19 +291,10 @@ async function sendProspectEmail(params: BrevoEmailParams) {
 }
 
 async function sendJimmyBriefEmail(params: BrevoEmailParams) {
-  const { name, email, website, level, levelLabel, notionPageUrl, segmentB, jimmyBrief, answers } = params;
+  const { name, email, website, level, levelLabel, reportUrl, segmentB, jimmyBrief, answers } = params;
 
-  // Build plain-text brief for Jimmy
   const briefHtml = buildJimmyBriefHtml({
-    name,
-    email,
-    website,
-    level,
-    levelLabel,
-    notionPageUrl,
-    segmentB,
-    jimmyBrief,
-    answers,
+    name, email, website, level, levelLabel, reportUrl, segmentB, jimmyBrief, answers,
   });
 
   const jimmyRes = await fetch("https://api.brevo.com/v3/smtp/email", {
@@ -537,12 +321,12 @@ function buildJimmyBriefHtml(params: {
   website?: string;
   level: number;
   levelLabel: string;
-  notionPageUrl: string;
+  reportUrl: string;
   segmentB: boolean;
   jimmyBrief: SynthesisOutput["objectB"] | null;
   answers: SubmissionBody["answers"];
 }): string {
-  const { name, email, website, levelLabel, notionPageUrl, segmentB, jimmyBrief, answers } = params;
+  const { name, email, website, levelLabel, reportUrl, segmentB, jimmyBrief, answers } = params;
 
   const flagBanner = segmentB
     ? `<div style="background:#fff3cd;border:1px solid #ffc107;padding:12px 16px;border-radius:4px;margin-bottom:16px;">
@@ -579,7 +363,7 @@ function buildJimmyBriefHtml(params: {
         <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Email</td><td style="padding:8px 12px;border:1px solid #e0e0e0;"><a href="mailto:${email}">${email}</a></td></tr>
         <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Website</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${website ? `<a href="${website}">${website}</a>` : "Not provided"}</td></tr>
         <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Level</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${levelLabel}</td></tr>
-        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Notion report</td><td style="padding:8px 12px;border:1px solid #e0e0e0;"><a href="${notionPageUrl}">View report →</a></td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Report</td><td style="padding:8px 12px;border:1px solid #e0e0e0;"><a href="${reportUrl}">View report →</a></td></tr>
       </table>
 
       ${briefSection}
@@ -596,17 +380,6 @@ function buildJimmyBriefHtml(params: {
       <p style="margin-top:32px;font-size:12px;color:#999;">This email was generated automatically by the Maru Online assessment tool. Reply to this email to contact ${name} directly.</p>
     </div>
   `;
-}
-
-// ── Fallback Notion URLs ────────────────────────────────────────────────────
-
-function getFallbackNotionUrl(level: 1 | 2 | 3): string {
-  const fallbacks: Record<number, string> = {
-    1: (process.env.NOTION_FALLBACK_LEVEL_1_URL ?? "https://maruonline.com/operations-assessment").trim(),
-    2: (process.env.NOTION_FALLBACK_LEVEL_2_URL ?? "https://maruonline.com/operations-assessment").trim(),
-    3: (process.env.NOTION_FALLBACK_LEVEL_3_URL ?? "https://maruonline.com/operations-assessment").trim(),
-  };
-  return fallbacks[level];
 }
 
 // ── Utilities ──────────────────────────────────────────────────────────────
