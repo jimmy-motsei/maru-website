@@ -145,8 +145,8 @@ export default function PricingPage() {
           </FadeUp>
           <FadeUp delay={0.22}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-              <Button href="/contact" variant="primary">
-                Start with Diagnostic
+              <Button href="/operations-assessment" variant="primary">
+                Start with Assessment
               </Button>
               <Button href="#engagements" variant="tertiary">
                 See all pricing
@@ -417,8 +417,8 @@ export default function PricingPage() {
           </FadeUp>
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <Button href="/contact" variant="primary">
-                Start with Diagnostic
+              <Button href="/operations-assessment" variant="primary">
+                Start with Assessment
               </Button>
               <Button href="/booking" variant="tertiary">
                 Book a 20-minute call
