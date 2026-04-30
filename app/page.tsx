@@ -162,7 +162,7 @@ export default function Home() {
           <FadeUp delay={0.22}>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Button href="/operations-assessment" variant="primary" className="w-full sm:w-auto justify-center">
-                Get a Free Diagnostic
+                Get a Free Assessment
               </Button>
             </div>
             <p
@@ -352,7 +352,7 @@ export default function Home() {
               className="body-muted"
               style={{ maxWidth: "640px", marginBottom: "var(--space-section-header-mb)" }}
             >
-              Six services. One starting point — the free diagnostic.
+              Six services. One starting point — the free assessment.
             </p>
           </FadeUp>
 

@@ -130,7 +130,7 @@ export default function AssessmentFormSection() {
             </h2>
 
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-              Our free diagnostic shows you exactly where your processes are losing capacity. Ten minutes. Results within 24 hours.
+              Our free assessment shows you exactly where your processes are losing capacity. Ten minutes. Results within 24 hours.
             </p>
 
             <p
@@ -252,7 +252,7 @@ export default function AssessmentFormSection() {
                     paddingBottom: 0,
                   }}
                 >
-                  Get Your Free Diagnostic
+                  Get Your Free Assessment
                 </h3>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -345,7 +345,7 @@ export default function AssessmentFormSection() {
                     disabled={loading}
                     className="w-full justify-center"
                   >
-                    {loading ? "Submitting…" : "Get My Free Diagnostic"}
+                    {loading ? "Submitting…" : "Get My Free Assessment"}
                   </Button>
                 </div>
 

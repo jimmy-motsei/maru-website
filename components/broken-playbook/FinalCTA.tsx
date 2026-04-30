@@ -30,7 +30,7 @@ export function FinalCTA() {
               href="https://leads.maruonline.com"
               className="shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
-              Start Free Diagnostic
+              Start Free Assessment
             </CTAPrimary>
 
             <Link

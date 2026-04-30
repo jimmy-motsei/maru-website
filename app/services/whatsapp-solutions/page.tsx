@@ -164,7 +164,7 @@ export default function WhatsAppSolutionsPage() {
                 </p>
 
                 <Link href="/assessments/pipeline-leak" className="btn-primary-hero-cta group">
-                  Start Free Diagnostic
+                  Start Free Assessment
                   <span className="ml-2">→</span>
                 </Link>
               </motion.div>
