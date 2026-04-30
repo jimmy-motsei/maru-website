@@ -170,14 +170,14 @@ export default function Footer() {
                       className={`${linkClass} hover:!text-[#25D366]`}
                       style={{ color: 'var(--color-ink-inverted-muted)' }}
                     >
-                      +27 63 564 3263
+                      WhatsApp
                     </a>
                   </li>
                   <li
                     className="font-body text-[13px] font-light"
                     style={{ color: 'var(--color-ink-inverted-muted)' }}
                   >
-                    Johannesburg, South Africa
+                    Gauteng, South Africa
                   </li>
                   <li
                     className="font-body text-[13px] font-light"
