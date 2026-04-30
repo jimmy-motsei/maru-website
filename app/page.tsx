@@ -98,7 +98,7 @@ export default function Home() {
           mask="fade-edges"
           size={40}
           fill="rgba(61, 184, 198, 0.101)"
-          className="z-0"
+          className="pointer-events-none"
         />
         <div
           aria-hidden="true"
