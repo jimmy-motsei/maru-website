@@ -181,23 +181,23 @@ export default function AboutPage() {
             </h2>
           </FadeUp>
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <StaggerChild>
-              <CardGold title="Truth Over Talk.">
+            <StaggerChild className="h-full">
+              <CardGold title="Truth Over Talk." className="h-full">
                 We don&apos;t just say it; we prove it. If we can&apos;t back it up, we won&apos;t say it. Our commitment to honesty means every claim about your results is grounded in fact, not fiction.
               </CardGold>
             </StaggerChild>
-            <StaggerChild>
-              <CardGold title="Clarity Over Clouds.">
+            <StaggerChild className="h-full">
+              <CardGold title="Clarity Over Clouds." className="h-full">
                 &ldquo;Better efficiency&rdquo; is a guess; &ldquo;14 hours down to 3&rdquo; is a result. We trade vague promises for specific fixes and measurable wins.
               </CardGold>
             </StaggerChild>
-            <StaggerChild>
-              <CardGold title="Impact Over Handover.">
+            <StaggerChild className="h-full">
+              <CardGold title="Impact Over Handover." className="h-full">
                 A tool no one uses is a failure. We don&apos;t measure success by what we deliver, but by what actually changes in your business.
               </CardGold>
             </StaggerChild>
-            <StaggerChild>
-              <CardGold title="Focus Over Volume.">
+            <StaggerChild className="h-full">
+              <CardGold title="Focus Over Volume." className="h-full">
                 We limit ourselves to five active clients. This isn&apos;t a marketing tactic — it&apos;s how we ensure you get our full attention from start to finish.
               </CardGold>
             </StaggerChild>
