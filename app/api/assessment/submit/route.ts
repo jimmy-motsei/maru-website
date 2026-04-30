@@ -5,15 +5,13 @@
  * Orchestration flow:
  * 1. Validate submission
  * 2. Calculate score (client-side already done, server validates)
- * 3. Firecrawl scrape (if URL provided)
- * 4. Claude synthesis (assessment answers + scrape → JSON)
- * 5. Notion page creation (personalised report from template)
- * 6. Brevo: Email A to prospect (Notion report link)
- * 7. Brevo: Email B to hello@maruonline.com (Jimmy's brief)
+ * 3. Claude synthesis (assessment answers → JSON)
+ * 4. Notion page creation (personalised report from template)
+ * 5. Brevo: Email A to prospect (Notion report link)
+ * 6. Brevo: Email B to hello@maruonline.com (Jimmy's brief)
  * 8. Return Notion page URL to client
  * 
  * Error handling: each step degrades gracefully.
- * If Firecrawl fails → synthesis runs on answers only.
  * If Notion fails → emails still send, URL falls back to static level page.
  * If Brevo fails → log error, do not block response.
  */
@@ -62,22 +60,16 @@ export async function POST(req: NextRequest) {
     const scoreResult = calculateScore(body.answers);
     const painTag = getPainTag(body.answers.q4);
 
-    // ── 3. Firecrawl scrape ────────────────────────────────────────────────
-    let siteMarkdown = "";
-    if (body.website && isValidUrl(body.website)) {
-      siteMarkdown = await scrapeWebsite(body.website);
-    }
-
-    // ── 4. Claude synthesis ────────────────────────────────────────────────
+    // ── 3. Claude synthesis ────────────────────────────────────────────────
     let synthesis: SynthesisOutput | null = null;
     try {
-      synthesis = await runSynthesis(body.answers, scoreResult.level, siteMarkdown);
+      synthesis = await runSynthesis(body.answers, scoreResult.level);
     } catch (err) {
       console.error("Claude synthesis failed:", err);
       // Continue without synthesis — Notion report uses level-only template
     }
 
-    // ── 5. Notion page creation ────────────────────────────────────────────
+    // ── 4. Notion page creation ────────────────────────────────────────────
     let notionPageUrl = getFallbackNotionUrl(scoreResult.level);
     try {
       notionPageUrl = await createNotionReport({
@@ -96,7 +88,7 @@ export async function POST(req: NextRequest) {
       // Falls back to static URL
     }
 
-    // ── 6. Brevo contact upsert (fire and forget) ─────────────────────────
+    // ── 5. Brevo contact upsert (fire and forget) ─────────────────────────
     upsertBrevoContact({
       name: body.name,
       email: body.email,
@@ -106,7 +98,7 @@ export async function POST(req: NextRequest) {
       notionPageUrl,
     }).catch((err) => console.error("Brevo contact upsert failed:", err));
 
-    // ── 7 & 8. Brevo emails (fire and forget — don't block response) ──────
+    // ── 6 & 7. Brevo emails (fire and forget — don't block response) ──────
     fireBrevoEmails({
       name: body.name,
       email: body.email,
@@ -137,39 +129,13 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// ── Firecrawl scrape ───────────────────────────────────────────────────────
-
-async function scrapeWebsite(url: string): Promise<string> {
-  const response = await fetch("https://api.firecrawl.dev/v1/scrape", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.FIRECRAWL_API_KEY}`,
-    },
-    body: JSON.stringify({
-      url,
-      formats: ["markdown"],
-      onlyMainContent: true,
-      timeout: 15000,
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error(`Firecrawl error: ${response.status}`);
-  }
-
-  const data = await response.json();
-  return data.data?.markdown ?? "";
-}
-
 // ── Gemini synthesis ───────────────────────────────────────────────────────
 
 async function runSynthesis(
   answers: SubmissionBody["answers"],
-  level: 1 | 2 | 3,
-  siteMarkdown: string
+  level: 1 | 2 | 3
 ): Promise<SynthesisOutput> {
-  const prompt = buildSynthesisPrompt(answers, level, siteMarkdown);
+  const prompt = buildSynthesisPrompt(answers, level, "");
 
   const response = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
@@ -647,13 +613,4 @@ function getFallbackNotionUrl(level: 1 | 2 | 3): string {
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function isValidUrl(url: string): boolean {
-  try {
-    const u = new URL(url.startsWith("http") ? url : `https://${url}`);
-    return u.hostname.includes(".");
-  } catch {
-    return false;
-  }
 }
