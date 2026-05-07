@@ -168,7 +168,7 @@ export default function AssessmentPage() {
 
   return (
     <main
-      className="relative min-h-screen flex items-center text-[#c9d1d9]"
+      className="relative min-h-screen flex items-center text-white"
       style={{ backgroundColor: "var(--color-bg-navy)" }}
     >
       <BGPattern
@@ -195,10 +195,10 @@ export default function AssessmentPage() {
             <p className="text-xs font-mono text-[#04B3CC] tracking-widest uppercase mb-6">
               Maru Online · Operations Assessment
             </p>
-            <h1 className="text-3xl font-semibold text-[#e6edf3] leading-tight mb-4">
+            <h1 className="text-3xl font-semibold text-white leading-tight mb-4">
               Find out where your business is losing time and money to manual processes.
             </h1>
-            <p className="text-[#c9d1d9] text-lg mb-8 leading-relaxed">
+            <p className="text-white/90 text-lg mb-8 leading-relaxed">
               Five questions. Two minutes. Instant result.
             </p>
 
@@ -275,16 +275,16 @@ export default function AssessmentPage() {
             <p className="text-xs font-mono text-[#04B3CC] tracking-widest uppercase mb-6">
               Your report
             </p>
-            <h2 className="text-2xl font-semibold text-[#e6edf3] mb-2">
+            <h2 className="text-2xl font-semibold text-white mb-2">
               Where should we send it?
             </h2>
-            <p className="text-[#8b949e] text-base mb-8 leading-relaxed">
+            <p className="text-white/80 text-base mb-8 leading-relaxed">
               We will email you a link to your personalised report — a structured page you can return to and share. It includes observations based on your specific answers and a recommended next step.
             </p>
 
-            <form onSubmit={handleGateSubmit} className="space-y-4">
+            <form onSubmit={handleGateSubmit} className="space-y-5">
               <div>
-                <label className="block text-xs font-mono text-[#768390] uppercase tracking-wider mb-2">
+                <label className="block text-sm font-medium text-white mb-2">
                   Your name
                 </label>
                 <input
@@ -293,12 +293,12 @@ export default function AssessmentPage() {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="First name is fine"
                   required
-                  className="w-full bg-[#111820] border border-[#1e2a38] rounded-lg px-4 py-3 text-[#e6edf3] placeholder-[#4a5568] text-base focus:outline-none focus:border-[#04B3CC] transition-colors"
+                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition focus:border-[#04B3CC]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-[#768390] uppercase tracking-wider mb-2">
+                <label className="block text-sm font-medium text-white mb-2">
                   Email address
                 </label>
                 <input
@@ -307,23 +307,23 @@ export default function AssessmentPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@yourbusiness.com"
                   required
-                  className="w-full bg-[#111820] border border-[#1e2a38] rounded-lg px-4 py-3 text-[#e6edf3] placeholder-[#4a5568] text-base focus:outline-none focus:border-[#04B3CC] transition-colors"
+                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition focus:border-[#04B3CC]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-[#768390] uppercase tracking-wider mb-2">
+                <label className="block text-sm font-medium text-white mb-2">
                   Business website{" "}
-                  <span className="text-[#768390] normal-case font-sans">(optional — helps us personalise your report)</span>
+                  <span className="font-normal text-white/50">(optional — helps us personalise your report)</span>
                 </label>
                 <input
                   type="text"
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
                   placeholder="yourbusiness.com"
-                  className="w-full bg-[#111820] border border-[#1e2a38] rounded-lg px-4 py-3 text-[#e6edf3] placeholder-[#4a5568] text-base focus:outline-none focus:border-[#04B3CC] transition-colors"
+                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition focus:border-[#04B3CC]"
                 />
-                <p className="text-[#768390] text-xs mt-1">
+                <p className="text-white/50 text-xs mt-1.5">
                   Don't have a website yet? Leave this blank — it's useful context but not required.
                 </p>
               </div>
@@ -340,7 +340,7 @@ export default function AssessmentPage() {
                 {submitting ? "Sending your report..." : "Send my report →"}
               </button>
 
-              <p className="text-[#768390] text-xs text-center leading-relaxed">
+              <p className="text-white/50 text-xs text-center leading-relaxed">
                 We will email you a link to your report. No spam. Unsubscribe any time.
               </p>
             </form>
@@ -356,10 +356,10 @@ export default function AssessmentPage() {
               </svg>
             </div>
 
-            <h2 className="text-2xl font-semibold text-[#e6edf3] mb-3">
+            <h2 className="text-2xl font-semibold text-white mb-3">
               Your report is on its way.
             </h2>
-            <p className="text-[#768390] text-base leading-relaxed mb-8 max-w-md mx-auto">
+            <p className="text-white/80 text-base leading-relaxed mb-8 max-w-md mx-auto">
               Check your inbox for a link to your personalised report. It includes observations based on your answers and a clear recommended next step.
             </p>
 
@@ -384,7 +384,7 @@ export default function AssessmentPage() {
                 }}
               >
                 <p
-                  className="text-[#768390] text-xs uppercase tracking-widest mb-2"
+                  className="text-white/50 text-xs uppercase tracking-widest mb-2"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Your report
@@ -437,11 +437,11 @@ function QuestionStep({
 
   return (
     <div className="animate-fade-in">
-      <p className="text-xs font-mono text-[#768390] tracking-widest uppercase mb-6">
+      <p className="text-xs font-mono text-white/50 tracking-widest uppercase mb-6">
         Question {questionNumber} of {totalQuestions}
       </p>
 
-      <h2 className="text-xl font-semibold text-[#e6edf3] leading-snug mb-6">
+      <h2 className="text-xl font-semibold text-white leading-snug mb-6">
         {question.text}
       </h2>
 

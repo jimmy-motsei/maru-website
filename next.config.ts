@@ -42,10 +42,6 @@ const nextConfig: NextConfig = {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
           },
-          {
-            key: 'Content-Security-Policy',
-            value: "frame-src 'self' https://form.jotform.com https://www.jotform.com;",
-          },
         ],
       },
       {
