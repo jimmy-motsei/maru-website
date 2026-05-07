@@ -19,15 +19,6 @@ export default function ContactForm() {
       <Script
         src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"
         strategy="afterInteractive"
-        onLoad={() => {
-          const w = window as Window & { jotformEmbedHandler?: (selector: string, origin: string) => void }
-          if (w.jotformEmbedHandler) {
-            w.jotformEmbedHandler(
-              "iframe[id='jotform-enquiry']",
-              "https://form.jotform.com"
-            )
-          }
-        }}
       />
     </>
   )
