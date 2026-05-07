@@ -83,8 +83,8 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-10 md:gap-24 items-end">
 
             {/* Left — form */}
-            <FadeUp>
-              <div>
+            <div>
+              <FadeUp>
                 {/* Calendly CTA */}
                 <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
                   <Button href="/booking" variant="primary">
@@ -109,10 +109,10 @@ export default function ContactPage() {
                   <br />
                   <span style={{ fontWeight: 700 }}>message directly</span>
                 </h2>
+              </FadeUp>
 
-                <ContactForm />
-              </div>
-            </FadeUp>
+              <ContactForm />
+            </div>
 
             {/* Right — contact details */}
             <FadeUp delay={0.1}>
