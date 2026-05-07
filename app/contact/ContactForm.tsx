@@ -13,7 +13,7 @@ export default function ContactForm() {
           border:    'none',
           display:   'block',
         }}
-        scrolling="no"
+        allow="geolocation; microphone; camera"
         allowFullScreen
       />
       <Script
