@@ -44,7 +44,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "frame-src 'self' https://form.jotform.com https://www.jotform.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jotfor.ms https://connect.facebook.net;",
+            value: "frame-src 'self' https://form.jotform.com https://www.jotform.com;",
           },
         ],
       },
