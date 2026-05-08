@@ -457,9 +457,7 @@ export default function InsightsPage() {
           <FadeUp>
             <span className="label-eyebrow-gold">Monthly Best Practices for AI Integration</span>
             <h2>
-              <span style={{ fontWeight: 300 }}>The Business</span>
-              <br />
-              <span style={{ fontWeight: 700 }}>AI Journal</span>
+              <span style={{ fontWeight: 300 }}>The Business </span><span style={{ fontWeight: 700 }}>AI Journal</span>
             </h2>
             <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
               Unlock practical strategies to optimize your AI integration. Each
