@@ -81,7 +81,8 @@ export default function ContactPage() {
       >
         <div className={innerWide}>
 
-          {/* Header — full width, above the grid */}
+          {/* Header — left-column width only */}
+          <div className="md:grid md:grid-cols-[1fr_360px] md:gap-24">
           <FadeUp>
             <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
               <Button href="/booking" variant="primary">
@@ -107,6 +108,7 @@ export default function ContactPage() {
               <span style={{ fontWeight: 700 }}>message directly</span>
             </h2>
           </FadeUp>
+          </div>
 
           {/* Two-column grid starts here — aligned to first form field */}
           <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-10 md:gap-24 items-start">
