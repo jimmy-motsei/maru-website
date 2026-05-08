@@ -5,7 +5,6 @@ import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { MaruBriefForm } from "@/app/resources/MaruBriefForm";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
-import NewsletterSection from "@/components/homepage/NewsletterSection";
 
 export const metadata: Metadata = {
   title: "Insights | Maru Online",
@@ -538,7 +537,6 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      <NewsletterSection />
     </>
   );
 }
