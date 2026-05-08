@@ -1,114 +1,9 @@
-"use client";
-
-import { useState } from "react";
 import Button from "@/components/ui/Button";
-
-// Maps handoff dropdown labels to internal q4 scoring keys
-const CHALLENGE_OPTIONS = [
-  { label: "Too much manual admin work",          value: "reduce-manual-tasks" },
-  { label: "Leads aren't converting to clients",  value: "convert-more-leads" },
-  { label: "Tools that aren't talking to each other", value: "reduce-manual-tasks" },
-  { label: "Can't measure what's working",        value: "better-visibility" },
-  { label: "Team adopting new tools is hard",     value: "less-people-dependent" },
-  { label: "Not sure where to start",             value: "better-visibility" },
-] as const;
-
-// Reasonable defaults for q1/q2/q3/q5 — ensures scoring works for all submissions
-const DEFAULTS = {
-  q1: "same-problems",
-  q2: "repetitive-tasks",
-  q3: "defined-manual",
-  q5: "no-not-priority",
-};
-
-interface FormState {
-  name: string;
-  email: string;
-  website: string;
-  challenge: string;
-}
 
 const outerPad = "px-6 md:px-[60px]";
 const inner    = "max-w-[900px] mx-auto";
 
 export default function AssessmentFormSection() {
-  const [form, setForm] = useState<FormState>({
-    name: "",
-    email: "",
-    website: "",
-    challenge: "",
-  });
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setError(null);
-    setLoading(true);
-
-    const q4Value =
-      CHALLENGE_OPTIONS.find((o) => o.label === form.challenge)?.value ??
-      "reduce-manual-tasks";
-
-    try {
-      const res = await fetch("/api/assessment/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          website: form.website || undefined,
-          answers: {
-            ...DEFAULTS,
-            q4: q4Value,
-          },
-        }),
-      });
-
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error ?? "Something went wrong. Please try again.");
-      }
-
-      setSubmitted(true);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  const inputStyle: React.CSSProperties = {
-    width: "100%",
-    fontFamily: "var(--font-body)",
-    fontSize: "var(--text-body-sm)",
-    fontWeight: 300,
-    color: "var(--color-ink-primary)",
-    background: "#fff",
-    border: "1px solid var(--color-border-default)",
-    borderRadius: "6px",
-    padding: "0.75rem 1rem",
-    lineHeight: 1.5,
-    outline: "none",
-    transition: "border-color 0.15s ease",
-  };
-
-  const labelStyle: React.CSSProperties = {
-    fontFamily: "var(--font-body)",
-    fontSize: "var(--text-meta)",
-    fontWeight: 500,
-    letterSpacing: "0.08em",
-    textTransform: "uppercase" as const,
-    color: "var(--color-ink-tertiary)",
-    display: "block",
-    marginBottom: "0.375rem",
-  };
-
   return (
     <section
       id="assessment"
@@ -184,7 +79,7 @@ export default function AssessmentFormSection() {
             </p>
           </div>
 
-          {/* ── Right: form card ────────────────────────────────────── */}
+          {/* ── Right: CTA card ─────────────────────────────────────── */}
           <div
             style={{
               background: "#fff",
@@ -193,178 +88,82 @@ export default function AssessmentFormSection() {
               boxShadow: "0 8px 40px rgba(0,0,0,0.2)",
             }}
           >
-            {submitted ? (
-              <div style={{ textAlign: "center", padding: "1rem 0" }}>
-                <div
-                  style={{
-                    width: "56px",
-                    height: "56px",
-                    borderRadius: "50%",
-                    background: "var(--color-cyan-light)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "0 auto 1.25rem",
-                  }}
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <circle cx="12" cy="12" r="10" stroke="var(--color-cyan)" strokeWidth="1.5" />
-                    <path d="M8 12l3 3 5-5" stroke="var(--color-cyan)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <h3
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 500,
+                fontSize: "var(--text-h3-serif)",
+                color: "var(--color-ink-primary)",
+                lineHeight: "var(--leading-subheading)",
+                marginBottom: "1.25rem",
+                borderBottom: "none",
+                paddingBottom: 0,
+              }}
+            >
+              Get Your Free Assessment
+            </h3>
+
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "var(--text-body-sm)",
+                fontWeight: 300,
+                color: "var(--color-ink-secondary)",
+                lineHeight: "var(--leading-body)",
+                marginBottom: "1.5rem",
+              }}
+            >
+              Answer 10 questions about your operations. Takes about 10 minutes. We pinpoint exactly where your business is leaking time and money — and what to do about it.
+            </p>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem", marginBottom: "2rem" }}>
+              {[
+                "See your score live as you go",
+                "Detailed report delivered within 24 hours",
+                "No sign-up required to begin",
+              ].map((point) => (
+                <div key={point} style={{ display: "flex", gap: "0.625rem", alignItems: "flex-start" }}>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" style={{ flexShrink: 0, marginTop: "3px" }}>
+                    <circle cx="8" cy="8" r="7" stroke="var(--color-cyan)" strokeWidth="1.2" />
+                    <path d="M5 8l2.5 2.5 3.5-4" stroke="var(--color-cyan)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </div>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 500,
-                    fontSize: "var(--text-h3-serif)",
-                    color: "var(--color-ink-primary)",
-                    marginBottom: "0.75rem",
-                    borderBottom: "none",
-                    paddingBottom: 0,
-                  }}
-                >
-                  You&apos;re all set.
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "var(--text-body-sm)",
-                    fontWeight: 300,
-                    color: "var(--color-ink-secondary)",
-                    lineHeight: "var(--leading-body)",
-                    marginBottom: 0,
-                  }}
-                >
-                  Results delivered within 24 hours. Check your email for your diagnostic and next steps.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} noValidate>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 500,
-                    fontSize: "var(--text-h3-serif)",
-                    color: "var(--color-ink-primary)",
-                    lineHeight: "var(--leading-subheading)",
-                    marginBottom: "1.75rem",
-                    borderBottom: "none",
-                    paddingBottom: 0,
-                  }}
-                >
-                  Get Your Free Assessment
-                </h3>
-
-                <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-                  <div>
-                    <label htmlFor="assessment-name" style={labelStyle}>Full Name *</label>
-                    <input
-                      id="assessment-name"
-                      name="name"
-                      type="text"
-                      required
-                      placeholder="Your name"
-                      value={form.name}
-                      onChange={handleChange}
-                      style={inputStyle}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="assessment-email" style={labelStyle}>Work Email *</label>
-                    <input
-                      id="assessment-email"
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="you@company.com"
-                      value={form.email}
-                      onChange={handleChange}
-                      style={inputStyle}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="assessment-website" style={labelStyle}>Business Website</label>
-                    <input
-                      id="assessment-website"
-                      name="website"
-                      type="text"
-                      placeholder="www.company.com"
-                      value={form.website}
-                      onChange={handleChange}
-                      style={inputStyle}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="assessment-challenge" style={labelStyle}>Your Biggest Challenge *</label>
-                    <select
-                      id="assessment-challenge"
-                      name="challenge"
-                      required
-                      value={form.challenge}
-                      onChange={handleChange}
-                      style={{
-                        ...inputStyle,
-                        appearance: "none",
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23718096' strokeWidth='1.5' fill='none' strokeLinecap='round'/%3E%3C/svg%3E")`,
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "right 1rem center",
-                        paddingRight: "2.5rem",
-                        cursor: "pointer",
-                        color: form.challenge ? "var(--color-ink-primary)" : "var(--color-ink-tertiary)",
-                      }}
-                    >
-                      <option value="" disabled>Select your biggest challenge</option>
-                      {CHALLENGE_OPTIONS.map((opt) => (
-                        <option key={opt.label} value={opt.label}>{opt.label}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {error && (
-                  <p
+                  <span
                     style={{
                       fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-meta)",
-                      color: "#C53030",
-                      marginTop: "1rem",
-                      marginBottom: 0,
+                      fontSize: "var(--text-body-sm)",
+                      fontWeight: 300,
+                      color: "var(--color-ink-secondary)",
+                      lineHeight: 1.5,
                     }}
                   >
-                    {error}
-                  </p>
-                )}
-
-                <div style={{ marginTop: "1.75rem" }}>
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    disabled={loading}
-                    className="w-full justify-center"
-                  >
-                    {loading ? "Submitting…" : "Get My Free Assessment"}
-                  </Button>
+                    {point}
+                  </span>
                 </div>
+              ))}
+            </div>
 
-                <p
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "var(--text-meta)",
-                    fontWeight: 300,
-                    color: "var(--color-ink-tertiary)",
-                    marginTop: "0.875rem",
-                    marginBottom: 0,
-                    textAlign: "center",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  Results delivered within 24 hours. You&apos;ll receive an email with your diagnostic and next steps.
-                </p>
-              </form>
-            )}
+            <Button
+              href="/operations-assessment"
+              variant="primary"
+              className="w-full justify-center"
+            >
+              Start Your Free Assessment
+            </Button>
+
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "var(--text-meta)",
+                fontWeight: 300,
+                color: "var(--color-ink-tertiary)",
+                marginTop: "0.875rem",
+                marginBottom: 0,
+                textAlign: "center",
+                lineHeight: 1.5,
+              }}
+            >
+              Free. No obligation. Results within 24 hours.
+            </p>
           </div>
 
         </div>

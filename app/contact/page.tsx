@@ -150,17 +150,53 @@ export default function ContactPage() {
                       href="https://wa.me/27635643263"
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{
-                        fontFamily:     'var(--font-body)',
-                        fontSize:       'var(--text-body)',
-                        fontWeight:     300,
-                        color:          'var(--color-cyan)',
-                        textDecoration: 'none',
-                        display:        'block',
-                        marginBottom:   '0.25rem',
-                      }}
+                      aria-label="Chat on WhatsApp"
+                      className="group inline-flex items-center rounded-[6px] overflow-hidden no-underline shadow-[0_2px_8px_rgba(26,58,92,0.18)] hover:-translate-y-px hover:shadow-[0_4px_14px_rgba(26,58,92,0.28)] transition-[transform,box-shadow] duration-150"
+                      style={{ marginBottom: '0.25rem' }}
                     >
-                      +27 63 564 3263
+                      {/* Icon + label */}
+                      <span
+                        style={{
+                          display:         'flex',
+                          alignItems:      'center',
+                          gap:             '10px',
+                          padding:         '10px 16px',
+                          backgroundColor: 'var(--color-cyan)',
+                        }}
+                      >
+                        {/* WhatsApp SVG */}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+                          <path fill="#fff" d="M16 2C8.27 2 2 8.27 2 16a13.93 13.93 0 0 0 1.93 7.07L2 30l7.2-1.88A14 14 0 1 0 16 2zm0 25.46a11.6 11.6 0 0 1-5.94-1.63l-.43-.25-4.42 1.06 1.1-4.3-.28-.44A11.54 11.54 0 1 1 16 27.46zm6.35-8.6c-.33-.17-1.96-1-2.27-1.11s-.52-.17-.74.17-.85 1.1-1.04 1.33-.38.25-.71.08a9.07 9.07 0 0 1-2.68-1.66 10.1 10.1 0 0 1-1.86-2.32c-.2-.33 0-.52.15-.69s.33-.38.5-.58a2.3 2.3 0 0 0 .33-.56.63.63 0 0 0-.03-.58c-.08-.17-.74-1.8-1.02-2.47s-.53-.56-.74-.57h-.63a1.22 1.22 0 0 0-.88.42 3.73 3.73 0 0 0-1.15 2.77 6.48 6.48 0 0 0 1.35 3.43 14.85 14.85 0 0 0 5.68 5.01c.79.34 1.4.54 1.88.69a4.56 4.56 0 0 0 2.1.13 3.44 3.44 0 0 0 2.24-1.59 2.78 2.78 0 0 0 .19-1.59c-.08-.14-.3-.22-.64-.39z"/>
+                        </svg>
+                        <span
+                          style={{
+                            fontFamily:    'var(--font-body)',
+                            fontSize:      '0.8rem',
+                            fontWeight:    600,
+                            letterSpacing: '0.06em',
+                            textTransform: 'uppercase',
+                            color:         '#fff',
+                            whiteSpace:    'nowrap',
+                          }}
+                        >
+                          WhatsApp
+                        </span>
+                      </span>
+                      {/* Arrow block */}
+                      <span
+                        style={{
+                          display:         'flex',
+                          alignItems:      'center',
+                          justifyContent:  'center',
+                          padding:         '10px 14px',
+                          backgroundColor: 'var(--color-bg-navy)',
+                          alignSelf:       'stretch',
+                        }}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                      </span>
                     </a>
                     <p
                       style={{
