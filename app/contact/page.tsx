@@ -80,37 +80,39 @@ export default function ContactPage() {
         style={{ backgroundColor: 'var(--color-bg-primary)' }}
       >
         <div className={innerWide}>
+
+          {/* Header — full width, above the grid */}
+          <FadeUp>
+            <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
+              <Button href="/booking" variant="primary">
+                Book a 20-minute call
+              </Button>
+              <p
+                style={{
+                  fontFamily:  'var(--font-body)',
+                  fontSize:    'var(--text-meta)',
+                  fontWeight:  300,
+                  color:       'var(--color-ink-tertiary)',
+                  marginTop:   '0.75rem',
+                  marginBottom: 0,
+                }}
+              >
+                No pitch. No pressure. Just a conversation.
+              </p>
+            </div>
+
+            <h2 style={{ marginBottom: '1.5rem' }}>
+              <span style={{ fontWeight: 300 }}>Or send a</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>message directly</span>
+            </h2>
+          </FadeUp>
+
+          {/* Two-column grid starts here — aligned to first form field */}
           <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-10 md:gap-24 items-start">
 
             {/* Left — form */}
             <div>
-              <FadeUp>
-                {/* Calendly CTA */}
-                <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-                  <Button href="/booking" variant="primary">
-                    Book a 20-minute call
-                  </Button>
-                  <p
-                    style={{
-                      fontFamily:  'var(--font-body)',
-                      fontSize:    'var(--text-meta)',
-                      fontWeight:  300,
-                      color:       'var(--color-ink-tertiary)',
-                      marginTop:   '0.75rem',
-                      marginBottom: 0,
-                    }}
-                  >
-                    No pitch. No pressure. Just a conversation.
-                  </p>
-                </div>
-
-                <h2 style={{ marginBottom: '1.5rem' }}>
-                  <span style={{ fontWeight: 300 }}>Or send a</span>
-                  <br />
-                  <span style={{ fontWeight: 700 }}>message directly</span>
-                </h2>
-              </FadeUp>
-
               <ContactForm />
             </div>
 
