@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
 import { siteConfig } from '@/config/site'
 import { BGPattern } from '@/components/ui/bg-pattern'
 import { FadeUp } from '@/components/ui/Animate'
@@ -81,10 +80,6 @@ export default function BookingPage() {
         </div>
       </section>
 
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="afterInteractive"
-      />
     </>
   )
 }
