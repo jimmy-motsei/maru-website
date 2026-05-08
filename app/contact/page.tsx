@@ -80,7 +80,7 @@ export default function ContactPage() {
         style={{ backgroundColor: 'var(--color-bg-primary)' }}
       >
         <div className={innerWide}>
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-10 md:gap-24 items-end">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-10 md:gap-24 items-start">
 
             {/* Left — form */}
             <div>
@@ -116,7 +116,7 @@ export default function ContactPage() {
 
             {/* Right — contact details */}
             <FadeUp delay={0.1}>
-              <div style={{ paddingTop: '0.5rem' }}>
+              <div style={{ paddingTop: '0.5rem' }} className="md:sticky md:top-24 md:self-start">
                 <p
                   style={{
                     fontFamily:    'var(--font-body)',
