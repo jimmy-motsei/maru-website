@@ -119,8 +119,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right — contact details */}
-            <FadeUp delay={0.1}>
-              <div style={{ paddingTop: '0.5rem' }} className="md:sticky md:top-24 md:self-start">
+            <div style={{ paddingTop: '0.5rem' }} className="md:sticky md:top-24 md:self-start">
                 <p
                   style={{
                     fontFamily:    'var(--font-body)',
@@ -268,8 +267,7 @@ export default function ContactPage() {
                     Mon–Fri, 8am–6pm SAST.
                   </p>
                 </div>
-              </div>
-            </FadeUp>
+            </div>
           </div>
         </div>
       </section>
