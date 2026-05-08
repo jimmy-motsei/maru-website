@@ -27,7 +27,7 @@ const services = [
     description:
       "Custom AI systems built for your stack, workflows, and revenue priorities.",
     bullets: ["Custom development", "Platform integration", "Brand voice training", "Compliance architecture"],
-    pricing: "From R45,000 · Scoped after a free Discovery Call",
+    pricing: "From R35,000 · Scoped after a free Discovery Call",
     href: "/services/custom-ai-solution-build",
     offset: false,
   },

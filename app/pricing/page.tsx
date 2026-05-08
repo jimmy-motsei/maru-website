@@ -42,7 +42,7 @@ const engagements = [
     label:   '02',
     badge:   'Most common',
     title:   'Workflow Integration',
-    price:   'From R45,000',
+    price:   'From R35,000',
     note:    'Fixed price. Scoped after the diagnostic.',
     scope:   '4–8 weeks',
     body:    'Implementation built around the diagnostic findings. We configure the connections between your tools and build the automation layer. We work with your existing stack.',

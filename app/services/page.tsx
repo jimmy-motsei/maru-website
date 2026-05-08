@@ -51,7 +51,7 @@ const services = [
       { leader: "Brand voice training",      body: "AI outputs calibrated to sound like your business, not like a generic chatbot." },
       { leader: "POPIA compliance built in", body: "Every data touchpoint designed for compliance before a line of code is written." },
     ],
-    pricing:     "From R45,000",
+    pricing:     "From R35,000",
     note:        "Fixed price. Scoped after the diagnostic — no surprises.",
     href:        "/services/workflow-integration",
     bg:          "var(--color-bg-canvas)",
@@ -176,12 +176,6 @@ export default function ServicesPage() {
       >
         <div className={innerNarrow}>
           <FadeUp>
-            <p className="body-muted" style={{ marginBottom: "1.75rem" }}>
-              We start by mapping what you already have. Most businesses we work with have a CRM
-              that doesn&apos;t talk to their scheduling system, an email platform disconnected from
-              their lead source, workflows that depend on someone manually moving data between tools.
-              The tools are capable. The configuration between them isn&apos;t there yet.
-            </p>
             <p className="body-muted" style={{ margin: 0 }}>
               We identify where information isn&apos;t flowing automatically and configure the
               connections that make it happen. We only recommend new tools when there&apos;s a

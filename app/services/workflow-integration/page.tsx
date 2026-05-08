@@ -124,7 +124,7 @@ export default function WorkflowIntegrationPage() {
                   marginBottom: "0.5rem",
                 }}
               >
-                From R45,000
+                From R35,000
               </p>
               <p
                 style={{

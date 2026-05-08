@@ -64,7 +64,7 @@ export function HeroDashboard() {
                 <span className="text-white/40 text-xs">Ad Spend Wasted</span>
                 <DollarSign className="w-4 h-4 text-red-500" />
               </div>
-              <div className="text-xl font-mono text-white/90">R45,000</div>
+              <div className="text-xl font-mono text-white/90">R35,000</div>
             </div>
           </div>
         </motion.div>
