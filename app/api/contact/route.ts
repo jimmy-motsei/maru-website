@@ -9,7 +9,7 @@ const contactSchema = z.object({
   lastName:  z.string().trim().min(1).max(50),
   business:  z.string().trim().min(1).max(200),
   email:     z.string().trim().email().max(255),
-  whatsapp:  z.string().trim().min(10).max(30),
+  whatsapp:  z.string().trim().min(10).max(30).optional().or(z.literal('')),
   service:   z.string().trim().min(1).max(100),
   message:   z.string().trim().max(3000).optional().or(z.literal('')),
   referral:  z.string().trim().max(100).optional().or(z.literal('')),
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
     const safeName     = escapeHtml(fullName)
     const safeBusiness = escapeHtml(business)
     const safeEmail    = escapeHtml(email)
-    const safeWhatsapp = escapeHtml(whatsapp)
+    const safeWhatsapp = whatsapp ? escapeHtml(whatsapp) : ''
     const safeService  = escapeHtml(service)
     const safeMessage  = message  ? escapeHtmlPreserveBreaks(message)  : ''
     const safeReferral = referral ? escapeHtml(referral) : ''
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
       attributes: {
         FIRSTNAME: firstName,
         LASTNAME:  lastName,
-        SMS:       whatsapp,
+        ...(whatsapp ? { SMS: whatsapp } : {}),
         COMPANY:   business,
       },
       updateEnabled: true,
@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
                 ${row('Last Name',  safeLast)}
                 ${row('Business', safeBusiness)}
                 ${row('Email',    `<a href="mailto:${safeEmail}" style="color:#3DB8C6">${safeEmail}</a>`)}
-                ${row('WhatsApp', `<a href="https://wa.me/${safeWhatsapp.replace(/\D/g,'')}" style="color:#3DB8C6">${safeWhatsapp}</a>`)}
+                ${safeWhatsapp ? row('WhatsApp', `<a href="https://wa.me/${safeWhatsapp.replace(/\D/g,'')}" style="color:#3DB8C6">${safeWhatsapp}</a>`) : ''}
                 ${row('Service',  safeService)}
                 ${safeMessage  ? row('Message',  safeMessage)  : ''}
                 ${safeReferral ? row('Referred via', safeReferral) : ''}

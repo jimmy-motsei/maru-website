@@ -15,7 +15,7 @@ const schema = z.object({
   lastName:  z.string().trim().min(1, 'Last name is required'),
   business:  z.string().trim().min(1, 'Business name is required'),
   email:     z.string().trim().email('Enter a valid email address'),
-  whatsapp:  z.string().trim().min(10, 'Enter a valid WhatsApp number'),
+  whatsapp:  z.string().trim().min(10, 'Enter a valid WhatsApp number').optional().or(z.literal('')),
   service:   z.string().min(1, 'Please select a service'),
   message:   z.string().trim().max(3000).optional(),
   referral:  z.string().optional(),
@@ -158,7 +158,7 @@ export default function ContactForm() {
             className={inputClass}
           />
         </Field>
-        <Field label="WhatsApp Number" required error={errors.whatsapp?.message}>
+        <Field label="WhatsApp Number" error={errors.whatsapp?.message}>
           <Input
             {...register('whatsapp')}
             type="tel"
