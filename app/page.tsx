@@ -639,7 +639,12 @@ export default function Home() {
       <ImageBand
         src="/images/people/replace-team.png"
         alt="Two professionals celebrating a win together in the office"
-        overlayText="We don't replace your team. We give them their time back."
+        overlayText={
+          <>
+            <span style={{ display: 'block', fontWeight: 300 }}>We don&apos;t replace your team.</span>
+            <span style={{ display: 'block', fontWeight: 700 }}>We give them their time back.</span>
+          </>
+        }
         height={420}
       />
 

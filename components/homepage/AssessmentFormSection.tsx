@@ -21,7 +21,8 @@ export default function AssessmentFormSection() {
               className="h2-cta"
               style={{ marginBottom: "var(--space-heading-body)" }}
             >
-              Find Out Exactly What&apos;s Costing You Time and Money
+              <span style={{ display: "block", fontWeight: 300 }}>Find Out Exactly What&apos;s</span>
+              <span style={{ display: "block", fontWeight: 700 }}>Costing You Time and Money</span>
             </h2>
 
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
@@ -80,6 +81,7 @@ export default function AssessmentFormSection() {
           </div>
 
           {/* ── Right: CTA card ─────────────────────────────────────── */}
+          <div style={{ paddingTop: "calc(0.6875rem * 1.5 + 2rem)" }}>
           <div
             style={{
               background: "#fff",
@@ -164,6 +166,7 @@ export default function AssessmentFormSection() {
             >
               Free. No obligation. Results within 24 hours.
             </p>
+          </div>
           </div>
 
         </div>
