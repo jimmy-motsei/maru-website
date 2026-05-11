@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         sender:  { name: senderName, email: senderEmail },
         to:      notifyTo,
-        replyTo: { email, name },
+        replyTo: { email, name: fullName },
         subject: `New enquiry — ${safeName} · ${safeBusiness}`,
         htmlContent: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#0D1B2A">
@@ -138,7 +138,7 @@ export async function POST(request: NextRequest) {
       headers: { accept: 'application/json', 'content-type': 'application/json', 'api-key': apiKey },
       body: JSON.stringify({
         sender:  { name: senderName, email: senderEmail },
-        to:      [{ email, name }],
+        to:      [{ email, name: fullName }],
         subject: `We received your message — Maru Online`,
         htmlContent: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#0D1B2A">
