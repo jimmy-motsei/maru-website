@@ -43,7 +43,7 @@ const REFERRALS = [
 ]
 
 // Wanoura-style: rounded-xl, light border, dark-ink focus border (no ring/glow), normal text
-const shared      = 'rounded-xl border border-[#cbd5e1] dark:border-[#cbd5e1] bg-white dark:bg-transparent px-4 py-3 text-sm normal-case tracking-normal font-normal outline-none transition focus:border-[#1A3A5C] dark:focus:border-[#1A3A5C]'
+const shared      = 'rounded-xl border border-[#cbd5e1] dark:border-[#cbd5e1] bg-white dark:bg-white px-4 py-3 text-sm normal-case tracking-normal font-normal text-[#1A3A5C] dark:text-[#1A3A5C] placeholder:text-[#94a3b8] dark:placeholder:text-[#94a3b8] outline-none transition focus:border-[#1A3A5C] dark:focus:border-[#1A3A5C]'
 const inputClass    = shared
 const selectClass   = `${shared} h-auto`
 const textareaClass = shared
