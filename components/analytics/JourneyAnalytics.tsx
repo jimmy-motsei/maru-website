@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { captureUtmsFromUrl, getStoredUtms } from '@/lib/utm';
 
 interface JourneyEvent {
   event: string;
@@ -15,17 +16,19 @@ export function JourneyAnalytics() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    // Persist any UTMs present in the URL to sessionStorage (first touch wins)
+    captureUtmsFromUrl();
+
     // Track page views with journey context
     const trackPageView = () => {
+      const utms = getStoredUtms();
       const journeyData: JourneyEvent = {
         event: 'page_view',
         page: pathname,
         timestamp: Date.now(),
         metadata: {
           referrer: document.referrer,
-          utm_source: searchParams.get('utm_source'),
-          utm_medium: searchParams.get('utm_medium'),
-          utm_campaign: searchParams.get('utm_campaign'),
+          ...utms,
         }
       };
 

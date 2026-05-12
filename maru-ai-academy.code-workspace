@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../maru-ai-academy"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"debug.internalConsoleOptions": "neverOpen"
+	}
+}

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { getStoredUtms } from "@/lib/utm";
+import { pixelLeadFormSubmit } from "@/lib/pixel";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -18,24 +20,27 @@ export function LeadCaptureForm() {
   const [email, setEmail] = useState("");
   const [companyWebsite, setCompanyWebsite] = useState("");
   const [biggestChallenge, setBiggestChallenge] = useState("");
+  const [popiaConsent, setPopiaConsent] = useState(false);
   const [formState, setFormState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!fullName.trim() || !email.trim()) return;
+    if (!fullName.trim() || !email.trim() || !popiaConsent) return;
 
     setFormState("submitting");
     setErrorMsg("");
 
     try {
+      const utms = getStoredUtms();
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fullName, email, companyWebsite, biggestChallenge }),
+        body: JSON.stringify({ fullName, email, companyWebsite, biggestChallenge, ...utms }),
       });
 
       if (!res.ok) throw new Error("Submission failed");
+      pixelLeadFormSubmit('homepage_assessment_form');
       setFormState("success");
     } catch {
       setErrorMsg("Something went wrong. Please try again or email hello@maruonline.com");
@@ -193,13 +198,27 @@ export function LeadCaptureForm() {
         </select>
       </div>
 
+      {/* POPIA Consent */}
+      <label className="flex items-start gap-3 cursor-pointer group">
+        <input
+          type="checkbox"
+          checked={popiaConsent}
+          onChange={(e) => setPopiaConsent(e.target.checked)}
+          required
+          className="mt-0.5 w-4 h-4 flex-shrink-0 accent-cyan-400 cursor-pointer"
+        />
+        <span className="text-xs leading-relaxed" style={{ color: "rgba(250,250,248,0.55)" }}>
+          I agree to receive communications from Maru Online via email and WhatsApp. You can unsubscribe at any time.
+        </span>
+      </label>
+
       {formState === "error" && (
         <p className="text-red-400 text-sm">{errorMsg}</p>
       )}
 
       <button
         type="submit"
-        disabled={formState === "submitting"}
+        disabled={formState === "submitting" || !popiaConsent}
         className="w-full font-semibold text-sm px-8 py-4 rounded-lg transition-all mt-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
         style={{
           background: "var(--color-cyan)",

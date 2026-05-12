@@ -33,6 +33,7 @@ export async function GET(
       painTag: row.painTag,
       segmentB: row.segmentB,
       answers: row.answers,
+      areas: row.areas,
       template: row.template,
       synthesis: row.synthesis,
       createdAt: row.createdAt,

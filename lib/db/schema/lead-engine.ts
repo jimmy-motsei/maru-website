@@ -121,8 +121,9 @@ export const operationsReports = pgTable('operations_reports', {
   levelLabel: text('level_label').notNull(),
   painTag: text('pain_tag').notNull(),
   segmentB: boolean('segment_b').default(false),
-  answers: jsonb('answers').notNull(),       // q1–q5 answer keys
-  template: jsonb('template').notNull(),     // ReportTemplate (intro + insights)
+  answers: jsonb('answers').notNull(),       // q1–q10 answer keys
+  areas: jsonb('areas'),                     // AreaResult[] from scoring — populated in v2
+  template: jsonb('template').notNull(),     // Legacy shim + summary data
   synthesis: jsonb('synthesis'),             // SynthesisOutput.objectA — null if Gemini failed
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
 });

@@ -33,20 +33,35 @@ export function buildSynthesisPrompt(
   };
 
   const answersFormatted = `
-Q1 — How would you describe the way your business manages day-to-day operations?
+AREA 1 — Process & Workflow
+Q1 — How would you describe the way work actually gets done day-to-day?
 Answer: ${answers.q1}
-
-Q2 — Where does your team's time go that you wish it didn't?
+Q2 — What happens when a key team member is unexpectedly unavailable for a week?
 Answer: ${answers.q2}
 
-Q3 — When a new client or order comes in, what happens next?
+AREA 2 — Data & Information Flow
+Q3 — Where does your business data live?
 Answer: ${answers.q3}
-
-Q4 — If you could fix one thing in the next six months, what would it be?
+Q4 — How often does information get lost, re-entered, or entered incorrectly?
 Answer: ${answers.q4}
 
-Q5 — Have you tried to improve how your operations run before?
+AREA 3 — Client & Lead Management
+Q5 — When a new enquiry or lead comes in, what actually happens next?
 Answer: ${answers.q5}
+Q6 — How confident are you that every lead gets followed up consistently?
+Answer: ${answers.q6 ?? "not provided"}
+
+AREA 4 — Visibility & Reporting
+Q7 — How do you get a current view of how the business is performing?
+Answer: ${answers.q7 ?? "not provided"}
+Q8 — When something goes wrong, how do you typically find out?
+Answer: ${answers.q8 ?? "not provided"}
+
+AREA 5 — People & Dependency
+Q9 — How reliant is the business on specific individuals?
+Answer: ${answers.q9 ?? "not provided"}
+Q10 — Have you made a deliberate attempt to improve operations before?
+Answer: ${answers.q10 ?? "not provided"}
   `.trim();
 
   const siteContext = siteMarkdown
@@ -114,11 +129,8 @@ Return valid JSON only. No markdown code fences. No explanation before or after.
 }
 
 export interface AssessmentAnswers {
-  q1: string;
-  q2: string;
-  q3: string;
-  q4: string;
-  q5: string;
+  q1: string;  q2: string;  q3: string;  q4: string;  q5: string;
+  q6?: string; q7?: string; q8?: string; q9?: string; q10?: string;
 }
 
 export interface SynthesisOutput {

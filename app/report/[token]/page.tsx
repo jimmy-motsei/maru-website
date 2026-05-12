@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
-import type { ReportTemplate } from "@/lib/assessment/reportTemplates";
-import type { SynthesisOutput } from "@/lib/assessment/synthesisPrompt";
+import { getAreaFinding, getReportSummary, type AreaStatus } from "@/lib/assessment/reportTemplates";
+import type { AreaResult } from "@/lib/assessment/scoring";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -14,8 +13,8 @@ interface ReportData {
   painTag: string;
   segmentB: boolean;
   answers: Record<string, string>;
-  template: ReportTemplate & { segmentBOverlay?: string };
-  synthesis: SynthesisOutput["objectA"] | null;
+  areas: AreaResult[];
+  overallScore: number;
   createdAt: string;
 }
 
@@ -44,9 +43,7 @@ async function fetchReport(token: string): Promise<ReportData | null> {
     (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
   try {
-    const res = await fetch(`${baseUrl}/api/report/${token}`, {
-      cache: "no-store",
-    });
+    const res = await fetch(`${baseUrl}/api/report/${token}`, { cache: "no-store" });
     if (!res.ok) return null;
     return res.json();
   } catch {
@@ -54,13 +51,63 @@ async function fetchReport(token: string): Promise<ReportData | null> {
   }
 }
 
-// ── Level colours ──────────────────────────────────────────────────────────
+// ── Status display config ──────────────────────────────────────────────────
 
-const levelStyles: Record<number, { pill: string; accent: string }> = {
-  1: { pill: "bg-[#FDF8EE] text-[#7A5C1E] border border-[#CDAA53]/40", accent: "#CDAA53" },
-  2: { pill: "bg-[#E8F8FA] text-[#1A6B75] border border-[#3DB8C6]/40", accent: "#3DB8C6" },
-  3: { pill: "bg-[#EEF4FF] text-[#1D4068] border border-[#1A3A5C]/30", accent: "#1A3A5C" },
+const statusConfig: Record<AreaStatus, {
+  label: string;
+  dot: string;
+  pill: string;
+  pillBorder: string;
+  pillText: string;
+  bar: string;
+  barBg: string;
+}> = {
+  critical: {
+    label:      "Critical gap",
+    dot:        "#E53E3E",
+    pill:       "#FFF5F5",
+    pillBorder: "#FC8181",
+    pillText:   "#C53030",
+    bar:        "#E53E3E",
+    barBg:      "#FED7D7",
+  },
+  significant: {
+    label:      "Significant gap",
+    dot:        "#C05621",
+    pill:       "#FFFAF0",
+    pillBorder: "#F6AD55",
+    pillText:   "#C05621",
+    bar:        "#DD6B20",
+    barBg:      "#FEEBC8",
+  },
+  partial: {
+    label:      "Partial",
+    dot:        "#2F855A",
+    pill:       "#F0FFF4",
+    pillBorder: "#68D391",
+    pillText:   "#276749",
+    bar:        "#38A169",
+    barBg:      "#C6F6D5",
+  },
+  strong: {
+    label:      "Strong",
+    dot:        "#2B6CB0",
+    pill:       "#EBF8FF",
+    pillBorder: "#63B3ED",
+    pillText:   "#2C5282",
+    bar:        "#3182CE",
+    barBg:      "#BEE3F8",
+  },
 };
+
+const scoreBarWidth: Record<AreaStatus, string> = {
+  critical:    "25%",
+  significant: "50%",
+  partial:     "75%",
+  strong:      "100%",
+};
+
+const calendlyUrl = "https://calendly.com/hello-maruonline/discovery-call";
 
 // ── Page ───────────────────────────────────────────────────────────────────
 
@@ -74,191 +121,221 @@ export default async function ReportPage({
 
   if (!data) notFound();
 
-  const { name, level, levelLabel, template, synthesis, segmentB } = data;
-  const style = levelStyles[level] ?? levelStyles[2];
+  const { name, level, levelLabel, segmentB } = data;
+  const areas: AreaResult[] = Array.isArray(data.areas) ? (data.areas as unknown as AreaResult[]) : [];
   const firstName = name.trim().split(" ")[0];
+  const summary = getReportSummary(level, segmentB);
 
-  const calendlyUrl = "https://calendly.com/hello-maruonline/discovery-call";
+  // Count gaps
+  const criticalCount    = areas.filter(a => a.status === "critical").length;
+  const significantCount = areas.filter(a => a.status === "significant").length;
+  const gapCount         = criticalCount + significantCount;
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8]" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#F7F8FA", fontFamily: "system-ui, -apple-system, sans-serif" }}>
 
       {/* ── Header ──────────────────────────────────────────────────────── */}
-      <header className="bg-[#0D1B2A] border-b border-white/5">
-        <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-white font-semibold text-lg tracking-tight">
-            <span className="text-[#3DB8C6]">M</span>
-            <span className="text-white">aru Online</span>
+      <header style={{ backgroundColor: "#0D1B2A", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <div style={{ maxWidth: 760, margin: "0 auto", padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Link href="/" style={{ color: "white", fontWeight: 600, fontSize: 18, textDecoration: "none", letterSpacing: "-0.02em" }}>
+            <span style={{ color: "#04B3CC" }}>M</span>
+            <span>aru Online</span>
           </Link>
-          <span className="text-xs font-mono text-white/40 tracking-widest uppercase hidden sm:block">
+          <span style={{ fontSize: 11, fontFamily: "monospace", color: "rgba(255,255,255,0.35)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
             Operations Assessment
           </span>
         </div>
       </header>
 
       {/* ── Report banner ───────────────────────────────────────────────── */}
-      <div className="bg-[#0D1B2A] border-b border-white/5">
-        <div className="max-w-3xl mx-auto px-6 py-8">
-          <p className="text-xs font-mono text-[#3DB8C6] tracking-widest uppercase mb-3">
-            Your Report
+      <div style={{ backgroundColor: "#0D1B2A", borderBottom: "1px solid rgba(255,255,255,0.07)", paddingBottom: 32 }}>
+        <div style={{ maxWidth: 760, margin: "0 auto", padding: "32px 24px 0" }}>
+          <p style={{ fontSize: 11, fontFamily: "monospace", color: "#04B3CC", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>
+            Your report
           </p>
-          <h1 className="text-2xl font-semibold text-white leading-snug mb-3">
-            Hi {firstName}, here&apos;s what your assessment reveals.
+          <h1 style={{ fontSize: 26, fontWeight: 600, color: "white", margin: "0 0 12px", lineHeight: 1.3 }}>
+            {firstName}, here&apos;s what your assessment reveals.
           </h1>
-          <div className="flex items-center gap-3 flex-wrap">
-            <span className={`inline-block text-xs font-mono px-3 py-1 rounded-full tracking-wider uppercase ${style.pill}`}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+            <span style={{
+              fontSize: 11, fontFamily: "monospace", padding: "4px 12px",
+              borderRadius: 20, border: "1px solid rgba(4,179,204,0.4)",
+              background: "rgba(4,179,204,0.1)", color: "#04B3CC",
+              letterSpacing: "0.1em", textTransform: "uppercase",
+            }}>
               {levelLabel}
             </span>
-            <span className="text-white/40 text-xs">
-              Prepared by Maru Online
+            <span style={{ color: "rgba(255,255,255,0.35)", fontSize: 13 }}>
+              {gapCount} area{gapCount !== 1 ? "s" : ""} flagged · Prepared by Maru Online
             </span>
           </div>
         </div>
       </div>
 
       {/* ── Body ────────────────────────────────────────────────────────── */}
-      <main className="max-w-3xl mx-auto px-6 py-12">
+      <main style={{ maxWidth: 760, margin: "0 auto", padding: "40px 24px 80px" }}>
 
-        {/* Intro / situation framing */}
-        <Section label="Your situation">
-          <p className="text-[#1A2B3C] text-base leading-relaxed">
-            {template.intro}
-          </p>
-        </Section>
+        {/* ── OVERVIEW SCORECARD ─────────────────────────────────────────── */}
+        {areas.length > 0 && <div style={{ marginBottom: 40 }}>
+          <SectionLabel>Overview</SectionLabel>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr", gap: 8, marginBottom: 16 }}>
+            {areas.map((area) => {
+              const cfg = statusConfig[area.status];
+              return (
+                <div key={area.areaKey} style={{
+                  background: "white", border: `1px solid #E2E8F0`, borderRadius: 8,
+                  padding: "12px 10px", textAlign: "center",
+                }}>
+                  <div style={{
+                    width: 10, height: 10, borderRadius: "50%",
+                    background: cfg.dot, margin: "0 auto 8px",
+                  }} />
+                  <div style={{ fontSize: 11, color: "#4A5568", lineHeight: 1.3, fontWeight: 500 }}>
+                    {area.area}
+                  </div>
+                  <div style={{
+                    marginTop: 8, fontSize: 10, fontFamily: "monospace",
+                    color: cfg.pillText, fontWeight: 600, textTransform: "uppercase",
+                  }}>
+                    {cfg.label}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div style={{ background: "white", border: "1px solid #E2E8F0", borderRadius: 8, padding: 20 }}>
+            <p style={{ fontSize: 14, color: "#2D3748", lineHeight: 1.7, margin: 0 }}>
+              {data.levelLabel === "Early Stage" &&
+                "Your assessment points to a business running largely on effort and institutional knowledge. Most processes are informal — they work because the right people know what to do, not because systems make it automatic. The opportunity across your five areas is significant."}
+              {data.levelLabel === "Building" &&
+                "Your business has real processes in place — but they still depend on manual steps and disconnected systems at key points. Targeted integration at those handoff points is where the return is fastest."}
+              {data.levelLabel === "Primed" &&
+                "Your business has operational maturity. The opportunity now is in the precision gaps: reporting that still requires manual effort, approval flows tied to specific people, or data that lives in one system but needs to reach another."}
+            </p>
+          </div>
+        </div>}
+
+        {areas.length > 0 && <><Divider />
+
+        {/* ── AREA FINDINGS ─────────────────────────────────────────────── */}
+        <div style={{ marginBottom: 40 }}>
+          <SectionLabel>Area findings</SectionLabel>
+          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+            {areas.map((area, i) => {
+              const cfg = statusConfig[area.status];
+              const finding = getAreaFinding(area.areaKey, area.status);
+              return (
+                <AreaCard
+                  key={area.areaKey}
+                  number={i + 1}
+                  area={area.area}
+                  status={area.status}
+                  cfg={cfg}
+                  finding={finding}
+                  barWidth={scoreBarWidth[area.status]}
+                />
+              );
+            })}
+          </div>
+        </div></>}
 
         <Divider />
 
-        {/* Insight 1: Primary friction */}
-        <Section label="The pattern we see">
-          <p className="text-[#1A2B3C] text-base leading-relaxed">
-            {template.insight1}
-          </p>
-        </Section>
-
-        <Divider />
-
-        {/* Insight 2: Downstream cost */}
-        <Section label="What this costs you">
-          <p className="text-[#1A2B3C] text-base leading-relaxed">
-            {template.insight2}
-          </p>
-        </Section>
-
-        <Divider />
-
-        {/* Insight 3: What becomes possible */}
-        <Section label="What changes when it&apos;s fixed">
-          <p className="text-[#1A2B3C] text-base leading-relaxed">
-            {template.insight3}
-          </p>
-        </Section>
-
-        {/* Segment B overlay */}
-        {segmentB && template.segmentBOverlay && (
+        {/* ── SEGMENT B NOTE ─────────────────────────────────────────────── */}
+        {segmentB && summary.segmentBNote && (
           <>
-            <Divider />
-            <div className="bg-[#FDF8EE] border border-[#CDAA53]/30 rounded-lg p-6">
-              <p className="text-xs font-mono text-[#7A5C1E] tracking-widest uppercase mb-3">
-                A note on prior attempts
-              </p>
-              <p className="text-[#3A2B0C] text-base leading-relaxed">
-                {template.segmentBOverlay}
-              </p>
-            </div>
-          </>
-        )}
-
-        {/* Synthesis observations (Gemini personalisation — shown if available) */}
-        {synthesis && (
-          <>
-            <Divider />
-            <Section label="Based on your specific answers">
-              <div className="space-y-4">
-                <Observation text={synthesis.observation1} />
-                <Observation text={synthesis.observation2} />
-                <Observation text={synthesis.observation3} />
-                {synthesis.siteObservation && (
-                  <Observation text={synthesis.siteObservation} />
-                )}
+            <div style={{ marginBottom: 40 }}>
+              <SectionLabel>A note on prior attempts</SectionLabel>
+              <div style={{
+                background: "#FFFAF0", border: "1px solid #F6AD55",
+                borderRadius: 8, padding: "20px 24px",
+              }}>
+                <p style={{ fontSize: 14, color: "#7B341E", lineHeight: 1.7, margin: 0 }}>
+                  {summary.segmentBNote}
+                </p>
               </div>
-            </Section>
+            </div>
+            <Divider />
           </>
         )}
 
-        <Divider />
-
-        {/* What this assessment tells us */}
-        <Section label="What this assessment tells us">
-          <p className="text-[#1A2B3C] text-base leading-relaxed mb-4">
-            The Operations Assessment gives us a picture of how your business currently organises its work — where processes are defined, where they depend on specific people, and where things tend to stall. It is not a full diagnosis. It is a starting point.
-          </p>
-          <p className="text-[#4A5568] text-base leading-relaxed">
-            Think of it as the intake. The real work — and the most useful conversation — happens in the discovery call.
-          </p>
-        </Section>
+        {/* ── RECOMMENDED APPROACH ──────────────────────────────────────── */}
+        <div style={{ marginBottom: 40 }}>
+          <SectionLabel>{summary.approachHeading}</SectionLabel>
+          <div style={{ background: "white", border: "1px solid #E2E8F0", borderRadius: 8, padding: 24 }}>
+            <p style={{ fontSize: 14, color: "#2D3748", lineHeight: 1.75, margin: 0 }}>
+              {summary.approach}
+            </p>
+          </div>
+        </div>
 
         <Divider />
 
-        {/* Discovery call section */}
-        <section className="bg-[#0D1B2A] rounded-xl p-8 mb-8">
-          <p className="text-xs font-mono text-[#3DB8C6] tracking-widest uppercase mb-4">
+        {/* ── WHAT A SUCCESSFUL ENGAGEMENT LOOKS LIKE ───────────────────── */}
+        <div style={{ marginBottom: 40 }}>
+          <SectionLabel>{summary.outcomeHeading}</SectionLabel>
+          <div style={{ background: "white", border: "1px solid #E2E8F0", borderRadius: 8, padding: 24 }}>
+            <p style={{ fontSize: 14, color: "#2D3748", lineHeight: 1.75, margin: 0 }}>
+              {summary.outcome}
+            </p>
+          </div>
+        </div>
+
+        <Divider />
+
+        {/* ── NEXT STEP CTA ──────────────────────────────────────────────── */}
+        <div style={{
+          backgroundColor: "#0D1B2A", borderRadius: 12, padding: "40px 36px", marginBottom: 32,
+        }}>
+          <p style={{ fontSize: 11, fontFamily: "monospace", color: "#04B3CC", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>
             Next step
           </p>
-          <h2 className="text-xl font-semibold text-white leading-snug mb-4">
+          <h2 style={{ fontSize: 22, fontWeight: 600, color: "white", margin: "0 0 16px", lineHeight: 1.3 }}>
             Book a free 30-minute discovery call.
           </h2>
-          <p className="text-white/70 text-base leading-relaxed mb-4">
-            We will have reviewed your assessment before we speak. On the call, we go deeper — asking direct questions about where time is actually going, where information gets stuck, and where the manual work is concentrated.
+          <p style={{ fontSize: 14, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, margin: "0 0 12px" }}>
+            We review your assessment before the call. On the day, we go deeper — asking direct questions about where time is actually going, where information gets stuck, and where the manual work is concentrated.
           </p>
-          <p className="text-white/70 text-base leading-relaxed mb-6">
-            At the end of the call we will tell you honestly whether an Operations Diagnostic makes sense for your business right now. If it does not, we will say so directly.
+          <p style={{ fontSize: 14, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, margin: "0 0 28px" }}>
+            We will tell you honestly whether an Operations Diagnostic makes sense for your business right now. If it does not, we will say so directly.
           </p>
           <a
             href={calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-[#3DB8C6] text-[#0D1B2A] font-semibold px-8 py-4 rounded-lg text-base hover:bg-[#2DA8B6] transition-colors"
+            style={{
+              display: "inline-block", backgroundColor: "#04B3CC",
+              color: "#0D1B2A", fontWeight: 700, padding: "14px 28px",
+              borderRadius: 8, textDecoration: "none", fontSize: 15,
+            }}
           >
             Book your discovery call →
           </a>
-        </section>
-
-        {/* Diagnostic explainer */}
-        <Section label="If the fit is there — the Operations Diagnostic">
-          <p className="text-[#1A2B3C] text-base leading-relaxed mb-4">
-            The Operations Diagnostic is a structured engagement we propose after the discovery call, if both sides agree it is the right next step. It goes deep into how your business actually operates — mapping where the friction is, what it is costing you, and where targeted integration would have the most impact.
-          </p>
-          <p className="text-[#4A5568] text-base leading-relaxed">
-            The output is a written report: the three highest-leverage integration opportunities in your business, ranked by impact, with a recommended first step and a realistic scope and timeline. Delivered within five working days of the engagement starting.
-          </p>
-        </Section>
-
-        <Divider />
+        </div>
 
         {/* Secondary CTA */}
-        <div className="bg-[#E8F8FA] border border-[#3DB8C6]/30 rounded-lg p-6 mb-8">
-          <p className="text-[#0D1B2A] font-semibold mb-2">
+        <div style={{
+          background: "#EBF8FF", border: "1px solid #63B3ED",
+          borderRadius: 8, padding: "20px 24px", marginBottom: 48,
+        }}>
+          <p style={{ fontWeight: 600, color: "#0D1B2A", fontSize: 14, margin: "0 0 8px" }}>
             Not ready to book yet?
           </p>
-          <p className="text-[#2D4A60] text-base leading-relaxed mb-4">
-            Reply to your report email and tell us what is going on in the business. We will take it from there.
+          <p style={{ color: "#2D4A60", fontSize: 14, lineHeight: 1.6, margin: "0 0 12px" }}>
+            Reply to your report email and tell us what is happening in the business. We will take it from there.
           </p>
-          <a
-            href="mailto:hello@maruonline.com"
-            className="text-[#1A6B75] text-sm font-semibold hover:underline"
-          >
+          <a href="mailto:hello@maruonline.com" style={{ color: "#2B6CB0", fontSize: 13, fontWeight: 600 }}>
             Email hello@maruonline.com →
           </a>
         </div>
 
         {/* Footer */}
-        <p className="text-[#A0AEC0] text-xs text-center leading-relaxed">
+        <p style={{ color: "#A0AEC0", fontSize: 12, textAlign: "center", lineHeight: 1.6 }}>
           This report was prepared by Maru Online.{" "}
-          <a href="mailto:hello@maruonline.com" className="hover:underline">
-            hello@maruonline.com
-          </a>
+          <a href="mailto:hello@maruonline.com" style={{ color: "#A0AEC0" }}>hello@maruonline.com</a>
           {" "}·{" "}
-          <Link href="/" className="hover:underline">maruonline.com</Link>
+          <Link href="/" style={{ color: "#A0AEC0" }}>maruonline.com</Link>
         </p>
 
       </main>
@@ -266,35 +343,130 @@ export default async function ReportPage({
   );
 }
 
-// ── Sub-components ─────────────────────────────────────────────────────────
+// ── Area Card ─────────────────────────────────────────────────────────────
 
-function Section({
-  label,
-  children,
+function AreaCard({
+  number,
+  area,
+  status,
+  cfg,
+  finding,
+  barWidth,
 }: {
-  label: string;
-  children: React.ReactNode;
+  number: number;
+  area: string;
+  status: AreaStatus;
+  cfg: typeof statusConfig[AreaStatus];
+  finding: { observation: string; issues: string[] };
+  barWidth: string;
 }) {
   return (
-    <section className="mb-8">
-      <p
-        className="text-xs font-mono text-[#3DB8C6] tracking-widest uppercase mb-3"
-        dangerouslySetInnerHTML={{ __html: label }}
-      />
+    <div style={{
+      background: "white", border: "1px solid #E2E8F0",
+      borderRadius: 10, overflow: "hidden",
+    }}>
+      {/* Card header */}
+      <div style={{
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        padding: "16px 20px", borderBottom: "1px solid #EDF2F7",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <span style={{
+            width: 24, height: 24, borderRadius: "50%",
+            background: "#F7F8FA", border: "1px solid #E2E8F0",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontSize: 11, fontFamily: "monospace", color: "#718096", fontWeight: 700,
+            flexShrink: 0,
+          }}>
+            {number}
+          </span>
+          <span style={{ fontWeight: 600, fontSize: 15, color: "#1A202C" }}>
+            {area}
+          </span>
+        </div>
+        <span style={{
+          fontSize: 11, fontFamily: "monospace", padding: "4px 10px",
+          borderRadius: 20, border: `1px solid ${cfg.pillBorder}`,
+          background: cfg.pill, color: cfg.pillText,
+          letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 600,
+          whiteSpace: "nowrap",
+        }}>
+          {cfg.label}
+        </span>
+      </div>
+
+      {/* Score bar */}
+      <div style={{ height: 4, background: cfg.barBg }}>
+        <div style={{ height: "100%", width: barWidth, background: cfg.bar, transition: "width 0.5s ease" }} />
+      </div>
+
+      {/* Card body */}
+      <div style={{ padding: "20px 20px 24px" }}>
+
+        {/* Observation */}
+        <p style={{ fontSize: 14, color: "#2D3748", lineHeight: 1.7, margin: "0 0 16px", fontStyle: "italic" }}>
+          {finding.observation}
+        </p>
+
+        {/* Issues list */}
+        {status !== "strong" ? (
+          <>
+            <p style={{ fontSize: 11, fontFamily: "monospace", color: "#718096", textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 0 10px", fontWeight: 600 }}>
+              Potential issues identified
+            </p>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
+              {finding.issues.map((issue, i) => (
+                <li key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <span style={{
+                    width: 6, height: 6, borderRadius: "50%", background: cfg.dot,
+                    flexShrink: 0, marginTop: 7,
+                  }} />
+                  <span style={{ fontSize: 13, color: "#4A5568", lineHeight: 1.6 }}>
+                    {issue}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <>
+            <p style={{ fontSize: 11, fontFamily: "monospace", color: "#718096", textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 0 10px", fontWeight: 600 }}>
+              To maintain and build on
+            </p>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
+              {finding.issues.map((issue, i) => (
+                <li key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <span style={{
+                    width: 6, height: 6, borderRadius: "50%", background: cfg.dot,
+                    flexShrink: 0, marginTop: 7,
+                  }} />
+                  <span style={{ fontSize: 13, color: "#4A5568", lineHeight: 1.6 }}>
+                    {issue}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <p style={{
+      fontSize: 11, fontFamily: "monospace", color: "#04B3CC",
+      letterSpacing: "0.12em", textTransform: "uppercase",
+      marginBottom: 16, fontWeight: 600,
+    }}>
       {children}
-    </section>
+    </p>
   );
 }
 
 function Divider() {
-  return <hr className="border-[#E2E8F0] mb-8" />;
-}
-
-function Observation({ text }: { text: string }) {
-  return (
-    <div className="flex gap-3">
-      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#3DB8C6] flex-shrink-0" />
-      <p className="text-[#2D4A60] text-base leading-relaxed">{text}</p>
-    </div>
-  );
+  return <hr style={{ border: "none", borderTop: "1px solid #E2E8F0", marginBottom: 40 }} />;
 }

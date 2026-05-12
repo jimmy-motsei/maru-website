@@ -1,13 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { getStoredUtms, UtmData } from '@/lib/utm';
 import { motion } from 'framer-motion';
 import { Lock, Mail, Download, Eye, EyeOff } from 'lucide-react';
 
 interface GatedResultContainerProps {
   children: React.ReactNode;
   isGated?: boolean;
-  onUnlock?: (email: string) => Promise<void>;
+  onUnlock?: (email: string, utms: UtmData) => Promise<void>;
   previewHeight?: number;
   title?: string;
   description?: string;
@@ -25,16 +26,19 @@ export default function GatedResultContainer({
 }: GatedResultContainerProps) {
   const [isUnlocked, setIsUnlocked] = useState(!isGated);
   const [email, setEmail] = useState('');
+  const [popiaConsent, setPopiaConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPreview, setShowPreview] = useState(true);
 
   const handleUnlock = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !onUnlock) return;
+    if (!email || !onUnlock || !popiaConsent) return;
 
     setIsSubmitting(true);
     try {
-      await onUnlock(email);
+      // Pass UTMs alongside email so the parent handler can include them in the API payload
+      const utms = getStoredUtms();
+      await onUnlock(email, utms);
       setIsUnlocked(true);
     } catch (error) {
       console.error('Failed to unlock:', error);
@@ -107,9 +111,23 @@ export default function GatedResultContainer({
             </div>
           </div>
 
+          {/* POPIA Consent */}
+          <label className="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={popiaConsent}
+              onChange={(e) => setPopiaConsent(e.target.checked)}
+              required
+              className="mt-0.5 w-4 h-4 flex-shrink-0 accent-cyan-400 cursor-pointer"
+            />
+            <span className="text-xs text-zinc-400 leading-relaxed">
+              I agree to receive communications from Maru Online via email and WhatsApp. You can unsubscribe at any time.
+            </span>
+          </label>
+
           <button
             type="submit"
-            disabled={isSubmitting || !email}
+            disabled={isSubmitting || !email || !popiaConsent}
             className="w-full py-3 bg-cyan-400 hover:bg-cyan-300 text-black font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {isSubmitting ? (

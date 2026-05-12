@@ -2,209 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Maru — LinkedIn Company Banner | AI-Powered Marketing Systems</title>
-  <meta name="description" content="AI-powered marketing systems for South African SMEs. Strategy, execution, and results without the big agency price tag." />
-  <meta property="og:title" content="Maru Online | Building AI-Powered Marketing Systems" />
-  <meta property="og:description" content="Helping South African SMEs grow with AI Strategy and Execution." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://maruonline.com" />
-
-  <!-- MaruOnline CSS (extracted from live site) -->
-  <link rel="stylesheet" href="https://maruonline.com/_next/static/chunks/5610a9cf1a8683ab.css" />
-  <link rel="stylesheet" href="https://maruonline.com/_next/static/chunks/cdde9508c3778053.css" />
-
+  <title>Maru Online — LinkedIn Cover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;500&family=Inter:wght@300;500&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      /* Exact colors from About Hero */
-      --bg-dark: #1a1a1a;
-      --text-white: #FFFFFF;
-      --text-sub: #71717a; /* Zinc-500 */
-      --text-muted: #a1a1aa; /* Zinc-400 */
-      --accent-cyan: #3DB8C6; /* Teal */
+    /* ── Exact tokens from globals.css ── */
+    :root {
+      --color-bg-navy:      #1A3A5C;
+      --color-cyan:         #3DB8C6;
+      --color-gold:         #CDAA53;
+      --color-ink-inverted: #FAFAF8;
+      --color-ink-inverted-muted: rgba(250,250,248,0.75);
+      --tracking-display:   -0.02em;
+      --tracking-eyebrow:   0.2em;
+      --font-display:       'Outfit', sans-serif;
+      --font-body:          'Inter', sans-serif;
+      --font-weight-headline-light:  100;
+      --font-weight-headline-strong: 500;
     }
-    
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     html, body {
-      height: 100%; 
-      margin: 0; 
-      padding: 0;
-      background: #1a1a1a;
-      overflow: hidden; /* Prevent scrollbars */
-    }
-    
-    body {
-      display: block; /* Align top-left to avoid centering artifacts */
-      width: 1584px;
-      height: 396px;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    }
-
-    /* Artboard */
-    .artboard {
-      width: 1584px;
-      height: 396px;
-      position: absolute;
-      top: 0; 
-      left: 0;
       overflow: hidden;
-      background-color: var(--bg-dark);
-      /* Ensure no external shadows */
-      box-shadow: none !important;
-      border: none !important;
+      background: var(--color-bg-navy);
     }
 
-    /* Content layout - CENTRE LEFT */
-    .content {
+    /* LinkedIn personal cover: 1584 × 396 */
+    body { width: 1584px; height: 396px; }
+
+    .artboard {
+      position: relative;
+      width: 1584px;
+      height: 396px;
+      overflow: hidden;
+      background-color: var(--color-bg-navy);
+    }
+
+    /* ── Grid pattern — exact replica of BGPattern variant="grid" size=40 fill="rgba(61,184,198,0.101)" ── */
+    .bg-grid {
       position: absolute;
       inset: 0;
-      padding-left: 380px; /* Safe space for profile image */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      z-index: 20;
+      background-image:
+        linear-gradient(to right,  rgba(61,184,198,0.10) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(61,184,198,0.10) 1px, transparent 1px);
+      background-size: 40px 40px;
+      /* mask="fade-edges" → radial gradient fades toward edges */
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+      mask-image:         radial-gradient(ellipse at center, black 30%, transparent 80%);
     }
 
-    .stack {
-      max-width: 900px;
-    }
-
-    /* Kicker - "Building" */
-    .kicker {
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    /* Headline */
-    .headline-wrapper {
-      margin-bottom: 12px;
-    }
-
-    .headline-main {
-      font-size: 56px;
-      font-weight: 600; /* Bold */
-      color: var(--text-white);
-      line-height: 1.1;
-      display: inline;
-    }
-
-    .headline-sub {
-      font-size: 56px;
-      font-weight: 300; /* Light */
-      color: var(--text-sub); /* Dark Grey */
-      display: block; /* Force new line */
-      margin-left: 0;
-      margin-top: 4px;
-    }
-
-    /* Description */
-    .description {
-      font-size: 20px;
-      color: var(--text-muted);
-      margin-top: 16px;
-    }
-    
-    .accent-text {
-      color: var(--accent-cyan);
-      font-weight: 500;
-    }
-
-    .url {
-      margin-top: 12px;
-      font-size: 18px;
-      color: var(--accent-cyan);
-      font-weight: 500;
-      opacity: 0.9;
-    }
-
-    /* M. Mark */
-    .mark {
+    /* ── Subtle circle accent — top right (mirrors about page) ── */
+    .circle-accent {
       position: absolute;
-      left: 40px;
-      top: 32px;
-      font-weight: 700;
-      color: var(--text-white);
-      font-size: 26px;
-      z-index: 30;
-    }
-
-    /* Clouds SVG Container */
-    .clouds-container {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      top: -80px;
+      right: -80px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      border: 1px solid rgba(61,184,198,0.12);
       pointer-events: none;
     }
 
-    /* Specific Cloud Path Styles */
-    .cloud-path {
-      fill: none;
-      stroke: rgba(255, 255, 255, 0.15);
-      stroke-width: 0.8;
-      stroke-linecap: round;
-      vector-effect: non-scaling-stroke;
+    /* ── Cyan left border rule (matches card-navy left border) ── */
+    .left-rule {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--color-cyan);
+      opacity: 0.7;
     }
 
-    .cloud-path.dashed {
-      stroke-dasharray: 6 8;
-      stroke-opacity: 0.4;
+    /* ── Content — safe zone: profile photo occupies left ~360px ── */
+    .content {
+      position: absolute;
+      inset: 0;
+      left: 400px;        /* clear profile photo safe zone */
+      right: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .cloud-path.highlight {
-      stroke: rgba(255, 255, 255, 0.2);
-      stroke-width: 1.2;
+    /* Eyebrow — label-eyebrow from globals.css */
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+      color: var(--color-cyan);
+      margin-bottom: 20px;
+      display: block;
     }
 
-    .cloud-point {
-      fill: var(--accent-cyan);
-      opacity: 0.6;
+    /* Headline — maru-headline-split pattern: light (100) / strong (500) */
+    .headline {
+      font-family: var(--font-display);
+      font-size: 62px;
+      line-height: 1.1;
+      letter-spacing: var(--tracking-display);
+      color: var(--color-ink-inverted);
+      margin-bottom: 20px;
+    }
+
+    .headline-light  { font-weight: var(--font-weight-headline-light); }
+    .headline-strong { font-weight: var(--font-weight-headline-strong); }
+    .headline-muted  { color: var(--color-ink-inverted-muted); }
+
+    /* Rule — matches globals .rule */
+    .rule {
+      width: 48px;
+      height: 1px;
+      background: rgba(61,184,198,0.4);
+      border: none;
+      margin-bottom: 20px;
+    }
+
+    /* Body — body-on-navy from globals.css */
+    .body {
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--color-ink-inverted-muted);
+      line-height: 1.7;
+    }
+
+    .body strong {
+      font-weight: 500;
+      color: var(--color-gold);
+    }
+
+    /* URL — bottom right */
+    .url {
+      position: absolute;
+      right: 48px;
+      bottom: 28px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-cyan);
+      opacity: 0.85;
     }
   </style>
 </head>
-
 <body>
-  <div class="artboard" id="artboard">
-    <div class="mark">M.</div>
-
-    <svg class="clouds-container" viewBox="0 0 1584 396" preserveAspectRatio="xMidYMid slice">
-        <!-- Main Organic Contour - Scaled and positioned from extracted data -->
-        <!-- Based on M150 350 C... from inspection -->
-        <path class="cloud-path" d="M100 450 C 50 450, 0 380, 50 320 C 30 250, 80 180, 150 190 C 190 120, 280 100, 360 140 C 440 60, 600 80, 660 180 C 750 140, 850 200, 820 300 C 860 360, 800 420, 720 430 C 650 500, 500 410, 450 480" transform="translate(0, -50) scale(1.8)" />
-        
-        <!-- Secondary Contour (Right side) -->
-        <path class="cloud-path dashed" d="M800 300 C 820 240, 880 200, 950 220 C 1000 150, 1150 150, 1200 220 C 1280 200, 1350 250, 1320 320 C 1380 380, 1300 450, 1200 440" transform="translate(100, -20) scale(1.5)" />
-        
-        <!-- Highlight Curve (Top Left) -->
-        <path class="cloud-path highlight" d="M400 180 C 450 120, 550 120, 600 180" transform="translate(-50, 0) scale(1.8)" />
-        
-        <!-- Dashed Connector (Middle) -->
-        <path class="cloud-path dashed" d="M600 250 C 650 300, 750 350, 800 300" transform="translate(0, 50) scale(1.5)" />
-
-        <!-- Accent Points (Constellation effect) -->
-        <circle class="cloud-point" cx="660" cy="180" r="3" />
-        <circle class="cloud-point" cx="360" cy="140" r="2.5" />
-        <circle class="cloud-point" cx="1200" cy="220" r="3" />
-        <circle class="cloud-point" cx="950" cy="220" r="2" />
-    </svg>
+  <div class="artboard">
+    <div class="bg-grid"></div>
+    <div class="circle-accent"></div>
+    <div class="left-rule"></div>
 
     <div class="content">
-      <div class="stack">
-        <div class="kicker">Building</div>
-        
-        <div class="headline-wrapper">
-          <span class="headline-main">AI-Powered Marketing Systems.</span>
-          <span class="headline-sub">for South African SMEs.</span>
-        </div>
-        
-        <div class="description">
-           <span class="accent-text">Strategy + Execution + Results</span> without the big agency price tag.
-        </div>
-        
-        <div class="url">maruonline.com</div>
+      <span class="eyebrow">Building</span>
+      <div class="headline">
+        <span class="headline-light headline-muted">Automated Workflows</span><br>
+        <span class="headline-strong">for Growing SMEs.</span>
       </div>
+      <hr class="rule" />
+      <p class="body">
+        <strong>Connection + Integration + ROI</strong> on the tools you already own.
+      </p>
     </div>
+
+    <div class="url">maruonline.com</div>
   </div>
 </body>
 </html>

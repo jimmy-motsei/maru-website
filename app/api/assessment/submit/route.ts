@@ -29,11 +29,8 @@ import { operationsReports } from "@/lib/db/schema/lead-engine";
 
 interface SubmissionBody {
   answers: {
-    q1: string;
-    q2: string;
-    q3: string;
-    q4: string;
-    q5: string;
+    q1: string;  q2: string;  q3: string;  q4: string;  q5: string;
+    q6: string;  q7: string;  q8: string;  q9: string;  q10: string;
   };
   name: string;
   email: string;
@@ -63,7 +60,7 @@ export async function POST(req: NextRequest) {
 
     // ── 2. Score + template selection ─────────────────────────────────────
     const scoreResult = calculateScore(body.answers);
-    const painTag = getPainTag(body.answers.q4);
+    const painTag = scoreResult.painTag;
     const template = getFullTemplate(scoreResult.level, painTag, scoreResult.segmentB);
 
     // ── 3. Gemini synthesis (personalised observations — optional) ─────────
@@ -93,6 +90,7 @@ export async function POST(req: NextRequest) {
           painTag,
           segmentB: scoreResult.segmentB,
           answers: body.answers,
+          areas: scoreResult.areas as unknown as Record<string, unknown>[],
           template: template as unknown as Record<string, unknown>,
           synthesis: synthesis?.objectA ? (synthesis.objectA as Record<string, unknown>) : null,
         })
@@ -370,11 +368,21 @@ function buildJimmyBriefHtml(params: {
 
       <h2 style="font-size:16px;margin:24px 0 8px;">Assessment Answers</h2>
       <table style="width:100%;border-collapse:collapse;font-size:14px;">
-        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;width:30%;background:#f9f9f9;">Q1 — Operations</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q1}</td></tr>
-        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q2 — Time lost</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q2}</td></tr>
-        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q3 — Client intake</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q3}</td></tr>
-        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q4 — Fix in 6 months</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q4}</td></tr>
-        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q5 — Prior attempts</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q5}</td></tr>
+        <tr><td colspan="2" style="padding:6px 12px;background:#f0f0f0;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;border:1px solid #e0e0e0;">Process & Workflow</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;width:30%;background:#f9f9f9;">Q1 — Day-to-day work</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q1}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q2 — Key person unavailable</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q2}</td></tr>
+        <tr><td colspan="2" style="padding:6px 12px;background:#f0f0f0;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;border:1px solid #e0e0e0;">Data & Information Flow</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q3 — Where data lives</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q3}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q4 — Data errors frequency</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q4}</td></tr>
+        <tr><td colspan="2" style="padding:6px 12px;background:#f0f0f0;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;border:1px solid #e0e0e0;">Client & Lead Management</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q5 — New enquiry process</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q5}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q6 — Lead follow-up confidence</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q6}</td></tr>
+        <tr><td colspan="2" style="padding:6px 12px;background:#f0f0f0;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;border:1px solid #e0e0e0;">Visibility & Reporting</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q7 — Performance view</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q7}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q8 — Detecting problems</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q8}</td></tr>
+        <tr><td colspan="2" style="padding:6px 12px;background:#f0f0f0;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;border:1px solid #e0e0e0;">People & Dependency</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q9 — Individual reliance</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q9}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #e0e0e0;font-weight:600;background:#f9f9f9;">Q10 — Prior improvement attempts</td><td style="padding:8px 12px;border:1px solid #e0e0e0;">${answers.q10}</td></tr>
       </table>
 
       <p style="margin-top:32px;font-size:12px;color:#999;">This email was generated automatically by the Maru Online assessment tool. Reply to this email to contact ${name} directly.</p>
