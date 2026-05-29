@@ -1,5 +1,8 @@
 # Maru Online Website
 
+> **Maru System** · Domain: **Consultancy** · Status: 🟢 **live** (maruonline.com)
+> See [`MARU-SYSTEM.md`](MARU-SYSTEM.md) for the full map of all Maru repos.
+
 Modern marketing website for Maru Online, built with Next.js, React, and Tailwind CSS.
 
 ## 🚀 Tech Stack
