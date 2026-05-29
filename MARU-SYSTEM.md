@@ -31,19 +31,16 @@ The lead funnel and shopfront. Pain-first positioning → free tool → diagnost
 | Repo | Purpose | Status | Live URL | Vercel project | GitHub |
 |---|---|---|---|---|---|
 | **maru-website** | Shopfront + operations-assessment tool | 🟢 live | maruonline.com | `maru-website` | `jimmy-motsei/maru-website` |
-| **maru-lead-engine** | Website Lead Grader (magnet) **+ diagnostics** (`/diagnostics/[client]`) | 🟢 live | maru-lead-engine.vercel.app | `maru-lead-engine` | `jimmy-motsei/maru-lead-engine` |
-| maru-diagnostic-reports | Merged into maru-lead-engine 2026-05-29. Now a **redirect shim**: `vercel.json` forwards legacy `/clients/:client` → lead-engine `/diagnostics/:client`. Retire fully once old links are dead. | 🔁 shim | maru-diagnostic-reports.vercel.app | `maru-diagnostic-reports` | `jimmy-motsei/maru-diagnostic-reports` |
+| **maru-lead-engine** | Website Lead Grader (top-of-funnel magnet) | 🟢 live | maru-lead-engine.vercel.app | `maru-lead-engine` | `jimmy-motsei/maru-lead-engine` |
+| **maru-diagnostic-reports** | **Active GrowthIQ/SeokaneInc client engagement** — diagnostic + framework docs, multi-client. Canonical context: `GROWTHIQ-CONTEXT.md`. NOT a dead surface; do not merge/shim while engagement is live. | 🟢 live | maru-diagnostic-reports.vercel.app | `maru-diagnostic-reports` | `jimmy-motsei/maru-diagnostic-reports` |
 | **maru-whatsapp-business** | Inbound WhatsApp capture → qualify → Calendly → Brevo (Make.com) | 🟡 paused | — (Make.com + Meta Cloud API) | — | `maru-online/maru-whatsapp-business` |
 
 **Funnel shape:** WhatsApp / site → Lead Grader → Diagnostic report → discovery call → build.
 
-**Funnel routes inside maru-lead-engine:**
-- `/` — Website Lead Grader
-- `/diagnostics` — diagnostic report index · `/diagnostics/[client]` — individual reports
-- `/clients/[client]` — 308-redirects to `/diagnostics/[client]` (preserves links from the old project)
-
 **Noted future merges (not now):**
-- ✅ ~~`maru-diagnostic-reports` → `/diagnostics` route in `maru-lead-engine`~~ — done 2026-05-29.
+- ❌ `maru-diagnostic-reports` → lead-engine: **attempted 2026-05-29, reverted.** That repo is an
+  active live client engagement (GrowthIQ/SeokaneInc), not a dead surface. Revisit only after the
+  engagement stabilises.
 - `maru-lead-engine` → eventually a section of `maru-website` (bigger job — separate analysis pipeline).
 - Turborepo monorepo for all consultancy repos → reconsider only when there is a 2nd developer.
 
