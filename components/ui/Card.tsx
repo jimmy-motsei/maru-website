@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 // =============================================================================
-// DESIGN TOKENS (Extracted from Ashley Theme SCSS)
+// DESIGN TOKENS (Maru design system)
 // =============================================================================
 // Primary Cyan: #00f0ff (Maru Cyan) / var(--color-cyan-primary) (Tailwind cyan-400)
 // Transition Easing: cubic-bezier(0, 0, 0.3642, 1)
@@ -126,7 +126,7 @@ export function ProcessCard({
       initial="rest"
       whileHover="hover"
       style={{
-        // Custom easing from Ashley theme
+        // Custom easing — Maru standard
         transitionTimingFunction: "cubic-bezier(0, 0, 0.3642, 1)",
       }}
       variants={{

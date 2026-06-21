@@ -12,7 +12,7 @@ const services = [
     tag: 'Core',
     tagColor: 'cyan',
     number: '02',
-    name: 'AI-Powered Workflow Integration',
+    name: 'Workflow Integration',
     body: 'For businesses ready to connect tools and stop manual admin. Fixed price, vendor-agnostic.',
   },
   {
@@ -20,13 +20,13 @@ const services = [
     tag: 'Ongoing',
     tagColor: 'cyan',
     number: '03',
-    name: 'Results Measurement & Optimisation',
+    name: 'Results Optimisation',
     body: 'Workflows running but no evidence of impact. We measure and optimise against your baseline.',
   },
   {
     id: 'svc4',
     tag: 'Foundation',
-    tagColor: 'gold',
+    tagColor: 'ochre',
     number: '04',
     name: 'Site Infrastructure Analysis & Remediation',
     body: 'Legacy or broken sites that need clean infrastructure before AI workflows can run.',
@@ -34,7 +34,7 @@ const services = [
   {
     id: 'svc5',
     tag: 'Compliance',
-    tagColor: 'gold',
+    tagColor: 'ochre',
     number: '05',
     name: 'POPIA-Compliant AI Integration',
     body: 'For legal, financial, and healthcare sectors. Compliance built in from day one.',
@@ -44,7 +44,7 @@ const services = [
     tag: 'Support',
     tagColor: 'cyan',
     number: '06',
-    name: 'Team Training & Capability Support',
+    name: 'Team Training & Handover',
     body: 'Onboarding for teams to ensure adoption. Your team runs the system — not IT.',
   },
 ];
@@ -71,11 +71,11 @@ export default function PrimaryServicesFilter() {
                 background:
                   svc.tagColor === 'cyan'
                     ? 'rgba(61, 184, 198, 0.10)'
-                    : 'rgba(205, 170, 83, 0.10)',
+                    : 'rgba(195, 106, 54, 0.10)',
                 color:
                   svc.tagColor === 'cyan'
                     ? 'var(--color-cyan)'
-                    : 'var(--color-gold)',
+                    : 'var(--color-ochre)',
                 fontSize: '10px',
                 fontWeight: 500,
                 textTransform: 'uppercase',

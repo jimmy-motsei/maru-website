@@ -5,6 +5,7 @@ import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { MaruBriefForm } from "@/app/resources/MaruBriefForm";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
+import { getInsightList, type InsightListItem } from "@/lib/insights/getInsights";
 
 export const metadata: Metadata = {
   title: "Insights | Maru Online",
@@ -17,86 +18,9 @@ const inner       = "max-w-[900px] mx-auto";
 const innerWide   = "max-w-[1100px] mx-auto";
 const innerNarrow = "max-w-[720px] mx-auto";
 
-// ─── Article data ─────────────────────────────────────────────────────────────
-
-const articles = [
-  {
-    slug:     "why-ai-tools-fail-sme",
-    image:    "/images/insights/article-01.png",
-    category: "Integration",
-    title:    "Why AI tools fail South African SMEs — and it is not the tools",
-    excerpt:  "Most AI tool failures in SMEs happen because the tools were implemented in isolation. The CRM does not know what the calendar is doing. The email platform does not know what the CRM recorded. Here is the pattern we see, and why it is fixable.",
-    date:     "March 2026",
-    featured: true,
-  },
-  {
-    slug:     "what-a-diagnostic-actually-finds",
-    image:    "/images/insights/article-02.png",
-    category: "Diagnostic",
-    title:    "What a Maru diagnostic actually finds",
-    excerpt:  "We have run enough diagnostics to know the common failure patterns. This article breaks down the five most frequent integration gaps we find in SA businesses — and what they cost in team capacity.",
-    date:     "February 2026",
-    featured: false,
-  },
-  {
-    slug:     "popia-ai-what-smes-need-to-know",
-    image:    "/images/insights/article-03.png",
-    category: "Compliance",
-    title:    "POPIA and AI: What South African SMEs actually need to do",
-    excerpt:  "Compliance in an AI context is not about ticking boxes. It is about data flow. We explain how to build POPIA compliance into your automated workflows from day one, rather than retrofitting it later.",
-    date:     "February 2026",
-    featured: false,
-  },
-  {
-    slug:     "fixed-scope-vs-retainer",
-    image:    "/images/insights/article-04.png",
-    category: "Engagements",
-    title:    "Fixed-scope vs retainer: How to think about AI implementation spend",
-    excerpt:  "The question we get most often after a diagnostic is about budget. We explain why we use fixed-scope engagements and how to measure the ROI of an integration before you commit to the build.",
-    date:     "January 2026",
-    featured: false,
-  },
-  {
-    slug:     "automation-isnt-ai",
-    image:    "/images/insights/article-05.png",
-    category: "Integration",
-    title:    "Automation is not AI — and confusing them is costing you",
-    excerpt:  "A Zapier workflow is not AI. A form that routes to a spreadsheet is not AI. Confusing the two leads to overpaying for simple tasks. We define the difference and show you where to use each.",
-    date:     "January 2026",
-    featured: false,
-  },
-  {
-    slug:     "the-handover-problem",
-    image:    "/images/insights/article-06.png",
-    category: "Implementation",
-    title:    "The handover problem: Why AI systems fail after the consultant leaves",
-    excerpt:  "The most common failure mode in AI integration is dependency. If your team cannot run the system without the person who built it, the system is a liability. We share our best practices for documentation and training.",
-    date:     "December 2025",
-    featured: false,
-  },
-  {
-    slug:     "medico-legal-automation",
-    image:    "/images/insights/article-07.png",
-    category: "Sector",
-    title:    "Three automations every medico-legal practice should have",
-    excerpt:  "No-show rates, insurer follow-up delays, and appointment scheduling are the primary capacity killers in medico-legal practices. We map the three workflows that fix these gaps.",
-    date:     "December 2025",
-    featured: false,
-  },
-  {
-    slug:     "ai-readiness-self-test",
-    image:    "/images/insights/article-08.png",
-    category: "Diagnostic",
-    title:    "A self-test for AI readiness: Five questions before you spend anything",
-    excerpt:  "Before any AI investment, there are five questions you need to answer about your current data and tools. If you cannot answer these, you are not ready to automate.",
-    date:     "November 2025",
-    featured: false,
-  },
-];
-
-const featured    = articles.find((a) => a.featured)!;
-const grid        = articles.filter((a) => !a.featured);
-const categories  = ["All", ...Array.from(new Set(articles.map((a) => a.category)))];
+// Articles are sourced from Sanity (see lib/insights/getInsights.ts).
+// New posts are added by the bi-weekly insights bot; editors can also publish
+// from the Studio at /studio.
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
@@ -124,7 +48,7 @@ function CategoryBadge({ label }: { label: string }) {
 function ArticleCard({
   article,
 }: {
-  article: (typeof articles)[number];
+  article: InsightListItem;
 }) {
   return (
     <Link
@@ -210,7 +134,12 @@ function ArticleCard({
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 
-export default function InsightsPage() {
+export default async function InsightsPage() {
+  const articles = await getInsightList();
+  const featured = articles[0];
+  const grid     = featured ? articles.slice(1) : [];
+  const categories = ["All", ...Array.from(new Set(articles.map((a) => a.category)))];
+
   return (
     <>
       {/* ════════════════════════════════════════════════════════════════════
@@ -263,6 +192,7 @@ export default function InsightsPage() {
       {/* ════════════════════════════════════════════════════════════════════
           FEATURED ARTICLE
           ════════════════════════════════════════════════════════════════════ */}
+      {featured && (
       <section
         className={`${outerPad} py-16`}
         style={{ backgroundColor: "var(--color-bg-secondary)" }}
@@ -387,6 +317,7 @@ export default function InsightsPage() {
           </FadeUp>
         </div>
       </section>
+      )}
 
       {/* ════════════════════════════════════════════════════════════════════
           ARTICLE GRID
@@ -436,13 +367,17 @@ export default function InsightsPage() {
           </FadeUp>
 
           {/* Grid */}
-          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {grid.map((article) => (
-              <StaggerChild key={article.slug}>
-                <ArticleCard article={article} />
-              </StaggerChild>
-            ))}
-          </StaggerParent>
+          {articles.length === 0 ? (
+            <p className="body-muted">New insights are on the way — check back soon.</p>
+          ) : (
+            <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {grid.map((article) => (
+                <StaggerChild key={article.slug}>
+                  <ArticleCard article={article} />
+                </StaggerChild>
+              ))}
+            </StaggerParent>
+          )}
         </div>
       </section>
 
@@ -455,7 +390,7 @@ export default function InsightsPage() {
       >
         <div className={innerNarrow}>
           <FadeUp>
-            <span className="label-eyebrow-gold">Monthly Best Practices for AI Integration</span>
+            <span className="label-eyebrow-ochre">Monthly Best Practices for AI Integration</span>
             <h2>
               <span style={{ fontWeight: 300 }}>The Business </span><span style={{ fontWeight: 700 }}>AI Journal</span>
             </h2>

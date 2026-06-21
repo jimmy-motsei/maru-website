@@ -102,7 +102,7 @@ export default function TechAuditPage() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-highlight/20 border-t-highlight rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 border-4 border-cyan/20 border-t-cyan rounded-full animate-spin mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-white mb-2">Auditing Your Tech Stack</h2>
           <p className="text-zinc-400">Analyzing costs and detecting redundancies...</p>
         </div>
@@ -174,7 +174,7 @@ export default function TechAuditPage() {
                 placeholder="Search tools..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-highlight"
+                className="w-full pl-10 pr-4 py-2 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-cyan"
               />
             </div>
 
@@ -187,7 +187,7 @@ export default function TechAuditPage() {
                   </div>
                   <button
                     onClick={() => addTool(tool)}
-                    className="px-3 py-1 bg-highlight text-black text-sm rounded hover:bg-highlight-hover"
+                    className="px-3 py-1 bg-cyan text-black text-sm rounded hover:bg-cyan-dark"
                   >
                     Add
                   </button>
@@ -239,7 +239,7 @@ export default function TechAuditPage() {
             {selectedTools.length > 0 && (
               <div className="p-4 bg-zinc-900 border border-zinc-800 rounded-lg">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-highlight">
+                  <div className="text-2xl font-bold text-cyan">
                     ${selectedTools.reduce((sum, tool) => sum + (tool.monthly_cost * tool.users_count), 0).toLocaleString()}
                   </div>
                   <p className="text-zinc-400">Total Monthly Cost</p>
@@ -280,14 +280,14 @@ function ContactForm({ onSubmit }: { onSubmit: (data: Record<string, string>) =>
         placeholder="Email Address"
         value={formData.email}
         onChange={(e) => setFormData({...formData, email: e.target.value})}
-        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-highlight"
+        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-cyan"
         required
       />
       
       <select
         value={formData.company_size}
         onChange={(e) => setFormData({...formData, company_size: e.target.value})}
-        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-highlight"
+        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-cyan"
         required
       >
         <option value="">Company Size</option>
@@ -299,7 +299,7 @@ function ContactForm({ onSubmit }: { onSubmit: (data: Record<string, string>) =>
       <select
         value={formData.industry}
         onChange={(e) => setFormData({...formData, industry: e.target.value})}
-        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-highlight"
+        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-cyan"
         required
       >
         <option value="">Industry</option>
@@ -313,7 +313,7 @@ function ContactForm({ onSubmit }: { onSubmit: (data: Record<string, string>) =>
       
       <button
         type="submit"
-        className="w-full py-3 bg-highlight hover:bg-highlight-hover text-black font-medium rounded-lg transition-colors"
+        className="w-full py-3 bg-cyan hover:bg-cyan-dark text-black font-medium rounded-lg transition-colors"
       >
         Analyze My Tech Stack
       </button>
@@ -334,7 +334,7 @@ function AuditDisplay({ results }: { results: TechAuditResult }) {
       <div className="grid md:grid-cols-2 gap-6">
         <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
           <h3 className="text-lg font-semibold text-white mb-4">Monthly Spend</h3>
-          <div className="text-3xl font-bold text-highlight mb-2">
+          <div className="text-3xl font-bold text-cyan mb-2">
             ${results.totalMonthlyCost.toLocaleString()}
           </div>
           <p className="text-zinc-400">Total software costs</p>
@@ -375,8 +375,8 @@ function AuditDisplay({ results }: { results: TechAuditResult }) {
         <div className="space-y-3">
           {results.recommendations.map((rec, index) => (
             <div key={index} className="flex items-start gap-3">
-              <div className="w-6 h-6 bg-highlight/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-xs font-medium text-highlight">{index + 1}</span>
+              <div className="w-6 h-6 bg-cyan/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-medium text-cyan">{index + 1}</span>
               </div>
               <p className="text-zinc-300">{rec}</p>
             </div>

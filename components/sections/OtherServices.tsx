@@ -86,7 +86,7 @@ export function OtherServices({ currentServiceId: _currentServiceId }: OtherServ
           >
             <SafeLink
               href="/services"
-              className="inline-flex items-center gap-2 text-dark hover:text-accent transition-colors group"
+              className="inline-flex items-center gap-2 text-ink-primary hover:text-accent transition-colors group"
             >
               <span className="font-medium">View all</span>
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -118,20 +118,20 @@ export function OtherServices({ currentServiceId: _currentServiceId }: OtherServ
                     >
                       <IconComponent size={20} style={{ color: service.iconColor }} />
                     </div>
-                    <h3 className="text-xl font-bold text-dark">
+                    <h3 className="text-xl font-bold text-ink-primary">
                       {service.title}
                     </h3>
                   </div>
 
                   {/* Description */}
-                  <p className="copy-card text-dark/70 mb-6">
+                  <p className="copy-card text-ink-primary/70 mb-6">
                     {service.description}
                   </p>
 
                   {/* Features */}
                   <ul className="space-y-2 mb-8">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="copy-body text-dark/70 flex items-center gap-2">
+                      <li key={idx} className="copy-body text-ink-primary/70 flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                         {feature}
                       </li>
@@ -142,7 +142,7 @@ export function OtherServices({ currentServiceId: _currentServiceId }: OtherServ
                   <div className="mt-auto">
                     <SafeLink
                       href={service.href}
-                      className="inline-flex items-center justify-center bg-action-primary group-hover:bg-highlight-hover text-white font-bold uppercase text-sm rounded-full px-6 py-3 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg w-full"
+                      className="inline-flex items-center justify-center bg-action-primary group-hover:bg-cyan-dark text-white font-bold uppercase text-sm rounded-full px-6 py-3 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg w-full"
                     >
                       See more
                     </SafeLink>

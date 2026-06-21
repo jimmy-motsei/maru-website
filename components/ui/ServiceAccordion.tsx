@@ -47,11 +47,11 @@ export function ServiceAccordion({ items }: ServiceAccordionProps) {
             className="w-full py-6 flex items-center justify-between text-left group"
           >
             <span className={`text-lg font-medium transition-colors duration-300 ${
-              openIndex === index ? "text-accent" : "text-dark"
+              openIndex === index ? "text-accent" : "text-ink-primary"
             }`}>
               {item.title}
             </span>
-            <span className={`text-2xl text-dark/40 transition-transform duration-300 ${
+            <span className={`text-2xl text-ink-primary/40 transition-transform duration-300 ${
               openIndex === index ? "rotate-45" : ""
             }`}>
               +
@@ -68,19 +68,19 @@ export function ServiceAccordion({ items }: ServiceAccordionProps) {
               >
                 <div className="pb-6">
                   {item.subtitle && (
-                    <h4 className="text-base font-semibold text-dark mb-3">
+                    <h4 className="text-base font-semibold text-ink-primary mb-3">
                       {item.subtitle}
                     </h4>
                   )}
-                  <p className="copy-card text-dark/80 mb-4">
+                  <p className="copy-card text-ink-primary/80 mb-4">
                     {item.content}
                   </p>
                   {item.features && item.features.length > 0 && (
                     <div className="mt-4">
-                      <p className="text-sm font-medium text-dark mb-2">What you get:</p>
+                      <p className="text-sm font-medium text-ink-primary mb-2">What you get:</p>
                       <ul className="space-y-2">
                         {item.features.map((feature, idx) => (
-                          <li key={idx} className="copy-body text-dark/70 flex items-start gap-2">
+                          <li key={idx} className="copy-body text-ink-primary/70 flex items-start gap-2">
                             <span className="text-accent mt-1">•</span>
                             <span>{feature}</span>
                           </li>

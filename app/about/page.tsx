@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { BGPattern } from "@/components/ui/bg-pattern";
 import Button from "@/components/ui/Button";
 import CardNavy from "@/components/ui/CardNavy";
-import CardGold from "@/components/ui/CardGold";
+import CardProof from "@/components/ui/CardProof";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 
 export const metadata: Metadata = {
@@ -173,7 +173,7 @@ export default function AboutPage() {
       >
         <div className={innerWide}>
           <FadeUp>
-            <span className="label-eyebrow-gold" style={{ marginBottom: "1.25rem" }}>What we stand for</span>
+            <span className="label-eyebrow-ochre" style={{ marginBottom: "1.25rem" }}>What we stand for</span>
             <h2 style={{ marginBottom: "var(--space-section-header-mb)" }}>
               <span style={{ fontWeight: 300 }}>Values that show up in the work.</span>
               <br />
@@ -182,24 +182,24 @@ export default function AboutPage() {
           </FadeUp>
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <StaggerChild className="h-full">
-              <CardGold title="Truth Over Talk." className="h-full">
+              <CardProof title="Truth Over Talk." className="h-full">
                 We don&apos;t just say it; we prove it. If we can&apos;t back it up, we won&apos;t say it. Our commitment to honesty means every claim about your results is grounded in fact, not fiction.
-              </CardGold>
+              </CardProof>
             </StaggerChild>
             <StaggerChild className="h-full">
-              <CardGold title="Clarity Over Clouds." className="h-full">
+              <CardProof title="Clarity Over Clouds." className="h-full">
                 &ldquo;Better efficiency&rdquo; is a guess; &ldquo;14 hours down to 3&rdquo; is a result. We trade vague promises for specific fixes and measurable wins.
-              </CardGold>
+              </CardProof>
             </StaggerChild>
             <StaggerChild className="h-full">
-              <CardGold title="Impact Over Handover." className="h-full">
+              <CardProof title="Impact Over Handover." className="h-full">
                 A tool no one uses is a failure. We don&apos;t measure success by what we deliver, but by what actually changes in your business.
-              </CardGold>
+              </CardProof>
             </StaggerChild>
             <StaggerChild className="h-full">
-              <CardGold title="Focus Over Volume." className="h-full">
+              <CardProof title="Focus Over Volume." className="h-full">
                 We limit ourselves to five active clients. This isn&apos;t a marketing tactic — it&apos;s how we ensure you get our full attention from start to finish.
-              </CardGold>
+              </CardProof>
             </StaggerChild>
           </StaggerParent>
         </div>

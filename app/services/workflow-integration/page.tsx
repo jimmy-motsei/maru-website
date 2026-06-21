@@ -77,7 +77,7 @@ export default function WorkflowIntegrationPage() {
             </nav>
           </FadeUp>
           <FadeUp delay={0.06}>
-            <span className="label-eyebrow-gold">02 — Workflow Integration</span>
+            <span className="label-eyebrow-ochre">02 — Workflow Integration</span>
           </FadeUp>
           <FadeUp delay={0.12}>
             <h1 style={{ color: "var(--color-ink-inverted)" }}>Workflow Integration</h1>

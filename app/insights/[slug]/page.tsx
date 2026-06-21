@@ -2,12 +2,14 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getArticle, getArticleSlugs, Article, Section } from "../articles";
+import { PortableText, type PortableTextComponents } from "next-sanity";
+import { getInsightBySlug, getInsightSlugs } from "@/lib/insights/getInsights";
 
 // ─── Static params ─────────────────────────────────────────────────────────────
 
-export function generateStaticParams() {
-  return getArticleSlugs().map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const slugs = await getInsightSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 // ─── Metadata ──────────────────────────────────────────────────────────────────
@@ -16,80 +18,62 @@ export async function generateMetadata(
   props: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
   const { slug } = await props.params;
-  const article = getArticle(slug);
+  const article = await getInsightBySlug(slug);
   if (!article) return { title: "Not Found" };
+  const description = article.seoDescription || article.excerpt;
   return {
-    title: `${article.title} | Maru Online`,
-    description: article.excerpt,
+    title: `${article.seoTitle || article.title} | Maru Online`,
+    description,
     openGraph: {
       title: article.title,
-      description: article.excerpt,
+      description,
       type: "article",
     },
   };
 }
 
-// ─── Section renderer ──────────────────────────────────────────────────────────
+// ─── Portable Text → article typography ─────────────────────────────────────────
+// Maps Sanity block content onto the existing .article-* classes so the
+// editorial styling is preserved regardless of who authored the post.
 
-function renderSection(section: Section, idx: number) {
-  switch (section.type) {
-    case "paragraph":
+const ptComponents: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => <p className="article-body">{children}</p>,
+    h2: ({ children }) => <h2 className="article-h2">{children}</h2>,
+    h3: ({ children }) => <h3 className="article-h3">{children}</h3>,
+    h4: ({ children }) => <h3 className="article-h3">{children}</h3>,
+    blockquote: ({ children }) => (
+      <blockquote className="article-quote">
+        <p className="article-quote-text">{children}</p>
+      </blockquote>
+    ),
+  },
+  list: {
+    bullet: ({ children }) => <ul className="article-list">{children}</ul>,
+    number: ({ children }) => <ul className="article-list">{children}</ul>,
+  },
+  listItem: {
+    bullet: ({ children }) => <li>{children}</li>,
+    number: ({ children }) => <li>{children}</li>,
+  },
+  marks: {
+    link: ({ children, value }) => {
+      const href = (value?.href as string) ?? "#";
+      const external = /^https?:\/\//.test(href);
       return (
-        <p key={idx} className="article-body">
-          {section.text}
-        </p>
+        <a
+          href={href}
+          style={{ color: "var(--color-cyan)", textDecoration: "underline" }}
+          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {children}
+        </a>
       );
-
-    case "heading":
-      return (
-        <h2 key={idx} className="article-h2">
-          {section.text}
-        </h2>
-      );
-
-    case "subheading":
-      return (
-        <h3 key={idx} className="article-h3">
-          {section.text}
-        </h3>
-      );
-
-    case "list":
-      return (
-        <ul key={idx} className="article-list">
-          {(section.items ?? []).map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
-      );
-
-    case "callout":
-      return (
-        <div key={idx} className="article-callout">
-          {section.label && (
-            <p className="article-callout-label label-eyebrow">{section.label}</p>
-          )}
-          <p className="article-callout-text">{section.text}</p>
-        </div>
-      );
-
-    case "quote":
-      return (
-        <blockquote key={idx} className="article-quote">
-          <p className="article-quote-text">"{section.text}"</p>
-          {section.label && (
-            <cite className="article-quote-cite">{section.label}</cite>
-          )}
-        </blockquote>
-      );
-
-    case "divider":
-      return <hr key={idx} className="rule my-8" />;
-
-    default:
-      return null;
-  }
-}
+    },
+    strong: ({ children }) => <strong>{children}</strong>,
+    em: ({ children }) => <em>{children}</em>,
+  },
+};
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
@@ -97,9 +81,8 @@ export default async function InsightArticlePage(
   props: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await props.params;
-  const articleData = getArticle(slug);
-  if (!articleData) notFound();
-  const article = articleData!;
+  const article = await getInsightBySlug(slug);
+  if (!article) notFound();
 
   return (
     <>
@@ -240,10 +223,10 @@ export default async function InsightArticlePage(
           margin: 0;
         }
         .article-quote {
-          border-left: 3px solid var(--color-gold);
+          border-left: 3px solid var(--color-ochre);
           padding: 20px 24px;
           margin: 2.5rem 0;
-          background: var(--color-gold-light);
+          background: var(--color-ochre-tint);
           border-radius: 0 8px 8px 0;
         }
         .article-quote-text {
@@ -344,6 +327,26 @@ export default async function InsightArticlePage(
           transition: color 0.2s ease;
         }
         .back-link:hover { color: var(--color-ink-inverted); }
+        .article-sources {
+          margin-top: 3rem;
+          padding-top: 1.5rem;
+          border-top: 1px solid var(--color-border-default);
+        }
+        .article-sources ul {
+          list-style: none;
+          padding: 0;
+          margin: 0.5rem 0 0;
+        }
+        .article-sources li {
+          font-family: var(--font-body), sans-serif;
+          font-size: 0.875rem;
+          line-height: 1.6;
+          color: var(--color-ink-tertiary);
+          margin-bottom: 0.5rem;
+          word-break: break-word;
+        }
+        .article-sources a { color: var(--color-cyan); text-decoration: none; }
+        .article-sources a:hover { text-decoration: underline; }
         @media (max-width: 640px) {
           .article-prose { padding: 0 20px; }
         }
@@ -381,8 +384,25 @@ export default async function InsightArticlePage(
         {/* ── Body ───────────────────────────────────────────────────────── */}
         <section className="article-body-wrap">
           <article className="article-prose">
-            {article.content.map((section, idx) =>
-              renderSection(section, idx)
+            <PortableText value={article.body} components={ptComponents} />
+
+            {article.sources.length > 0 && (
+              <div className="article-sources">
+                <p className="article-callout-label label-eyebrow">Sources</p>
+                <ul>
+                  {article.sources.map((s, i) =>
+                    s.url ? (
+                      <li key={i}>
+                        <a href={s.url} target="_blank" rel="noopener noreferrer">
+                          {s.title || s.url}
+                        </a>
+                      </li>
+                    ) : (
+                      <li key={i}>{s.title}</li>
+                    ),
+                  )}
+                </ul>
+              </div>
             )}
           </article>
 

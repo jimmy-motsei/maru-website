@@ -51,7 +51,7 @@ export default async function LandingPage(props: Props) {
   }
 
   return (
-    <main className="bg-dark min-h-screen">
+    <main className="bg-bg-navy-deep min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center pt-[clamp(150px,20vh,200px)] pb-[clamp(80px,12vh,140px)] overflow-hidden bg-black">
         <AtmosphericBackground variant="hero" />

@@ -1,12 +1,12 @@
 import type { Variants } from 'framer-motion'
 
 /**
- * Framer Motion animation variants matching Ashley theme
+ * Framer Motion animation variants — Maru standard
  * Key patterns: Fade up on scroll, individual element triggers, sine easing
  */
 
-// Ashley-style fade up (matches GSAP parameters exactly)
-// From Ashley main.js: opacity: 0→1, y: 40→0, scale: 0.98→1, duration: 0.4s, ease: 'sine'
+// Fade-up variant
+// opacity: 0→1, y: 40→0, scale: 0.98→1, duration: 0.4s, ease: 'sine'
 export const fadeUpVariants: Variants = {
     hidden: {
         opacity: 0,

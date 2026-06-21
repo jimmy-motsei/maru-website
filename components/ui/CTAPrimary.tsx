@@ -1,8 +1,13 @@
 import React from 'react';
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import Button from '@/components/ui/Button';
 
+/**
+ * @deprecated Use `Button` with `variant="primary"` directly.
+ *
+ * CTAPrimary is retained only as a thin compatibility wrapper for legacy call
+ * sites. It now renders the canonical `Button` primary so the whole site uses
+ * one CTA system.
+ */
 interface CTAPrimaryProps {
   children: React.ReactNode;
   onClick?: (e?: React.MouseEvent) => void;
@@ -24,67 +29,23 @@ export const CTAPrimary: React.FC<CTAPrimaryProps> = ({
   type = 'button',
   ariaLabel,
   target,
-  rel
+  rel,
 }) => {
-  const baseStyles = cn(
-    "group relative inline-flex items-center justify-between",
-    "bg-highlight text-dark",
-    "font-medium uppercase text-[12px] tracking-[2px]",
-    "pl-[50px] pr-[15px] rounded-pill",
-    "h-[70px]",
-    "whitespace-nowrap cursor-pointer",
-    "transition-all duration-300 ease-in-out",
-    "hover:bg-highlight-hover hover:scale-[1.015] hover:brightness-110",
-    "active:translate-y-0 active:brightness-90",
-    "focus-visible:outline focus-visible:outline-3 focus-visible:outline-highlight focus-visible:outline-offset-3",
-    "disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0",
-    "w-full sm:w-auto",
-    className
-  );
-
-  const content = (
-    <>
-      <span className="flex-1 text-center mr-4">{children}</span>
-      <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-black text-white transition-transform duration-300 group-hover:scale-110">
-        <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
-      </span>
-    </>
-  );
-
-  if (href && !disabled) {
-    // Check if external link (starts with http:// or https://)
-    const isExternal = href.startsWith('http://') || href.startsWith('https://');
-    
-    if (isExternal) {
-      return (
-        <a 
-          href={href} 
-          className={baseStyles} 
-          aria-label={ariaLabel}
-          target={target || '_blank'}
-          rel={rel || 'noopener noreferrer'}
-        >
-          {content}
-        </a>
-      );
-    }
-    
-    return (
-      <Link href={href} className={baseStyles} aria-label={ariaLabel}>
-        {content}
-      </Link>
-    );
-  }
-
   return (
-    <button
-      type={type}
-      onClick={onClick}
+    <Button
+      variant="primary"
+      href={href}
+      onClick={onClick ? () => onClick() : undefined}
       disabled={disabled}
-      className={baseStyles}
-      aria-label={ariaLabel}
+      className={className}
+      type={type}
+      ariaLabel={ariaLabel}
+      target={target}
+      rel={rel}
     >
-      {content}
-    </button>
+      {children}
+    </Button>
   );
 };
+
+export default CTAPrimary;

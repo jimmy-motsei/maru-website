@@ -13,6 +13,12 @@ interface ButtonProps {
   children: React.ReactNode
   className?: string
   disabled?: boolean
+  /** Accessible label when the visible text isn't descriptive enough */
+  ariaLabel?: string
+  /** Link target — when set on an external href, renders a plain <a> */
+  target?: '_blank' | '_self' | '_parent' | '_top'
+  /** rel for external links — defaults to "noopener noreferrer" for _blank */
+  rel?: string
 }
 
 // ─── Variant class maps ───────────────────────────────────────────────────────
@@ -28,31 +34,31 @@ const base =
 const variantClasses: Record<ButtonVariant, string> = {
   // Solid cyan fill — dark navy text
   primary:
-    'px-6 py-2.5 bg-[#3DB8C6] text-[var(--color-navy)] border-0 ' +
-    'hover:bg-[#2DA8B6] hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.35)] ' +
-    'active:scale-[0.98] active:bg-[#2DA8B6] active:shadow-none ' +
+    'px-6 py-2.5 bg-cyan text-navy border-0 ' +
+    'hover:bg-cyan-dark hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.35)] ' +
+    'active:scale-[0.98] active:bg-cyan-dark active:shadow-none ' +
     'focus-visible:shadow-[0_0_0_3px_rgba(61,184,198,0.45),0_4px_16px_rgba(61,184,198,0.25)]',
 
   // Transparent — cyan outline, cyan text
   secondary:
-    'px-6 py-2.5 bg-transparent text-[#3DB8C6] border border-[#3DB8C6] ' +
-    'hover:bg-[#3DB8C6] hover:text-[var(--color-navy)] hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.25)] ' +
-    'active:scale-[0.98] active:bg-[#2DA8B6] active:text-[var(--color-navy)] active:shadow-none ' +
+    'px-6 py-2.5 bg-transparent text-cyan border border-cyan ' +
+    'hover:bg-cyan hover:text-navy hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.25)] ' +
+    'active:scale-[0.98] active:bg-cyan-dark active:text-navy active:shadow-none ' +
     'focus-visible:shadow-[0_0_0_3px_rgba(61,184,198,0.45),0_4px_16px_rgba(61,184,198,0.15)]',
 
   // Legacy alias — renders identically to secondary.
   outline:
-    'px-6 py-2.5 bg-transparent text-[#3DB8C6] border border-[#3DB8C6] ' +
-    'hover:bg-[#3DB8C6] hover:text-[var(--color-navy)] hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.25)] ' +
-    'active:scale-[0.98] active:bg-[#2DA8B6] active:text-[var(--color-navy)] active:shadow-none ' +
+    'px-6 py-2.5 bg-transparent text-cyan border border-cyan ' +
+    'hover:bg-cyan hover:text-navy hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.25)] ' +
+    'active:scale-[0.98] active:bg-cyan-dark active:text-navy active:shadow-none ' +
     'focus-visible:shadow-[0_0_0_3px_rgba(61,184,198,0.45),0_4px_16px_rgba(61,184,198,0.15)]',
 
   // Inline text link — no border, no background.
   // The → character is appended inside the component so callers
   // only need to pass the label text.
   tertiary:
-    'rounded-none text-[#3DB8C6] no-underline ' +
-    'hover:text-[#2DA8B6] hover:underline hover:underline-offset-4 ' +
+    'rounded-none text-cyan no-underline ' +
+    'hover:text-cyan-dark hover:underline hover:underline-offset-4 ' +
     'active:opacity-70 ' +
     'focus-visible:underline focus-visible:underline-offset-4 focus-visible:shadow-[0_0_0_2px_rgba(61,184,198,0.4)]',
 }
@@ -67,6 +73,9 @@ function Button({
   children,
   className = '',
   disabled = false,
+  ariaLabel,
+  target,
+  rel,
 }: ButtonProps) {
   const classes = `${base} ${variantClasses[variant]} ${className}`.trim()
 
@@ -82,8 +91,24 @@ function Button({
     )
 
   if (href) {
+    // External links (http/https) or an explicit target render a plain <a>
+    const isExternal = /^https?:\/\//.test(href)
+    if (isExternal || target) {
+      return (
+        <a
+          href={href}
+          className={classes}
+          aria-label={ariaLabel}
+          aria-disabled={disabled}
+          target={target ?? (isExternal ? '_blank' : undefined)}
+          rel={rel ?? (target === '_blank' || isExternal ? 'noopener noreferrer' : undefined)}
+        >
+          {label}
+        </a>
+      )
+    }
     return (
-      <Link href={href} className={classes} aria-disabled={disabled}>
+      <Link href={href} className={classes} aria-label={ariaLabel} aria-disabled={disabled}>
         {label}
       </Link>
     )
@@ -95,6 +120,7 @@ function Button({
       onClick={onClick}
       disabled={disabled}
       className={classes}
+      aria-label={ariaLabel}
     >
       {label}
     </button>

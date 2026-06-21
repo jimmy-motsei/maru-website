@@ -196,7 +196,7 @@ export default function PricingPage() {
         <div className={inner}>
           <FadeUp>
             <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-              <span className="label-eyebrow-gold">Engagements</span>
+              <span className="label-eyebrow-ochre">Engagements</span>
               <h2>
                 <span style={{ fontWeight: 300 }}>Start here.</span>
                 <br />
@@ -250,8 +250,8 @@ export default function PricingPage() {
                               fontWeight:      500,
                               letterSpacing:   'var(--tracking-eyebrow)',
                               textTransform:   'uppercase',
-                              color:           eng.featured ? 'var(--color-cyan)' : 'var(--color-gold-antique)',
-                              backgroundColor: eng.featured ? 'var(--color-cyan-light)' : 'var(--color-gold-light)',
+                              color:           eng.featured ? 'var(--color-cyan)' : 'var(--color-ochre-ink)',
+                              backgroundColor: eng.featured ? 'var(--color-cyan-light)' : 'var(--color-ochre-tint)',
                               borderRadius:    '4px',
                               padding:         '0.2rem 0.5rem',
                             }}
@@ -352,7 +352,7 @@ export default function PricingPage() {
         <div className={inner}>
           <FadeUp>
             <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-              <span className="label-eyebrow-gold">Common questions</span>
+              <span className="label-eyebrow-ochre">Common questions</span>
               <h2>
                 <span style={{ fontWeight: 300 }}>A note on</span>
                 <br />

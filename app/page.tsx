@@ -26,7 +26,7 @@ const processPhases = [
     name: "Diagnose",
     description: "We audit your workflows, tools, and data flow. We find where you're losing time and money.",
     outcome: "A diagnostic report, a cost calculation, and a prioritised roadmap.",
-    timeline: "24 hours from submission.",
+    timeline: "48 hours from submission.",
   },
   {
     number: "02",
@@ -175,7 +175,7 @@ export default function Home() {
                 marginBottom: 0,
               }}
             >
-              No obligation. No cost. 24-hour turnaround on results.
+              No obligation. No cost. 48-hour turnaround on results.
             </p>
           </FadeUp>
 
@@ -287,7 +287,7 @@ export default function Home() {
                 sub: "Assessment — no cost to find where you stand",
               },
               {
-                stat: "24-Hour",
+                stat: "48-Hour",
                 sub: "Turnaround on your diagnostic report",
               },
               {
@@ -454,7 +454,7 @@ export default function Home() {
                   {col.ghost}
                 </p>
 
-                {/* Service name + gold underline */}
+                {/* Service name + ochre underline */}
                 <p
                   style={{
                     fontSize: "var(--text-h3-sans)",
@@ -462,7 +462,7 @@ export default function Home() {
                     color: "var(--color-ink-primary)",
                     lineHeight: 1.3,
                     marginBottom: "0.75rem",
-                    borderBottom: "2px solid var(--color-gold)",
+                    borderBottom: "2px solid var(--color-ochre)",
                     paddingBottom: "0.75rem",
                     fontFamily: "var(--font-body)",
                   }}
@@ -514,7 +514,7 @@ export default function Home() {
                     >
                       <span
                         style={{
-                          color: "var(--color-gold)",
+                          color: "var(--color-ochre)",
                           fontSize: "var(--text-body-sm)",
                           flexShrink: 0,
                           lineHeight: "var(--leading-body)",

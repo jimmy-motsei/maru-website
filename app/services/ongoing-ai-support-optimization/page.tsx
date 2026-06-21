@@ -216,7 +216,7 @@ export default function OngoingAISupportOptimizationPage() {
                 </ul>
                 <Link href={service.href} className="inline-flex items-center gap-3 text-xs uppercase tracking-[2px] font-semibold text-text-primary">
                   Learn More
-                  <span className="w-9 h-9 rounded-full bg-[var(--color-brand-accent)] text-white border border-[var(--color-brand-accent)] flex items-center justify-center">
+                  <span className="w-9 h-9 rounded-full bg-[var(--color-cyan)] text-white border border-[var(--color-cyan)] flex items-center justify-center">
                     <ArrowRight size={16} />
                   </span>
                 </Link>
