@@ -19,6 +19,7 @@
     "test:prod": "bash ./scripts/test-prod-visual.sh"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.105.0",
     "@google/generative-ai": "^0.24.1",
     "@hookform/resolvers": "^5.2.2",
     "@mendable/firecrawl-js": "^4.10.0",

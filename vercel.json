@@ -8,8 +8,17 @@
     },
     "app/api/scrape/*/route.ts": {
       "maxDuration": 45
+    },
+    "app/api/cron/insights/route.ts": {
+      "maxDuration": 300
     }
   },
+  "crons": [
+    {
+      "path": "/api/cron/insights",
+      "schedule": "0 9 1,15 * *"
+    }
+  ],
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "installCommand": "npm install",

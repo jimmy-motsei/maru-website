@@ -112,7 +112,7 @@ export default function LeadScorePage() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-highlight/20 border-t-highlight rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 border-4 border-cyan/20 border-t-cyan rounded-full animate-spin mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-white mb-2">Analyzing Your Website</h2>
           <p className="text-zinc-400">This may take up to 30 seconds...</p>
         </div>
@@ -159,8 +159,8 @@ export default function LeadScorePage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-highlight/10 rounded-full mb-6">
-            <Target className="w-8 h-8 text-highlight" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan/10 rounded-full mb-6">
+            <Target className="w-8 h-8 text-cyan" />
           </div>
           <SplitHeadline
             as="h1"
@@ -192,7 +192,7 @@ export default function LeadScorePage() {
         />
         <div className="grid md:grid-cols-3 gap-6 text-center">
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
-            <Globe className="w-8 h-8 text-highlight mx-auto mb-3" />
+            <Globe className="w-8 h-8 text-cyan mx-auto mb-3" />
             <h3 className="font-semibold text-white mb-2">Website Analysis</h3>
             <p className="text-sm text-zinc-400">Scan technical and content quality quickly.</p>
           </div>
@@ -291,7 +291,7 @@ function ScoreDisplay({ results }: { results: LeadScoreResult }) {
                 <h3 className="font-medium text-white">
                   {factorNames[key as keyof typeof factorNames] || key.replace('_', ' ')}
                 </h3>
-                <span className="text-highlight font-semibold">{value}/100</span>
+                <span className="text-cyan font-semibold">{value}/100</span>
               </div>
               <div className="w-full bg-zinc-700 rounded-full h-2">
                 <div
@@ -318,8 +318,8 @@ function ScoreDisplay({ results }: { results: LeadScoreResult }) {
         <div className="space-y-4">
           {results.recommendations.map((rec, index) => (
             <div key={index} className="flex items-start gap-3 p-3 bg-zinc-800/50 rounded-lg hover:bg-zinc-800 transition-colors">
-              <div className="w-6 h-6 bg-highlight/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-xs font-medium text-highlight">{index + 1}</span>
+              <div className="w-6 h-6 bg-cyan/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-medium text-cyan">{index + 1}</span>
               </div>
               <p className="text-zinc-300 leading-relaxed">{rec}</p>
             </div>
@@ -328,7 +328,7 @@ function ScoreDisplay({ results }: { results: LeadScoreResult }) {
       </div>
 
       {/* Next Steps CTA */}
-      <div className="p-6 bg-gradient-to-r from-highlight/10 to-transparent border border-highlight/20 rounded-xl">
+      <div className="p-6 bg-gradient-to-r from-cyan/10 to-transparent border border-cyan/20 rounded-xl">
         <h3 className="text-lg font-semibold text-white mb-2">Ready to Improve Your Score?</h3>
         <p className="text-zinc-400 mb-4">
           Get personalized guidance on implementing these recommendations and optimizing your lead generation.
@@ -336,7 +336,7 @@ function ScoreDisplay({ results }: { results: LeadScoreResult }) {
         <div className="flex flex-col sm:flex-row gap-3">
           <Link 
             href="/contact"
-            className="px-6 py-3 bg-highlight text-black font-medium rounded-lg hover:bg-highlight-hover transition-colors inline-flex items-center justify-center"
+            className="px-6 py-3 bg-cyan text-black font-medium rounded-lg hover:bg-cyan-dark transition-colors inline-flex items-center justify-center"
           >
             Schedule Free Consultation
           </Link>

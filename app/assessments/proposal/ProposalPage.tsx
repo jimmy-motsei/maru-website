@@ -113,7 +113,7 @@ export default function ProposalPage() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-highlight/20 border-t-highlight rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 border-4 border-cyan/20 border-t-cyan rounded-full animate-spin mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-white mb-2">Generating Your Proposal</h2>
           <p className="text-zinc-400">Creating a customized business proposal...</p>
         </div>
@@ -173,7 +173,7 @@ export default function ProposalPage() {
             <p className="text-sm text-zinc-400">Professional format suitable for decision makers</p>
           </div>
           <div className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
-            <Download className="w-8 h-8 text-highlight mx-auto mb-3" />
+            <Download className="w-8 h-8 text-cyan mx-auto mb-3" />
             <h3 className="font-semibold text-white mb-2">Instant Download</h3>
             <p className="text-sm text-zinc-400">Get your proposal as PDF or Word document</p>
           </div>
@@ -207,8 +207,8 @@ function ProposalDisplay({ results }: { results: ProposalResult }) {
         <div className="space-y-3">
           {results.recommendations.map((rec: string, index: number) => (
             <div key={index} className="flex items-start gap-3">
-              <div className="w-6 h-6 bg-highlight/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-xs font-medium text-highlight">{index + 1}</span>
+              <div className="w-6 h-6 bg-cyan/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-xs font-medium text-cyan">{index + 1}</span>
               </div>
               <p className="text-zinc-300">{rec}</p>
             </div>

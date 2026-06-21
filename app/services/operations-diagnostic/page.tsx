@@ -73,7 +73,7 @@ export default function OperationsDiagnosticPage() {
             </nav>
           </FadeUp>
           <FadeUp delay={0.06}>
-            <span className="label-eyebrow-gold">01 — Operations Diagnostic</span>
+            <span className="label-eyebrow-ochre">01 — Operations Diagnostic</span>
           </FadeUp>
           <FadeUp delay={0.12}>
             <h1 style={{ color: "var(--color-ink-inverted)" }}>Operations Diagnostic</h1>

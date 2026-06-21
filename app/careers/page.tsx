@@ -162,7 +162,7 @@ export default function CareersPage() {
         <h2 className="text-2xl font-medium text-white mb-6">Our Hiring Process</h2>
         <div className="space-y-4">
           <div className="flex gap-4">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-dark font-bold">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-ink-primary font-bold">
               1
             </div>
             <div>
@@ -174,7 +174,7 @@ export default function CareersPage() {
           </div>
 
           <div className="flex gap-4">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-dark font-bold">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-ink-primary font-bold">
               2
             </div>
             <div>
@@ -186,7 +186,7 @@ export default function CareersPage() {
           </div>
 
           <div className="flex gap-4">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-dark font-bold">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-ink-primary font-bold">
               3
             </div>
             <div>
@@ -198,7 +198,7 @@ export default function CareersPage() {
           </div>
 
           <div className="flex gap-4">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-dark font-bold">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-ink-primary font-bold">
               4
             </div>
             <div>
@@ -210,7 +210,7 @@ export default function CareersPage() {
           </div>
 
           <div className="flex gap-4">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-dark font-bold">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-ink-primary font-bold">
               5
             </div>
             <div>

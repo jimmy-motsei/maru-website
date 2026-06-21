@@ -9,7 +9,7 @@ import { fadeUpVariants, staggerContainerVariants } from "@/lib/animations";
 
 export default function AboutContent() {
   return (
-    <main className="bg-dark">
+    <main className="bg-bg-navy-deep">
       {/* Hero Banner - Dark with Atmospheric Background */}
       <section className="relative min-h-[80vh] flex items-end pb-24 overflow-hidden bg-black">
         <AtmosphericBackground variant="hero" />
@@ -102,7 +102,7 @@ export default function AboutContent() {
                 className="mt-16 flex flex-col sm:flex-row sm:items-center gap-6 rounded-3xl bg-card-dark border border-white/10 p-8 md:p-10"
                 variants={fadeUpVariants}
               >
-                <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full ring-2 ring-[var(--color-brand-accent)]/50">
+                <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full ring-2 ring-[var(--color-cyan)]/50">
                   <Image
                     src="/images/brand/founder.jpg"
                     alt="Jimmy Motsei, Founder of Maru Online"

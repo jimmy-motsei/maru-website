@@ -24,7 +24,7 @@ export function LegalLayout({
   return (
     <>
       {/* Banner */}
-      <div className="bg-dark pt-32 pb-16">
+      <div className="bg-bg-navy-deep pt-32 pb-16">
         <div className="container mx-auto px-6 lg:px-8">
           <nav className="flex gap-2 text-sm text-light-soft mb-8">
             <Link href="/" className="hover:text-accent transition-colors">
@@ -41,7 +41,7 @@ export function LegalLayout({
       </div>
 
       {/* Content */}
-      <section className="bg-dark py-16 lg:py-24">
+      <section className="bg-bg-navy-deep py-16 lg:py-24">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             {/* Main Content */}

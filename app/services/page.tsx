@@ -201,7 +201,7 @@ export default function ServicesPage() {
             <FadeUp>
               <div style={{ marginBottom: "var(--space-section-header-mb)" }}>
                 <span
-                  className="label-eyebrow-gold"
+                  className="label-eyebrow-ochre"
                   style={{ marginBottom: "0.75rem" }}
                 >
                   {service.label} — {service.title}

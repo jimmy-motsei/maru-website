@@ -4,7 +4,7 @@ import { BGPattern } from '@/components/ui/bg-pattern'
 import ImageSplit from '@/components/ui/ImageSplit'
 import ImageBand from '@/components/ui/ImageBand'
 import AccordionFAQ from '@/components/ui/AccordionFAQ'
-import CardGold from '@/components/ui/CardGold'
+import CardProof from '@/components/ui/CardProof'
 import ListItem from '@/components/ui/ListItem'
 import ListGroup from '@/components/ui/ListGroup'
 import ToolsScroller from '@/components/ui/ToolsScroller'
@@ -234,7 +234,7 @@ export default function ProcessPage() {
                 <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                     <span className="section-number">{phase.number}</span>
-                    <span className="label-eyebrow-gold" style={{ margin: 0 }}>{phase.label}</span>
+                    <span className="label-eyebrow-ochre" style={{ margin: 0 }}>{phase.label}</span>
                   </div>
                   <h2>{phase.title}</h2>
                 </div>
@@ -332,7 +332,7 @@ export default function ProcessPage() {
         <div className={inner}>
           <FadeUp>
             <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-              <span className="label-eyebrow-gold">Common questions</span>
+              <span className="label-eyebrow-ochre">Common questions</span>
               <h2>
                 <span style={{ fontWeight: 300 }}>How the process works</span>
                 <br />
@@ -344,7 +344,7 @@ export default function ProcessPage() {
           <AccordionFAQ items={[
             {
               q: 'How long does the whole process take?',
-              a: 'The diagnostic takes 48 hours from intake form submission to report delivery. The core engagement — Phases 2 through 4 — typically runs six to ten weeks depending on complexity and whether site remediation is required. The 30-day measurement phase runs after launch.',
+              a: 'The diagnostic takes 48 hours from intake form submission to report delivery. The core engagement — Phases 2 through 4 — typically runs four to eight weeks depending on complexity and whether site remediation is required. The 30-day measurement phase runs after launch.',
             },
             {
               q: 'Do I need to be technical to work with you?',
