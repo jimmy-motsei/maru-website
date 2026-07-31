@@ -105,7 +105,7 @@ export default function ProcessPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`relative min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}
-        style={{ background: 'var(--gradient-navy-soft)' }}
+        style={{ backgroundColor: 'var(--color-bg-navy)' }}
       >
         <BGPattern variant="grid" mask="none" size={40} fill="rgba(61, 184, 198, 0.12)" className="z-0" />
         <div
@@ -225,7 +225,7 @@ export default function ProcessPage() {
         {phases.map((phase) => (
           <section
             key={phase.number}
-            className={`${outerPad} py-28`}
+            className={`${outerPad} py-24`}
             style={{ backgroundColor: phase.bg }}
           >
             <div className={inner}>
@@ -326,7 +326,7 @@ export default function ProcessPage() {
           FAQ
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`${outerPad} py-28`}
+        className={`${outerPad} py-24`}
         style={{ backgroundColor: 'var(--color-bg-secondary)' }}
       >
         <div className={inner}>
@@ -383,8 +383,8 @@ export default function ProcessPage() {
           FINAL CTA — navy
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`${outerPad} py-28`}
-        style={{ background: 'var(--gradient-navy-soft)' }}
+        className={`${outerPad} py-24`}
+        style={{ backgroundColor: 'var(--color-bg-navy)' }}
       >
         <div
           aria-hidden="true"

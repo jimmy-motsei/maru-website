@@ -218,7 +218,7 @@ export default function InsightsPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`relative min-h-[50vh] flex items-center ${outerPad} pt-48 pb-32`}
-        style={{ background: "var(--gradient-navy-soft)" }}
+        style={{ backgroundColor: "var(--color-bg-navy)" }}
       >
         <BGPattern variant="grid" mask="none" size={40} fill="rgba(61, 184, 198, 0.12)" className="z-0" />
         <div
@@ -480,7 +480,7 @@ export default function InsightsPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`${outerPad} py-24`}
-        style={{ background: "var(--gradient-navy-soft)" }}
+        style={{ backgroundColor: "var(--color-bg-navy)" }}
       >
         <div
           aria-hidden="true"

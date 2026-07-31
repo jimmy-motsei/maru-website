@@ -44,7 +44,7 @@ export default function TeamTrainingHandoverPage() {
       {/* ── Hero ── */}
       <section
         className={`min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}
-        style={{ background: "var(--gradient-navy-soft)" }}
+        style={{ backgroundColor: "var(--color-bg-navy)" }}
       >
         <div className={inner}>
           <FadeUp>
@@ -234,7 +234,7 @@ export default function TeamTrainingHandoverPage() {
       {/* ── CTA ── */}
       <section
         className={`${outerPad} py-24`}
-        style={{ background: "var(--gradient-navy-soft)" }}
+        style={{ backgroundColor: "var(--color-bg-navy)" }}
       >
         <div className={innerNarrow}>
           <FadeUp>

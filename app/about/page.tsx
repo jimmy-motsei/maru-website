@@ -24,7 +24,7 @@ export default function AboutPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`relative min-h-[70vh] flex items-center ${outerPad} pt-48 pb-32`}
-        style={{ background: "var(--gradient-navy-soft)" }}
+        style={{ backgroundColor: "var(--color-bg-navy)" }}
       >
         <BGPattern variant="grid" mask="fade-edges" size={40} fill="rgba(61, 184, 198, 0.101)" className="z-0" />
         <div
@@ -64,7 +64,7 @@ export default function AboutPage() {
           bg: canvas (#FAFAF8)
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`${outerPad} py-28`}
+        className={`${outerPad} py-24`}
         style={{ backgroundColor: "var(--color-bg-canvas)" }}
       >
         <div className={innerNarrow}>
@@ -103,7 +103,7 @@ export default function AboutPage() {
           bg: primary (#FFFFFF)
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`${outerPad} py-28`}
+        className={`${outerPad} py-24`}
         style={{ backgroundColor: "var(--color-bg-primary)" }}
       >
         <div className={innerNarrow}>
@@ -131,7 +131,7 @@ export default function AboutPage() {
           bg: secondary (#F5F4F0)
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`${outerPad} py-28`}
+        className={`${outerPad} py-24`}
         style={{ backgroundColor: "var(--color-bg-secondary)" }}
       >
         <div className={innerWide}>
@@ -168,7 +168,7 @@ export default function AboutPage() {
           bg: primary (#FFFFFF)
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`${outerPad} py-28`}
+        className={`${outerPad} py-24`}
         style={{ backgroundColor: "var(--color-bg-primary)" }}
       >
         <div className={innerWide}>
@@ -210,7 +210,7 @@ export default function AboutPage() {
           bg: canvas (#FAFAF8)
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`${outerPad} py-28`}
+        className={`${outerPad} py-24`}
         style={{ backgroundColor: "var(--color-bg-canvas)" }}
       >
         <div className={innerNarrow}>

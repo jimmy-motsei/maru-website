@@ -12,7 +12,6 @@
  */
 
 import { useState, useEffect } from "react";
-import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { calculateScore, type ScoreResult } from "@/lib/assessment/scoring";
 import { BGPattern } from "@/components/ui/bg-pattern";
 
@@ -172,7 +171,7 @@ type Step = "intro" | number | "results" | "gate" | "done";
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-function AssessmentPageInner() {
+export default function AssessmentPage() {
   const [step, setStep]               = useState<Step>("intro");
   const [answers, setAnswers]         = useState<Answers>({});
   const [scoreResult, setScoreResult] = useState<ScoreResult | null>(null);
@@ -182,7 +181,6 @@ function AssessmentPageInner() {
   const [submitting, setSubmitting]   = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [progress, setProgress]       = useState(0);
-  const { executeRecaptcha }          = useGoogleReCaptcha();
 
   useEffect(() => {
     if (step === "intro")          setProgress(0);
@@ -224,7 +222,6 @@ function AssessmentPageInner() {
     setSubmitError("");
 
     try {
-      const recaptchaToken = executeRecaptcha ? await executeRecaptcha("assessment_gate") : "";
       const response = await fetch("/api/assessment/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -233,7 +230,6 @@ function AssessmentPageInner() {
           name: name.trim(),
           email: email.trim(),
           website: website.trim() || undefined,
-          recaptchaToken,
         }),
       });
 
@@ -251,7 +247,7 @@ function AssessmentPageInner() {
   return (
     <main
       className="relative min-h-screen flex items-center text-white"
-      style={{ background: "var(--gradient-navy-soft)" }}
+      style={{ backgroundColor: "var(--color-bg-navy)" }}
     >
       <BGPattern
         variant="grid"
@@ -483,16 +479,6 @@ function AssessmentPageInner() {
 
       </div>
     </main>
-  );
-}
-
-export default function AssessmentPage() {
-  return (
-    <GoogleReCaptchaProvider
-      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}
-    >
-      <AssessmentPageInner />
-    </GoogleReCaptchaProvider>
   );
 }
 

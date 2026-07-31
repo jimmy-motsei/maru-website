@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import ContactFormWithRecaptcha from './ContactFormWithRecaptcha'
+import ContactForm from './ContactForm'
 import Button from '@/components/ui/Button'
 import { FadeUp } from '@/components/ui/Animate'
 import { BGPattern } from '@/components/ui/bg-pattern'
@@ -22,7 +22,7 @@ export default function ContactPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`relative min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}
-        style={{ background: 'var(--gradient-navy-soft)' }}
+        style={{ backgroundColor: 'var(--color-bg-navy)' }}
       >
         <BGPattern
           variant="grid"
@@ -76,7 +76,7 @@ export default function ContactPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         id="contact-form"
-        className={`${outerPad} py-28`}
+        className={`${outerPad} py-24`}
         style={{ backgroundColor: 'var(--color-bg-primary)' }}
       >
         <div className={innerWide}>
@@ -115,7 +115,7 @@ export default function ContactPage() {
 
             {/* Left — form */}
             <div>
-              <ContactFormWithRecaptcha />
+              <ContactForm />
             </div>
 
             {/* Right — contact details */}
@@ -192,7 +192,7 @@ export default function ContactPage() {
                           alignItems:      'center',
                           justifyContent:  'center',
                           padding:         '10px 14px',
-                          background: 'var(--gradient-navy-soft)',
+                          backgroundColor: 'var(--color-bg-navy)',
                           alignSelf:       'stretch',
                         }}
                       >

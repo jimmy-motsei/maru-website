@@ -24,28 +24,28 @@ const processPhases = [
   {
     number: "01",
     name: "Diagnose",
-    description: "We audit your workflows and tools to find where you're losing time and money.",
+    description: "We audit your workflows, tools, and data flow. We find where you're losing time and money.",
     outcome: "A diagnostic report, a cost calculation, and a prioritised roadmap.",
     timeline: "24 hours from submission.",
   },
   {
     number: "02",
     name: "Design",
-    description: "We map what connects where, and how your data flows.",
+    description: "We design your integration architecture. What systems connect where? What data flows how?",
     outcome: "A documented roadmap with clear ownership and success metrics.",
     timeline: "5–7 business days.",
   },
   {
     number: "03",
     name: "Build",
-    description: "We connect your tools, build the workflows, and test every connection.",
+    description: "We integrate your tools and build the workflows. We test every connection.",
     outcome: "Live workflows that connect your tools. Your team can manage them.",
     timeline: "20–30 days.",
   },
   {
     number: "04",
     name: "Launch & Measure",
-    description: "We launch with your team and measure results against your baseline. 30 days of support included.",
+    description: "We deploy with your team and measure results against your baseline. 30 days of free support included.",
     outcome: "Measured results. Real evidence of time and money saved.",
     timeline: "First 30 days of operation.",
   },
@@ -168,10 +168,26 @@ export default function Home() {
             </p>
           </FadeUp>
 
+          <FadeUp delay={0.19}>
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontWeight: 400,
+                fontSize: "var(--text-body-sm)",
+                color: "var(--color-ink-inverted-muted)",
+                lineHeight: "var(--leading-body-relaxed)",
+                maxWidth: "560px",
+                marginBottom: "3rem",
+              }}
+            >
+              Most businesses buy AI tools that never talk to each other. We connect them, automate what matters, and show you the savings.
+            </p>
+          </FadeUp>
+
           <FadeUp delay={0.22}>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4" style={{ marginTop: "1rem" }}>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Button href="/booking" variant="primary" className="w-full sm:w-auto justify-center">
-                Book a Free Discovery Call
+                Book a Free Discovery Call — No Pitch, Just a Conversation
               </Button>
               <Button href="/assessments/lead-score" variant="secondary" className="w-full sm:w-auto justify-center">
                 Try Our Free Website Lead Grader →
@@ -187,7 +203,7 @@ export default function Home() {
           bg: canvas (#FAFAF8)
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`${outerPad} py-28`}
+        className={`${outerPad} py-24`}
         style={{ background: "var(--gradient-surface)" }}
       >
         <div className={innerWide}>
@@ -204,19 +220,19 @@ export default function Home() {
             {[
               {
                 heading: "Your tools don’t talk to each other.",
-                body: "CRM, email, accounting — all working, all separate. Your team pays the difference in manual effort.",
+                body: "Your CRM, email, and accounting software all work — separately. Your team pays the difference in manual effort, every day.",
               },
               {
                 heading: "Manual admin is killing your capacity.",
-                body: "Re-entering data and chasing confirmations stack into days of lost productivity every month.",
+                body: "Re-entering data and chasing confirmations aren’t small tasks. They stack into days of lost productivity every month.",
               },
               {
                 heading: "You’re making decisions on stale data.",
-                body: "Information split across five systems means you’re always working from last month’s export.",
+                body: "When information lives across five systems, you’re always working from last month’s export. Never from right now.",
               },
               {
                 heading: "Manual data handling is a POPIA risk.",
-                body: "Inconsistent consent and storage are exposure. We build compliance in from the start.",
+                body: "Inconsistent consent and storage aren’t just inefficient — they’re exposure. We build compliance in from the start.",
               },
             ].map((col) => (
               <StaggerChild key={col.heading}>
@@ -264,7 +280,7 @@ export default function Home() {
                 lineHeight: "var(--leading-body)",
               }}
             >
-              These are configuration problems. We fix them without replacing a single system you already use.
+              These are configuration problems — solvable without replacing a single system your team already uses.
             </p>
           </FadeUp>
         </div>
@@ -339,7 +355,7 @@ export default function Home() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         id="services"
-        className={`${outerPad} py-28`}
+        className={`${outerPad} py-24`}
         style={{ backgroundColor: "var(--color-bg-secondary)" }}
       >
         <div className={innerWide}>
@@ -366,7 +382,7 @@ export default function Home() {
           bg: white (#FFFFFF)
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`${outerPad} py-28`}
+        className={`${outerPad} py-24`}
         style={{ backgroundColor: "var(--color-bg-primary)" }}
       >
         <div className={innerWide}>
@@ -380,7 +396,7 @@ export default function Home() {
               className="body-muted"
               style={{ maxWidth: "680px", marginBottom: "var(--space-section-header-mb)" }}
             >
-              Strong workflows need strong foundations — strategy, build, and marketing included.
+              Strong workflows need strong foundations. We handle the strategy, build, and marketing that makes integration possible.
             </p>
           </FadeUp>
 
@@ -538,7 +554,7 @@ export default function Home() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         id="process"
-        className={`${outerPad} py-28`}
+        className={`${outerPad} py-24`}
         style={{ background: "var(--gradient-surface)" }}
       >
         <div className={inner}>
