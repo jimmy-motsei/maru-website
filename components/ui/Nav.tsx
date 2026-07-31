@@ -77,7 +77,7 @@ export default function Nav() {
           {/* Logo */}
           <Link href="/" aria-label="Maru Online — home">
             <Image
-              src="/images/brand/maru_logo_cropped_5px.png"
+              src="/images/brand/maru-logo-primary.png"
               alt="Maru Online"
               width={100}
               height={44}
