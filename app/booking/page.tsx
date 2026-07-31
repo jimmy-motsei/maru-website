@@ -20,7 +20,7 @@ export default function BookingPage() {
       {/* ── Hero ── */}
       <section
         className={`relative ${outerPad} pt-48 pb-16`}
-        style={{ backgroundColor: 'var(--color-bg-navy)' }}
+        style={{ background: 'var(--gradient-navy-soft)' }}
       >
         <BGPattern
           variant="grid"

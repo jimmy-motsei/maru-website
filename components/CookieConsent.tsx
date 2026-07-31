@@ -38,7 +38,7 @@ export default function CookieConsent() {
         left:            '2rem',
         zIndex:          9999,
         width:           '300px',
-        backgroundColor: 'var(--color-bg-navy)',
+        background: 'var(--gradient-navy-soft)',
         border:          '1px solid rgba(61, 184, 198, 0.25)',
         borderRadius:    '8px',
         padding:         '1.5rem',

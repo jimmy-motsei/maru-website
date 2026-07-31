@@ -104,7 +104,7 @@ export default function PricingPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`relative min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}
-        style={{ backgroundColor: 'var(--color-bg-navy)' }}
+        style={{ background: 'var(--gradient-navy-soft)' }}
       >
         <BGPattern variant="grid" mask="none" size={40} fill="rgba(61, 184, 198, 0.12)" className="z-0" />
         <div
@@ -190,7 +190,7 @@ export default function PricingPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         id="engagements"
-        className={`${outerPad} py-24`}
+        className={`${outerPad} py-28`}
         style={{ backgroundColor: 'var(--color-bg-primary)' }}
       >
         <div className={inner}>
@@ -346,7 +346,7 @@ export default function PricingPage() {
           FAQ — common pricing objections
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`${outerPad} py-24`}
+        className={`${outerPad} py-28`}
         style={{ backgroundColor: 'var(--color-bg-secondary)' }}
       >
         <div className={inner}>
@@ -371,8 +371,8 @@ export default function PricingPage() {
           FINAL CTA — navy
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`${outerPad} py-24`}
-        style={{ backgroundColor: 'var(--color-bg-navy)' }}
+        className={`${outerPad} py-28`}
+        style={{ background: 'var(--gradient-navy-soft)' }}
       >
         <div
           aria-hidden="true"

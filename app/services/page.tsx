@@ -102,7 +102,7 @@ export default function ServicesPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`relative min-h-[70vh] flex items-center ${outerPad} pt-48 pb-32`}
-        style={{ backgroundColor: "var(--color-bg-navy)" }}
+        style={{ background: "var(--gradient-navy-soft)" }}
       >
         <BGPattern variant="grid" mask="none" size={40} fill="rgba(61, 184, 198, 0.12)" className="z-0" />
         <div
@@ -193,7 +193,7 @@ export default function ServicesPage() {
         <section
           id={service.id === "diagnostic" ? "services" : service.id}
           key={service.id}
-          className={`${outerPad} py-24`}
+          className={`${outerPad} py-28`}
           style={{ backgroundColor: service.bg }}
         >
           <div className={inner}>
@@ -318,8 +318,8 @@ export default function ServicesPage() {
           FINAL CTA — navy
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`${outerPad} py-24`}
-        style={{ backgroundColor: "var(--color-bg-navy)" }}
+        className={`${outerPad} py-28`}
+        style={{ background: "var(--gradient-navy-soft)" }}
       >
         <div
           aria-hidden="true"

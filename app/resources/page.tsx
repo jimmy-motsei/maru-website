@@ -20,7 +20,7 @@ export default function ResourcesPage() {
       {/* Hero */}
       <section
         className={`relative min-h-[50vh] flex items-center ${outerPad} pt-48 pb-24`}
-        style={{ backgroundColor: "var(--color-bg-navy)" }}
+        style={{ background: "var(--gradient-navy-soft)" }}
       >
         <BGPattern variant="grid" mask="none" size={40} fill="rgba(61, 184, 198, 0.12)" className="z-0" />
         <div className={`${innerWide} relative z-10`}>
@@ -56,7 +56,7 @@ export default function ResourcesPage() {
 
       {/* Resource cards */}
       <section
-        className={`${outerPad} py-24`}
+        className={`${outerPad} py-28`}
         style={{ backgroundColor: "var(--color-bg-primary)" }}
       >
         <div className={innerWide}>

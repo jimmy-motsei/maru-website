@@ -44,7 +44,7 @@ export default function WorkflowIntegrationPage() {
       {/* ── Hero ── */}
       <section
         className={`min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}
-        style={{ backgroundColor: "var(--color-bg-navy)" }}
+        style={{ background: "var(--gradient-navy-soft)" }}
       >
         <div className={inner}>
           <FadeUp>
@@ -249,7 +249,7 @@ export default function WorkflowIntegrationPage() {
       {/* ── CTA ── */}
       <section
         className={`${outerPad} py-24`}
-        style={{ backgroundColor: "var(--color-bg-navy)" }}
+        style={{ background: "var(--gradient-navy-soft)" }}
       >
         <div className={innerNarrow}>
           <FadeUp>
