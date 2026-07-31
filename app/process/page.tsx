@@ -127,9 +127,9 @@ export default function ProcessPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1 className="maru-headline-split">
-              <span className="maru-headline-split-strong">A process built around</span>
+              <span className="maru-headline-split-strong">First we show you what the leaks cost.</span>
               <br />
-              <span className="maru-headline-split-light">where your operation has gaps.</span>
+              <span className="maru-headline-split-light">Then you decide.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>

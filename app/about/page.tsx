@@ -46,9 +46,9 @@ export default function AboutPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1 className="maru-headline-split" style={{ marginBottom: "2rem" }}>
-              <span className="maru-headline-split-light">Built from the Environment.</span>
+              <span className="maru-headline-split-light">Built in South Africa.</span>
               <br />
-              <span className="maru-headline-split-strong">For SMEs.</span>
+              <span className="maru-headline-split-strong">For South African business.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>

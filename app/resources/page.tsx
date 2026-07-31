@@ -31,9 +31,9 @@ export default function ResourcesPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1 className="maru-headline-split">
-              <span className="maru-headline-split-strong">Resources for South African SMEs</span>
+              <span className="maru-headline-split-strong">Learn what AI can do</span>
               <br />
-              <span className="maru-headline-split-light">navigating AI implementation.</span>
+              <span className="maru-headline-split-light">for a business like yours.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.14}>

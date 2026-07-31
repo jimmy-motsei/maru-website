@@ -129,6 +129,16 @@
   100% { box-shadow: 0 0 0 0    rgba(37, 211, 102, 0);   }
 }
 
+/* Maru "M" hero object — slow mystical drift */
+.maru-m-float {
+  transform-origin: 50% 50%;
+  animation: maru-float 9s ease-in-out infinite;
+}
+@keyframes maru-float {
+  0%, 100% { transform: translateY(0) rotate(7deg); }
+  50%      { transform: translateY(-16px) rotate(4deg); }
+}
+
 @keyframes logo-scroll {
   from { transform: translateX(0);    }
   to   { transform: translateX(-50%); }

@@ -6,6 +6,7 @@ import PrimaryServicesFilter from "@/components/homepage/PrimaryServicesFilter";
 import ImageSplit from "@/components/ui/ImageSplit";
 import ImageBand from "@/components/ui/ImageBand";
 import { BGPattern } from "@/components/ui/bg-pattern";
+import MaruM from "@/components/ui/MaruM";
 
 export const metadata: Metadata = {
   title: "Cut Your Operating Costs With AI-Powered Workflows | Maru Online",
@@ -24,29 +25,29 @@ const processPhases = [
   {
     number: "01",
     name: "Diagnose",
-    description: "We audit your workflows, tools, and data flow. We find where you're losing time and money.",
-    outcome: "A diagnostic report, a cost calculation, and a prioritised roadmap.",
+    description: "We look at how your business runs and find where time and money are leaking.",
+    outcome: "You get a report showing exactly what the leaks cost you — in rands.",
     timeline: "24 hours from submission.",
   },
   {
     number: "02",
     name: "Design",
-    description: "We design your integration architecture. What systems connect where? What data flows how?",
-    outcome: "A documented roadmap with clear ownership and success metrics.",
+    description: "We plan the fix around the tools you already use. Nothing new to buy.",
+    outcome: "A clear plan: what changes, who owns it, and what success looks like.",
     timeline: "5–7 business days.",
   },
   {
     number: "03",
     name: "Build",
-    description: "We integrate your tools and build the workflows. We test every connection.",
-    outcome: "Live workflows that connect your tools. Your team can manage them.",
+    description: "We do the building. Your team keeps working — nothing stops.",
+    outcome: "Working automation your own team can run. No dependency on us.",
     timeline: "20–30 days.",
   },
   {
     number: "04",
     name: "Launch & Measure",
-    description: "We deploy with your team and measure results against your baseline. 30 days of free support included.",
-    outcome: "Measured results. Real evidence of time and money saved.",
+    description: "We switch it on together and measure what changes. 30 days of support included.",
+    outcome: "Proof, not promises: hours back and rands saved, measured.",
     timeline: "First 30 days of operation.",
   },
 ];
@@ -100,45 +101,23 @@ export default function Home() {
           fill="rgba(61, 184, 198, 0.101)"
           className="pointer-events-none"
         />
-        {/* Isometric prism — dimensional background object (Warm Stone depth system) */}
-        <svg
+        {/* Maru "M" — dimensional brand object (Warm Stone depth system) */}
+        <div
           aria-hidden="true"
           className="hidden sm:block"
-          viewBox="0 0 480 480"
           style={{
             position: "absolute",
-            top: "-60px",
-            right: "-80px",
-            width: "520px",
-            height: "520px",
+            top: "0px",
+            right: "-140px",
+            width: "500px",
+            height: "500px",
             pointerEvents: "none",
-            transform: "rotate(12deg)",
-            filter: "drop-shadow(0 48px 96px rgba(6, 14, 21, 0.45))",
-            opacity: 0.9,
+            filter: "drop-shadow(0 48px 96px rgba(6, 14, 21, 0.5))",
+            opacity: 0.5,
           }}
         >
-          {/* top face — gold tint */}
-          <polygon
-            points="240,40 413,140 240,240 67,140"
-            fill="rgba(205,170,83,0.10)"
-            stroke="rgba(250,250,248,0.16)"
-            strokeWidth="1"
-          />
-          {/* right face — teal tint */}
-          <polygon
-            points="413,140 413,340 240,440 240,240"
-            fill="rgba(61,184,198,0.06)"
-            stroke="rgba(250,250,248,0.10)"
-            strokeWidth="1"
-          />
-          {/* left face — faint light */}
-          <polygon
-            points="67,140 240,240 240,440 67,340"
-            fill="rgba(250,250,248,0.035)"
-            stroke="rgba(250,250,248,0.08)"
-            strokeWidth="1"
-          />
-        </svg>
+          <MaruM className="w-full h-full" />
+        </div>
         <div className={innerWide}>
           <FadeUp>
             <span className="label-eyebrow" style={{ marginBottom: "3rem" }}>AI Implementation Consultancy</span>
@@ -220,19 +199,19 @@ export default function Home() {
             {[
               {
                 heading: "Your tools don’t talk to each other.",
-                body: "Your CRM, email, and accounting software all work — separately. Your team pays the difference in manual effort, every day.",
+                body: "CRM, email, accounting — all working, all separate. Your team pays the difference in retyping, every day.",
               },
               {
-                heading: "Manual admin is killing your capacity.",
-                body: "Re-entering data and chasing confirmations aren’t small tasks. They stack into days of lost productivity every month.",
+                heading: "Admin is eating your week.",
+                body: "Re-entering data and chasing confirmations quietly add up to days of lost time every month.",
               },
               {
-                heading: "You’re making decisions on stale data.",
-                body: "When information lives across five systems, you’re always working from last month’s export. Never from right now.",
+                heading: "You’re deciding on old numbers.",
+                body: "When your information lives in five places, you’re always working from last month’s export.",
               },
               {
                 heading: "Manual data handling is a POPIA risk.",
-                body: "Inconsistent consent and storage aren’t just inefficient — they’re exposure. We build compliance in from the start.",
+                body: "Loose consent and scattered storage are exposure. We build compliance in from day one.",
               },
             ].map((col) => (
               <StaggerChild key={col.heading}>
@@ -280,7 +259,7 @@ export default function Home() {
                 lineHeight: "var(--leading-body)",
               }}
             >
-              These are configuration problems — solvable without replacing a single system your team already uses.
+              None of this needs new software. We fix it with the systems you already have.
             </p>
           </FadeUp>
         </div>
@@ -361,15 +340,15 @@ export default function Home() {
         <div className={innerWide}>
           <FadeUp>
             <h2>
-              <span style={{ fontWeight: 300 }}>How We Fix</span>
+              <span style={{ fontWeight: 300 }}>Pick the problem.</span>
               <br />
-              <span style={{ fontWeight: 700 }}>the Integration Gap</span>
+              <span style={{ fontWeight: 700 }}>We’ll fix it.</span>
             </h2>
             <p
               className="body-muted"
               style={{ maxWidth: "640px", marginBottom: "var(--space-section-header-mb)" }}
             >
-              Six services. One starting point — the free assessment.
+              Every engagement starts the same way: a free assessment that shows you where the money is leaking.
             </p>
           </FadeUp>
 
@@ -388,15 +367,15 @@ export default function Home() {
         <div className={innerWide}>
           <FadeUp>
             <h2>
-              <span style={{ fontWeight: 300 }}>Beyond AI Integration —</span>
+              <span style={{ fontWeight: 300 }}>Need more than workflows?</span>
               <br />
-              <span style={{ fontWeight: 700 }}>Full-Spectrum Business Support</span>
+              <span style={{ fontWeight: 700 }}>We build the rest too.</span>
             </h2>
             <p
               className="body-muted"
               style={{ maxWidth: "680px", marginBottom: "var(--space-section-header-mb)" }}
             >
-              Strong workflows need strong foundations. We handle the strategy, build, and marketing that makes integration possible.
+              Strategy, websites, and marketing — the foundations that make everything else work.
             </p>
           </FadeUp>
 
@@ -559,8 +538,10 @@ export default function Home() {
       >
         <div className={inner}>
           <FadeUp>
-            <h2 style={{ marginBottom: "var(--space-section-header-mb)", fontWeight: 700 }}>
-              Our 4-Step Process
+            <h2 style={{ marginBottom: "var(--space-section-header-mb)" }}>
+              <span style={{ fontWeight: 300 }}>From first look to live savings</span>
+              <br />
+              <span style={{ fontWeight: 700 }}>in about 30 days.</span>
             </h2>
           </FadeUp>
 

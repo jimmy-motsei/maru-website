@@ -50,9 +50,9 @@ export default function ContactPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1 className="maru-headline-split">
-              <span className="maru-headline-split-strong">Every engagement starts</span>
+              <span className="maru-headline-split-strong">Tell us what&apos;s eating your time.</span>
               <br />
-              <span className="maru-headline-split-light">with a conversation.</span>
+              <span className="maru-headline-split-light">No pitch — just a conversation.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>
