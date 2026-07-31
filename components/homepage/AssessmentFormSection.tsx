@@ -8,7 +8,7 @@ export default function AssessmentFormSection() {
     <section
       id="assessment"
       className={`${outerPad} py-24`}
-      style={{ backgroundColor: "var(--color-bg-navy)" }}
+      style={{ background: "var(--gradient-navy-soft)" }}
     >
       <div className={inner}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">

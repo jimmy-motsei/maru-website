@@ -26,12 +26,13 @@ const base =
   'disabled:opacity-40 disabled:pointer-events-none'
 
 const variantClasses: Record<ButtonVariant, string> = {
-  // Solid cyan fill — dark navy text
+  // Warm Stone: gold gradient fill — dark navy text, resting + hover shadows
   primary:
-    'px-6 py-2.5 bg-[#3DB8C6] text-[var(--color-navy)] border-0 ' +
-    'hover:bg-[#2DA8B6] hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(61,184,198,0.35)] ' +
-    'active:scale-[0.98] active:bg-[#2DA8B6] active:shadow-none ' +
-    'focus-visible:shadow-[0_0_0_3px_rgba(61,184,198,0.45),0_4px_16px_rgba(61,184,198,0.25)]',
+    'px-6 py-2.5 [background:var(--gradient-gold)] text-[var(--color-navy)] border-0 ' +
+    'shadow-[var(--shadow-btn)] ' +
+    'hover:scale-[1.02] hover:shadow-[var(--shadow-btn-hover)] hover:brightness-105 ' +
+    'active:scale-[0.98] active:brightness-95 active:shadow-[var(--shadow-btn)] ' +
+    'focus-visible:shadow-[0_0_0_3px_rgba(205,170,83,0.45),var(--shadow-btn)]',
 
   // Transparent — cyan outline, cyan text
   secondary:

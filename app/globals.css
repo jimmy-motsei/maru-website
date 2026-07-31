@@ -8,8 +8,18 @@
   --color-bg-tertiary:        #EEEDE8;
   --color-bg-canvas:          #FAFAF8;   /* warm off-white — profile page bg */
   --color-bg-navy:            #1A3A5C;
-  --color-bg-navy-deep:       #0D1B2A;
-  --color-bg-darkest:         #060E15;
+  --color-bg-navy-deep:       #16324F;   /* Warm Stone: lightened one step (was #0D1B2A) */
+  --color-bg-darkest:         #122A45;   /* Warm Stone: no near-black surfaces (was #060E15) */
+
+  /* ── Gradients — Warm Stone depth system ───────────────────────────────── */
+  --gradient-hero:            linear-gradient(150deg, #16324F 0%, #1A3A5C 100%);
+  --gradient-navy-soft:       linear-gradient(160deg, #1A3A5C 0%, #16324F 100%);
+  --gradient-surface:         linear-gradient(180deg, #FAFAF8 0%, #F5F4F0 100%);
+  --gradient-gold:            linear-gradient(135deg, #D6B76A 0%, #C39F45 100%);
+
+  /* ── Button shadows — Warm Stone depth system ──────────────────────────── */
+  --shadow-btn:               0 2px 8px rgba(13, 27, 42, 0.18);
+  --shadow-btn-hover:         0 6px 20px rgba(205, 170, 83, 0.40);
 
   /* ── Ink — on WHITE/CANVAS backgrounds ──────────────────────────────────── */
   --color-ink-primary:        #0D1B2A;

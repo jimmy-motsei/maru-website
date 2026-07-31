@@ -32,7 +32,7 @@ const linkClass =
 export default function Footer() {
   return (
     <>
-      <footer style={{ backgroundColor: 'var(--color-bg-navy-deep)' }}>
+      <footer style={{ background: 'var(--gradient-navy-soft)' }}>
         <div className="max-w-[900px] mx-auto px-6 md:px-[60px] py-20">
           <motion.div
             initial="hidden"

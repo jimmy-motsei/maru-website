@@ -8,9 +8,9 @@ import ImageBand from "@/components/ui/ImageBand";
 import { BGPattern } from "@/components/ui/bg-pattern";
 
 export const metadata: Metadata = {
-  title: "AI & Automation Consultants for Growing SMEs | Maru Online",
+  title: "Cut Your Operating Costs With AI-Powered Workflows | Maru Online",
   description:
-    "We find where your processes are costing you time and money. We build the connections your business is missing. Free assessment.",
+    "We help businesses cut operating costs by building AI-powered workflows where it matters most. Free 30-minute discovery call — no pitch, just a conversation.",
 };
 
 // ─── Layout constants ─────────────────────────────────────────────────────────
@@ -91,7 +91,7 @@ export default function Home() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`relative min-h-screen flex items-center ${outerPad} pt-28 sm:pt-36 md:pt-48 pb-16 sm:pb-24 md:pb-32`}
-        style={{ backgroundColor: "var(--color-bg-navy-deep)" }}
+        style={{ background: "var(--gradient-hero)" }}
       >
         <BGPattern
           variant="grid"
@@ -100,30 +100,55 @@ export default function Home() {
           fill="rgba(61, 184, 198, 0.101)"
           className="pointer-events-none"
         />
-        <div
+        {/* Isometric prism — dimensional background object (Warm Stone depth system) */}
+        <svg
           aria-hidden="true"
           className="hidden sm:block"
+          viewBox="0 0 480 480"
           style={{
             position: "absolute",
-            top: "-100px",
-            right: "-100px",
-            width: "480px",
-            height: "480px",
-            borderRadius: "50%",
-            border: "1px solid rgba(61,184,198,0.1)",
+            top: "-60px",
+            right: "-80px",
+            width: "520px",
+            height: "520px",
             pointerEvents: "none",
+            transform: "rotate(12deg)",
+            filter: "drop-shadow(0 48px 96px rgba(6, 14, 21, 0.45))",
+            opacity: 0.9,
           }}
-        />
+        >
+          {/* top face — gold tint */}
+          <polygon
+            points="240,40 413,140 240,240 67,140"
+            fill="rgba(205,170,83,0.10)"
+            stroke="rgba(250,250,248,0.16)"
+            strokeWidth="1"
+          />
+          {/* right face — teal tint */}
+          <polygon
+            points="413,140 413,340 240,440 240,240"
+            fill="rgba(61,184,198,0.06)"
+            stroke="rgba(250,250,248,0.10)"
+            strokeWidth="1"
+          />
+          {/* left face — faint light */}
+          <polygon
+            points="67,140 240,240 240,440 67,340"
+            fill="rgba(250,250,248,0.035)"
+            stroke="rgba(250,250,248,0.08)"
+            strokeWidth="1"
+          />
+        </svg>
         <div className={innerWide}>
           <FadeUp>
-            <span className="label-eyebrow" style={{ marginBottom: "3rem" }}>AI Integration Consultancy</span>
+            <span className="label-eyebrow" style={{ marginBottom: "3rem" }}>AI Implementation Consultancy</span>
           </FadeUp>
 
           <FadeUp delay={0.08}>
             <h1 className="maru-headline-split" style={{ marginBottom: "2.5rem" }}>
-              <span className="maru-headline-split-light">You&apos;re paying for 312 hours</span>
+              <span className="maru-headline-split-light">AI-Powered Workflows That</span>
               <br />
-              <span className="maru-headline-split-strong">of Busywork Every Year.</span>
+              <span className="maru-headline-split-strong">Cut Your Operating Costs</span>
             </h1>
           </FadeUp>
 
@@ -139,44 +164,35 @@ export default function Home() {
                 marginBottom: "2rem",
               }}
             >
-              Six hours a week. That&apos;s how much time the average team loses manually moving data between a CRM, a spreadsheet, an email platform.
+              We find the manual tasks eating your team&apos;s time and replace them with AI workflows that actually work.
             </p>
           </FadeUp>
 
           <FadeUp delay={0.19}>
-            <h3
+            <p
               style={{
                 fontFamily: "var(--font-body)",
-                fontWeight: 500,
-                fontSize: "var(--text-h3-sans)",
-                color: "var(--color-ink-inverted)",
-                lineHeight: "var(--leading-subheading)",
+                fontWeight: 400,
+                fontSize: "var(--text-body-sm)",
+                color: "var(--color-ink-inverted-muted)",
+                lineHeight: "var(--leading-body-relaxed)",
                 maxWidth: "560px",
                 marginBottom: "3rem",
               }}
             >
-              We don&apos;t sell you new tools. We use AI to configure the connections your business is missing.
-            </h3>
+              Most businesses buy AI tools that never talk to each other. We connect them, automate what matters, and show you the savings.
+            </p>
           </FadeUp>
 
           <FadeUp delay={0.22}>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <Button href="/operations-assessment" variant="primary" className="w-full sm:w-auto justify-center">
-                Get a Free Assessment
+              <Button href="/booking" variant="primary" className="w-full sm:w-auto justify-center">
+                Book a Free Discovery Call — No Pitch, Just a Conversation
+              </Button>
+              <Button href="/assessments/lead-score" variant="secondary" className="w-full sm:w-auto justify-center">
+                Try Our Free Website Lead Grader →
               </Button>
             </div>
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "var(--text-meta)",
-                fontWeight: 300,
-                color: "rgba(250,250,248,0.45)",
-                marginTop: "1rem",
-                marginBottom: 0,
-              }}
-            >
-              No obligation. No cost. 24-hour turnaround on results.
-            </p>
           </FadeUp>
 
         </div>
@@ -188,7 +204,7 @@ export default function Home() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`${outerPad} py-24`}
-        style={{ backgroundColor: "var(--color-bg-canvas)" }}
+        style={{ background: "var(--gradient-surface)" }}
       >
         <div className={innerWide}>
           <FadeUp>
@@ -539,7 +555,7 @@ export default function Home() {
       <section
         id="process"
         className={`${outerPad} py-24`}
-        style={{ backgroundColor: "var(--color-bg-canvas)" }}
+        style={{ background: "var(--gradient-surface)" }}
       >
         <div className={inner}>
           <FadeUp>
