@@ -208,6 +208,9 @@ export default function AssessmentPage() {
         q9: newAnswers.q9,   q10: newAnswers.q10,
       });
       setScoreResult(result);
+      window.trackConversion?.("assessment_scored", {
+        assessment_type: "operations",
+      });
       setStep("results");
     } else {
       setStep(nextIndex);
@@ -234,6 +237,9 @@ export default function AssessmentPage() {
       });
 
       if (!response.ok) throw new Error("Submission failed");
+      window.trackConversion?.("generate_lead", {
+        assessment_type: "operations",
+      });
       setStep("done");
     } catch {
       setSubmitError("Something went wrong. Please try again or email hello@maruonline.com directly.");

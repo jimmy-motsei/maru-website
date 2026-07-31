@@ -5,6 +5,7 @@ import Nav from '@/components/ui/Nav'
 import Footer from '@/components/ui/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import { AnalyticsTracker } from '@/components/AnalyticsTracker'
+import { ConversionTracking } from '@/components/analytics/ConversionTracking'
 import './globals.css'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
@@ -68,6 +69,9 @@ export default function RootLayout({
       <body>
         {/* GA4 */}
         {GA_ID && <AnalyticsTracker measurementId={GA_ID} />}
+
+        {/* Funnel events — assessment steps, completions, lead capture */}
+        <ConversionTracking />
 
         {/* Meta Pixel — base code */}
         {META_PIXEL_ID && (

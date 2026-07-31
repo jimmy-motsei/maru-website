@@ -140,7 +140,7 @@ export default function PricingPage() {
                 lineHeight:   'var(--leading-body)',
               }}
             >
-              Every Maru engagement begins with the Operations Diagnostic. Fixed scope, fixed price, clear deliverables.
+              You&apos;ll know exactly what it costs before you commit to anything. And the first look is free.
             </p>
           </FadeUp>
           <FadeUp delay={0.22}>
@@ -398,9 +398,9 @@ export default function PricingPage() {
                 marginBottom: 'var(--space-heading-body)',
               }}
             >
-              <span style={{ fontWeight: 300 }}>Start with</span>
+              <span style={{ fontWeight: 300 }}>Find your leaks first.</span>
               <br />
-              <span style={{ fontWeight: 700 }}>a Diagnostic</span>
+              <span style={{ fontWeight: 700 }}>It costs nothing to look.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>

@@ -344,9 +344,9 @@ export default function ServicesPage() {
                 marginBottom: "var(--space-heading-body)",
               }}
             >
-              <span style={{ fontWeight: 300 }}>The right place to start is</span>
+              <span style={{ fontWeight: 300 }}>Not sure where to start?</span>
               <br />
-              <span style={{ fontWeight: 700 }}>a conversation about where your operation has gaps.</span>
+              <span style={{ fontWeight: 700 }}>Twenty minutes will tell you.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>
