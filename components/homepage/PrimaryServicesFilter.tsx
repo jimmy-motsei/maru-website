@@ -1,51 +1,62 @@
-const services = [
+import Glyph, { type GlyphName } from '@/components/ui/Glyph';
+
+type Service = {
+  id: string;
+  tag: string;
+  tagColor: 'cyan' | 'gold';
+  icon: GlyphName;
+  name: string;
+  body: string;
+};
+
+const services: Service[] = [
   {
     id: 'svc1',
     tag: 'Free entry point',
     tagColor: 'cyan',
-    number: '01',
+    icon: 'search',
     name: 'Operations Diagnostic',
-    body: 'Recommended first step. We find exactly where you\'re losing time and money before prescribing anything.',
+    body: 'We find where the money leaks. Free.',
   },
   {
     id: 'svc2',
     tag: 'Core',
     tagColor: 'cyan',
-    number: '02',
-    name: 'AI-Powered Workflow Integration',
-    body: 'For businesses ready to connect tools and stop manual admin. Fixed price, vendor-agnostic.',
+    icon: 'connect',
+    name: 'Workflow Integration',
+    body: 'Your tools, finally talking. Fixed price.',
   },
   {
     id: 'svc3',
     tag: 'Ongoing',
     tagColor: 'cyan',
-    number: '03',
-    name: 'Results Measurement & Optimisation',
-    body: 'Workflows running but no evidence of impact. We measure and optimise against your baseline.',
+    icon: 'chart',
+    name: 'Results Measurement',
+    body: 'Proof it worked, against your baseline.',
   },
   {
     id: 'svc4',
     tag: 'Foundation',
     tagColor: 'gold',
-    number: '04',
-    name: 'Site Infrastructure Analysis & Remediation',
-    body: 'Legacy or broken sites that need clean infrastructure before AI workflows can run.',
+    icon: 'layers',
+    name: 'Site Infrastructure',
+    body: 'Clean foundations before automation runs.',
   },
   {
     id: 'svc5',
     tag: 'Compliance',
     tagColor: 'gold',
-    number: '05',
-    name: 'POPIA-Compliant AI Integration',
-    body: 'For legal, financial, and healthcare sectors. Compliance built in from day one.',
+    icon: 'shield',
+    name: 'POPIA-Compliant Integration',
+    body: 'Compliance built in, not bolted on.',
   },
   {
     id: 'svc6',
     tag: 'Support',
     tagColor: 'cyan',
-    number: '06',
-    name: 'Team Training & Capability Support',
-    body: 'Onboarding for teams to ensure adoption. Your team runs the system — not IT.',
+    icon: 'team',
+    name: 'Team Training',
+    body: 'Your team runs it. Not IT.',
   },
 ];
 
@@ -55,25 +66,33 @@ export default function PrimaryServicesFilter() {
       {services.map((svc) => (
         <div
           key={svc.id}
-          className="card-lift"
+          className="card-lift svc-card"
           style={{
             border: '0.5px solid var(--color-border-card)',
             borderRadius: '8px',
-            padding: '1rem 1.25rem',
+            padding: '1.25rem 1.375rem',
+            display: 'flex',
+            gap: '1rem',
+            alignItems: 'flex-start',
           }}
         >
-          {/* Tag badge */}
-          <div style={{ marginBottom: '0.75rem' }}>
+          {/* The glyph replaces the 01–06 counter: a number told you where you
+              were in a list, an icon tells you what the service is. */}
+          <span className={`glyph-chip${svc.tagColor === 'gold' ? ' glyph-chip-gold' : ''}`}>
+            <Glyph name={svc.icon} size={22} />
+          </span>
+
+          <div style={{ minWidth: 0 }}>
             <span
               style={{
                 background:
                   svc.tagColor === 'cyan'
                     ? 'rgba(61, 184, 198, 0.10)'
-                    : 'rgba(205, 170, 83, 0.10)',
+                    : 'rgba(205, 170, 83, 0.12)',
                 color:
                   svc.tagColor === 'cyan'
                     ? 'var(--color-cyan)'
-                    : 'var(--color-gold)',
+                    : 'var(--color-gold-antique)',
                 fontSize: '10px',
                 fontWeight: 500,
                 textTransform: 'uppercase',
@@ -81,44 +100,29 @@ export default function PrimaryServicesFilter() {
                 padding: '2px 8px',
                 borderRadius: '3px',
                 display: 'inline-block',
+                marginBottom: '0.5rem',
               }}
             >
               {svc.tag}
             </span>
+
+            <p
+              style={{
+                fontSize: 'var(--text-h3-sans)',
+                fontWeight: 600,
+                color: 'var(--color-ink-primary)',
+                fontFamily: 'var(--font-body)',
+                marginBottom: '0.25rem',
+                lineHeight: 1.3,
+              }}
+            >
+              {svc.name}
+            </p>
+
+            <p className="body-muted" style={{ marginBottom: 0 }}>
+              {svc.body}
+            </p>
           </div>
-
-          {/* Number */}
-          <p
-            style={{
-              color: 'var(--color-cyan)',
-              fontSize: '11px',
-              fontWeight: 500,
-              letterSpacing: '0.1em',
-              marginBottom: '0.375rem',
-              fontFamily: 'var(--font-body)',
-            }}
-          >
-            {svc.number}
-          </p>
-
-          {/* Name */}
-          <p
-            style={{
-              fontSize: 'var(--text-h3-sans)',
-              fontWeight: 600,
-              color: 'var(--color-ink-primary)',
-              fontFamily: 'var(--font-body)',
-              marginBottom: '0.5rem',
-              lineHeight: 1.3,
-            }}
-          >
-            {svc.name}
-          </p>
-
-          {/* Body */}
-          <p className="body-muted" style={{ marginBottom: 0 }}>
-            {svc.body}
-          </p>
         </div>
       ))}
     </div>

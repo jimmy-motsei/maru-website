@@ -8,6 +8,8 @@ import ImageBand from "@/components/ui/ImageBand";
 import { BGPattern } from "@/components/ui/bg-pattern";
 import MaruM from "@/components/ui/MaruM";
 import DisconnectDiagram from "@/components/ui/DisconnectDiagram";
+import StatBand from "@/components/ui/StatBand";
+import Glyph from "@/components/ui/Glyph";
 
 export const metadata: Metadata = {
   title: "Cut Your Operating Costs With AI-Powered Workflows | Maru Online",
@@ -176,20 +178,24 @@ export default function Home() {
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ marginBottom: "var(--space-section-header-mb)" }}>
             {[
               {
+                icon: "unlink" as const,
                 heading: "Your tools don’t talk to each other.",
-                body: "CRM, email, accounting — all working, all separate. Your team pays the difference in retyping, every day.",
+                body: "CRM, email, accounting — all working, all separate.",
               },
               {
+                icon: "hourglass" as const,
                 heading: "Admin is eating your week.",
-                body: "Re-entering data and chasing confirmations quietly add up to days of lost time every month.",
+                body: "Re-entering data quietly costs days every month.",
               },
               {
+                icon: "stale" as const,
                 heading: "You’re deciding on old numbers.",
-                body: "When your information lives in five places, you’re always working from last month’s export.",
+                body: "Five systems means you’re reading last month’s export.",
               },
               {
+                icon: "shield" as const,
                 heading: "Manual data handling is a POPIA risk.",
-                body: "Loose consent and scattered storage are exposure. We build compliance in from day one.",
+                body: "Loose consent and scattered storage are exposure.",
               },
             ].map((col) => (
               <StaggerChild key={col.heading}>
@@ -203,13 +209,16 @@ export default function Home() {
                     height: "100%",
                   }}
                 >
+                  <span className="glyph-chip" style={{ marginBottom: "1rem" }}>
+                    <Glyph name={col.icon} size={22} />
+                  </span>
                   <p
                     style={{
                       fontFamily: "var(--font-body)",
                       fontWeight: 600,
                       fontSize: "var(--text-body-sm)",
                       color: "var(--color-ink-primary)",
-                      marginBottom: "0.625rem",
+                      marginBottom: "0.5rem",
                       lineHeight: "var(--leading-subheading)",
                     }}
                   >
@@ -252,56 +261,7 @@ export default function Home() {
         style={{ backgroundColor: "var(--color-bg-primary)" }}
       >
         <div className={inner}>
-          <StaggerParent className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
-            {[
-              {
-                stat: "Free",
-                sub: "Assessment — see where you stand",
-              },
-              {
-                stat: "48-Hour",
-                sub: "Turnaround on your diagnostic report",
-              },
-              {
-                stat: "30 Days",
-                sub: "To your first workflow running live",
-              },
-              {
-                stat: "Fixed",
-                sub: "Price agreed before work starts",
-              },
-            ].map((item) => (
-              <StaggerChild key={item.stat}>
-                <div style={{ textAlign: "center" }}>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
-                      fontWeight: 600,
-                      color: "var(--color-cyan)",
-                      letterSpacing: "-0.02em",
-                      lineHeight: 1.1,
-                      marginBottom: "0.5rem",
-                    }}
-                  >
-                    {item.stat}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-meta)",
-                      fontWeight: 300,
-                      color: "var(--color-ink-tertiary)",
-                      lineHeight: 1.5,
-                      marginBottom: 0,
-                    }}
-                  >
-                    {item.sub}
-                  </p>
-                </div>
-              </StaggerChild>
-            ))}
-          </StaggerParent>
+          <StatBand />
         </div>
       </section>
 
@@ -371,8 +331,9 @@ export default function Home() {
             {[
               {
                 ghost: "01",
+                icon: "compass" as const,
                 name: "Strategy & Consultation",
-                description: "We map your market position, technology needs, and competitor landscape before anything gets built.",
+                description: "We map the ground before anything gets built.",
                 deliverables: [
                   "Market and audience research",
                   "Digital roadmap and architecture",
@@ -381,8 +342,9 @@ export default function Home() {
               },
               {
                 ghost: "02",
+                icon: "browser" as const,
                 name: "Design & Development",
-                description: "Digital products built for AI integration from day one — lead capture, data collection, and workflow automation baked in.",
+                description: "Products built for integration from day one.",
                 deliverables: [
                   "Websites, web apps and e-commerce",
                   "Built for AI integration from day one",
@@ -391,8 +353,9 @@ export default function Home() {
               },
               {
                 ghost: "03",
+                icon: "signal" as const,
                 name: "Digital Marketing Support",
-                description: "Strategic insights from your data, then the campaign execution that acts on what the data reveals.",
+                description: "Insights from your data, then campaigns that act on them.",
                 deliverables: [
                   "Analytics and insights",
                   "Campaign strategy and execution",
@@ -405,19 +368,24 @@ export default function Home() {
                 className="foundation-cell"
                 style={{ padding: "1.75rem 1.5rem" }}
               >
-                {/* Ghost number */}
-                <p
-                  style={{
-                    fontSize: "32px",
-                    fontWeight: 100,
-                    color: "rgba(205, 170, 83, 0.30)",
-                    lineHeight: 1,
-                    marginBottom: "1rem",
-                    fontFamily: "var(--font-display)",
-                  }}
-                >
-                  {col.ghost}
-                </p>
+                {/* Glyph carries the category; the ghost number stays as a
+                    faint ordinal so the three columns still read as a set. */}
+                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.125rem" }}>
+                  <span className="glyph-chip glyph-chip-gold">
+                    <Glyph name={col.icon} size={22} />
+                  </span>
+                  <span
+                    style={{
+                      fontSize: "26px",
+                      fontWeight: 100,
+                      color: "rgba(205, 170, 83, 0.32)",
+                      lineHeight: 1,
+                      fontFamily: "var(--font-display)",
+                    }}
+                  >
+                    {col.ghost}
+                  </span>
+                </div>
 
                 {/* Service name + gold underline */}
                 <p

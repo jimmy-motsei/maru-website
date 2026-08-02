@@ -76,19 +76,7 @@ export default function ResourcesPage() {
                   textDecoration: "none",
                 }}
               >
-                <span
-                  style={{
-                    display:         "inline-flex",
-                    width:           "40px",
-                    height:          "40px",
-                    borderRadius:    "8px",
-                    border:          "0.5px solid var(--color-border-card)",
-                    alignItems:      "center",
-                    justifyContent:  "center",
-                    marginBottom:    "1.5rem",
-                    color:           "var(--color-cyan)",
-                  }}
-                >
+                <span className="glyph-chip" style={{ marginBottom: "1.5rem" }}>
                   <FileCheck size={20} />
                 </span>
                 <p
@@ -136,19 +124,7 @@ export default function ResourcesPage() {
                   textDecoration: "none",
                 }}
               >
-                <span
-                  style={{
-                    display:         "inline-flex",
-                    width:           "40px",
-                    height:          "40px",
-                    borderRadius:    "8px",
-                    border:          "0.5px solid var(--color-border-card)",
-                    alignItems:      "center",
-                    justifyContent:  "center",
-                    marginBottom:    "1.5rem",
-                    color:           "var(--color-cyan)",
-                  }}
-                >
+                <span className="glyph-chip" style={{ marginBottom: "1.5rem" }}>
                   <Wrench size={20} />
                 </span>
                 <p
