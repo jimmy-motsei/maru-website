@@ -12,6 +12,7 @@
  */
 
 import { useState, useEffect } from "react";
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { calculateScore, type ScoreResult } from "@/lib/assessment/scoring";
 import { BGPattern } from "@/components/ui/bg-pattern";
 
@@ -171,7 +172,14 @@ type Step = "intro" | number | "results" | "gate" | "done";
 
 // ── Component ──────────────────────────────────────────────────────────────
 
-export default function AssessmentPage() {
+/**
+ * The wizard itself. Must render inside GoogleReCaptchaProvider (see the
+ * default export below) — useGoogleReCaptcha returns an undefined
+ * executeRecaptcha outside a provider, which is how this silently started
+ * posting an empty token and 400ing on every submission.
+ */
+function AssessmentWizard() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [step, setStep]               = useState<Step>("intro");
   const [answers, setAnswers]         = useState<Answers>({});
   const [scoreResult, setScoreResult] = useState<ScoreResult | null>(null);
@@ -225,6 +233,13 @@ export default function AssessmentPage() {
     setSubmitError("");
 
     try {
+      // The API rejects a missing/empty token with a 400, so fail loudly here
+      // rather than posting an empty one and surfacing it as a generic error.
+      if (!executeRecaptcha) {
+        throw new Error("reCAPTCHA not ready");
+      }
+      const recaptchaToken = await executeRecaptcha("operations_assessment");
+
       const response = await fetch("/api/assessment/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -233,6 +248,7 @@ export default function AssessmentPage() {
           name: name.trim(),
           email: email.trim(),
           website: website.trim() || undefined,
+          recaptchaToken,
         }),
       });
 
@@ -489,6 +505,16 @@ export default function AssessmentPage() {
 }
 
 // ── Question Step Component ────────────────────────────────────────────────
+
+export default function AssessmentPage() {
+  return (
+    <GoogleReCaptchaProvider
+      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}
+    >
+      <AssessmentWizard />
+    </GoogleReCaptchaProvider>
+  );
+}
 
 function QuestionStep({
   question,
