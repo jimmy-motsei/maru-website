@@ -57,7 +57,7 @@ export default function ResourcesPage() {
       {/* Resource cards */}
       <section
         className={`${outerPad} py-24`}
-        style={{ backgroundColor: "var(--color-bg-primary)" }}
+        style={{ background: "var(--gradient-surface)" }}
       >
         <div className={innerWide}>
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -66,15 +66,14 @@ export default function ResourcesPage() {
             <StaggerChild key="popia">
               <Link
                 href="/resources/popia-ai-checklist"
+                className="card-lift"
                 style={{
                   display:        "flex",
                   flexDirection:  "column",
-                  border:         "0.5px solid var(--color-border-default)",
+                  border:         "0.5px solid var(--color-border-card)",
                   borderRadius:   "8px",
                   padding:        "1.75rem",
-                  background:     "var(--color-bg-primary)",
                   textDecoration: "none",
-                  transition:     "border-color 0.15s",
                 }}
               >
                 <span
@@ -83,7 +82,7 @@ export default function ResourcesPage() {
                     width:           "40px",
                     height:          "40px",
                     borderRadius:    "8px",
-                    border:          "0.5px solid var(--color-border-default)",
+                    border:          "0.5px solid var(--color-border-card)",
                     alignItems:      "center",
                     justifyContent:  "center",
                     marginBottom:    "1.5rem",
@@ -127,15 +126,14 @@ export default function ResourcesPage() {
             <StaggerChild key="assessment">
               <Link
                 href="/ai-implementation-assessment"
+                className="card-lift"
                 style={{
                   display:        "flex",
                   flexDirection:  "column",
-                  border:         "0.5px solid var(--color-border-default)",
+                  border:         "0.5px solid var(--color-border-card)",
                   borderRadius:   "8px",
                   padding:        "1.75rem",
-                  background:     "var(--color-bg-primary)",
                   textDecoration: "none",
-                  transition:     "border-color 0.15s",
                 }}
               >
                 <span
@@ -144,7 +142,7 @@ export default function ResourcesPage() {
                     width:           "40px",
                     height:          "40px",
                     borderRadius:    "8px",
-                    border:          "0.5px solid var(--color-border-default)",
+                    border:          "0.5px solid var(--color-border-card)",
                     alignItems:      "center",
                     justifyContent:  "center",
                     marginBottom:    "1.5rem",
@@ -190,10 +188,10 @@ export default function ResourcesPage() {
                 style={{
                   display:        "flex",
                   flexDirection:  "column",
-                  border:         "0.5px dashed var(--color-border-default)",
+                  border:         "0.5px dashed var(--color-border-card)",
                   borderRadius:   "8px",
                   padding:        "1.75rem",
-                  background:     "var(--color-bg-primary)",
+                  background:     "var(--color-bg-card)",
                   opacity:        0.5,
                   pointerEvents:  "none",
                   cursor:         "default",
@@ -206,7 +204,7 @@ export default function ResourcesPage() {
                       width:           "40px",
                       height:          "40px",
                       borderRadius:    "8px",
-                      border:          "0.5px solid var(--color-border-default)",
+                      border:          "0.5px solid var(--color-border-card)",
                       alignItems:      "center",
                       justifyContent:  "center",
                       color:           "var(--color-ink-tertiary)",
