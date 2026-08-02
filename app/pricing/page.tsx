@@ -219,10 +219,12 @@ export default function PricingPage() {
                 <div
                   className="card-lift"
                   style={{
-                    backgroundColor: eng.featured ? 'var(--color-bg-canvas)' : 'var(--color-bg-primary)',
+                    // Featured cards retint the card token rather than setting a
+                    // background outright, so .card-lift still drives the hover brighten.
+                    ...(eng.featured ? { '--color-bg-card': 'var(--color-gold-light)' } as React.CSSProperties : {}),
                     border:          eng.featured
                       ? '1px solid var(--color-cyan)'
-                      : '1px solid var(--color-border-default)',
+                      : '1px solid var(--color-border-card)',
                     borderRadius:    '8px',
                     overflow:        'hidden',
                   }}

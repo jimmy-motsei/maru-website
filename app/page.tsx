@@ -227,8 +227,7 @@ export default function Home() {
                 <div
                   className="card-lift"
                   style={{
-                    background: "var(--color-bg-primary)",
-                    border: "0.5px solid var(--color-border-default)",
+                    border: "0.5px solid var(--color-border-card)",
                     borderTop: "3px solid var(--color-cyan)",
                     borderRadius: "8px",
                     padding: "1.5rem 1.25rem",
@@ -367,11 +366,11 @@ export default function Home() {
 
       {/* ════════════════════════════════════════════════════════════════════
           SECTION 05 — FOUNDATION SERVICES (flush 3-col grid)
-          bg: white (#FFFFFF)
+          bg: secondary — the grid cells were white on white before
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`${outerPad} py-24`}
-        style={{ backgroundColor: "var(--color-bg-primary)" }}
+        style={{ backgroundColor: "var(--color-bg-secondary)" }}
       >
         <div className={innerWide}>
           <FadeUp>
@@ -393,10 +392,11 @@ export default function Home() {
             className="grid grid-cols-1 md:grid-cols-3"
             style={{
               gap: "1px",
-              background: "var(--color-border-default)",
-              border: "0.5px solid var(--color-border-default)",
+              background: "var(--color-border-card)",
+              border: "0.5px solid var(--color-border-card)",
               borderRadius: "8px",
               overflow: "hidden",
+              boxShadow: "0 1px 2px rgba(38, 32, 20, 0.05), 0 4px 12px rgba(38, 32, 20, 0.07)",
             }}
           >
             {[
@@ -439,10 +439,8 @@ export default function Home() {
             ].map((col) => (
               <div
                 key={col.ghost}
-                style={{
-                  background: "var(--color-bg-primary)",
-                  padding: "1.75rem 1.5rem",
-                }}
+                className="foundation-cell"
+                style={{ padding: "1.75rem 1.5rem" }}
               >
                 {/* Ghost number */}
                 <p
@@ -557,7 +555,7 @@ export default function Home() {
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {processPhases.map((phase) => (
               <StaggerChild key={phase.number}>
-                <div className="card-lift" style={{ padding: "2rem", background: "var(--color-bg-primary)", borderRadius: "8px", height: "100%" }}>
+                <div className="card-lift" style={{ padding: "2rem", border: "0.5px solid var(--color-border-card)", borderRadius: "8px", height: "100%" }}>
                   <span
                     style={{
                       fontFamily: "var(--font-display)",

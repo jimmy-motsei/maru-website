@@ -7,6 +7,14 @@
   --color-bg-secondary:       #F5F4F0;
   --color-bg-tertiary:        #EEEDE8;
   --color-bg-canvas:          #FAFAF8;   /* warm off-white — profile page bg */
+
+  /* ── Card surfaces ───────────────────────────────────────────────────────
+     Cards sit a step ABOVE their section ground, not below it: the ground was
+     darkened so the card has something to lift off, and hover takes the card
+     the rest of the way to pure white. Owned by .card-lift — don't set a card
+     background inline, it beats the class and kills the hover. */
+  --color-bg-card:            #FDFCF9;   /* resting card surface */
+  --color-bg-card-hover:      #FFFFFF;   /* hover — brightens to pure white */
   --color-bg-navy:            #1A3A5C;
   --color-bg-navy-deep:       #16324F;   /* Warm Stone: lightened one step (was #0D1B2A) */
   --color-bg-darkest:         #122A45;   /* Warm Stone: no near-black surfaces (was #060E15) */
@@ -14,7 +22,7 @@
   /* ── Gradients — Warm Stone depth system ───────────────────────────────── */
   --gradient-hero:            linear-gradient(150deg, #16324F 0%, #1A3A5C 100%);
   --gradient-navy-soft:       linear-gradient(160deg, #1A3A5C 0%, #16324F 100%);
-  --gradient-surface:         linear-gradient(180deg, #FAFAF8 0%, #F5F4F0 100%);
+  --gradient-surface:         linear-gradient(180deg, #F4F2EC 0%, #EDEAE2 100%);
   --gradient-gold:            linear-gradient(135deg, #D6B76A 0%, #C39F45 100%);
 
   /* ── Button shadows — Warm Stone depth system ──────────────────────────── */
@@ -47,6 +55,7 @@
 
   /* ── Borders / rules ────────────────────────────────────────────────────── */
   --color-border-default:     #E2E8F0;   /* same as profile --rule */
+  --color-border-card:        #E4E0D6;   /* warm stone edge — cards only */
   --color-border-subtle:      rgba(26, 58, 92, 0.1);
   --color-border-strong:      #CBD5E0;
 
@@ -97,6 +106,8 @@
   --color-bg-secondary:       var(--color-bg-secondary);
   --color-bg-tertiary:        var(--color-bg-tertiary);
   --color-bg-canvas:          var(--color-bg-canvas);
+  --color-bg-card:            var(--color-bg-card);
+  --color-bg-card-hover:      var(--color-bg-card-hover);
   --color-bg-navy:            var(--color-bg-navy);
   --color-bg-navy-deep:       var(--color-bg-navy-deep);
   --color-bg-darkest:         var(--color-bg-darkest);
@@ -115,6 +126,7 @@
   --color-gold-antique-border:var(--color-gold-antique-border);
   --color-navy:               var(--color-navy);
   --color-border-default:     var(--color-border-default);
+  --color-border-card:        var(--color-border-card);
   --color-border-subtle:      var(--color-border-subtle);
   --color-border-strong:      var(--color-border-strong);
   --font-display:             var(--font-display);
@@ -545,15 +557,35 @@
 
   /* ── Card lift utilities — shadow + scale-up on hover/focus ─────────────── */
   /* Light-background cards (white / canvas sections)                           */
+  /* .card-lift owns the card surface, edge and elevation. Cards rest just off
+     white on a darkened ground and brighten to pure white on hover. A card that
+     sets its own background inline will beat this rule and lose the brighten. */
   .card-lift {
-    box-shadow:  0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+    background-color: var(--color-bg-card);
+    border-color:     var(--color-border-card);
+    box-shadow:  0 1px 2px rgba(38, 32, 20, 0.05), 0 4px 12px rgba(38, 32, 20, 0.07);
     transition:  transform 280ms cubic-bezier(0.25, 0.1, 0.25, 1),
-                 box-shadow 280ms cubic-bezier(0.25, 0.1, 0.25, 1);
+                 box-shadow 280ms cubic-bezier(0.25, 0.1, 0.25, 1),
+                 background-color 280ms cubic-bezier(0.25, 0.1, 0.25, 1),
+                 border-color 280ms cubic-bezier(0.25, 0.1, 0.25, 1);
   }
   .card-lift:hover,
   .card-lift:focus-within {
+    background-color: var(--color-bg-card-hover);
+    border-color:     var(--color-border-strong);
     transform:   translateY(-2px) scale(1.015);
-    box-shadow:  0 4px 8px rgba(0,0,0,0.05), 0 12px 28px rgba(0,0,0,0.10);
+    box-shadow:  0 4px 8px rgba(38, 32, 20, 0.06), 0 14px 32px rgba(38, 32, 20, 0.13);
+  }
+
+  /* Flush-grid cells (foundation services). No lift — the 1px gaps are the
+     dividers, so a transform would tear the grid. Brightens in place instead. */
+  .foundation-cell {
+    background-color: var(--color-bg-card);
+    transition: background-color 280ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .foundation-cell:hover,
+  .foundation-cell:focus-within {
+    background-color: var(--color-bg-card-hover);
   }
 
   /* Dark-background cards (navy sections — shadow tinted with cyan) */

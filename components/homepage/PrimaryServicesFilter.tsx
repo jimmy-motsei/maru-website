@@ -57,11 +57,9 @@ export default function PrimaryServicesFilter() {
           key={svc.id}
           className="card-lift"
           style={{
-            border: '0.5px solid var(--color-border-default)',
+            border: '0.5px solid var(--color-border-card)',
             borderRadius: '8px',
             padding: '1rem 1.25rem',
-            background: 'var(--color-bg-primary)',
-            transition: 'transform 280ms cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 280ms cubic-bezier(0.25, 0.1, 0.25, 1)',
           }}
         >
           {/* Tag badge */}
