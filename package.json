@@ -19,6 +19,7 @@
     "test:prod": "bash ./scripts/test-prod-visual.sh"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.115.0",
     "@google/generative-ai": "^0.24.1",
     "@hookform/resolvers": "^5.2.2",
     "@mendable/firecrawl-js": "^4.10.0",
@@ -40,6 +41,7 @@
     "react": "^19.2.0",
     "react-calendly": "^4.4.0",
     "react-dom": "^19.2.0",
+    "react-google-recaptcha-v3": "^1.11.0",
     "react-hook-form": "^7.70.0",
     "resend": "^4.0.1",
     "sanity": "^5.2.0",
