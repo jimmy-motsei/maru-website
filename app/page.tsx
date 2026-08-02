@@ -7,6 +7,7 @@ import ImageSplit from "@/components/ui/ImageSplit";
 import ImageBand from "@/components/ui/ImageBand";
 import { BGPattern } from "@/components/ui/bg-pattern";
 import MaruM from "@/components/ui/MaruM";
+import DisconnectDiagram from "@/components/ui/DisconnectDiagram";
 
 export const metadata: Metadata = {
   title: "Cut Your Operating Costs With AI-Powered Workflows | Maru Online",
@@ -194,6 +195,14 @@ export default function Home() {
               <span style={{ fontWeight: 300 }}>Your workflows don&apos;t.</span>
             </h2>
           </FadeUp>
+
+          {/* The picture of the problem — and the fix — before the words for it */}
+          <div
+            className="mx-auto"
+            style={{ maxWidth: "1000px", marginBottom: "var(--space-section-header-mb)" }}
+          >
+            <DisconnectDiagram />
+          </div>
 
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ marginBottom: "var(--space-section-header-mb)" }}>
             {[

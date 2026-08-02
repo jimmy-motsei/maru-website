@@ -144,6 +144,119 @@
   to   { transform: translateX(-50%); }
 }
 
+/* ── DisconnectDiagram — "what Maru does" section object ──────────────────────
+   Isolated systems converge through one hub into a single live view. States are
+   driven by .dd-live, added once the diagram scrolls into range. All timings are
+   staggered off --i so the connection reads as sequential, not simultaneous. */
+/* The two layouts are switched here rather than with Tailwind's `hidden sm:block`
+   utilities: this file loads after Tailwind at equal specificity, so a `display`
+   declaration on .dd-svg would silently beat them and render both at once. */
+.dd-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.dd-desktop { display: none; }
+.dd-mobile  { display: block; }
+
+@media (min-width: 640px) {
+  .dd-desktop { display: block; }
+  .dd-mobile  { display: none; }
+}
+
+/* Source system boxes */
+.dd-box {
+  fill: var(--color-bg-primary);
+  stroke: var(--color-border-strong);
+  stroke-width: 1.25;
+  transition: stroke 520ms ease-out calc(var(--i) * 90ms);
+}
+.dd-live .dd-box { stroke: var(--color-border-default); }
+
+.dd-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  fill: var(--color-ink-tertiary);
+  transition: fill 520ms ease-out calc(var(--i) * 90ms);
+}
+.dd-label-sm { font-size: 9.5px; letter-spacing: 0.1em; }
+.dd-live .dd-label { fill: var(--color-ink-secondary); }
+
+/* The "before" state — stubs that lead nowhere */
+.dd-stub {
+  fill: none;
+  stroke: var(--color-ink-tertiary);
+  stroke-width: 1.25;
+  stroke-dasharray: 3 4;
+  opacity: 0.55;
+  transition: opacity 420ms ease-out;
+}
+.dd-live .dd-stub { opacity: 0; }
+
+/* The "after" state — links drawing through to the hub */
+.dd-link {
+  fill: none;
+  stroke: var(--color-cyan);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+  transition: stroke-dashoffset 900ms cubic-bezier(0.25, 0.1, 0.25, 1)
+    calc(var(--i) * 110ms);
+}
+.dd-live .dd-link { stroke-dashoffset: 0; }
+.dd-link-out { stroke-width: 2; }
+
+/* The Maru hub */
+.dd-hub-core {
+  fill: var(--color-gold);
+  opacity: 0;
+  transform: scale(0.3);
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: opacity 320ms ease-out 640ms,
+    transform 520ms cubic-bezier(0.34, 1.45, 0.64, 1) 640ms;
+}
+.dd-hub-halo {
+  fill: var(--color-gold);
+  opacity: 0;
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: opacity 420ms ease-out 700ms;
+}
+.dd-live .dd-hub-core { opacity: 1; transform: scale(1); }
+.dd-live .dd-hub-halo { opacity: 0.14; }
+
+/* The outcome panel */
+.dd-out {
+  opacity: 0;
+  transition: opacity 560ms ease-out 1080ms;
+}
+.dd-live .dd-out { opacity: 1; }
+
+.dd-out-box {
+  fill: var(--color-cyan-light);
+  stroke: var(--color-cyan);
+  stroke-width: 1.25;
+}
+.dd-out-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  fill: var(--color-ink-primary);
+}
+.dd-out-sub {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  fill: var(--color-ink-secondary);
+}
+.dd-out-title-sm { font-size: 17px; text-anchor: middle; }
+.dd-out-sub-sm   { font-size: 10.5px; text-anchor: middle; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration:        0.01ms !important;
