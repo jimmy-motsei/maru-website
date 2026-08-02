@@ -26,7 +26,7 @@ export default function AssessmentFormSection() {
             </h2>
 
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-              Our free assessment shows you exactly where your processes are losing capacity. Ten minutes. Results within 24 hours.
+              Our free assessment shows you exactly where your processes are losing capacity. Ten minutes. Results within 48 hours.
             </p>
 
             <p
@@ -121,7 +121,7 @@ export default function AssessmentFormSection() {
             <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem", marginBottom: "2rem" }}>
               {[
                 "See your score live as you go",
-                "Detailed report delivered within 24 hours",
+                "Detailed report delivered within 48 hours",
                 "No sign-up required to begin",
               ].map((point) => (
                 <div key={point} style={{ display: "flex", gap: "0.625rem", alignItems: "flex-start" }}>
@@ -164,7 +164,7 @@ export default function AssessmentFormSection() {
                 lineHeight: 1.5,
               }}
             >
-              Free. No obligation. Results within 24 hours.
+              Free. No obligation. Results within 48 hours.
             </p>
           </div>
           </div>

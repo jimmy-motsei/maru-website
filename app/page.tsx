@@ -28,7 +28,7 @@ const processPhases = [
     name: "Diagnose",
     description: "We look at how your business runs and find where time and money are leaking.",
     outcome: "You get a report showing exactly what the leaks cost you — in rands.",
-    timeline: "24 hours from submission.",
+    timeline: "48 hours from submission.",
   },
   {
     number: "02",
@@ -290,7 +290,7 @@ export default function Home() {
                 sub: "Assessment — no cost to find where you stand",
               },
               {
-                stat: "24-Hour",
+                stat: "48-Hour",
                 sub: "Turnaround on your diagnostic report",
               },
               {
