@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import ContactForm from './ContactForm'
+import ContactFormWithRecaptcha from './ContactFormWithRecaptcha'
 import Button from '@/components/ui/Button'
 import { FadeUp } from '@/components/ui/Animate'
 import { BGPattern } from '@/components/ui/bg-pattern'
@@ -115,7 +115,7 @@ export default function ContactPage() {
 
             {/* Left — form */}
             <div>
-              <ContactForm />
+              <ContactFormWithRecaptcha />
             </div>
 
             {/* Right — contact details */}
