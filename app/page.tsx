@@ -22,37 +22,6 @@ const innerNarrow = "max-w-[720px] mx-auto";
 const innerWide = "max-w-[1100px] mx-auto";
 
 
-const processPhases = [
-  {
-    number: "01",
-    name: "Diagnose",
-    description: "We look at how your business runs and find where time and money are leaking.",
-    outcome: "You get a report showing exactly what the leaks cost you — in rands.",
-    timeline: "48 hours from submission.",
-  },
-  {
-    number: "02",
-    name: "Design",
-    description: "We plan the fix around the tools you already use. Nothing new to buy.",
-    outcome: "A clear plan: what changes, who owns it, and what success looks like.",
-    timeline: "5–7 business days.",
-  },
-  {
-    number: "03",
-    name: "Build",
-    description: "We do the building. Your team keeps working — nothing stops.",
-    outcome: "Working automation your own team can run. No dependency on us.",
-    timeline: "20–30 days.",
-  },
-  {
-    number: "04",
-    name: "Launch & Measure",
-    description: "We switch it on together and measure what changes. 30 days of support included.",
-    outcome: "Proof, not promises: hours back and rands saved, measured.",
-    timeline: "First 30 days of operation.",
-  },
-];
-
 // ─── Inline SVGs for trust bar ────────────────────────────────────────────────
 
 function IconSearch() {
@@ -287,7 +256,7 @@ export default function Home() {
             {[
               {
                 stat: "Free",
-                sub: "Assessment — no cost to find where you stand",
+                sub: "Assessment — see where you stand",
               },
               {
                 stat: "48-Hour",
@@ -295,11 +264,11 @@ export default function Home() {
               },
               {
                 stat: "30 Days",
-                sub: "Average timeline to first automated workflow live",
+                sub: "To your first workflow running live",
               },
               {
                 stat: "Fixed",
-                sub: "Clear pricing at every phase — no surprise invoices",
+                sub: "Price agreed before work starts",
               },
             ].map((item) => (
               <StaggerChild key={item.stat}>
@@ -405,11 +374,9 @@ export default function Home() {
                 name: "Strategy & Consultation",
                 description: "We map your market position, technology needs, and competitor landscape before anything gets built.",
                 deliverables: [
-                  "User research and audience insights",
-                  "Digital roadmap and technology strategy",
-                  "Technical architecture planning",
-                  "Prototype design and validation",
-                  "Go-to-market strategy development",
+                  "Market and audience research",
+                  "Digital roadmap and architecture",
+                  "Go-to-market strategy",
                 ],
               },
               {
@@ -417,10 +384,8 @@ export default function Home() {
                 name: "Design & Development",
                 description: "Digital products built for AI integration from day one — lead capture, data collection, and workflow automation baked in.",
                 deliverables: [
-                  "Website and web application development",
-                  "E-commerce platform builds",
-                  "Mobile app development",
-                  "Built for AI workflow integration",
+                  "Websites, web apps and e-commerce",
+                  "Built for AI integration from day one",
                   "Performance and conversion optimised",
                 ],
               },
@@ -429,11 +394,9 @@ export default function Home() {
                 name: "Digital Marketing Support",
                 description: "Strategic insights from your data, then the campaign execution that acts on what the data reveals.",
                 deliverables: [
-                  "Website analytics and insights",
-                  "Campaign strategy and planning",
-                  "Campaign execution and management",
-                  "Online visibility optimisation",
-                  "Data-driven marketing decisions",
+                  "Analytics and insights",
+                  "Campaign strategy and execution",
+                  "Online visibility",
                 ],
               },
             ].map((col) => (
@@ -552,76 +515,11 @@ export default function Home() {
             </h2>
           </FadeUp>
 
-          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {processPhases.map((phase) => (
-              <StaggerChild key={phase.number}>
-                <div className="card-lift" style={{ padding: "2rem", border: "0.5px solid var(--color-border-card)", borderRadius: "8px", height: "100%" }}>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "clamp(2rem, 4vw, 3rem)",
-                      fontWeight: 700,
-                      color: "var(--color-cyan)",
-                      letterSpacing: "-0.02em",
-                      lineHeight: 1,
-                      display: "block",
-                      marginBottom: "1rem",
-                      opacity: 0.9,
-                    }}
-                  >
-                    {phase.number}
-                  </span>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "var(--text-h3-serif)",
-                      fontWeight: 500,
-                      color: "var(--color-ink-primary)",
-                      lineHeight: "var(--leading-subheading)",
-                      letterSpacing: "var(--tracking-tight)",
-                      marginBottom: "0.875rem",
-                      borderBottom: "none",
-                      paddingBottom: 0,
-                    }}
-                  >
-                    {phase.name}
-                  </h3>
-                  <p className="body-muted" style={{ marginBottom: "1rem" }}>
-                    {phase.description}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-body-sm)",
-                      fontWeight: 500,
-                      color: "var(--color-ink-primary)",
-                      marginBottom: "0.375rem",
-                      lineHeight: "var(--leading-body)",
-                    }}
-                  >
-                    {phase.outcome}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-meta)",
-                      fontWeight: 300,
-                      color: "var(--color-cyan)",
-                      marginBottom: 0,
-                      letterSpacing: "0.05em",
-                    }}
-                  >
-                    ⏱ {phase.timeline}
-                  </p>
-                </div>
-              </StaggerChild>
-            ))}
-          </StaggerParent>
-
-          <FadeUp delay={0.12}>
+          {/* The four-phase detail lives on /process — the homepage only needs
+              the promise, not the method. */}
+          <FadeUp delay={0.08}>
             <div
               style={{
-                marginTop: "var(--space-section-header-mb)",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
@@ -631,9 +529,14 @@ export default function Home() {
               <p className="body-muted" style={{ marginBottom: 0, maxWidth: "560px" }}>
                 Four steps. Fixed price. Measured outcome.
               </p>
-              <Button href="/operations-assessment" variant="primary" className="w-full sm:w-auto justify-center">
-                Get My Free Assessment
-              </Button>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <Button href="/operations-assessment" variant="primary" className="w-full sm:w-auto justify-center">
+                  Get My Free Assessment
+                </Button>
+                <Button href="/process" variant="tertiary">
+                  See how it works
+                </Button>
+              </div>
             </div>
           </FadeUp>
         </div>
