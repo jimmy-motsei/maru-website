@@ -184,3 +184,7 @@ This is a private project for Maru Online. For questions or issues, contact the 
 ## 📄 License
 
 Proprietary - All rights reserved by Maru Online
+
+## Deployment Trigger
+- Last confirmed push: affde73
+- Purpose: Trigger Vercel rebuild to apply Warm Stone UI.
