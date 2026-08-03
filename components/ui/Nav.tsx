@@ -12,7 +12,7 @@ import Button from './Button'
 const allLinks = [
   { label: 'About',        href: '/about' },
   { label: 'Services',     href: '/services' },
-  { label: 'How We Work',  href: '/process' },
+  { label: 'Process',      href: '/process' },
   { label: 'Pricing',      href: '/pricing' },
   { label: 'Insights',     href: '/insights' },
   { label: 'Contact',      href: '/contact' },
@@ -66,8 +66,8 @@ export default function Nav() {
       <header
         className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b transition-[background-color,border-color] duration-300"
         style={{
-          backgroundColor: isHero ? 'rgba(13,27,42,0.5)' : 'rgba(255,255,255,0.95)',
-          borderBottomColor: isHero ? 'transparent' : '#E2E8F0',
+          backgroundColor: isHero ? 'rgba(26,58,92,0.5)' : 'rgba(255,255,255,0.95)',
+          borderBottomColor: isHero ? 'transparent' : 'var(--color-border-default)',
         }}
       >
         <nav
@@ -108,12 +108,12 @@ export default function Nav() {
                       'transition-colors duration-200',
                       // active state — always cyan
                       active
-                        ? 'text-[#3DB8C6]'
+                        ? 'var(--color-cyan)'
                         // hero: white muted default, white on hover
                         : isHero
-                          ? 'text-[rgba(250,250,248,0.8)] hover:text-white'
+                          ? 'text-[var(--color-ink-inverted-muted)] hover:text-white'
                           // scrolled: slate default, dark navy on hover
-                          : 'text-[#4A5568] hover:text-[#0D1B2A]',
+                          : 'text-[var(--color-ink-secondary)] hover:text-[var(--color-ink-primary)]',
                     ].join(' ')}
                   >
                     {label}
@@ -121,7 +121,7 @@ export default function Nav() {
                     {active && (
                       <span
                         aria-hidden="true"
-                        className="absolute bottom-[-4px] left-0 right-0 h-[2px] rounded-full bg-[#3DB8C6]"
+                        className="absolute bottom-[-4px] left-0 right-0 h-[2px] rounded-full bg-[var(--color-cyan)]"
                       />
                     )}
                   </Link>
@@ -146,7 +146,7 @@ export default function Nav() {
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
               className="flex flex-col justify-center gap-[6px] w-7 h-7 focus:outline-none focus-visible:ring-[3px] focus-visible:ring-cyan/30 rounded-sm transition-colors duration-300"
-              style={{ color: isHero ? '#FFFFFF' : '#4A5568' }}
+              style={{ color: isHero ? '#FFFFFF' : 'var(--color-ink-secondary)' }}
             >
               <span className="block w-7 h-[1.5px] bg-current" />
               <span className="block w-7 h-[1.5px] bg-current" />
@@ -199,7 +199,7 @@ export default function Nav() {
                       aria-current={active ? 'page' : undefined}
                       className={[
                         'font-body font-light text-[24px] transition-colors duration-150',
-                        active ? 'text-[#3DB8C6]' : 'text-ink-inverted hover:text-[#3DB8C6]',
+                        active ? 'var(--color-cyan)' : 'text-ink-inverted hover:text-[var(--color-cyan)]',
                       ].join(' ')}
                     >
                       {label}

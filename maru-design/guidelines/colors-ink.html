@@ -1,0 +1,28 @@
+<!-- @dsCard group="Colors" viewport="700x210" name="Ink & Text" subtitle="Text colours on light and on navy" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8" /><link rel="stylesheet" href="../styles.css" />
+<style>
+  body{margin:0;background:var(--color-bg-canvas);font-family:var(--font-body);padding:0;}
+  .panes{display:grid;grid-template-columns:1fr 1fr;}
+  .pane{padding:22px;}
+  .light{background:var(--color-bg-primary);}
+  .dark{background:var(--color-bg-navy);}
+  .line{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;}
+  .dot{width:14px;height:14px;border-radius:3px;flex-shrink:0;}
+  .name{font-size:14px;}
+  .hex{font-size:10px;font-family:var(--font-display);opacity:0.7;margin-left:auto;}
+</style></head>
+<body>
+  <div class="panes">
+    <div class="pane light">
+      <div class="line"><span class="dot" style="background:var(--color-ink-primary)"></span><span class="name" style="color:var(--color-ink-primary)">Primary — headings</span><span class="hex" style="color:var(--color-ink-primary)">#0D1B2A</span></div>
+      <div class="line"><span class="dot" style="background:var(--color-ink-secondary)"></span><span class="name" style="color:var(--color-ink-secondary)">Secondary — body</span><span class="hex" style="color:var(--color-ink-secondary)">#4A5568</span></div>
+      <div class="line"><span class="dot" style="background:var(--color-ink-tertiary)"></span><span class="name" style="color:var(--color-ink-tertiary)">Tertiary — meta</span><span class="hex" style="color:var(--color-ink-tertiary)">#718096</span></div>
+    </div>
+    <div class="pane dark">
+      <div class="line"><span class="dot" style="background:var(--color-ink-inverted)"></span><span class="name" style="color:var(--color-ink-inverted)">Inverted</span><span class="hex" style="color:var(--color-ink-inverted)">#FAFAF8</span></div>
+      <div class="line"><span class="dot" style="background:rgba(250,250,248,0.75)"></span><span class="name" style="color:rgba(250,250,248,0.75)">Inverted muted</span><span class="hex" style="color:rgba(250,250,248,0.75)">75%</span></div>
+      <div class="line"><span class="dot" style="background:var(--color-cyan)"></span><span class="name" style="color:var(--color-cyan)">Cyan accent on navy</span><span class="hex" style="color:var(--color-cyan)">#3DB8C6</span></div>
+    </div>
+  </div>
+</body></html>

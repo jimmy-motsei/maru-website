@@ -1,0 +1,21 @@
+/* ── Maru Online — Webfonts ──────────────────────────────────────────────────
+   Outfit (display / headings, variable 100–900) + Inter (body, variable).
+   Both are self-hosted variable woff2 files, Google-hostable, lightweight —
+   chosen for the data-cost-conscious South African SME audience.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: "Outfit";
+  src: url("../assets/fonts/Outfit-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

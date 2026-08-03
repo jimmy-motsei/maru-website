@@ -1,0 +1,97 @@
+<!-- @dsCard group="Website" viewport="1280x900" name="Mobile — 360px" subtitle="The pages at Maru's mobile-first 360px baseline, in device frames" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maru Online — Mobile (360px)</title>
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  /* Gray canvas extends with scroll — width:max-content, start-aligned row */
+  body {
+    background: #E5E4DF;
+    min-width: 100%;
+    min-height: 100vh;
+    width: max-content;
+    padding: 48px;
+    font-family: var(--font-body);
+  }
+  .row { display: flex; gap: 48px; align-items: flex-start; }
+  .frame { flex: none; }
+  .label {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #0D1B2A;
+    margin: 0 0 14px 4px;
+  }
+  .label span { color: #718096; font-weight: 400; }
+  /* Phone shell — 360px content width baseline */
+  .phone {
+    width: 390px;
+    height: 800px;
+    background: #0D1B2A;
+    border-radius: 44px;
+    padding: 14px;
+    box-shadow: 0 24px 60px rgba(13,27,42,0.28), 0 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+  }
+  .notch {
+    position: absolute;
+    top: 22px; left: 50%; transform: translateX(-50%);
+    width: 120px; height: 26px; background: #060E15; border-radius: 0 0 16px 16px;
+    z-index: 3;
+  }
+  .screen {
+    width: 100%; height: 100%;
+    border-radius: 32px; overflow: hidden;
+    background: #fff; position: relative;
+  }
+  .screen iframe {
+    width: 360px; height: 6200px;
+    border: 0;
+    transform: scale(1.0083);            /* 362.99/360 → fill 362px inner width */
+    transform-origin: top left;
+  }
+  /* Scale the 360px page into the ~362px inner screen and let it scroll */
+  .screen { }
+  .scroll {
+    position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  .intro {
+    max-width: 520px;
+    margin-bottom: 36px;
+  }
+  .intro h1 { font-family: var(--font-display); font-size: 28px; font-weight: 600; color: #0D1B2A; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .intro p { font-size: 16px; font-weight: 300; color: #4A5568; line-height: 1.6; margin: 0; }
+</style>
+</head>
+<body>
+  <div class="intro">
+    <h1>Mobile, at 360px</h1>
+    <p>Maru is mobile-first at 360px — the baseline for a sceptical SME owner judging the site on a phone. The same responsive pages, framed. Scroll inside each device.</p>
+  </div>
+  <div class="row">
+    <div class="frame">
+      <p class="label">Homepage <span>· index.html</span></p>
+      <div class="phone"><div class="notch"></div><div class="screen"><div class="scroll"><iframe src="index.html" title="Homepage mobile" scrolling="no"></iframe></div></div></div>
+    </div>
+    <div class="frame">
+      <p class="label">Services <span>· services.html</span></p>
+      <div class="phone"><div class="notch"></div><div class="screen"><div class="scroll"><iframe src="services.html" title="Services mobile" scrolling="no"></iframe></div></div></div>
+    </div>
+    <div class="frame">
+      <p class="label">Pricing <span>· pricing.html</span></p>
+      <div class="phone"><div class="notch"></div><div class="screen"><div class="scroll"><iframe src="pricing.html" title="Pricing mobile" scrolling="no"></iframe></div></div></div>
+    </div>
+    <div class="frame">
+      <p class="label">Operations Assessment <span>· assessment.html</span></p>
+      <div class="phone"><div class="notch"></div><div class="screen"><div class="scroll"><iframe src="assessment.html" title="Assessment mobile" scrolling="no"></iframe></div></div></div>
+    </div>
+  </div>
+</body>
+</html>

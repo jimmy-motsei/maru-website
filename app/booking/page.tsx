@@ -59,15 +59,15 @@ export default function BookingPage() {
       {/* ── Calendly widget ── */}
       <section
         className={`${outerPad} py-16`}
-        style={{ backgroundColor: 'var(--color-bg-primary)' }}
+        style={{ background: 'var(--gradient-surface)' }}
       >
         <div className={inner}>
           <FadeUp>
-            <div
+            <div className="card-lift"
               style={{
                 borderRadius: '8px',
                 overflow:     'hidden',
-                border:       '0.5px solid var(--color-border-default)',
+                padding:      '1rem',
               }}
             >
               <div

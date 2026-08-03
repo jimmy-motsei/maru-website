@@ -194,7 +194,7 @@ export default async function InsightsPage() {
       {featured && (
       <section
         className={`${outerPad} py-16`}
-        style={{ backgroundColor: "var(--color-bg-secondary)" }}
+        style={{ background: "var(--gradient-surface)" }}
       >
         <div className={inner}>
           <FadeUp>
@@ -216,7 +216,6 @@ export default async function InsightsPage() {
               href={`/insights/${featured.slug}`}
               className="group grid grid-cols-1 md:grid-cols-2 gap-0 card-lift"
               style={{
-                border:          "1px solid var(--color-border-card)",
                 borderRadius:    "8px",
                 overflow:        "hidden",
               }}
@@ -384,27 +383,29 @@ export default async function InsightsPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`${outerPad} py-24`}
-        style={{ backgroundColor: "var(--color-bg-canvas)" }}
+        style={{ background: "var(--gradient-surface)" }}
       >
         <div className={innerNarrow}>
-          <FadeUp>
-            <span className="label-eyebrow-ochre">Monthly Best Practices for AI Integration</span>
-            <h2>
-              <span style={{ fontWeight: 300 }}>The Business </span><span style={{ fontWeight: 700 }}>AI Journal</span>
-            </h2>
-            <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-              Unlock practical strategies to optimize your AI integration. Each
-              month, we deliver actionable insights from real-world
-              engagements—covering common pitfalls, effective fixes, and proven
-              frameworks. Written in plain language for business owners.
-            </p>
+          <div className="card-lift p-8 md:p-12">
+            <FadeUp>
+              <span className="label-eyebrow-ochre">Monthly Best Practices for AI Integration</span>
+              <h2 style={{ border: "none" }}>
+                <span style={{ fontWeight: 300 }}>The Business </span><span style={{ fontWeight: 700 }}>AI Journal</span>
+              </h2>
+              <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
+                Unlock practical strategies to optimize your AI integration. Each
+                month, we deliver actionable insights from real-world
+                engagements—covering common pitfalls, effective fixes, and proven
+                frameworks. Written in plain language for business owners.
+              </p>
 
-            <hr className="rule" style={{ marginBottom: "var(--space-para-section)" }} />
-          </FadeUp>
+              <hr className="rule" style={{ marginBottom: "var(--space-para-section)" }} />
+            </FadeUp>
 
-          <FadeUp delay={0.08}>
-            <MaruBriefForm />
-          </FadeUp>
+            <FadeUp delay={0.08}>
+              <MaruBriefForm />
+            </FadeUp>
+          </div>
         </div>
       </section>
 

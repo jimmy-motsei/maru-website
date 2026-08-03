@@ -70,7 +70,6 @@ export default function ResourcesPage() {
                 style={{
                   display:        "flex",
                   flexDirection:  "column",
-                  border:         "0.5px solid var(--color-border-card)",
                   borderRadius:   "8px",
                   padding:        "1.75rem",
                   textDecoration: "none",
@@ -113,12 +112,11 @@ export default function ResourcesPage() {
             {/* Card 2 — AI Assessment Tools */}
             <StaggerChild key="assessment">
               <Link
-                href="/ai-implementation-assessment"
+                href="/operations-assessment"
                 className="card-lift"
                 style={{
                   display:        "flex",
                   flexDirection:  "column",
-                  border:         "0.5px solid var(--color-border-card)",
                   borderRadius:   "8px",
                   padding:        "1.75rem",
                   textDecoration: "none",
@@ -137,10 +135,10 @@ export default function ResourcesPage() {
                     lineHeight:   "var(--leading-subheading)",
                   }}
                 >
-                  Free AI Assessment Tools
+                  Operations Assessment Tool
                 </p>
                 <p className="body-muted" style={{ marginBottom: "1.5rem", flex: 1 }}>
-                  Four tools to diagnose your AI integration readiness, pipeline health, lead quality, and tech stack.
+                  Diagnose your AI integration readiness, pipeline health, lead quality, and tech stack in one go.
                 </p>
                 <p
                   style={{
@@ -153,7 +151,7 @@ export default function ResourcesPage() {
                     margin:        0,
                   }}
                 >
-                  Use the Tools →
+                  Use the Tool →
                 </p>
               </Link>
             </StaggerChild>

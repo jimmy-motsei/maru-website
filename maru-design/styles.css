@@ -1,0 +1,10 @@
+/* ── Maru Online — Design System entry point ─────────────────────────────────
+   Consumers link THIS file only. It is a manifest of @imports — no rules here.
+   Source of truth: github.com/jimmy-motsei/maru-website (app/globals.css).
+   ──────────────────────────────────────────────────────────────────────────── */
+
+@import "./tokens/fonts.css";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/base.css";

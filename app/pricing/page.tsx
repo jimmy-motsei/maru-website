@@ -161,27 +161,29 @@ export default function PricingPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`${outerPad} py-20`}
-        style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+        style={{ background: 'var(--gradient-surface)' }}
       >
         <div className={innerNarrow}>
-          <FadeUp>
-            <p
-              style={{
-                fontFamily:    'var(--font-display)',
-                fontSize:      'var(--text-h3-serif)',
-                fontWeight:    400,
-                lineHeight:    'var(--leading-subheading)',
-                color:         'var(--color-ink-primary)',
-                letterSpacing: 'var(--tracking-tight)',
-                margin:        0,
-              }}
-            >
-              If you have already invested in AI tools, you don&apos;t need more
-              tools. You need the ones you have to work together. The diagnostic
-              is where that starts. If you proceed to a full engagement, the
-              diagnostic fee offsets against the project cost.
-            </p>
-          </FadeUp>
+          <div className="card-lift p-8 md:p-12">
+            <FadeUp>
+              <p
+                style={{
+                  fontFamily:    'var(--font-display)',
+                  fontSize:      'var(--text-h3-serif)',
+                  fontWeight:    400,
+                  lineHeight:    'var(--leading-subheading)',
+                  color:         'var(--color-ink-primary)',
+                  letterSpacing: 'var(--tracking-tight)',
+                  margin:        0,
+                }}
+              >
+                If you have already invested in AI tools, you don&apos;t need more
+                tools. You need the ones you have to work together. The diagnostic
+                is where that starts. If you proceed to a full engagement, the
+                diagnostic fee offsets against the project cost.
+              </p>
+            </FadeUp>
+          </div>
         </div>
       </section>
 
@@ -349,23 +351,25 @@ export default function PricingPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`${outerPad} py-24`}
-        style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+        style={{ background: 'var(--gradient-surface)' }}
       >
         <div className={inner}>
-          <FadeUp>
-            <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-              <span className="label-eyebrow-ochre">Common questions</span>
-              <h2>
-                <span style={{ fontWeight: 300 }}>A note on</span>
-                <br />
-                <span style={{ fontWeight: 700 }}>how we price</span>
-              </h2>
-            </div>
-          </FadeUp>
+          <div className="card-lift p-8 md:p-12">
+            <FadeUp>
+              <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
+                <span className="label-eyebrow-ochre">Common questions</span>
+                <h2 style={{ border: 'none' }}>
+                  <span style={{ fontWeight: 300 }}>A note on</span>
+                  <br />
+                  <span style={{ fontWeight: 700 }}>how we price</span>
+                </h2>
+              </div>
+            </FadeUp>
 
-          <FadeUp delay={0.08}>
-            <AccordionFAQ items={faqs} />
-          </FadeUp>
+            <FadeUp delay={0.08}>
+              <AccordionFAQ items={faqs} />
+            </FadeUp>
+          </div>
         </div>
       </section>
 

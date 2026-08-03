@@ -1,0 +1,18 @@
+<!-- @dsCard group="Spacing" viewport="700x210" name="Radius & shadow" subtitle="Low, flat radii; restrained shadows" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8" /><link rel="stylesheet" href="../styles.css" />
+<style>
+  body{margin:0;background:var(--color-bg-canvas);font-family:var(--font-body);padding:26px;display:flex;gap:20px;flex-wrap:wrap;}
+  .item{text-align:center;}
+  .box{width:96px;height:64px;background:var(--color-bg-primary);border:1px solid var(--color-border-default);margin-bottom:8px;}
+  .lab{font-size:11px;color:var(--color-ink-secondary);}
+  .v{font-size:10px;color:var(--color-ink-tertiary);font-family:var(--font-display);}
+</style></head>
+<body>
+  <div class="item"><div class="box" style="border-radius:4px"></div><div class="lab">sm</div><div class="v">4px</div></div>
+  <div class="item"><div class="box" style="border-radius:8px"></div><div class="lab">md · buttons</div><div class="v">8px</div></div>
+  <div class="item"><div class="box" style="border-radius:12px"></div><div class="lab">lg · navy card</div><div class="v">12px</div></div>
+  <div class="item"><div class="box" style="border-radius:8px;box-shadow:var(--shadow-card);border:none"></div><div class="lab">card rest</div><div class="v">0 2 12 / .06</div></div>
+  <div class="item"><div class="box" style="border-radius:8px;box-shadow:var(--shadow-card-lift);border:none"></div><div class="lab">card lift</div><div class="v">0 8 24 / .10</div></div>
+  <div class="item"><div class="box" style="border-radius:8px;box-shadow:var(--shadow-focus);border:1px solid var(--color-cyan)"></div><div class="lab">focus ring</div><div class="v">cyan .3</div></div>
+</body></html>

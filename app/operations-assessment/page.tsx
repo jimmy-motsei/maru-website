@@ -12,9 +12,11 @@
  */
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { calculateScore, type ScoreResult } from "@/lib/assessment/scoring";
 import { BGPattern } from "@/components/ui/bg-pattern";
+import Button from "@/components/ui/Button";
 
 // ── Question definitions ───────────────────────────────────────────────────
 
@@ -268,45 +270,43 @@ function AssessmentWizard() {
 
   return (
     <main
-      className="relative min-h-screen flex items-center text-white"
-      style={{ backgroundColor: "var(--color-bg-navy)" }}
+      className="relative min-h-screen flex items-center text-ink-primary"
+      style={{ background: "var(--gradient-surface)" }}
     >
       <BGPattern
         variant="grid"
         mask="none"
         size={40}
-        fill="rgba(61, 184, 198, 0.07)"
+        fill="rgba(61, 184, 198, 0.05)"
         className="z-0"
       />
 
       {/* Progress bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-[#1e2a38]">
+      <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-color-bg-secondary">
         <div
-          className="h-full bg-[#04B3CC] transition-all duration-500 ease-out"
+          className="h-full bg-cyan transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
         />
       </div>
 
       <div className="relative z-10 w-full max-w-2xl mx-auto px-6 py-20">
-
+        <div className="card-lift p-8 md:p-12">
         {/* ── INTRO ─────────────────────────────────────────────────────── */}
         {step === "intro" && (
           <div className="animate-fade-in">
-            <p className="text-xs font-mono text-[#04B3CC] tracking-widest uppercase mb-6">
-              Maru Online · Operations Assessment
-            </p>
-            <h1 className="text-3xl font-semibold text-white leading-tight mb-4">
+            <span className="label-eyebrow">Operations Assessment</span>
+            <h1 className="text-3xl font-semibold text-navy leading-tight mb-4 border-none">
               Find out where your business is losing time and money to manual processes.
             </h1>
-            <p className="text-white/80 text-lg mb-8 leading-relaxed">
+            <p className="body-muted text-lg mb-8 leading-relaxed">
               10 questions across 5 operational areas. About 3 minutes.
             </p>
 
-            <div className="bg-[#e8f4f6] border border-[#04B3CC]/30 rounded-lg p-6 mb-6">
-              <p className="text-[#0d1117] text-base font-medium leading-relaxed mb-3">
+            <div className="bg-color-cyan-light border border-cyan/20 rounded-lg p-6 mb-6">
+              <p className="text-ink-primary text-base font-medium leading-relaxed mb-3">
                 Answer based on how things actually work today — not how you want them to work. The more honest your answers, the more useful your result.
               </p>
-              <p className="text-[#3a4a5c] text-base leading-relaxed">
+              <p className="body-muted text-base leading-relaxed">
                 You will receive a structured report showing how your business rates across five areas: process, data flow, lead management, visibility, and people dependency — along with a recommended approach specific to where you sit.
               </p>
             </div>
@@ -316,20 +316,20 @@ function AssessmentWizard() {
               {areas.map((a) => (
                 <div
                   key={a.index}
-                  className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-lg px-4 py-3"
+                  className="flex items-center gap-3 bg-color-bg-canvas border border-color-border-default rounded-lg px-4 py-3"
                 >
-                  <span className="text-xs font-mono text-[#04B3CC] w-4">{a.index}</span>
-                  <span className="text-white/80 text-sm">{a.label}</span>
+                  <span className="text-xs font-mono text-cyan w-4">{a.index}</span>
+                  <span className="text-ink-secondary text-sm">{a.label}</span>
                 </div>
               ))}
             </div>
 
-            <button
+            <Button
               onClick={handleStart}
-              className="bg-[#04B3CC] text-[#0d1117] font-semibold px-8 py-4 rounded-lg text-base hover:bg-[#03a0b7] transition-colors cursor-pointer"
+              variant="primary"
             >
-              Start the assessment →
-            </button>
+              Start the assessment
+            </Button>
           </div>
         )}
 
@@ -347,13 +347,11 @@ function AssessmentWizard() {
         {/* ── RESULTS PREVIEW ───────────────────────────────────────────── */}
         {step === "results" && scoreResult && (
           <div className="animate-fade-in">
-            <p className="text-xs font-mono text-[#04B3CC] tracking-widest uppercase mb-6">
-              Your result
-            </p>
-            <h2 className="text-2xl font-semibold text-white mb-2">
+            <span className="label-eyebrow">Your result</span>
+            <h2 className="text-2xl font-semibold text-navy mb-2 border-none">
               {scoreResult.label}
             </h2>
-            <p className="text-white/70 text-base mb-8 leading-relaxed">
+            <p className="body-muted text-base mb-8 leading-relaxed">
               {scoreResult.tagline}
             </p>
 
@@ -364,10 +362,9 @@ function AssessmentWizard() {
                 return (
                   <div
                     key={area.areaKey}
-                    className="flex items-center justify-between rounded-lg px-5 py-4 border"
-                    style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.1)" }}
+                    className="flex items-center justify-between rounded-lg px-5 py-4 border border-color-border-default bg-color-bg-canvas"
                   >
-                    <span className="text-white/90 text-sm font-medium">{area.area}</span>
+                    <span className="text-ink-primary text-sm font-medium">{area.area}</span>
                     <span
                       className="text-xs font-mono px-3 py-1 rounded-full border"
                       style={{ color: cfg.colour, background: cfg.bg, borderColor: cfg.border }}
@@ -379,89 +376,89 @@ function AssessmentWizard() {
               })}
             </div>
 
-            <div className="bg-[#e8f4f6] border border-[#04B3CC]/30 rounded-lg p-6 mb-8">
-              <p className="text-[#0d1117] font-semibold mb-2">
+            <div className="bg-color-cyan-light border border-cyan/20 rounded-lg p-6 mb-8">
+              <p className="text-ink-primary font-semibold mb-2">
                 Your detailed report goes deeper.
               </p>
-              <p className="text-[#3a4a5c] text-base leading-relaxed">
+              <p className="body-muted text-base leading-relaxed">
                 It breaks down each area — what your answers reveal, the specific issues, and a recommended approach for your stage of business. Enter your details below to receive it.
               </p>
             </div>
 
-            <button
+            <Button
               onClick={() => setStep("gate")}
-              className="bg-[#04B3CC] text-[#0d1117] font-semibold px-8 py-4 rounded-lg text-base hover:bg-[#03a0b7] transition-colors cursor-pointer w-full"
+              variant="primary"
+              className="w-full"
             >
-              Get my free detailed report →
-            </button>
+              Get my free detailed report
+            </Button>
           </div>
         )}
 
         {/* ── EMAIL GATE ────────────────────────────────────────────────── */}
         {step === "gate" && (
           <div className="animate-fade-in">
-            <p className="text-xs font-mono text-[#04B3CC] tracking-widest uppercase mb-6">
-              Your report
-            </p>
-            <h2 className="text-2xl font-semibold text-white mb-2">
+            <span className="label-eyebrow">Your report</span>
+            <h2 className="text-2xl font-semibold text-navy mb-2 border-none">
               Where should we send it?
             </h2>
-            <p className="text-white/80 text-base mb-8 leading-relaxed">
+            <p className="body-muted text-base mb-8 leading-relaxed">
               We will email you a link to your personalised report — a structured page showing your findings across all five areas with a recommended next step.
             </p>
 
             <form onSubmit={handleGateSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-medium text-white mb-2">Your name</label>
+                <label className="block text-sm font-medium text-ink-primary mb-2">Your name</label>
                 <input
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="First name is fine"
                   required
-                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition focus:border-[#04B3CC]"
+                  className="w-full rounded-xl border border-color-border-default bg-color-bg-canvas px-4 py-3 text-sm text-ink-primary placeholder-ink-tertiary outline-none transition focus:border-cyan"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-white mb-2">Email address</label>
+                <label className="block text-sm font-medium text-ink-primary mb-2">Email address</label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@yourbusiness.com"
                   required
-                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition focus:border-[#04B3CC]"
+                  className="w-full rounded-xl border border-color-border-default bg-color-bg-canvas px-4 py-3 text-sm text-ink-primary placeholder-ink-tertiary outline-none transition focus:border-cyan"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-white mb-2">
+                <label className="block text-sm font-medium text-ink-primary mb-2">
                   Business website{" "}
-                  <span className="font-normal text-white/50">(optional — helps us personalise your report)</span>
+                  <span className="font-normal text-ink-tertiary">(optional — helps us personalise your report)</span>
                 </label>
                 <input
                   type="text"
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
                   placeholder="yourbusiness.com"
-                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition focus:border-[#04B3CC]"
+                  className="w-full rounded-xl border border-color-border-default bg-color-bg-canvas px-4 py-3 text-sm text-ink-primary placeholder-ink-tertiary outline-none transition focus:border-cyan"
                 />
               </div>
 
               {submitError && (
-                <p className="text-red-400 text-sm">{submitError}</p>
+                <p className="text-red-600 text-sm">{submitError}</p>
               )}
 
-              <button
+              <Button
                 type="submit"
                 disabled={submitting}
-                className="w-full bg-[#04B3CC] text-[#0d1117] font-semibold px-8 py-4 rounded-lg text-base hover:bg-[#03a0b7] transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+                variant="primary"
+                className="w-full mt-2"
               >
-                {submitting ? "Sending your report..." : "Send my report →"}
-              </button>
+                {submitting ? "Sending your report..." : "Send my report"}
+              </Button>
 
-              <p className="text-white/50 text-xs text-center leading-relaxed">
+              <p className="text-ink-tertiary text-xs text-center leading-relaxed">
                 No spam. Unsubscribe any time.
               </p>
             </form>
@@ -471,34 +468,34 @@ function AssessmentWizard() {
         {/* ── DONE ──────────────────────────────────────────────────────── */}
         {step === "done" && (
           <div className="animate-fade-in text-center">
-            <div className="inline-block bg-[#04B3CC]/10 border border-[#04B3CC]/30 rounded-full p-6 mb-6">
+            <div className="inline-block bg-color-cyan-light border border-cyan/20 rounded-full p-6 mb-6">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path d="M20 6L9 17l-5-5" stroke="#04B3CC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M20 6L9 17l-5-5" stroke="var(--color-cyan)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
 
-            <h2 className="text-2xl font-semibold text-white mb-3">
+            <h2 className="text-2xl font-semibold text-navy mb-3 border-none">
               Your report is on its way.
             </h2>
-            <p className="text-white/80 text-base leading-relaxed mb-8 max-w-md mx-auto">
+            <p className="body-muted text-base leading-relaxed mb-8 max-w-md mx-auto">
               Check your inbox for a link to your personalised report — your findings across all five operational areas and a recommended next step.
             </p>
 
-            <div className="bg-[#e8f4f6] border border-[#04B3CC]/30 rounded-lg p-6 text-left mb-8">
-              <p className="text-[#0d1117] font-semibold text-base mb-2">
+            <div className="bg-color-bg-canvas border border-color-border-default rounded-lg p-6 text-left mb-8">
+              <p className="text-ink-primary font-semibold text-base mb-2">
                 While you wait:
               </p>
-              <p className="text-[#3a4a5c] text-base leading-relaxed">
+              <p className="body-muted text-base leading-relaxed">
                 The report will invite you to book a free 30-minute discovery call. That is where we review your assessment together, go deeper on what we find, and tell you honestly whether a full Operations Diagnostic makes sense for your business right now.
               </p>
             </div>
 
-            <a href="/" className="text-[#04B3CC] text-sm hover:underline">
+            <Link href="/" className="text-cyan text-sm hover:underline">
               ← Back to Maru Online
-            </a>
+            </Link>
           </div>
         )}
-
+        </div>
       </div>
     </main>
   );
@@ -541,26 +538,26 @@ function QuestionStep({
       {/* Area label — show on first question of each pair */}
       {isFirstInArea && (
         <div className="flex items-center gap-2 mb-4">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#04B3CC]" />
-          <p className="text-xs font-mono text-[#04B3CC] tracking-widest uppercase">
+          <div className="w-1.5 h-1.5 rounded-full bg-cyan" />
+          <p className="text-xs font-mono text-cyan tracking-widest uppercase">
             Area {question.areaIndex} of 5 — {question.area}
           </p>
         </div>
       )}
       {!isFirstInArea && (
         <div className="flex items-center gap-2 mb-4">
-          <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-          <p className="text-xs font-mono text-white/40 tracking-widest uppercase">
+          <div className="w-1.5 h-1.5 rounded-full bg-ink-tertiary/30" />
+          <p className="text-xs font-mono text-ink-tertiary tracking-widest uppercase">
             {question.area}
           </p>
         </div>
       )}
 
-      <p className="text-xs font-mono text-white/40 tracking-widest uppercase mb-4">
+      <p className="text-xs font-mono text-ink-tertiary tracking-widest uppercase mb-4">
         Question {questionNumber} of {totalQuestions}
       </p>
 
-      <h2 className="text-xl font-semibold text-white leading-snug mb-6">
+      <h2 className="text-xl font-semibold text-navy leading-snug mb-6 border-none">
         {question.text}
       </h2>
 
@@ -571,8 +568,8 @@ function QuestionStep({
             onClick={() => handleSelect(option.value)}
             className={`w-full text-left border rounded-lg px-5 py-4 text-base font-medium leading-relaxed transition-all cursor-pointer ${
               selected === option.value
-                ? "border-[#04B3CC] text-[#0d1117] bg-[#04B3CC]/20"
-                : "border-[#04B3CC]/30 text-[#0d1117] bg-[#e8f4f6] hover:border-[#04B3CC] hover:bg-[#04B3CC]/10 hover:text-[#04B3CC]"
+                ? "border-cyan text-ink-primary bg-cyan/10"
+                : "border-color-border-default text-ink-secondary bg-color-bg-canvas hover:border-cyan hover:bg-cyan/5 hover:text-cyan"
             }`}
           >
             {option.label}

@@ -22,7 +22,7 @@
   --gradient-hero:            linear-gradient(150deg, #16324F 0%, #1A3A5C 100%);
   --gradient-navy-soft:       linear-gradient(160deg, #1A3A5C 0%, #16324F 100%);
   --gradient-surface:         linear-gradient(180deg, #F4F2EC 0%, #EDEAE2 100%);
-  --gradient-gold:            linear-gradient(135deg, #D6B76A 0%, #C39F45 100%);
+  --gradient-gold:            linear-gradient(135deg, #D6B76A 0%, #A8862F 100%);
 
   /* ── Button shadows — Warm Stone depth system ──────────────────────────── */
   --shadow-btn:               0 2px 8px rgba(13, 27, 42, 0.18);

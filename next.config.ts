@@ -99,6 +99,94 @@ const nextConfig: NextConfig = {
         destination: '/operations-assessment',
         permanent: true,
       },
+      // Consolidated scoring tools
+      {
+        source: '/assessments/lead-score',
+        destination: '/operations-assessment',
+        permanent: true,
+      },
+      {
+        source: '/assessments/pipeline-leak',
+        destination: '/operations-assessment',
+        permanent: true,
+      },
+      {
+        source: '/assessments/tech-audit',
+        destination: '/operations-assessment',
+        permanent: true,
+      },
+      {
+        source: '/website-audit',
+        destination: '/operations-assessment',
+        permanent: true,
+      },
+      // Consolidated services
+      {
+        source: '/services/ai-revenue-diagnostic',
+        destination: '/services/operations-diagnostic',
+        permanent: true,
+      },
+      {
+        source: '/services/ai-training-capability-building',
+        destination: '/services/team-training-handover',
+        permanent: true,
+      },
+      {
+        source: '/services/custom-ai-solution-build',
+        destination: '/services/workflow-integration',
+        permanent: true,
+      },
+      {
+        source: '/services/customer-support-chatbots',
+        destination: '/services/workflow-integration',
+        permanent: true,
+      },
+      {
+        source: '/services/lead-generation',
+        destination: '/services/workflow-integration',
+        permanent: true,
+      },
+      {
+        source: '/services/office-automation',
+        destination: '/services/workflow-integration',
+        permanent: true,
+      },
+      {
+        source: '/services/ongoing-ai-support-optimization',
+        destination: '/services/results-optimisation',
+        permanent: true,
+      },
+      {
+        source: '/services/sales-systems',
+        destination: '/services/workflow-integration',
+        permanent: true,
+      },
+      {
+        source: '/services/whatsapp-solutions',
+        destination: '/services/workflow-integration',
+        permanent: true,
+      },
+      // Consolidated briefing and admin
+      {
+        source: '/briefing',
+        destination: 'https://maru-briefing-forms.netlify.app',
+        permanent: false,
+      },
+      {
+        source: '/briefing/:path*',
+        destination: 'https://maru-briefing-forms.netlify.app',
+        permanent: false,
+      },
+      {
+        source: '/admin',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/admin/:path*',
+        destination: '/',
+        permanent: false,
+      },
     ];
   },
 };

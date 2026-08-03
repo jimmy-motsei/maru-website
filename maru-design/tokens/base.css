@@ -1,0 +1,115 @@
+/* ── Maru Online — Base Element Styles ───────────────────────────────────────
+   Body type, headings, paragraph rhythm, and a handful of repeating utility
+   classes lifted from production (eyebrow, split-headline, section rule, cards).
+   Consumers link styles.css; this gives plain HTML the Maru voice for free.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-bg-canvas);
+  color: var(--color-ink-primary);
+  font-family: var(--font-body);
+  font-weight: var(--weight-body-base);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  font-weight: var(--weight-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--color-ink-secondary);
+  letter-spacing: 0.01em;
+}
+
+strong, b { font-weight: var(--weight-semibold); color: var(--color-navy); }
+
+small {
+  font-size: var(--text-meta);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-tertiary);
+}
+
+h1, h2, h3, h4 { font-family: var(--font-display); }
+
+h1 {
+  font-weight: 500;
+  font-size: var(--text-h1);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+
+h2 {
+  font-weight: 600;
+  font-size: var(--text-h2);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-navy);
+}
+
+h3 {
+  font-weight: 500;
+  font-size: var(--text-h3-serif);
+  line-height: var(--leading-subheading);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-navy);
+}
+
+/* ── Eyebrow / caps label — 11px / 500 / 0.2em / uppercase / cyan ──────── */
+.label-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-cyan);
+  display: block;
+}
+
+.label-eyebrow-gold {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-gold-antique);
+  display: block;
+}
+
+/* ── Split headline — light (100) + strong (500) ──────────────────────── */
+.maru-headline-split {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.maru-headline-split-light  { font-weight: var(--weight-headline-light); }
+.maru-headline-split-strong { font-weight: var(--weight-headline-strong); }
+
+/* ── Section header rule ──────────────────────────────────────────────── */
+.section-header-rule {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  margin-bottom: var(--space-section-header-mb);
+  padding-bottom: 1rem;
+  border-bottom: var(--border-hairline);
+}
+.section-number {
+  font-family: var(--font-display);
+  font-size: var(--text-meta);
+  font-weight: 400;
+  color: var(--color-cyan);
+  letter-spacing: 0.1em;
+  min-width: 1.75rem;
+}
+
+.rule {
+  width: 100%; height: 1px;
+  background: var(--color-border-default);
+  border: none;
+}

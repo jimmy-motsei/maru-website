@@ -91,7 +91,7 @@ export default function CookieConsent() {
             fontWeight:      600,
             letterSpacing:   'var(--tracking-label)',
             textTransform:   'uppercase',
-            color:           'var(--color-bg-navy)',
+            color:           'var(--color-navy)',
             backgroundColor: 'var(--color-cyan)',
             border:          'none',
             borderRadius:    '6px',

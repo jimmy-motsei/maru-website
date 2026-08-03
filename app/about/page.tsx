@@ -61,40 +61,42 @@ export default function AboutPage() {
 
       {/* ════════════════════════════════════════════════════════════════════
           SECTION 2 — THE PROBLEM WE EXIST TO SOLVE
-          bg: canvas (#FAFAF8)
+          bg: surface gradient
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`${outerPad} py-24`}
-        style={{ backgroundColor: "var(--color-bg-canvas)" }}
+        style={{ background: "var(--gradient-surface)" }}
       >
         <div className={innerNarrow}>
-          <FadeUp>
-            <span className="label-eyebrow" style={{ marginBottom: "1.25rem" }}>The problem we exist to solve</span>
-            <h2 style={{ marginBottom: "var(--space-heading-body)" }}>
-              <span style={{ fontWeight: 300 }}>The integration gap is real.</span>
-              <br />
-              <span style={{ fontWeight: 700 }}>And it&apos;s expensive.</span>
-            </h2>
-          </FadeUp>
-          <FadeUp delay={0.08}>
-            <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-              Most growing businesses aren&apos;t short on tools. They&apos;re short on integration.
-            </p>
-            <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-              That&apos;s not an AI problem. It&apos;s a configuration problem. And it&apos;s solvable — without replacing the systems your team already knows.
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "var(--text-body)",
-                fontWeight: 600,
-                color: "var(--color-ink-primary)",
-                margin: 0,
-              }}
-            >
-              That&apos;s what we do.
-            </p>
-          </FadeUp>
+          <div className="card-lift p-8 md:p-12">
+            <FadeUp>
+              <span className="label-eyebrow" style={{ marginBottom: "1.25rem" }}>The problem we exist to solve</span>
+              <h2 style={{ marginBottom: "var(--space-heading-body)", border: "none" }}>
+                <span style={{ fontWeight: 300 }}>The integration gap is real.</span>
+                <br />
+                <span style={{ fontWeight: 700 }}>And it&apos;s expensive.</span>
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.08}>
+              <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
+                Most growing businesses aren&apos;t short on tools. They&apos;re short on integration.
+              </p>
+              <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
+                That&apos;s not an AI problem. It&apos;s a configuration problem. And it&apos;s solvable — without replacing the systems your team already knows.
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "var(--text-body)",
+                  fontWeight: 600,
+                  color: "var(--color-ink-primary)",
+                  margin: 0,
+                }}
+              >
+                That&apos;s what we do.
+              </p>
+            </FadeUp>
+          </div>
         </div>
       </section>
 
@@ -207,40 +209,42 @@ export default function AboutPage() {
 
       {/* ════════════════════════════════════════════════════════════════════
           SECTION 6 — OUR FOUNDATION
-          bg: canvas (#FAFAF8)
+          bg: surface gradient
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`${outerPad} py-24`}
-        style={{ backgroundColor: "var(--color-bg-canvas)" }}
+        style={{ background: "var(--gradient-surface)" }}
       >
         <div className={innerNarrow}>
-          <FadeUp>
-            <span className="label-eyebrow" style={{ marginBottom: "1.25rem" }}>Our foundation</span>
-            <h2 style={{ marginBottom: "var(--space-heading-body)" }}>
-              <span style={{ fontWeight: 300 }}>Built on a simple observation.</span>
-              <br />
-              <span style={{ fontWeight: 700 }}>Most AI integrations fail at the seams.</span>
-            </h2>
-          </FadeUp>
-          <FadeUp delay={0.08}>
-            <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-              The tools work. The gap is always between them — where data moves manually, where processes depend on a person remembering, where one staff change breaks the whole system.
-            </p>
-            <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-              We focus on that specific failure point. To close the integration gap — and measure whether it&apos;s actually closed.
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontWeight: 600,
-                fontSize: "var(--text-body)",
-                color: "var(--color-ink-primary)",
-                margin: 0,
-              }}
-            >
-              That focus is deliberate. Narrow scope done properly beats broad scope done badly.
-            </p>
-          </FadeUp>
+          <div className="card-lift p-8 md:p-12">
+            <FadeUp>
+              <span className="label-eyebrow" style={{ marginBottom: "1.25rem" }}>Our foundation</span>
+              <h2 style={{ marginBottom: "var(--space-heading-body)", border: "none" }}>
+                <span style={{ fontWeight: 300 }}>Built on a simple observation.</span>
+                <br />
+                <span style={{ fontWeight: 700 }}>Most AI integrations fail at the seams.</span>
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.08}>
+              <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
+                The tools work. The gap is always between them — where data moves manually, where processes depend on a person remembering, where one staff change breaks the whole system.
+              </p>
+              <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
+                We focus on that specific failure point. To close the integration gap — and measure whether it&apos;s actually closed.
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 600,
+                  fontSize: "var(--text-body)",
+                  color: "var(--color-ink-primary)",
+                  margin: 0,
+                }}
+              >
+                That focus is deliberate. Narrow scope done properly beats broad scope done badly.
+              </p>
+            </FadeUp>
+          </div>
         </div>
       </section>
     </>

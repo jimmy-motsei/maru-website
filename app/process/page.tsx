@@ -163,17 +163,19 @@ export default function ProcessPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`${outerPad} py-20`}
-        style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+        style={{ background: 'var(--gradient-surface)' }}
       >
         <div className={innerNarrow}>
-          <FadeUp>
-            <h3 style={{ marginBottom: 'var(--space-heading-body)' }}>
-              We start with a diagnostic of your current processes.
-            </h3>
-            <p className="body-muted">
-              &ldquo;Building the wrong thing faster is still building the wrong thing.&rdquo;
-            </p>
-          </FadeUp>
+          <div className="card-lift p-8 md:p-12">
+            <FadeUp>
+              <h3 style={{ marginBottom: 'var(--space-heading-body)', border: 'none' }}>
+                We start with a diagnostic of your current processes.
+              </h3>
+              <p className="body-muted" style={{ marginBottom: 0 }}>
+                &ldquo;Building the wrong thing faster is still building the wrong thing.&rdquo;
+              </p>
+            </FadeUp>
+          </div>
         </div>
       </section>
 
@@ -327,54 +329,56 @@ export default function ProcessPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`${outerPad} py-24`}
-        style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+        style={{ background: 'var(--gradient-surface)' }}
       >
         <div className={inner}>
-          <FadeUp>
-            <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
-              <span className="label-eyebrow-ochre">Common questions</span>
-              <h2>
-                <span style={{ fontWeight: 300 }}>How the process works</span>
-                <br />
-                <span style={{ fontWeight: 700 }}>in practice</span>
-              </h2>
-            </div>
-          </FadeUp>
+          <div className="card-lift p-8 md:p-12">
+            <FadeUp>
+              <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
+                <span className="label-eyebrow-ochre">Common questions</span>
+                <h2 style={{ border: 'none' }}>
+                  <span style={{ fontWeight: 300 }}>How the process works</span>
+                  <br />
+                  <span style={{ fontWeight: 700 }}>in practice</span>
+                </h2>
+              </div>
+            </FadeUp>
 
-          <AccordionFAQ items={[
-            {
-              q: 'How long does the whole process take?',
-              a: 'The diagnostic takes 48 hours from intake form submission to report delivery. The core engagement — Phases 2 through 4 — typically runs four to eight weeks depending on complexity and whether site remediation is required. The 30-day measurement phase runs after launch.',
-            },
-            {
-              q: 'Do I need to be technical to work with you?',
-              a: "No. We build systems your team can use and maintain without a technical background. Everything is documented in plain language at handover. If something breaks after we've handed over, we're reachable — but the systems are designed not to need us.",
-            },
-            {
-              q: "What if my business isn't ready for AI implementation?",
-              a: "The diagnostic will tell you. If the honest answer is that your foundation needs work before AI automation makes sense, we'll say so — and we can scope the infrastructure work that needs to happen first, before any automation is layered on top. We'd rather give you a clear picture than sell you something you're not ready for.",
-            },
-            {
-              q: 'I already have AI tools. Do I have to replace them?',
-              a: "Almost certainly not. Our first obligation is to audit what you have and make it work better. We only recommend new tools when there is a genuine capability gap your existing stack cannot fill — and we explain exactly why when that happens.",
-            },
-            {
-              q: 'How many clients do you work with at once?',
-              a: "Maximum five. That's a hard limit, not a soft guideline. It's how we protect the quality of every engagement.",
-            },
-            {
-              q: "What happens if the results don't meet expectations?",
-              a: "The 30-day measurement phase is where this gets addressed honestly. If something didn't perform as expected, the results report says so and explains why. We don't disappear after handover — the 30-day check-in is built in specifically to catch this and course-correct where needed.",
-            },
-            {
-              q: 'Can I start with just the diagnostic and decide later?',
-              a: "Yes — that's exactly how it's designed. The diagnostic is a complete, standalone deliverable. There is no obligation to proceed to a full engagement. Many clients use the diagnostic report to make an internal case for the investment before committing.",
-            },
-            {
-              q: 'Do you work outside Gauteng, South Africa?',
-              a: "Yes, we do. The diagnostic and most of the engagement work is handled remotely. For clients in Gauteng we can meet in person at key stages. For clients elsewhere in South Africa the process works entirely via video call and shared documents — same quality, same process.",
-            },
-          ]} />
+            <AccordionFAQ items={[
+              {
+                q: 'How long does the whole process take?',
+                a: 'The diagnostic takes 48 hours from intake form submission to report delivery. The core engagement — Phases 2 through 4 — typically runs four to eight weeks depending on complexity and whether site remediation is required. The 30-day measurement phase runs after launch.',
+              },
+              {
+                q: 'Do I need to be technical to work with you?',
+                a: "No. We build systems your team can use and maintain without a technical background. Everything is documented in plain language at handover. If something breaks after we've handed over, we're reachable — but the systems are designed not to need us.",
+              },
+              {
+                q: "What if my business isn't ready for AI implementation?",
+                a: "The diagnostic will tell you. If the honest answer is that your foundation needs work before AI automation makes sense, we'll say so — and we can scope the infrastructure work that needs to happen first, before any automation is layered on top. We'd rather give you a clear picture than sell you something you're not ready for.",
+              },
+              {
+                q: 'I already have AI tools. Do I have to replace them?',
+                a: "Almost certainly not. Our first obligation is to audit what you have and make it work better. We only recommend new tools when there is a genuine capability gap your existing stack cannot fill — and we explain exactly why when that happens.",
+              },
+              {
+                q: 'How many clients do you work with at once?',
+                a: "Maximum five. That's a hard limit, not a soft guideline. It's how we protect the quality of every engagement.",
+              },
+              {
+                q: "What happens if the results don't meet expectations?",
+                a: "The 30-day measurement phase is where this gets addressed honestly. If something didn't perform as expected, the results report says so and explains why. We don't disappear after handover — the 30-day check-in is built in specifically to catch this and course-correct where needed.",
+              },
+              {
+                q: 'Can I start with just the diagnostic and decide later?',
+                a: "Yes — that's exactly how it's designed. The diagnostic is a complete, standalone deliverable. There is no obligation to proceed to a full engagement. Many clients use the diagnostic report to make an internal case for the investment before committing.",
+              },
+              {
+                q: 'Do you work outside Gauteng, South Africa?',
+                a: "Yes, we do. The diagnostic and most of the engagement work is handled remotely. For clients in Gauteng we can meet in person at key stages. For clients elsewhere in South Africa the process works entirely via video call and shared documents — same quality, same process.",
+              },
+            ]} />
+          </div>
         </div>
       </section>
 

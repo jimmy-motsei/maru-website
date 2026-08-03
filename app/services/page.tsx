@@ -6,6 +6,7 @@ import ImageBand from "@/components/ui/ImageBand";
 import CardNavy from "@/components/ui/CardNavy";
 import ListItem from "@/components/ui/ListItem";
 import ListGroup from "@/components/ui/ListGroup";
+import Glyph from "@/components/ui/Glyph";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 
 export const metadata: Metadata = {
@@ -163,7 +164,7 @@ export default function ServicesPage() {
         heading="What integrated AI actually looks like."
         body="Leads land in your CRM on their own. Follow-ups send themselves. Invoices go out the moment a job closes. Reports update while you sleep."
         imagePosition="right"
-        bg="var(--color-bg-primary)"
+        bg="var(--color-bg-canvas)"
       />
 
       {/* ════════════════════════════════════════════════════════════════════
@@ -171,7 +172,7 @@ export default function ServicesPage() {
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`${outerPad} py-20`}
-        style={{ backgroundColor: "var(--color-bg-secondary)" }}
+        style={{ background: "var(--gradient-surface)" }}
       >
         <div className={innerNarrow}>
           <FadeUp>
@@ -188,111 +189,117 @@ export default function ServicesPage() {
       {/* ════════════════════════════════════════════════════════════════════
           SERVICE SECTIONS — alternating bg
           ════════════════════════════════════════════════════════════════════ */}
-      {services.map((service) => (
+      {services.map((service, index) => (
         <section
           id={service.id === "diagnostic" ? "services" : service.id}
           key={service.id}
           className={`${outerPad} py-24`}
-          style={{ backgroundColor: service.bg }}
+          style={{ background: index % 2 === 0 ? "var(--color-bg-primary)" : "var(--gradient-surface)" }}
         >
           <div className={inner}>
-            {/* Header */}
-            <FadeUp>
-              <div style={{ marginBottom: "var(--space-section-header-mb)" }}>
-                <span
-                  className="label-eyebrow-ochre"
-                  style={{ marginBottom: "0.75rem" }}
-                >
-                  {service.label} — {service.title}
-                </span>
-                <h2>{service.title}</h2>
-                <p
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "var(--text-h3-serif)",
-                    fontWeight: 400,
-                    lineHeight: "var(--leading-subheading)",
-                    color: "var(--color-ink-primary)",
-                    letterSpacing: "var(--tracking-tight)",
-                    margin: 0,
-                  }}
-                >
-                  {service.tagline}
-                </p>
-              </div>
-            </FadeUp>
-
-            {/* 2-col: description + bullets */}
-            <FadeUp delay={0.08}>
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-12 md:gap-16 items-start">
-                {/* Left — description + pricing */}
-                <div>
-                  <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
-                    {service.description}
-                  </p>
-
-                  {/* Pricing block */}
-                  <div
+            <div className="card-lift p-8 md:p-12">
+              {/* Header */}
+              <FadeUp>
+                <div style={{ marginBottom: "var(--space-section-header-mb)" }}>
+                  <div className="flex items-start gap-4 mb-3">
+                    <span className="glyph-chip">
+                      <Glyph name={service.id === "diagnostic" ? "search" : service.id === "build" ? "connect" : service.id === "training" ? "team" : "chart"} size={22} />
+                    </span>
+                    <div>
+                      <span className="label-eyebrow-ochre" style={{ marginBottom: 0 }}>
+                        {service.label} — {service.title}
+                      </span>
+                      <h2>{service.title}</h2>
+                    </div>
+                  </div>
+                  <p
                     style={{
-                      borderTop: "1px solid var(--color-border-default)",
-                      paddingTop: "1.25rem",
+                      fontFamily: "var(--font-display)",
+                      fontSize: "var(--text-h3-serif)",
+                      fontWeight: 400,
+                      lineHeight: "var(--leading-subheading)",
+                      color: "var(--color-ink-primary)",
+                      letterSpacing: "var(--tracking-tight)",
+                      margin: 0,
                     }}
                   >
-                    <p
+                    {service.tagline}
+                  </p>
+                </div>
+              </FadeUp>
+
+              {/* 2-col: description + bullets */}
+              <FadeUp delay={0.08}>
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-12 md:gap-16 items-start">
+                  {/* Left — description + pricing */}
+                  <div>
+                    <p className="body-muted" style={{ marginBottom: "var(--space-para-section)" }}>
+                      {service.description}
+                    </p>
+
+                    {/* Pricing block */}
+                    <div
                       style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: "1.75rem",
-                        fontWeight: 600,
-                        color: "var(--color-navy)",
-                        lineHeight: 1,
-                        marginBottom: "0.375rem",
+                        borderTop: "1px solid var(--color-border-default)",
+                        paddingTop: "1.25rem",
                       }}
                     >
-                      {service.pricing}
-                    </p>
+                      <p
+                        style={{
+                          fontFamily: "var(--font-display)",
+                          fontSize: "1.75rem",
+                          fontWeight: 600,
+                          color: "var(--color-navy)",
+                          lineHeight: 1,
+                          marginBottom: "0.375rem",
+                        }}
+                      >
+                        {service.pricing}
+                      </p>
+                      <p
+                        style={{
+                          fontFamily: "var(--font-body)",
+                          fontSize: "var(--text-meta)",
+                          fontWeight: 300,
+                          color: "var(--color-ink-tertiary)",
+                          margin: 0,
+                        }}
+                      >
+                        {service.note}
+                      </p>
+                    </div>
+
+                    <div style={{ marginTop: "1.5rem" }}>
+                      <Button href={service.href} variant="secondary">
+                        Learn more
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Right — what's included */}
+                  <div>
                     <p
                       style={{
                         fontFamily: "var(--font-body)",
-                        fontSize: "var(--text-meta)",
-                        fontWeight: 300,
+                        fontSize: "var(--text-label)",
+                        fontWeight: 500,
+                        letterSpacing: "var(--tracking-eyebrow)",
+                        textTransform: "uppercase",
                         color: "var(--color-ink-tertiary)",
-                        margin: 0,
+                        marginBottom: "0.75rem",
                       }}
                     >
-                      {service.note}
+                      What&apos;s included
                     </p>
-                  </div>
-
-                  <div style={{ marginTop: "1.5rem" }}>
-                    <Button href={service.href} variant="secondary">
-                      Learn more
-                    </Button>
+                    <ListGroup>
+                      {service.bullets.map((b) => (
+                        <ListItem key={b.leader} leader={b.leader} body={b.body} />
+                      ))}
+                    </ListGroup>
                   </div>
                 </div>
-
-                {/* Right — what's included */}
-                <div>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-label)",
-                      fontWeight: 500,
-                      letterSpacing: "var(--tracking-eyebrow)",
-                      textTransform: "uppercase",
-                      color: "var(--color-ink-tertiary)",
-                      marginBottom: "0.75rem",
-                    }}
-                  >
-                    What&apos;s included
-                  </p>
-                  <ListGroup>
-                    {service.bullets.map((b) => (
-                      <ListItem key={b.leader} leader={b.leader} body={b.body} />
-                    ))}
-                  </ListGroup>
-                </div>
-              </div>
-            </FadeUp>
+              </FadeUp>
+            </div>
           </div>
         </section>
       ))}
