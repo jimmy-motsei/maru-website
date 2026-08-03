@@ -1,18 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { escapeHtml, escapeHtmlPreserveBreaks } from '@/lib/security'
+import { verifyRecaptcha } from '@/lib/recaptcha'
 
 const BREVO_API = 'https://api.brevo.com/v3'
 
 const contactSchema = z.object({
-  firstName: z.string().trim().min(1).max(50),
-  lastName:  z.string().trim().min(1).max(50),
-  business:  z.string().trim().min(1).max(200),
-  email:     z.string().trim().email().max(255),
-  whatsapp:  z.string().trim().min(10).max(30).optional().or(z.literal('')),
-  service:   z.string().trim().min(1).max(100),
-  message:   z.string().trim().max(3000).optional().or(z.literal('')),
-  referral:  z.string().trim().max(100).optional().or(z.literal('')),
+  firstName:      z.string().trim().min(1).max(50),
+  lastName:       z.string().trim().min(1).max(50),
+  business:       z.string().trim().min(1).max(200),
+  email:          z.string().trim().email().max(255),
+  whatsapp:       z.string().trim().min(10).max(30).optional().or(z.literal('')),
+  service:        z.string().trim().min(1).max(100),
+  message:        z.string().trim().max(3000).optional().or(z.literal('')),
+  referral:       z.string().trim().max(100).optional().or(z.literal('')),
+  recaptchaToken: z.string().optional(),
 })
 
 async function getOrCreateListId(name: string, apiKey: string): Promise<number | null> {
@@ -46,7 +48,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid input.' }, { status: 400 })
     }
 
-    const { firstName, lastName, business, email, whatsapp, service, message, referral } = parsed.data
+    const { firstName, lastName, business, email, whatsapp, service, message, referral, recaptchaToken } = parsed.data
+
+    const captcha = await verifyRecaptcha(recaptchaToken ?? '')
+    if (!captcha.ok) {
+      return NextResponse.json({ error: 'reCAPTCHA verification failed. Please try again.' }, { status: 400 })
+    }
     const fullName = `${firstName} ${lastName}`
 
     const safeFirst    = escapeHtml(firstName)

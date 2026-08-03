@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import ContactForm from './ContactForm'
+import ContactFormWithRecaptcha from './ContactFormWithRecaptcha'
 import Button from '@/components/ui/Button'
 import { FadeUp } from '@/components/ui/Animate'
 import { BGPattern } from '@/components/ui/bg-pattern'
@@ -50,9 +50,9 @@ export default function ContactPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1 className="maru-headline-split">
-              <span className="maru-headline-split-strong">Every engagement starts</span>
+              <span className="maru-headline-split-strong">Tell us what&apos;s eating your time.</span>
               <br />
-              <span className="maru-headline-split-light">with a conversation.</span>
+              <span className="maru-headline-split-light">No pitch — just a conversation.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>
@@ -115,7 +115,7 @@ export default function ContactPage() {
 
             {/* Left — form */}
             <div>
-              <ContactForm />
+              <ContactFormWithRecaptcha />
             </div>
 
             {/* Right — contact details */}

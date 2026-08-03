@@ -127,9 +127,9 @@ export default function ProcessPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1 className="maru-headline-split">
-              <span className="maru-headline-split-strong">A process built around</span>
+              <span className="maru-headline-split-strong">First we show you what the leaks cost.</span>
               <br />
-              <span className="maru-headline-split-light">where your operation has gaps.</span>
+              <span className="maru-headline-split-light">Then you decide.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>
@@ -141,8 +141,8 @@ export default function ProcessPage() {
                 lineHeight:   'var(--leading-body)',
               }}
             >
-              Every engagement follows the same four phases. Fixed scope,
-              fixed price, clear outcomes at every stage.
+              A free assessment shows you where the money leaks. A fixed price
+              fixes it. Then we measure what changed — in hours and rands.
             </p>
           </FadeUp>
           <FadeUp delay={0.22}>
@@ -410,9 +410,9 @@ export default function ProcessPage() {
                 marginBottom: 'var(--space-heading-body)',
               }}
             >
-              <span style={{ fontWeight: 300 }}>Start with</span>
+              <span style={{ fontWeight: 300 }}>Find your leaks first.</span>
               <br />
-              <span style={{ fontWeight: 700 }}>a Diagnostic</span>
+              <span style={{ fontWeight: 700 }}>It costs nothing to look.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>

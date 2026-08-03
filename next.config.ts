@@ -57,6 +57,18 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Legacy static-site pages (~42% of recorded GA views were bot-hammered
+      // .html URLs from the retired site) — permanent redirect to real routes
+      {
+        source: '/index.html',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/:path(.+)\\.html',
+        destination: '/:path',
+        permanent: true,
+      },
       {
         source: '/knowledge',
         destination: '/resources',

@@ -32,7 +32,7 @@ const linkClass =
 export default function Footer() {
   return (
     <>
-      <footer style={{ backgroundColor: 'var(--color-bg-navy-deep)' }}>
+      <footer style={{ background: 'var(--gradient-navy-soft)' }}>
         <div className="max-w-[900px] mx-auto px-6 md:px-[60px] py-20">
           <motion.div
             initial="hidden"
@@ -47,11 +47,11 @@ export default function Footer() {
               <motion.div variants={itemVariants} className="lg:col-span-1">
                 <Link href="/" aria-label="Maru Online — home" className="inline-block mb-6">
                   <Image
-                    src="/images/brand/maru_logo_cropped_5px.png"
+                    src="/images/brand/maru-logo-reversed.png"
                     alt="Maru Online"
                     width={120}
                     height={52}
-                    style={{ height: '36px', width: 'auto', filter: 'brightness(0) invert(1)' }}
+                    style={{ height: '36px', width: 'auto' }}
                   />
                 </Link>
                 <p

@@ -124,9 +124,9 @@ export default function ServicesPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1 className="maru-headline-split">
-              <span className="maru-headline-split-strong">AI tools don&apos;t create ROI.</span>
+              <span className="maru-headline-split-strong">Paying for AI tools</span>
               <br />
-              <span className="maru-headline-split-light">Integrated AI systems do.</span>
+              <span className="maru-headline-split-light">that don&apos;t pay you back?</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>
@@ -138,9 +138,8 @@ export default function ServicesPage() {
                 lineHeight: "var(--leading-body)",
               }}
             >
-              We build AI workflows that connect what you already have — and
-              measure what changes. Every engagement is fixed-scope and priced
-              before work begins.
+              We connect the tools you already have, automate the busywork, and
+              show you the savings. Price agreed before any work starts.
             </p>
           </FadeUp>
           <FadeUp delay={0.24}>
@@ -162,7 +161,7 @@ export default function ServicesPage() {
         alt="Two professionals reviewing data on a monitor in a modern office"
         eyebrow="Integrated AI in practice"
         heading="What integrated AI actually looks like."
-        body="Leads captured in your CRM automatically. Follow-up emails triggered without anyone pressing send. Invoices generated the moment a job is marked complete. Reports that update themselves. This is what connected systems deliver."
+        body="Leads land in your CRM on their own. Follow-ups send themselves. Invoices go out the moment a job closes. Reports update while you sleep."
         imagePosition="right"
         bg="var(--color-bg-primary)"
       />
@@ -345,9 +344,9 @@ export default function ServicesPage() {
                 marginBottom: "var(--space-heading-body)",
               }}
             >
-              <span style={{ fontWeight: 300 }}>The right place to start is</span>
+              <span style={{ fontWeight: 300 }}>Not sure where to start?</span>
               <br />
-              <span style={{ fontWeight: 700 }}>a conversation about where your operation has gaps.</span>
+              <span style={{ fontWeight: 700 }}>Twenty minutes will tell you.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>

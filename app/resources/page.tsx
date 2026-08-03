@@ -31,9 +31,9 @@ export default function ResourcesPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <h1 className="maru-headline-split">
-              <span className="maru-headline-split-strong">Resources for South African SMEs</span>
+              <span className="maru-headline-split-strong">See what AI can do</span>
               <br />
-              <span className="maru-headline-split-light">navigating AI implementation.</span>
+              <span className="maru-headline-split-light">for a business like yours.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.14}>
@@ -57,7 +57,7 @@ export default function ResourcesPage() {
       {/* Resource cards */}
       <section
         className={`${outerPad} py-24`}
-        style={{ backgroundColor: "var(--color-bg-primary)" }}
+        style={{ background: "var(--gradient-surface)" }}
       >
         <div className={innerWide}>
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -66,30 +66,17 @@ export default function ResourcesPage() {
             <StaggerChild key="popia">
               <Link
                 href="/resources/popia-ai-checklist"
+                className="card-lift"
                 style={{
                   display:        "flex",
                   flexDirection:  "column",
-                  border:         "0.5px solid var(--color-border-default)",
+                  border:         "0.5px solid var(--color-border-card)",
                   borderRadius:   "8px",
                   padding:        "1.75rem",
-                  background:     "var(--color-bg-primary)",
                   textDecoration: "none",
-                  transition:     "border-color 0.15s",
                 }}
               >
-                <span
-                  style={{
-                    display:         "inline-flex",
-                    width:           "40px",
-                    height:          "40px",
-                    borderRadius:    "8px",
-                    border:          "0.5px solid var(--color-border-default)",
-                    alignItems:      "center",
-                    justifyContent:  "center",
-                    marginBottom:    "1.5rem",
-                    color:           "var(--color-cyan)",
-                  }}
-                >
+                <span className="glyph-chip" style={{ marginBottom: "1.5rem" }}>
                   <FileCheck size={20} />
                 </span>
                 <p
@@ -127,30 +114,17 @@ export default function ResourcesPage() {
             <StaggerChild key="assessment">
               <Link
                 href="/ai-implementation-assessment"
+                className="card-lift"
                 style={{
                   display:        "flex",
                   flexDirection:  "column",
-                  border:         "0.5px solid var(--color-border-default)",
+                  border:         "0.5px solid var(--color-border-card)",
                   borderRadius:   "8px",
                   padding:        "1.75rem",
-                  background:     "var(--color-bg-primary)",
                   textDecoration: "none",
-                  transition:     "border-color 0.15s",
                 }}
               >
-                <span
-                  style={{
-                    display:         "inline-flex",
-                    width:           "40px",
-                    height:          "40px",
-                    borderRadius:    "8px",
-                    border:          "0.5px solid var(--color-border-default)",
-                    alignItems:      "center",
-                    justifyContent:  "center",
-                    marginBottom:    "1.5rem",
-                    color:           "var(--color-cyan)",
-                  }}
-                >
+                <span className="glyph-chip" style={{ marginBottom: "1.5rem" }}>
                   <Wrench size={20} />
                 </span>
                 <p
@@ -190,10 +164,10 @@ export default function ResourcesPage() {
                 style={{
                   display:        "flex",
                   flexDirection:  "column",
-                  border:         "0.5px dashed var(--color-border-default)",
+                  border:         "0.5px dashed var(--color-border-card)",
                   borderRadius:   "8px",
                   padding:        "1.75rem",
-                  background:     "var(--color-bg-primary)",
+                  background:     "var(--color-bg-card)",
                   opacity:        0.5,
                   pointerEvents:  "none",
                   cursor:         "default",
@@ -206,7 +180,7 @@ export default function ResourcesPage() {
                       width:           "40px",
                       height:          "40px",
                       borderRadius:    "8px",
-                      border:          "0.5px solid var(--color-border-default)",
+                      border:          "0.5px solid var(--color-border-card)",
                       alignItems:      "center",
                       justifyContent:  "center",
                       color:           "var(--color-ink-tertiary)",

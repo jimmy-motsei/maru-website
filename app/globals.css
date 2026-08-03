@@ -6,9 +6,27 @@
   --color-bg-secondary:       #F5F4F0;
   --color-bg-tertiary:        #EEEDE8;
   --color-bg-canvas:          #FAFAF8;   /* warm off-white — profile page bg */
+
+  /* ── Card surfaces ───────────────────────────────────────────────────────
+     Cards sit a step ABOVE their section ground, not below it: the ground was
+     darkened so the card has something to lift off, and hover takes the card
+     the rest of the way to pure white. Owned by .card-lift — don't set a card
+     background inline, it beats the class and kills the hover. */
+  --color-bg-card:            #FDFCF9;   /* resting card surface */
+  --color-bg-card-hover:      #FFFFFF;   /* hover — brightens to pure white */
   --color-bg-navy:            #1A3A5C;
-  --color-bg-navy-deep:       #0D1B2A;
-  --color-bg-darkest:         #060E15;
+  --color-bg-navy-deep:       #16324F;   /* Warm Stone: lightened one step (was #0D1B2A) */
+  --color-bg-darkest:         #122A45;   /* Warm Stone: no near-black surfaces (was #060E15) */
+
+  /* ── Gradients — Warm Stone depth system ───────────────────────────────── */
+  --gradient-hero:            linear-gradient(150deg, #16324F 0%, #1A3A5C 100%);
+  --gradient-navy-soft:       linear-gradient(160deg, #1A3A5C 0%, #16324F 100%);
+  --gradient-surface:         linear-gradient(180deg, #F4F2EC 0%, #EDEAE2 100%);
+  --gradient-gold:            linear-gradient(135deg, #D6B76A 0%, #C39F45 100%);
+
+  /* ── Button shadows — Warm Stone depth system ──────────────────────────── */
+  --shadow-btn:               0 2px 8px rgba(13, 27, 42, 0.18);
+  --shadow-btn-hover:         0 6px 20px rgba(205, 170, 83, 0.40);
 
   /* ── Ink — on WHITE/CANVAS backgrounds ──────────────────────────────────── */
   --color-ink-primary:        #0D1B2A;
@@ -35,6 +53,7 @@
 
   /* ── Borders / rules ────────────────────────────────────────────────────── */
   --color-border-default:     #E2E8F0;   /* same as profile --rule */
+  --color-border-card:        #E4E0D6;   /* warm stone edge — cards only */
   --color-border-subtle:      rgba(26, 58, 92, 0.1);
   --color-border-strong:      #CBD5E0;
 
@@ -85,6 +104,8 @@
   --color-bg-secondary:       var(--color-bg-secondary);
   --color-bg-tertiary:        var(--color-bg-tertiary);
   --color-bg-canvas:          var(--color-bg-canvas);
+  --color-bg-card:            var(--color-bg-card);
+  --color-bg-card-hover:      var(--color-bg-card-hover);
   --color-bg-navy:            var(--color-bg-navy);
   --color-bg-navy-deep:       var(--color-bg-navy-deep);
   --color-bg-darkest:         var(--color-bg-darkest);
@@ -102,6 +123,7 @@
   --color-ochre-border:       var(--color-ochre-border);
   --color-navy:               var(--color-navy);
   --color-border-default:     var(--color-border-default);
+  --color-border-card:        var(--color-border-card);
   --color-border-subtle:      var(--color-border-subtle);
   --color-border-strong:      var(--color-border-strong);
   --font-display:             var(--font-display);
@@ -116,10 +138,133 @@
   100% { box-shadow: 0 0 0 0    rgba(37, 211, 102, 0);   }
 }
 
+/* Maru "M" hero object — slow mystical drift */
+.maru-m-float {
+  transform-origin: 50% 50%;
+  animation: maru-float 9s ease-in-out infinite;
+}
+@keyframes maru-float {
+  0%, 100% { transform: translateY(0) rotate(7deg); }
+  50%      { transform: translateY(-16px) rotate(4deg); }
+}
+
 @keyframes logo-scroll {
   from { transform: translateX(0);    }
   to   { transform: translateX(-50%); }
 }
+
+/* ── DisconnectDiagram — "what Maru does" section object ──────────────────────
+   Isolated systems converge through one hub into a single live view. States are
+   driven by .dd-live, added once the diagram scrolls into range. All timings are
+   staggered off --i so the connection reads as sequential, not simultaneous. */
+/* The two layouts are switched here rather than with Tailwind's `hidden sm:block`
+   utilities: this file loads after Tailwind at equal specificity, so a `display`
+   declaration on .dd-svg would silently beat them and render both at once. */
+.dd-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.dd-desktop { display: none; }
+.dd-mobile  { display: block; }
+
+@media (min-width: 640px) {
+  .dd-desktop { display: block; }
+  .dd-mobile  { display: none; }
+}
+
+/* Source system boxes */
+.dd-box {
+  fill: var(--color-bg-primary);
+  stroke: var(--color-border-strong);
+  stroke-width: 1.25;
+  transition: stroke 520ms ease-out calc(var(--i) * 90ms);
+}
+.dd-live .dd-box { stroke: var(--color-border-default); }
+
+.dd-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  fill: var(--color-ink-tertiary);
+  transition: fill 520ms ease-out calc(var(--i) * 90ms);
+}
+.dd-label-sm { font-size: 9.5px; letter-spacing: 0.1em; }
+.dd-live .dd-label { fill: var(--color-ink-secondary); }
+
+/* The "before" state — stubs that lead nowhere */
+.dd-stub {
+  fill: none;
+  stroke: var(--color-ink-tertiary);
+  stroke-width: 1.25;
+  stroke-dasharray: 3 4;
+  opacity: 0.55;
+  transition: opacity 420ms ease-out;
+}
+.dd-live .dd-stub { opacity: 0; }
+
+/* The "after" state — links drawing through to the hub */
+.dd-link {
+  fill: none;
+  stroke: var(--color-cyan);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+  transition: stroke-dashoffset 900ms cubic-bezier(0.25, 0.1, 0.25, 1)
+    calc(var(--i) * 110ms);
+}
+.dd-live .dd-link { stroke-dashoffset: 0; }
+.dd-link-out { stroke-width: 2; }
+
+/* The Maru hub */
+.dd-hub-core {
+  fill: var(--color-gold);
+  opacity: 0;
+  transform: scale(0.3);
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: opacity 320ms ease-out 640ms,
+    transform 520ms cubic-bezier(0.34, 1.45, 0.64, 1) 640ms;
+}
+.dd-hub-halo {
+  fill: var(--color-gold);
+  opacity: 0;
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: opacity 420ms ease-out 700ms;
+}
+.dd-live .dd-hub-core { opacity: 1; transform: scale(1); }
+.dd-live .dd-hub-halo { opacity: 0.14; }
+
+/* The outcome panel */
+.dd-out {
+  opacity: 0;
+  transition: opacity 560ms ease-out 1080ms;
+}
+.dd-live .dd-out { opacity: 1; }
+
+.dd-out-box {
+  fill: var(--color-cyan-light);
+  stroke: var(--color-cyan);
+  stroke-width: 1.25;
+}
+.dd-out-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  fill: var(--color-ink-primary);
+}
+.dd-out-sub {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  fill: var(--color-ink-secondary);
+}
+.dd-out-title-sm { font-size: 17px; text-anchor: middle; }
+.dd-out-sub-sm   { font-size: 10.5px; text-anchor: middle; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -338,13 +483,13 @@
     border-left:     4px solid var(--color-ochre);
     border-radius:   0 8px 8px 0;
     padding:         2rem 2.25rem;
-    box-shadow:      0 2px 12px rgba(0, 0, 0, 0.06);
+    box-shadow:      0 2px 12px rgba(38, 32, 20, 0.06);
     transition:      transform 300ms ease-out, box-shadow 300ms ease-out;
   }
 
   .card-ochre:hover {
     transform:       translateY(-2px) scale(1.015);
-    box-shadow:      0 8px 24px rgba(0, 0, 0, 0.10);
+    box-shadow:      0 8px 24px rgba(38, 32, 20, 0.10);
   }
 
   .card-ochre h3 {
@@ -414,15 +559,133 @@
 
   /* ── Card lift utilities — shadow + scale-up on hover/focus ─────────────── */
   /* Light-background cards (white / canvas sections)                           */
+  /* .card-lift owns the card surface, edge and elevation. Cards rest just off
+     white on a darkened ground and brighten to pure white on hover. A card that
+     sets its own background inline will beat this rule and lose the brighten. */
   .card-lift {
-    box-shadow:  0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+    background-color: var(--color-bg-card);
+    border-color:     var(--color-border-card);
+    box-shadow:  0 1px 2px rgba(38, 32, 20, 0.05), 0 4px 12px rgba(38, 32, 20, 0.07);
     transition:  transform 280ms cubic-bezier(0.25, 0.1, 0.25, 1),
-                 box-shadow 280ms cubic-bezier(0.25, 0.1, 0.25, 1);
+                 box-shadow 280ms cubic-bezier(0.25, 0.1, 0.25, 1),
+                 background-color 280ms cubic-bezier(0.25, 0.1, 0.25, 1),
+                 border-color 280ms cubic-bezier(0.25, 0.1, 0.25, 1);
   }
   .card-lift:hover,
   .card-lift:focus-within {
+    background-color: var(--color-bg-card-hover);
+    border-color:     var(--color-border-strong);
     transform:   translateY(-2px) scale(1.015);
-    box-shadow:  0 4px 8px rgba(0,0,0,0.05), 0 12px 28px rgba(0,0,0,0.10);
+    box-shadow:  0 4px 8px rgba(38, 32, 20, 0.06), 0 14px 32px rgba(38, 32, 20, 0.13);
+  }
+
+  /* ── Metrics band ────────────────────────────────────────────────────────
+     Four cells entering as one gesture: icon, figure, rule, label, each
+     staggered off --i. Everything is transform/opacity only. */
+  .stat-cell { text-align: center; }
+
+  .stat-icon,
+  .stat-figure,
+  .stat-label {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 520ms ease-out, transform 520ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .stat-icon   { transition-delay: calc(var(--i) * 110ms); }
+  .stat-figure { transition-delay: calc(var(--i) * 110ms + 90ms); }
+  .stat-label  { transition-delay: calc(var(--i) * 110ms + 340ms); }
+
+  .stat-live .stat-icon,
+  .stat-live .stat-figure,
+  .stat-live .stat-label { opacity: 1; transform: translateY(0); }
+
+  .stat-icon {
+    display: inline-flex;
+    color: var(--color-cyan);
+    margin-bottom: 0.875rem;
+  }
+
+  .stat-figure {
+    font-family: var(--font-display);
+    font-size: clamp(1.875rem, 3.2vw, 2.75rem);
+    font-weight: 600;
+    color: var(--color-ink-primary);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-suffix {
+    font-size: 0.44em;
+    font-weight: 400;
+    color: var(--color-gold-antique);
+    letter-spacing: 0.02em;
+    margin-left: 0.14em;
+  }
+  /* A word figure ("Free") carries the full display size, no shrink */
+  .stat-figure > .stat-suffix:only-child {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--color-ink-primary);
+    letter-spacing: -0.03em;
+    margin-left: 0;
+  }
+
+  .stat-rule {
+    display: block;
+    height: 2px;
+    width: 0;
+    margin: 0.875rem auto;
+    background: var(--color-gold);
+    transition: width 620ms cubic-bezier(0.25, 0.1, 0.25, 1)
+      calc(var(--i) * 110ms + 240ms);
+  }
+  .stat-live .stat-rule { width: 28px; }
+
+  .stat-label {
+    font-family: var(--font-body);
+    font-size: var(--text-meta);
+    font-weight: 300;
+    color: var(--color-ink-secondary);
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 22ch;
+  }
+
+  /* ── Card glyphs ─────────────────────────────────────────────────────────
+     Icons sit in a tinted chip that warms on card hover. Cyan for core work,
+     gold for foundation and compliance — the same split the tag badges use. */
+  .glyph-chip {
+    display: inline-grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 9px;
+    background: var(--color-cyan-light);
+    color: var(--color-cyan);
+    flex-shrink: 0;
+    transition: transform 280ms cubic-bezier(0.34, 1.4, 0.64, 1),
+                background-color 280ms ease-out;
+  }
+  .glyph-chip-gold {
+    background: var(--color-gold-light);
+    color: var(--color-gold-antique);
+  }
+  .card-lift:hover .glyph-chip,
+  .card-lift:focus-within .glyph-chip,
+  .foundation-cell:hover .glyph-chip {
+    transform: scale(1.08) rotate(-3deg);
+  }
+
+  /* Flush-grid cells (foundation services). No lift — the 1px gaps are the
+     dividers, so a transform would tear the grid. Brightens in place instead. */
+  .foundation-cell {
+    background-color: var(--color-bg-card);
+    transition: background-color 280ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .foundation-cell:hover,
+  .foundation-cell:focus-within {
+    background-color: var(--color-bg-card-hover);
   }
 
   /* Dark-background cards (navy sections — shadow tinted with cyan) */

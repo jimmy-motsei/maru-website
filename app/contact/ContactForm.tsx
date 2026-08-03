@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { Input }    from '@/components/ui/Input'
 import { Textarea } from '@/components/ui/Textarea'
 import { Select }   from '@/components/ui/Select'
@@ -52,6 +53,7 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess,    setIsSuccess]    = useState(false)
   const [serverError,  setServerError]  = useState<string | null>(null)
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   const {
     register,
@@ -63,10 +65,14 @@ export default function ContactForm() {
     setIsSubmitting(true)
     setServerError(null)
     try {
+      // An empty token is a guaranteed 400 from /api/contact, so fail here
+      // rather than posting one and surfacing it as a generic server error.
+      if (!executeRecaptcha) throw new Error('reCAPTCHA not ready')
+      const recaptchaToken = await executeRecaptcha('contact_form')
       const res = await fetch('/api/contact', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(data),
+        body:    JSON.stringify({ ...data, recaptchaToken }),
       })
       if (!res.ok) {
         const json = await res.json()

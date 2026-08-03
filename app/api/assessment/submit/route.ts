@@ -5,7 +5,7 @@
  * Orchestration flow:
  * 1. Validate submission
  * 2. Calculate score + select rich template
- * 3. Gemini synthesis (assessment answers → personalised observations JSON)
+ * 3. Claude synthesis (assessment answers → personalised observations JSON)
  * 4. Store report in DB → generate token → build report URL
  * 5. Brevo: contact upsert
  * 6. Brevo: Email A to prospect (report link)
@@ -13,17 +13,19 @@
  * 8. Return report URL to client
  *
  * Error handling: each step degrades gracefully.
- * If Gemini fails → report uses template only (no personalised observations).
+ * If synthesis fails → report uses template only (no personalised observations).
  * If DB store fails → report URL falls back to static assessment page.
  * If Brevo fails → log error, do not block response.
  */
 
 import { NextRequest, NextResponse } from "next/server";
+import Anthropic from "@anthropic-ai/sdk";
 import { calculateScore, getPainTag } from "@/lib/assessment/scoring";
 import { buildSynthesisPrompt, SynthesisOutput } from "@/lib/assessment/synthesisPrompt";
 import { getFullTemplate } from "@/lib/assessment/reportTemplates";
 import { dbLeadEngine } from "@/lib/db";
 import { operationsReports } from "@/lib/db/schema/lead-engine";
+import { verifyRecaptcha } from "@/lib/recaptcha";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -35,6 +37,7 @@ interface SubmissionBody {
   name: string;
   email: string;
   website?: string;
+  recaptchaToken?: string;
 }
 
 // ── Main handler ───────────────────────────────────────────────────────────
@@ -58,17 +61,25 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const captcha = await verifyRecaptcha(body.recaptchaToken ?? "");
+    if (!captcha.ok) {
+      return NextResponse.json(
+        { error: "reCAPTCHA verification failed. Please try again." },
+        { status: 400 }
+      );
+    }
+
     // ── 2. Score + template selection ─────────────────────────────────────
     const scoreResult = calculateScore(body.answers);
     const painTag = scoreResult.painTag;
     const template = getFullTemplate(scoreResult.level, painTag, scoreResult.segmentB);
 
-    // ── 3. Gemini synthesis (personalised observations — optional) ─────────
+    // ── 3. Claude synthesis (personalised observations — optional) ─────────
     let synthesis: SynthesisOutput | null = null;
     try {
       synthesis = await runSynthesis(body.answers, scoreResult.level);
     } catch (err) {
-      console.error("Gemini synthesis failed:", err);
+      console.error("Claude synthesis failed:", err);
       // Report continues using template-only — no observations block shown
     }
 
@@ -145,7 +156,54 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// ── Gemini synthesis ───────────────────────────────────────────────────────
+// ── Claude synthesis ───────────────────────────────────────────────────────
+
+/**
+ * JSON Schema mirroring SynthesisOutput. Passed as output_config.format so the
+ * model is constrained to this shape — which is what lets the old
+ * strip-the-markdown-fences-and-hope parsing go away.
+ */
+const SYNTHESIS_SCHEMA = {
+  type: "object",
+  properties: {
+    objectA: {
+      type: "object",
+      properties: {
+        observation1:    { type: "string" },
+        observation2:    { type: "string" },
+        observation3:    { type: "string" },
+        // anyOf rather than a ["string","null"] type array — anyOf is the
+        // documented way to express nullable in structured outputs.
+        siteObservation: { anyOf: [{ type: "string" }, { type: "null" }] },
+      },
+      required: ["observation1", "observation2", "observation3", "siteObservation"],
+      additionalProperties: false,
+    },
+    objectB: {
+      type: "object",
+      properties: {
+        business_summary:    { type: "string" },
+        segment:             { type: "string" },
+        primary_pain:        { type: "string" },
+        integration_gap:     { type: "string" },
+        tech_signals:        { type: "string" },
+        conversation_opener: { type: "string" },
+        // No minItems/maxItems — structured outputs rejects array-length
+        // constraints. The "exactly two" requirement is carried by the prompt;
+        // the TS type is a 2-tuple, so the length is asserted below.
+        probes: { type: "array", items: { type: "string" } },
+        flag: { type: "string" },
+      },
+      required: [
+        "business_summary", "segment", "primary_pain", "integration_gap",
+        "tech_signals", "conversation_opener", "probes", "flag",
+      ],
+      additionalProperties: false,
+    },
+  },
+  required: ["objectA", "objectB"],
+  additionalProperties: false,
+} as const;
 
 async function runSynthesis(
   answers: SubmissionBody["answers"],
@@ -153,36 +211,47 @@ async function runSynthesis(
 ): Promise<SynthesisOutput> {
   const prompt = buildSynthesisPrompt(answers, level, "");
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: {
-          temperature: 0.4,
-          maxOutputTokens: 2000,
-          responseMimeType: "application/json",
-        },
-      }),
-    }
-  );
+  // Constructed per-request rather than at module scope so a missing key
+  // surfaces inside the caller's try/catch and degrades to a template-only
+  // report, instead of throwing at cold start and taking the route down.
+  const anthropic = new Anthropic();
 
-  if (!response.ok) {
-    const errText = await response.text();
-    throw new Error(`Gemini API error: ${response.status} — ${errText}`);
+  const response = await anthropic.beta.messages.create({
+    model: "claude-opus-5",
+    max_tokens: 16000,
+    // Safety classifiers can decline; "default" routes by refusal category so
+    // we never maintain a fallback model list of our own.
+    betas: ["server-side-fallback-2026-07-01"],
+    fallbacks: "default",
+    output_config: {
+      format: { type: "json_schema", schema: SYNTHESIS_SCHEMA },
+    },
+    messages: [{ role: "user", content: prompt }],
+  });
+
+  if (response.stop_reason === "refusal") {
+    throw new Error(
+      `Claude declined the synthesis (${response.stop_details?.category ?? "uncategorised"})`
+    );
   }
 
-  const data = await response.json();
-  const candidate = data.candidates?.[0];
-  if (!candidate) throw new Error(`Gemini returned no candidates`);
+  const text = response.content.find((b) => b.type === "text")?.text;
+  if (!text) {
+    throw new Error(`Claude returned no text. stop_reason: ${response.stop_reason}`);
+  }
 
-  const rawText = candidate.content?.parts?.[0]?.text ?? "";
-  if (!rawText) throw new Error(`Gemini returned empty text. FinishReason: ${candidate.finishReason}`);
+  const parsed = JSON.parse(text) as SynthesisOutput;
 
-  const cleaned = rawText.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
-  return JSON.parse(cleaned) as SynthesisOutput;
+  // SynthesisOutput types probes as a 2-tuple but the schema can't enforce
+  // length, so check it here rather than letting a short array reach the
+  // brief email as an undefined second probe.
+  if (parsed.objectB?.probes?.length !== 2) {
+    throw new Error(
+      `Expected exactly 2 probes, got ${parsed.objectB?.probes?.length ?? 0}`
+    );
+  }
+
+  return parsed;
 }
 
 // ── Brevo contact upsert ───────────────────────────────────────────────────

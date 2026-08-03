@@ -124,7 +124,7 @@ export const operationsReports = pgTable('operations_reports', {
   answers: jsonb('answers').notNull(),       // q1–q10 answer keys
   areas: jsonb('areas'),                     // AreaResult[] from scoring — populated in v2
   template: jsonb('template').notNull(),     // Legacy shim + summary data
-  synthesis: jsonb('synthesis'),             // SynthesisOutput.objectA — null if Gemini failed
+  synthesis: jsonb('synthesis'),             // SynthesisOutput.objectA — null if synthesis failed
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
 });
 

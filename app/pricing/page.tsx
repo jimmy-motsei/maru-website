@@ -140,7 +140,7 @@ export default function PricingPage() {
                 lineHeight:   'var(--leading-body)',
               }}
             >
-              Every Maru engagement begins with the Operations Diagnostic. Fixed scope, fixed price, clear deliverables.
+              You&apos;ll know exactly what it costs before you commit to anything. And the first look is free.
             </p>
           </FadeUp>
           <FadeUp delay={0.22}>
@@ -219,10 +219,12 @@ export default function PricingPage() {
                 <div
                   className="card-lift"
                   style={{
-                    backgroundColor: eng.featured ? 'var(--color-bg-canvas)' : 'var(--color-bg-primary)',
+                    // Featured cards retint the card token rather than setting a
+                    // background outright, so .card-lift still drives the hover brighten.
+                    ...(eng.featured ? { '--color-bg-card': 'var(--color-gold-light)' } as React.CSSProperties : {}),
                     border:          eng.featured
                       ? '1px solid var(--color-cyan)'
-                      : '1px solid var(--color-border-default)',
+                      : '1px solid var(--color-border-card)',
                     borderRadius:    '8px',
                     overflow:        'hidden',
                   }}
@@ -398,9 +400,9 @@ export default function PricingPage() {
                 marginBottom: 'var(--space-heading-body)',
               }}
             >
-              <span style={{ fontWeight: 300 }}>Start with</span>
+              <span style={{ fontWeight: 300 }}>Find your leaks first.</span>
               <br />
-              <span style={{ fontWeight: 700 }}>a Diagnostic</span>
+              <span style={{ fontWeight: 700 }}>It costs nothing to look.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.08}>

@@ -8,7 +8,7 @@ export default function AssessmentFormSection() {
     <section
       id="assessment"
       className={`${outerPad} py-24`}
-      style={{ backgroundColor: "var(--color-bg-navy)" }}
+      style={{ background: "var(--gradient-navy-soft)" }}
     >
       <div className={inner}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -21,8 +21,8 @@ export default function AssessmentFormSection() {
               className="h2-cta"
               style={{ marginBottom: "var(--space-heading-body)" }}
             >
-              <span style={{ display: "block", fontWeight: 300 }}>Find Out Exactly What&apos;s</span>
-              <span style={{ display: "block", fontWeight: 700 }}>Costing You Time and Money</span>
+              <span style={{ display: "block", fontWeight: 300 }}>What&apos;s Costing You</span>
+              <span style={{ display: "block", fontWeight: 700 }}>Time and Money</span>
             </h2>
 
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
