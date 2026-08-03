@@ -116,6 +116,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/assessments/proposal',
+        destination: '/operations-assessment',
+        permanent: true,
+      },
+      {
         source: '/website-audit',
         destination: '/operations-assessment',
         permanent: true,

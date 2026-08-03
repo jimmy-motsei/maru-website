@@ -38,9 +38,22 @@
   --color-ink-inverted-muted: rgba(250, 250, 248, 0.75);
 
   /* ── Brand cyan ─────────────────────────────────────────────────────────── */
+  /* --color-cyan is a DARK-GROUND colour: 4.9–6.2:1 on the navies, but only
+     1.97:1 on the light ground. For cyan-coloured TEXT on a light surface use
+     --color-cyan-ink (4.86:1 on the surface gradient, 5.84:1 on white).
+     Borders, fills and icon chips may use --color-cyan anywhere. */
   --color-cyan:               #3DB8C6;
   --color-cyan-light:         #E8F8FA;   /* solid tint — for badges/icon bg */
   --color-cyan-dark:          #2DA8B6;
+  --color-cyan-ink:           #1B6F79;   /* cyan text on light grounds */
+
+  /* ── Brand gold — the primary accent ────────────────────────────────────── */
+  /* Derived from --gradient-gold (#D6B76A → #A8862F). These were referenced by
+     .dd-hub-core, .stat-rule and .glyph-chip-gold long before they were
+     defined, which is why the DisconnectDiagram hub rendered with no fill. */
+  --color-gold:               #C39F45;   /* solid fills, rules, diagram hub */
+  --color-gold-light:         #F3EAD3;   /* chip tint */
+  --color-gold-antique:       #6B5219;   /* text on gold tint — 6.16:1 */
 
   /* ── Brand ochre — SA-rooted secondary (proof / result / credentials) ───── */
   --color-ochre:              #C36A36;   /* San rock-art / Highveld soil — teal complement */
@@ -50,6 +63,19 @@
 
   /* ── Navy accent ────────────────────────────────────────────────────────── */
   --color-navy:               #1A3A5C;
+  /* Label colour for text sitting ON the gold gradient. Navy #1A3A5C only
+     reaches 3.39:1 against the gradient's dark stop (#A8862F) — below AA for
+     the 13px button label. This deeper ink clears it at both stops
+     (5.07:1 dark / 8.98:1 light) without touching the gradient itself. */
+  --color-ink-on-gold:        #0D1B2A;
+
+  /* ── Semantic status — validation, pass/fail, form errors ───────────────── */
+  --color-danger:             #B3261E;   /* 5.9:1 on the light ground */
+  --color-danger-tint:        #FCEEED;
+  --color-danger-border:      rgba(179, 38, 30, 0.25);
+  --color-success:            #1E6F4F;
+  --color-success-tint:       #EAF5F0;
+  --color-success-border:     rgba(30, 111, 79, 0.25);
 
   /* ── Borders / rules ────────────────────────────────────────────────────── */
   --color-border-default:     #E2E8F0;   /* same as profile --rule */
@@ -117,11 +143,22 @@
   --color-cyan:               var(--color-cyan);
   --color-cyan-light:         var(--color-cyan-light);
   --color-cyan-dark:          var(--color-cyan-dark);
+  --color-cyan-ink:           var(--color-cyan-ink);
+  --color-gold:               var(--color-gold);
+  --color-gold-light:         var(--color-gold-light);
+  --color-gold-antique:       var(--color-gold-antique);
   --color-ochre:              var(--color-ochre);
   --color-ochre-tint:         var(--color-ochre-tint);
   --color-ochre-ink:          var(--color-ochre-ink);
   --color-ochre-border:       var(--color-ochre-border);
   --color-navy:               var(--color-navy);
+  --color-ink-on-gold:        var(--color-ink-on-gold);
+  --color-danger:             var(--color-danger);
+  --color-danger-tint:        var(--color-danger-tint);
+  --color-danger-border:      var(--color-danger-border);
+  --color-success:            var(--color-success);
+  --color-success-tint:       var(--color-success-tint);
+  --color-success-border:     var(--color-success-border);
   --color-border-default:     var(--color-border-default);
   --color-border-card:        var(--color-border-card);
   --color-border-subtle:      var(--color-border-subtle);
@@ -699,6 +736,46 @@
     transform:   translateY(-2px) scale(1.015);
     box-shadow:  0 4px 12px rgba(0,0,0,0.35), 0 16px 36px rgba(0,0,0,0.30),
                  0 0 0 1px rgba(61,184,198,0.08);
+  }
+
+  /* Legal pages (privacy / terms / cookies). The body of these pages is plain
+     prose, so the wrapper owns colour and rhythm rather than every element
+     carrying its own utility classes. */
+  .legal-prose h2 {
+    font-size:     1.5rem;
+    font-weight:   500;
+    margin-bottom: 1.5rem;
+  }
+  .legal-prose h3 {
+    font-size:     1.25rem;
+    font-weight:   500;
+    margin-bottom: 1rem;
+  }
+  .legal-prose h4 {
+    font-weight:   600;
+    color:         var(--color-ink-primary);
+    margin-bottom: 0.75rem;
+  }
+  .legal-prose p,
+  .legal-prose li {
+    color: var(--color-ink-secondary);
+  }
+  .legal-prose ul {
+    list-style:      disc;
+    list-style-position: inside;
+    margin-bottom:   1rem;
+  }
+  .legal-prose li + li {
+    margin-top: 0.5rem;
+  }
+  .legal-prose a {
+    color:           var(--color-cyan);
+    text-decoration: none;
+  }
+  .legal-prose a:hover,
+  .legal-prose a:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
   /* Contact form — 2-col name/email row collapses to 1-col on mobile */

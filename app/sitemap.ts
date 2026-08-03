@@ -18,27 +18,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/careers`, changeFrequency: 'monthly', priority: 0.5 },
   ];
 
+  // The four rate-card services. Retired service URLs are 301'd in
+  // next.config.ts and must NOT be listed here — a sitemap that advertises
+  // redirected URLs is what search consoles flag.
   const servicePages: MetadataRoute.Sitemap = [
-    { url: `${baseUrl}/services/ai-revenue-diagnostic`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/services/custom-ai-solution-build`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/services/ai-training-capability-building`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/services/ongoing-ai-support-optimization`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/services/operations-assessment`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/services/operations-diagnostic`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/services/workflow-integration`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/services/team-training-handover`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/services/results-optimisation`, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/services/lead-generation`, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/services/sales-systems`, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/services/office-automation`, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/services/whatsapp-solutions`, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/services/customer-support-chatbots`, changeFrequency: 'monthly', priority: 0.7 },
-  ];
-
-  const assessmentPages: MetadataRoute.Sitemap = [
-    { url: `${baseUrl}/assessments/lead-score`, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/assessments/pipeline-leak`, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/assessments/tech-audit`, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/assessments/proposal`, changeFrequency: 'monthly', priority: 0.6 },
   ];
 
   const resourcePages: MetadataRoute.Sitemap = [
@@ -51,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/cookie-policy`, changeFrequency: 'yearly', priority: 0.3 },
   ];
 
-  return [...corePages, ...servicePages, ...assessmentPages, ...resourcePages, ...legalPages].map((entry) => ({
+  return [...corePages, ...servicePages, ...resourcePages, ...legalPages].map((entry) => ({
     ...entry,
     lastModified: now,
   }));

@@ -20,7 +20,7 @@ export default function AboutPage() {
     <>
       {/* ════════════════════════════════════════════════════════════════════
           SECTION 1 — HERO
-          bg: navy-deep (#0D1B2A) — matches homepage hero
+          bg: navy-deep — matches homepage hero
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`relative min-h-[70vh] flex items-center ${outerPad} pt-48 pb-32`}

@@ -65,7 +65,7 @@ export default function POPIAChecklistPageClient() {
   };
 
   return (
-    <main className="bg-deep-navy">
+    <main className="bg-ink-primary">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center py-section-tab lg:py-section overflow-hidden">
         <AtmosphericBackground variant="hero" />
@@ -80,18 +80,18 @@ export default function POPIAChecklistPageClient() {
               transition={{ duration: 0.8 }}
             >
               <div className="flex items-center gap-2 mb-6">
-                <Shield className="w-5 h-5 text-electric-cyan" />
-                <span className="text-electric-cyan text-sm font-bold uppercase tracking-wider">Free Resource</span>
+                <Shield className="w-5 h-5 text-cyan-ink" />
+                <span className="text-cyan-ink text-sm font-bold uppercase tracking-wider">Free Resource</span>
               </div>
 
               <h1 className="text-[34px] md:text-[58px] lg:text-[68px] leading-[1.1] font-thin text-white mb-6 font-sans">
-                The <span className="font-bold text-electric-cyan">POPIA-Compliant</span><br />
+                The <span className="font-bold text-cyan-ink">POPIA-Compliant</span><br />
                 AI Checklist
               </h1>
 
               <p className="text-lg text-white/70 mb-8 leading-relaxed max-w-xl">
                 83% of South African businesses using AI risk POPIA non-compliance. 
-                Avoid <strong className="text-warm-amber">R10 million penalties</strong> with this practical checklist.
+                Avoid <strong className="text-ochre-ink">R10 million penalties</strong> with this practical checklist.
               </p>
 
               {/* What's Included */}
@@ -100,7 +100,7 @@ export default function POPIAChecklistPageClient() {
                 <ul className="space-y-3">
                   {CHECKLIST_HIGHLIGHTS.map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-white/80">
-                      <CheckCircle2 className="w-5 h-5 text-warm-amber shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-ochre-ink shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -108,10 +108,10 @@ export default function POPIAChecklistPageClient() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 p-6 bg-card-dark rounded-xl border border-white/10">
+              <div className="grid grid-cols-3 gap-6 p-6 card-lift rounded-xl border border-white/10">
                 {STATS.map((stat, i) => (
                   <div key={i} className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-electric-cyan">{stat.value}</div>
+                    <div className="text-2xl md:text-3xl font-bold text-cyan-ink">{stat.value}</div>
                     <div className="text-xs text-white/50 mt-1">{stat.label}</div>
                   </div>
                 ))}
@@ -126,12 +126,12 @@ export default function POPIAChecklistPageClient() {
               className="bg-white rounded-2xl p-8 lg:p-10 shadow-2xl"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-deep-navy/10 rounded-lg">
-                  <FileText className="w-6 h-6 text-deep-navy" />
+                <div className="p-3 bg-[rgba(13,27,42,0.06)] rounded-lg">
+                  <FileText className="w-6 h-6 text-ink-primary" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold text-deep-navy">Get Your Free Checklist</h2>
-                  <p className="text-sm text-gray-500">Instant download via email</p>
+                  <h2 className="text-xl font-bold text-ink-primary">Get Your Free Checklist</h2>
+                  <p className="text-sm text-ink-tertiary">Instant download via email</p>
                 </div>
               </div>
 
@@ -143,10 +143,10 @@ export default function POPIAChecklistPageClient() {
                     type="text"
                     placeholder="Your Name"
                     disabled={isSubmitting}
-                    className="w-full h-[50px] px-5 rounded-lg bg-gray-50 border border-gray-200 focus:border-electric-cyan focus:ring-0 outline-none transition-colors text-deep-navy placeholder:text-gray-400"
+                    className="w-full h-[50px] px-5 rounded-lg bg-bg-secondary border border-border-card focus:border-cyan focus:ring-0 outline-none transition-colors text-ink-primary placeholder:text-ink-tertiary"
                   />
                   {errors.firstname && (
-                    <p className="text-red-500 text-sm mt-1">{errors.firstname.message}</p>
+                    <p className="text-danger text-sm mt-1">{errors.firstname.message}</p>
                   )}
                 </div>
 
@@ -157,10 +157,10 @@ export default function POPIAChecklistPageClient() {
                     type="email"
                     placeholder="Work Email"
                     disabled={isSubmitting}
-                    className="w-full h-[50px] px-5 rounded-lg bg-gray-50 border border-gray-200 focus:border-electric-cyan focus:ring-0 outline-none transition-colors text-deep-navy placeholder:text-gray-400"
+                    className="w-full h-[50px] px-5 rounded-lg bg-bg-secondary border border-border-card focus:border-cyan focus:ring-0 outline-none transition-colors text-ink-primary placeholder:text-ink-tertiary"
                   />
                   {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                    <p className="text-danger text-sm mt-1">{errors.email.message}</p>
                   )}
                 </div>
 
@@ -171,10 +171,10 @@ export default function POPIAChecklistPageClient() {
                     type="text"
                     placeholder="Company Name"
                     disabled={isSubmitting}
-                    className="w-full h-[50px] px-5 rounded-lg bg-gray-50 border border-gray-200 focus:border-electric-cyan focus:ring-0 outline-none transition-colors text-deep-navy placeholder:text-gray-400"
+                    className="w-full h-[50px] px-5 rounded-lg bg-bg-secondary border border-border-card focus:border-cyan focus:ring-0 outline-none transition-colors text-ink-primary placeholder:text-ink-tertiary"
                   />
                   {errors.company && (
-                    <p className="text-red-500 text-sm mt-1">{errors.company.message}</p>
+                    <p className="text-danger text-sm mt-1">{errors.company.message}</p>
                   )}
                 </div>
 
@@ -185,23 +185,23 @@ export default function POPIAChecklistPageClient() {
                     type="checkbox"
                     id="consent"
                     disabled={isSubmitting}
-                    className="mt-1 h-4 w-4 rounded border-gray-300 text-electric-cyan focus:ring-electric-cyan"
+                    className="mt-1 h-4 w-4 rounded border-border-strong text-cyan-ink focus:ring-cyan"
                   />
-                  <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">
+                  <label htmlFor="consent" className="text-sm text-ink-secondary leading-relaxed">
                     I agree to receive the POPIA AI Checklist and occasional updates from Maru Online. 
                     I can unsubscribe at any time. View our{" "}
-                    <Link href="/privacy" className="text-electric-cyan hover:underline">Privacy Policy</Link>.
+                    <Link href="/privacy" className="text-cyan-ink hover:underline">Privacy Policy</Link>.
                   </label>
                 </div>
                 {errors.consent && (
-                  <p className="text-red-500 text-sm">{errors.consent.message}</p>
+                  <p className="text-danger text-sm">{errors.consent.message}</p>
                 )}
 
                 {/* Submit */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full h-[60px] flex items-center justify-center gap-3 bg-warm-amber hover:opacity-90 text-deep-navy font-bold text-lg rounded-lg shadow-lg hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
+                  className="w-full h-[60px] flex items-center justify-center gap-3 bg-ochre hover:opacity-90 text-ink-primary font-bold text-lg rounded-lg shadow-lg hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
                 >
                   <Download className="w-5 h-5" />
                   <span>{isSubmitting ? "Sending..." : "Download Free Checklist"}</span>
@@ -215,8 +215,8 @@ export default function POPIAChecklistPageClient() {
                     animate={{ opacity: 1, y: 0 }}
                     className={`p-4 rounded-lg text-sm font-medium ${
                       formStatus.success
-                        ? "bg-green-50 text-green-800 border border-green-200"
-                        : "bg-red-50 text-red-800 border border-red-200"
+                        ? "bg-success-tint text-success border border-success-border"
+                        : "bg-danger-tint text-danger border border-danger-border"
                     }`}
                   >
                     {formStatus.message}
@@ -224,9 +224,9 @@ export default function POPIAChecklistPageClient() {
                 )}
 
                 {/* Trust Badge */}
-                <div className="flex items-center justify-center gap-2 pt-4 border-t border-gray-100">
-                  <Shield className="w-4 h-4 text-gray-400" />
-                  <span className="text-xs text-gray-400">POPIA-compliant form. Your data is secure.</span>
+                <div className="flex items-center justify-center gap-2 pt-4 border-t border-border-card">
+                  <Shield className="w-4 h-4 text-ink-tertiary" />
+                  <span className="text-xs text-ink-tertiary">POPIA-compliant form. Your data is secure.</span>
                 </div>
               </form>
             </motion.div>
@@ -236,12 +236,12 @@ export default function POPIAChecklistPageClient() {
       </section>
 
       {/* Warning Banner */}
-      <section className="bg-warm-amber/10 border-y border-warm-amber/20 py-8">
+      <section className="bg-ochre-tint border-y border-[var(--color-ochre-border)] py-8">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-center gap-4 text-center">
-            <AlertTriangle className="w-6 h-6 text-warm-amber shrink-0" />
+            <AlertTriangle className="w-6 h-6 text-ochre-ink shrink-0" />
             <p className="text-white/90">
-              <strong className="text-warm-amber">Don't wait for an audit.</strong> The Information Regulator is actively investigating AI-related POPIA violations. Get compliant today.
+              <strong className="text-ochre-ink">Don't wait for an audit.</strong> The Information Regulator is actively investigating AI-related POPIA violations. Get compliant today.
             </p>
           </div>
         </div>
@@ -256,7 +256,7 @@ export default function POPIAChecklistPageClient() {
             viewport={{ once: true }}
           >
             <h2 className="text-[34px] md:text-[48px] font-thin text-white mb-6">
-              Need Help <span className="font-bold text-electric-cyan">Implementing</span> Changes?
+              Need Help <span className="font-bold text-cyan-ink">Implementing</span> Changes?
             </h2>
             <p className="text-white/70 mb-8 leading-relaxed">
               We help South African SMEs operationalize AI while staying POPIA-compliant.
@@ -264,7 +264,7 @@ export default function POPIAChecklistPageClient() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 bg-electric-cyan hover:bg-cyan-400 text-deep-navy font-bold px-8 py-4 rounded-lg transition-all hover:-translate-y-1 shadow-lg"
+              className="inline-flex items-center gap-3 bg-cyan hover:bg-cyan text-ink-primary font-bold px-8 py-4 rounded-lg transition-all hover:-translate-y-1 shadow-lg"
             >
               Book Free Consultation
               <ArrowRight className="w-5 h-5" />

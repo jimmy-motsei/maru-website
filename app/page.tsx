@@ -60,7 +60,7 @@ export default function Home() {
     <>
       {/* ════════════════════════════════════════════════════════════════════
           SECTION 01 — HERO
-          bg: navy-deep (#0D1B2A)
+          bg: navy-deep
           ════════════════════════════════════════════════════════════════════ */}
       <section
         className={`relative min-h-screen flex items-center ${outerPad} pt-28 sm:pt-36 md:pt-48 pb-16 sm:pb-24 md:pb-32`}

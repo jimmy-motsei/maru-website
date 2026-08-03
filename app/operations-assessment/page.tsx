@@ -282,7 +282,7 @@ function AssessmentWizard() {
       />
 
       {/* Progress bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-color-bg-secondary">
+      <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-bg-secondary">
         <div
           className="h-full bg-cyan transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
@@ -302,7 +302,7 @@ function AssessmentWizard() {
               10 questions across 5 operational areas. About 3 minutes.
             </p>
 
-            <div className="bg-color-cyan-light border border-cyan/20 rounded-lg p-6 mb-6">
+            <div className="bg-cyan-light border border-cyan/20 rounded-lg p-6 mb-6">
               <p className="text-ink-primary text-base font-medium leading-relaxed mb-3">
                 Answer based on how things actually work today — not how you want them to work. The more honest your answers, the more useful your result.
               </p>
@@ -316,9 +316,9 @@ function AssessmentWizard() {
               {areas.map((a) => (
                 <div
                   key={a.index}
-                  className="flex items-center gap-3 bg-color-bg-canvas border border-color-border-default rounded-lg px-4 py-3"
+                  className="flex items-center gap-3 bg-bg-canvas border border-border-default rounded-lg px-4 py-3"
                 >
-                  <span className="text-xs font-mono text-cyan w-4">{a.index}</span>
+                  <span className="text-xs font-mono text-cyan-ink w-4">{a.index}</span>
                   <span className="text-ink-secondary text-sm">{a.label}</span>
                 </div>
               ))}
@@ -362,7 +362,7 @@ function AssessmentWizard() {
                 return (
                   <div
                     key={area.areaKey}
-                    className="flex items-center justify-between rounded-lg px-5 py-4 border border-color-border-default bg-color-bg-canvas"
+                    className="flex items-center justify-between rounded-lg px-5 py-4 border border-border-default bg-bg-canvas"
                   >
                     <span className="text-ink-primary text-sm font-medium">{area.area}</span>
                     <span
@@ -376,7 +376,7 @@ function AssessmentWizard() {
               })}
             </div>
 
-            <div className="bg-color-cyan-light border border-cyan/20 rounded-lg p-6 mb-8">
+            <div className="bg-cyan-light border border-cyan/20 rounded-lg p-6 mb-8">
               <p className="text-ink-primary font-semibold mb-2">
                 Your detailed report goes deeper.
               </p>
@@ -415,7 +415,7 @@ function AssessmentWizard() {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="First name is fine"
                   required
-                  className="w-full rounded-xl border border-color-border-default bg-color-bg-canvas px-4 py-3 text-sm text-ink-primary placeholder-ink-tertiary outline-none transition focus:border-cyan"
+                  className="w-full rounded-xl border border-border-default bg-bg-canvas px-4 py-3 text-sm text-ink-primary placeholder-ink-tertiary outline-none transition focus:border-cyan"
                 />
               </div>
 
@@ -427,7 +427,7 @@ function AssessmentWizard() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@yourbusiness.com"
                   required
-                  className="w-full rounded-xl border border-color-border-default bg-color-bg-canvas px-4 py-3 text-sm text-ink-primary placeholder-ink-tertiary outline-none transition focus:border-cyan"
+                  className="w-full rounded-xl border border-border-default bg-bg-canvas px-4 py-3 text-sm text-ink-primary placeholder-ink-tertiary outline-none transition focus:border-cyan"
                 />
               </div>
 
@@ -441,12 +441,12 @@ function AssessmentWizard() {
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
                   placeholder="yourbusiness.com"
-                  className="w-full rounded-xl border border-color-border-default bg-color-bg-canvas px-4 py-3 text-sm text-ink-primary placeholder-ink-tertiary outline-none transition focus:border-cyan"
+                  className="w-full rounded-xl border border-border-default bg-bg-canvas px-4 py-3 text-sm text-ink-primary placeholder-ink-tertiary outline-none transition focus:border-cyan"
                 />
               </div>
 
               {submitError && (
-                <p className="text-red-600 text-sm">{submitError}</p>
+                <p className="text-danger text-sm">{submitError}</p>
               )}
 
               <Button
@@ -468,7 +468,7 @@ function AssessmentWizard() {
         {/* ── DONE ──────────────────────────────────────────────────────── */}
         {step === "done" && (
           <div className="animate-fade-in text-center">
-            <div className="inline-block bg-color-cyan-light border border-cyan/20 rounded-full p-6 mb-6">
+            <div className="inline-block bg-cyan-light border border-cyan/20 rounded-full p-6 mb-6">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
                 <path d="M20 6L9 17l-5-5" stroke="var(--color-cyan)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -481,7 +481,7 @@ function AssessmentWizard() {
               Check your inbox for a link to your personalised report — your findings across all five operational areas and a recommended next step.
             </p>
 
-            <div className="bg-color-bg-canvas border border-color-border-default rounded-lg p-6 text-left mb-8">
+            <div className="bg-bg-canvas border border-border-default rounded-lg p-6 text-left mb-8">
               <p className="text-ink-primary font-semibold text-base mb-2">
                 While you wait:
               </p>
@@ -490,7 +490,7 @@ function AssessmentWizard() {
               </p>
             </div>
 
-            <Link href="/" className="text-cyan text-sm hover:underline">
+            <Link href="/" className="text-cyan-ink text-sm hover:underline">
               ← Back to Maru Online
             </Link>
           </div>
@@ -539,7 +539,7 @@ function QuestionStep({
       {isFirstInArea && (
         <div className="flex items-center gap-2 mb-4">
           <div className="w-1.5 h-1.5 rounded-full bg-cyan" />
-          <p className="text-xs font-mono text-cyan tracking-widest uppercase">
+          <p className="text-xs font-mono text-cyan-ink tracking-widest uppercase">
             Area {question.areaIndex} of 5 — {question.area}
           </p>
         </div>
@@ -569,7 +569,7 @@ function QuestionStep({
             className={`w-full text-left border rounded-lg px-5 py-4 text-base font-medium leading-relaxed transition-all cursor-pointer ${
               selected === option.value
                 ? "border-cyan text-ink-primary bg-cyan/10"
-                : "border-color-border-default text-ink-secondary bg-color-bg-canvas hover:border-cyan hover:bg-cyan/5 hover:text-cyan"
+                : "border-border-default text-ink-secondary bg-bg-canvas hover:border-cyan hover:bg-cyan/5 hover:text-cyan-ink"
             }`}
           >
             {option.label}

@@ -34,7 +34,7 @@ const base =
 const variantClasses: Record<ButtonVariant, string> = {
   // Warm Stone: gold gradient fill — dark navy text, resting + hover shadows
   primary:
-    'px-6 py-2.5 [background:var(--gradient-gold)] text-[var(--color-navy)] border-0 ' +
+    'px-6 py-2.5 [background:var(--gradient-gold)] text-[var(--color-ink-on-gold)] border-0 ' +
     'shadow-[var(--shadow-btn)] ' +
     'hover:scale-[1.02] hover:shadow-[var(--shadow-btn-hover)] hover:brightness-105 ' +
     'active:scale-[0.98] active:brightness-95 active:shadow-[var(--shadow-btn)] ' +
@@ -58,8 +58,8 @@ const variantClasses: Record<ButtonVariant, string> = {
   // The → character is appended inside the component so callers
   // only need to pass the label text.
   tertiary:
-    'rounded-none text-cyan no-underline ' +
-    'hover:text-cyan-dark hover:underline hover:underline-offset-4 ' +
+    'rounded-none text-cyan-ink no-underline ' +
+    'hover:text-cyan hover:underline hover:underline-offset-4 ' +
     'active:opacity-70 ' +
     'focus-visible:underline focus-visible:underline-offset-4 focus-visible:shadow-[0_0_0_2px_rgba(61,184,198,0.4)]',
 }

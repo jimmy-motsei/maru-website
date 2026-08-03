@@ -10,37 +10,47 @@ export default async function PartnerLandingPage(props: Props) {
   const partnerName = partnerId.charAt(0).toUpperCase() + partnerId.slice(1).replace(/-/g, ' ');
 
   return (
-    <main className="min-h-screen bg-white relative overflow-hidden">
-      {/* Re-using AtmosphericBackground effectively creates a consistent 'Maru' feel even on white pages 
-          by adding subtle texture/glow if adapted, but here we'll stick to clean B2B as requested */}
-       <div className="absolute inset-0 bg-slate-50 -z-10" />
-
+    <main
+      className="min-h-screen relative overflow-hidden"
+      style={{ background: 'var(--gradient-surface)' }}
+    >
       <section className="container mx-auto px-6 py-24 flex flex-col items-center justify-center min-h-[80vh] text-center">
-        <div className="mb-8 p-4 bg-blue-50 rounded-full inline-block">
-             <span className="text-blue-600 font-semibold uppercase tracking-wider text-sm">
-                Exclusive Partner Offer
-             </span>
+        <div
+          className="mb-8 px-5 py-2 rounded-full inline-block"
+          style={{
+            backgroundColor: 'var(--color-cyan-light)',
+            border: '1px solid var(--color-cyan)',
+          }}
+        >
+          <span className="text-cyan-ink font-semibold uppercase tracking-wider text-sm">
+            Partner offer
+          </span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 max-w-4xl">
-          Welcome clients of <span className="text-blue-600">{partnerName}</span>!
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-4xl text-ink-primary">
+          Welcome, clients of{' '}
+          <span style={{ color: 'var(--color-gold-antique)' }}>{partnerName}</span>
         </h1>
 
-        <p className="text-xl text-slate-600 mb-12 max-w-2xl leading-relaxed">
-          As a valued partner of {partnerName}, you are eligible for a complimentary digital performance audit. 
-          Identify hidden gaps in your marketing funnel today.
+        <p className="text-xl mb-12 max-w-2xl leading-relaxed text-ink-secondary">
+          As a client of {partnerName}, you are eligible for a complimentary
+          digital performance audit — a short review that shows where your
+          marketing funnel is leaking.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
-            <a href="https://leads.maruonline.com" target="_blank" rel="noopener noreferrer">
-                <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl text-lg w-full sm:w-auto">
-                    Claim Your Free Digital Audit
-                </button>
-            </a>
+          <a
+            href="https://leads.maruonline.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center font-body font-bold text-[13px] tracking-[0.15em] uppercase rounded-[8px] min-h-[44px] px-8 py-4 [background:var(--gradient-gold)] text-[var(--color-ink-on-gold)] shadow-[var(--shadow-btn)] transition-[transform,box-shadow,filter] duration-200 ease-out hover:scale-[1.02] hover:brightness-105 hover:shadow-[var(--shadow-btn-hover)] active:scale-[0.98]"
+          >
+            Claim your free digital audit
+          </a>
         </div>
-        
-        <p className="mt-8 text-sm text-slate-400">
-            Limited time offer for {partnerName} network.
+
+        <p className="mt-8 text-sm text-ink-tertiary">
+          Available to the {partnerName} network.
         </p>
       </section>
     </main>

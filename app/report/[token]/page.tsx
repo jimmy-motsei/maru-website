@@ -135,10 +135,10 @@ export default async function ReportPage({
     <div className="min-h-screen" style={{ backgroundColor: "#F7F8FA", fontFamily: "system-ui, -apple-system, sans-serif" }}>
 
       {/* ── Header ──────────────────────────────────────────────────────── */}
-      <header style={{ backgroundColor: "#0D1B2A", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <header style={{ backgroundColor: "var(--color-ink-primary)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <div style={{ maxWidth: 760, margin: "0 auto", padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Link href="/" style={{ color: "white", fontWeight: 600, fontSize: 18, textDecoration: "none", letterSpacing: "-0.02em" }}>
-            <span style={{ color: "#04B3CC" }}>M</span>
+            <span style={{ color: "var(--color-cyan)" }}>M</span>
             <span>aru Online</span>
           </Link>
           <span style={{ fontSize: 11, fontFamily: "monospace", color: "rgba(255,255,255,0.35)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
@@ -148,9 +148,9 @@ export default async function ReportPage({
       </header>
 
       {/* ── Report banner ───────────────────────────────────────────────── */}
-      <div style={{ backgroundColor: "#0D1B2A", borderBottom: "1px solid rgba(255,255,255,0.07)", paddingBottom: 32 }}>
+      <div style={{ backgroundColor: "var(--color-ink-primary)", borderBottom: "1px solid rgba(255,255,255,0.07)", paddingBottom: 32 }}>
         <div style={{ maxWidth: 760, margin: "0 auto", padding: "32px 24px 0" }}>
-          <p style={{ fontSize: 11, fontFamily: "monospace", color: "#04B3CC", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>
+          <p style={{ fontSize: 11, fontFamily: "monospace", color: "var(--color-cyan)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>
             Your report
           </p>
           <h1 style={{ fontSize: 26, fontWeight: 600, color: "white", margin: "0 0 12px", lineHeight: 1.3 }}>
@@ -159,8 +159,8 @@ export default async function ReportPage({
           <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
             <span style={{
               fontSize: 11, fontFamily: "monospace", padding: "4px 12px",
-              borderRadius: 20, border: "1px solid rgba(4,179,204,0.4)",
-              background: "rgba(4,179,204,0.1)", color: "#04B3CC",
+              borderRadius: 20, border: "1px solid rgba(61,184,198,0.4)",
+              background: "rgba(61,184,198,0.1)", color: "var(--color-cyan)",
               letterSpacing: "0.1em", textTransform: "uppercase",
             }}>
               {levelLabel}
@@ -286,9 +286,9 @@ export default async function ReportPage({
 
         {/* ── NEXT STEP CTA ──────────────────────────────────────────────── */}
         <div style={{
-          backgroundColor: "#0D1B2A", borderRadius: 12, padding: "40px 36px", marginBottom: 32,
+          backgroundColor: "var(--color-ink-primary)", borderRadius: 12, padding: "40px 36px", marginBottom: 32,
         }}>
-          <p style={{ fontSize: 11, fontFamily: "monospace", color: "#04B3CC", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>
+          <p style={{ fontSize: 11, fontFamily: "monospace", color: "var(--color-cyan)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>
             Next step
           </p>
           <h2 style={{ fontSize: 22, fontWeight: 600, color: "white", margin: "0 0 16px", lineHeight: 1.3 }}>
@@ -305,8 +305,8 @@ export default async function ReportPage({
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              display: "inline-block", backgroundColor: "#04B3CC",
-              color: "#0D1B2A", fontWeight: 700, padding: "14px 28px",
+              display: "inline-block", backgroundColor: "var(--color-cyan)",
+              color: "var(--color-ink-primary)", fontWeight: 700, padding: "14px 28px",
               borderRadius: 8, textDecoration: "none", fontSize: 15,
             }}
           >
@@ -319,7 +319,7 @@ export default async function ReportPage({
           background: "#EBF8FF", border: "1px solid #63B3ED",
           borderRadius: 8, padding: "20px 24px", marginBottom: 48,
         }}>
-          <p style={{ fontWeight: 600, color: "#0D1B2A", fontSize: 14, margin: "0 0 8px" }}>
+          <p style={{ fontWeight: 600, color: "var(--color-ink-primary)", fontSize: 14, margin: "0 0 8px" }}>
             Not ready to book yet?
           </p>
           <p style={{ color: "#2D4A60", fontSize: 14, lineHeight: 1.6, margin: "0 0 12px" }}>
@@ -458,7 +458,7 @@ function AreaCard({
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p style={{
-      fontSize: 11, fontFamily: "monospace", color: "#04B3CC",
+      fontSize: 11, fontFamily: "monospace", color: "var(--color-cyan)",
       letterSpacing: "0.12em", textTransform: "uppercase",
       marginBottom: 16, fontWeight: 600,
     }}>

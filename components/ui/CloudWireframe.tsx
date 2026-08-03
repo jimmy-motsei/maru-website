@@ -55,14 +55,14 @@ export function CloudWireframe({
         {/* Connection Nodes (Circles) - Only visual if enabled */}
         {showNodes && (
           <>
-            <circle cx="300" cy="200" r="4" fill="currentColor" className="text-cyan-400" opacity="0.8" />
-            <circle cx="450" cy="150" r="3" fill="currentColor" className="text-cyan-400" opacity="0.6" />
-            <circle cx="550" cy="280" r="5" fill="currentColor" className="text-cyan-400" opacity="0.7" />
-            <circle cx="200" cy="300" r="3" fill="currentColor" className="text-cyan-400" opacity="0.6" />
+            <circle cx="300" cy="200" r="4" fill="currentColor" className="text-cyan" opacity="0.8" />
+            <circle cx="450" cy="150" r="3" fill="currentColor" className="text-cyan" opacity="0.6" />
+            <circle cx="550" cy="280" r="5" fill="currentColor" className="text-cyan" opacity="0.7" />
+            <circle cx="200" cy="300" r="3" fill="currentColor" className="text-cyan" opacity="0.6" />
             
             {/* Extra nodes for density */}
-            <circle cx="150" cy="350" r="3" fill="currentColor" className="text-cyan-400" opacity="0.5" />
-            <circle cx="620" cy="360" r="4" fill="currentColor" className="text-cyan-400" opacity="0.7" />
+            <circle cx="150" cy="350" r="3" fill="currentColor" className="text-cyan" opacity="0.5" />
+            <circle cx="620" cy="360" r="4" fill="currentColor" className="text-cyan" opacity="0.7" />
           </>
         )}
 

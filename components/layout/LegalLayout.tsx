@@ -23,63 +23,81 @@ export function LegalLayout({
 }: LegalLayoutProps) {
   return (
     <>
-      {/* Banner */}
-      <div className="bg-bg-navy-deep pt-32 pb-16">
+      {/* ── Hero — the one dark surface on these pages ─────────────────────── */}
+      <div
+        className="pt-32 pb-16"
+        style={{ backgroundColor: "var(--color-bg-navy)" }}
+      >
         <div className="container mx-auto px-6 lg:px-8">
-          <nav className="flex gap-2 text-sm text-light-soft mb-8">
-            <Link href="/" className="hover:text-accent transition-colors">
+          <nav
+            aria-label="Breadcrumb"
+            className="flex gap-2 text-sm mb-8"
+            style={{ color: "rgba(250,250,248,0.55)" }}
+          >
+            <Link
+              href="/"
+              className="transition-colors hover:text-cyan"
+              style={{ color: "inherit" }}
+            >
               Homepage
             </Link>
-            <span>/</span>
-            <span className="text-white">{title}</span>
+            <span aria-hidden="true">/</span>
+            <span style={{ color: "var(--color-ink-inverted)" }}>{title}</span>
           </nav>
-          <h1 className="text-h1 font-medium text-white mb-14 leading-[1.2]">
+          <h1
+            className="text-h1 font-medium mb-8 leading-[1.2]"
+            style={{ color: "var(--color-ink-inverted)" }}
+          >
             {title}
           </h1>
-          <p className="text-light-soft max-w-2xl">{description}</p>
+          <p
+            className="max-w-2xl"
+            style={{ color: "rgba(250,250,248,0.75)" }}
+          >
+            {description}
+          </p>
         </div>
       </div>
 
-      {/* Content */}
-      <section className="bg-bg-navy-deep py-16 lg:py-24">
+      {/* ── Content — Warm Stone ground ────────────────────────────────────── */}
+      <section
+        className="py-16 lg:py-24"
+        style={{ background: "var(--gradient-surface)" }}
+      >
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-3">
               {(lastUpdated || effectiveDate) && (
-                <div className="mb-12 text-light-soft">
+                <div className="mb-12 text-ink-secondary">
                   {lastUpdated && (
                     <p>
-                      <strong className="text-white">Last updated:</strong>{" "}
-                      {lastUpdated}
+                      <strong>Last updated:</strong> {lastUpdated}
                     </p>
                   )}
                   {effectiveDate && (
                     <p>
-                      <strong className="text-white">Effective date:</strong>{" "}
-                      {effectiveDate}
+                      <strong>Effective date:</strong> {effectiveDate}
                     </p>
                   )}
                 </div>
               )}
-              <div className="prose prose-invert prose-lg max-w-none">
-                {children}
-              </div>
+              <div className="legal-prose max-w-none">{children}</div>
             </div>
 
             {/* Sidebar */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-32 space-y-8">
-                <div>
-                  <h4 className="text-white font-medium mb-4">
-                    Legal Documents
+            <aside className="lg:col-span-1">
+              <div className="sticky top-32 space-y-6">
+                <div className="card-lift rounded-lg p-6">
+                  <h4 className="font-medium mb-4 text-ink-primary">
+                    Legal documents
                   </h4>
                   <ul className="space-y-3">
                     {legalLinks.map((link) => (
                       <li key={link.name}>
                         <Link
                           href={link.href}
-                          className="text-light-soft hover:text-accent transition-colors"
+                          className="text-ink-secondary transition-colors hover:text-cyan-ink"
                         >
                           {link.name}
                         </Link>
@@ -88,21 +106,24 @@ export function LegalLayout({
                   </ul>
                 </div>
 
-                <div>
-                  <h4 className="text-white font-medium mb-4">Need Help?</h4>
-                  <p className="text-light-soft text-sm mb-4">
+                <div className="card-lift rounded-lg p-6">
+                  <h4 className="font-medium mb-4 text-ink-primary">
+                    Need help?
+                  </h4>
+                  <p className="text-ink-secondary text-sm mb-4">
                     If you have questions about our policies, please contact us.
                   </p>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 text-accent hover:text-accent-light transition-colors"
+                    className="inline-flex items-center gap-2 text-cyan-ink transition-colors hover:text-cyan"
                   >
-                    Contact Us
+                    Contact us
                     <svg
                       className="w-4 h-4"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
+                      aria-hidden="true"
                     >
                       <path
                         strokeLinecap="round"
@@ -114,7 +135,7 @@ export function LegalLayout({
                   </Link>
                 </div>
               </div>
-            </div>
+            </aside>
           </div>
         </div>
       </section>
