@@ -478,11 +478,17 @@ function AssessmentWizard() {
                 variant="primary"
                 className="w-full mt-2"
               >
-                {submitting ? "Sending your report..." : "Send my report"}
+                {submitting ? "Building your report..." : "Send my report"}
               </Button>
 
+              {/* The route writes the report with Claude before it answers, which
+                  measures ~25s. Unannounced, that reads as a broken button and
+                  people resubmit — which bills a second synthesis and sends a
+                  second email. Naming the wait is what stops that. */}
               <p className="text-ink-tertiary text-xs text-center leading-relaxed">
-                No spam. Unsubscribe any time.
+                {submitting
+                  ? "This takes about 30 seconds — we are writing your report now. Please keep this page open."
+                  : "No spam. Unsubscribe any time."}
               </p>
             </form>
           </div>
