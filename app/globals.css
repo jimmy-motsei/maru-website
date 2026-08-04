@@ -710,10 +710,28 @@
     background: var(--color-gold-light);
     color: var(--color-gold-antique);
   }
+  /* Larger chip for cards where the icon carries the message rather than
+     decorating it — the three headline service cards. Ring is the chip's own
+     tint, so it reads as emphasis rather than a second border. */
+  .glyph-chip-lg {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px rgba(205, 170, 83, 0.20),
+                0 1px 3px rgba(38, 32, 20, 0.06);
+  }
   .card-lift:hover .glyph-chip,
   .card-lift:focus-within .glyph-chip,
   .foundation-cell:hover .glyph-chip {
     transform: scale(1.08) rotate(-3deg);
+  }
+  /* The larger chip leans harder into the gesture and deepens its tint, so the
+     icon is the thing that answers a hover. */
+  .card-lift:hover .glyph-chip-lg,
+  .card-lift:focus-within .glyph-chip-lg {
+    transform: scale(1.12) rotate(-4deg);
+    box-shadow: 0 0 0 1px rgba(205, 170, 83, 0.38),
+                0 4px 10px rgba(38, 32, 20, 0.10);
   }
 
   /* Flush-grid cells (foundation services). No lift — the 1px gaps are the

@@ -318,18 +318,12 @@ export default function Home() {
             </p>
           </FadeUp>
 
-          {/* Flush 3-column grid — gap IS the divider */}
-          <div
-            className="grid grid-cols-1 md:grid-cols-3"
-            style={{
-              gap: "1px",
-              background: "var(--color-border-card)",
-              border: "0.5px solid var(--color-border-card)",
-              borderRadius: "8px",
-              overflow: "hidden",
-              boxShadow: "0 1px 2px rgba(38, 32, 20, 0.05), 0 4px 12px rgba(38, 32, 20, 0.07)",
-            }}
-          >
+          {/* Three discrete cards. Previously a flush grid whose 1px gaps were
+              the dividers — stacked on mobile that read as one undifferentiated
+              slab, so the cards now stand apart and each carries its own edge
+              and elevation via .card-lift. Entrance is staggered so the set
+              arrives as three things, not one. */}
+          <StaggerParent className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
             {[
               {
                 ghost: "01",
@@ -365,16 +359,16 @@ export default function Home() {
                 ],
               },
             ].map((col) => (
+              <StaggerChild key={col.ghost} className="h-full">
               <div
-                key={col.ghost}
-                className="foundation-cell"
+                className="card-lift h-full rounded-[10px]"
                 style={{ padding: "1.75rem 1.5rem" }}
               >
                 {/* Glyph carries the category; the ghost number stays as a
                     faint ordinal so the three columns still read as a set. */}
-                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.125rem" }}>
-                  <span className="glyph-chip glyph-chip-gold">
-                    <Glyph name={col.icon} size={22} />
+                <div style={{ display: "flex", alignItems: "center", gap: "0.875rem", marginBottom: "1.25rem" }}>
+                  <span className="glyph-chip glyph-chip-gold glyph-chip-lg">
+                    <Glyph name={col.icon} size={28} />
                   </span>
                   <span
                     style={{
@@ -462,8 +456,9 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
+              </StaggerChild>
             ))}
-          </div>
+          </StaggerParent>
         </div>
       </section>
 
