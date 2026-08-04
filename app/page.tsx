@@ -10,8 +10,10 @@ import MaruM from "@/components/ui/MaruM";
 import DisconnectDiagram from "@/components/ui/DisconnectDiagram";
 import StatBand from "@/components/ui/StatBand";
 import Glyph from "@/components/ui/Glyph";
+import { seo } from '@/lib/seo'
 
 export const metadata: Metadata = {
+  ...seo('/'),
   title: "Cut Your Operating Costs With AI-Powered Workflows | Maru Online",
   description:
     "We help businesses cut operating costs by building AI-powered workflows where it matters most. Book a discovery call.",

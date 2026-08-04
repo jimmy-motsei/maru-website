@@ -99,6 +99,29 @@ const nextConfig: NextConfig = {
         destination: '/operations-assessment',
         permanent: true,
       },
+      // Short URLs that used to be vercel.json rewrites into /assessments/*.
+      // Those routes no longer exist, so the rewrites resolved to nothing —
+      // these are redirects now, not internal rewrites. (T7)
+      {
+        source: '/lead-score',
+        destination: '/operations-assessment',
+        permanent: true,
+      },
+      {
+        source: '/pipeline-audit',
+        destination: '/operations-assessment',
+        permanent: true,
+      },
+      {
+        source: '/proposal-generator',
+        destination: '/operations-assessment',
+        permanent: true,
+      },
+      {
+        source: '/tech-audit',
+        destination: '/operations-assessment',
+        permanent: true,
+      },
       // Consolidated scoring tools
       {
         source: '/assessments/lead-score',

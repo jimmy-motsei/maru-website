@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import { LegalLayout } from "@/components/layout/LegalLayout";
+import { seo } from '@/lib/seo'
 
 export const metadata: Metadata = {
+  ...seo('/privacy-policy'),
   title: "Privacy Policy | Maru AI - PAIA Compliant | South Africa",
   description:
     "Review Maru's privacy policy outlining how we collect, use, and protect personal information in line with POPIA and GDPR.",

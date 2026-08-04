@@ -4,8 +4,10 @@ import Button from "@/components/ui/Button";
 import CardNavy from "@/components/ui/CardNavy";
 import CardProof from "@/components/ui/CardProof";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
+import { seo } from '@/lib/seo'
 
 export const metadata: Metadata = {
+  ...seo('/about'),
   title: "Why Maru Online Exists — Our Mission, Approach & Values",
   description:
     "We built Maru Online to fix the specific problem of AI projects that get bought, never used, and quietly forgotten. Mission, approach, and values.",

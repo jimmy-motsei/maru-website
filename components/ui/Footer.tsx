@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import WhatsAppWidget from './WhatsAppWidget'
+import { TrackedLink } from '@/components/analytics/TrackedLink'
 import { footerNavigation } from '@/data/footer-navigation'
 
 // ─── Animation variants ───────────────────────────────────────────────────────
@@ -154,24 +155,28 @@ export default function Footer() {
                 </h4>
                 <ul className="flex flex-col gap-3 list-none m-0 p-0">
                   <li>
-                    <a
+                    <TrackedLink
                       href="mailto:hello@maruonline.com"
+                      event="email_click"
+                      eventData={{ source: 'footer' }}
                       className={linkClass}
                       style={{ color: 'var(--color-ink-inverted-muted)' }}
                     >
                       hello@maruonline.com
-                    </a>
+                    </TrackedLink>
                   </li>
                   <li>
-                    <a
+                    <TrackedLink
                       href="https://wa.me/27635643263"
+                      event="whatsapp_click"
+                      eventData={{ source: 'footer' }}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`${linkClass} hover:!text-[#25D366]`}
                       style={{ color: 'var(--color-ink-inverted-muted)' }}
                     >
                       WhatsApp
-                    </a>
+                    </TrackedLink>
                   </li>
                   <li
                     className="font-body text-[13px] font-light"

@@ -1,12 +1,15 @@
 import { Metadata } from 'next'
 import ContactFormWithRecaptcha from './ContactFormWithRecaptcha'
 import Button from '@/components/ui/Button'
+import { TrackedLink } from '@/components/analytics/TrackedLink'
 import { FadeUp } from '@/components/ui/Animate'
 import { BGPattern } from '@/components/ui/bg-pattern'
+import { seo } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title:       'Contact | Maru Online',
   description: "Two ways to start — the Operations Assessment or a 20-minute discovery call. You speak directly with Jimmy.",
+  ...seo('/contact'),
 }
 
 const outerPad    = 'px-6 md:px-[60px]'
@@ -149,8 +152,10 @@ export default function ContactPage() {
                       >
                         WhatsApp — fastest
                       </p>
-                      <a
+                      <TrackedLink
                         href="https://wa.me/27635643263"
+                        event="whatsapp_click"
+                        eventData={{ source: 'contact_page' }}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Chat on WhatsApp"
@@ -200,7 +205,7 @@ export default function ContactPage() {
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                           </svg>
                         </span>
-                      </a>
+                      </TrackedLink>
                       <p
                         style={{
                           fontFamily: 'var(--font-body)',
@@ -228,20 +233,22 @@ export default function ContactPage() {
                       >
                         Email
                       </p>
-                      <a
+                      <TrackedLink
                         href="mailto:hello@maruonline.com"
+                        event="email_click"
+                        eventData={{ source: 'contact_page' }}
                         style={{
                           fontFamily:     'var(--font-body)',
                           fontSize:       'var(--text-body)',
                           fontWeight:     300,
-                          color:          'var(--color-cyan)',
+                          color:          'var(--color-cyan-ink)',
                           textDecoration: 'none',
                           display:        'block',
                           marginBottom:   '0.25rem',
                         }}
                       >
                         hello@maruonline.com
-                      </a>
+                      </TrackedLink>
                       <p
                         style={{
                           fontFamily: 'var(--font-body)',

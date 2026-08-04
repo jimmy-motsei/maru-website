@@ -5,10 +5,13 @@ import ListItem from '@/components/ui/ListItem'
 import ListGroup from '@/components/ui/ListGroup'
 import { FadeUp, StaggerParent, StaggerChild } from '@/components/ui/Animate'
 import AccordionFAQ from '@/components/ui/AccordionFAQ'
+import { seo } from '@/lib/seo'
+import { FaqJsonLd } from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = {
   title:       'Pricing | Maru Online',
   description: 'Every Maru engagement begins with the Operations Diagnostic. Fixed scope, fixed price, clear deliverables at every stage. No surprises.',
+  ...seo('/pricing'),
 }
 
 const outerPad    = 'px-6 md:px-[60px]'
@@ -99,6 +102,7 @@ const faqs = [
 export default function PricingPage() {
   return (
     <>
+      <FaqJsonLd items={faqs} />
       {/* ════════════════════════════════════════════════════════════════════
           HERO
           ════════════════════════════════════════════════════════════════════ */}

@@ -54,6 +54,7 @@ const EXEMPT = {
     "components/ui/Glyph.tsx",      // icon geometry, no colour decisions
     "app/design-system/page.tsx",   // the swatch sheet must print literal values
     "app/global-error.tsx",         // replaces the root layout — no globals.css, so literals only
+    "app/opengraph-image.tsx",      // Satori renders outside the DOM — CSS variables do not resolve
   ],
   stock: [],
 };

@@ -6,8 +6,10 @@ import Button from "@/components/ui/Button";
 import { MaruBriefForm } from "@/app/resources/MaruBriefForm";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 import { getInsightList, type InsightListItem } from "@/lib/insights/getInsights";
+import { seo } from '@/lib/seo'
 
 export const metadata: Metadata = {
+  ...seo('/insights'),
   title: "Insights | Maru Online",
   description:
     "Practical AI integration thinking for South African SMEs — no vendor fluff, no hype. Real patterns from real engagements.",

@@ -4,8 +4,11 @@ import Button from "@/components/ui/Button";
 import ListItem from "@/components/ui/ListItem";
 import ListGroup from "@/components/ui/ListGroup";
 import { FadeUp } from "@/components/ui/Animate";
+import { seo } from '@/lib/seo'
+import { ServiceJsonLd } from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = {
+  ...seo('/services/workflow-integration'),
   title: "Workflow Integration | Maru Online",
   description:
     "Connect your existing tools. Configure the workflows between them. Fixed-scope, vendor-agnostic.",
@@ -41,6 +44,12 @@ const bullets = [
 export default function WorkflowIntegrationPage() {
   return (
     <>
+      <ServiceJsonLd
+        name="Workflow Integration"
+        description="Connect your existing tools. Configure the workflows between them. Fixed-scope, vendor-agnostic."
+        path="/services/workflow-integration"
+        price="45000"
+      />
       {/* ── Hero ── */}
       <section
         className={`min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}

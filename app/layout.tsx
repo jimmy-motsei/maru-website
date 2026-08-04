@@ -6,6 +6,7 @@ import Footer from '@/components/ui/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import { AnalyticsTracker } from '@/components/AnalyticsTracker'
 import { ConversionTracking } from '@/components/analytics/ConversionTracking'
+import { OrganizationJsonLd } from '@/components/seo/JsonLd'
 import './globals.css'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
@@ -34,14 +35,10 @@ export const metadata: Metadata = {
   title: 'AI & Automation Consultants for Growing SMEs | Maru Online',
   description:
     'We find where your processes are costing you time and money — then build AI-powered workflows that cut costs and free your team. Free assessment.',
-  alternates: {
-    canonical: 'https://maruonline.com',
-  },
   openGraph: {
     type: 'website',
     siteName: 'Maru Online',
     locale: 'en_ZA',
-    url: 'https://maruonline.com',
     title: 'AI That Actually Works for Your Business — Not Just Another Tool',
     description:
       'We connect AI with your existing tools and workflows to automate the work your team shouldn\'t be doing manually. Free assessment for growing SMEs.',
@@ -67,6 +64,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
+        {/* Structured data — makes the business legible to search and to AI assistants */}
+        <OrganizationJsonLd />
+
         {/* GA4 */}
         {GA_ID && <AnalyticsTracker measurementId={GA_ID} />}
 

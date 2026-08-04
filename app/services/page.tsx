@@ -8,8 +8,10 @@ import ListItem from "@/components/ui/ListItem";
 import ListGroup from "@/components/ui/ListGroup";
 import Glyph from "@/components/ui/Glyph";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
+import { seo } from '@/lib/seo'
 
 export const metadata: Metadata = {
+  ...seo('/services'),
   title: "Services | Maru Online",
   description:
     "We configure the connections your business is missing — so your systems share data, your team stops the manual handoffs, and your operation runs the way it should.",

@@ -1,8 +1,10 @@
 import { Metadata } from "next";
 import { LegalLayout } from "@/components/layout/LegalLayout";
 import Link from "next/link";
+import { seo } from '@/lib/seo'
 
 export const metadata: Metadata = {
+  ...seo('/careers'),
   title: "Careers | Join Maru AI | South Africa",
   description:
     "Join the Maru team and help South African SMBs harness the power of AI and automation. Explore career opportunities in AI consulting, development, and marketing.",

@@ -4,8 +4,11 @@ import Button from "@/components/ui/Button";
 import ListItem from "@/components/ui/ListItem";
 import ListGroup from "@/components/ui/ListGroup";
 import { FadeUp } from "@/components/ui/Animate";
+import { seo } from '@/lib/seo'
+import { ServiceJsonLd } from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = {
+  ...seo('/services/operations-diagnostic'),
   title: "Operations Diagnostic | Maru Online",
   description:
     "Map where your operation has gaps — before configuring anything. A structured audit delivered within 48 hours.",
@@ -37,6 +40,12 @@ const bullets = [
 export default function OperationsDiagnosticPage() {
   return (
     <>
+      <ServiceJsonLd
+        name="Operations Diagnostic"
+        description="Map where your operation has gaps \u2014 before configuring anything. A structured audit delivered within 48 hours."
+        path="/services/operations-diagnostic"
+        price="4500"
+      />
       {/* ── Hero ── */}
       <section
         className={`min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}

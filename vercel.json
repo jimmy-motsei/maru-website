@@ -41,23 +41,5 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/lead-score",
-      "destination": "/assessments/lead-score"
-    },
-    {
-      "source": "/pipeline-audit", 
-      "destination": "/assessments/pipeline-leak"
-    },
-    {
-      "source": "/proposal-generator",
-      "destination": "/assessments/proposal"
-    },
-    {
-      "source": "/tech-audit",
-      "destination": "/assessments/tech-audit"
-    }
   ]
 }

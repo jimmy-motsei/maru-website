@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AtmosphericBackground } from "@/components/ui/AtmosphericBackground";
 import { CTAPrimary } from "@/components/ui/CTAPrimary";
+import { seo } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -39,6 +40,7 @@ export async function generateMetadata(props: Props) {
   return {
     title: page.seoTitle || page.title,
     description: page.seoDescription || page.heroSubheading,
+    ...seo(`/${params.slug}`),
   };
 }
 

@@ -9,10 +9,12 @@ import ListItem from '@/components/ui/ListItem'
 import ListGroup from '@/components/ui/ListGroup'
 import ToolsScroller from '@/components/ui/ToolsScroller'
 import { FadeUp, StaggerParent, StaggerChild } from '@/components/ui/Animate'
+import { seo } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title:       'How We Work | Maru Online',
   description: 'A structured four-phase process. Fixed scope, fixed price, clear deliverables at every stage — from the initial diagnostic through to a 30-day measurement report.',
+  ...seo('/process'),
 }
 
 const outerPad    = 'px-6 md:px-[60px]'

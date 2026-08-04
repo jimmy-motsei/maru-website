@@ -2,10 +2,13 @@ import type { Metadata } from 'next'
 import { siteConfig } from '@/config/site'
 import { BGPattern } from '@/components/ui/bg-pattern'
 import { FadeUp } from '@/components/ui/Animate'
+import { BookingTracker } from '@/components/analytics/BookingTracker'
+import { seo } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title:       'Book a Discovery Call | Maru Online',
   description: 'Schedule a free 20-minute discovery call with Jimmy. We\'ll have reviewed your assessment before we speak.',
+  ...seo('/booking'),
 }
 
 const outerPad = 'px-6 md:px-[60px]'
@@ -17,6 +20,8 @@ export default function BookingPage() {
 
   return (
     <>
+      <BookingTracker />
+
       {/* ── Hero ── */}
       <section
         className={`relative ${outerPad} pt-48 pb-16`}

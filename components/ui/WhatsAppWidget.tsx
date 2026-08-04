@@ -1,5 +1,7 @@
 'use client'
 
+import { trackOutbound } from '@/components/analytics/TrackedLink'
+
 // Fixed floating WhatsApp button — full implementation deferred to a later session.
 // Renders a pulse-animated button that opens WhatsApp on tap.
 export default function WhatsAppWidget() {
@@ -9,6 +11,7 @@ export default function WhatsAppWidget() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
+      onClick={() => trackOutbound('whatsapp_click', { source: 'floating_button' })}
       style={{
         position: 'fixed',
         bottom: '24px',

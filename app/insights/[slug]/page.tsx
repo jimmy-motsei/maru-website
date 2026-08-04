@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { PortableText, type PortableTextComponents } from "next-sanity";
 import { getInsightBySlug, getInsightSlugs } from "@/lib/insights/getInsights";
+import { OG_ALT } from "@/lib/seo";
 
 // ─── Static params ─────────────────────────────────────────────────────────────
 
@@ -24,7 +25,11 @@ export async function generateMetadata(
   return {
     title: `${article.seoTitle || article.title} | Maru Online`,
     description,
+    alternates: { canonical: `/insights/${slug}` },
     openGraph: {
+      url: `/insights/${slug}`,
+      siteName: "Maru Online",
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: OG_ALT }],
       title: article.title,
       description,
       type: "article",

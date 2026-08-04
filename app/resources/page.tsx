@@ -3,8 +3,10 @@ import Link from "next/link";
 import { BGPattern } from "@/components/ui/bg-pattern";
 import { FileCheck, Wrench, Clock } from "lucide-react";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
+import { seo } from '@/lib/seo'
 
 export const metadata: Metadata = {
+  ...seo('/resources'),
   title: "Resources | Maru Online",
   description:
     "Practical guides and tools for South African SMEs navigating AI implementation — no vendor fluff.",

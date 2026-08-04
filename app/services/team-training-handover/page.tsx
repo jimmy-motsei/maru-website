@@ -4,8 +4,11 @@ import Button from "@/components/ui/Button";
 import ListItem from "@/components/ui/ListItem";
 import ListGroup from "@/components/ui/ListGroup";
 import { FadeUp } from "@/components/ui/Animate";
+import { seo } from '@/lib/seo'
+import { ServiceJsonLd } from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = {
+  ...seo('/services/team-training-handover'),
   title: "Team Training & Handover | Maru Online",
   description:
     "Your team runs the system. Not us. Hands-on training built around the specific workflows we've configured.",
@@ -41,6 +44,12 @@ const bullets = [
 export default function TeamTrainingHandoverPage() {
   return (
     <>
+      <ServiceJsonLd
+        name="Team Training & Handover"
+        description="Your team runs the system. Not us. Hands-on training built around the specific workflows we've configured."
+        path="/services/team-training-handover"
+        price="15000"
+      />
       {/* ── Hero ── */}
       <section
         className={`min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 interface ConversionEvent {
@@ -11,15 +11,25 @@ interface ConversionEvent {
   step?: string;
 }
 
+/**
+ * Events worth a serverless invocation. Everything else goes to GA4 only.
+ * Two-thirds of traffic is bots; we were paying Vercel to log their pageviews
+ * into a second store nobody reads.
+ */
+const PERSISTED_EVENTS = new Set([
+  'assessment_completed',
+  'email_captured',
+  'whatsapp_click',
+  'email_click',
+  'booking_opened',
+]);
+
 export function ConversionTracking() {
   const pathname = usePathname();
 
-  useEffect(() => {
-    // Track page views
-    trackEvent('page_view', { page: pathname });
-  }, [pathname]);
-
-  const trackEvent = (event: string, data: Partial<ConversionEvent> = {}) => {
+  // NOTE: pageviews are NOT tracked here. AnalyticsTracker is the single
+  // source — this component firing its own page_view double-counted every load.
+  const trackEvent = useCallback((event: string, data: Partial<ConversionEvent> = {}) => {
     const eventData: ConversionEvent = {
       event,
       page: pathname,
@@ -27,17 +37,18 @@ export function ConversionTracking() {
       ...data,
     };
 
-    // Send to analytics (Google Analytics, Mixpanel, etc.)
-    if (typeof window !== 'undefined') {
-      // Google Analytics 4
-      if (window.gtag) {
-        window.gtag('event', event, {
-          page_path: pathname,
-          ...data,
-        });
-      }
+    if (typeof window === 'undefined') return;
 
-      // Custom analytics endpoint
+    // Google Analytics 4
+    if (window.gtag) {
+      window.gtag('event', event, {
+        page_path: pathname,
+        ...data,
+      });
+    }
+
+    // Custom analytics endpoint — real conversions only.
+    if (PERSISTED_EVENTS.has(event)) {
       fetch('/api/analytics', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -46,14 +57,16 @@ export function ConversionTracking() {
         console.error('Analytics failed:', err);
       });
     }
-  };
+  }, [pathname]);
 
-  // Expose tracking function globally
+  // Expose tracking function globally. Re-runs on pathname change — the previous
+  // [] dependency froze the closure on the first route, so every conversion was
+  // attributed to whichever page the visitor happened to land on.
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.trackConversion = trackEvent;
     }
-  }, []);
+  }, [trackEvent]);
 
   return null;
 }

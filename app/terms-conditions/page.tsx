@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
 import { LegalLayout } from "@/components/layout/LegalLayout";
+import { seo } from '@/lib/seo'
 
 export const metadata: Metadata = {
+  ...seo('/terms-conditions'),
   title: 'Terms and Conditions | Maru AI',
   description: 'Terms and conditions for Maru Online AI automation and marketing services.',
 };

@@ -4,8 +4,11 @@ import Button from "@/components/ui/Button";
 import ListItem from "@/components/ui/ListItem";
 import ListGroup from "@/components/ui/ListGroup";
 import { FadeUp } from "@/components/ui/Animate";
+import { seo } from '@/lib/seo'
+import { ServiceJsonLd } from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = {
+  ...seo('/services/results-optimisation'),
   title: "Results Optimisation | Maru Online",
   description:
     "A second sprint when the first one shows what's next. Fixed-scope, data-led, available after a completed build.",
@@ -37,6 +40,12 @@ const bullets = [
 export default function ResultsOptimisationPage() {
   return (
     <>
+      <ServiceJsonLd
+        name="Results Optimisation"
+        description="A second sprint when the first one shows what's next. Fixed-scope, data-led, available after a completed build."
+        path="/services/results-optimisation"
+        price="8500"
+      />
       {/* ── Hero ── */}
       <section
         className={`min-h-[60vh] flex items-center ${outerPad} pt-48 pb-32`}
