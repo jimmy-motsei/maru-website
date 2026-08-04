@@ -8,6 +8,7 @@ export function MaruBriefForm() {
   const [firstName, setFirstName] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading]     = useState(false);
+  const [error, setError]         = useState("");
 
   const inputStyle: React.CSSProperties = {
     flex:          1,
@@ -24,13 +25,24 @@ export function MaruBriefForm() {
     transition:    "border-color 0.15s ease",
   };
 
+  // This used to flip straight to the success state without sending anything —
+  // every subscriber since launch saw "You're in" and was silently discarded,
+  // while /api/newsletter (Brevo list 22 + welcome template) sat fully built and
+  // uncalled. Never show success for work that did not happen.
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
     try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), firstName: firstName.trim() }),
+      });
+      if (!res.ok) throw new Error("Subscribe failed");
       setSubmitted(true);
     } catch {
-      // webhook not yet wired
+      setError("That didn't go through. Please try again, or email hello@maruonline.com.");
     } finally {
       setLoading(false);
     }
@@ -63,26 +75,42 @@ export function MaruBriefForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
-      <input
-        type="text"
-        placeholder="First name"
-        value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
-        required
-        style={inputStyle}
-      />
-      <input
-        type="email"
-        placeholder="Work email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        style={inputStyle}
-      />
-      <Button type="submit" variant="primary" disabled={loading}>
-        {loading ? "Subscribing…" : "Subscribe"}
-      </Button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
+        <input
+          type="text"
+          placeholder="First name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+          style={inputStyle}
+        />
+        <input
+          type="email"
+          placeholder="Work email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          style={inputStyle}
+        />
+        <Button type="submit" variant="primary" disabled={loading}>
+          {loading ? "Subscribing…" : "Subscribe"}
+        </Button>
+      </form>
+
+      {error && (
+        <p
+          className="text-danger"
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize:   "var(--text-meta)",
+            marginTop:  "0.75rem",
+            marginBottom: 0,
+          }}
+        >
+          {error}
+        </p>
+      )}
+    </div>
   );
 }
