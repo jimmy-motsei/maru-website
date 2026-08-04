@@ -92,11 +92,19 @@ Every page load is recorded as two pageviews.
 
 **What's wrong.** The audit concluded `ConversionTracking` was "mounted nowhere". It is now mounted, and `useAssessmentTracking` *is* used in `app/operations-assessment/page.tsx`. So events are firing.
 
-GA4 still shows zero key events because **the events have never been marked as Key Events in the GA4 admin**. `assessment_step`, `assessment_completed` and `email_captured` are arriving as ordinary custom events and being ignored by every conversion report.
+GA4 still shows zero key events because **the events have never been marked as Key Events in the GA4 admin**. They are arriving as ordinary custom events and being ignored by every conversion report.
+
+> **Correction (4 Aug 2026).** This section originally named `assessment_step`,
+> `assessment_completed` and `email_captured`. **Those three events do not exist in the
+> running code.** They are defined in a `useAssessmentTracking` hook in
+> `components/analytics/ConversionTracking.tsx` that is imported by nothing — dead code.
+> `app/operations-assessment/page.tsx` actually fires **`assessment_scored`** (line 221) and
+> **`generate_lead`** (line 258). Marking the original three would have produced three key
+> events that could never fire — the same failure this section was written to fix.
 
 **Fix.**
 
-1. GA4 → Admin → Events → toggle "Mark as key event" on `assessment_completed` and `email_captured`.
+1. GA4 → Admin → Data display → Events → toggle the star ("Mark as key event") on `generate_lead` and `assessment_scored`. Note: this GA4 build only lets you star an event that has already fired at least once — there is no create-by-name option.
 2. If the events don't appear in the list, they haven't fired yet — complete one assessment yourself with DebugView open to seed them.
 3. **Add a `whatsapp_click` event.** `wa.me/27635643263` appears in the footer and as a floating button on every page. It is plausibly your highest-intent action and it is completely untracked. Wire an `onClick` that calls `window.trackConversion('whatsapp_click', …)` and mark it as a key event too.
 4. Same for the `hello@maruonline.com` mailto and the `/booking` Calendly load.
@@ -114,7 +122,7 @@ GA4 still shows zero key events because **the events have never been marked as K
 
 **What's wrong.** `ConversionTracking` POSTs to `/api/analytics` on every tracked event, including every pageview — `ConversionTracking.tsx` lines 41–48. Two-thirds of your traffic is bots. You are paying Vercel function invocations to log bot pageviews into a second system nobody reads.
 
-**Fix.** Either remove the `fetch` entirely (GA4 already has the data), or gate it to real conversion events only — `assessment_completed`, `email_captured`, `whatsapp_click` — never `page_view`.
+**Fix.** Either remove the `fetch` entirely (GA4 already has the data), or gate it to real conversion events only — never `page_view`. **Shipped 4 Aug 2026:** gated to `assessment_completed`, `email_captured`, `whatsapp_click`, `email_click`, `booking_opened`.
 
 **Implication.** Check your Vercel usage dashboard before and after. At 906 lifetime sessions this isn't a large bill, but it scales with the bot traffic, not with your business.
 
@@ -330,7 +338,7 @@ The `/index.html` hammering (858 views from 7 users, 122 views per user) was a m
 
 Not more traffic. Specifically:
 
-1. `assessment_completed` and `whatsapp_click` have each fired at least once and are visible as key events.
+1. `generate_lead` and `whatsapp_click` have each fired at least once and are visible as key events. (`whatsapp_click` confirmed firing 4 Aug 2026; `generate_lead` blocked until one assessment submission succeeds.)
 2. Singapore is under 10% of users, or is filtered out of your standing report.
 3. GSC → Pages shows the duplicate-canonical bucket draining, and more than 11 pages indexed.
 4. Organic sessions are meaningfully above the lifetime run-rate of ~1.4/month.
