@@ -16,8 +16,24 @@ export async function verifyRecaptcha(token: string): Promise<{ ok: boolean; sco
       body: `secret=${secret}&response=${token}`,
     })
     const data = await res.json() as { success: boolean; score?: number; 'error-codes'?: string[] }
-    if (!data.success) return { ok: false }
-    if (typeof data.score === 'number' && data.score < MIN_SCORE) return { ok: false, score: data.score }
+    // Both failure modes surface to the visitor as the same generic message, so
+    // log which one it was — a key/domain mismatch and a low bot score need
+    // completely different fixes, and without this the logs cannot tell them
+    // apart. (4 Aug 2026: a real submission was rejected and we could not
+    // determine why from the outside.)
+    if (!data.success) {
+      console.warn('reCAPTCHA rejected: verification failed', {
+        errorCodes: data['error-codes'],
+      })
+      return { ok: false }
+    }
+    if (typeof data.score === 'number' && data.score < MIN_SCORE) {
+      console.warn('reCAPTCHA rejected: score below threshold', {
+        score: data.score,
+        minScore: MIN_SCORE,
+      })
+      return { ok: false, score: data.score }
+    }
     return { ok: true, score: data.score }
   } catch (err) {
     console.error('reCAPTCHA verification error:', err)
