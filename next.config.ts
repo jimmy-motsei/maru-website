@@ -70,13 +70,18 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/resources',
+        destination: '/insights',
+        permanent: true,
+      },
+      {
         source: '/knowledge',
-        destination: '/resources',
+        destination: '/insights',
         permanent: true,
       },
       {
         source: '/knowledge/:path*',
-        destination: '/resources',
+        destination: '/insights',
         permanent: true,
       },
       {

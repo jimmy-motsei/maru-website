@@ -3,7 +3,7 @@ import Image from "next/image";
 import { BGPattern } from "@/components/ui/bg-pattern";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
-import { MaruBriefForm } from "@/app/resources/MaruBriefForm";
+import { MaruBriefForm } from "@/components/ui/MaruBriefForm";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/ui/Animate";
 import { getInsightList, type InsightListItem } from "@/lib/insights/getInsights";
 import { seo } from '@/lib/seo'
