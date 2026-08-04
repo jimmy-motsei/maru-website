@@ -14,7 +14,11 @@ const allLinks = [
   { label: 'Services',     href: '/services' },
   { label: 'Process',      href: '/process' },
   { label: 'Pricing',      href: '/pricing' },
-  { label: 'Insights',     href: '/insights' },
+  // Insights is hidden until there is something behind it. The section renders
+  // "New insights are on the way" with zero articles, and a nav item that leads
+  // to an empty room costs credibility with exactly the buyer this site is for.
+  // Restore this line the day the first article publishes.
+  // { label: 'Insights',     href: '/insights' },
   { label: 'Contact',      href: '/contact' },
 ]
 

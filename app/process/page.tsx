@@ -423,7 +423,8 @@ export default function ProcessPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: 'var(--space-para-section)' }}>
-              It takes 15 minutes. A written report delivered in 48 hours.
+              The assessment is free and takes about 15 minutes — your report is
+              emailed to you. The Operations Diagnostic that follows is R4,500.
             </p>
             <hr
               className="rule"

@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   title: "Insights | Maru Online",
   description:
     "Practical AI integration thinking for South African SMEs — no vendor fluff, no hype. Real patterns from real engagements.",
+  // The section has no articles yet. It stays reachable so existing links do not
+  // 404, but it should not be indexed or advertised while it is empty.
+  // Remove this and restore the sitemap entry when the first article publishes.
+  robots: { index: false, follow: true },
 };
 
 const outerPad    = "px-6 md:px-[60px]";
@@ -449,9 +453,9 @@ export default async function InsightsPage() {
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="body-on-navy" style={{ marginBottom: "var(--space-para-section)" }}>
-              The diagnostic takes the patterns in these articles and applies them
-              to your business — your tools, your workflows, your revenue gaps.
-              R4,500. Delivered within 48 hours.
+              The free assessment shows you where the gaps are, in about fifteen
+              minutes. The Operations Diagnostic goes further — your tools, your
+              workflows, your revenue gaps, written up within 48 hours. R4,500.
             </p>
             <hr
               className="rule"

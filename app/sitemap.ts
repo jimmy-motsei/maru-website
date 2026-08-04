@@ -11,7 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/pricing`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/process`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/contact`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights`, changeFrequency: 'weekly', priority: 0.8 },
+    // /insights omitted while it has no articles — an empty section should not
+    // be advertised to Google. Restore when the first article publishes.
     { url: `${baseUrl}/operations-assessment`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/booking`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/careers`, changeFrequency: 'monthly', priority: 0.5 },

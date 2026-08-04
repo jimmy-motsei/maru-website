@@ -6,7 +6,7 @@ import { seo } from '@/lib/seo'
 // and told Google this page was a duplicate of the homepage. (T1)
 export const metadata: Metadata = {
   title:       'Free Operations Assessment | Maru Online',
-  description: 'Fifteen minutes to find where manual work is costing your business time and money. A written report follows within 48 hours.',
+  description: 'Fifteen minutes to find where manual work is costing your business time and money. Free, and your report is emailed to you.',
   ...seo('/operations-assessment'),
 }
 
