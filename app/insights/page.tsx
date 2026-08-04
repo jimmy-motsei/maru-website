@@ -458,11 +458,11 @@ export default async function InsightsPage() {
           </FadeUp>
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <Button href="/contact" variant="primary">
-                Start with a diagnostic
+              <Button href="/operations-assessment" variant="primary">
+                Start the assessment
               </Button>
               <Button href="/booking" variant="tertiary">
-                Book a 20-minute call — no pitch
+                Book a discovery call
               </Button>
             </div>
           </FadeUp>

@@ -265,10 +265,10 @@ export default function ResultsOptimisationPage() {
           <FadeUp delay={0.08}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Button href="/operations-assessment" variant="primary">
-                Start with Assessment
+                Start the assessment
               </Button>
               <Button href="/booking" variant="tertiary">
-                Book a 20-min call
+                Book a discovery call
               </Button>
             </div>
           </FadeUp>

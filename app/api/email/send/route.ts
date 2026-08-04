@@ -110,12 +110,10 @@ const emailTemplates = {
 
 function getAssessmentDisplayName(type: string): string {
   const names = {
-    lead_score: 'Website Lead Grader',
-    pipeline_leak: 'Pipeline Leak Detector',
-    proposal: 'Proposal Accelerator',
-    tech_audit: 'Tech Stack Auditor',
+    ai_readiness: 'Operations Assessment',
+    operations: 'Operations Assessment',
   };
-  return names[type as keyof typeof names] || 'Assessment';
+  return names[type as keyof typeof names] || 'Operations Assessment';
 }
 
 function getAssessmentHighlights(data: EmailData): string {

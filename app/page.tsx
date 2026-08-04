@@ -14,7 +14,7 @@ import Glyph from "@/components/ui/Glyph";
 export const metadata: Metadata = {
   title: "Cut Your Operating Costs With AI-Powered Workflows | Maru Online",
   description:
-    "We help businesses cut operating costs by building AI-powered workflows where it matters most. Free 30-minute discovery call — no pitch, just a conversation.",
+    "We help businesses cut operating costs by building AI-powered workflows where it matters most. Book a discovery call.",
 };
 
 // ─── Layout constants ─────────────────────────────────────────────────────────
@@ -138,10 +138,10 @@ export default function Home() {
           <FadeUp delay={0.22}>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Button href="/booking" variant="primary" className="w-full sm:w-auto justify-center">
-                Book a Free Discovery Call — No Pitch, Just a Conversation
+                Book a discovery call
               </Button>
-              <Button href="/assessments/lead-score" variant="secondary" className="w-full sm:w-auto justify-center">
-                Try Our Free Website Lead Grader →
+              <Button href="/operations-assessment" variant="secondary" className="w-full sm:w-auto justify-center">
+                Start the assessment
               </Button>
             </div>
           </FadeUp>
@@ -499,7 +499,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <Button href="/operations-assessment" variant="primary" className="w-full sm:w-auto justify-center">
-                  Get My Free Assessment
+                  Start the assessment
                 </Button>
                 <Button href="/process" variant="tertiary">
                   See how it works

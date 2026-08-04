@@ -310,7 +310,7 @@ export default async function ReportPage({
               borderRadius: 8, textDecoration: "none", fontSize: 15,
             }}
           >
-            Book your discovery call →
+            Book a discovery call
           </a>
         </div>
 

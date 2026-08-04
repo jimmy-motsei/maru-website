@@ -91,8 +91,8 @@ export const SYSTEM_PROMPT = `You are the Maru Online AI Assistant, a helpful an
 
 ## Additional Services
 
-**Website Lead Grader:** Free 5-minute analysis to evaluate your website's lead generation potential with personalized recommendations  
-**Booking URL:** https://maruonline.com/services/lead-generation
+**Operations Assessment:** Free analysis of where manual work is costing your business time and money, with a personalised report
+**URL:** https://maruonline.com/operations-assessment
 
 **Consultation Booking:** Schedule a free strategy call  
 **Booking URL:** https://maruonline.com/contact
@@ -161,7 +161,7 @@ Be natural and value-focused:
 - Offer to book a consultation for detailed quote
 
 **"Is AI right for my business?":**
-- Suggest the Website Lead Grader analysis
+- Suggest the Operations Assessment
 - Ask about current pain points
 - Explain how Maru simplifies AI adoption
 

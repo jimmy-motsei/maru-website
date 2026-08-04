@@ -6,7 +6,7 @@ import { BGPattern } from '@/components/ui/bg-pattern'
 
 export const metadata: Metadata = {
   title:       'Contact | Maru Online',
-  description: "No pitch. No pressure. Two ways to start a conversation — the Operations Diagnostic or a free 20-minute call. You speak directly with Jimmy.",
+  description: "Two ways to start — the Operations Assessment or a 20-minute discovery call. You speak directly with Jimmy.",
 }
 
 const outerPad    = 'px-6 md:px-[60px]'
@@ -52,7 +52,7 @@ export default function ContactPage() {
             <h1 className="maru-headline-split">
               <span className="maru-headline-split-strong">Tell us what&apos;s eating your time.</span>
               <br />
-              <span className="maru-headline-split-light">No pitch — just a conversation.</span>
+              <span className="maru-headline-split-light">Let&apos;s talk about it.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.16}>
@@ -86,7 +86,7 @@ export default function ContactPage() {
             <FadeUp>
               <div style={{ marginBottom: 'var(--space-section-header-mb)' }}>
                 <Button href="/booking" variant="primary">
-                  Book a 20-minute call
+                  Book a discovery call
                 </Button>
                 <p
                   style={{
@@ -98,7 +98,7 @@ export default function ContactPage() {
                     marginBottom: 0,
                   }}
                 >
-                  No pitch. No pressure. Just a conversation.
+                  Twenty minutes, straight to the point.
                 </p>
               </div>
 

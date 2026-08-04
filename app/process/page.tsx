@@ -148,7 +148,7 @@ export default function ProcessPage() {
           <FadeUp delay={0.22}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
               <Button href="/operations-assessment" variant="primary">
-                Start with Assessment
+                Start the assessment
               </Button>
               <Button href="#phases" variant="tertiary">
                 See the process
@@ -434,10 +434,10 @@ export default function ProcessPage() {
           <FadeUp delay={0.14}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <Button href="/operations-assessment" variant="primary">
-                Start with Assessment
+                Start the assessment
               </Button>
               <Button href="/booking" variant="tertiary">
-                Book a 20-minute call
+                Book a discovery call
               </Button>
             </div>
           </FadeUp>
