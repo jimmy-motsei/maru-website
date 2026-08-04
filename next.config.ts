@@ -57,6 +57,17 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // www → apex. www.maruonline.com had a CNAME to Vercel but no certificate
+      // until 4 Aug 2026, so it failed TLS outright; adding it to the project
+      // issued the cert but left it serving 200, i.e. a second copy of the whole
+      // site. The apex is what we canonicalise and sitemap, so www redirects to
+      // it. (T9)
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.maruonline.com' }],
+        destination: 'https://maruonline.com/:path*',
+        permanent: true,
+      },
       // Legacy static-site pages (~42% of recorded GA views were bot-hammered
       // .html URLs from the retired site) — permanent redirect to real routes
       {
