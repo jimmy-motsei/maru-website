@@ -242,25 +242,48 @@ function AssessmentWizard() {
       }
       const recaptchaToken = await executeRecaptcha("operations_assessment");
 
-      const response = await fetch("/api/assessment/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          answers,
-          name: name.trim(),
-          email: email.trim(),
-          website: website.trim() || undefined,
-          recaptchaToken,
-        }),
-      });
+      // The route runs a Claude synthesis before it answers, so this request is
+      // slow by design. Without an abort signal a mobile connection that drops
+      // the response leaves the promise unsettled forever — the button sits on
+      // "Sending your report…" with no error and no way back, while the server
+      // has already done the work and sent the email. Bound it to the route's
+      // own maxDuration so a lost response becomes a message, not a dead end.
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 60_000);
+
+      let response: Response;
+      try {
+        response = await fetch("/api/assessment/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            answers,
+            name: name.trim(),
+            email: email.trim(),
+            website: website.trim() || undefined,
+            recaptchaToken,
+          }),
+          signal: controller.signal,
+        });
+      } finally {
+        clearTimeout(timeout);
+      }
 
       if (!response.ok) throw new Error("Submission failed");
       window.trackConversion?.("generate_lead", {
         assessment_type: "operations",
       });
       setStep("done");
-    } catch {
-      setSubmitError("Something went wrong. Please try again or email hello@maruonline.com directly.");
+    } catch (err) {
+      // A timed-out request usually means the server finished and the response
+      // was lost in transit, so do not tell the visitor it failed — that invites
+      // a resubmit, which bills another synthesis and sends a second email.
+      const timedOut = err instanceof DOMException && err.name === "AbortError";
+      setSubmitError(
+        timedOut
+          ? "This is taking longer than usual. Your report may already be on its way — check your email in a few minutes before trying again."
+          : "Something went wrong. Please try again or email hello@maruonline.com directly.",
+      );
     } finally {
       setSubmitting(false);
     }

@@ -43,6 +43,13 @@ interface SubmissionBody {
 // ── Main handler ───────────────────────────────────────────────────────────
 
 export async function POST(req: NextRequest) {
+  // Time-to-response matters here: the client waits on this request, and a
+  // mobile connection that gives up mid-wait leaves the visitor staring at a
+  // spinner while the server quietly finishes. Log the split so we know whether
+  // the synthesis needs to move off the response path.
+  const t0 = Date.now();
+  let tSynthesis = 0;
+
   try {
     // ── 1. Parse and validate ──────────────────────────────────────────────
     const body: SubmissionBody = await req.json();
@@ -76,12 +83,14 @@ export async function POST(req: NextRequest) {
 
     // ── 3. Claude synthesis (personalised observations — optional) ─────────
     let synthesis: SynthesisOutput | null = null;
+    const tSynthStart = Date.now();
     try {
       synthesis = await runSynthesis(body.answers, scoreResult.level);
     } catch (err) {
       console.error("Claude synthesis failed:", err);
       // Report continues using template-only — no observations block shown
     }
+    tSynthesis = Date.now() - tSynthStart;
 
     // ── 4. Store report + generate URL ────────────────────────────────────
     const baseUrl =
@@ -140,6 +149,13 @@ export async function POST(req: NextRequest) {
     }).catch((err) => console.error("Brevo send failed:", err));
 
     // ── 8. Return to client ────────────────────────────────────────────────
+    console.log("assessment submit timing", {
+      totalMs: Date.now() - t0,
+      synthesisMs: tSynthesis,
+      synthesisOk: synthesis !== null,
+      reportStored: reportUrl.includes("/report/"),
+    });
+
     return NextResponse.json({
       success: true,
       level: scoreResult.level,
