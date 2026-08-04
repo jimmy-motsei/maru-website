@@ -242,14 +242,14 @@ function AssessmentWizard() {
       }
       const recaptchaToken = await executeRecaptcha("operations_assessment");
 
-      // The route runs a Claude synthesis before it answers, so this request is
-      // slow by design. Without an abort signal a mobile connection that drops
-      // the response leaves the promise unsettled forever — the button sits on
-      // "Sending your report…" with no error and no way back, while the server
-      // has already done the work and sent the email. Bound it to the route's
-      // own maxDuration so a lost response becomes a message, not a dead end.
+      // The route now stores the report and answers immediately, deferring the
+      // Claude synthesis and the emails to a background pass, so this should
+      // return in about a second. The abort still matters: without one, a
+      // connection that drops the response leaves the promise unsettled forever
+      // and the button sits on "Sending your report…" with no way back, while
+      // the server has already done the work.
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 60_000);
+      const timeout = setTimeout(() => controller.abort(), 20_000);
 
       let response: Response;
       try {
@@ -478,17 +478,11 @@ function AssessmentWizard() {
                 variant="primary"
                 className="w-full mt-2"
               >
-                {submitting ? "Building your report..." : "Send my report"}
+                {submitting ? "Sending your report..." : "Send my report"}
               </Button>
 
-              {/* The route writes the report with Claude before it answers, which
-                  measures ~25s. Unannounced, that reads as a broken button and
-                  people resubmit — which bills a second synthesis and sends a
-                  second email. Naming the wait is what stops that. */}
               <p className="text-ink-tertiary text-xs text-center leading-relaxed">
-                {submitting
-                  ? "This takes about 30 seconds — we are writing your report now. Please keep this page open."
-                  : "No spam. Unsubscribe any time."}
+                No spam. Unsubscribe any time.
               </p>
             </form>
           </div>

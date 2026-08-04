@@ -20,6 +20,8 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
+import { waitUntil } from "@vercel/functions";
+import { eq } from "drizzle-orm";
 import { calculateScore, getPainTag } from "@/lib/assessment/scoring";
 import { buildSynthesisPrompt, SynthesisOutput } from "@/lib/assessment/synthesisPrompt";
 import { getFullTemplate } from "@/lib/assessment/reportTemplates";
@@ -81,23 +83,18 @@ export async function POST(req: NextRequest) {
     const painTag = scoreResult.painTag;
     const template = getFullTemplate(scoreResult.level, painTag, scoreResult.segmentB);
 
-    // ── 3. Claude synthesis (personalised observations — optional) ─────────
     let synthesis: SynthesisOutput | null = null;
-    const tSynthStart = Date.now();
-    try {
-      synthesis = await runSynthesis(body.answers, scoreResult.level);
-    } catch (err) {
-      console.error("Claude synthesis failed:", err);
-      // Report continues using template-only — no observations block shown
-    }
-    tSynthesis = Date.now() - tSynthStart;
 
-    // ── 4. Store report + generate URL ────────────────────────────────────
+    // ── 3. Store report + generate URL ────────────────────────────────────
+    // The row is written WITHOUT observations so the token — and therefore the
+    // report link — exists before we answer. Observations are added in the
+    // background pass below.
     const baseUrl =
       process.env.NEXT_PUBLIC_BASE_URL ??
       (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://maruonline.com");
 
     let reportUrl = `${baseUrl}/operations-assessment`;
+    let reportId: string | null = null;
     try {
       const rows = await dbLeadEngine
         .insert(operationsReports)
@@ -112,48 +109,82 @@ export async function POST(req: NextRequest) {
           answers: body.answers,
           areas: scoreResult.areas as unknown as Record<string, unknown>[],
           template: template as unknown as Record<string, unknown>,
-          synthesis: synthesis?.objectA ? (synthesis.objectA as Record<string, unknown>) : null,
+          synthesis: null,
         })
-        .returning({ token: operationsReports.token });
+        .returning({ id: operationsReports.id, token: operationsReports.token });
 
       if (rows[0]?.token) {
         reportUrl = `${baseUrl}/report/${rows[0].token}`;
+        reportId = rows[0].id;
       }
     } catch (err) {
       console.error("DB report store failed:", err);
       // Falls back to static URL — emails still go out
     }
 
-    // ── 5. Brevo contact upsert (fire and forget) ─────────────────────────
-    upsertBrevoContact({
-      name: body.name,
-      email: body.email,
-      level: scoreResult.level,
-      levelLabel: scoreResult.label,
-      painTag,
-      reportUrl,
-    }).catch((err) => console.error("Brevo contact upsert failed:", err));
+    // ── 4. Everything slow, after the response ────────────────────────────
+    // Synthesis measured ~24s of a ~25s request. The visitor does not need it:
+    // the page promises the report by email, and nothing on screen depends on
+    // the observations. waitUntil keeps the function alive past the response so
+    // the order is unchanged — synthesis, then the row update, then the emails
+    // (Jimmy's brief is built from the synthesis, so it must not run before).
+    waitUntil(
+      (async () => {
+        const tSynthStart = Date.now();
+        try {
+          synthesis = await runSynthesis(body.answers, scoreResult.level);
+        } catch (err) {
+          console.error("Claude synthesis failed:", err);
+          // Report stays template-only — no observations block
+        }
+        tSynthesis = Date.now() - tSynthStart;
 
-    // ── 6 & 7. Brevo emails (fire and forget) ─────────────────────────────
-    fireBrevoEmails({
-      name: body.name,
-      email: body.email,
-      website: body.website,
-      level: scoreResult.level,
-      levelLabel: scoreResult.label,
-      reportUrl,
-      painTag,
-      segmentB: scoreResult.segmentB,
-      jimmyBrief: synthesis?.objectB ?? null,
-      answers: body.answers,
-    }).catch((err) => console.error("Brevo send failed:", err));
+        if (reportId && synthesis?.objectA) {
+          try {
+            await dbLeadEngine
+              .update(operationsReports)
+              .set({ synthesis: synthesis.objectA as Record<string, unknown> })
+              .where(eq(operationsReports.id, reportId));
+          } catch (err) {
+            console.error("Report synthesis update failed:", err);
+          }
+        }
 
-    // ── 8. Return to client ────────────────────────────────────────────────
+        await upsertBrevoContact({
+          name: body.name,
+          email: body.email,
+          level: scoreResult.level,
+          levelLabel: scoreResult.label,
+          painTag,
+          reportUrl,
+        }).catch((err) => console.error("Brevo contact upsert failed:", err));
+
+        await fireBrevoEmails({
+          name: body.name,
+          email: body.email,
+          website: body.website,
+          level: scoreResult.level,
+          levelLabel: scoreResult.label,
+          reportUrl,
+          painTag,
+          segmentB: scoreResult.segmentB,
+          jimmyBrief: synthesis?.objectB ?? null,
+          answers: body.answers,
+        }).catch((err) => console.error("Brevo send failed:", err));
+
+        console.log("assessment background finished", {
+          synthesisMs: tSynthesis,
+          synthesisOk: synthesis !== null,
+          synthesisStored: Boolean(reportId && synthesis?.objectA),
+        });
+      })(),
+    );
+
+    // ── 5. Return to client ────────────────────────────────────────────────
     console.log("assessment submit timing", {
-      totalMs: Date.now() - t0,
-      synthesisMs: tSynthesis,
-      synthesisOk: synthesis !== null,
+      responseMs: Date.now() - t0,
       reportStored: reportUrl.includes("/report/"),
+      deferred: true,
     });
 
     return NextResponse.json({
