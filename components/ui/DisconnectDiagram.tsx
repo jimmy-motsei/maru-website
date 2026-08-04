@@ -44,27 +44,39 @@ const D = {
 };
 
 /**
- * Mobile geometry — viewBox 0 0 340 430.
+ * Mobile geometry — viewBox 0 0 340 420.
  *
- * Was 340×620 with 132-wide boxes: on a 375px phone that rendered ~596px tall
- * (73% of the screen) while 56% of the width sat empty holding thin connector
- * curves. Boxes now run 61% of the width, the convergence happens in a narrower
- * right-hand channel, and the whole diagram is a third shorter.
+ * Third iteration. The first was 340×620 (73% of a phone screen). The second
+ * kept five free curves converging on one point, which tangled: the strands
+ * crossed each other inside a narrow channel and read as noise.
+ *
+ * This one routes every feed into a shared vertical trunk instead. Each box
+ * leaves horizontally at its own height and turns down onto the trunk, so no
+ * two strands can ever cross — five feeds joining one rail into the hub.
+ *
+ * The composition is deliberately asymmetric: the stack sits left, the trunk
+ * and hub run down the right, and the outcome panel is offset right of the
+ * boxes, so the eye travels top-left to bottom-right rather than down a centre
+ * line.
  *
  * rowY values are box TOP edges; centres are rowY + boxH / 2.
  */
 const M = {
-  boxW: 208,
+  boxW: 196,
   boxH: 36,
-  colX: 14,
-  rowY: [6, 52, 98, 144, 190],
-  hubX: 250,
-  hubY: 286,
+  colX: 12,
+  rowY: [8, 58, 108, 158, 208],
+  /** x of the shared vertical trunk every feed turns onto */
+  trunkX: 252,
+  /** radius of the elbow where a feed turns down onto the trunk */
+  elbow: 14,
+  hubX: 252,
+  hubY: 300,
   hubR: 12,
-  outX: 26,
-  outY: 340,
-  outW: 288,
-  outH: 74,
+  outX: 44,
+  outY: 344,
+  outW: 284,
+  outH: 66,
 };
 
 export default function DisconnectDiagram({ className = '' }: { className?: string }) {
@@ -170,30 +182,33 @@ export default function DisconnectDiagram({ className = '' }: { className?: stri
         </g>
       </svg>
 
-      {/* ── Mobile — vertical stack ───────────────────────────────────── */}
+      {/* ── Mobile — left stack, right trunk ──────────────────────────── */}
       <svg
         className="dd-svg dd-mobile"
-        viewBox="0 0 340 430"
+        viewBox="0 0 340 420"
         role="img"
         aria-label="Five business systems — CRM, email, spreadsheets, invoicing and WhatsApp — sitting disconnected, then joined through Maru into a single live view."
       >
-        {/* Links leave each box on the right, fan into the channel beside the
-            stack, then converge on the hub. Fanning the first control point by
-            index keeps the five strands readable on the way down instead of
-            collapsing into one line. */}
-        {M.rowY.map((y, i) => (
-          <path
-            key={`m-link-${NODES[i].id}`}
-            className="dd-link"
-            style={{ ['--i' as string]: i }}
-            d={`M ${M.colX + M.boxW} ${y + M.boxH / 2} C ${M.colX + M.boxW + 26 + i * 12} ${y + M.boxH / 2}, ${M.hubX} ${y + M.boxH / 2 + 34}, ${M.hubX} ${M.hubY - M.hubR}`}
-          />
-        ))}
+        {/* Each feed runs out horizontally, turns a quarter-circle onto the
+            shared trunk, and descends to the hub. Horizontals sit at distinct
+            heights and the verticals share one x, so no two strands cross. */}
+        {M.rowY.map((y, i) => {
+          const cy = y + M.boxH / 2;
+          const turn = cy + M.elbow;
+          return (
+            <path
+              key={`m-link-${NODES[i].id}`}
+              className="dd-link"
+              style={{ ['--i' as string]: i }}
+              d={`M ${M.colX + M.boxW} ${cy} L ${M.trunkX - M.elbow} ${cy} Q ${M.trunkX} ${cy} ${M.trunkX} ${turn} L ${M.trunkX} ${M.hubY - M.hubR}`}
+            />
+          );
+        })}
         {M.rowY.map((y, i) => (
           <path
             key={`m-stub-${NODES[i].id}`}
             className="dd-stub"
-            d={`M ${M.colX + M.boxW} ${y + M.boxH / 2} L ${M.colX + M.boxW + 22} ${y + M.boxH / 2}`}
+            d={`M ${M.colX + M.boxW} ${y + M.boxH / 2} L ${M.colX + M.boxW + 20} ${y + M.boxH / 2}`}
           />
         ))}
 
@@ -213,12 +228,13 @@ export default function DisconnectDiagram({ className = '' }: { className?: stri
           </g>
         ))}
 
-        {/* Hub sits in the channel; the outcome panel is centred, so this
-            connector curves across rather than dropping straight down. */}
+        {/* The hub sits on the trunk at the right; the outcome panel is offset
+            left of it, so this connector sweeps down and across — the one
+            deliberate diagonal in the composition. */}
         <path
           className="dd-link dd-link-out"
           style={{ ['--i' as string]: 5 }}
-          d={`M ${M.hubX} ${M.hubY + M.hubR} C ${M.hubX} ${M.hubY + M.hubR + 22}, ${M.outX + M.outW / 2} ${M.outY - 22}, ${M.outX + M.outW / 2} ${M.outY}`}
+          d={`M ${M.hubX} ${M.hubY + M.hubR} C ${M.hubX} ${M.hubY + M.hubR + 20}, ${M.outX + M.outW / 2} ${M.outY - 20}, ${M.outX + M.outW / 2} ${M.outY}`}
         />
 
         <g className="dd-hub">
@@ -235,10 +251,10 @@ export default function DisconnectDiagram({ className = '' }: { className?: stri
             height={M.outH}
             rx="8"
           />
-          <text className="dd-out-title dd-out-title-sm" x={M.outX + M.outW / 2} y={M.outY + 32}>
+          <text className="dd-out-title dd-out-title-sm" x={M.outX + M.outW / 2} y={M.outY + 29}>
             One live view
           </text>
-          <text className="dd-out-sub dd-out-sub-sm" x={M.outX + M.outW / 2} y={M.outY + 54}>
+          <text className="dd-out-sub dd-out-sub-sm" x={M.outX + M.outW / 2} y={M.outY + 50}>
             Current, not last month&apos;s export.
           </text>
         </g>
