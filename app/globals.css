@@ -227,7 +227,9 @@
   fill: var(--color-ink-tertiary);
   transition: fill 520ms ease-out calc(var(--i) * 90ms);
 }
-.dd-label-sm { font-size: 9.5px; letter-spacing: 0.1em; }
+/* Boxes run 61% of the mobile viewBox, so the label has room to sit at a
+   legible size rather than the 9.5px the old narrow boxes forced. */
+.dd-label-sm { font-size: 10.5px; letter-spacing: 0.1em; }
 .dd-live .dd-label { fill: var(--color-ink-secondary); }
 
 /* The "before" state — stubs that lead nowhere */

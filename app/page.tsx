@@ -65,7 +65,7 @@ export default function Home() {
           bg: navy-deep
           ════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`relative min-h-screen flex items-center ${outerPad} pt-28 sm:pt-36 md:pt-48 pb-16 sm:pb-24 md:pb-32`}
+        className={`relative min-h-screen flex items-center overflow-hidden ${outerPad} pt-28 sm:pt-36 md:pt-48 pb-16 sm:pb-24 md:pb-32`}
         style={{ background: "var(--gradient-hero)" }}
       >
         <BGPattern

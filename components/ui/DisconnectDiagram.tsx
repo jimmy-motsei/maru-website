@@ -43,19 +43,28 @@ const D = {
   outH: 104,
 };
 
-/** Mobile geometry — viewBox 0 0 340 620 */
+/**
+ * Mobile geometry — viewBox 0 0 340 430.
+ *
+ * Was 340×620 with 132-wide boxes: on a 375px phone that rendered ~596px tall
+ * (73% of the screen) while 56% of the width sat empty holding thin connector
+ * curves. Boxes now run 61% of the width, the convergence happens in a narrower
+ * right-hand channel, and the whole diagram is a third shorter.
+ *
+ * rowY values are box TOP edges; centres are rowY + boxH / 2.
+ */
 const M = {
-  boxW: 132,
-  boxH: 40,
-  colX: 18,
-  rowY: [30, 96, 162, 228, 294],
-  hubX: 170,
-  hubY: 430,
+  boxW: 208,
+  boxH: 36,
+  colX: 14,
+  rowY: [6, 52, 98, 144, 190],
+  hubX: 250,
+  hubY: 286,
   hubR: 12,
-  outX: 62,
-  outY: 522,
-  outW: 216,
-  outH: 78,
+  outX: 26,
+  outY: 340,
+  outW: 288,
+  outH: 74,
 };
 
 export default function DisconnectDiagram({ className = '' }: { className?: string }) {
@@ -164,23 +173,27 @@ export default function DisconnectDiagram({ className = '' }: { className?: stri
       {/* ── Mobile — vertical stack ───────────────────────────────────── */}
       <svg
         className="dd-svg dd-mobile"
-        viewBox="0 0 340 620"
+        viewBox="0 0 340 430"
         role="img"
         aria-label="Five business systems — CRM, email, spreadsheets, invoicing and WhatsApp — sitting disconnected, then joined through Maru into a single live view."
       >
+        {/* Links leave each box on the right, fan into the channel beside the
+            stack, then converge on the hub. Fanning the first control point by
+            index keeps the five strands readable on the way down instead of
+            collapsing into one line. */}
         {M.rowY.map((y, i) => (
           <path
             key={`m-link-${NODES[i].id}`}
             className="dd-link"
             style={{ ['--i' as string]: i }}
-            d={`M ${M.colX + M.boxW / 2} ${y + M.boxH / 2} C ${M.colX + M.boxW / 2} ${y + 130}, ${M.hubX} ${M.hubY - 150}, ${M.hubX} ${M.hubY - M.hubR}`}
+            d={`M ${M.colX + M.boxW} ${y + M.boxH / 2} C ${M.colX + M.boxW + 26 + i * 12} ${y + M.boxH / 2}, ${M.hubX} ${y + M.boxH / 2 + 34}, ${M.hubX} ${M.hubY - M.hubR}`}
           />
         ))}
         {M.rowY.map((y, i) => (
           <path
             key={`m-stub-${NODES[i].id}`}
             className="dd-stub"
-            d={`M ${M.colX + M.boxW / 2} ${y + M.boxH / 2} L ${M.colX + M.boxW / 2} ${y + M.boxH / 2 + 22}`}
+            d={`M ${M.colX + M.boxW} ${y + M.boxH / 2} L ${M.colX + M.boxW + 22} ${y + M.boxH / 2}`}
           />
         ))}
 
@@ -194,16 +207,18 @@ export default function DisconnectDiagram({ className = '' }: { className?: stri
               height={M.boxH}
               rx="6"
             />
-            <text className="dd-label dd-label-sm" x={M.colX + 13} y={M.rowY[i] + M.boxH / 2 + 3}>
+            <text className="dd-label dd-label-sm" x={M.colX + 14} y={M.rowY[i] + M.boxH / 2 + 3.5}>
               {n.label}
             </text>
           </g>
         ))}
 
+        {/* Hub sits in the channel; the outcome panel is centred, so this
+            connector curves across rather than dropping straight down. */}
         <path
           className="dd-link dd-link-out"
           style={{ ['--i' as string]: 5 }}
-          d={`M ${M.hubX} ${M.hubY + M.hubR} L ${M.hubX} ${M.outY}`}
+          d={`M ${M.hubX} ${M.hubY + M.hubR} C ${M.hubX} ${M.hubY + M.hubR + 22}, ${M.outX + M.outW / 2} ${M.outY - 22}, ${M.outX + M.outW / 2} ${M.outY}`}
         />
 
         <g className="dd-hub">
@@ -220,10 +235,10 @@ export default function DisconnectDiagram({ className = '' }: { className?: stri
             height={M.outH}
             rx="8"
           />
-          <text className="dd-out-title dd-out-title-sm" x={M.outX + M.outW / 2} y={M.outY + 34}>
+          <text className="dd-out-title dd-out-title-sm" x={M.outX + M.outW / 2} y={M.outY + 32}>
             One live view
           </text>
-          <text className="dd-out-sub dd-out-sub-sm" x={M.outX + M.outW / 2} y={M.outY + 58}>
+          <text className="dd-out-sub dd-out-sub-sm" x={M.outX + M.outW / 2} y={M.outY + 54}>
             Current, not last month&apos;s export.
           </text>
         </g>
