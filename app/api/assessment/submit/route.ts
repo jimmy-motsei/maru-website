@@ -339,6 +339,13 @@ async function upsertBrevoContact(params: {
     }),
   });
   const body = await res.json();
+  // A non-2xx from Brevo used to be console.log'd and otherwise ignored, so a
+  // rejected request looked identical to a delivered one. Throwing puts it in
+  // the caller's .catch, which logs at error level and shows up in an error
+  // query instead of being buried in an info line.
+  if (!res.ok) {
+    throw new Error(`Brevo contact upsert ${res.status}: ${JSON.stringify(body)}`);
+  }
   console.log("Brevo contact upsert response:", res.status, JSON.stringify(body));
 }
 
@@ -401,6 +408,9 @@ async function sendProspectEmail(params: BrevoEmailParams) {
     }),
   });
   const brevoBody = await brevoRes.json();
+  if (!brevoRes.ok) {
+    throw new Error(`Brevo prospect email ${brevoRes.status}: ${JSON.stringify(brevoBody)}`);
+  }
   console.log("Brevo prospect email response:", brevoRes.status, JSON.stringify(brevoBody));
 }
 
@@ -426,6 +436,9 @@ async function sendJimmyBriefEmail(params: BrevoEmailParams) {
     }),
   });
   const jimmyBody = await jimmyRes.json();
+  if (!jimmyRes.ok) {
+    throw new Error(`Brevo Jimmy brief email ${jimmyRes.status}: ${JSON.stringify(jimmyBody)}`);
+  }
   console.log("Brevo Jimmy brief email response:", jimmyRes.status, JSON.stringify(jimmyBody));
 }
 
