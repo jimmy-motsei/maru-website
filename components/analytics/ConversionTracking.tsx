@@ -11,50 +11,25 @@ interface ConversionEvent {
   step?: string;
 }
 
-/**
- * Events worth a serverless invocation. Everything else goes to GA4 only.
- * Two-thirds of traffic is bots; we were paying Vercel to log their pageviews
- * into a second store nobody reads.
- */
-const PERSISTED_EVENTS = new Set([
-  'assessment_completed',
-  'email_captured',
-  'whatsapp_click',
-  'email_click',
-  'booking_opened',
-]);
-
 export function ConversionTracking() {
   const pathname = usePathname();
 
+  // GA4 is the only destination. There used to be a second write to
+  // /api/analytics, persisting the same events into an analytics_events table —
+  // a store nobody reads, holding a strict subset of what GA4 already has. Its
+  // DATABASE_URL_WEBSITE was malformed, so by 4 Aug 2026 it was returning 500 on
+  // every conversion: a failing serverless invocation on the most valuable
+  // events on the site, buying nothing. Removed rather than repaired.
+  //
   // NOTE: pageviews are NOT tracked here. AnalyticsTracker is the single
   // source — this component firing its own page_view double-counted every load.
   const trackEvent = useCallback((event: string, data: Partial<ConversionEvent> = {}) => {
-    const eventData: ConversionEvent = {
-      event,
-      page: pathname,
-      timestamp: Date.now(),
-      ...data,
-    };
-
     if (typeof window === 'undefined') return;
 
-    // Google Analytics 4
     if (window.gtag) {
       window.gtag('event', event, {
         page_path: pathname,
         ...data,
-      });
-    }
-
-    // Custom analytics endpoint — real conversions only.
-    if (PERSISTED_EVENTS.has(event)) {
-      fetch('/api/analytics', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(eventData),
-      }).catch((err) => {
-        console.error('Analytics failed:', err);
       });
     }
   }, [pathname]);
